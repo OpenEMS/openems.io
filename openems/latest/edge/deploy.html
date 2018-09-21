@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy OpenEMS Edge :: Open Energy Management System</title>
+    <link rel="canonical" href="https://docs.antora.org/openems/latest/edge/deploy.html">
+    <meta name="keywords" content="AsciiDoc">
+    <meta name="generator" content="Antora 1.1.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/vendor/docsearch.min.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar" color="#2d8fab">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://github.com/OpenEMS">OpenEMS // Docs</a>
+    </div>
+  </nav>
+</header><div class="main-wrapper">
+<div class="navigation-container" data-component="openems" data-version="latest">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hardware.html">Hardware</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="deploy.html">Deploy OpenEMS Edge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ui/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ui/faq.html">FAQ</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../backend/configuration.html">Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../simulation.html">Simulation</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Open Energy Management System</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../introduction.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../introduction.html">Open Energy Management System</a></li>
+    <li class="crumb">OpenEMS Edge</li>
+    <li class="crumb"><a href="deploy.html">Deploy OpenEMS Edge</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/edit/feature/Antora/doc/modules/ROOT/pages/edge/deploy.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Deploy OpenEMS Edge</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_connect_via_ssh_and_scp">1. Connect via SSH and SCP</a>
+<ul class="sectlevel2">
+<li><a href="#_prepare_operating_system_environment">1.1. Prepare operating system environment</a>
+<ul class="sectlevel3">
+<li><a href="#_create_an_application_directory">1.1.1. Create an application directory</a></li>
+<li><a href="#_create_a_config_directory">1.1.2. Create a config directory</a></li>
+<li><a href="#_create_a_systemd_service_definition">1.1.3. Create a systemd service definition</a></li>
+<li><a href="#_update_openems_edge_jar_file">1.1.4. Update OpenEMS Edge JAR file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter explains how OpenEMS can be deployed on a Debian Linux Internet-of-Things Gateway. Similar techniques will work for other operating systems as well.</p>
+</div>
+<div class="paragraph">
+<p>This guide covers a simple, manual approach. For productive systems it is required to automate deployment to IoT devices. Good approaches include a Debian package repository that provides *.deb-files and third-party tools like <a href="http://www.eclipse.org/hawkbit/">Eclipse Hawkbit</a>. This is out-of-scope for this small guide.</p>
+</div>
+<div class="paragraph">
+<p>Prerequisites:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A target device running Debian Linux like a Raspberry Pi, Beaglebone Black or an IoT gateway. You need the IP address and SSH access.</p>
+</li>
+<li>
+<p>Create a JAR-file that should be deployes. See <a href="build.html" class="page">Build OpenEMS Edge</a> for details.</p>
+</li>
+<li>
+<p>Setup an SSH client to connect to the Linux console, e.g. <a href="http://www.9bis.net/kitty/">KiTTY</a></p>
+</li>
+<li>
+<p>Setup an SCP client to copy the JAR file via SSH, e.g. <a href="https://winscp.net/eng/docs/lang:de">WinSCP</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_connect_via_ssh_and_scp"><a class="anchor" href="#_connect_via_ssh_and_scp"></a>1. Connect via SSH and SCP</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connect via SSH using KiTTY</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open KiTTY and connect to the target device.</p>
+<div class="paragraph">
+<p>Make sure to select SSH with port 22 and enter the IP address of the target device. Press the <b class="button">Open</b> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/deploy-kitty.png" alt="KiTTY Configuration">
+</div>
+<div class="title">Figure 1. KiTTY Configuration</div>
+</div>
+</li>
+<li>
+<p>Gain root permissions either by logging in as user <strong>root</strong> or by login in as a default user and executing <strong>sudo -s</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/deploy-ssh-root.png" alt="KiTTY Configuration">
+</div>
+<div class="title">Figure 2. KiTTY Configuration</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As an example, for the FENECON Energy Management System (FEMS) it is required to:<br>
+<em>login as:</em> <code>fems</code><br>
+<em>fems@192.168.178.38&#8217;s password:</em> <code>device specific password</code><br>
+&#8230;&#8203;<br>
+<em>fems@femsXXX:~$</em> <code>sudo -s</code><br>
+<em>[sudo] password for fems:</em> <code>device specific password</code><br>
+<em>root@femsXXX:/home/fems#</em>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Connect via SCP using WinSCP</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If you are lucky and have a fully configured system, right-click on the KiTTY window bar and select <b class="button">Start WinSCP</b>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/deploy-kitty-start-winscp.png" alt="Start WinSCP from KiTTY">
+</div>
+<div class="title">Figure 3. Start WinSCP from KiTTY</div>
+</div>
+</li>
+<li>
+<p>Otherwise open WinSCP separately, create a new connection, select <strong>SCP</strong> as protocol and enter again the IP address and port 22. Click <b class="button">Connect</b> once finished.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/deploy-winscp.png" alt="Start WinSCP from KiTTY">
+</div>
+<div class="title">Figure 4. Start WinSCP from KiTTY</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_prepare_operating_system_environment"><a class="anchor" href="#_prepare_operating_system_environment"></a>1.1. Prepare operating system environment</h3>
+<div class="sect3">
+<h4 id="_create_an_application_directory"><a class="anchor" href="#_create_an_application_directory"></a>1.1.1. Create an application directory</h4>
+<div class="paragraph">
+<p>Create the directory <strong>/usr/lib/openems</strong>. This is going to be the place, where we put the JAR file.</p>
+</div>
+<div class="paragraph">
+<p>Execute <code>mkdir /usr/lib/openems</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_a_config_directory"><a class="anchor" href="#_create_a_config_directory"></a>1.1.2. Create a config directory</h4>
+<div class="paragraph">
+<p>Create the directory <strong>/etc/openems.d</strong>. This is going to be the place, where all the bundle configurations are held.</p>
+</div>
+<div class="paragraph">
+<p>Execute <code>mkdir /etc/openems.d</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_a_systemd_service_definition"><a class="anchor" href="#_create_a_systemd_service_definition"></a>1.1.3. Create a systemd service definition</h4>
+<div class="paragraph">
+<p>The systemd 'Service Manager' manages system processes in a Debian Linux. We will create a systemd service definition file, so that systemd takes care of managing (starting/restarting/&#8230;&#8203;) the OpenEMS Edge service.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create and open the service definition file.</p>
+<div class="paragraph">
+<p>Execute <code>nano /etc/systemd/system/openems.service</code></p>
+</div>
+</li>
+<li>
+<p>Paste the following content:</p>
+<div class="listingblock">
+<div class="content">
+<pre>[Unit]
+Description=OpenEMS <i class="conum" data-value="1"></i><b>(1)</b>
+After=network.target <i class="conum" data-value="2"></i><b>(2)</b>
+
+[Service]
+User=root <i class="conum" data-value="3"></i><b>(3)</b>
+Group=root
+Type=notify <i class="conum" data-value="4"></i><b>(4)</b>
+WorkingDirectory=/usr/lib/openems
+LimitCORE=infinity
+LimitRTPRIO=2
+LimitRTTIME=60000000
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=1
+ExecStart=/usr/lib/jvm/java-8-openjdk-armhf/bin/java -Dfelix.cm.dir=/etc/openems.d/ -jar /usr/lib/openems/openems.jar <i class="conum" data-value="5"></i><b>(5)</b>
+SuccessExitStatus=143 <i class="conum" data-value="6"></i><b>(6)</b>
+Restart=always <i class="conum" data-value="7"></i><b>(7)</b>
+RestartSec=10 <i class="conum" data-value="8"></i><b>(8)</b>
+WatchdogSec=60 <i class="conum" data-value="9"></i><b>(9)</b>
+
+[Install]
+WantedBy=multi-user.target</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The name of the service.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The service is allowed to start after network is available (e.g. to be able to access devices via ethernet connection)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>It is run as user 'root' to have access to all devices. It is recommended to change this for productive systems.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>OpenEMS notifies systemd once it is started up properly.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>The start command. It uses Java 8, sets the config directory to <code>/etc/openems.d</code> and runs the jar file at <code>/usr/lib/openems/openems.jar</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>In contrast to what systemd expects, Java exits with status 143 on success.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Systemd <em>always</em> tries to restart OpenEMS once it was quit.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Systemd waits <em>10</em> seconds till the next restart.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>Systemd expects OpenEMS to trigger its watchdog once every 60 seconds. OpenEMS is doing that by default if it detects that it is run by systemd.</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Press <b class="button">Ctrl</b> + <b class="button">x</b> to exit and <b class="button">y</b> to save the file.</p>
+</li>
+<li>
+<p>Activate the service definition:</p>
+<div class="paragraph">
+<p>Execute <code>systemctl daemon-reload</code></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_update_openems_edge_jar_file"><a class="anchor" href="#_update_openems_edge_jar_file"></a>1.1.4. Update OpenEMS Edge JAR file</h4>
+<div class="paragraph">
+<p>To update the OpenEMS JAR file at the target device, it is required to copy the JAR file from your build directory (see <a href="build.html" class="page">Build OpenEMS Edge</a>) to <code>/usr/lib/openems/openems.jar</code> on the target device. Afterwards it is required to restart the systemd service</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Copy JAR file via SCP.</p>
+<div class="paragraph">
+<p>In WinSCP open your local build directory on the left side and <strong>/usr/lib/openems/</strong> on the right side. Then drag and drop the file from left to right.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/deploy-winscp-copy.png" alt="WinSCP copy file">
+</div>
+<div class="title">Figure 5. WinSCP copy file</div>
+</div>
+</li>
+<li>
+<p>Restart OpenEMS systemd service.</p>
+<div class="paragraph">
+<p>Execute <code>systemctl restart openems --no-block; journalctl -lfu openems</code></p>
+</div>
+<div class="paragraph">
+<p>The command restarts the service (<em>systemctl restart openems</em>) while not waiting for the OpenEMS startup notification (<em>--no-block</em>). Then it directly prints the OpenEMS system log (<em>journalctl -lfu openems</em>).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/deploy-openems-start.png" alt="OpenEMS Edge start-up">
+</div>
+<div class="title">Figure 6. OpenEMS Edge start-up</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

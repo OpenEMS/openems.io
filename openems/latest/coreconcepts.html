@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core concepts &amp; terminology :: Open Energy Management System</title>
+    <link rel="canonical" href="https://docs.antora.org/openems/latest/coreconcepts.html">
+    <meta name="keywords" content="AsciiDoc">
+    <meta name="generator" content="Antora 1.1.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/vendor/docsearch.min.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar" color="#2d8fab">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://github.com/OpenEMS">OpenEMS // Docs</a>
+    </div>
+  </nav>
+</header><div class="main-wrapper">
+<div class="navigation-container" data-component="openems" data-version="latest">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="edge/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="edge/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="edge/hardware.html">Hardware</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="edge/scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="edge/controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="edge/implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="edge/build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="edge/deploy.html">Deploy OpenEMS Edge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ui/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ui/faq.html">FAQ</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="backend/configuration.html">Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="simulation.html">Simulation</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Open Energy Management System</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="introduction.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="introduction.html">Open Energy Management System</a></li>
+    <li class="crumb"><a href="coreconcepts.html">Core concepts &amp; terminology</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/edit/feature/Antora/doc/modules/ROOT/pages/coreconcepts.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Core concepts &amp; terminology</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_osgi_bundle">1. OSGi Bundle</a></li>
+<li><a href="#_openems_component">2. OpenEMS Component</a></li>
+<li><a href="#_channel">3. Channel</a></li>
+<li><a href="#_nature">4. Nature</a></li>
+<li><a href="#_channel_address">5. Channel Address</a></li>
+<li><a href="#_scheduler">6. Scheduler</a></li>
+<li><a href="#_controller">7. Controller</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter describes some of the core concepts and commonly used terms in OpenEMS:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_osgi_bundle"><a class="anchor" href="#_osgi_bundle"></a>1. OSGi Bundle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenEMS Edge is using the <a href="https://en.wikipedia.org/wiki/OSGi">OSGi <span class="icon"><i class="fa fa-external-link"></i></span></a> platform to provide a completely modular and dynamic service oriented system.</p>
+</div>
+<div class="paragraph">
+<p>Logical groups of source code are put into one OSGi Bundle. Every directory in the source code root directory starting with 'io.openems.*' is a bundle.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_openems_component"><a class="anchor" href="#_openems_component"></a>2. OpenEMS Component</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenEMS Edge is built of Components, i.e. every main component implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.common/src/io/openems/edge/common/component/OpenemsComponent.java">OpenemsComponent interface <span class="icon"><i class="fa fa-code"></i></span></a>.</p>
+</div>
+<div class="paragraph">
+<p>By definition each Component has a unique ID. Those <strong>Component-IDs</strong> are typically:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ess0</code> for the first storage system or battery inverter</p>
+</li>
+<li>
+<p><code>ess1</code> for the second storage system or battery inverter</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+<li>
+<p><code>meter0</code> for the first meter in the system</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you receive your OpenEMS together with a FENECON energy storage system, you will find the following Component-IDs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>FENECON Pro</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ess0</code>: FENECON Pro Ess</p>
+</li>
+<li>
+<p><code>meter0</code>: Socomec grid meter</p>
+</li>
+<li>
+<p><code>meter1</code>: FENECON Pro production meter</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>FENECON Mini</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ess0</code>: FENECON Mini</p>
+</li>
+<li>
+<p><code>meter0</code>: FENECON Mini grid meter</p>
+</li>
+<li>
+<p><code>meter1</code>: FENECON Mini production meter</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_channel"><a class="anchor" href="#_channel"></a>3. Channel</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each OpenemsComponent provides a number of Channels. Each represents a single piece of information. Each Channel implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.common/src/io/openems/edge/common/channel/Channel.java">Channel interface <span class="icon"><i class="fa fa-code"></i></span></a>. By definition each Channel has a unique ID within its parent Component.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nature"><a class="anchor" href="#_nature"></a>4. Nature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Natures extend normal Java interfaces with 'Channels'. If a Component implements a Nature it also needs to provide the required Channels. For example the Energy Storage System (ESS) Simulator <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.simulator/src/io/openems/edge/simulator/ess/symmetric/reacting/EssSymmetric.java">Simulator.EssSymmetric.Reacting <span class="icon"><i class="fa fa-code"></i></span></a> implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/SymmetricEss.java">Ess interface <span class="icon"><i class="fa fa-code"></i></span></a> and therefor needs to provide a <code>Soc</code> Channel that provides the current 'State of Charge' of the battery.</p>
+</div>
+<div class="paragraph">
+<p><a href="edge/controller.html" class="page">Controllers</a> are written against Nature implementations. Example: A Controller can be used with any ESS, because it can be sure that it provides all the data the Controller requires for its algorithm.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_channel_address"><a class="anchor" href="#_channel_address"></a>5. Channel Address</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By combining the unique <strong>Component-ID</strong> and <strong>Channel-ID</strong> each Channel in the system can be addressed by a distinct 'Channel Address' in the form <code>Component-ID/Channel-ID</code>.</p>
+</div>
+<div class="paragraph">
+<p>Example: the state of charge ("Soc") of the first energy storage system ("ess0") has the channel address <code>ess0/Soc</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scheduler"><a class="anchor" href="#_scheduler"></a>6. Scheduler</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Scheduler handles the order, in which Controllers are executed. For details see <a href="edge/controller.html" class="page">Scheduler and Controller</a> below.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_controller"><a class="anchor" href="#_controller"></a>7. Controller</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The actual business logic or algorithms are wrapped as 'Controllers'. i.e. they implement the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.controller.api/src/io/openems/edge/controller/api/Controller.java">Controller interface <span class="icon"><i class="fa fa-code"></i></span></a>. Each Controller holds one specific, encapsulated task.</p>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>
