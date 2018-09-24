@@ -8,12 +8,21 @@
     <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 1.1.0">
     <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" href="../../_/img/feneco.ico" type="image/x-icon">
 <link rel="stylesheet" href="../../_/css/vendor/docsearch.min.css">  </head>
   <body class="article">
 <header class="header">
   <nav class="navbar" color="#2d8fab">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://github.com/OpenEMS/openems">OpenEMS // Docs</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+          <span class="gitlink">
+          </span>
+        </a>
+      </div>
     </div>
   </nav>
 </header><div class="main-wrapper">
@@ -140,26 +149,127 @@
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_concept">1. Concept</a></li>
-<li><a href="#_edit">2. Edit</a></li>
-<li><a href="#_build">3. Build</a></li>
+<li><a href="#_edit_a_page">2. Edit a page</a></li>
+<li><a href="#_add_a_page">3. Add a page</a></li>
+<li><a href="#_build_docs">4. Build Docs</a></li>
 </ul>
 </div>
 <div class="sect1">
 <h2 id="_concept"><a class="anchor" href="#_concept"></a>1. Concept</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>The OpenEMS Documentation is built with <a href="https://antora.org/">Antora <span class="icon"><i class="fa fa-external-link"></i></span></a>.</p>
+</div>
+<div class="paragraph">
+<p>OpenEMS <a href="https://github.com/OpenEMS/openems">Files <span class="icon"><i class="fa fa-external-link"></i></span></a> and <a href="https://github.com/OpenEMS/openems.io">Documentation <span class="icon"><i class="fa fa-external-link"></i></span></a> are seperated on two different repositories.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="https://github.com/OpenEMS/openems/blob/develop/doc/build/uibundle_openems.zip?raw=true">UI <span class="icon"><i class="fa fa-external-link"></i></span></a> was slighty modified to fit our needs.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For more Information regarding <a href="https://asciidoctor.org/docs/asciidoc-writers-guide/">AsciiDoc <span class="icon"><i class="fa fa-external-link"></i></span></a> and <a href="https://docs.antora.org/antora/1.1/">Antora <span class="icon"><i class="fa fa-external-link"></i></span></a> see their Docs.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_edit"><a class="anchor" href="#_edit"></a>2. Edit</h2>
+<h2 id="_edit_a_page"><a class="anchor" href="#_edit_a_page"></a>2. Edit a page</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>If you want to edit a Docs - Page just click on 'Edit this Page' in the upper right corner to edit the page you are currently visiting.</p>
+</div>
+<div class="paragraph">
+<p>Edit the Page according to your ideas and commit your changes.</p>
+</div>
+<div class="paragraph">
+<p>You will see the changes you made after our frequent Docs - Update.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_build"><a class="anchor" href="#_build"></a>3. Build</h2>
+<h2 id="_add_a_page"><a class="anchor" href="#_add_a_page"></a>3. Add a page</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>To add a page, clone the OpenEMS Repository (preferably <a href="gettingstarted.html#_download_the_source_code" class="page">Source Tree</a>) and open it with a Code Editor (prefably <a href="gettingstarted.html#_setup_visual_studio_code_for_openems_ui" class="page">Visual Studio Code</a>).</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to <a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages">doc/modules/ROOT/pages <span class="icon"><i class="fa fa-external-link"></i></span></a> and create a .adoc file with the desired name.</p>
+</li>
+<li>
+<p>Go to <a href="https://github.com/OpenEMS/openems/blob/develop/doc/modules/ROOT/nav.adoc">doc/modules/ROOT/nav.adoc <span class="icon"><i class="fa fa-external-link"></i></span></a> and add your page with the correct filename to the nav file.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_docs"><a class="anchor" href="#_build_docs"></a>4. Build Docs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To build the docs, clone the OpenEMS Repository (preferably <a href="gettingstarted.html#_download_the_source_code" class="page">Source Tree</a>) and open it with a Code Editor (prefably <a href="gettingstarted.html#_setup_visual_studio_code_for_openems_ui" class="page">Visual Studio Code</a>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+NodeJS has to be installed
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Install Antora via npm</div>
+<p>Open Terminal and type:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>npm i -g @antora/cli</p>
+</div>
+<div class="paragraph">
+<p>npm i -g @antora/site-generator-default</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Run Antora</div>
+<p>Go to <a href="https://github.com/OpenEMS/openems/tree/develop/doc/build">doc/build <span class="icon"><i class="fa fa-external-link"></i></span></a> and type</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>antora.yml</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Docs should be building.. the finished HTML Folder can be found in your local 'build' folder (inside your <a href="https://github.com/OpenEMS/openems/tree/develop/doc/build">repository build folder <span class="icon"><i class="fa fa-external-link"></i></span></a>)</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If your data isn&#8217;t updating properly or not building, try antora.yml --pull to reset the cache
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </article>

@@ -3,17 +3,26 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenEMS Edge :: Open Energy Management System</title>
+    <title>Edge Architecture :: Open Energy Management System</title>
     <link rel="canonical" href="https://docs.antora.org/openems/latest/edge/architecture.html">
     <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 1.1.0">
     <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/feneco.ico" type="image/x-icon">
 <link rel="stylesheet" href="../../../_/css/vendor/docsearch.min.css">  </head>
   <body class="article">
 <header class="header">
   <nav class="navbar" color="#2d8fab">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://github.com/OpenEMS/openems">OpenEMS // Docs</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+          <span class="gitlink">
+          </span>
+        </a>
+      </div>
     </div>
   </nav>
 </header><div class="main-wrapper">
@@ -136,19 +145,15 @@
   <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/edit/develop/doc/modules/ROOT/pages/edge/architecture.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1>OpenEMS Edge</h1>
+<h1>Edge Architecture</h1>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_architecture">1. Architecture</a>
-<ul class="sectlevel2">
-<li><a href="#_input_process_output">1.1. Input-Process-Output</a></li>
-<li><a href="#_scheduler_and_controller">1.2. Scheduler and Controller</a></li>
-<li><a href="#_cycle">1.3. Cycle</a></li>
-<li><a href="#_asynchronous_threads_and_cycle_synchronization">1.4. Asynchronous threads and Cycle synchronization</a></li>
-<li><a href="#_architecture_scheme">1.5. Architecture scheme</a></li>
-</ul>
-</li>
+<li><a href="#_input_process_output">1. Input-Process-Output</a></li>
+<li><a href="#_scheduler_and_controller">2. Scheduler and Controller</a></li>
+<li><a href="#_cycle">3. Cycle</a></li>
+<li><a href="#_asynchronous_threads_and_cycle_synchronization">4. Asynchronous threads and Cycle synchronization</a></li>
+<li><a href="#_architecture_scheme">5. Architecture scheme</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -157,16 +162,14 @@
 <p>OpenEMS is a modular platform for energy management applications.
 It was developed around the requirements of controlling, monitoring and integrating energy storage systems together with renewable energy sources and complementary devices and services.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_architecture"><a class="anchor" href="#_architecture"></a>1. Architecture</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>The OpenEMS Edge software architecture is carefully designed to abstract device communication and control algorithms in a way to provide maximum flexibility, predictability and stability, while simplifying the process of implementing new components.</p>
 </div>
-<div class="sect2">
-<h3 id="_input_process_output"><a class="anchor" href="#_input_process_output"></a>1.1. Input-Process-Output</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_input_process_output"><a class="anchor" href="#_input_process_output"></a>1. Input-Process-Output</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>OpenEMS Edge is built around the well-known IPO (input-process-output) model which defines the internal execution cycle.</p>
 </div>
@@ -193,8 +196,10 @@ It was developed around the requirements of controlling, monitoring and integrat
 </dl>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_scheduler_and_controller"><a class="anchor" href="#_scheduler_and_controller"></a>1.2. Scheduler and Controller</h3>
+</div>
+<div class="sect1">
+<h2 id="_scheduler_and_controller"><a class="anchor" href="#_scheduler_and_controller"></a>2. Scheduler and Controller</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>During the 'process' phase different algorithms (Controllers) might try to access the same resources - e.g. two Controllers try to switch the same digital output. It is therefor necessary to prioritize their execution and restrict access according to priority.</p>
 </div>
@@ -208,8 +213,10 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="title">Figure 2. IPO model with Scheduler and Controllers</div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_cycle"><a class="anchor" href="#_cycle"></a>1.3. Cycle</h3>
+</div>
+<div class="sect1">
+<h2 id="_cycle"><a class="anchor" href="#_cycle"></a>3. Cycle</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The input-process-output model in OpenEMS Edge is executed in a Cycle - implemented by the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.core/src/io/openems/edge/core/cycle/Cycle.java">Cycle component <span class="icon"><i class="fa fa-code"></i></span></a>. It handles the setting of a process image in the input phase and executes the Controllers in the process phase. Furthermore it emits Cycle Events that can be used in other Components to synchronize with the Cycle.</p>
 </div>
@@ -220,8 +227,10 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="title">Figure 3. OpenEMS Edge Cycle</div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_asynchronous_threads_and_cycle_synchronization"><a class="anchor" href="#_asynchronous_threads_and_cycle_synchronization"></a>1.4. Asynchronous threads and Cycle synchronization</h3>
+</div>
+<div class="sect1">
+<h2 id="_asynchronous_threads_and_cycle_synchronization"><a class="anchor" href="#_asynchronous_threads_and_cycle_synchronization"></a>4. Asynchronous threads and Cycle synchronization</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Communication with external hardware and services needs to be executed in asynchronous threads to not block the system. At the same time, those threads need to synchronize with the Cycle.</p>
 </div>
@@ -235,8 +244,10 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="title">Figure 4. Synchronize Cycle with Modbus read/write</div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_architecture_scheme"><a class="anchor" href="#_architecture_scheme"></a>1.5. Architecture scheme</h3>
+</div>
+<div class="sect1">
+<h2 id="_architecture_scheme"><a class="anchor" href="#_architecture_scheme"></a>5. Architecture scheme</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The following scheme shows the abstraction of hardware via Channels, Natures and Devices as well as the execution of control algorithms via Scheduler and Controllers.</p>
 </div>
@@ -249,7 +260,6 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="imageblock">
 <div class="content">
 <img src="../_images/device-nature-channel-scheduler-controller.png" alt="Architecture scheme">
-</div>
 </div>
 </div>
 </div>
