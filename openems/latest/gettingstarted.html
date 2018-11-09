@@ -156,6 +156,7 @@
 <li><a href="#_run_openems_edge_and_start_simulator">3. Run OpenEMS Edge and start Simulator</a></li>
 <li><a href="#_setup_visual_studio_code_for_openems_ui">4. Setup Visual Studio Code for OpenEMS UI</a></li>
 <li><a href="#_run_openems_ui">5. Run OpenEMS UI</a></li>
+<li><a href="#_connect_the_edge_app_to_the_backend_and_transfer_data_to_the_backend">6. Connect the Edge App to the Backend and transfer data to the Backend</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -658,6 +659,121 @@ OpenEMS UI will complain that "no timedata source is available". Because of this
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_connect_the_edge_app_to_the_backend_and_transfer_data_to_the_backend"><a class="anchor" href="#_connect_the_edge_app_to_the_backend_and_transfer_data_to_the_backend"></a>6. Connect the Edge App to the Backend and transfer data to the Backend</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start the Backend and connect the Edge App to it</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Select the Backend Application in Eclipse
+<span class="image"><img src="_images/eclipse-io.openems.backend.application.png" alt="io.openems.backend.application in eclipse project"></span></p>
+</li>
+<li>
+<p>Start the Backend App
+<span class="image"><img src="_images/eclipse-backendapp-bndrund.png" alt="Start the Backend Application in Eclipse"></span></p>
+</li>
+<li>
+<p>Open the Felix Web interface of the Backend: <a href="http://localhost:8079/system/console/configMgr" class="bare">http://localhost:8079/system/console/configMgr</a>
+Username: admin, Password: admin</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Select the <code>Metadata.Dummy</code> Bundle and save it
+<span class="image"><img src="_images/config-backend-metadummy.png" alt="Save the Metadata.Dummy"></span></p>
+</li>
+<li>
+<p>Select the <code>EdgeWebsocket</code> Bundle and specify the Port: e.g. 8084
+<span class="image"><img src="_images/config-backend-edgeWebsocket.png" alt="Start the EdgeWebsocket to listen on port 8084"></span></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Start the client connection from the <code>Edge App</code> in the Felix Web interface. The uri has to be changed to the backend address and port: ws://localhost:8084
+<span class="image"><img src="_images/config-edge-api-backend.png" alt="Connect to Edge App to the Backend Application Server"></span></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Install InfluxDB and Chronograf: <a href="https://www.influxdata.com" class="bare">https://www.influxdata.com</a>
+It is recommended from the Influx Developers to use a Unix system such as Liunx, thus support for Windows is experimental: <a href="https://www.influxdata.com/blog/running-the-tick-stack-on-windows/" class="bare">https://www.influxdata.com/blog/running-the-tick-stack-on-windows/</a></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Set up a Linux system if not already running.</p>
+</li>
+<li>
+<p>On Ubuntu 18.04LTS run the following commands as sudo to add the influxdata repository and install influxdb and Chronograf:</p>
+<div class="paragraph">
+<p><code># curl -sL <a href="https://repos.influxdata.com/influxdb.key" class="bare">https://repos.influxdata.com/influxdb.key</a> | apt-key add -</code></p>
+</div>
+<div class="paragraph">
+<p><code># source /etc/lsb-release</code></p>
+</div>
+<div class="paragraph">
+<p><code># echo "deb <a href="https://repos.influxdata.com/${DISTRIB_ID,,}" class="bare">https://repos.influxdata.com/${DISTRIB_ID,,}</a> ${DISTRIB_CODENAME} stable" | tee /etc/apt/sources.list.d/influxdb.list</code></p>
+</div>
+<div class="paragraph">
+<p><code># apt update &amp;&amp; apt install influxdb chronograf</code></p>
+</div>
+<div class="paragraph">
+<p><code># systemctl enable influxdb</code></p>
+</div>
+<div class="paragraph">
+<p><code># systemctl start influxdb</code></p>
+</div>
+<div class="paragraph">
+<p><code># systemctl enable chronograf</code></p>
+</div>
+<div class="paragraph">
+<p><code># systemctl start chronograf</code></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Start data local data collection in the Edge App</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open the installed Chronograf in the Web Browser: <a href="http://IP:8888" class="bare">http://IP:8888</a> and set up a new Influx Database with the <code>InfluxDB Admin</code> Section in Chronograf for the Edge Application: <code>OpenEMS</code>. A newly installed Chronograf ask for username and password: use User: admin Password: admin</p>
+</li>
+<li>
+<p>Set up the connection to the InfluxDB in the Felix Web Interface in the Edge App.
+Enter the IP of the InfluxDB System. The standard port for Influx is 8086. Enter admin as Username and Password and specify the Database for the Edge <code>OpenEMS</code>.
+<span class="image"><img src="_images/config-edge-influxdb.png" alt="Configure the Edge Influx Connection"></span>
+Now in Chronograf the <code>Data Explorer</code> can be used to inspect the collected data of the Edge App</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Enable the Backend to save data as well</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Set up a new database in Chronograf: <code>OpenEMSBackend</code></p>
+</li>
+<li>
+<p>Set up the connection the Backend Felix Web Interface:
+<span class="image"><img src="_images/config-backend-influxdb.png" alt="Configure the Backend Influx Connection"></span></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>As there is now a connection between the backend and edge component as well as database connections on both ends the data is now transferred into the backend influx database.</p>
 </div>
 </div>
 </div>
