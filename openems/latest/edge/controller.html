@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controller :: Open Energy Management System</title>
     <link rel="canonical" href="https://docs.antora.org/openems/latest/edge/controller.html">
-    <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="icon" href="../../../_/img/feneco.ico" type="image/x-icon">
@@ -149,37 +148,17 @@
 </div>
 <article class="doc">
 <h1>Controller</h1>
-<div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_existing_controllers">1. Existing Controllers</a>
-<ul class="sectlevel2">
-<li><a href="#_api_backend_controller">1.1. Api Backend Controller</a></li>
-<li><a href="#_api_rest_json_controller">1.2. Api REST/JSON Controller</a></li>
-<li><a href="#_api_websocket_controller">1.3. Api Websocket Controller</a></li>
-<li><a href="#_channel_threshold_controller">1.4. Channel-Threshold Controller</a></li>
-<li><a href="#_debug_detailed_log_controller">1.5. Debug Detailed-Log Controller</a></li>
-<li><a href="#_debug_log_controller">1.6. Debug Log Controller</a></li>
-<li><a href="#_ess_limit_total_discharge">1.7. Ess Limit Total Discharge</a></li>
-<li><a href="#_symmetric_balancing_controller">1.8. Symmetric Balancing Controller</a></li>
-<li><a href="#_symmetric_fix_active_power_controller">1.9. Symmetric Fix-Active-Power Controller</a></li>
-<li><a href="#_symmetric_fix_reactive_power_controller">1.10. Symmetric Fix-Reactive-Power Controller</a></li>
-<li><a href="#_developing_a_controller">1.11. Developing a Controller</a></li>
-</ul>
-</li>
-</ul>
-</div>
 <div class="sect1">
-<h2 id="_existing_controllers"><a class="anchor" href="#_existing_controllers"></a>1. Existing Controllers</h2>
+<h2 id="_existing_controllers"><a class="anchor" href="#_existing_controllers"></a>Existing Controllers</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_api_backend_controller"><a class="anchor" href="#_api_backend_controller"></a>1.1. Api Backend Controller</h3>
+<h3 id="_api_backend_controller"><a class="anchor" href="#_api_backend_controller"></a>Api Backend Controller</h3>
 <div class="paragraph">
 <p>Establishes the connection to OpenEMS Backend.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_api_rest_json_controller"><a class="anchor" href="#_api_rest_json_controller"></a>1.2. Api REST/JSON Controller</h3>
+<h3 id="_api_rest_json_controller"><a class="anchor" href="#_api_rest_json_controller"></a>Api REST/JSON Controller</h3>
 <div class="paragraph">
 <p>Provides a REST-Api for external access to OpenEMS Edge. The default port for the server is <strong>8084</strong>; so the default base address for REST calls is <code><a href="http://x:&lt;PASSWORD&gt;@&lt;IP&gt;:8084/rest" class="bare">http://x:&lt;PASSWORD&gt;@&lt;IP&gt;:8084/rest</a></code>, where</p>
 </div>
@@ -217,55 +196,55 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_api_websocket_controller"><a class="anchor" href="#_api_websocket_controller"></a>1.3. Api Websocket Controller</h3>
+<h3 id="_api_websocket_controller"><a class="anchor" href="#_api_websocket_controller"></a>Api Websocket Controller</h3>
 <div class="paragraph">
 <p>Server for connection from OpenEMS UI to OpenEMS Edge.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_channel_threshold_controller"><a class="anchor" href="#_channel_threshold_controller"></a>1.4. Channel-Threshold Controller</h3>
+<h3 id="_channel_threshold_controller"><a class="anchor" href="#_channel_threshold_controller"></a>Channel-Threshold Controller</h3>
 <div class="paragraph">
 <p>Switch I/Os according to Channel-Value, e.g. State-of-Charge of the battery.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_debug_detailed_log_controller"><a class="anchor" href="#_debug_detailed_log_controller"></a>1.5. Debug Detailed-Log Controller</h3>
+<h3 id="_debug_detailed_log_controller"><a class="anchor" href="#_debug_detailed_log_controller"></a>Debug Detailed-Log Controller</h3>
 <div class="paragraph">
 <p>Output detailed debug information about specific Components on the console.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_debug_log_controller"><a class="anchor" href="#_debug_log_controller"></a>1.6. Debug Log Controller</h3>
+<h3 id="_debug_log_controller"><a class="anchor" href="#_debug_log_controller"></a>Debug Log Controller</h3>
 <div class="paragraph">
 <p>Output generic information about every Component on every cycle.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ess_limit_total_discharge"><a class="anchor" href="#_ess_limit_total_discharge"></a>1.7. Ess Limit Total Discharge</h3>
+<h3 id="_ess_limit_total_discharge"><a class="anchor" href="#_ess_limit_total_discharge"></a>Ess Limit Total Discharge</h3>
 <div class="paragraph">
 <p>Avoid total discharge of an energy storage system (ESS). Allows to define a Min-SoC and Force-Charge-SoC.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_symmetric_balancing_controller"><a class="anchor" href="#_symmetric_balancing_controller"></a>1.8. Symmetric Balancing Controller</h3>
+<h3 id="_symmetric_balancing_controller"><a class="anchor" href="#_symmetric_balancing_controller"></a>Symmetric Balancing Controller</h3>
 <div class="paragraph">
 <p>Symmetric self-consumption optimization.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_symmetric_fix_active_power_controller"><a class="anchor" href="#_symmetric_fix_active_power_controller"></a>1.9. Symmetric Fix-Active-Power Controller</h3>
+<h3 id="_symmetric_fix_active_power_controller"><a class="anchor" href="#_symmetric_fix_active_power_controller"></a>Symmetric Fix-Active-Power Controller</h3>
 <div class="paragraph">
 <p>Allows setting of a fixed Active-Power value for an ESS.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_symmetric_fix_reactive_power_controller"><a class="anchor" href="#_symmetric_fix_reactive_power_controller"></a>1.10. Symmetric Fix-Reactive-Power Controller</h3>
+<h3 id="_symmetric_fix_reactive_power_controller"><a class="anchor" href="#_symmetric_fix_reactive_power_controller"></a>Symmetric Fix-Reactive-Power Controller</h3>
 <div class="paragraph">
 <p>Allows setting of a fixed Reactive-Power value for an ESS.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_developing_a_controller"><a class="anchor" href="#_developing_a_controller"></a>1.11. Developing a Controller</h3>
+<h3 id="_developing_a_controller"><a class="anchor" href="#_developing_a_controller"></a>Developing a Controller</h3>
 
 </div>
 </div>
