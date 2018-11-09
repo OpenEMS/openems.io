@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hardware :: Open Energy Management System</title>
     <link rel="canonical" href="https://docs.antora.org/openems/latest/edge/hardware.html">
+    <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="icon" href="../../../_/img/feneco.ico" type="image/x-icon">
@@ -148,6 +149,26 @@
 </div>
 <article class="doc">
 <h1>Hardware</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_natures">1. Natures</a>
+<ul class="sectlevel2">
+<li><a href="#_ess_energy_storage_system">1.1. ESS (Energy Storage System)</a></li>
+<li><a href="#_meter">1.2. Meter</a></li>
+<li><a href="#_evcs_electric_vehicle_charging_station">1.3. EVCS (Electric Vehicle Charging Station)</a></li>
+<li><a href="#_i_o_digital_input_output">1.4. I/O (Digital Input/Output)</a></li>
+</ul>
+</li>
+<li><a href="#_bridges">2. Bridges</a>
+<ul class="sectlevel2">
+<li><a href="#_modbus_tcp">2.1. Modbus/TCP</a></li>
+<li><a href="#_modbus_rtu">2.2. Modbus/RTU</a></li>
+</ul>
+</li>
+<li><a href="#_devices_services">3. Devices &amp; Services</a></li>
+</ul>
+</div>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -157,7 +178,7 @@ It describes how physical hardware is abstracted using <em>Natures</em>, how sta
 </div>
 </div>
 <div class="sect1">
-<h2 id="_natures"><a class="anchor" href="#_natures"></a>Natures</h2>
+<h2 id="_natures"><a class="anchor" href="#_natures"></a>1. Natures</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Physical hardware is abstracted in OpenEMS Edge using <em>Natures</em>. A Nature defines a set of characteristics and attributes which need to be provided by each OpenEMS component that implements it. These characteristics are defined by Channels. For example an implementation of an <code>Ess</code> (Energy Storage System), needs to provide an <code>Soc</code>-Channel (State of charge of the battery).</p>
@@ -166,7 +187,7 @@ It describes how physical hardware is abstracted using <em>Natures</em>, how sta
 <p>Technically Natures are implemented as OSGi API Bundles.</p>
 </div>
 <div class="sect2">
-<h3 id="_ess_energy_storage_system"><a class="anchor" href="#_ess_energy_storage_system"></a>ESS (Energy Storage System)</h3>
+<h3 id="_ess_energy_storage_system"><a class="anchor" href="#_ess_energy_storage_system"></a>1.1. ESS (Energy Storage System)</h3>
 <div class="paragraph">
 <p>An Energy Storage System is an integrated system with battery and battery inverter.</p>
 </div>
@@ -197,7 +218,7 @@ It describes how physical hardware is abstracted using <em>Natures</em>, how sta
 </div>
 </div>
 <div class="sect2">
-<h3 id="_meter"><a class="anchor" href="#_meter"></a>Meter</h3>
+<h3 id="_meter"><a class="anchor" href="#_meter"></a>1.2. Meter</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.meter.api/src/io/openems/edge/meter/api/MeterType.java">Meter <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -216,7 +237,7 @@ It describes how physical hardware is abstracted using <em>Natures</em>, how sta
 </div>
 </div>
 <div class="sect2">
-<h3 id="_evcs_electric_vehicle_charging_station"><a class="anchor" href="#_evcs_electric_vehicle_charging_station"></a>EVCS (Electric Vehicle Charging Station)</h3>
+<h3 id="_evcs_electric_vehicle_charging_station"><a class="anchor" href="#_evcs_electric_vehicle_charging_station"></a>1.3. EVCS (Electric Vehicle Charging Station)</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.evcs.api/src/io/openems/edge/evcs/api/Evcs.java">Evcs <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -227,7 +248,7 @@ It describes how physical hardware is abstracted using <em>Natures</em>, how sta
 </div>
 </div>
 <div class="sect2">
-<h3 id="_i_o_digital_input_output"><a class="anchor" href="#_i_o_digital_input_output"></a>I/O (Digital Input/Output)</h3>
+<h3 id="_i_o_digital_input_output"><a class="anchor" href="#_i_o_digital_input_output"></a>1.4. I/O (Digital Input/Output)</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.io.api/src/io/openems/edge/io/api/DigitalOutput.java">DigitalOutput <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -240,13 +261,13 @@ It describes how physical hardware is abstracted using <em>Natures</em>, how sta
 </div>
 </div>
 <div class="sect1">
-<h2 id="_bridges"><a class="anchor" href="#_bridges"></a>Bridges</h2>
+<h2 id="_bridges"><a class="anchor" href="#_bridges"></a>2. Bridges</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To simplify the implementation of hardware that is connected via certain standardized physical connection layers and protocols, those are implemented as Bridges.</p>
 </div>
 <div class="sect2">
-<h3 id="_modbus_tcp"><a class="anchor" href="#_modbus_tcp"></a>Modbus/TCP</h3>
+<h3 id="_modbus_tcp"><a class="anchor" href="#_modbus_tcp"></a>2.1. Modbus/TCP</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusTcpImpl.java">Modbus/TCP <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -257,7 +278,7 @@ It describes how physical hardware is abstracted using <em>Natures</em>, how sta
 </div>
 </div>
 <div class="sect2">
-<h3 id="_modbus_rtu"><a class="anchor" href="#_modbus_rtu"></a>Modbus/RTU</h3>
+<h3 id="_modbus_rtu"><a class="anchor" href="#_modbus_rtu"></a>2.2. Modbus/RTU</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusSerialImpl.java">Modbus/Serial <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -270,7 +291,7 @@ It describes how physical hardware is abstracted using <em>Natures</em>, how sta
 </div>
 </div>
 <div class="sect1">
-<h2 id="_devices_services"><a class="anchor" href="#_devices_services"></a>Devices &amp; Services</h2>
+<h2 id="_devices_services"><a class="anchor" href="#_devices_services"></a>3. Devices &amp; Services</h2>
 <div class="sectionbody">
 
 </div>

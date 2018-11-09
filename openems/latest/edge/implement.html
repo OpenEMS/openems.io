@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Implementing a device :: Open Energy Management System</title>
     <link rel="canonical" href="https://docs.antora.org/openems/latest/edge/implement.html">
+    <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="icon" href="../../../_/img/feneco.ico" type="image/x-icon">
@@ -148,8 +149,23 @@
 </div>
 <article class="doc">
 <h1>Implementing a device</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_step_by_step_guide">1. Step-by-step guide</a>
+<ul class="sectlevel2">
+<li><a href="#_create_a_new_osgi_bundle">1.1. Create a new OSGi Bundle</a></li>
+<li><a href="#_define_bundle_dependencies">1.2. Define Bundle dependencies</a></li>
+<li><a href="#_define_configuration_parameters">1.3. Define configuration parameters</a></li>
+<li><a href="#_implement_the_openems_component">1.4. Implement the OpenEMS Component</a></li>
+</ul>
+</li>
+<li><a href="#_synchronize_device_communication">2. Synchronize device communication</a></li>
+<li><a href="#_active_reactive_power_control_of_a_battery_inverter">3. Active/Reactive power control of a battery inverter</a></li>
+</ul>
+</div>
 <div class="sect1">
-<h2 id="_step_by_step_guide"><a class="anchor" href="#_step_by_step_guide"></a>Step-by-step guide</h2>
+<h2 id="_step_by_step_guide"><a class="anchor" href="#_step_by_step_guide"></a>1. Step-by-step guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter explains the steps required to implement a Device in OpenEMS Edge. The example shows the implementation of a <a href="http://www.socomec.co.uk/range-single-circuit-multifunction-meters_en.htlm?product=/diris-a14_en.html">SOCOMEC DIRIS A14 power meter <span class="icon"><i class="fa fa-external-link"></i></span></a>. The communication is via Modbus/RTU. The actual source code of the implementation can be found <a href="../io.openems.edge.meter.socomec.dirisa14/src/io/openems/edge/meter/socomec/dirisa14/MeterSocomecDirisA14.java">here <span class="icon"><i class="fa fa-code"></i></span></a>.</p>
@@ -158,14 +174,14 @@
 <p>The tutorial is based on the <a href="../gettingstarted.html" class="page">Getting Started</a> guide.</p>
 </div>
 <div class="sect2">
-<h3 id="_create_a_new_osgi_bundle"><a class="anchor" href="#_create_a_new_osgi_bundle"></a>Create a new OSGi Bundle</h3>
+<h3 id="_create_a_new_osgi_bundle"><a class="anchor" href="#_create_a_new_osgi_bundle"></a>1.1. Create a new OSGi Bundle</h3>
 <div class="paragraph">
 <p>For more information see <a href="../coreconcepts.html#_osgi_bundle" class="page">OSGi Bundle</a>.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In the menu choose btn:[File] &#8594; btn:[New] &#8594; btn:[Other]</p>
+<p>In the menu choose <b class="button">File</b> &#8594; <b class="button">New</b> &#8594; <b class="button">Other</b></p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/eclipse-file-new-other.png" alt="Creating a new project in Eclipse IDE">
@@ -174,7 +190,7 @@
 </div>
 </li>
 <li>
-<p>Select btn:[Bndtools] &#8594; btn:[Bnd OSGi Project] and press btn:[Next &gt;]</p>
+<p>Select <b class="button">Bndtools</b> &#8594; <b class="button">Bnd OSGi Project</b> and press <b class="button">Next &gt;</b></p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/eclipse-bndtools-osgi-project.png" alt="Creating a Bnd OSGi Project in Eclipse IDE">
@@ -183,7 +199,7 @@
 </div>
 </li>
 <li>
-<p>Select btn:[OSGi enRoute] &#8594; btn:[Provider/Adapter Bundle] and press btn:[Next &gt;]</p>
+<p>Select <b class="button">OSGi enRoute</b> &#8594; <b class="button">Provider/Adapter Bundle</b> and press <b class="button">Next &gt;</b></p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -204,7 +220,7 @@ Technically an OpenEMS Edge Device provides implementations of the interfaces of
 </div>
 </li>
 <li>
-<p>Choose a project name and press btn:[Next &gt;]</p>
+<p>Choose a project name and press <b class="button">Next &gt;</b></p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -225,7 +241,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 </div>
 </li>
 <li>
-<p>Accept defaults for the final screen and press btn:[Finish]</p>
+<p>Accept defaults for the final screen and press <b class="button">Finish</b></p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/eclipse-new-osgi-provider-socomec-final.png" alt="Java settings for a Bnd OSGi Provider/Adapter Bundle in Eclipse IDE">
@@ -240,14 +256,14 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 </div>
 </div>
 <div class="sect2">
-<h3 id="_define_bundle_dependencies"><a class="anchor" href="#_define_bundle_dependencies"></a>Define Bundle dependencies</h3>
+<h3 id="_define_bundle_dependencies"><a class="anchor" href="#_define_bundle_dependencies"></a>1.2. Define Bundle dependencies</h3>
 <div class="paragraph">
 <p>OSGi Bundles can be dependent on certain other Bundles. This information can be set in a <strong>bnd.bnd</strong> file.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Select the component directory btn:[src] &#8594; btn:[io.openems.edge.meter.socomec.dirisa14]</p>
+<p>Select the component directory <b class="button">src</b> &#8594; <b class="button">io.openems.edge.meter.socomec.dirisa14</b></p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/eclipse-new-socomec-bundle.png" alt="New SOCOMEC DIRIS A14 Bnd OSGi Provider/Adapter Bundle in Eclipse IDE">
@@ -256,10 +272,10 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 </div>
 </li>
 <li>
-<p>Open the btn:[bnd.bnd] file by double clicking on it.</p>
+<p>Open the <b class="button">bnd.bnd</b> file by double clicking on it.</p>
 </li>
 <li>
-<p>Open the btn:[Build] tab</p>
+<p>Open the <b class="button">Build</b> tab</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -280,7 +296,7 @@ You can see, that the Bundle is currently dependent on a core OSGi API bundle ('
 </div>
 </li>
 <li>
-<p>Click the btn:[+] symbol next to <strong>Build Path</strong>.</p>
+<p>Click the <b class="button">+</b> symbol next to <strong>Build Path</strong>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/eclipse-osgi-build-path.png" alt="Bndtools Build Path configuration">
@@ -308,7 +324,7 @@ You can see, that the Bundle is currently dependent on a core OSGi API bundle ('
 </div>
 </li>
 <li>
-<p>It is also a good moment to configure the Bundle meta information. Still inside the btn:[bnd.bnd] file open the btn:[Source] tab. Add some meta information - it will help the users of your component:</p>
+<p>It is also a good moment to configure the Bundle meta information. Still inside the <b class="button">bnd.bnd</b> file open the <b class="button">Source</b> tab. Add some meta information - it will help the users of your component:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code>Bundle-Name: OpenEMS Edge Meter SOCOMEC DirisA14
@@ -339,7 +355,7 @@ Private-Package: io.openems.edge.meter.socomec.dirisa14
 </div>
 </div>
 <div class="sect2">
-<h3 id="_define_configuration_parameters"><a class="anchor" href="#_define_configuration_parameters"></a>Define configuration parameters</h3>
+<h3 id="_define_configuration_parameters"><a class="anchor" href="#_define_configuration_parameters"></a>1.3. Define configuration parameters</h3>
 <div class="paragraph">
 <p>OpenEMS Components can have several configuration parameters. They are defined as Java annotations and specific OSGi annotations are used to generate meta information that is used e.g. by Apache Felix Web Console to generate a user interface form (see <a href="../gettingstarted.html" class="page">Getting Started</a>).</p>
 </div>
@@ -349,10 +365,10 @@ Private-Package: io.openems.edge.meter.socomec.dirisa14
 <p>Make sure that the component directory is still selected.</p>
 </li>
 <li>
-<p>In the menu choose btn:[File] &#8594; btn:[New] &#8594; btn:[Other]</p>
+<p>In the menu choose <b class="button">File</b> &#8594; <b class="button">New</b> &#8594; <b class="button">Other</b></p>
 </li>
 <li>
-<p>Select btn:[Java] &#8594; btn:[Class] and press btn:[Next &gt;]</p>
+<p>Select <b class="button">Java</b> &#8594; <b class="button">Class</b> and press <b class="button">Next &gt;</b></p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/eclipse-new-annotation.png" alt="Creating a Java annotation in Eclipse IDE">
@@ -361,7 +377,7 @@ Private-Package: io.openems.edge.meter.socomec.dirisa14
 </div>
 </li>
 <li>
-<p>Set the name <strong>Config</strong> press btn:[Finish].</p>
+<p>Set the name <strong>Config</strong> press <b class="button">Finish</b>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/eclipse-new-config-annotation.png" alt="Creating the Java annotation 'Config' in Eclipse IDE">
@@ -475,14 +491,14 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 </div>
 </div>
 <div class="sect2">
-<h3 id="_implement_the_openems_component"><a class="anchor" href="#_implement_the_openems_component"></a>Implement the OpenEMS Component</h3>
+<h3 id="_implement_the_openems_component"><a class="anchor" href="#_implement_the_openems_component"></a>1.4. Implement the OpenEMS Component</h3>
 <div class="paragraph">
 <p>Next step is to actually implement the OpenEMS Component as an OSGi Bundle.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The Bndtools assistant created a <code>ProviderImpl.java</code> file. First step is to set a proper name for this file. To rename the file, select it by clicking on it and choose btn:[Refactor] &#8594; btn:[Rename&#8230;&#8203;] in the menu. Write <code>MeterSocomecDirisA14</code> as 'New name' and press btn:[Finish].</p>
+<p>The Bndtools assistant created a <code>ProviderImpl.java</code> file. First step is to set a proper name for this file. To rename the file, select it by clicking on it and choose <b class="button">Refactor</b> &#8594; <b class="button">Rename&#8230;&#8203;</b> in the menu. Write <code>MeterSocomecDirisA14</code> as 'New name' and press <b class="button">Finish</b>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/eclipse-rename.png" alt="Renaming a Java class in Eclipse IDE">
@@ -957,10 +973,10 @@ public String debugLog() {
 <div class="title">Figure 13. Eclipse IDE EdgeApp.bndrun</div>
 </div>
 <div class="paragraph">
-<p>Press btn:[Resolve] to dissolve the dependencies and accept the <em>Resolution Results</em> window with btn:[Finish].</p>
+<p>Press <b class="button">Resolve</b> to dissolve the dependencies and accept the <em>Resolution Results</em> window with <b class="button">Finish</b>.</p>
 </div>
 <div class="paragraph">
-<p>Then press btn:[Run OSGi] to run OpenEMS Edge. From then you can configure your component as shown in gettingstarted.adoc[Getting Started].</p>
+<p>Then press <b class="button">Run OSGi</b> to run OpenEMS Edge. From then you can configure your component as shown in gettingstarted.adoc[Getting Started].</p>
 </div>
 </li>
 </ol>
@@ -969,13 +985,13 @@ public String debugLog() {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_synchronize_device_communication"><a class="anchor" href="#_synchronize_device_communication"></a>Synchronize device communication</h2>
+<h2 id="_synchronize_device_communication"><a class="anchor" href="#_synchronize_device_communication"></a>2. Synchronize device communication</h2>
 <div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_active_reactive_power_control_of_a_battery_inverter"><a class="anchor" href="#_active_reactive_power_control_of_a_battery_inverter"></a>Active/Reactive power control of a battery inverter</h2>
+<h2 id="_active_reactive_power_control_of_a_battery_inverter"><a class="anchor" href="#_active_reactive_power_control_of_a_battery_inverter"></a>3. Active/Reactive power control of a battery inverter</h2>
 <div class="sectionbody">
 
 </div>

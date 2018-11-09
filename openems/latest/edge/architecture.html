@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edge Architecture :: Open Energy Management System</title>
     <link rel="canonical" href="https://docs.antora.org/openems/latest/edge/architecture.html">
+    <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="icon" href="../../../_/img/feneco.ico" type="image/x-icon">
@@ -148,6 +149,16 @@
 </div>
 <article class="doc">
 <h1>Edge Architecture</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_input_process_output">1. Input-Process-Output</a></li>
+<li><a href="#_scheduler_and_controller">2. Scheduler and Controller</a></li>
+<li><a href="#_cycle">3. Cycle</a></li>
+<li><a href="#_asynchronous_threads_and_cycle_synchronization">4. Asynchronous threads and Cycle synchronization</a></li>
+<li><a href="#_architecture_scheme">5. Architecture scheme</a></li>
+</ul>
+</div>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -160,7 +171,7 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_input_process_output"><a class="anchor" href="#_input_process_output"></a>Input-Process-Output</h2>
+<h2 id="_input_process_output"><a class="anchor" href="#_input_process_output"></a>1. Input-Process-Output</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>OpenEMS Edge is built around the well-known IPO (input-process-output) model which defines the internal execution cycle.</p>
@@ -190,7 +201,7 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_scheduler_and_controller"><a class="anchor" href="#_scheduler_and_controller"></a>Scheduler and Controller</h2>
+<h2 id="_scheduler_and_controller"><a class="anchor" href="#_scheduler_and_controller"></a>2. Scheduler and Controller</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>During the 'process' phase different algorithms (Controllers) might try to access the same resources - e.g. two Controllers try to switch the same digital output. It is therefor necessary to prioritize their execution and restrict access according to priority.</p>
@@ -207,7 +218,7 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cycle"><a class="anchor" href="#_cycle"></a>Cycle</h2>
+<h2 id="_cycle"><a class="anchor" href="#_cycle"></a>3. Cycle</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The input-process-output model in OpenEMS Edge is executed in a Cycle - implemented by the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.core/src/io/openems/edge/core/cycle/Cycle.java">Cycle component <span class="icon"><i class="fa fa-code"></i></span></a>. It handles the setting of a process image in the input phase and executes the Controllers in the process phase. Furthermore it emits Cycle Events that can be used in other Components to synchronize with the Cycle.</p>
@@ -221,7 +232,7 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_asynchronous_threads_and_cycle_synchronization"><a class="anchor" href="#_asynchronous_threads_and_cycle_synchronization"></a>Asynchronous threads and Cycle synchronization</h2>
+<h2 id="_asynchronous_threads_and_cycle_synchronization"><a class="anchor" href="#_asynchronous_threads_and_cycle_synchronization"></a>4. Asynchronous threads and Cycle synchronization</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Communication with external hardware and services needs to be executed in asynchronous threads to not block the system. At the same time, those threads need to synchronize with the Cycle.</p>
@@ -238,7 +249,7 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_architecture_scheme"><a class="anchor" href="#_architecture_scheme"></a>Architecture scheme</h2>
+<h2 id="_architecture_scheme"><a class="anchor" href="#_architecture_scheme"></a>5. Architecture scheme</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The following scheme shows the abstraction of hardware via Channels, Natures and Devices as well as the execution of control algorithms via Scheduler and Controllers.</p>
