@@ -160,18 +160,20 @@
 <li><a href="#_create_a_new_osgi_bundle">1.1. Create a new OSGi Bundle</a></li>
 <li><a href="#_define_bundle_dependencies">1.2. Define Bundle dependencies</a></li>
 <li><a href="#_define_configuration_parameters">1.3. Define configuration parameters</a></li>
-<li><a href="#_implement_the_openems_component">1.4. Implement the OpenEMS Component</a></li>
+<li><a href="#_initialize_channels">1.4. Initialize Channels</a></li>
+<li><a href="#_implement_the_openems_component">1.5. Implement the OpenEMS Component</a></li>
+<li><a href="#_start_the_device_simulator">1.6. Start the device simulator</a></li>
+<li><a href="#_enable_the_component">1.7. Enable the Component</a></li>
+<li><a href="#_run_the_implementation">1.8. Run the implementation</a></li>
 </ul>
 </li>
-<li><a href="#_synchronize_device_communication">2. Synchronize device communication</a></li>
-<li><a href="#_active_reactive_power_control_of_a_battery_inverter">3. Active/Reactive power control of a battery inverter</a></li>
 </ul>
 </div>
 <div class="sect1">
 <h2 id="_step_by_step_guide"><a class="anchor" href="#_step_by_step_guide"></a>1. Step-by-step guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This chapter explains the steps required to implement a Device in OpenEMS Edge. The example shows the implementation of a <a href="http://www.socomec.co.uk/range-single-circuit-multifunction-meters_en.htlm?product=/diris-a14_en.html">SOCOMEC DIRIS A14 power meter <span class="icon"><i class="fa fa-external-link"></i></span></a>. The communication is via Modbus/RTU. The actual source code of the implementation can be found <a href="../io.openems.edge.meter.socomec.dirisa14/src/io/openems/edge/meter/socomec/dirisa14/MeterSocomecDirisA14.java">here <span class="icon"><i class="fa fa-code"></i></span></a>.</p>
+<p>This chapter explains the steps required to implement a meter in OpenEMS Edge that is connected via Modbus/TCP. The meter itself is simulated using a small Modbus slave application, so no external hardware is required for this guide.</p>
 </div>
 <div class="paragraph">
 <p>The tutorial is based on the <a href="../gettingstarted.html" class="page">Getting Started</a> guide.</p>
@@ -231,14 +233,14 @@ Technically an OpenEMS Edge Device provides implementations of the interfaces of
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The project name is used as the folder name in OpenEMS source directory. The naming is up to you, but it is good practice to keep the name lower case and use something like <strong>io.openems.[edge/backend].[purpose/nature].[implementation]</strong>. For a SOCOMEC DIRIS A14 that is implementing the Meter nature <code>io.openems.edge.meter.socomec.dirisa14</code> is a good choice.
+The project name is used as the folder name in OpenEMS source directory. The naming is up to you, but it is good practice to keep the name lower case and use something like <strong>io.openems.[edge/backend].[purpose/nature].[implementation]</strong>. For the simulated meter <code>io.openems.edge.meter.simulated</code> is a good choice.
 </td>
 </tr>
 </table>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/eclipse-new-osgi-provider-socomec.png" alt="Naming a Bnd OSGi Provider/Adapter Bundle in Eclipse IDE">
+<img src="../_images/eclipse-new-osgi-provider-simulatedmeter.png" alt="Naming a Bnd OSGi Provider/Adapter Bundle in Eclipse IDE">
 </div>
 <div class="title">Figure 4. Naming a Bnd OSGi Provider/Adapter Bundle in Eclipse IDE</div>
 </div>
@@ -247,7 +249,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <p>Accept defaults for the final screen and press <b class="button">Finish</b></p>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/eclipse-new-osgi-provider-socomec-final.png" alt="Java settings for a Bnd OSGi Provider/Adapter Bundle in Eclipse IDE">
+<img src="../_images/eclipse-new-osgi-provider-simulatedmeter-final.png" alt="Java settings for a Bnd OSGi Provider/Adapter Bundle in Eclipse IDE">
 </div>
 <div class="title">Figure 5. Java settings for a Bnd OSGi Provider/Adapter Bundle in Eclipse IDE</div>
 </div>
@@ -261,17 +263,17 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="sect2">
 <h3 id="_define_bundle_dependencies"><a class="anchor" href="#_define_bundle_dependencies"></a>1.2. Define Bundle dependencies</h3>
 <div class="paragraph">
-<p>OSGi Bundles can be dependent on certain other Bundles. This information can be set in a <strong>bnd.bnd</strong> file.</p>
+<p>OSGi Bundles can be dependent on certain other Bundles. This information needs to be set in a <strong>bnd.bnd</strong> file.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Select the component directory <b class="button">src</b> &#8594; <b class="button">io.openems.edge.meter.socomec.dirisa14</b></p>
+<p>Select the component directory <b class="button">src</b> &#8594; <b class="button">io.openems.edge.meter.simulated</b></p>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/eclipse-new-socomec-bundle.png" alt="New SOCOMEC DIRIS A14 Bnd OSGi Provider/Adapter Bundle in Eclipse IDE">
+<img src="../_images/eclipse-new-simulatedmeter-bundle.png" alt="New simulated meter Bnd OSGi Provider/Adapter Bundle in Eclipse IDE">
 </div>
-<div class="title">Figure 6. New SOCOMEC DIRIS A14 Bnd OSGi Provider/Adapter Bundle in Eclipse IDE</div>
+<div class="title">Figure 6. New simulated meter Bnd OSGi Provider/Adapter Bundle in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -330,7 +332,7 @@ You can see, that the Bundle is currently dependent on a core OSGi API bundle ('
 <p>It is also a good moment to configure the Bundle meta information. Still inside the <b class="button">bnd.bnd</b> file open the <b class="button">Source</b> tab. Add some meta information - it will help the users of your component:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>Bundle-Name: OpenEMS Edge Meter SOCOMEC DirisA14
+<pre class="highlightjs highlight"><code>Bundle-Name: OpenEMS Edge Meter Simulated
 Bundle-Vendor: FENECON GmbH
 Bundle-License: https://opensource.org/licenses/EPL-2.0
 Bundle-Version: 1.0.0.${tstamp}
@@ -338,7 +340,7 @@ Export-Package: \
 	io.openems.edge.meter.api,\
 	io.openems.edge.meter.asymmetric.api,\
 	io.openems.edge.meter.symmetric.api
-Private-Package: io.openems.edge.meter.socomec.dirisa14
+Private-Package: io.openems.edge.meter.simulated
 
 -includeresource: {readme.md}
 
@@ -371,7 +373,7 @@ Private-Package: io.openems.edge.meter.socomec.dirisa14
 <p>In the menu choose <b class="button">File</b> &#8594; <b class="button">New</b> &#8594; <b class="button">Other</b></p>
 </li>
 <li>
-<p>Select <b class="button">Java</b> &#8594; <b class="button">Class</b> and press <b class="button">Next &gt;</b></p>
+<p>Select <b class="button">Java</b> &#8594; <b class="button">Other&#8230;&#8203;</b> and press <b class="button">Next &gt;</b></p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/eclipse-new-annotation.png" alt="Creating a Java annotation in Eclipse IDE">
@@ -392,9 +394,9 @@ Private-Package: io.openems.edge.meter.socomec.dirisa14
 <p>A Java annotation template was generated for you:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.openems.edge.meter.socomec.dirisa14;
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.openems.edge.meter.simulated;
 
-public @interface Config {
+public interface Config {
 
 }</code></pre>
 </div>
@@ -404,14 +406,16 @@ public @interface Config {
 <p>Adjust the template to match the following code:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.openems.edge.meter.socomec.dirisa14;
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.openems.edge.meter.simulated;
 
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
+import io.openems.edge.meter.api.MeterType;
+
 @ObjectClassDefinition( <i class="conum" data-value="1"></i><b>(1)</b>
-		name = "Meter SOCOMEC Diris A14", //
-		description = "Implements the SOCOMEC Diris A14 meter.")
+		name = "Meter Simulated", //
+		description = "Implements the simulated meter.")
 @interface Config {
 	String service_pid(); <i class="conum" data-value="2"></i><b>(2)</b>
 
@@ -422,7 +426,7 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 	@AttributeDefinition(name = "Meter-Type", description = "Grid, Production (=default), Consumption") <i class="conum" data-value="5"></i><b>(5)</b>
 	MeterType type() default MeterType.PRODUCTION; <i class="conum" data-value="6"></i><b>(6)</b>
 
-	@AttributeDefinition(name = "Modbus-ID", description = "ID of Modbus brige.")
+	@AttributeDefinition(name = "Modbus-ID", description = "ID of Modbus bridge.")
 	String modbus_id(); <i class="conum" data-value="7"></i><b>(7)</b>
 
 	@AttributeDefinition(name = "Modbus Unit-ID", description = "The Unit-ID of the Modbus device.")
@@ -431,13 +435,7 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 	@AttributeDefinition(name = "Modbus target filter", description = "This is auto-generated by 'Modbus-ID'.")
 	String Modbus_target() default ""; <i class="conum" data-value="9"></i><b>(9)</b>
 
-	@AttributeDefinition(name = "Minimum Ever Active Power", description = "This is automatically updated.")
-	int minActivePower(); <i class="conum" data-value="10"></i><b>(10)</b>
-
-	@AttributeDefinition(name = "Maximum Ever Active Power", description = "This is automatically updated.")
-	int maxActivePower(); <i class="conum" data-value="10"></i><b>(10)</b>
-
-	String webconsole_configurationFactory_nameHint() default "Meter SOCOMEC Diris A14 [{id}]"; <i class="conum" data-value="11"></i><b>(11)</b>
+	String webconsole_configurationFactory_nameHint() default "Meter Simulated [{id}]"; <i class="conum" data-value="10"></i><b>(10)</b>
 }</code></pre>
 </div>
 </div>
@@ -473,7 +471,7 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
-<td>The Modbus service implementation requires us to provide the Modbus <em>Unit-ID</em> (also commonly called <em>Device-ID</em> or <em>Slave-ID</em>) of the Modbus slave device. This is the ID that is configured at the SOCOMEC DIRIS.</td>
+<td>The Modbus service implementation requires us to provide the Modbus <em>Unit-ID</em> (also commonly called <em>Device-ID</em> or <em>Slave-ID</em>) of the Modbus slave device. This is the ID that is configured at the simulated meter.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="9"></i><b>9</b></td>
@@ -481,10 +479,6 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 </tr>
 <tr>
 <td><i class="conum" data-value="10"></i><b>10</b></td>
-<td>The default Meter implementation uses configuration parameters <strong>minActivePower</strong> and <strong>maxActivePower</strong> to store the minimum/maximum ever experienced active power. By providing them here the User can possibly adjust them if required.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="11"></i><b>11</b></td>
 <td>The <strong>webconsole_configurationFactory_nameHint</strong> parameter sets a custom name for Apache Felix Web Console, helping the user to find the correct bundle.</td>
 </tr>
 </table>
@@ -494,357 +488,69 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 </div>
 </div>
 <div class="sect2">
-<h3 id="_implement_the_openems_component"><a class="anchor" href="#_implement_the_openems_component"></a>1.4. Implement the OpenEMS Component</h3>
+<h3 id="_initialize_channels"><a class="anchor" href="#_initialize_channels"></a>1.4. Initialize Channels</h3>
 <div class="paragraph">
 <p>Next step is to actually implement the OpenEMS Component as an OSGi Bundle.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The Bndtools assistant created a <code>ProviderImpl.java</code> file. First step is to set a proper name for this file. To rename the file, select it by clicking on it and choose <b class="button">Refactor</b> &#8594; <b class="button">Rename&#8230;&#8203;</b> in the menu. Write <code>MeterSocomecDirisA14</code> as 'New name' and press <b class="button">Finish</b>.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/eclipse-rename.png" alt="Renaming a Java class in Eclipse IDE">
-</div>
-<div class="title">Figure 11. Renaming a Java class in Eclipse IDE</div>
-</div>
 <div class="paragraph">
-<p>Afterwards the <code>MeterSocomecDirisA14.java</code> file has the following content:</p>
+<p>The simulated meter is going to implement</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.openems.edge.meter.socomec.dirisa14;
-
-import java.util.Map;
-
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Deactivate;
-import org.osgi.service.metatype.annotations.ObjectClassDefinition;
-import org.osgi.service.metatype.annotations.Designate;
-
-@Designate(ocd = MeterSocomecDirisA14.Config.class, factory = true) <i class="conum" data-value="1"></i><b>(1)</b>
-@Component(name = "io.openems.edge.meter.socomec.dirisa14") <i class="conum" data-value="2"></i><b>(2)</b>
-public class MeterSocomecDirisA14 {
-
-	@ObjectClassDefinition
-	@interface Config { <i class="conum" data-value="3"></i><b>(3)</b>
-		String name() default "World";
-	}
-
-	private String name;
-
-	@Activate
-	void activate(Config config) { <i class="conum" data-value="4"></i><b>(4)</b>
-		this.name = config.name();
-	}
-
-	@Deactivate <i class="conum" data-value="5"></i><b>(5)</b>
-	void deactivate() {
-	}
-
-}</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <strong>@Designate</strong> annotation is used for OSGi to create a connection to a <em>Config</em> annotation class. It also defines this Component as a <em>factory</em>, i.e. it can produce multiple instances with different configurations.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The <strong>@Component</strong> annotation marks this class as an OSGi component and sets a unique name.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The template for <em>OSGi Provider/Adapter Bundles</em> comes with an embedded example Config definition.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>The <strong>activate()</strong> method (marked by the <strong>@Activate</strong> annotation) is called on activation of an object instance of this Component. It comes with an instance of a configuration in the form of a Config object.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>The <strong>deactivate()</strong> method (marked by the <strong>@Deactivate</strong> annotation) is called on deactivation of the Component instance.</td>
-</tr>
-</table>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the "OpenemsComponent" nature - like every OpenEMS Component</p>
 </li>
 <li>
-<p>We can see, that by default there is an embedded '@interface Config' file. Which is referred to by the '@Designate' annotation. As we implemented our own <strong>Config.java</strong> file externally, we can adjust as follows to use our implementation:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.openems.edge.meter.socomec.dirisa14;
-
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Deactivate;
-import org.osgi.service.metatype.annotations.Designate;
-
-@Designate(ocd = Config.class, factory = true)
-@Component(name = "io.openems.edge.meter.socomec.dirisa14")
-public class MeterSocomecDirisA14 {
-
-	@Activate
-	void activate(Config config) {
-	}
-
-	@Deactivate
-	void deactivate() {
-	}
-
-}</code></pre>
-</div>
-</div>
+<p>the "SymmetricMeter" nature - for a three-phase symmetric meter</p>
 </li>
-<li>
-<p>It is good practice to adjust the <strong>@Component</strong> annotation a little bit:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Component(name = "Meter.SOCOMEC.DirisA14", <i class="conum" data-value="1"></i><b>(1)</b>
-		immediate = true, <i class="conum" data-value="2"></i><b>(2)</b>
-		configurationPolicy = ConfigurationPolicy.REQUIRE) <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Configure a human-readable name in the form <strong>[nature].[vendor].[product]</strong>.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Configure the Component to be started immediately after configuration, i.e. it is not waiting till its service is required by another Component.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Define that the configuration of the Component is required before it gets activated.</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>We have an OSGi Component. To make it an OpenEMS Edge Component, we need to implement the <strong>OpenemsComponent</strong> interface. To ease the implementation of all required functionalities we can simply inherit from the <strong>AbstractOpenemsComponent</strong> class. As our device is connected using Modbus, there is an additional convinience layer in the form of the <strong>AbstractOpenemsModbusComponent</strong> available.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-In plain Java it is not required to add <code>implements OpenemsComponent</code> if we inherit from 'AbstractOpenemsComponent' or 'AbstractOpenemsModbusComponent'. Be aware that for OSGi dependency injection to function properly, it is stil required to mention all implemented interfaces again, as it is not considering the complete inheritance tree.
-</td>
-</tr>
-</table>
+</ul>
 </div>
 <div class="paragraph">
-<p>We adjust the code as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Designate(ocd = Config.class, factory = true)
-@Component(name = "Meter.SOCOMEC.DirisA14", //
-		immediate = true, //
-		configurationPolicy = ConfigurationPolicy.REQUIRE)
-public class MeterSocomecDirisA14 extends AbstractOpenemsModbusComponent implements OpenemsComponent { <i class="conum" data-value="1"></i><b>(1)</b>
-
-	@Activate
-	void activate(ComponentContext context, Config config) { <i class="conum" data-value="2"></i><b>(2)</b>
-		super.activate(context, config.service_pid(), config.id(), config.enabled(), config.modbusUnitId(), this.cm,
-				"Modbus", config.modbus_id()); <i class="conum" data-value="3"></i><b>(3)</b>
-	}
-
-	@Deactivate
-	protected void deactivate() {
-		super.deactivate(); <i class="conum" data-value="3"></i><b>(3)</b>
-	}
-
-}</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The class extends <strong>AbstractOpenemsModbusComponent</strong> and specifically implements <strong>OpenemsComponent</strong> again. This makes it an <a href="../coreconcepts.html#_openems_component" class="page">OpenEMS Component</a>.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The <strong>activate()</strong> method can be adjusted to not only take a Config object, but also provides a <em>ComponentContext</em>. OSGi takes care of providing both on activation of the Component.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>All logic for activating and deactivating the OpenEMS Component is hidden in the super class and just needs to be called from here.</td>
-</tr>
-</table>
+<p>Those natures require the simulated meter implementation to provide certain Channels, like "State" and "ActivePower". A common place to define and initialize those Channel-Objects is in a separate Utils class with a static <em>Utils.initializeChannels()</em> method. This method is later going to be called as early as possible by the component constructor, to be sure that the Channels are always defined and avoid NullPointerExceptions.</p>
 </div>
 <div class="paragraph">
-<p>Note that after this step you will still see two errors: Eclipse complains that we need to implement a method <code>defineModbusProtocol()</code> and that it does not know <code>this.cm</code>. We will fix that in the next two steps.</p>
-</div>
-</li>
-<li>
-<p>The <code>super.activate()</code> method requires an instance of <strong>ConfigurationAdmin</strong> as a parameter. The ConfigurationAdmin is an external service which can be provided to our Component via dependency injection. Using OSGi Declarative Services annotations we just need to add the following two lines within the class - OSGi takes care of the rest:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Reference
-protected ConfigurationAdmin cm;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This solves the first error. We can now refer to an instance of <em>ConfigurationAdmin</em> via <code>this.cm</code>.</p>
-</div>
-</li>
-<li>
-<p><em>AbstractOpenemsModbusComponent</em> requires us to implement a <strong>defineModbusProtocol()</strong> method that returns an instance of <strong>ModbusProtocol</strong>. The <em>ModbusProtocol</em> class maps Modbus addresses to OpenEMS <a href="../coreconcepts.html#<em>channel" class="page">Channels</a> and provides some conversion utilities. Instantiation of a _ModbusProtocol</em> object heavily uses the <a href="https://en.wikipedia.org/wiki/Builder_pattern#Java">Builder pattern <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
-protected ModbusProtocol defineModbusProtocol(int unitId) {
-    return new ModbusProtocol(unitId, <i class="conum" data-value="1"></i><b>(1)</b>
-            new FC3ReadRegistersTask(0xc558, Priority.HIGH, <i class="conum" data-value="2"></i><b>(2)</b>
-                    ...
-                    m(AsymmetricMeter.ChannelId.CURRENT_L1, new UnsignedDoublewordElement(0xc560)), <i class="conum" data-value="3"></i><b>(3)</b>
-                    ...
-                    m(SymmetricMeter.ChannelId.ACTIVE_POWER, new SignedDoublewordElement(0xc568),ElementToChannelConverter.SCALE_FACTOR_1), <i class="conum" data-value="4"></i><b>(4)</b>
-                    ...
-                    new DummyRegisterElement(0xc56C, 0xc56F), <i class="conum" data-value="5"></i><b>(5)</b>
-                    ...
-                    cm(new UnsignedDoublewordElement(0xc558)) <i class="conum" data-value="6"></i><b>(6)</b>
-                        .m(AsymmetricMeter.ChannelId.VOLTAGE_L1, ElementToChannelConverter.SCALE_FACTOR_1) //
-                        .m(SymmetricMeter.ChannelId.VOLTAGE, ElementToChannelConverter.SCALE_FACTOR_1) //
-                        .build(), //
-            ));
-}</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Creates a <strong>new ModbusProtocol</strong> instance. The Modbus <strong>Unit-ID</strong> - which is provided by the method itself - is the first parameter, followed by an arbitrary number of 'Tasks' (implemented as a Java varags array).</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td><strong>FC3ReadRegistersTask</strong> is an implementation of Modbus <a href="http://www.simplymodbus.ca/FC03.htm">function code 3 "Read Holding Registers" <span class="icon"><i class="fa fa-external-link"></i></span></a>. Its first parameter is the start address of the register block. The second parameter is a priority information that defines how often this register block needs to be queried. Following parameters are an arbitrary number of <strong>ModbusElements</strong></td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>This command uses the internal <strong>m()</strong> method to make a simple 1-to-1 mapping between the Modbus element at address <code>0xc560</code> and the Channel <em>AsymmetricMeter.ChannelId.CURRENT_L1</em>. The Modbus element is defined as a 32 bit doubleword element with an unsigned integer value.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>The <em>m()</em> method also takes an instance of <strong>ElementToChannelConverter</strong> as an additional parameter. This example uses <em>ElementToChannelConverter.SCALE_FACTOR_1</em> to add a scale factor to the conversion that converts a Modbus read value of "95" to a channel value of "950".</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>For Modbus registers that are empty or should be ignored, the <strong>DummyRegisterElement</strong> can be used.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>This example uses the internal method <strong>cm()</strong> which provides more advanced channel-to-element mapping functionalities. The example maps the Modbus element to two Channels.</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Using this principle a complete Modbus table consisting of multiple register blocks that need to be read or written with different Modbus function codes can be defined. For details have a look at the existing implementation classes inside the Modbus Bridge source code.</p>
-</div>
-</li>
-<li>
-<p>OpenEMS <a href="../coreconcepts.html" class="page">Channels</a> have a two-stage implementation. <em>Declaration</em> happens inside the Nature - for common Channels - and the Component - for custom Channels specific to the Device. <em>Definition</em> (i.e. instantiation of the Channel object) happens inside the Component.</p>
-<div class="paragraph">
-<p>For now we only used Channels defined by the Meter Nature, e.g. <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.meter.api/src/io/openems/edge/meter/api/SymmetricMeter.java">SymmetricMeter.ChannelId.ACTIVE_POWER' <span class="icon"><i class="fa fa-code"></i></span></a>. It is still good practice to add a skeleton for custom Channels <strong>Declaration</strong> to the Component implementation. We therefor add the following <em>Channel Declaration</em> block inside the class:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public enum ChannelId implements io.openems.edge.common.channel.doc.ChannelId { <i class="conum" data-value="1"></i><b>(1)</b>
-    ; <i class="conum" data-value="2"></i><b>(2)</b>
-    private final Doc doc;
-
-    private ChannelId(Doc doc) { <i class="conum" data-value="3"></i><b>(3)</b>
-        this.doc = doc;
-    }
-
-    public Doc doc() {
-        return this.doc;
-    }
-}</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Channel declarations are <strong>enum</strong> types implementing the ChannelId interface.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>This enum is empty, as we do not have custom Channels here.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>ChannelId enums require a Doc object that provides meta information about the Channel - e.g. the above ACTIVE_POWER Channel is defined as <code>ACTIVE_POWER(new Doc().type(OpenemsType.INTEGER).unit(Unit.WATT)</code></td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>After the Declaration of the Channels we also need the <strong>Definition</strong>.
-A good place for the Definition of the Channels is inside the object constructor, to be sure that the Channels are always defined and avoid NullPointerExceptions.
-It is good practice to move Channel definition to an external static <em>Utils.initializeChannels()</em> method to keep our Component file short and clean.
-We use Java Streams to facilitate the Definition of Channels</p>
+<p>The initialization method uses Java Streams and Enums to facilitate the Definition of Channels.</p>
 </div>
 <div class="paragraph">
 <p>Create a new file <strong>Utils.java</strong> with the following content:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.openems.edge.meter.socomec.dirisa14;
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.openems.edge.meter.simulated;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
 
 import io.openems.edge.common.channel.AbstractReadChannel;
 import io.openems.edge.common.channel.IntegerReadChannel;
-import io.openems.edge.common.channel.StateChannel;
+import io.openems.edge.common.channel.StateCollectorChannel;
 import io.openems.edge.common.component.OpenemsComponent;
-import io.openems.edge.meter.api.Meter;
-import io.openems.edge.meter.asymmetric.api.AsymmetricMeter;
-import io.openems.edge.meter.symmetric.api.SymmetricMeter;
+import io.openems.edge.meter.api.SymmetricMeter;
 
 public class Utils {
-	public static Stream&lt;? extends AbstractReadChannel&lt;?&gt;&gt; initializeChannels(MeterSocomecDirisA14 c) { <i class="conum" data-value="1"></i><b>(1)</b>
+	public static Stream&lt;? extends AbstractReadChannel&lt;?&gt;&gt; initializeChannels(MeterSimulated c) { <i class="conum" data-value="1"></i><b>(1)</b>
 		return Stream.of( //
 				Arrays.stream(OpenemsComponent.ChannelId.values()).map(channelId -&gt; { <i class="conum" data-value="2"></i><b>(2)</b>
 					switch (channelId) { <i class="conum" data-value="3"></i><b>(3)</b>
 					case STATE:
-						return new StateChannel(c, channelId); <i class="conum" data-value="4"></i><b>(4)</b>
-					}
-					return null;
-				}), Arrays.stream(Meter.ChannelId.values()).map(channelId -&gt; { <i class="conum" data-value="2"></i><b>(2)</b>
-					switch (channelId) { <i class="conum" data-value="3"></i><b>(3)</b>
-					case FREQUENCY:
-						return new IntegerReadChannel(c, channelId); <i class="conum" data-value="4"></i><b>(4)</b>
+						return new StateCollectorChannel(c, channelId); <i class="conum" data-value="4"></i><b>(4)</b>
 					}
 					return null;
 				}), Arrays.stream(SymmetricMeter.ChannelId.values()).map(channelId -&gt; { <i class="conum" data-value="2"></i><b>(2)</b>
 					switch (channelId) { <i class="conum" data-value="3"></i><b>(3)</b>
 					case ACTIVE_POWER:
+					case ACTIVE_CONSUMPTION_ENERGY:
+					case ACTIVE_PRODUCTION_ENERGY:
+					case CURRENT:
+					case FREQUENCY:
+					case MAX_ACTIVE_POWER:
+					case MIN_ACTIVE_POWER:
+					case REACTIVE_POWER:
+					case VOLTAGE:
 						return new IntegerReadChannel(c, channelId); <i class="conum" data-value="4"></i><b>(4)</b>
 					}
 					return null;
-				}), Arrays.stream(AsymmetricMeter.ChannelId.values()).map(channelId -&gt; { <i class="conum" data-value="2"></i><b>(2)</b>
-					switch (channelId) { <i class="conum" data-value="3"></i><b>(3)</b>
-					case ACTIVE_POWER_L1:
-					case ACTIVE_POWER_L2:
-					case ACTIVE_POWER_L3:
-						return new IntegerReadChannel(c, channelId); <i class="conum" data-value="4"></i><b>(4)</b>
-					}
-					return null;
-				})/*
-					 * , Arrays.stream(MeterSocomecDirisA14.ChannelId.values()).map(channelId -&gt; {
-					 * switch (channelId) { } return null; })
-					 */ //
-		).flatMap(channel -&gt; channel);
+				})).flatMap(channel -&gt; channel);
 	}
 }</code></pre>
 </div>
@@ -861,7 +567,25 @@ public class Utils {
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Using a switch-case statement each ChannelId can be evaluated. <em>Note:</em> Because we are using enums together with switch-case, Eclipse IDE is able to find out if we covered every Channel and post a warning if we did not.</td>
+<td>Using a switch-case statement each ChannelId can be evaluated.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Because we are using enums together with switch-case, Eclipse IDE is able to find out if we covered every Channel and post a warning like 'The enum constant CURRENT needs a corresponding case label in this enum switch on SymmetricMeter.ChannelId'. Eclipse IDE 'Quick Fix' provides an option 'Add missing case statements' that will generate the missing switch-cases for you.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/eclipse-channels-switch-case.png" alt="Eclipse IDE Quick Fix for switch-case">
+</div>
+<div class="title">Figure 11. Eclipse IDE Quick Fix for switch-case</div>
+</div></td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
@@ -869,65 +593,115 @@ public class Utils {
 </tr>
 </table>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_implement_the_openems_component"><a class="anchor" href="#_implement_the_openems_component"></a>1.5. Implement the OpenEMS Component</h3>
 <div class="paragraph">
-<p>Note that after this step you will see many warnings like 'The enum constant CURRENT needs a corresponding case label in this enum switch on SymmetricMeter.ChannelId'. Eclipse IDE 'Quick Fix' provides an option 'Add missing case statements' that will generate the missing switch-cases for you.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/eclipse-channels-switch-case.png" alt="Eclipse IDE Quick Fix for switch-case">
-</div>
-<div class="title">Figure 12. Eclipse IDE Quick Fix for switch-case</div>
+<p>The Bndtools assistant created a <code>ProviderImpl.java</code> file. First step is to set a proper name for this file. To rename the file, select it by clicking on it and choose <b class="button">Refactor</b> &#8594; <b class="button">Rename&#8230;&#8203;</b> in the menu. Write <code>MeterSimulated</code> as 'New name' and press <b class="button">Finish</b>.</p>
 </div>
 <div class="paragraph">
-<p>Finally we need to call the <em>Utils.initializeChannels()</em> from the Component constructor. Add the following code to the Component code. It receives a Stream of Channel objects and adds all of them to the Component using the <code>addChannel()</code> method.</p>
+<p>+
+.Renaming a Java class in Eclipse IDE
+image::eclipse-rename.png[Renaming a Java class in Eclipse IDE]</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public MeterSocomecDirisA14() {
-    Utils.initializeChannels(this).forEach(channel -&gt; this.addChannel(channel));
-}</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Our OpenEMS Component utilizes an external Modbus Component for the actual Modbus communication. We receive an instance of this service via dependency injection (like we did already for the <em>ConfigurationAdmin</em> service). Most of the magic is handled by the <em>AbstractOpenemsModbusComponent</em> implementation. We only need to add the following code to the Component:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Reference(policy = ReferencePolicy.STATIC, policyOption = ReferencePolicyOption.GREEDY, cardinality = ReferenceCardinality.MANDATORY)
-protected void setModbus(BridgeModbus modbus) {
-    super.setModbus(modbus);
-}</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>The Device that we are implementing provides the Natures <strong>SymmetricMeter, AsymmetricMeter and Meter</strong>. We already defined those in the <em>initializeChannels()</em> method. Additionally the Component also needs to implement the Nature interfaces.</p>
 <div class="paragraph">
-<p>Change the class declaration as follows:</p>
+<p>+
+Afterwards replace the content of <code>MeterSimulated.java</code> file with the following code:</p>
+</div>
+<div class="paragraph">
+<p>+</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MeterSocomecDirisA14 extends AbstractOpenemsModbusComponent
-		implements SymmetricMeter, AsymmetricMeter, Meter, OpenemsComponent {</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>The <strong>Meter</strong> Nature requires us to implement a <code>MeterType getMeterType()</code> method. The MeterType was provided by the Config, so we simply take the config parameter inside the <em>activate()</em> method:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private MeterType meterType = MeterType.PRODUCTION; <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.openems.edge.meter.simulated;
 
-@Activate
-void activate(ComponentContext context, Config config) {
-    // get Meter Type:
-    this.meterType = config.type(); <i class="conum" data-value="2"></i><b>(2)</b>
-    ...
-}
+import org.osgi.service.cm.ConfigurationAdmin;
+import org.osgi.service.component.ComponentContext;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.component.annotations.ReferencePolicyOption;
+import org.osgi.service.metatype.annotations.Designate;
 
-@Override
-public MeterType getMeterType() { <i class="conum" data-value="3"></i><b>(3)</b>
-    return this.meterType;
+import io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent;
+import io.openems.edge.bridge.modbus.api.BridgeModbus;
+import io.openems.edge.bridge.modbus.api.ModbusProtocol;
+import io.openems.edge.bridge.modbus.api.element.SignedWordElement;
+import io.openems.edge.bridge.modbus.api.task.FC3ReadRegistersTask;
+import io.openems.edge.common.channel.doc.Doc;
+import io.openems.edge.common.component.OpenemsComponent;
+import io.openems.edge.common.taskmanager.Priority;
+import io.openems.edge.meter.api.MeterType;
+import io.openems.edge.meter.api.SymmetricMeter;
+
+@Designate(ocd = Config.class, factory = true) <i class="conum" data-value="1"></i><b>(1)</b>
+@Component( <i class="conum" data-value="2"></i><b>(2)</b>
+	name = "Meter.Simulated", <i class="conum" data-value="3"></i><b>(3)</b>
+	immediate = true, <i class="conum" data-value="4"></i><b>(4)</b>
+	configurationPolicy = ConfigurationPolicy.REQUIRE) <i class="conum" data-value="5"></i><b>(5)</b>
+public class MeterSimulated extends AbstractOpenemsModbusComponent <i class="conum" data-value="6"></i><b>(6)</b>
+	implements SymmetricMeter, OpenemsComponent { <i class="conum" data-value="7"></i><b>(7)</b>
+
+	private MeterType meterType = MeterType.PRODUCTION;
+
+	@Reference
+	protected ConfigurationAdmin cm; <i class="conum" data-value="8"></i><b>(8)</b>
+
+	public MeterSimulated() {
+		Utils.initializeChannels(this).forEach(channel -&gt; this.addChannel(channel)); <i class="conum" data-value="9"></i><b>(9)</b>
+	}
+
+	@Reference(policy = ReferencePolicy.STATIC, policyOption = ReferencePolicyOption.GREEDY, cardinality = ReferenceCardinality.MANDATORY)
+	protected void setModbus(BridgeModbus modbus) {
+		super.setModbus(modbus); <i class="conum" data-value="10"></i><b>(10)</b>
+	}
+
+	@Activate
+	void activate(ComponentContext context, Config config) { <i class="conum" data-value="11"></i><b>(11)</b>
+		this.meterType = config.type();
+
+		super.activate(context, config.service_pid(), config.id(), config.enabled(), config.modbusUnitId(), this.cm,
+				"Modbus", config.modbus_id());
+	}
+
+	@Deactivate
+	protected void deactivate() { <i class="conum" data-value="12"></i><b>(12)</b>
+		super.deactivate();
+	}
+
+	public enum ChannelId implements io.openems.edge.common.channel.doc.ChannelId { <i class="conum" data-value="13"></i><b>(13)</b>
+		;
+		private final Doc doc;
+
+		private ChannelId(Doc doc) {
+			this.doc = doc;
+		}
+
+		public Doc doc() {
+			return this.doc;
+		}
+	}
+
+	@Override
+	public MeterType getMeterType() { <i class="conum" data-value="14"></i><b>(14)</b>
+		return this.meterType;
+	}
+
+	@Override
+	protected ModbusProtocol defineModbusProtocol() { <i class="conum" data-value="15"></i><b>(15)</b>
+		return new ModbusProtocol(this, <i class="conum" data-value="16"></i><b>(16)</b>
+				new FC3ReadRegistersTask(1000, Priority.HIGH, <i class="conum" data-value="17"></i><b>(17)</b>
+						m(SymmetricMeter.ChannelId.ACTIVE_POWER, new SignedWordElement(1000)))); <i class="conum" data-value="18"></i><b>(18)</b>
+	}
+
+	@Override
+	public String debugLog() { <i class="conum" data-value="19"></i><b>(19)</b>
+		return "L:" + this.getActivePower().value().asString();
+	}
 }</code></pre>
 </div>
 </div>
@@ -935,68 +709,275 @@ public MeterType getMeterType() { <i class="conum" data-value="3"></i><b>(3)</b>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Declare the class variable <em>meterType</em> with a default value.</td>
+<td>The <strong>@Designate</strong> annotation is used for OSGi to create a connection to the <em>Config</em> annotation class. It also defines this Component as a <em>factory</em>, i.e. it can produce multiple instances with different configurations.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Store the config parameter.</td>
+<td>The <strong>@Component</strong> annotation marks this class as an OSGi component.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Implement the <em>getMeterType()</em> method that returns the meterType.</td>
+<td>The <strong>name</strong> property sets the unique name of this component. It is used to store configuration in the filesystem, to identify the component inside Apache Felix Web Console, and so on. Configure a human-readable name in the form <strong>[nature].[vendor].[product]</strong>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The <strong>immediate</strong> property defines whether the component should be started immediately. Configure the Component to be started immediately after configuration, i.e. it is not waiting till its service is required by another Component.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>The <strong>configurationPolicy</strong> define that the configuration of the Component is required before it gets activated.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>To ease the implementation of a Modbus device we can extend the <strong>AbstractOpenemsModbusComponent</strong> class.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the device was using another protocol, it is advisable to use the <strong>AbstractOpenemsComponent</strong> class as a convenience layer instead of implementing everything required by the <strong>OpenemsComponent</strong> interface manually.
+</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>The class implements <strong>OpenemsComponent</strong>. This makes it an <a href="../coreconcepts.html#<em>openems_component" class="page">OpenEMS Component</a>.
+The Device that we are is a <strong>SymmetricMeter</strong>. We already defined the required Channels in the _initializeChannels()</em> method. Additionally the Component also needs to implement the Nature interface.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In plain Java it is not required to add <code>implements OpenemsComponent</code> if we inherit from 'AbstractOpenemsComponent' or 'AbstractOpenemsModbusComponent'. Be aware that for OSGi dependency injection to function properly, it is still required to mention all implemented interfaces again, as it is not considering the complete inheritance tree.
+</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>The <code>super.activate()</code> method requires an instance of <strong>ConfigurationAdmin</strong> as a parameter. Using the <strong>@Reference</strong> annotation the OSGi framework is going to provide the ConfigurationAdmin service via dependency injection.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>In the constructor the <em>Utils.initializeChannels()</em> method is called to <strong>initialize Channels</strong>. It receives a Stream of Channel objects and adds all of them to the Component using the <code>addChannel()</code> method.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td>The Component utilizes an external Modbus Component (the <em>Modbus Bridge</em>) for the actual Modbus communication. We receive an instance of this service via dependency injection (like we did already for the <em>ConfigurationAdmin</em> service). Most of the magic is handled by the <em>AbstractOpenemsModbusComponent</em> implementation, but the way the OSGi framework works, we need to define the <em>@Reference</em> explicitly here in the actual implementation of the component and call the parent <code>setModbus()</code> method.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="11"></i><b>11</b></td>
+<td>The <strong>activate()</strong> method (marked by the <strong>@Activate</strong> annotation) is called on activation of an object instance of this Component. It comes with a ComponentContext and an instance of a configuration in the form of a Config object. All logic for activating and deactivating the OpenEMS Component is hidden in the super classes and just needs to be called from here.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="12"></i><b>12</b></td>
+<td>The <strong>deactivate()</strong> method (marked by the <strong>@Deactivate</strong> annotation) is called on deactivation of the Component instance.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="13"></i><b>13</b></td>
+<td>The simulated implementation is only going to provide Channels defined by <em>OpenemsComponent</em> and <em>SymmetricMeter</em> natures. It is still good practice to add a skeleton for custom Channels to the Component implementation. We therefor add the <em>Channel Declaration</em> block inside the class.
+<div class="paragraph">
+<p>NOTE:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Channel declarations are <strong>enum</strong> types implementing the ChannelId interface.</p>
+</li>
+<li>
+<p>This enum is empty, as we do not have custom Channels here.</p>
+</li>
+<li>
+<p>ChannelId enums require a Doc object that provides meta information about the Channel - e.g. the above ACTIVE_POWER Channel is defined as <code>ACTIVE_POWER(new Doc().type(OpenemsType.INTEGER).unit(Unit.WATT)</code></p>
+</li>
+</ul>
+</div></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="14"></i><b>14</b></td>
+<td>The SymmetricMeter Nature requires us to provide a <strong>MeterType</strong> via a <code>MeterType getMeterType()</code> method. The MeterType is provided by the Config.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="15"></i><b>15</b></td>
+<td><em>AbstractOpenemsModbusComponent</em> requires to implement a <strong>defineModbusProtocol()</strong> method that returns an instance of <strong>ModbusProtocol</strong>. The <em>ModbusProtocol</em> class maps Modbus addresses to OpenEMS Channels and provides some conversion utilities. Instantiation of a <em>ModbusProtocol</em> object uses the <a href="https://en.wikipedia.org/wiki/Builder_pattern#Java">Builder pattern <span class="icon"><i class="fa fa-external-link"></i></span></a></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="16"></i><b>16</b></td>
+<td>Creates a <strong>new ModbusProtocol</strong> instance. A reference to the component itself is the first parameter, followed by an arbitrary number of 'Tasks' (implemented as a Java varags array).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="17"></i><b>17</b></td>
+<td><strong>FC3ReadRegistersTask</strong> is an implementation of Modbus <a href="http://www.simplymodbus.ca/FC03.htm">function code 3 "Read Holding Registers" <span class="icon"><i class="fa fa-external-link"></i></span></a>. Its first parameter is the start address of the register block. The second parameter is a priority information that defines how often this register block needs to be queried. Following parameters are an arbitrary number of <strong>ModbusElements</strong>.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Most Modbus function codes are available by their respective <em>FC*</em> implementation classes.
+</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="18"></i><b>18</b></td>
+<td>Here the internal <strong>m()</strong> method is used to make a simple 1-to-1 mapping between the Modbus element at address <code>1000</code> and the Channel <em>SymmetricMeter.ChannelId.ACTIVE_POWER</em>. The Modbus element is defined as a 16 bit word element with an signed integer value.
+<div class="paragraph">
+<p>NOTE:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <em>m()</em> method also takes an instance of <strong>ElementToChannelConverter</strong> as an additional parameter. It can be used to add implicit unit conversions between Modbus element and OpenEMS Channel - like adding a scale factor that converts a read value of '95' to a channel value of '950'.</p>
+</li>
+<li>
+<p>For Modbus registers that are empty or should be ignored, the <strong>DummyRegisterElement</strong> can be used.</p>
+</li>
+<li>
+<p>For more advanced channel-to-element mapping functionalities the internal <strong>cm()</strong> method can be used - e.g. to map one Modbus element to multiple Channels.</p>
+<div class="paragraph">
+<p>Using this principle a complete Modbus table consisting of multiple register blocks that need to be read or written with different Modbus function codes can be defined. For details have a look at the existing implementation classes inside the Modbus Bridge source code.</p>
+</div>
+</li>
+</ul>
+</div></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="19"></i><b>19</b></td>
+<td>Finally it is always a good idea to define a <strong>debugLog()</strong> method. This method is called in each cycle by the <strong>Controller.Debug.Log</strong> and very helpful for continuous debugging.</td>
 </tr>
 </table>
 </div>
-</li>
-<li>
-<p>Meter stores the <em>Min/MaxActivePower</em> as configuration parameters. This is handled internally and just needs to be initialized using the <strong>SymmetricMeter.<em>initializeMinMaxActivePower()</strong> method inside the _activate()</em> method.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">this._initializeMinMaxActivePower(this.cm, config.service_pid(), config.minActivePower(), config.maxActivePower());</code></pre>
+</div>
+<div class="sect2">
+<h3 id="_start_the_device_simulator"><a class="anchor" href="#_start_the_device_simulator"></a>1.6. Start the device simulator</h3>
+<div class="paragraph">
+<p>To start the device simulator, open the <b class="button">io.openems.edge.bridge.modbus</b> project and navigate to the <b class="button">test</b> &#8594; <b class="button">io.openems.edge.brige.modbus</b> folder. There you find the <b class="button">ModbusSlaveSimulator.java</b> file. Right-click that file and select <b class="button">Run As</b> &#8594; <b class="button">Java Application</b>.</p>
 </div>
 </div>
-</li>
-<li>
-<p>Finally it is always a good idea to define a <strong>debugLog()</strong> method. This method is called in each cycle by the <strong>Controller.Debug.Log</strong> and very helpful for continuous debugging:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
-public String debugLog() {
-    return "L:" + this.getActivePower().value().asString();
-}</code></pre>
+<div class="sect2">
+<h3 id="_enable_the_component"><a class="anchor" href="#_enable_the_component"></a>1.7. Enable the Component</h3>
+<div class="paragraph">
+<p>To enable the Component for running, open the <b class="button">io.openems.edge.application</b> project and open the <b class="button">EdgeApp.bndrun</b> file. Change to the <b class="button">Source</b> view and create two new lines to declare the new Component.</p>
+</div>
+<div class="paragraph">
+<p>First: somewhere below <strong>-runrequires: \</strong> add
+<code>osgi.identity;filter:='(osgi.identity=io.openems.edge.meter.simulated)',\</code></p>
+</div>
+<div class="paragraph">
+<p>Second: somewhere below <strong>-runbundles: \</strong> add
+<code>io.openems.edge.meter.simulated;version=snapshot,\</code></p>
+</div>
+<div class="paragraph">
+<p>You may have found, that the entries are sorted alphabetically.</p>
 </div>
 </div>
-</li>
-<li>
-<p>To actually run the Component, open the <strong>io.openems.edge.application</strong> project and open the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.application/EdgeApp.bndrun">EdgeApp.bndrun <span class="icon"><i class="fa fa-code"></i></span></a> file. Search for your Bundle and drag-and-drop it to the <strong>Run Requirements</strong>.</p>
+<div class="sect2">
+<h3 id="_run_the_implementation"><a class="anchor" href="#_run_the_implementation"></a>1.8. Run the implementation</h3>
+<div class="paragraph">
+<p>Switch back to <b class="button">Run</b> view and press <b class="button">Run OSGi</b> to run OpenEMS Edge.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/eclipse-edgeapp-bndrun.png" alt="Eclipse IDE EdgeApp.bndrun">
 </div>
-<div class="title">Figure 13. Eclipse IDE EdgeApp.bndrun</div>
+<div class="title">Figure 12. Eclipse IDE EdgeApp.bndrun</div>
 </div>
 <div class="paragraph">
-<p>Press <b class="button">Resolve</b> to dissolve the dependencies and accept the <em>Resolution Results</em> window with <b class="button">Finish</b>.</p>
+<p>From then you can configure your component as shown in <a href="../gettingstarted.html" class="page">Getting Started</a> guide. Add the following configurations inside Apache Felix Web Console:</p>
 </div>
-<div class="paragraph">
-<p>Then press <b class="button">Run OSGi</b> to run OpenEMS Edge. From then you can configure your component as shown in gettingstarted.adoc[Getting Started].</p>
-</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Controller Debug Log</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>ID: <code>ctrlDebugLog0</code></p>
 </li>
-</ol>
+<li>
+<p>Enabled: <code>checked</code></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Scheduler All Alphabetically</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>ID: <code>scheduler0</code></p>
+</li>
+<li>
+<p>Enabled: <code>checked</code></p>
+</li>
+<li>
+<p>Cycle time: <code>1000</code></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Bridge Modbus/TCP</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>ID: <code>modbus0</code></p>
+</li>
+<li>
+<p>IP-Address: <code>localhost</code></p>
+</li>
+<li>
+<p>Enabled: <code>checked</code></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Meter Simulated</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>ID: <code>meter0</code></p>
+</li>
+<li>
+<p>Enabled: <code>checked</code></p>
+</li>
+<li>
+<p>Meter-Type: <code>PRODUCTION</code></p>
+</li>
+<li>
+<p>Modbus-ID: <code>modbus0</code></p>
+</li>
+<li>
+<p>Modbus Unit-ID: <code>1</code></p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>In the Eclipse IDE console log you should see an output like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>2018-11-14 23:03:03,898 [Executor] INFO  [e.controller.debuglog.DebugLog] [ctrlDebugLog0] _sum[Ess SoC:0 %|L:0 W Grid:0 W Production:500 W Consumption L:500 W] meter0[L:500 W]</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>It shows a Production of <code>500 W</code> which is what is provided by the simulated meter device. Congrats!</p>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_synchronize_device_communication"><a class="anchor" href="#_synchronize_device_communication"></a>2. Synchronize device communication</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_active_reactive_power_control_of_a_battery_inverter"><a class="anchor" href="#_active_reactive_power_control_of_a_battery_inverter"></a>3. Active/Reactive power control of a battery inverter</h2>
-<div class="sectionbody">
-
 </div>
 </div>
 </article>
