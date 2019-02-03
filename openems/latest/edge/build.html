@@ -100,6 +100,9 @@
     <a class="nav-link" href="../backend/backend-to-backend.html">Backend-to-Backend</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../backend/build.html">Build OpenEMS Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../backend/deploy.html">Deploy OpenEMS Backend</a>
   </li>
 </ul>
@@ -162,8 +165,7 @@
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_build_using_eclipse_ide">1. Build using Eclipse IDE</a></li>
-<li><a href="#_build_using_bnd_from_command_line">2. Build using bnd from command line</a></li>
-<li><a href="#_build_using_gradle_from_command_line">3. Build using Gradle from command line</a></li>
+<li><a href="#_build_using_gradle_from_command_line">2. Build using Gradle from command line</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -219,28 +221,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_build_using_bnd_from_command_line"><a class="anchor" href="#_build_using_bnd_from_command_line"></a>2. Build using bnd from command line</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Install bnd on the command line. See <a href="https://github.com/bndtools/bnd/wiki/Install-bnd-on-the-command-line">bnd wiki <span class="icon"><i class="fa fa-external-link"></i></span></a> for details. (Following I assume that you download the biz.aQute.bnd.jar file to the parent directory of your repository.)</p>
-</li>
-<li>
-<p>Open a console and change to your repository directory.</p>
-</li>
-<li>
-<p>Execute <code>java -jar tools/biz.aQute.bnd.jar package -o openems-edge.jar io.openems.edge.application\EdgeApp.bndrun</code></p>
-</li>
-<li>
-<p>This creates a Fat-JAR 'openems-edge.jar' in the base directory of the repository.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_build_using_gradle_from_command_line"><a class="anchor" href="#_build_using_gradle_from_command_line"></a>3. Build using Gradle from command line</h2>
+<h2 id="_build_using_gradle_from_command_line"><a class="anchor" href="#_build_using_gradle_from_command_line"></a>2. Build using Gradle from command line</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://gradle.org/">Gradle</a> is a build tool that is used in the OpenEMS project to compile the JAR-files and to execute other tasks like building the documentation webpage using <a href="https://antora.org/">Antora</a> and the Javadocs. To build OpenEMS Edge:</p>
@@ -251,7 +232,7 @@
 <p>Open a console and change to your repository directory.</p>
 </li>
 <li>
-<p>Execute <code>gradlew java --continue</code></p>
+<p>Execute <code>gradlew buildEdge</code></p>
 </li>
 </ol>
 </div>
