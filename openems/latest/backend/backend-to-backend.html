@@ -349,6 +349,9 @@
 <div class="paragraph">
 <p>Registers a subscription for regular updates of channel values. Request is acknowledged by an empty success Response and followed by regular JSON-RPC Notifications. Du stop the subscription, an empty 'subscribeEdgesChannels' Request needs to be sent.</p>
 </div>
+<div class="paragraph">
+<p>The parameter "count" must be increased with each new Request. Only the Request with the highest "count" value is active.</p>
+</div>
 <div class="sect3">
 <h4 id="_request_3"><a class="anchor" href="#_request_3"></a>3.3.1. Request</h4>
 <div class="listingblock">
@@ -358,6 +361,7 @@
   "id":"UUID",
   "method":"subscribeEdgesChannels",
   "params":{
+    "count": 0
     "ids":[
       "edge0",
       "edge1"
