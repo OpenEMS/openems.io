@@ -163,9 +163,9 @@
 <h1>Deploy OpenEMS Edge</h1>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
-<ul class="sectlevel2">
+<ul class="sectlevel1">
 <li><a href="#_prepare_operating_system_environment">1. Prepare operating system environment</a>
-<ul class="sectlevel3">
+<ul class="sectlevel2">
 <li><a href="#_create_an_application_directory">1.1. Create an application directory</a></li>
 <li><a href="#_create_a_config_directory">1.2. Create a config directory</a></li>
 <li><a href="#_create_a_systemd_service_definition">1.3. Create a systemd service definition</a></li>
@@ -181,8 +181,9 @@
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_prepare_operating_system_environment"><a class="anchor" href="#_prepare_operating_system_environment"></a>1. Prepare operating system environment</h3>
+<div class="sect1">
+<h2 id="_prepare_operating_system_environment"><a class="anchor" href="#_prepare_operating_system_environment"></a>1. Prepare operating system environment</h2>
+<div class="sectionbody">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -195,8 +196,8 @@ It is recommended to run every service on a server with limited permissions. Thi
 </tr>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_create_an_application_directory"><a class="anchor" href="#_create_an_application_directory"></a>1.1. Create an application directory</h4>
+<div class="sect2">
+<h3 id="_create_an_application_directory"><a class="anchor" href="#_create_an_application_directory"></a>1.1. Create an application directory</h3>
 <div class="paragraph">
 <p>Create the directory <strong>/opt/openems-backend</strong>. This is going to be the place, where we put the JAR file.</p>
 </div>
@@ -204,8 +205,8 @@ It is recommended to run every service on a server with limited permissions. Thi
 <p>Execute <code>mkdir /opt/openems-backend</code>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_create_a_config_directory"><a class="anchor" href="#_create_a_config_directory"></a>1.2. Create a config directory</h4>
+<div class="sect2">
+<h3 id="_create_a_config_directory"><a class="anchor" href="#_create_a_config_directory"></a>1.2. Create a config directory</h3>
 <div class="paragraph">
 <p>Create the directory <strong>/opt/openems-backend/config.d</strong>. This is going to be the place, where all the bundle configurations are held.</p>
 </div>
@@ -213,8 +214,8 @@ It is recommended to run every service on a server with limited permissions. Thi
 <p>Execute <code>mkdir /opt/openems-backend/config.d</code>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_create_a_systemd_service_definition"><a class="anchor" href="#_create_a_systemd_service_definition"></a>1.3. Create a systemd service definition</h4>
+<div class="sect2">
+<h3 id="_create_a_systemd_service_definition"><a class="anchor" href="#_create_a_systemd_service_definition"></a>1.3. Create a systemd service definition</h3>
 <div class="paragraph">
 <p>The systemd 'Service Manager' manages system processes in a Debian Linux. We will create a systemd service definition file, so that systemd takes care of managing (starting/restarting/&#8230;&#8203;) the OpenEMS Backend service.</p>
 </div>
@@ -297,8 +298,8 @@ WantedBy=multi-user.target</pre>
 </ol>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_start_openems_backend"><a class="anchor" href="#_start_openems_backend"></a>1.4. Start OpenEMS Backend</h4>
+<div class="sect2">
+<h3 id="_start_openems_backend"><a class="anchor" href="#_start_openems_backend"></a>1.4. Start OpenEMS Backend</h3>
 <div class="paragraph">
 <p>To update the OpenEMS JAR file at the target device, it is required to copy the JAR file from your build directory to <code>/opt/openems-backend/openems-backend.jar</code> on the server. Afterwards it is required to restart the systemd service</p>
 </div>
@@ -314,6 +315,7 @@ WantedBy=multi-user.target</pre>
 </div>
 </li>
 </ol>
+</div>
 </div>
 </div>
 </div>
