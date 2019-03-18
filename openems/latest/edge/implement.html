@@ -166,11 +166,10 @@
 <li><a href="#_create_a_new_osgi_bundle">1.1. Create a new OSGi Bundle</a></li>
 <li><a href="#_define_bundle_dependencies">1.2. Define Bundle dependencies</a></li>
 <li><a href="#_define_configuration_parameters">1.3. Define configuration parameters</a></li>
-<li><a href="#_initialize_channels">1.4. Initialize Channels</a></li>
-<li><a href="#_implement_the_openems_component">1.5. Implement the OpenEMS Component</a></li>
-<li><a href="#_start_the_device_simulator">1.6. Start the device simulator</a></li>
-<li><a href="#_enable_the_component">1.7. Enable the Component</a></li>
-<li><a href="#_run_the_implementation">1.8. Run the implementation</a></li>
+<li><a href="#_implement_the_openems_component">1.4. Implement the OpenEMS Component</a></li>
+<li><a href="#_start_the_device_simulator">1.5. Start the device simulator</a></li>
+<li><a href="#_enable_the_component">1.6. Enable the Component</a></li>
+<li><a href="#_run_the_implementation">1.7. Run the implementation</a></li>
 </ul>
 </li>
 </ul>
@@ -491,114 +490,7 @@ import io.openems.edge.meter.api.MeterType;
 </div>
 </div>
 <div class="sect2">
-<h3 id="_initialize_channels"><a class="anchor" href="#_initialize_channels"></a>1.4. Initialize Channels</h3>
-<div class="paragraph">
-<p>Next step is to actually implement the OpenEMS Component as an OSGi Bundle.</p>
-</div>
-<div class="paragraph">
-<p>The simulated meter is going to implement</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>the "OpenemsComponent" nature - like every OpenEMS Component</p>
-</li>
-<li>
-<p>the "SymmetricMeter" nature - for a three-phase symmetric meter</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Those natures require the simulated meter implementation to provide certain Channels, like "State" and "ActivePower". A common place to define and initialize those Channel-Objects is in a separate Utils class with a static <em>Utils.initializeChannels()</em> method. This method is later going to be called as early as possible by the component constructor, to be sure that the Channels are always defined and avoid NullPointerExceptions.</p>
-</div>
-<div class="paragraph">
-<p>The initialization method uses Java Streams and Enums to facilitate the Definition of Channels.</p>
-</div>
-<div class="paragraph">
-<p>Create a new file <strong>Utils.java</strong> with the following content:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.openems.edge.meter.simulated;
-
-import java.util.Arrays;
-import java.util.stream.Stream;
-
-import io.openems.edge.common.channel.AbstractReadChannel;
-import io.openems.edge.common.channel.IntegerReadChannel;
-import io.openems.edge.common.channel.StateCollectorChannel;
-import io.openems.edge.common.component.OpenemsComponent;
-import io.openems.edge.meter.api.SymmetricMeter;
-
-public class Utils {
-	public static Stream&lt;? extends AbstractReadChannel&lt;?&gt;&gt; initializeChannels(MeterSimulated c) { <i class="conum" data-value="1"></i><b>(1)</b>
-		return Stream.of( //
-				Arrays.stream(OpenemsComponent.ChannelId.values()).map(channelId -&gt; { <i class="conum" data-value="2"></i><b>(2)</b>
-					switch (channelId) { <i class="conum" data-value="3"></i><b>(3)</b>
-					case STATE:
-						return new StateCollectorChannel(c, channelId); <i class="conum" data-value="4"></i><b>(4)</b>
-					}
-					return null;
-				}), Arrays.stream(SymmetricMeter.ChannelId.values()).map(channelId -&gt; { <i class="conum" data-value="2"></i><b>(2)</b>
-					switch (channelId) { <i class="conum" data-value="3"></i><b>(3)</b>
-					case ACTIVE_POWER:
-					case ACTIVE_CONSUMPTION_ENERGY:
-					case ACTIVE_PRODUCTION_ENERGY:
-					case CURRENT:
-					case FREQUENCY:
-					case MAX_ACTIVE_POWER:
-					case MIN_ACTIVE_POWER:
-					case REACTIVE_POWER:
-					case VOLTAGE:
-						return new IntegerReadChannel(c, channelId); <i class="conum" data-value="4"></i><b>(4)</b>
-					}
-					return null;
-				})).flatMap(channel -&gt; channel);
-	}
-}</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The static <strong>initializeChannels()</strong> method returns a Java Stream of Channel objects.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Using Streams the Java lambda function is called for each declared ChannelId. This command is repeated for every Nature that is implemented by the OpenEMS Component.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Using a switch-case statement each ChannelId can be evaluated.
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Because we are using enums together with switch-case, Eclipse IDE is able to find out if we covered every Channel and post a warning like 'The enum constant CURRENT needs a corresponding case label in this enum switch on SymmetricMeter.ChannelId'. Eclipse IDE 'Quick Fix' provides an option 'Add missing case statements' that will generate the missing switch-cases for you.
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/eclipse-channels-switch-case.png" alt="Eclipse IDE Quick Fix for switch-case">
-</div>
-<div class="title">Figure 11. Eclipse IDE Quick Fix for switch-case</div>
-</div></td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>This line creates the actual Definition of the Channel and returns a Channel object instance of the required type.</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_implement_the_openems_component"><a class="anchor" href="#_implement_the_openems_component"></a>1.5. Implement the OpenEMS Component</h3>
+<h3 id="_implement_the_openems_component"><a class="anchor" href="#_implement_the_openems_component"></a>1.4. Implement the OpenEMS Component</h3>
 <div class="paragraph">
 <p>The Bndtools assistant created a <code>ProviderImpl.java</code> file. First step is to set a proper name for this file. To rename the file, select it by clicking on it and choose <b class="button">Refactor</b> &#8594; <b class="button">Rename&#8230;&#8203;</b> in the menu. Write <code>MeterSimulated</code> as 'New name' and press <b class="button">Finish</b>.</p>
 </div>
@@ -606,7 +498,7 @@ Because we are using enums together with switch-case, Eclipse IDE is able to fin
 <div class="content">
 <img src="../_images/eclipse-rename.png" alt="Renaming a Java class in Eclipse IDE">
 </div>
-<div class="title">Figure 12. Renaming a Java class in Eclipse IDE</div>
+<div class="title">Figure 11. Renaming a Java class in Eclipse IDE</div>
 </div>
 <div class="paragraph">
 <p>Afterwards replace the content of <code>MeterSimulated.java</code> file with the following code:</p>
@@ -652,7 +544,10 @@ public class MeterSimulated extends AbstractOpenemsModbusComponent <i class="con
 	protected ConfigurationAdmin cm; <i class="conum" data-value="8"></i><b>(8)</b>
 
 	public MeterSimulated() {
-		Utils.initializeChannels(this).forEach(channel -&gt; this.addChannel(channel)); <i class="conum" data-value="9"></i><b>(9)</b>
+		super(<i class="conum" data-value="9"></i><b>(9)</b>
+				OpenemsComponent.ChannelId.values(), //
+				SymmetricMeter.ChannelId.values() //
+		);
 	}
 
 	@Reference(policy = ReferencePolicy.STATIC, policyOption = ReferencePolicyOption.GREEDY, cardinality = ReferenceCardinality.MANDATORY)
@@ -766,7 +661,7 @@ In plain Java it is not required to add <code>implements OpenemsComponent</code>
 </tr>
 <tr>
 <td><i class="conum" data-value="9"></i><b>9</b></td>
-<td>In the constructor the <em>Utils.initializeChannels()</em> method is called to <strong>initialize Channels</strong>. It receives a Stream of Channel objects and adds all of them to the Component using the <code>addChannel()</code> method.</td>
+<td>We call the constructor of the super class (<code>AbstractOpenemsModbusComponent</code>/<code>AbstractOpenemsComponent</code>) to initialize the Channels of the Component. It is important to list all ChannelId-Enums of all implemented Natures. The call takes the <strong>ChannelId</strong> declarations and creates a Channel instance for each of them; e.g. for the <code>SymmetricMeter.ACTIVE_POWER</code> ChannelId, an object instance of <code>IntegerReadChannel</code> is created that represents the Channel.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="10"></i><b>10</b></td>
@@ -872,7 +767,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </div>
 </div>
 <div class="sect2">
-<h3 id="_start_the_device_simulator"><a class="anchor" href="#_start_the_device_simulator"></a>1.6. Start the device simulator</h3>
+<h3 id="_start_the_device_simulator"><a class="anchor" href="#_start_the_device_simulator"></a>1.5. Start the device simulator</h3>
 <div class="paragraph">
 <p>To start the device simulator, open the <b class="button">io.openems.edge.bridge.modbus</b> project and navigate to the <b class="button">test</b> &#8594; <b class="button">io.openems.edge.brige.modbus</b> folder. There you find the <b class="button">ModbusSlaveSimulator.java</b> file. Right-click that file and select <b class="button">Run As</b> &#8594; <b class="button">Java Application</b>.</p>
 </div>
@@ -919,7 +814,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </div>
 </div>
 <div class="sect2">
-<h3 id="_enable_the_component"><a class="anchor" href="#_enable_the_component"></a>1.7. Enable the Component</h3>
+<h3 id="_enable_the_component"><a class="anchor" href="#_enable_the_component"></a>1.6. Enable the Component</h3>
 <div class="paragraph">
 <p>To enable the Component for running, open the <b class="button">io.openems.edge.application</b> project and open the <b class="button">EdgeApp.bndrun</b> file. Change to the <b class="button">Source</b> view and create two new lines to declare the new Component.</p>
 </div>
@@ -936,7 +831,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </div>
 </div>
 <div class="sect2">
-<h3 id="_run_the_implementation"><a class="anchor" href="#_run_the_implementation"></a>1.8. Run the implementation</h3>
+<h3 id="_run_the_implementation"><a class="anchor" href="#_run_the_implementation"></a>1.7. Run the implementation</h3>
 <div class="paragraph">
 <p>Switch back to <b class="button">Run</b> view and press <b class="button">Run OSGi</b> to run OpenEMS Edge.</p>
 </div>
@@ -944,7 +839,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="../_images/eclipse-edgeapp-bndrun.png" alt="Eclipse IDE EdgeApp.bndrun">
 </div>
-<div class="title">Figure 13. Eclipse IDE EdgeApp.bndrun</div>
+<div class="title">Figure 12. Eclipse IDE EdgeApp.bndrun</div>
 </div>
 <div class="paragraph">
 <p>From then you can configure your component as shown in <a href="../gettingstarted.html" class="page">Getting Started</a> guide. Add the following configurations inside Apache Felix Web Console:</p>
