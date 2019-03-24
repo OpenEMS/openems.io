@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implemented Controllers :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/apps/controllers.html">
+    <meta name="keywords" content="AsciiDoc">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="icon" href="../../../../_/img/feneco.ico" type="image/x-icon">
+<link rel="stylesheet" href="../../../../_/css/vendor/docsearch.min.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar" color="#2d8fab">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://github.com/OpenEMS/openems">OpenEMS // Docs</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+          <span class="gitlink">
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header><div class="main-wrapper">
+<div class="navigation-container" data-component="openems" data-version="latest">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hardware.html">Hardware</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Apps</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="controllers.html">Implemented Controllers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="devices.html">Implemented Devices</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="schedulers.html">Implemented Schedulers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="timedata.html">Timedata services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="utils.html">Helpful utilities</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploy.html">Deploy OpenEMS Edge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/build.html">Build OpenEMS Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/deploy.html">Deploy OpenEMS Backend</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../simulation.html">Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../documentation.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../randd.html">Research and Development</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Open Energy Management System</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../../introduction.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../../introduction.html">Open Energy Management System</a></li>
+    <li class="crumb">OpenEMS Edge</li>
+    <li class="crumb">Apps</li>
+    <li class="crumb"><a href="controllers.html">Implemented Controllers</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/travis/build/OpenEMS/openems/doc/modules/ROOT/pages/edge/apps/controllers.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Implemented Controllers</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_api_backend">1. Api Backend</a></li>
+<li><a href="#_api_modbus">2. Api Modbus</a></li>
+<li><a href="#_api_rest">3. Api REST</a></li>
+<li><a href="#_api_websocket">4. Api Websocket</a></li>
+<li><a href="#_asymmetric_balancing_cos_phi">5. Asymmetric Balancing Cos-Phi</a></li>
+<li><a href="#_asymmetric_fix_active_power">6. Asymmetric Fix Active Power</a></li>
+<li><a href="#_asymmetric_fix_reactive_power">7. Asymmetric Fix Reactive Power</a></li>
+<li><a href="#_asymmetric_phase_rectification">8. Asymmetric Phase Rectification</a></li>
+<li><a href="#_channel_threshold">9. Channel-Threshold</a></li>
+<li><a href="#_chp_control_via_state_of_charge_soc">10. CHP control via State-of-Charge (SoC)</a></li>
+<li><a href="#_detailed_debug_log">11. Detailed Debug Log</a></li>
+<li><a href="#_debug_log">12. Debug Log</a></li>
+<li><a href="#_ess_limit_total_discharge">13. ESS Limit Total Discharge</a></li>
+<li><a href="#_ess_one_full_cycle">14. ESS One Full Cycle</a></li>
+<li><a href="#_evcs_fix_active_power">15. EVCS Fix Active Power</a></li>
+<li><a href="#_evcs">16. EVCS</a></li>
+<li><a href="#_high_load_timeslot">17. High-Load Timeslot</a></li>
+<li><a href="#_io_fix_digital_output">18. IO Fix Digital Output</a></li>
+<li><a href="#_pv_inverter_fix_power_limit">19. PV-Inverter Fix Power Limit</a></li>
+<li><a href="#_symmetric_balancing">20. Symmetric Balancing</a></li>
+<li><a href="#_symmetric_balancing_schedule">21. Symmetric Balancing Schedule</a></li>
+<li><a href="#_symmetric_fix_active_power">22. Symmetric Fix Active Power</a></li>
+<li><a href="#_symmetric_fix_reactive_power">23. Symmetric Fix Reactive Power</a></li>
+<li><a href="#_symmetric_limit_active_power">24. Symmetric Limit Active Power</a></li>
+<li><a href="#_symmetric_linear_power_band">25. Symmetric Linear Power Band</a></li>
+<li><a href="#_symmetric_peak_shaving">26. Symmetric Peak-Shaving</a></li>
+<li><a href="#_symmetric_random_power">27. Symmetric Random-Power</a></li>
+<li><a href="#_symmetric_reactive_power_voltage_characterictics">28. Symmetric Reactive-Power Voltage-Characterictics</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following control algorithms are available for OpenEMS Edge.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_backend"><a class="anchor" href="#_api_backend"></a>1. Api Backend</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Connects to OpenEMS Backend and sends all Channel data regularly. It is implemented as a Controller, as Channels can be written from OpenEMS Backend.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.backend">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_modbus"><a class="anchor" href="#_api_modbus"></a>2. Api Modbus</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Provides a Modbus-Slave implementation for OpenEMS Edge. It provides access to Channels from an external device via Modbus/TCP.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.modbus">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_rest"><a class="anchor" href="#_api_rest"></a>3. Api REST</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Provides a JSON/REST implementation for OpenEMS Edge. It provides access to Channels and JSON-RPC Requests from an external device via JSON/REST.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.rest">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_websocket"><a class="anchor" href="#_api_websocket"></a>4. Api Websocket</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Provides a JSON/REST implementation via HTTP Websocket for OpenEMS Edge. It provides access to Channels and JSON-RPC Requests from an external device via Websocket. This Controller is used for local connection of OpenEMS UI.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.websocket">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asymmetric_balancing_cos_phi"><a class="anchor" href="#_asymmetric_balancing_cos_phi"></a>5. Asymmetric Balancing Cos-Phi</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls an asymmetric energy storage system in self-consumption optimization mode while keeping the grid meter on a defined cos-phi.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.asymmetric.balancingcosphi">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asymmetric_fix_active_power"><a class="anchor" href="#_asymmetric_fix_active_power"></a>6. Asymmetric Fix Active Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed active power for charging/discharging of an asymmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.asymmetric.fixactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asymmetric_fix_reactive_power"><a class="anchor" href="#_asymmetric_fix_reactive_power"></a>7. Asymmetric Fix Reactive Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed reactive power for an asymmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.asymmetric.fixreactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asymmetric_phase_rectification"><a class="anchor" href="#_asymmetric_phase_rectification"></a>8. Asymmetric Phase Rectification</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Balances the three phases at the grid using an asymmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.asymmetric.phaserectification">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_channel_threshold"><a class="anchor" href="#_channel_threshold"></a>9. Channel-Threshold</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Generic Controller that sets a digital output according to the value of given Channel - e.g. turn a Relay on, when battery state of charge is above a given threshold.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.channelthreshold">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_chp_control_via_state_of_charge_soc"><a class="anchor" href="#_chp_control_via_state_of_charge_soc"></a>10. CHP control via State-of-Charge (SoC)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls a CHP device. Signals the CHP to turn on when battery SoC is low; signal it to turn off when SoC is high.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.chp.soc">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_detailed_debug_log"><a class="anchor" href="#_detailed_debug_log"></a>11. Detailed Debug Log</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Constantly shows the values of all Channels of a Component on the console. Primarily used for developing and debugging.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.debug.detailedlog">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_debug_log"><a class="anchor" href="#_debug_log"></a>12. Debug Log</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Constantly shows the most important values of all Components on the console. This is often activated by default to be able to track the running system easily.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.debug.log">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ess_limit_total_discharge"><a class="anchor" href="#_ess_limit_total_discharge"></a>13. ESS Limit Total Discharge</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Limits the discharge power of an energy storage system according to its State-of-Charge, e.g. to keep energy for emergency power or to avoid deep discharge.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.limittotaldischarge">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ess_one_full_cycle"><a class="anchor" href="#_ess_one_full_cycle"></a>14. ESS One Full Cycle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Executes a full charge/discharge cycle with an energy storage system. This can be used to let the Battery Management System (BMS) reset its reference points for State-of-Charge calculattion.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.onefullcycle">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>15. EVCS Fix Active Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed maximum charge power to an Electric Vehicle Charging Station (EVCS).</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.evcs.fixactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_evcs"><a class="anchor" href="#_evcs"></a>16. EVCS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls an Electric Vehicle Charging Station (EVCS) in different modes, like "Force-Charge" and "Surplus Energy Charging".</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.evcs">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>17. High-Load Timeslot</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls an energy storage system for a High-Load timeslot application (German "Hochlastzeitfenster").</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.highloadtimeslot">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>18. IO Fix Digital Output</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a digital output statically ON or OFF.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.io.fixdigitaloutput">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>19. PV-Inverter Fix Power Limit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed power limit for PV-Inverter production.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.pvinverter.fixpowerlimit">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>20. Symmetric Balancing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls a symmetric energy storage system in self-consumption optimization mode.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.balancing">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>21. Symmetric Balancing Schedule</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls a symmetric energy storage system in self-consumption optimization mode. Allows the definition of a Schedule to set the target power on the grid meter. This Controller can be controlled using the OpenEMS Backend-to-Backend interface.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.balancingschedule">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>22. Symmetric Fix Active Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed active power for charging/discharging of a symmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.fixactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>23. Symmetric Fix Reactive Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed reactive power for a symmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.fixreactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>24. Symmetric Limit Active Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.limitactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>25. Symmetric Linear Power Band</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Executes a test cycle for a symmetric energy storage system by increasing and decreasing the charging/discharging power in given limits.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.linearpowerband">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>26. Symmetric Peak-Shaving</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.peakshaving">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>27. Symmetric Random-Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.randompower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_reactive_power_voltage_characterictics"><a class="anchor" href="#_symmetric_reactive_power_voltage_characterictics"></a>28. Symmetric Reactive-Power Voltage-Characterictics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls a symmetric energy storage system using a Q-by-U reference function.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.reactivepowervoltagecharacteristic">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<script src="../../../../_/js/site.js"></script>
+<script src="../../../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>
