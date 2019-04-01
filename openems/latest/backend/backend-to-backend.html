@@ -223,7 +223,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>OpenEMS Backend provides a "Backend-to-Backend-Api", that provides a way to communicate with one or more OpenEMS Edge devices via backend connection. It is designed as a JSON-RPC communication protocol via Websocket connection.</p>
+<p>OpenEMS Backend provides two "Backend-to-Backend-Api" implementations, that provide a way to communicate with one or more OpenEMS Edge devices via backend connection. They are designed using the JSON-RPC communication protocol via REST/JSON (<em>io.openems.backend.b2brest</em>) or via Websocket (<em>io.openems.backend.b2bwebsocket</em>) connection.</p>
 </div>
 </div>
 </div>
@@ -231,7 +231,7 @@
 <h2 id="_authentication"><a class="anchor" href="#_authentication"></a>1. Authentication</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>BasicAuth on opening of the Websocket connection.</p>
+<p>BasicAuth on opening of the connection.</p>
 </div>
 </div>
 </div>
@@ -257,6 +257,18 @@
   }
 }</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Properties <code>id</code> and <code>jsonrpc</code> can be omitted for JSON/REST, as they are not required for HTTP POST calls.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
