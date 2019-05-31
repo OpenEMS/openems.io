@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST-Api Controller :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/controller.adoc.d/io.openems.edge.controller.api.rest.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="icon" href="../../../../_/img/feneco.ico" type="image/x-icon">
+<link rel="stylesheet" href="../../../../_/css/vendor/docsearch.min.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar" color="#2d8fab">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://github.com/OpenEMS/openems">OpenEMS // Docs</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+          <span class="gitlink">
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header><div class="main-wrapper">
+<div class="navigation-container" data-component="openems" data-version="latest">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../nature.html">Nature</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../bridge.html">Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../device_service.html">Device &amp; Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploy.html">Deploy OpenEMS Edge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/build.html">Build OpenEMS Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/deploy.html">Deploy OpenEMS Backend</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../simulation.html">Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../documentation.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../randd.html">Research and Development</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Open Energy Management System</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../../introduction.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../../introduction.html">Open Energy Management System</a></li>
+    <li class="crumb"><a href="io.openems.edge.controller.api.rest.html">REST-Api Controller</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/travis/build/OpenEMS/openems/doc/modules/ROOT/pages/edge/controller.adoc.d/io.openems.edge.controller.api.rest.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>REST-Api Controller</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A REST-Api for external access to OpenEMS Edge. This Controller provides access to Channels and JSON-RPC Requests from an external device via JSON/REST.</p>
+</div>
+<div class="paragraph">
+<p>The default port for the server is <strong>8084</strong>; so the default base address for REST calls is <code><a href="http://x:&lt;PASSWORD&gt;@&lt;IP&gt;:8084/rest" class="bare">http://x:&lt;PASSWORD&gt;@&lt;IP&gt;:8084/rest</a></code>, where</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>http</code> is the protocol</p>
+</li>
+<li>
+<p><code>x</code> is the user. Authentication in OpenEMS is via password only, so the username can be omitted.</p>
+</li>
+<li>
+<p><code>&lt;PASSWORD&gt;</code> is the user password. If no specific settings have been made, try 'user' or 'admin' here.</p>
+</li>
+<li>
+<p><code>8084</code> is the configured port</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A good way to test REST-Api calls is via the Chrome extension <a href="https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm">Restlet</a></p>
+</div>
+<div class="paragraph">
+<p>For more information find the implementation  <a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.rest">Source Code <span class="icon"><i class="fa fa-github"></i></span></a>.</p>
+</div>
+<div class="paragraph">
+<p>Those are the available REST-Api endpoints:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_endpoint_restchannelcomponent_idchannel_id"><a class="anchor" href="#_endpoint_restchannelcomponent_idchannel_id"></a>Endpoint <code>/rest/channel/&lt;Component-ID&gt;/&lt;Channel-ID&gt;</code></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>Component-ID</code> is the ID of the Component, e.g. "_sum", "ess0", "meter0",&#8230;&#8203;</p>
+</li>
+<li>
+<p><code>Channel-ID</code> is the ID of the Channel, e.g. "ActivePowerL1", "Soc",&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_get"><a class="anchor" href="#_get"></a>GET</h3>
+<div class="paragraph">
+<p>Use a HTTP request with method <code>GET</code> to read the current value of a Channel.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong> To read the current state of charge of the battery, send a GET request to <a href="http://x:user@localhost:8084/rest/_sum/EssSoC" class="bare">http://x:user@localhost:8084/rest/_sum/EssSoC</a>. It returns a response like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+  "value": 50
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_post"><a class="anchor" href="#_post"></a>POST</h3>
+<div class="paragraph">
+<p>Use a HTTP request with method <code>POST</code> to write a Channel.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong> To switch a Digital-Output or Relay on, send a POST request to <a href="http://x:user@localhost:8084/rest/io0/Relay1" class="bare">http://x:user@localhost:8084/rest/io0/Relay1</a> with the following body:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+  "value": true
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_endpoint_jsonrpc"><a class="anchor" href="#_endpoint_jsonrpc"></a>Endpoint '/jsonrpc'</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This allows remote procedure calls (RPC) using JSON-RPC. The JSON-RPC commands need to be sent as <code>POST</code> requests with the specified body.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitted here, as they are not required for HTTP POST calls.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Following JSON-RPC commands are available:</p>
+</div>
+<div class="sect2">
+<h3 id="_getedgeconfig"><a class="anchor" href="#_getedgeconfig"></a>getEdgeConfig</h3>
+<div class="paragraph">
+<p>Gets the current configuration of the OpenEMS Edge.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+  "method": "getEdgeConfig",
+  "params": {}
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_componentjsonapi"><a class="anchor" href="#_componentjsonapi"></a>componentJsonApi</h3>
+<div class="paragraph">
+<p>Forwards a JSON-RPC payload to a given Component, identified by its Component-ID.</p>
+</div>
+<div class="sect3">
+<h4 id="_getmodbusprotocol"><a class="anchor" href="#_getmodbusprotocol"></a>getModbusProtocol</h4>
+<div class="paragraph">
+<p>Gets the currently active Modbus-TCP protocol definition from the Modbus-TCP-Api Controller with the ID "ctrlModbusTcp0".</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+  "method":"componentJsonApi",
+  "params":{
+    "componentId":"ctrlApiModbusTcp0",
+    "payload":{
+      "method":"getModbusProtocol",
+      "params":{
+
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updatecomponentconfig"><a class="anchor" href="#_updatecomponentconfig"></a>updateComponentConfig</h3>
+<div class="paragraph">
+<p>Updates a Component configuration.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+	"method": "updateComponentConfig",
+	"params": {
+		"componentId": "ctrlDebugLog0",
+		"properties": [{
+ 			"name": "enabled",
+			"value": true
+		}]
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<script src="../../../../_/js/site.js"></script>
+<script src="../../../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

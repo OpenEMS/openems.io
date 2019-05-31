@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/hardware.html">
+    <title>Nature :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/nature.html">
     <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -55,7 +55,7 @@
     <a class="nav-link" href="configuration.html">Configuration</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="hardware.html">Hardware</a>
+    <a class="nav-link" href="nature.html">Nature</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="scheduler.html">Scheduler</a>
@@ -64,28 +64,13 @@
     <a class="nav-link" href="controller.html">Controller</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="implement.html">Implementing a Device</a>
+    <a class="nav-link" href="bridge.html">Bridge</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <button class="nav-toggle"></button>
-    <span class="nav-text">Apps</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/controllers.html">Implemented Controllers</a>
+    <a class="nav-link" href="device_service.html">Device &amp; Service</a>
   </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/devices.html">Implemented Devices</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/schedulers.html">Implemented Schedulers</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/timedata.html">Timedata services</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/utils.html">Helpful utilities</a>
-  </li>
-</ul>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="implement.html">Implementing a Device</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="build.html">Build OpenEMS Edge</a>
@@ -172,43 +157,27 @@
   <ul>
     <li class="crumb"><a href="../introduction.html">Open Energy Management System</a></li>
     <li class="crumb">OpenEMS Edge</li>
-    <li class="crumb"><a href="hardware.html">Hardware</a></li>
+    <li class="crumb"><a href="nature.html">Nature</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="file:///home/travis/build/OpenEMS/openems/doc/modules/ROOT/pages/edge/hardware.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="file:///home/travis/build/OpenEMS/openems/doc/modules/ROOT/pages/edge/nature.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1>Hardware</h1>
+<h1>Nature</h1>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_natures">1. Natures</a>
-<ul class="sectlevel2">
-<li><a href="#_ess_energy_storage_system">1.1. ESS (Energy Storage System)</a></li>
-<li><a href="#_meter">1.2. Meter</a></li>
-<li><a href="#_evcs_electric_vehicle_charging_station">1.3. EVCS (Electric Vehicle Charging Station)</a></li>
-<li><a href="#_io_digital_inputoutput">1.4. I/O (Digital Input/Output)</a></li>
-</ul>
-</li>
-<li><a href="#_bridges">2. Bridges</a>
-<ul class="sectlevel2">
-<li><a href="#_modbustcp">2.1. Modbus/TCP</a></li>
-<li><a href="#_modbusrtu">2.2. Modbus/RTU</a></li>
-</ul>
-</li>
-<li><a href="#_devices_services">3. Devices &amp; Services</a></li>
+<li><a href="#_battery">1. Battery</a></li>
+<li><a href="#_controller">2. Controller</a></li>
+<li><a href="#_ess_energy_storage_system">3. ESS (Energy Storage System)</a></li>
+<li><a href="#_evcs_electric_vehicle_charging_station">4. EVCS (Electric Vehicle Charging Station)</a></li>
+<li><a href="#_io_digital_inputoutput">5. I/O (Digital Input/Output)</a></li>
+<li><a href="#_meter">6. Meter</a></li>
+<li><a href="#_scheduler">7. Scheduler</a></li>
+<li><a href="#_timedata">8. Timedata</a></li>
 </ul>
 </div>
 <div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>This chapter covers hardware related topics around OpenEMS Edge.
-It describes how physical hardware is abstracted using <em>Natures</em>, how standardized physical connection layers and protocols are implemented using <em>Bridges</em> and shows which <em>Devices and Services</em> are implemented. The chapter concludes with a development tutorial on how to implement a device.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_natures"><a class="anchor" href="#_natures"></a>1. Natures</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Physical hardware is abstracted in OpenEMS Edge using <em>Natures</em>. A Nature defines a set of characteristics and attributes which need to be provided by each OpenEMS component that implements it. These characteristics are defined by Channels. For example an implementation of an <code>Ess</code> (Energy Storage System), needs to provide an <code>Soc</code>-Channel (State of charge of the battery).</p>
@@ -216,8 +185,27 @@ It describes how physical hardware is abstracted using <em>Natures</em>, how sta
 <div class="paragraph">
 <p>Technically Natures are implemented as OSGi API Bundles.</p>
 </div>
-<div class="sect2">
-<h3 id="_ess_energy_storage_system"><a class="anchor" href="#_ess_energy_storage_system"></a>1.1. ESS (Energy Storage System)</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_battery"><a class="anchor" href="#_battery"></a>1. Battery</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A battery that is connected to a battery inverter.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_controller"><a class="anchor" href="#_controller"></a>2. Controller</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Controller; see the Controller chapter for details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ess_energy_storage_system"><a class="anchor" href="#_ess_energy_storage_system"></a>3. ESS (Energy Storage System)</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>An Energy Storage System is an integrated system with battery and battery inverter.</p>
 </div>
@@ -245,8 +233,36 @@ It describes how physical hardware is abstracted using <em>Natures</em>, how sta
 </dl>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_meter"><a class="anchor" href="#_meter"></a>1.2. Meter</h3>
+</div>
+<div class="sect1">
+<h2 id="_evcs_electric_vehicle_charging_station"><a class="anchor" href="#_evcs_electric_vehicle_charging_station"></a>4. EVCS (Electric Vehicle Charging Station)</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.evcs.api/src/io/openems/edge/evcs/api/Evcs.java">Evcs <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>A charging station for electric vehicles like e-cars and e-buses.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_io_digital_inputoutput"><a class="anchor" href="#_io_digital_inputoutput"></a>5. I/O (Digital Input/Output)</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.io.api/src/io/openems/edge/io/api/DigitalOutput.java">DigitalOutput <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>One or more digital outputs or relays.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_meter"><a class="anchor" href="#_meter"></a>6. Meter</h2>
+<div class="sectionbody">
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.meter.api/src/io/openems/edge/meter/api/MeterType.java">Meter <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -264,64 +280,21 @@ It describes how physical hardware is abstracted using <em>Natures</em>, how sta
 </dl>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_evcs_electric_vehicle_charging_station"><a class="anchor" href="#_evcs_electric_vehicle_charging_station"></a>1.3. EVCS (Electric Vehicle Charging Station)</h3>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.evcs.api/src/io/openems/edge/evcs/api/Evcs.java">Evcs <span class="icon"><i class="fa fa-code"></i></span></a></dt>
-<dd>
-<p>A charging station for electric vehicles like e-cars and e-buses.</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_io_digital_inputoutput"><a class="anchor" href="#_io_digital_inputoutput"></a>1.4. I/O (Digital Input/Output)</h3>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.io.api/src/io/openems/edge/io/api/DigitalOutput.java">DigitalOutput <span class="icon"><i class="fa fa-code"></i></span></a></dt>
-<dd>
-<p>One or more digital outputs or relays.</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
 </div>
 <div class="sect1">
-<h2 id="_bridges"><a class="anchor" href="#_bridges"></a>2. Bridges</h2>
+<h2 id="_scheduler"><a class="anchor" href="#_scheduler"></a>7. Scheduler</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To simplify the implementation of hardware that is connected via certain standardized physical connection layers and protocols, those are implemented as Bridges.</p>
-</div>
-<div class="sect2">
-<h3 id="_modbustcp"><a class="anchor" href="#_modbustcp"></a>2.1. Modbus/TCP</h3>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusTcpImpl.java">Modbus/TCP <span class="icon"><i class="fa fa-code"></i></span></a></dt>
-<dd>
-<p><a href="https://en.wikipedia.org/wiki/Modbus">Modbus/TCP <span class="icon"><i class="fa fa-external-link"></i></span></a> is a widely used standard for fieldbus connections via TCP/IP network. It is used by all kinds of hardware devices like photovoltaics inverters, electric meters, and so on.</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_modbusrtu"><a class="anchor" href="#_modbusrtu"></a>2.2. Modbus/RTU</h3>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusSerialImpl.java">Modbus/Serial <span class="icon"><i class="fa fa-code"></i></span></a></dt>
-<dd>
-<p><a href="https://en.wikipedia.org/wiki/Modbus">Modbus/RTU <span class="icon"><i class="fa fa-external-link"></i></span></a> is a widely used standard for fieldbus connections via RS485 serial bus. It is used by all kinds of hardware devices like photovoltaics inverters, electric meters, and so on.</p>
-</dd>
-</dl>
-</div>
+<p>A Scheduler; see the Scheduler chapter for details.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_devices_services"><a class="anchor" href="#_devices_services"></a>3. Devices &amp; Services</h2>
+<h2 id="_timedata"><a class="anchor" href="#_timedata"></a>8. Timedata</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>A provider for time-series data, like historic recordings of Channels.</p>
+</div>
 </div>
 </div>
 </article>

@@ -55,7 +55,7 @@
     <a class="nav-link" href="configuration.html">Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="hardware.html">Hardware</a>
+    <a class="nav-link" href="nature.html">Nature</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="scheduler.html">Scheduler</a>
@@ -64,28 +64,13 @@
     <a class="nav-link" href="controller.html">Controller</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="implement.html">Implementing a Device</a>
+    <a class="nav-link" href="bridge.html">Bridge</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <button class="nav-toggle"></button>
-    <span class="nav-text">Apps</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/controllers.html">Implemented Controllers</a>
+    <a class="nav-link" href="device_service.html">Device &amp; Service</a>
   </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/devices.html">Implemented Devices</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/schedulers.html">Implemented Schedulers</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/timedata.html">Timedata services</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/utils.html">Helpful utilities</a>
-  </li>
-</ul>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="implement.html">Implementing a Device</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="build.html">Build OpenEMS Edge</a>
@@ -182,50 +167,110 @@
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_existing_controllers">1. Existing Controllers</a>
+<li><a href="#_api_backend">1. Api Backend</a></li>
+<li><a href="#_api_modbus">2. Api Modbus</a></li>
+<li><a href="#_rest_api_controller">3. REST-Api Controller</a>
 <ul class="sectlevel2">
-<li><a href="#_api_backend_controller">1.1. Api Backend Controller</a></li>
-<li><a href="#_api_restjson_controller">1.2. Api REST/JSON Controller</a></li>
-<li><a href="#_api_websocket_controller">1.3. Api Websocket Controller</a></li>
-<li><a href="#_channel_threshold_controller">1.4. Channel-Threshold Controller</a></li>
-<li><a href="#_debug_detailed_log_controller">1.5. Debug Detailed-Log Controller</a></li>
-<li><a href="#_debug_log_controller">1.6. Debug Log Controller</a></li>
-<li><a href="#_ess_limit_total_discharge">1.7. Ess Limit Total Discharge</a></li>
-<li><a href="#_symmetric_balancing_controller">1.8. Symmetric Balancing Controller</a></li>
-<li><a href="#_symmetric_fix_active_power_controller">1.9. Symmetric Fix-Active-Power Controller</a></li>
-<li><a href="#_symmetric_fix_reactive_power_controller">1.10. Symmetric Fix-Reactive-Power Controller</a></li>
-<li><a href="#_developing_a_controller">1.11. Developing a Controller</a></li>
+<li><a href="#_endpoint_restchannelcomponent_idchannel_id">3.1. Endpoint <code>/rest/channel/&lt;Component-ID&gt;/&lt;Channel-ID&gt;</code></a>
+<ul class="sectlevel3">
+<li><a href="#_get">3.1.1. GET</a></li>
+<li><a href="#_post">3.1.2. POST</a></li>
+</ul>
+</li>
+<li><a href="#_endpoint_jsonrpc">3.2. Endpoint '/jsonrpc'</a>
+<ul class="sectlevel3">
+<li><a href="#_getedgeconfig">3.2.1. getEdgeConfig</a></li>
+<li><a href="#_componentjsonapi">3.2.2. componentJsonApi</a>
+<ul class="sectlevel4">
+<li><a href="#_getmodbusprotocol">3.2.2.1. getModbusProtocol</a></li>
+</ul>
+</li>
+<li><a href="#_updatecomponentconfig">3.2.3. updateComponentConfig</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li><a href="#_api_websocket">4. Api Websocket</a></li>
+<li><a href="#_asymmetric_balancing_cos_phi">5. Asymmetric Balancing Cos-Phi</a></li>
+<li><a href="#_asymmetric_fix_active_power">6. Asymmetric Fix Active Power</a></li>
+<li><a href="#_asymmetric_fix_reactive_power">7. Asymmetric Fix Reactive Power</a></li>
+<li><a href="#_asymmetric_phase_rectification">8. Asymmetric Phase Rectification</a></li>
+<li><a href="#_channel_threshold">9. Channel-Threshold</a></li>
+<li><a href="#_chp_control_via_state_of_charge_soc">10. CHP control via State-of-Charge (SoC)</a></li>
+<li><a href="#_detailed_debug_log">11. Detailed Debug Log</a></li>
+<li><a href="#_debug_log">12. Debug Log</a></li>
+<li><a href="#_ess_discharge_limit_considering_cell_voltage">13. ESS Discharge Limit Considering Cell Voltage</a></li>
+<li><a href="#_ess_ac_island">14. ESS AC-Island</a></li>
+<li><a href="#_ess_limit_total_discharge">15. ESS Limit Total Discharge</a></li>
+<li><a href="#_ess_one_full_cycle">16. ESS One Full Cycle</a></li>
+<li><a href="#_evcs">17. EVCS</a></li>
+<li><a href="#_evcs_fix_active_power">18. EVCS Fix Active Power</a></li>
+<li><a href="#_high_load_timeslot">19. High-Load Timeslot</a></li>
+<li><a href="#_io_alarm">20. IO Alarm</a></li>
+<li><a href="#_io_fix_digital_output">21. IO Fix Digital Output</a></li>
+<li><a href="#_pv_inverter_fix_power_limit">22. PV-Inverter Fix Power Limit</a></li>
+<li><a href="#_symmetric_balancing">23. Symmetric Balancing</a></li>
+<li><a href="#_symmetric_balancing_schedule">24. Symmetric Balancing Schedule</a></li>
+<li><a href="#_symmetric_fix_active_power">25. Symmetric Fix Active Power</a></li>
+<li><a href="#_symmetric_fix_reactive_power">26. Symmetric Fix Reactive Power</a></li>
+<li><a href="#_symmetric_limit_active_power">27. Symmetric Limit Active Power</a></li>
+<li><a href="#_symmetric_linear_power_band">28. Symmetric Linear Power Band</a></li>
+<li><a href="#_symmetric_peak_shaving">29. Symmetric Peak-Shaving</a></li>
+<li><a href="#_symmetric_random_power">30. Symmetric Random-Power</a></li>
+<li><a href="#_symmetric_reactive_power_voltage_characteristics">31. Symmetric Reactive-Power Voltage-Characteristics</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A OpenEMS Edge Controller holds the actual business logic or the actual algorithm that controls hardware. The logic of each active Controller is executed regularly on every Cycle, i.e. once per second.</p>
+</div>
+</div>
 </div>
 <div class="sect1">
-<h2 id="_existing_controllers"><a class="anchor" href="#_existing_controllers"></a>1. Existing Controllers</h2>
+<h2 id="_api_backend"><a class="anchor" href="#_api_backend"></a>1. Api Backend</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_api_backend_controller"><a class="anchor" href="#_api_backend_controller"></a>1.1. Api Backend Controller</h3>
 <div class="paragraph">
-<p>Establishes the connection to OpenEMS Backend.</p>
+<p>Connects to OpenEMS Backend and sends all Channel data regularly. It is implemented as a Controller, as Channels can be written from OpenEMS Backend.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.backend">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_api_restjson_controller"><a class="anchor" href="#_api_restjson_controller"></a>1.2. Api REST/JSON Controller</h3>
+</div>
+<div class="sect1">
+<h2 id="_api_modbus"><a class="anchor" href="#_api_modbus"></a>2. Api Modbus</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Provides a REST-Api for external access to OpenEMS Edge. The default port for the server is <strong>8084</strong>; so the default base address for REST calls is <code><a href="http://x:&lt;PASSWORD&gt;@&lt;IP&gt;:8084/rest" class="bare">http://x:&lt;PASSWORD&gt;@&lt;IP&gt;:8084/rest</a></code>, where</p>
+<p>Provides a Modbus-Slave implementation for OpenEMS Edge. It provides access to Channels from an external device via Modbus/TCP.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.modbus">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rest_api_controller"><a class="anchor" href="#_rest_api_controller"></a>3. REST-Api Controller</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A REST-Api for external access to OpenEMS Edge. This Controller provides access to Channels and JSON-RPC Requests from an external device via JSON/REST.</p>
+</div>
+<div class="paragraph">
+<p>The default port for the server is <strong>8084</strong>; so the default base address for REST calls is <code><a href="http://x:&lt;PASSWORD&gt;@&lt;IP&gt;:8084/rest" class="bare">http://x:&lt;PASSWORD&gt;@&lt;IP&gt;:8084/rest</a></code>, where</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>"http" is the protocol</p>
+<p><code>http</code> is the protocol</p>
 </li>
 <li>
-<p>"x" is the user. Authentification in OpenEMS is via password only, so username can be anything.</p>
+<p><code>x</code> is the user. Authentication in OpenEMS is via password only, so the username can be omitted.</p>
 </li>
 <li>
-<p>"&lt;PASSWORD&gt;" is the user password. If no specifi settings have been made, try 'user' or 'admin' here.</p>
+<p><code>&lt;PASSWORD&gt;</code> is the user password. If no specific settings have been made, try 'user' or 'admin' here.</p>
 </li>
 <li>
-<p>"8084" is the configured port</p>
+<p><code>8084</code> is the configured port</p>
 </li>
 </ul>
 </div>
@@ -233,70 +278,446 @@
 <p>A good way to test REST-Api calls is via the Chrome extension <a href="https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm">Restlet</a></p>
 </div>
 <div class="paragraph">
-<p>Api-Endpoints:</p>
+<p>For more information find the implementation  <a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.rest">Source Code <span class="icon"><i class="fa fa-github"></i></span></a>.</p>
 </div>
+<div class="paragraph">
+<p>Those are the available REST-Api endpoints:</p>
+</div>
+<div class="sect2">
+<h3 id="_endpoint_restchannelcomponent_idchannel_id"><a class="anchor" href="#_endpoint_restchannelcomponent_idchannel_id"></a>3.1. Endpoint <code>/rest/channel/&lt;Component-ID&gt;/&lt;Channel-ID&gt;</code></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><code>/channel/&lt;ThingId&gt;/&lt;ChannelName&gt;</code></p>
-<div class="paragraph">
-<p>Provides access to a channel value. Example: use a GET request to <a href="http://x:user@localhost:8084/rest/_sum/EssSoC" class="bare">http://x:user@localhost:8084/rest/_sum/EssSoC</a> to get the current average state of charge.</p>
-</div>
+<p><code>Component-ID</code> is the ID of the Component, e.g. "_sum", "ess0", "meter0",&#8230;&#8203;</p>
+</li>
+<li>
+<p><code>Channel-ID</code> is the ID of the Channel, e.g. "ActivePowerL1", "Soc",&#8230;&#8203;</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_api_websocket_controller"><a class="anchor" href="#_api_websocket_controller"></a>1.3. Api Websocket Controller</h3>
+<div class="sect3">
+<h4 id="_get"><a class="anchor" href="#_get"></a>3.1.1. GET</h4>
 <div class="paragraph">
-<p>Server for connection from OpenEMS UI to OpenEMS Edge.</p>
+<p>Use a HTTP request with method <code>GET</code> to read the current value of a Channel.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_channel_threshold_controller"><a class="anchor" href="#_channel_threshold_controller"></a>1.4. Channel-Threshold Controller</h3>
 <div class="paragraph">
-<p>Switch I/Os according to Channel-Value, e.g. State-of-Charge of the battery.</p>
+<p><strong>Example:</strong> To read the current state of charge of the battery, send a GET request to <a href="http://x:user@localhost:8084/rest/_sum/EssSoC" class="bare">http://x:user@localhost:8084/rest/_sum/EssSoC</a>. It returns a response like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+  "value": 50
+}</code></pre>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_debug_detailed_log_controller"><a class="anchor" href="#_debug_detailed_log_controller"></a>1.5. Debug Detailed-Log Controller</h3>
+</div>
+<div class="sect3">
+<h4 id="_post"><a class="anchor" href="#_post"></a>3.1.2. POST</h4>
 <div class="paragraph">
-<p>Output detailed debug information about specific Components on the console.</p>
+<p>Use a HTTP request with method <code>POST</code> to write a Channel.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_debug_log_controller"><a class="anchor" href="#_debug_log_controller"></a>1.6. Debug Log Controller</h3>
 <div class="paragraph">
-<p>Output generic information about every Component on every cycle.</p>
+<p><strong>Example:</strong> To switch a Digital-Output or Relay on, send a POST request to <a href="http://x:user@localhost:8084/rest/io0/Relay1" class="bare">http://x:user@localhost:8084/rest/io0/Relay1</a> with the following body:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+  "value": true
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ess_limit_total_discharge"><a class="anchor" href="#_ess_limit_total_discharge"></a>1.7. Ess Limit Total Discharge</h3>
+<h3 id="_endpoint_jsonrpc"><a class="anchor" href="#_endpoint_jsonrpc"></a>3.2. Endpoint '/jsonrpc'</h3>
 <div class="paragraph">
-<p>Avoid total discharge of an energy storage system (ESS). Allows to define a Min-SoC and Force-Charge-SoC.</p>
+<p>This allows remote procedure calls (RPC) using JSON-RPC. The JSON-RPC commands need to be sent as <code>POST</code> requests with the specified body.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitted here, as they are not required for HTTP POST calls.
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_symmetric_balancing_controller"><a class="anchor" href="#_symmetric_balancing_controller"></a>1.8. Symmetric Balancing Controller</h3>
 <div class="paragraph">
-<p>Symmetric self-consumption optimization.</p>
+<p>Following JSON-RPC commands are available:</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_symmetric_fix_active_power_controller"><a class="anchor" href="#_symmetric_fix_active_power_controller"></a>1.9. Symmetric Fix-Active-Power Controller</h3>
+<div class="sect3">
+<h4 id="_getedgeconfig"><a class="anchor" href="#_getedgeconfig"></a>3.2.1. getEdgeConfig</h4>
 <div class="paragraph">
-<p>Allows setting of a fixed Active-Power value for an ESS.</p>
+<p>Gets the current configuration of the OpenEMS Edge.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+  "method": "getEdgeConfig",
+  "params": {}
+}</code></pre>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_symmetric_fix_reactive_power_controller"><a class="anchor" href="#_symmetric_fix_reactive_power_controller"></a>1.10. Symmetric Fix-Reactive-Power Controller</h3>
+</div>
+<div class="sect3">
+<h4 id="_componentjsonapi"><a class="anchor" href="#_componentjsonapi"></a>3.2.2. componentJsonApi</h4>
 <div class="paragraph">
-<p>Allows setting of a fixed Reactive-Power value for an ESS.</p>
+<p>Forwards a JSON-RPC payload to a given Component, identified by its Component-ID.</p>
 </div>
+<div class="sect4">
+<h5 id="_getmodbusprotocol"><a class="anchor" href="#_getmodbusprotocol"></a>3.2.2.1. getModbusProtocol</h5>
+<div class="paragraph">
+<p>Gets the currently active Modbus-TCP protocol definition from the Modbus-TCP-Api Controller with the ID "ctrlModbusTcp0".</p>
 </div>
-<div class="sect2">
-<h3 id="_developing_a_controller"><a class="anchor" href="#_developing_a_controller"></a>1.11. Developing a Controller</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+  "method":"componentJsonApi",
+  "params":{
+    "componentId":"ctrlApiModbusTcp0",
+    "payload":{
+      "method":"getModbusProtocol",
+      "params":{
 
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_updatecomponentconfig"><a class="anchor" href="#_updatecomponentconfig"></a>3.2.3. updateComponentConfig</h4>
+<div class="paragraph">
+<p>Updates a Component configuration.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+	"method": "updateComponentConfig",
+	"params": {
+		"componentId": "ctrlDebugLog0",
+		"properties": [{
+ 			"name": "enabled",
+			"value": true
+		}]
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_websocket"><a class="anchor" href="#_api_websocket"></a>4. Api Websocket</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Provides a JSON/REST implementation via HTTP Websocket for OpenEMS Edge. It provides access to Channels and JSON-RPC Requests from an external device via Websocket. This Controller is used for local connection of OpenEMS UI.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.websocket">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asymmetric_balancing_cos_phi"><a class="anchor" href="#_asymmetric_balancing_cos_phi"></a>5. Asymmetric Balancing Cos-Phi</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls an asymmetric energy storage system in self-consumption optimization mode while keeping the grid meter on a defined cos-phi.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.asymmetric.balancingcosphi">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asymmetric_fix_active_power"><a class="anchor" href="#_asymmetric_fix_active_power"></a>6. Asymmetric Fix Active Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed active power for charging/discharging of an asymmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.asymmetric.fixactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asymmetric_fix_reactive_power"><a class="anchor" href="#_asymmetric_fix_reactive_power"></a>7. Asymmetric Fix Reactive Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed reactive power for an asymmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.asymmetric.fixreactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asymmetric_phase_rectification"><a class="anchor" href="#_asymmetric_phase_rectification"></a>8. Asymmetric Phase Rectification</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Balances the three phases at the grid using an asymmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.asymmetric.phaserectification">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_channel_threshold"><a class="anchor" href="#_channel_threshold"></a>9. Channel-Threshold</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Generic Controller that sets a digital output according to the value of given Channel - e.g. turn a Relay on, when battery state of charge is above a given threshold.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.channelthreshold">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_chp_control_via_state_of_charge_soc"><a class="anchor" href="#_chp_control_via_state_of_charge_soc"></a>10. CHP control via State-of-Charge (SoC)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls a CHP device. Signals the CHP to turn on when battery SoC is low; signal it to turn off when SoC is high.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.chp.soc">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_detailed_debug_log"><a class="anchor" href="#_detailed_debug_log"></a>11. Detailed Debug Log</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Constantly shows the values of all Channels of a Component on the console. Primarily used for developing and debugging.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.debug.detailedlog">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_debug_log"><a class="anchor" href="#_debug_log"></a>12. Debug Log</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Constantly shows the most important values of all Components on the console. This is often activated by default to be able to track the running system easily.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.debug.log">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ess_discharge_limit_considering_cell_voltage"><a class="anchor" href="#_ess_discharge_limit_considering_cell_voltage"></a>13. ESS Discharge Limit Considering Cell Voltage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Limit discharge of an energy storage system depending on cell voltages.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.dischargelimitconsideringcellvoltage">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ess_ac_island"><a class="anchor" href="#_ess_ac_island"></a>14. ESS AC-Island</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Switches an AC PV inverter to the emergency power on grid outage.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.acisland">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ess_limit_total_discharge"><a class="anchor" href="#_ess_limit_total_discharge"></a>15. ESS Limit Total Discharge</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Limits the discharge power of an energy storage system according to its State-of-Charge, e.g. to keep energy for emergency power or to avoid deep discharge.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.limittotaldischarge">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ess_one_full_cycle"><a class="anchor" href="#_ess_one_full_cycle"></a>16. ESS One Full Cycle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Executes a full charge/discharge cycle with an energy storage system. This can be used to let the Battery Management System (BMS) reset its reference points for State-of-Charge calculattion.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.onefullcycle">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_evcs"><a class="anchor" href="#_evcs"></a>17. EVCS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls an Electric Vehicle Charging Station (EVCS) in different modes, like "Force-Charge" and "Surplus Energy Charging".</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.evcs">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>18. EVCS Fix Active Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed maximum charge power to an Electric Vehicle Charging Station (EVCS).</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.evcs.fixactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>19. High-Load Timeslot</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls an energy storage system for a High-Load timeslot application (German "Hochlastzeitfenster").</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.highloadtimeslot">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_io_alarm"><a class="anchor" href="#_io_alarm"></a>20. IO Alarm</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Switches a digital output, when one or more State-Channels are set. Can be used to signal alarms.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.io.alarm">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>21. IO Fix Digital Output</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a digital output statically ON or OFF.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.io.fixdigitaloutput">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>22. PV-Inverter Fix Power Limit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed power limit for PV-Inverter production.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.pvinverter.fixpowerlimit">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>23. Symmetric Balancing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls a symmetric energy storage system in self-consumption optimization mode.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.balancing">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>24. Symmetric Balancing Schedule</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls a symmetric energy storage system in self-consumption optimization mode. Allows the definition of a Schedule to set the target power on the grid meter. This Controller can be controlled using the OpenEMS Backend-to-Backend interface.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.balancingschedule">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>25. Symmetric Fix Active Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed active power for charging/discharging of a symmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.fixactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>26. Symmetric Fix Reactive Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets a fixed reactive power for a symmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.fixreactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>27. Symmetric Limit Active Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.limitactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>28. Symmetric Linear Power Band</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Executes a test cycle for a symmetric energy storage system by increasing and decreasing the charging/discharging power in given limits.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.linearpowerband">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>29. Symmetric Peak-Shaving</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.peakshaving">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>30. Symmetric Random-Power</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.randompower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_symmetric_reactive_power_voltage_characteristics"><a class="anchor" href="#_symmetric_reactive_power_voltage_characteristics"></a>31. Symmetric Reactive-Power Voltage-Characteristics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls a symmetric energy storage system using a Q-by-U reference function.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.reactivepowervoltagecharacteristic">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 </div>

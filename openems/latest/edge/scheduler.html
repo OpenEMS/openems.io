@@ -55,7 +55,7 @@
     <a class="nav-link" href="configuration.html">Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="hardware.html">Hardware</a>
+    <a class="nav-link" href="nature.html">Nature</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="scheduler.html">Scheduler</a>
@@ -64,28 +64,13 @@
     <a class="nav-link" href="controller.html">Controller</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="implement.html">Implementing a Device</a>
+    <a class="nav-link" href="bridge.html">Bridge</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <button class="nav-toggle"></button>
-    <span class="nav-text">Apps</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/controllers.html">Implemented Controllers</a>
+    <a class="nav-link" href="device_service.html">Device &amp; Service</a>
   </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/devices.html">Implemented Devices</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/schedulers.html">Implemented Schedulers</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/timedata.html">Timedata services</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="apps/utils.html">Helpful utilities</a>
-  </li>
-</ul>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="implement.html">Implementing a Device</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="build.html">Build OpenEMS Edge</a>
@@ -182,20 +167,47 @@
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_existing_schedulers">1. Existing Schedulers</a></li>
-<li><a href="#_developing_a_scheduler">2. Developing a Scheduler</a></li>
+<li><a href="#_all_alphabetically">1. All-Alphabetically</a></li>
+<li><a href="#_fixed_order">2. Fixed Order</a></li>
 </ul>
 </div>
-<div class="sect1">
-<h2 id="_existing_schedulers"><a class="anchor" href="#_existing_schedulers"></a>1. Existing Schedulers</h2>
+<div id="preamble">
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>A OpenEMS Edge Scheduler plans the execution of Controllers. It defines&#8230;&#8203;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>which Controllers are executed</p>
+</li>
+<li>
+<p>in which priority the Controllers are executed</p>
+</li>
+</ul>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_developing_a_scheduler"><a class="anchor" href="#_developing_a_scheduler"></a>2. Developing a Scheduler</h2>
+<h2 id="_all_alphabetically"><a class="anchor" href="#_all_alphabetically"></a>1. All-Alphabetically</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>Takes an ordered list of Component IDs. All remaining Controllers are afterwards ordered alphabetically by their ID.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.scheduler.allalphabetically">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fixed_order"><a class="anchor" href="#_fixed_order"></a>2. Fixed Order</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Takes a list of Component IDs and returns the Controllers statically sorted by this order.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.scheduler.fixedorder">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
 </div>
 </div>
 </article>
