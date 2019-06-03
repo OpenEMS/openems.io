@@ -180,7 +180,15 @@
 <li><a href="#_fenecon_dess">11. FENECON DESS</a></li>
 <li><a href="#_fenecon_mini_3_3_3_6">12. FENECON Mini 3-3 | 3-6</a></li>
 <li><a href="#_fenecon_pro_9_12">13. FENECON Pro 9-12</a></li>
-<li><a href="#_kmtronic_modbus_relay_board">14. KMtronic Modbus Relay Board</a></li>
+<li><a href="#_kmtronic_modbus_relay_board">14. KMtronic Modbus Relay Board</a>
+<ul class="sectlevel2">
+<li><a href="#_configuration">14.1. Configuration</a>
+<ul class="sectlevel3">
+<li><a href="#_example_configuration">14.1.1. Example Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#_wago_fieldbus_coupler_750_352">15. WAGO Fieldbus Coupler 750-352</a></li>
 <li><a href="#_kostal_piko">16. KOSTAL PIKO</a></li>
 <li><a href="#_artemes_am_2">17. Artemes AM-2</a></li>
@@ -565,6 +573,9 @@
 <div class="sect1">
 <h2 id="_kmtronic_modbus_relay_board"><a class="anchor" href="#_kmtronic_modbus_relay_board"></a>14. KMtronic Modbus Relay Board</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This bundle implements the Kmtronic Modbus Relay board. Relay outputs can be used to turn ON/OFF lights, motors and signal alarms. This relay has 8 output channels.</p>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -579,8 +590,40 @@
 </dd>
 </dl>
 </div>
+<div class="sect2">
+<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>14.1. Configuration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Id</code> Unique ID of this Component (id), e.g. "io0", "io1"</p>
+</li>
+<li>
+<p><code>Modbus-ID</code> ID of Modbus brige. (modbus.id)</p>
+</li>
+<li>
+<p><code>Modbus Unit-ID</code> The Unit-ID of the Modbus device. (modbusUnitId)</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_example_configuration"><a class="anchor" href="#_example_configuration"></a>14.1.1. Example Configuration</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Id</code> : io0</p>
+</li>
+<li>
+<p><code>Modbus-ID</code> : modbus3</p>
+</li>
+<li>
+<p><code>Modbus Unit-ID</code> : 1</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.io.kmtronic">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
 </div>
 </div>
 </div>
