@@ -162,6 +162,11 @@
 </div>
 <article class="doc">
 <h1>Virtual Symmetric Add</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is a virtual meter which is used to sum up the values from multiple symmetric meters. The use case for this feature is, Usually when there are multiple meters reading values from different systems, The average values from the systems make more sense for calculation and statistics.</p>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -176,8 +181,70 @@
 </dd>
 </dl>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>Component-ID</code> Unique ID of this Component (id), e.g. "ctrlIoAlarm0", "ctrlIoAlarm1"</p>
+</li>
+<li>
+<p><code>Alias</code> Human-readable name of this Component; defaults to Component-ID (alias)</p>
+</li>
+<li>
+<p><code>Is enabled</code>  Is this Component enabled?</p>
+</li>
+<li>
+<p><code>Meter-Type</code> Type of the Meters (Grid meter or Production meter)</p>
+</li>
+<li>
+<p><code>Meter IDs</code> Ids of the meters to be summed up,</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_configuration"><a class="anchor" href="#_example_configuration"></a>Example Configuration</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>Component-ID</code> : meter0</p>
+</li>
+<li>
+<p><code>Alias</code> : virtualMeter</p>
+</li>
+<li>
+<p><code>Meter-Type</code> : PRODUCTION</p>
+</li>
+<li>
+<p><code>Meter IDs</code> : [meter1, meter2, meter3]</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Meter IDs is a list of the meters which needs summing of the values.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The above example configuration describes, The values from the three meters configured (meter1, meter2, meter3) are summed up and average values is set to the corresponding channel address.</p>
+</div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.meter.virtual">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
 </div>
 </article>
   </main>

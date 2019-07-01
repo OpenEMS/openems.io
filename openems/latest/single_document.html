@@ -188,7 +188,7 @@
 <li><a href="#_openems_backend">3. OpenEMS Backend</a>
 <ul class="sectlevel2">
 <li><a href="#_backend_architecture">3.1. Backend Architecture</a></li>
-<li><a href="#_configuration_4">3.2. Configuration</a></li>
+<li><a href="#_configuration_6">3.2. Configuration</a></li>
 <li><a href="#_backend_to_backend_communication">3.3. Backend-to-Backend communication</a></li>
 <li><a href="#_build_openems_backend">3.4. Build OpenEMS Backend</a></li>
 <li><a href="#_deploy_openems_edge_2">3.5. Deploy OpenEMS Edge</a></li>
@@ -1829,10 +1829,105 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 <div class="sect3">
 <h4 id="_chp_control_via_state_of_charge_soc"><a class="anchor" href="#_chp_control_via_state_of_charge_soc"></a>1.5.10. CHP control via State-of-Charge (SoC)</h4>
 <div class="paragraph">
-<p>Controls a CHP device. Signals the CHP to turn on when battery SoC is low; signal it to turn off when SoC is high.</p>
+<p>Controls a CHP device. Signals the CHP to turn 'ON' when battery SoC is low; signal it to turn 'OFF' when SoC is high. This controller needs four parameters,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>State of Charge(Soc) of the ESS.</p>
+</li>
+<li>
+<p>Low Threshold(LT) Soc</p>
+</li>
+<li>
+<p>High Threshold(HT) Soc</p>
+</li>
+<li>
+<p>Output channel to signal.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Soc of the Ess is compared with the LT and HT, and The following operations or state change is performed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the Soc is less-than("&lt;") LT, signal is sent to the Output channel which eventually turns the CHP device 'ON'.</p>
+</li>
+<li>
+<p>If the Soc is greater-than("&gt;") HT, signal is sent to the Output channel which turns the CHP device 'OFF'.</p>
+</li>
+<li>
+<p>Any other conditions the there is no change in the State of the CHP device.</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>1.5.10.1. Configuration</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Component-ID</code> Unique ID of this Component (id), e.g. "ctrlIoAlarm0", "ctrlIoAlarm1"</p>
+</li>
+<li>
+<p><code>Alias</code> Human-readable name of this Component; defaults to Component-ID (alias)</p>
+</li>
+<li>
+<p><code>Input Channels</code> Addresses of the input State-Channels (inputChannelAddress), This is a array of input state channels.</p>
+</li>
+<li>
+<p><code>Output Channel</code> Channel address of the Digital Output that should be switched (outputChannelAddress)</p>
+</li>
+<li>
+<p><code>Low Threshold</code> Low boundary of the threshold</p>
+</li>
+<li>
+<p><code>High Threshold</code> High boundary of the threshold</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_configuration"><a class="anchor" href="#_example_configuration"></a>1.5.10.2. Example Configuration</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Component-ID</code> : ctrlChpSoc0</p>
+</li>
+<li>
+<p><code>Alias</code> : myChpCtrl</p>
+</li>
+<li>
+<p><code>Input Channels</code> : _sum/EssSoc</p>
+</li>
+<li>
+<p><code>Output Channel</code> : io0/Relay1</p>
+</li>
+<li>
+<p><code>Low Threshold</code> 25</p>
+</li>
+<li>
+<p><code>High Threshold</code> 75</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+_sum/EssSoc - represents the Soc channel of the ESS0,
+io0/relay1 - represents the relay 1 of the relay board.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.chp.soc">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1932,7 +2027,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 This controller is used to check for the State-Channels which are boolean type, which typically represents the error channels. A specific configured digital output channel can be signaled based on the configured input State-Channels(one more channels).</p>
 </div>
 <div class="sect4">
-<h5 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>1.5.21.1. Configuration</h5>
+<h5 id="_configuration_3"><a class="anchor" href="#_configuration_3"></a>1.5.21.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1954,7 +2049,7 @@ This controller is used to check for the State-Channels which are boolean type, 
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_configuration"><a class="anchor" href="#_example_configuration"></a>1.5.21.2. Example Configuration</h5>
+<h5 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>1.5.21.2. Example Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2484,7 +2579,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </dl>
 </div>
 <div class="sect4">
-<h5 id="_configuration_3"><a class="anchor" href="#_configuration_3"></a>1.7.14.1. Configuration</h5>
+<h5 id="_configuration_4"><a class="anchor" href="#_configuration_4"></a>1.7.14.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2499,7 +2594,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </ul>
 </div>
 <div class="sect5">
-<h6 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>Example Configuration</h6>
+<h6 id="_example_configuration_3"><a class="anchor" href="#_example_configuration_3"></a>Example Configuration</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -2766,6 +2861,9 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 <div class="sect3">
 <h4 id="_virtual_symmetric_add"><a class="anchor" href="#_virtual_symmetric_add"></a>1.7.25. Virtual Symmetric Add</h4>
+<div class="paragraph">
+<p>This is a virtual meter which is used to sum up the values from multiple symmetric meters. The use case for this feature is, Usually when there are multiple meters reading values from different systems, The average values from the systems make more sense for calculation and statistics.</p>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -2780,8 +2878,64 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </dd>
 </dl>
 </div>
+<div class="sect4">
+<h5 id="_configuration_5"><a class="anchor" href="#_configuration_5"></a>1.7.25.1. Configuration</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Component-ID</code> Unique ID of this Component (id), e.g. "ctrlIoAlarm0", "ctrlIoAlarm1"</p>
+</li>
+<li>
+<p><code>Alias</code> Human-readable name of this Component; defaults to Component-ID (alias)</p>
+</li>
+<li>
+<p><code>Is enabled</code>  Is this Component enabled?</p>
+</li>
+<li>
+<p><code>Meter-Type</code> Type of the Meters (Grid meter or Production meter)</p>
+</li>
+<li>
+<p><code>Meter IDs</code> Ids of the meters to be summed up,</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_configuration_4"><a class="anchor" href="#_example_configuration_4"></a>1.7.25.2. Example Configuration</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Component-ID</code> : meter0</p>
+</li>
+<li>
+<p><code>Alias</code> : virtualMeter</p>
+</li>
+<li>
+<p><code>Meter-Type</code> : PRODUCTION</p>
+</li>
+<li>
+<p><code>Meter IDs</code> : [meter1, meter2, meter3]</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Meter IDs is a list of the meters which needs summing of the values.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The above example configuration describes, The values from the three meters configured (meter1, meter2, meter3) are summed up and average values is set to the corresponding channel address.</p>
+</div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.meter.virtual">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -4025,7 +4179,7 @@ in how angular-cli generates the service-worker configuration file (ngsw-config.
 
 </div>
 <div class="sect2">
-<h3 id="_configuration_4"><a class="anchor" href="#_configuration_4"></a>3.2. Configuration</h3>
+<h3 id="_configuration_6"><a class="anchor" href="#_configuration_6"></a>3.2. Configuration</h3>
 
 </div>
 <div class="sect2">
