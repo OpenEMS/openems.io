@@ -188,7 +188,7 @@
 <li><a href="#_openems_backend">3. OpenEMS Backend</a>
 <ul class="sectlevel2">
 <li><a href="#_backend_architecture">3.1. Backend Architecture</a></li>
-<li><a href="#_configuration_6">3.2. Configuration</a></li>
+<li><a href="#_configuration_7">3.2. Configuration</a></li>
 <li><a href="#_backend_to_backend_communication">3.3. Backend-to-Backend communication</a></li>
 <li><a href="#_build_openems_backend">3.4. Build OpenEMS Backend</a></li>
 <li><a href="#_deploy_openems_edge_2">3.5. Deploy OpenEMS Edge</a></li>
@@ -1569,16 +1569,49 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fixed_order"><a class="anchor" href="#_fixed_order"></a>1.4.2. Fixed Order</h4>
+<h4 id="_daily"><a class="anchor" href="#_daily"></a>1.4.2. Daily</h4>
 <div class="paragraph">
-<p>Takes a list of Component IDs and returns the Controllers statically sorted by this order.</p>
+<p>This scheduler can execute different Controllers at different times of the day according to the "Daily Schedule" configuration.
+Controllers that need to run regardless of the time of the day like 'ctrlBackend0' and 'ctrlDebugLog0' etc.,
+can be specified in the configuration using "Always Run Before" and "Always Run After'.</p>
+</div>
+<div class="sect4">
+<h5 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>1.4.2.1. Configuration</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Component-ID</code> Unique ID of this Component (id), e.g. "scheduler0".</p>
+</li>
+<li>
+<p><code>Alias</code> Human-readable name of this Component; defaults to Component-ID (alias)</p>
+</li>
+<li>
+<p><code>Always Run Before</code> IDs of Controllers that should be executed <em>before</em> other Controllers in the order of the IDs.</p>
+</li>
+<li>
+<p><code>Daily Schedule</code> Execution order of Controllers per time of day.
+[{
+	"time": "08:00:00",
+	"controllers": [
+		"ctrlFixActivePower0"
+	]
+}, {
+	"time": "13:45:00"
+	"controllers": [""]"
+}]</p>
+</li>
+<li>
+<p><code>Always Run After</code> IDs of Controllers that should be executed <em>after</em> other Controllers in the order of the IDs.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.scheduler.fixedorder">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.scheduler.daily">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fixed_order_2"><a class="anchor" href="#_fixed_order_2"></a>1.4.3. Fixed Order</h4>
+<h4 id="_fixed_order"><a class="anchor" href="#_fixed_order"></a>1.4.3. Fixed Order</h4>
 <div class="paragraph">
 <p>Takes a list of Component IDs and returns the Controllers statically sorted by this order.</p>
 </div>
@@ -1864,7 +1897,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 </ul>
 </div>
 <div class="sect4">
-<h5 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>1.5.10.1. Configuration</h5>
+<h5 id="_configuration_3"><a class="anchor" href="#_configuration_3"></a>1.5.10.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2027,7 +2060,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 This controller is used to check for the State-Channels which are boolean type, which typically represents the error channels. A specific configured digital output channel can be signaled based on the configured input State-Channels(one more channels).</p>
 </div>
 <div class="sect4">
-<h5 id="_configuration_3"><a class="anchor" href="#_configuration_3"></a>1.5.21.1. Configuration</h5>
+<h5 id="_configuration_4"><a class="anchor" href="#_configuration_4"></a>1.5.21.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2588,7 +2621,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </dl>
 </div>
 <div class="sect4">
-<h5 id="_configuration_4"><a class="anchor" href="#_configuration_4"></a>1.7.14.1. Configuration</h5>
+<h5 id="_configuration_5"><a class="anchor" href="#_configuration_5"></a>1.7.14.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2888,7 +2921,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </dl>
 </div>
 <div class="sect4">
-<h5 id="_configuration_5"><a class="anchor" href="#_configuration_5"></a>1.7.25.1. Configuration</h5>
+<h5 id="_configuration_6"><a class="anchor" href="#_configuration_6"></a>1.7.25.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -4223,7 +4256,7 @@ in how angular-cli generates the service-worker configuration file (ngsw-config.
 
 </div>
 <div class="sect2">
-<h3 id="_configuration_6"><a class="anchor" href="#_configuration_6"></a>3.2. Configuration</h3>
+<h3 id="_configuration_7"><a class="anchor" href="#_configuration_7"></a>3.2. Configuration</h3>
 
 </div>
 <div class="sect2">

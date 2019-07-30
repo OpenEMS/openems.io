@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed Order :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/scheduler.adoc.d/io.openems.edge.scheduler.dailyscheduler.html">
+    <title>Daily :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/scheduler.adoc.d/io.openems.edge.scheduler.daily.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../../../_/css/site.css">
 <link rel="icon" href="../../../../_/img/feneco.ico" type="image/x-icon">
@@ -155,18 +155,57 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../../introduction.html">Open Energy Management System</a></li>
-    <li class="crumb"><a href="io.openems.edge.scheduler.dailyscheduler.html">Fixed Order</a></li>
+    <li class="crumb"><a href="io.openems.edge.scheduler.daily.html">Daily</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="file:///home/travis/build/OpenEMS/openems/doc/modules/ROOT/pages/edge/scheduler.adoc.d/io.openems.edge.scheduler.dailyscheduler.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="file:///home/travis/build/OpenEMS/openems/doc/modules/ROOT/pages/edge/scheduler.adoc.d/io.openems.edge.scheduler.daily.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1>Fixed Order</h1>
+<h1>Daily</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>Takes a list of Component IDs and returns the Controllers statically sorted by this order.</p>
+<p>This scheduler can execute different Controllers at different times of the day according to the "Daily Schedule" configuration.
+Controllers that need to run regardless of the time of the day like 'ctrlBackend0' and 'ctrlDebugLog0' etc.,
+can be specified in the configuration using "Always Run Before" and "Always Run After'.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>Component-ID</code> Unique ID of this Component (id), e.g. "scheduler0".</p>
+</li>
+<li>
+<p><code>Alias</code> Human-readable name of this Component; defaults to Component-ID (alias)</p>
+</li>
+<li>
+<p><code>Always Run Before</code> IDs of Controllers that should be executed <em>before</em> other Controllers in the order of the IDs.</p>
+</li>
+<li>
+<p><code>Daily Schedule</code> Execution order of Controllers per time of day.
+[{
+	"time": "08:00:00",
+	"controllers": [
+		"ctrlFixActivePower0"
+	]
+}, {
+	"time": "13:45:00"
+	"controllers": [""]"
+}]</p>
+</li>
+<li>
+<p><code>Always Run After</code> IDs of Controllers that should be executed <em>after</em> other Controllers in the order of the IDs.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.scheduler.fixedorder">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.scheduler.daily">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
 </div>
 </article>
   </main>
