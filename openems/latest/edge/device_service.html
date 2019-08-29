@@ -199,7 +199,13 @@
 </li>
 </ul>
 </li>
-<li><a href="#_wago_fieldbus_coupler_750_352">16. WAGO Fieldbus Coupler 750-352</a></li>
+<li><a href="#_wago_fieldbus_coupler_750_352">16. WAGO Fieldbus Coupler 750-352</a>
+<ul class="sectlevel2">
+<li><a href="#_wago_750_523_1_channel_relay_output">16.1. WAGO 750-523 "1-channel relay output"</a></li>
+<li><a href="#_wago_750_501_2_channel_digital_output">16.2. WAGO 750-501 "2-channel digital output"</a></li>
+<li><a href="#_wago_750_400_2_channel_digital_input">16.3. WAGO 750-400 "2-channel digital input"</a></li>
+</ul>
+</li>
 <li><a href="#_kostal_piko">17. KOSTAL PIKO</a></li>
 <li><a href="#_artemes_am_2">18. Artemes AM-2</a></li>
 <li><a href="#_socomec_diris_a10_a14_b30_e24_meter">19. SOCOMEC Diris A10 | A14 | B30 | E24 Meter</a></li>
@@ -680,7 +686,103 @@
 </dl>
 </div>
 <div class="paragraph">
+<p>This component reads the current WAGO fieldbus coupler configuration and dynamically creates its Input and Output Channels accordingly.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Make sure to update the WAGO fieldbus coupler configuration before activating this component.
+Open the WAGO fieldbus web interface, click <strong>"IO config"</strong> and <strong>"create ea-config.xml"</strong> to update the configuration. Default username is <code>admin</code>, default password is <code>wago</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following examples assume the Component-ID is <code>io0</code> and the addresses are valid for the first WAGO extension.
+For extensions 2, 3,&#8230;&#8203; just increase the number behind <code>M</code>.
+Channel names follow this logic:</p>
+</div>
+<div class="sect2">
+<h3 id="_wago_750_523_1_channel_relay_output"><a class="anchor" href="#_wago_750_523_1_channel_relay_output"></a>16.1. WAGO 750-523 "1-channel relay output"</h3>
+<div class="paragraph">
+<p><a href="https://www.wago.com/global/i-o-systems/1-channel-relay-output/p/750-523">wago.com <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io0/RelayM1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Input/Output</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the relay</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io0/RelayM1Hand</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">state of the manual switch</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_wago_750_501_2_channel_digital_output"><a class="anchor" href="#_wago_750_501_2_channel_digital_output"></a>16.2. WAGO 750-501 "2-channel digital output"</h3>
+<div class="paragraph">
+<p><a href="https://www.wago.com/global/i-o-systems/2-channel-digital-output/p/750-501">wago.com <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io0/DigitalOutputM1C1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Input/Output</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the first digital output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io0/DigitalOutputM1C2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Input/Output</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the first digital output</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_wago_750_400_2_channel_digital_input"><a class="anchor" href="#_wago_750_400_2_channel_digital_input"></a>16.3. WAGO 750-400 "2-channel digital input"</h3>
+<div class="paragraph">
+<p><a href="https://www.wago.com/global/i-o-systems/2-channel-digital-input/p/750-400">wago.com <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io0/DigitalInputM1C1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the first digital input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io0/DigitalInputM1C2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the second digital input</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.io.wago">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
 </div>
 </div>
 </div>
