@@ -213,9 +213,9 @@
 </li>
 <li><a href="#_detailed_debug_log">11. Detailed Debug Log</a></li>
 <li><a href="#_debug_log">12. Debug Log</a></li>
-<li><a href="#_ess_discharge_limit_considering_cell_voltage">13. ESS Discharge Limit Considering Cell Voltage</a></li>
-<li><a href="#_ess_ac_island">14. ESS AC-Island</a></li>
-<li><a href="#_ess_delay_charge">15. ESS Delay Charge</a></li>
+<li><a href="#_ess_ac_island">13. ESS AC-Island</a></li>
+<li><a href="#_ess_delay_charge">14. ESS Delay Charge</a></li>
+<li><a href="#_ess_limit_discharge_cell_voltage">15. ESS Limit Discharge Cell Voltage</a></li>
 <li><a href="#_ess_limit_total_discharge">16. ESS Limit Total Discharge</a></li>
 <li><a href="#_ess_one_full_cycle">17. ESS One Full Cycle</a></li>
 <li><a href="#_evcs">18. EVCS</a></li>
@@ -629,18 +629,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_discharge_limit_considering_cell_voltage"><a class="anchor" href="#_ess_discharge_limit_considering_cell_voltage"></a>13. ESS Discharge Limit Considering Cell Voltage</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Limit discharge of an energy storage system depending on cell voltages.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.dischargelimitconsideringcellvoltage">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ess_ac_island"><a class="anchor" href="#_ess_ac_island"></a>14. ESS AC-Island</h2>
+<h2 id="_ess_ac_island"><a class="anchor" href="#_ess_ac_island"></a>13. ESS AC-Island</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Switches an AC PV inverter to the emergency power on grid outage.</p>
@@ -651,13 +640,24 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_delay_charge"><a class="anchor" href="#_ess_delay_charge"></a>15. ESS Delay Charge</h2>
+<h2 id="_ess_delay_charge"><a class="anchor" href="#_ess_delay_charge"></a>14. ESS Delay Charge</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Controller delays full charing of an energy storage system (ESS) to a certain hour of the day. If for example configured to delay till 4 pm, the allowed charge power is limited in a way, that 100 % State-of-Charge is reached only at 4 pm. The Controller therefor constantly watches the remaining time and remaining capacity of the ESS.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.delaycharge">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ess_limit_discharge_cell_voltage"><a class="anchor" href="#_ess_limit_discharge_cell_voltage"></a>15. ESS Limit Discharge Cell Voltage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Limits the discharge power of an energy storage system according to minimal cell voltage, e.g. to keep energy for emergency power or to avoid deep discharge.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.limitdischargecellvoltage">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 </div>
