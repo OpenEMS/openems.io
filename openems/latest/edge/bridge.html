@@ -176,10 +176,15 @@
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_modbus">1. Modbus</a>
+<li><a href="#_m_bus">1. M-Bus</a>
 <ul class="sectlevel2">
-<li><a href="#_modbustcp">1.1. Modbus/TCP</a></li>
-<li><a href="#_modbusrtu">1.2. Modbus/RTU</a></li>
+<li><a href="#_setup_note">1.1. Setup note</a></li>
+</ul>
+</li>
+<li><a href="#_modbus">2. Modbus</a>
+<ul class="sectlevel2">
+<li><a href="#_modbustcp">2.1. Modbus/TCP</a></li>
+<li><a href="#_modbusrtu">2.2. Modbus/RTU</a></li>
 </ul>
 </li>
 </ul>
@@ -192,13 +197,35 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_modbus"><a class="anchor" href="#_modbus"></a>1. Modbus</h2>
+<h2 id="_m_bus"><a class="anchor" href="#_m_bus"></a>1. M-Bus</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>M-Bus is a widely used standard for fieldbus communication. It enables connection to M-Bus devices like meters.</p>
+</div>
+<div class="sect2">
+<h3 id="_setup_note"><a class="anchor" href="#_setup_note"></a>1.1. Setup note</h3>
+<div class="paragraph">
+<p>This bridge depends on jMbus, a user guide for it can be found at <a href="https://www.openmuc.org/m-bus/user-guide/" class="bare">https://www.openmuc.org/m-bus/user-guide/</a>.</p>
+</div>
+<div class="paragraph">
+<p>Note: For jMbus to work you need to install the native part of RxTx which is a library for serial port
+communication jMbus is dependent on. See paragraph 2.5 for further information.</p>
+</div>
+<div class="paragraph">
+<p>For Linux users: In case the RxTx library cannot be found under /usr/lib/jni you can try to move all .so files of that directory to
+/usr/lib (see <a href="https://community.openems.io/t/loading-library-from-external-jar/134/3">OpenEMS Community</a>).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modbus"><a class="anchor" href="#_modbus"></a>2. Modbus</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Modbus is a widely used standard for fieldbus connections. It is used by all kinds of hardware devices like photovoltaics inverters, electric meters, and so on.</p>
 </div>
 <div class="sect2">
-<h3 id="_modbustcp"><a class="anchor" href="#_modbustcp"></a>1.1. Modbus/TCP</h3>
+<h3 id="_modbustcp"><a class="anchor" href="#_modbustcp"></a>2.1. Modbus/TCP</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusTcpImpl.java">Modbus/TCP <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -209,7 +236,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_modbusrtu"><a class="anchor" href="#_modbusrtu"></a>1.2. Modbus/RTU</h3>
+<h3 id="_modbusrtu"><a class="anchor" href="#_modbusrtu"></a>2.2. Modbus/RTU</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusSerialImpl.java">Modbus/Serial <span class="icon"><i class="fa fa-code"></i></span></a></dt>

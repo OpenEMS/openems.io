@@ -2219,12 +2219,32 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 <p>To simplify the implementation of hardware that is connected via certain standardized physical connection layers and protocols, those are implemented as Bridges.</p>
 </div>
 <div class="sect3">
-<h4 id="_modbus"><a class="anchor" href="#_modbus"></a>4.6.1. Modbus</h4>
+<h4 id="_m_bus"><a class="anchor" href="#_m_bus"></a>4.6.1. M-Bus</h4>
+<div class="paragraph">
+<p>M-Bus is a widely used standard for fieldbus communication. It enables connection to M-Bus devices like meters.</p>
+</div>
+<div class="sect4">
+<h5 id="_setup_note"><a class="anchor" href="#_setup_note"></a>4.6.1.1. Setup note</h5>
+<div class="paragraph">
+<p>This bridge depends on jMbus, a user guide for it can be found at <a href="https://www.openmuc.org/m-bus/user-guide/" class="bare">https://www.openmuc.org/m-bus/user-guide/</a>.</p>
+</div>
+<div class="paragraph">
+<p>Note: For jMbus to work you need to install the native part of RxTx which is a library for serial port
+communication jMbus is dependent on. See paragraph 2.5 for further information.</p>
+</div>
+<div class="paragraph">
+<p>For Linux users: In case the RxTx library cannot be found under /usr/lib/jni you can try to move all .so files of that directory to
+/usr/lib (see <a href="https://community.openems.io/t/loading-library-from-external-jar/134/3">OpenEMS Community</a>).</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_modbus"><a class="anchor" href="#_modbus"></a>4.6.2. Modbus</h4>
 <div class="paragraph">
 <p>Modbus is a widely used standard for fieldbus connections. It is used by all kinds of hardware devices like photovoltaics inverters, electric meters, and so on.</p>
 </div>
 <div class="sect4">
-<h5 id="_modbustcp"><a class="anchor" href="#_modbustcp"></a>4.6.1.1. Modbus/TCP</h5>
+<h5 id="_modbustcp"><a class="anchor" href="#_modbustcp"></a>4.6.2.1. Modbus/TCP</h5>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusTcpImpl.java">Modbus/TCP <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -2235,7 +2255,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect4">
-<h5 id="_modbusrtu"><a class="anchor" href="#_modbusrtu"></a>4.6.1.2. Modbus/RTU</h5>
+<h5 id="_modbusrtu"><a class="anchor" href="#_modbusrtu"></a>4.6.2.2. Modbus/RTU</h5>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusSerialImpl.java">Modbus/Serial <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -2831,7 +2851,30 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_artemes_am_2"><a class="anchor" href="#_artemes_am_2"></a>4.7.19. Artemes AM-2</h4>
+<h4 id="_abb_b23_meter"><a class="anchor" href="#_abb_b23_meter"></a>4.7.19. ABB B23 Meter</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Implemented Natures</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>SymmetricMeter</p>
+</li>
+<li>
+<p>AsymmetricMeter</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.meter.abb">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_artemes_am_2"><a class="anchor" href="#_artemes_am_2"></a>4.7.20. Artemes AM-2</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -2854,7 +2897,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_socomec_diris_a10_a14_b30_e24_meter"><a class="anchor" href="#_socomec_diris_a10_a14_b30_e24_meter"></a>4.7.20. SOCOMEC Diris A10 | A14 | B30 | E24 Meter</h4>
+<h4 id="_socomec_diris_a10_a14_b30_e24_meter"><a class="anchor" href="#_socomec_diris_a10_a14_b30_e24_meter"></a>4.7.21. SOCOMEC Diris A10 | A14 | B30 | E24 Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -2877,7 +2920,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_carlo_gavazzi_em300_meter"><a class="anchor" href="#_carlo_gavazzi_em300_meter"></a>4.7.21. Carlo Gavazzi EM300 Meter</h4>
+<h4 id="_carlo_gavazzi_em300_meter"><a class="anchor" href="#_carlo_gavazzi_em300_meter"></a>4.7.22. Carlo Gavazzi EM300 Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -2900,7 +2943,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_discovergy_smart_meter"><a class="anchor" href="#_discovergy_smart_meter"></a>4.7.22. Discovergy Smart-Meter</h4>
+<h4 id="_discovergy_smart_meter"><a class="anchor" href="#_discovergy_smart_meter"></a>4.7.23. Discovergy Smart-Meter</h4>
 <div class="paragraph">
 <p>Reads data of a Discovergy Smart-Meter via online REST-Api. See <a href="https://api.discovergy.com" class="bare">https://api.discovergy.com</a> for details.</p>
 </div>
@@ -2926,7 +2969,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_janitza_umg_96rm_e_meter"><a class="anchor" href="#_janitza_umg_96rm_e_meter"></a>4.7.23. Janitza UMG 96RM-E Meter</h4>
+<h4 id="_janitza_umg_96rm_e_meter"><a class="anchor" href="#_janitza_umg_96rm_e_meter"></a>4.7.24. Janitza UMG 96RM-E Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -2949,7 +2992,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_microcare_sdm_630_meter"><a class="anchor" href="#_microcare_sdm_630_meter"></a>4.7.24. Microcare SDM 630 Meter</h4>
+<h4 id="_microcare_sdm_630_meter"><a class="anchor" href="#_microcare_sdm_630_meter"></a>4.7.25. Microcare SDM 630 Meter</h4>
 <div class="paragraph">
 <p>This implementation is functionally compatible with a number of energy meters with the name "SDM 630".</p>
 </div>
@@ -2975,7 +3018,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pq_plus_umd_97_meter"><a class="anchor" href="#_pq_plus_umd_97_meter"></a>4.7.25. PQ Plus UMD 97 Meter</h4>
+<h4 id="_pq_plus_umd_97_meter"><a class="anchor" href="#_pq_plus_umd_97_meter"></a>4.7.26. PQ Plus UMD 97 Meter</h4>
 <div class="paragraph">
 <p>Applies also to UMD 96, UMD 97, UMD 98, UMD 807, UMD 701, UMD 704, UMD 705, UMD 706, UMD 707, UMD 709, UMD 710, UMD 913, UMC 26</p>
 </div>
@@ -3001,7 +3044,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_microcare_sdm_630_meter_2"><a class="anchor" href="#_microcare_sdm_630_meter_2"></a>4.7.26. Microcare SDM 630 Meter</h4>
+<h4 id="_microcare_sdm_630_meter_2"><a class="anchor" href="#_microcare_sdm_630_meter_2"></a>4.7.27. Microcare SDM 630 Meter</h4>
 <div class="paragraph">
 <p>This implementation is functionally compatible with a number of energy meters with the name "SDM 630".</p>
 </div>
@@ -3027,7 +3070,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sunspec_meter"><a class="anchor" href="#_sunspec_meter"></a>4.7.27. SunSpec Meter</h4>
+<h4 id="_sunspec_meter"><a class="anchor" href="#_sunspec_meter"></a>4.7.28. SunSpec Meter</h4>
 <div class="paragraph">
 <p>Generic implementation of SunSpec Meters.</p>
 </div>
@@ -3053,7 +3096,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_virtual_symmetric_add"><a class="anchor" href="#_virtual_symmetric_add"></a>4.7.28. Virtual Symmetric Add</h4>
+<h4 id="_virtual_symmetric_add"><a class="anchor" href="#_virtual_symmetric_add"></a>4.7.29. Virtual Symmetric Add</h4>
 <div class="paragraph">
 <p>This is a virtual meter which is used to sum up the values from multiple symmetric meters. The use case for this feature is, Usually when there are multiple meters reading values from different systems, The average values from the systems make more sense for calculation and statistics.</p>
 </div>
@@ -3072,7 +3115,7 @@ Channel names follow this logic:</p>
 </dl>
 </div>
 <div class="sect4">
-<h5 id="_configuration_6"><a class="anchor" href="#_configuration_6"></a>4.7.28.1. Configuration</h5>
+<h5 id="_configuration_6"><a class="anchor" href="#_configuration_6"></a>4.7.29.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -3094,7 +3137,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_configuration_4"><a class="anchor" href="#_example_configuration_4"></a>4.7.28.2. Example Configuration</h5>
+<h5 id="_example_configuration_4"><a class="anchor" href="#_example_configuration_4"></a>4.7.29.2. Example Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -3132,7 +3175,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_weidmueller_525_meter"><a class="anchor" href="#_weidmueller_525_meter"></a>4.7.29. Weidmueller 525 Meter</h4>
+<h4 id="_weidmueller_525_meter"><a class="anchor" href="#_weidmueller_525_meter"></a>4.7.30. Weidmueller 525 Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3155,13 +3198,13 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_persistence_model_predictor"><a class="anchor" href="#_persistence_model_predictor"></a>4.7.30. Persistence Model Predictor</h4>
+<h4 id="_persistence_model_predictor"><a class="anchor" href="#_persistence_model_predictor"></a>4.7.31. Persistence Model Predictor</h4>
 <div class="paragraph">
 <p>Predicts values using the 'same-as-last-day' approach.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>4.7.31. PV-Inverter Cluster</h4>
+<h4 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>4.7.32. PV-Inverter Cluster</h4>
 <div class="paragraph">
 <p>Combines multiple PV-Inverters to one common PV-Inverter. This way every Controller can easily work with multiple PV-Inverters in parallel.</p>
 </div>
@@ -3170,7 +3213,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>4.7.32. KACO blueplanet PV inverter</h4>
+<h4 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>4.7.33. KACO blueplanet PV inverter</h4>
 <div class="paragraph">
 <p>Implementation of the KACO blueplanet series PV inverters.</p>
 </div>
@@ -3196,7 +3239,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solar_log"><a class="anchor" href="#_solar_log"></a>4.7.33. Solar-Log</h4>
+<h4 id="_solar_log"><a class="anchor" href="#_solar_log"></a>4.7.34. Solar-Log</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3219,7 +3262,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sunspec_pv_inverter"><a class="anchor" href="#_sunspec_pv_inverter"></a>4.7.34. SunSpec PV inverter</h4>
+<h4 id="_sunspec_pv_inverter"><a class="anchor" href="#_sunspec_pv_inverter"></a>4.7.35. SunSpec PV inverter</h4>
 <div class="paragraph">
 <p>Generic implementation of SunSpec PV inverters. It is tested with
 - KACO blueplanet TL.3 series
@@ -3247,7 +3290,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>4.7.35. SolarEdge PV Inverter + Grid-Meter</h4>
+<h4 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>4.7.36. SolarEdge PV Inverter + Grid-Meter</h4>
 <div class="paragraph">
 <p>Implementation of the SolarEdge PV inverters.</p>
 </div>
@@ -3273,7 +3316,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>4.7.36. Tesla Powerwall 2</h4>
+<h4 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>4.7.37. Tesla Powerwall 2</h4>
 <div class="paragraph">
 <p>Implementation of the Tesla Powerwall 2 energy storage system</p>
 </div>
@@ -3296,7 +3339,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_influxdb"><a class="anchor" href="#_influxdb"></a>4.7.37. InfluxDB</h4>
+<h4 id="_influxdb"><a class="anchor" href="#_influxdb"></a>4.7.38. InfluxDB</h4>
 <div class="paragraph">
 <p>Persists all data of OpenEMS Edge Channels to an InfluxDB timeseries database.</p>
 </div>
@@ -3305,7 +3348,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>4.7.38. RRD4J</h4>
+<h4 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>4.7.39. RRD4J</h4>
 <div class="paragraph">
 <p>Persists data of OpenEMS Edge Channels to RRD4J files.</p>
 </div>
@@ -3314,7 +3357,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>4.7.39. KACO blueplanet hybrid 10.0 TL3</h4>
+<h4 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>4.7.40. KACO blueplanet hybrid 10.0 TL3</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
