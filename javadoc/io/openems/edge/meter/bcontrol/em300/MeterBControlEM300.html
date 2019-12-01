@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -117,13 +117,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../io/openems/edge/meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, org.osgi.service.event.EventHandler</dd>
+<dd><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>, <a href="../../../../../../io/openems/edge/meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, org.osgi.service.event.EventHandler</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">MeterBControlEM300</span>
 extends <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a>
-implements <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, <a href="../../../../../../io/openems/edge/meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler</pre>
+implements <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, <a href="../../../../../../io/openems/edge/meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler, <a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></pre>
 </li>
 </ul>
 </div>
@@ -236,10 +236,16 @@ implements <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.h
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlaveTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveTable</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/meter/bcontrol/em300/MeterBControlEM300.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">getModbusSlaveTable</a></span>(<a href="../../../../../../io/openems/common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</code>
+<div class="block">Gets the Modbus-Slave-Table for this OpenEMS-Component.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/meter/bcontrol/em300/MeterBControlEM300.html#handleEvent-org.osgi.service.event.Event-">handleEvent</a></span>(org.osgi.service.event.Event&nbsp;event)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/meter/bcontrol/em300/MeterBControlEM300.html#setModbus-io.openems.edge.bridge.modbus.api.BridgeModbus-">setModbus</a></span>(<a href="../../../../../../io/openems/edge/bridge/modbus/api/BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a>&nbsp;modbus)</code>
 <div class="block">Set the Modbus bridge.</div>
@@ -423,13 +429,32 @@ implements <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.h
 <a name="handleEvent-org.osgi.service.event.Event-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>handleEvent</h4>
 <pre>public&nbsp;void&nbsp;handleEvent(org.osgi.service.event.Event&nbsp;event)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getModbusSlaveTable-io.openems.common.channel.AccessMode-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getModbusSlaveTable</h4>
+<pre>public&nbsp;<a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlaveTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveTable</a>&nbsp;getModbusSlaveTable(<a href="../../../../../../io/openems/common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">ModbusSlave</a></code></span></div>
+<div class="block">Gets the Modbus-Slave-Table for this OpenEMS-Component.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">getModbusSlaveTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>accessMode</code> - filters the Modbus-Records that should be shown</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Modbus-Slave-Table</dd>
 </dl>
 </li>
 </ul>
