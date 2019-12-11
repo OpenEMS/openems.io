@@ -187,6 +187,7 @@
 <li><a href="#_modbusrtu">2.2. Modbus/RTU</a></li>
 </ul>
 </li>
+<li><a href="#_onewire">3. OneWire</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -245,6 +246,54 @@ communication jMbus is dependent on. See paragraph 2.5 for further information.<
 </dd>
 </dl>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_onewire"><a class="anchor" href="#_onewire"></a>3. OneWire</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OneWire is a widely used protocol for home automation. It is used by sensors like thermometers.</p>
+</div>
+<div class="paragraph">
+<p>This implementation directly talks to the OneWire busmaster, e.g. a DS9490R USB dongle, without requiring the OneWire File System (OWFS).
+It therefore requires the natively compiled C library by the manufacturer of the OneWire chip Maxim Integrated.
+This library is then accessed using Java JNI.</p>
+</div>
+<div class="paragraph">
+<p>To compile the native library follow the guide on <a href="https://www.maximintegrated.com/en/design/technical-documents/app-notes/5/5917.html" class="bare">https://www.maximintegrated.com/en/design/technical-documents/app-notes/5/5917.html</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download the OneWireViewer-Linux.zip file</p>
+</li>
+<li>
+<p>Unzip the file (<code>unzip OneWireViewer-Linux.zip</code>)</p>
+</li>
+<li>
+<p>Prepare compile environment (<code>sudo apt-get install libusb-dev build-essential</code>)</p>
+</li>
+<li>
+<p>Install Java JDK (e.g. <code>sudo apt-get install openjdk-8-jdk</code>)</p>
+</li>
+<li>
+<p>Compile (<code>cd OneWireViewer-Linux/PDKAdapterUSB &amp;&amp; make &amp;&amp; sudo make install</code>)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The library needs exclusive access to the busmaster.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Unload the default Linux driver: <code>rmmod ds2490</code></p>
+</li>
+<li>
+<p>Block the driver from loading on next boot <code>echo blacklist ds2490 &gt; /etc/modprobe.d/ds2490.conf</code></p>
+</li>
+</ol>
 </div>
 </div>
 </div>
