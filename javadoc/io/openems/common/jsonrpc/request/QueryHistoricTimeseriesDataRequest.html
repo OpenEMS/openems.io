@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -135,7 +135,8 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
      "timezone": Number,
      "fromDate": YYYY-MM-DD,
      "toDate": YYYY-MM-DD,
-     "channels": ChannelAddress[]
+     "channels": ChannelAddress[],
+     "resolution"?: Number
    }
  }
  </pre></div>
@@ -183,13 +184,15 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/request/QueryHistoricTimeseriesDataRequest.html#QueryHistoricTimeseriesDataRequest-java.util.UUID-java.time.ZonedDateTime-java.time.ZonedDateTime-">QueryHistoricTimeseriesDataRequest</a></span>(java.util.UUID&nbsp;id,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/request/QueryHistoricTimeseriesDataRequest.html#QueryHistoricTimeseriesDataRequest-java.util.UUID-java.time.ZonedDateTime-java.time.ZonedDateTime-java.lang.Integer-">QueryHistoricTimeseriesDataRequest</a></span>(java.util.UUID&nbsp;id,
                                   java.time.ZonedDateTime&nbsp;fromDate,
-                                  java.time.ZonedDateTime&nbsp;toDate)</code>&nbsp;</td>
+                                  java.time.ZonedDateTime&nbsp;toDate,
+                                  java.lang.Integer&nbsp;resolution)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/request/QueryHistoricTimeseriesDataRequest.html#QueryHistoricTimeseriesDataRequest-java.time.ZonedDateTime-java.time.ZonedDateTime-">QueryHistoricTimeseriesDataRequest</a></span>(java.time.ZonedDateTime&nbsp;fromDate,
-                                  java.time.ZonedDateTime&nbsp;toDate)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/request/QueryHistoricTimeseriesDataRequest.html#QueryHistoricTimeseriesDataRequest-java.time.ZonedDateTime-java.time.ZonedDateTime-java.lang.Integer-">QueryHistoricTimeseriesDataRequest</a></span>(java.time.ZonedDateTime&nbsp;fromDate,
+                                  java.time.ZonedDateTime&nbsp;toDate,
+                                  java.lang.Integer&nbsp;resolution)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -227,6 +230,10 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/request/QueryHistoricTimeseriesDataRequest.html#getParams--">getParams</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.util.Optional&lt;java.lang.Integer&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/request/QueryHistoricTimeseriesDataRequest.html#getResolution--">getResolution</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.time.ZonedDateTime</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/request/QueryHistoricTimeseriesDataRequest.html#getToDate--">getToDate</a></span>()</code>&nbsp;</td>
 </tr>
@@ -294,7 +301,7 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="QueryHistoricTimeseriesDataRequest-java.util.UUID-java.time.ZonedDateTime-java.time.ZonedDateTime-">
+<a name="QueryHistoricTimeseriesDataRequest-java.util.UUID-java.time.ZonedDateTime-java.time.ZonedDateTime-java.lang.Integer-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -302,7 +309,8 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <h4>QueryHistoricTimeseriesDataRequest</h4>
 <pre>public&nbsp;QueryHistoricTimeseriesDataRequest(java.util.UUID&nbsp;id,
                                           java.time.ZonedDateTime&nbsp;fromDate,
-                                          java.time.ZonedDateTime&nbsp;toDate)
+                                          java.time.ZonedDateTime&nbsp;toDate,
+                                          java.lang.Integer&nbsp;resolution)
                                    throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -310,14 +318,15 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 </dl>
 </li>
 </ul>
-<a name="QueryHistoricTimeseriesDataRequest-java.time.ZonedDateTime-java.time.ZonedDateTime-">
+<a name="QueryHistoricTimeseriesDataRequest-java.time.ZonedDateTime-java.time.ZonedDateTime-java.lang.Integer-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>QueryHistoricTimeseriesDataRequest</h4>
 <pre>public&nbsp;QueryHistoricTimeseriesDataRequest(java.time.ZonedDateTime&nbsp;fromDate,
-                                          java.time.ZonedDateTime&nbsp;toDate)
+                                          java.time.ZonedDateTime&nbsp;toDate,
+                                          java.lang.Integer&nbsp;resolution)
                                    throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -395,10 +404,19 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <a name="getChannels--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getChannels</h4>
 <pre>public&nbsp;java.util.TreeSet&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;getChannels()</pre>
+</li>
+</ul>
+<a name="getResolution--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getResolution</h4>
+<pre>public&nbsp;java.util.Optional&lt;java.lang.Integer&gt;&nbsp;getResolution()</pre>
 </li>
 </ul>
 </li>
