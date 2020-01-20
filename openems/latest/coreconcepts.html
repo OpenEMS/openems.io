@@ -198,7 +198,93 @@
 <p>OpenEMS Edge is using the <a href="https://en.wikipedia.org/wiki/OSGi">OSGi <span class="icon"><i class="fa fa-external-link"></i></span></a> platform to provide a completely modular and dynamic service oriented system.</p>
 </div>
 <div class="paragraph">
-<p>Logical groups of source code are put into one OSGi Bundle. Every directory in the source code root directory starting with 'io.openems.*' is a bundle.</p>
+<p>Logical groups of source code are put into one OSGi Bundle. Every directory in the source code root directory starting with <code>io.openems.*`</code> is a bundle.</p>
+</div>
+<div class="paragraph">
+<p>More bundle naming conventions are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bundle names ending with <code>*.common</code> are for common code that is shared by multiple components. Examples are:</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>io.openems.common</code></dt>
+<dd>
+<p>for common code between Edge and Backend, like helper utils, JSON-RPC definitions and Abstract Worker implementations</p>
+</dd>
+<dt class="hdlist1"><code>io.openems.backend.common</code></dt>
+<dd>
+<p>for common code within Backend.</p>
+</dd>
+<dt class="hdlist1"><code>io.openems.edge.common</code></dt>
+<dd>
+<p>for common code within Edge.</p>
+</dd>
+<dt class="hdlist1"><code>io.openems.edge.controller.api.common</code></dt>
+<dd>
+<p>for common code used by API Controllers</p>
+</dd>
+<dt class="hdlist1"><code>&#8230;&#8203;</code></dt>
+</dl>
+</div>
+</li>
+<li>
+<p>Bundle names ending with <code>*.api</code> are for <a href="#_nature">Natures and APIs</a>. Examples are:</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>io.openems.edge.controller.api</code></dt>
+<dd>
+<p>for <a href="edge/controller.html" class="page">Controllers</a></p>
+</dd>
+<dt class="hdlist1"><code>io.openems.edge.scheduler.api</code></dt>
+<dd>
+<p>for <a href="edge/scheduler.html" class="page">Schedulers</a></p>
+</dd>
+<dt class="hdlist1"><code>&#8230;&#8203;</code></dt>
+</dl>
+</div>
+</li>
+<li>
+<p>Bundle names ending with <code>*.core</code> are for shared and helper OSGi services. Examples are:</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>io.openems.edge.core</code></dt>
+<dd>
+<p>for central singleton services:</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>ComponentManager</strong></dt>
+<dd>
+<p>handles access to OpenEMS Components and Channels</p>
+</dd>
+<dt class="hdlist1"><strong>Cycle</strong></dt>
+<dd>
+<p>is responsible for the process <a href="edge/architecture.html#_cycle" class="page">Cycle</a></p>
+</dd>
+<dt class="hdlist1"><strong>Host</strong></dt>
+<dd>
+<p>for accessing the host and operating system</p>
+</dd>
+<dt class="hdlist1"><strong>Meta</strong></dt>
+<dd>
+<p>for some Meta information like the version of the running OpenEMS Edge</p>
+</dd>
+<dt class="hdlist1"><strong>Sum</strong></dt>
+<dd>
+<p>for summing the values of the entire energy system, all meters, energy storage systems and so on.</p>
+</dd>
+</dl>
+</div>
+</dd>
+<dt class="hdlist1"><code>io.openems.edge.ess.core</code></dt>
+<dd>
+<p>for the central <strong>EssPower</strong> service, that distributes power requirements to different energy storage systems</p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
