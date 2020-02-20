@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html" title="class in io.openems.edge.core.componentmanager"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../io/openems/edge/core/componentmanager/OsgiValidateWorker.html" title="class in io.openems.edge.core.componentmanager"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../io/openems/edge/core/componentmanager/DefaultConfigurationWorker.Config.html" title="class in io.openems.edge.core.componentmanager"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?io/openems/edge/core/componentmanager/DefaultConfigurationWorker.html" target="_top">Frames</a></li>
@@ -72,7 +72,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#fields.inherited.from.class.io.openems.common.worker.AbstractWorker">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -123,6 +123,27 @@ extends <a href="../../../../../io/openems/common/worker/AbstractWorker.html" ti
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/DefaultConfigurationWorker.Config.html" title="class in io.openems.edge.core.componentmanager">DefaultConfigurationWorker.Config</a></span></code>
+<div class="block">Holds a configuration.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- =========== FIELD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="field.summary">
@@ -169,14 +190,37 @@ extends <a href="../../../../../io/openems/common/worker/AbstractWorker.html" ti
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/DefaultConfigurationWorker.html#createConfiguration-java.util.concurrent.atomic.AtomicBoolean-java.lang.String-java.util.List-">createConfiguration</a></span>(java.util.concurrent.atomic.AtomicBoolean&nbsp;defaultConfigurationFailed,
+                   java.lang.String&nbsp;factoryPid,
+                   java.util.List&lt;<a href="../../../../../io/openems/common/jsonrpc/request/UpdateComponentConfigRequest.Property.html" title="class in io.openems.common.jsonrpc.request">UpdateComponentConfigRequest.Property</a>&gt;&nbsp;properties)</code>
+<div class="block">Creates a Component configuration.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/DefaultConfigurationWorker.html#deleteConfiguration-java.util.concurrent.atomic.AtomicBoolean-java.lang.String-">deleteConfiguration</a></span>(java.util.concurrent.atomic.AtomicBoolean&nbsp;defaultConfigurationFailed,
+                   java.lang.String&nbsp;componentId)</code>
+<div class="block">Deletes a Component configuration.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/DefaultConfigurationWorker.html#forever--">forever</a></span>()</code>
 <div class="block">This method is called in a loop forever until the Thread gets interrupted.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/DefaultConfigurationWorker.html#getCycleTime--">getCycleTime</a></span>()</code>
 <div class="block">Gets the cycleTime of this worker in [ms].</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/DefaultConfigurationWorker.html#updateConfiguration-java.util.concurrent.atomic.AtomicBoolean-java.lang.String-java.util.List-">updateConfiguration</a></span>(java.util.concurrent.atomic.AtomicBoolean&nbsp;defaultConfigurationFailed,
+                   java.lang.String&nbsp;componentId,
+                   java.util.List&lt;<a href="../../../../../io/openems/common/jsonrpc/request/UpdateComponentConfigRequest.Property.html" title="class in io.openems.common.jsonrpc.request">UpdateComponentConfigRequest.Property</a>&gt;&nbsp;properties)</code>
+<div class="block">Updates a Component configuration.</div>
 </td>
 </tr>
 </table>
@@ -240,6 +284,61 @@ extends <a href="../../../../../io/openems/common/worker/AbstractWorker.html" ti
 </dl>
 </li>
 </ul>
+<a name="createConfiguration-java.util.concurrent.atomic.AtomicBoolean-java.lang.String-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createConfiguration</h4>
+<pre>protected&nbsp;void&nbsp;createConfiguration(java.util.concurrent.atomic.AtomicBoolean&nbsp;defaultConfigurationFailed,
+                                   java.lang.String&nbsp;factoryPid,
+                                   java.util.List&lt;<a href="../../../../../io/openems/common/jsonrpc/request/UpdateComponentConfigRequest.Property.html" title="class in io.openems.common.jsonrpc.request">UpdateComponentConfigRequest.Property</a>&gt;&nbsp;properties)</pre>
+<div class="block">Creates a Component configuration.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>defaultConfigurationFailed</code> - the result of the last configuration,
+                                   updated on error</dd>
+<dd><code>factoryPid</code> - the Factory-PID</dd>
+<dd><code>properties</code> - the Component properties</dd>
+</dl>
+</li>
+</ul>
+<a name="updateConfiguration-java.util.concurrent.atomic.AtomicBoolean-java.lang.String-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateConfiguration</h4>
+<pre>protected&nbsp;void&nbsp;updateConfiguration(java.util.concurrent.atomic.AtomicBoolean&nbsp;defaultConfigurationFailed,
+                                   java.lang.String&nbsp;componentId,
+                                   java.util.List&lt;<a href="../../../../../io/openems/common/jsonrpc/request/UpdateComponentConfigRequest.Property.html" title="class in io.openems.common.jsonrpc.request">UpdateComponentConfigRequest.Property</a>&gt;&nbsp;properties)</pre>
+<div class="block">Updates a Component configuration.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>defaultConfigurationFailed</code> - the result of the last configuration,
+                                   updated on error</dd>
+<dd><code>componentId</code> - the Component-ID</dd>
+<dd><code>properties</code> - the Component properties</dd>
+</dl>
+</li>
+</ul>
+<a name="deleteConfiguration-java.util.concurrent.atomic.AtomicBoolean-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deleteConfiguration</h4>
+<pre>protected&nbsp;void&nbsp;deleteConfiguration(java.util.concurrent.atomic.AtomicBoolean&nbsp;defaultConfigurationFailed,
+                                   java.lang.String&nbsp;componentId)</pre>
+<div class="block">Deletes a Component configuration.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>defaultConfigurationFailed</code> - the result of the last configuration,
+                                   updated on error</dd>
+<dd><code>componentId</code> - the Component-ID</dd>
+</dl>
+</li>
+</ul>
 <a name="getCycleTime--">
 <!--   -->
 </a>
@@ -290,7 +389,7 @@ extends <a href="../../../../../io/openems/common/worker/AbstractWorker.html" ti
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html" title="class in io.openems.edge.core.componentmanager"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../io/openems/edge/core/componentmanager/OsgiValidateWorker.html" title="class in io.openems.edge.core.componentmanager"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../io/openems/edge/core/componentmanager/DefaultConfigurationWorker.Config.html" title="class in io.openems.edge.core.componentmanager"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?io/openems/edge/core/componentmanager/DefaultConfigurationWorker.html" target="_top">Frames</a></li>
@@ -314,7 +413,7 @@ extends <a href="../../../../../io/openems/common/worker/AbstractWorker.html" ti
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#fields.inherited.from.class.io.openems.common.worker.AbstractWorker">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
