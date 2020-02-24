@@ -188,12 +188,6 @@ implements <a href="../../../../../io/openems/edge/ess/power/api/Power.html" tit
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/filter/PidFilter.html" title="class in io.openems.edge.common.filter">PidFilter</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/ess/test/DummyPower.html#buildPidFilter--">buildPidFilter</a></span>()</code>
-<div class="block">Builds a PidFilter instance with the configured P, I and D variables.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../io/openems/edge/ess/power/api/Constraint.html" title="class in io.openems.edge.ess.power.api">Constraint</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/ess/test/DummyPower.html#createSimpleConstraint-java.lang.String-io.openems.edge.ess.api.ManagedSymmetricEss-io.openems.edge.ess.power.api.Phase-io.openems.edge.ess.power.api.Pwr-io.openems.edge.ess.power.api.Relationship-double-">createSimpleConstraint</a></span>(java.lang.String&nbsp;description,
                       <a href="../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
@@ -204,7 +198,7 @@ implements <a href="../../../../../io/openems/edge/ess/power/api/Power.html" tit
 <div class="block">Creates a simple constraint</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../io/openems/edge/ess/power/api/Coefficient.html" title="class in io.openems.edge.ess.power.api">Coefficient</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/ess/test/DummyPower.html#getCoefficient-io.openems.edge.ess.api.ManagedSymmetricEss-io.openems.edge.ess.power.api.Phase-io.openems.edge.ess.power.api.Pwr-">getCoefficient</a></span>(<a href="../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
               <a href="../../../../../io/openems/edge/ess/power/api/Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
@@ -213,7 +207,7 @@ implements <a href="../../../../../io/openems/edge/ess/power/api/Power.html" tit
  pwr</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/ess/test/DummyPower.html#getMaxPower-io.openems.edge.ess.api.ManagedSymmetricEss-io.openems.edge.ess.power.api.Phase-io.openems.edge.ess.power.api.Pwr-">getMaxPower</a></span>(<a href="../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
            <a href="../../../../../io/openems/edge/ess/power/api/Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
@@ -221,12 +215,18 @@ implements <a href="../../../../../io/openems/edge/ess/power/api/Power.html" tit
 <div class="block">Gets the maximum possible Power under the active Constraints.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/ess/test/DummyPower.html#getMinPower-io.openems.edge.ess.api.ManagedSymmetricEss-io.openems.edge.ess.power.api.Phase-io.openems.edge.ess.power.api.Pwr-">getMinPower</a></span>(<a href="../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
            <a href="../../../../../io/openems/edge/ess/power/api/Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
            <a href="../../../../../io/openems/edge/ess/power/api/Pwr.html" title="enum in io.openems.edge.ess.power.api">Pwr</a>&nbsp;pwr)</code>
 <div class="block">Gets the minimum possible possible Power under the active Constraints.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/filter/PidFilter.html" title="class in io.openems.edge.common.filter">PidFilter</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/ess/test/DummyPower.html#getPidFilter--">getPidFilter</a></span>()</code>
+<div class="block">Gets the PidFilter instance with the configured P, I and D variables.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -426,19 +426,18 @@ implements <a href="../../../../../io/openems/edge/ess/power/api/Power.html" tit
 </dl>
 </li>
 </ul>
-<a name="buildPidFilter--">
+<a name="getPidFilter--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>buildPidFilter</h4>
-<pre>public&nbsp;<a href="../../../../../io/openems/edge/common/filter/PidFilter.html" title="class in io.openems.edge.common.filter">PidFilter</a>&nbsp;buildPidFilter()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/ess/power/api/Power.html#buildPidFilter--">Power</a></code></span></div>
-<div class="block">Builds a PidFilter instance with the configured P, I and D variables. If no
- configuration is found, it falls back to default PidFilter values.</div>
+<h4>getPidFilter</h4>
+<pre>public&nbsp;<a href="../../../../../io/openems/edge/common/filter/PidFilter.html" title="class in io.openems.edge.common.filter">PidFilter</a>&nbsp;getPidFilter()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/ess/power/api/Power.html#getPidFilter--">Power</a></code></span></div>
+<div class="block">Gets the PidFilter instance with the configured P, I and D variables.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../io/openems/edge/ess/power/api/Power.html#buildPidFilter--">buildPidFilter</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/ess/power/api/Power.html" title="interface in io.openems.edge.ess.power.api">Power</a></code></dd>
+<dd><code><a href="../../../../../io/openems/edge/ess/power/api/Power.html#getPidFilter--">getPidFilter</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/ess/power/api/Power.html" title="interface in io.openems.edge.ess.power.api">Power</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an instance of <a href="../../../../../io/openems/edge/common/filter/PidFilter.html" title="class in io.openems.edge.common.filter"><code>PidFilter</code></a></dd>
 </dl>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -194,15 +194,17 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#reset--">reset</a></span>()</code>
-<div class="block">Reset the PID filter.</div>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#applyPidFilter-int-int-">applyPidFilter</a></span>(int&nbsp;input,
+              int&nbsp;target)</code>
+<div class="block">Apply the PID filter using the current Channel value as input and the target
+ value.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#setHighLimitForI-double-">setHighLimitForI</a></span>(double&nbsp;highLimitForI)</code>
-<div class="block">Limit the max value of I to avoid windup.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#reset--">reset</a></span>()</code>
+<div class="block">Reset the PID filter.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -210,25 +212,6 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#setLimits-double-double-">setLimits</a></span>(double&nbsp;lowLimit,
          double&nbsp;highLimit)</code>
 <div class="block">Limit the output value.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#setOutputFilter-double-">setOutputFilter</a></span>(double&nbsp;outputFilter)</code>
-<div class="block">Applies an additional filter on the output.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#setRampLimit-double-">setRampLimit</a></span>(double&nbsp;rampLimit)</code>
-<div class="block">Applies a limit on the rate at which the output value can increase.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#setTargetDistanceLimit-double-">setTargetDistanceLimit</a></span>(double&nbsp;targetDistanceLimit)</code>
-<div class="block">Applies a limit on the maximum distance the target value is allowed to have
- from the input value.</div>
 </td>
 </tr>
 </table>
@@ -352,33 +335,22 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="setHighLimitForI-double-">
+<a name="applyPidFilter-int-int-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setHighLimitForI</h4>
-<pre>public&nbsp;void&nbsp;setHighLimitForI(double&nbsp;highLimitForI)</pre>
-<div class="block">Limit the max value of I to avoid windup. This is internally set by
- <a href="../../../../../io/openems/edge/common/filter/PidFilter.html" title="class in io.openems.edge.common.filter"><code>PidFilter</code></a><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#setLimits-double-double-"><code>setLimits(double, double)</code></a>.</div>
+<h4>applyPidFilter</h4>
+<pre>public&nbsp;int&nbsp;applyPidFilter(int&nbsp;input,
+                          int&nbsp;target)</pre>
+<div class="block">Apply the PID filter using the current Channel value as input and the target
+ value.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>highLimitForI</code> - the high limit for I</dd>
-</dl>
-</li>
-</ul>
-<a name="setTargetDistanceLimit-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setTargetDistanceLimit</h4>
-<pre>public&nbsp;void&nbsp;setTargetDistanceLimit(double&nbsp;targetDistanceLimit)</pre>
-<div class="block">Applies a limit on the maximum distance the target value is allowed to have
- from the input value.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>targetDistanceLimit</code> - the target distance limit</dd>
+<dd><code>input</code> - the input value, e.g. the measured Channel value</dd>
+<dd><code>target</code> - the target value</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the filtered set-point value</dd>
 </dl>
 </li>
 </ul>
@@ -404,7 +376,7 @@ extends java.lang.Object</pre>
 <a name="reset--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>reset</h4>
 <pre>public&nbsp;void&nbsp;reset()</pre>
@@ -412,34 +384,6 @@ extends java.lang.Object</pre>
  
  <p>
  This method should be called when the filter was not used for a while.</div>
-</li>
-</ul>
-<a name="setRampLimit-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setRampLimit</h4>
-<pre>public&nbsp;void&nbsp;setRampLimit(double&nbsp;rampLimit)</pre>
-<div class="block">Applies a limit on the rate at which the output value can increase.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>rampLimit</code> - the rampLimit</dd>
-</dl>
-</li>
-</ul>
-<a name="setOutputFilter-double-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>setOutputFilter</h4>
-<pre>public&nbsp;void&nbsp;setOutputFilter(double&nbsp;outputFilter)</pre>
-<div class="block">Applies an additional filter on the output.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>outputFilter</code> - the output filter</dd>
-</dl>
 </li>
 </ul>
 </li>
