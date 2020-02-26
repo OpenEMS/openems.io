@@ -230,18 +230,19 @@
 <li><a href="#_example_configuration_2">24.2. Example Configuration</a></li>
 </ul>
 </li>
-<li><a href="#_io_fix_digital_output">25. IO Fix Digital Output</a></li>
-<li><a href="#_pv_inverter_fix_power_limit">26. PV-Inverter Fix Power Limit</a></li>
-<li><a href="#_sell_to_grid_limit">27. Sell-To-Grid limit</a></li>
-<li><a href="#_symmetric_balancing">28. Symmetric Balancing</a></li>
-<li><a href="#_symmetric_balancing_schedule">29. Symmetric Balancing Schedule</a></li>
-<li><a href="#_symmetric_fix_active_power">30. Symmetric Fix Active Power</a></li>
-<li><a href="#_symmetric_fix_reactive_power">31. Symmetric Fix Reactive Power</a></li>
-<li><a href="#_symmetric_limit_active_power">32. Symmetric Limit Active Power</a></li>
-<li><a href="#_symmetric_linear_power_band">33. Symmetric Linear Power Band</a></li>
-<li><a href="#_symmetric_peak_shaving">34. Symmetric Peak-Shaving</a></li>
-<li><a href="#_symmetric_random_power">35. Symmetric Random-Power</a></li>
-<li><a href="#_symmetric_reactive_power_voltage_characteristics">36. Symmetric Reactive-Power Voltage-Characteristics</a></li>
+<li><a href="#_io_channel_single_threshold">25. IO Channel-Single-Threshold</a></li>
+<li><a href="#_io_fix_digital_output">26. IO Fix Digital Output</a></li>
+<li><a href="#_pv_inverter_fix_power_limit">27. PV-Inverter Fix Power Limit</a></li>
+<li><a href="#_sell_to_grid_limit">28. Sell-To-Grid limit</a></li>
+<li><a href="#_symmetric_balancing">29. Symmetric Balancing</a></li>
+<li><a href="#_symmetric_balancing_schedule">30. Symmetric Balancing Schedule</a></li>
+<li><a href="#_symmetric_fix_active_power">31. Symmetric Fix Active Power</a></li>
+<li><a href="#_symmetric_fix_reactive_power">32. Symmetric Fix Reactive Power</a></li>
+<li><a href="#_symmetric_limit_active_power">33. Symmetric Limit Active Power</a></li>
+<li><a href="#_symmetric_linear_power_band">34. Symmetric Linear Power Band</a></li>
+<li><a href="#_symmetric_peak_shaving">35. Symmetric Peak-Shaving</a></li>
+<li><a href="#_symmetric_random_power">36. Symmetric Random-Power</a></li>
+<li><a href="#_symmetric_reactive_power_voltage_characteristics">37. Symmetric Reactive-Power Voltage-Characteristics</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -823,7 +824,18 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>25. IO Fix Digital Output</h2>
+<h2 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>25. IO Channel-Single-Threshold</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Generic Controller that sets a digital output according to the value of given Channel - e.g. turn a Relay on or off, when configured input channel/SoC is above or below a given threshold respectively.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.channelsinglethreshold">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>26. IO Fix Digital Output</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a digital output statically ON or OFF.</p>
@@ -834,7 +846,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>26. PV-Inverter Fix Power Limit</h2>
+<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>27. PV-Inverter Fix Power Limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed power limit for PV-Inverter production.</p>
@@ -845,7 +857,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sell_to_grid_limit"><a class="anchor" href="#_sell_to_grid_limit"></a>27. Sell-To-Grid limit</h2>
+<h2 id="_sell_to_grid_limit"><a class="anchor" href="#_sell_to_grid_limit"></a>28. Sell-To-Grid limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Dynamically limits the Sell-To-Grid power to a defined maximum power.</p>
@@ -856,7 +868,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>28. Symmetric Balancing</h2>
+<h2 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>29. Symmetric Balancing</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in self-consumption optimization mode.</p>
@@ -867,7 +879,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>29. Symmetric Balancing Schedule</h2>
+<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>30. Symmetric Balancing Schedule</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in self-consumption optimization mode. Allows the definition of a Schedule to set the target power on the grid meter. This Controller can be controlled using the OpenEMS Backend-to-Backend interface.</p>
@@ -878,7 +890,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>30. Symmetric Fix Active Power</h2>
+<h2 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>31. Symmetric Fix Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed active power for charging/discharging of a symmetric energy storage system.</p>
@@ -889,7 +901,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>31. Symmetric Fix Reactive Power</h2>
+<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>32. Symmetric Fix Reactive Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed reactive power for a symmetric energy storage system.</p>
@@ -900,7 +912,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>32. Symmetric Limit Active Power</h2>
+<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>33. Symmetric Limit Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
@@ -911,7 +923,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>33. Symmetric Linear Power Band</h2>
+<h2 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>34. Symmetric Linear Power Band</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Executes a test cycle for a symmetric energy storage system by increasing and decreasing the charging/discharging power in given limits.</p>
@@ -922,7 +934,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>34. Symmetric Peak-Shaving</h2>
+<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>35. Symmetric Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
@@ -933,7 +945,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>35. Symmetric Random-Power</h2>
+<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>36. Symmetric Random-Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
@@ -944,7 +956,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_reactive_power_voltage_characteristics"><a class="anchor" href="#_symmetric_reactive_power_voltage_characteristics"></a>36. Symmetric Reactive-Power Voltage-Characteristics</h2>
+<h2 id="_symmetric_reactive_power_voltage_characteristics"><a class="anchor" href="#_symmetric_reactive_power_voltage_characteristics"></a>37. Symmetric Reactive-Power Voltage-Characteristics</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system using a Q-by-U reference function.</p>
