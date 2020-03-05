@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -211,14 +211,26 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#getProperties--">getProperties</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.util.Optional&lt;<a href="../../../../io/openems/common/types/EdgeConfig.Component.Channel.html" title="class in io.openems.common.types">EdgeConfig.Component.Channel</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#getStateChannel-java.lang.String-">getStateChannel</a></span>(java.lang.String&nbsp;channelId)</code>
+<div class="block">Get the StateChannel with the given Channel-ID.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,<a href="../../../../io/openems/common/types/EdgeConfig.Component.Channel.html" title="class in io.openems.common.types">EdgeConfig.Component.Channel</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#getStateChannels--">getStateChannels</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#isEnabled--">isEnabled</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#isStateChannel-java.lang.String-">isStateChannel</a></span>(java.lang.String&nbsp;channelId)</code>
+<div class="block">Is the given Channel-ID a StateChannel?.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#toJson-io.openems.common.types.EdgeConfig.Component.JsonFormat-">toJson</a></span>(<a href="../../../../io/openems/common/types/EdgeConfig.Component.JsonFormat.html" title="enum in io.openems.common.types">EdgeConfig.Component.JsonFormat</a>&nbsp;jsonFormat)</code>
 <div class="block">Returns the Component configuration as a JSON Object.</div>
@@ -338,6 +350,39 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getStateChannels</h4>
 <pre>public&nbsp;java.util.Map&lt;java.lang.String,<a href="../../../../io/openems/common/types/EdgeConfig.Component.Channel.html" title="class in io.openems.common.types">EdgeConfig.Component.Channel</a>&gt;&nbsp;getStateChannels()</pre>
+</li>
+</ul>
+<a name="isStateChannel-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isStateChannel</h4>
+<pre>public&nbsp;boolean&nbsp;isStateChannel(java.lang.String&nbsp;channelId)</pre>
+<div class="block">Is the given Channel-ID a StateChannel?.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>channelId</code> - the Channel-ID</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if it is a StateChannel</dd>
+</dl>
+</li>
+</ul>
+<a name="getStateChannel-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getStateChannel</h4>
+<pre>public&nbsp;java.util.Optional&lt;<a href="../../../../io/openems/common/types/EdgeConfig.Component.Channel.html" title="class in io.openems.common.types">EdgeConfig.Component.Channel</a>&gt;&nbsp;getStateChannel(java.lang.String&nbsp;channelId)</pre>
+<div class="block">Get the StateChannel with the given Channel-ID.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>channelId</code> - the Channel-ID</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel; or empty if the Channel does not exist or is not a
+         StateChannel.</dd>
+</dl>
 </li>
 </ul>
 <a name="toJson-io.openems.common.types.EdgeConfig.Component.JsonFormat-">

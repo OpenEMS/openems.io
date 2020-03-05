@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PgUtils.html" title="class in io.openems.backend.metadata.odoo.postgres"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/WriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/QueueWriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?io/openems/backend/metadata/odoo/postgres/PostgresHandler.html" target="_top">Frames</a></li>
@@ -128,8 +128,8 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../../../../io/openems/backend/metadata/odoo/MetadataOdoo.html" title="class in io.openems.backend.metadata.odoo">MetadataOdoo</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PostgresHandler.html#parent">parent</a></span></code>&nbsp;</td>
+<td class="colFirst"><code>protected <a href="../../../../../../io/openems/backend/metadata/odoo/EdgeCache.html" title="class in io.openems.backend.metadata.odoo">EdgeCache</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PostgresHandler.html#edgeCache">edgeCache</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -146,9 +146,10 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PostgresHandler.html#PostgresHandler-io.openems.backend.metadata.odoo.MetadataOdoo-io.openems.backend.metadata.odoo.EdgeCache-io.openems.backend.metadata.odoo.Config-">PostgresHandler</a></span>(<a href="../../../../../../io/openems/backend/metadata/odoo/MetadataOdoo.html" title="class in io.openems.backend.metadata.odoo">MetadataOdoo</a>&nbsp;parent,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PostgresHandler.html#PostgresHandler-io.openems.backend.metadata.odoo.MetadataOdoo-io.openems.backend.metadata.odoo.EdgeCache-io.openems.backend.metadata.odoo.Config-java.lang.Runnable-">PostgresHandler</a></span>(<a href="../../../../../../io/openems/backend/metadata/odoo/MetadataOdoo.html" title="class in io.openems.backend.metadata.odoo">MetadataOdoo</a>&nbsp;parent,
                <a href="../../../../../../io/openems/backend/metadata/odoo/EdgeCache.html" title="class in io.openems.backend.metadata.odoo">EdgeCache</a>&nbsp;edgeCache,
-               <a href="../../../../../../io/openems/backend/metadata/odoo/Config.html" title="annotation in io.openems.backend.metadata.odoo">Config</a>&nbsp;config)</code>&nbsp;</td>
+               <a href="../../../../../../io/openems/backend/metadata/odoo/Config.html" title="annotation in io.openems.backend.metadata.odoo">Config</a>&nbsp;config,
+               java.lang.Runnable&nbsp;onInitialized)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -176,10 +177,29 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/WriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres">WriteWorker</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PostgresHandler.html#getWriteWorker--">getWriteWorker</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PeriodicWriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres">PeriodicWriteWorker</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PostgresHandler.html#getPeriodicWriteWorker--">getPeriodicWriteWorker</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/QueueWriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres">QueueWriteWorker</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PostgresHandler.html#getQueueWriteWorker--">getQueueWriteWorker</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PostgresHandler.html#logError-org.slf4j.Logger-java.lang.String-">logError</a></span>(org.slf4j.Logger&nbsp;log,
+        java.lang.String&nbsp;message)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PostgresHandler.html#logInfo-org.slf4j.Logger-java.lang.String-">logInfo</a></span>(org.slf4j.Logger&nbsp;log,
+       java.lang.String&nbsp;message)</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PostgresHandler.html#logWarn-org.slf4j.Logger-java.lang.String-">logWarn</a></span>(org.slf4j.Logger&nbsp;log,
+       java.lang.String&nbsp;message)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PostgresHandler.html#updateDeviceStates-io.openems.backend.metadata.odoo.MyEdge-java.util.Map-">updateDeviceStates</a></span>(<a href="../../../../../../io/openems/backend/metadata/odoo/MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge,
                   java.util.Map&lt;<a href="../../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<a href="../../../../../../io/openems/common/types/EdgeConfig.Component.Channel.html" title="class in io.openems.common.types">EdgeConfig.Component.Channel</a>&gt;&nbsp;activeStateChannels)</code>
@@ -208,13 +228,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Field Detail</h3>
-<a name="parent">
+<a name="edgeCache">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>parent</h4>
-<pre>protected final&nbsp;<a href="../../../../../../io/openems/backend/metadata/odoo/MetadataOdoo.html" title="class in io.openems.backend.metadata.odoo">MetadataOdoo</a> parent</pre>
+<h4>edgeCache</h4>
+<pre>protected final&nbsp;<a href="../../../../../../io/openems/backend/metadata/odoo/EdgeCache.html" title="class in io.openems.backend.metadata.odoo">EdgeCache</a> edgeCache</pre>
 </li>
 </ul>
 </li>
@@ -225,7 +245,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="PostgresHandler-io.openems.backend.metadata.odoo.MetadataOdoo-io.openems.backend.metadata.odoo.EdgeCache-io.openems.backend.metadata.odoo.Config-">
+<a name="PostgresHandler-io.openems.backend.metadata.odoo.MetadataOdoo-io.openems.backend.metadata.odoo.EdgeCache-io.openems.backend.metadata.odoo.Config-java.lang.Runnable-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -233,7 +253,8 @@ extends java.lang.Object</pre>
 <h4>PostgresHandler</h4>
 <pre>public&nbsp;PostgresHandler(<a href="../../../../../../io/openems/backend/metadata/odoo/MetadataOdoo.html" title="class in io.openems.backend.metadata.odoo">MetadataOdoo</a>&nbsp;parent,
                        <a href="../../../../../../io/openems/backend/metadata/odoo/EdgeCache.html" title="class in io.openems.backend.metadata.odoo">EdgeCache</a>&nbsp;edgeCache,
-                       <a href="../../../../../../io/openems/backend/metadata/odoo/Config.html" title="annotation in io.openems.backend.metadata.odoo">Config</a>&nbsp;config)</pre>
+                       <a href="../../../../../../io/openems/backend/metadata/odoo/Config.html" title="annotation in io.openems.backend.metadata.odoo">Config</a>&nbsp;config,
+                       java.lang.Runnable&nbsp;onInitialized)</pre>
 </li>
 </ul>
 </li>
@@ -285,13 +306,52 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="getWriteWorker--">
+<a name="getPeriodicWriteWorker--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPeriodicWriteWorker</h4>
+<pre>public&nbsp;<a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PeriodicWriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres">PeriodicWriteWorker</a>&nbsp;getPeriodicWriteWorker()</pre>
+</li>
+</ul>
+<a name="getQueueWriteWorker--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getQueueWriteWorker</h4>
+<pre>public&nbsp;<a href="../../../../../../io/openems/backend/metadata/odoo/postgres/QueueWriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres">QueueWriteWorker</a>&nbsp;getQueueWriteWorker()</pre>
+</li>
+</ul>
+<a name="logInfo-org.slf4j.Logger-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>logInfo</h4>
+<pre>protected&nbsp;void&nbsp;logInfo(org.slf4j.Logger&nbsp;log,
+                       java.lang.String&nbsp;message)</pre>
+</li>
+</ul>
+<a name="logWarn-org.slf4j.Logger-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>logWarn</h4>
+<pre>protected&nbsp;void&nbsp;logWarn(org.slf4j.Logger&nbsp;log,
+                       java.lang.String&nbsp;message)</pre>
+</li>
+</ul>
+<a name="logError-org.slf4j.Logger-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getWriteWorker</h4>
-<pre>public&nbsp;<a href="../../../../../../io/openems/backend/metadata/odoo/postgres/WriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres">WriteWorker</a>&nbsp;getWriteWorker()</pre>
+<h4>logError</h4>
+<pre>protected&nbsp;void&nbsp;logError(org.slf4j.Logger&nbsp;log,
+                        java.lang.String&nbsp;message)</pre>
 </li>
 </ul>
 </li>
@@ -322,7 +382,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/PgUtils.html" title="class in io.openems.backend.metadata.odoo.postgres"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/WriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../io/openems/backend/metadata/odoo/postgres/QueueWriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?io/openems/backend/metadata/odoo/postgres/PostgresHandler.html" target="_top">Frames</a></li>
