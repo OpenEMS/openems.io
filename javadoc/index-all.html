@@ -2702,7 +2702,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="io/openems/common/types/ChannelAddress.html#compareTo-io.openems.common.types.ChannelAddress-">compareTo(ChannelAddress)</a></span> - Method in class io.openems.common.types.<a href="io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="io/openems/common/types/EdgeConfig.Component.html#Component-java.lang.String-java.lang.String-boolean-java.lang.String-java.util.TreeMap-java.util.TreeMap-">Component(String, String, boolean, String, TreeMap&lt;String, JsonElement&gt;, TreeMap&lt;String, EdgeConfig.Component.Channel&gt;)</a></span> - Constructor for class io.openems.common.types.<a href="io/openems/common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></dt>
+<dt><span class="memberNameLink"><a href="io/openems/common/types/EdgeConfig.Component.html#Component-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.util.TreeMap-java.util.TreeMap-">Component(String, String, String, String, TreeMap&lt;String, JsonElement&gt;, TreeMap&lt;String, EdgeConfig.Component.Channel&gt;)</a></span> - Constructor for class io.openems.common.types.<a href="io/openems/common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="io/openems/common/OpenemsConstants.html#COMPONENT_MANAGER_ID">COMPONENT_MANAGER_ID</a></span> - Static variable in class io.openems.common.<a href="io/openems/common/OpenemsConstants.html" title="class in io.openems.common">OpenemsConstants</a></dt>
 <dd>&nbsp;</dd>
@@ -5339,6 +5339,12 @@
 <dt><a href="io/openems/common/types/EdgeConfigDiff.ComponentDiff.OldNewProperty.html" title="class in io.openems.common.types"><span class="typeNameLink">EdgeConfigDiff.ComponentDiff.OldNewProperty</span></a> - Class in <a href="io/openems/common/types/package-summary.html">io.openems.common.types</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="io/openems/common/types/EdgeConfigDiff.ComponentDiff.OldNewProperty.Change.html" title="enum in io.openems.common.types"><span class="typeNameLink">EdgeConfigDiff.ComponentDiff.OldNewProperty.Change</span></a> - Enum in <a href="io/openems/common/types/package-summary.html">io.openems.common.types</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="io/openems/edge/core/componentmanager/EdgeConfigFactory.html" title="class in io.openems.edge.core.componentmanager"><span class="typeNameLink">EdgeConfigFactory</span></a> - Class in <a href="io/openems/edge/core/componentmanager/package-summary.html">io.openems.edge.core.componentmanager</a></dt>
+<dd>
+<div class="block">Static helper class to create an <a href="io/openems/common/types/EdgeConfig.html" title="class in io.openems.common.types"><code>EdgeConfig</code></a>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="io/openems/edge/core/componentmanager/EdgeConfigFactory.html#EdgeConfigFactory--">EdgeConfigFactory()</a></span> - Constructor for class io.openems.edge.core.componentmanager.<a href="io/openems/edge/core/componentmanager/EdgeConfigFactory.html" title="class in io.openems.edge.core.componentmanager">EdgeConfigFactory</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="io/openems/common/jsonrpc/notification/EdgeConfigNotification.html" title="class in io.openems.common.jsonrpc.notification"><span class="typeNameLink">EdgeConfigNotification</span></a> - Class in <a href="io/openems/common/jsonrpc/notification/package-summary.html">io.openems.common.jsonrpc.notification</a></dt>
 <dd>
@@ -9034,14 +9040,18 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="io/openems/backend/metadata/odoo/MetadataOdoo.html#getEdge-java.lang.String-">getEdge(String)</a></span> - Method in class io.openems.backend.metadata.odoo.<a href="io/openems/backend/metadata/odoo/MetadataOdoo.html" title="class in io.openems.backend.metadata.odoo">MetadataOdoo</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="io/openems/edge/common/component/ComponentManager.html#getEdgeConfig--">getEdgeConfig()</a></span> - Method in interface io.openems.edge.common.component.<a href="io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></dt>
+<dt><span class="memberNameLink"><a href="io/openems/edge/common/component/ComponentManager.html#getEdgeConfig-org.osgi.service.cm.ConfigurationEvent-">getEdgeConfig(ConfigurationEvent)</a></span> - Method in interface io.openems.edge.common.component.<a href="io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></dt>
 <dd>
 <div class="block">Gets the complete configuration of this OpenEMS Edge.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="io/openems/edge/common/test/DummyComponentManager.html#getEdgeConfig--">getEdgeConfig()</a></span> - Method in class io.openems.edge.common.test.<a href="io/openems/edge/common/test/DummyComponentManager.html" title="class in io.openems.edge.common.test">DummyComponentManager</a></dt>
+<dt><span class="memberNameLink"><a href="io/openems/edge/common/test/DummyComponentManager.html#getEdgeConfig-org.osgi.service.cm.ConfigurationEvent-">getEdgeConfig(ConfigurationEvent)</a></span> - Method in class io.openems.edge.common.test.<a href="io/openems/edge/common/test/DummyComponentManager.html" title="class in io.openems.edge.common.test">DummyComponentManager</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="io/openems/edge/core/componentmanager/ComponentManagerImpl.html#getEdgeConfig--">getEdgeConfig()</a></span> - Method in class io.openems.edge.core.componentmanager.<a href="io/openems/edge/core/componentmanager/ComponentManagerImpl.html" title="class in io.openems.edge.core.componentmanager">ComponentManagerImpl</a></dt>
+<dt><span class="memberNameLink"><a href="io/openems/edge/core/componentmanager/ComponentManagerImpl.html#getEdgeConfig-org.osgi.service.cm.ConfigurationEvent-">getEdgeConfig(ConfigurationEvent)</a></span> - Method in class io.openems.edge.core.componentmanager.<a href="io/openems/edge/core/componentmanager/ComponentManagerImpl.html" title="class in io.openems.edge.core.componentmanager">ComponentManagerImpl</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="io/openems/edge/core/componentmanager/EdgeConfigFactory.html#getEdgeConfig-org.osgi.framework.BundleContext-org.osgi.service.metatype.MetaTypeService-org.osgi.service.cm.ConfigurationAdmin-java.util.List-org.osgi.service.cm.ConfigurationEvent-">getEdgeConfig(BundleContext, MetaTypeService, ConfigurationAdmin, List&lt;OpenemsComponent&gt;, ConfigurationEvent)</a></span> - Method in class io.openems.edge.core.componentmanager.<a href="io/openems/edge/core/componentmanager/EdgeConfigFactory.html" title="class in io.openems.edge.core.componentmanager">EdgeConfigFactory</a></dt>
+<dd>
+<div class="block">Build an <a href="io/openems/common/types/EdgeConfig.html" title="class in io.openems.common.types"><code>EdgeConfig</code></a>.</div>
+</dd>
 <dt><a href="io/openems/common/jsonrpc/request/GetEdgeConfigRequest.html" title="class in io.openems.common.jsonrpc.request"><span class="typeNameLink">GetEdgeConfigRequest</span></a> - Class in <a href="io/openems/common/jsonrpc/request/package-summary.html">io.openems.common.jsonrpc.request</a></dt>
 <dd>
 <div class="block">Represents a JSON-RPC Request for 'getEdgeConfig'.</div>
@@ -12075,6 +12085,8 @@
 <div class="block">This method returns the low temperature of the thermochron's physical
  temperature range.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="io/openems/common/types/EdgeConfig.Component.html#getPid--">getPid()</a></span> - Method in class io.openems.common.types.<a href="io/openems/common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="io/openems/edge/common/test/DummyConfigurationAdmin.DummyConfiguration.html#getPid--">getPid()</a></span> - Method in class io.openems.edge.common.test.<a href="io/openems/edge/common/test/DummyConfigurationAdmin.DummyConfiguration.html" title="class in io.openems.edge.common.test">DummyConfigurationAdmin.DummyConfiguration</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="io/openems/edge/ess/core/power/PowerComponent.html#getPidFilter--">getPidFilter()</a></span> - Method in class io.openems.edge.ess.core.power.<a href="io/openems/edge/ess/core/power/PowerComponent.html" title="class in io.openems.edge.ess.core.power">PowerComponent</a></dt>
@@ -16501,8 +16513,6 @@
  formatted for compatibility with the DS1961S.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/dalsemi/onewire/adapter/SerialService.html#isDTR--">isDTR()</a></span> - Method in class com.dalsemi.onewire.adapter.<a href="com/dalsemi/onewire/adapter/SerialService.html" title="class in com.dalsemi.onewire.adapter">SerialService</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="io/openems/common/types/EdgeConfig.Component.html#isEnabled--">isEnabled()</a></span> - Method in class io.openems.common.types.<a href="io/openems/common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="io/openems/edge/common/component/AbstractOpenemsComponent.html#isEnabled--">isEnabled()</a></span> - Method in class io.openems.edge.common.component.<a href="io/openems/edge/common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a></dt>
 <dd>&nbsp;</dd>

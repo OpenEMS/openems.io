@@ -157,9 +157,9 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#Component-java.lang.String-java.lang.String-boolean-java.lang.String-java.util.TreeMap-java.util.TreeMap-">Component</a></span>(java.lang.String&nbsp;id,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#Component-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.util.TreeMap-java.util.TreeMap-">Component</a></span>(java.lang.String&nbsp;servicePid,
+         java.lang.String&nbsp;id,
          java.lang.String&nbsp;alias,
-         boolean&nbsp;isEnabled,
          java.lang.String&nbsp;factoryId,
          java.util.TreeMap&lt;java.lang.String,com.google.gson.JsonElement&gt;&nbsp;properties,
          java.util.TreeMap&lt;java.lang.String,<a href="../../../../io/openems/common/types/EdgeConfig.Component.Channel.html" title="class in io.openems.common.types">EdgeConfig.Component.Channel</a>&gt;&nbsp;channels)</code>&nbsp;</td>
@@ -207,22 +207,22 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#getId--">getId</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#getPid--">getPid</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,com.google.gson.JsonElement&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#getProperties--">getProperties</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.Optional&lt;<a href="../../../../io/openems/common/types/EdgeConfig.Component.Channel.html" title="class in io.openems.common.types">EdgeConfig.Component.Channel</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#getStateChannel-java.lang.String-">getStateChannel</a></span>(java.lang.String&nbsp;channelId)</code>
 <div class="block">Get the StateChannel with the given Channel-ID.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,<a href="../../../../io/openems/common/types/EdgeConfig.Component.Channel.html" title="class in io.openems.common.types">EdgeConfig.Component.Channel</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#getStateChannels--">getStateChannels</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.Component.html#isEnabled--">isEnabled</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -258,15 +258,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="Component-java.lang.String-java.lang.String-boolean-java.lang.String-java.util.TreeMap-java.util.TreeMap-">
+<a name="Component-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.util.TreeMap-java.util.TreeMap-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Component</h4>
-<pre>public&nbsp;Component(java.lang.String&nbsp;id,
+<pre>public&nbsp;Component(java.lang.String&nbsp;servicePid,
+                 java.lang.String&nbsp;id,
                  java.lang.String&nbsp;alias,
-                 boolean&nbsp;isEnabled,
                  java.lang.String&nbsp;factoryId,
                  java.util.TreeMap&lt;java.lang.String,com.google.gson.JsonElement&gt;&nbsp;properties,
                  java.util.TreeMap&lt;java.lang.String,<a href="../../../../io/openems/common/types/EdgeConfig.Component.Channel.html" title="class in io.openems.common.types">EdgeConfig.Component.Channel</a>&gt;&nbsp;channels)</pre>
@@ -280,6 +280,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getPid--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPid</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getPid()</pre>
+</li>
+</ul>
 <a name="getId--">
 <!--   -->
 </a>
@@ -296,15 +305,6 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getAlias</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getAlias()</pre>
-</li>
-</ul>
-<a name="isEnabled--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isEnabled</h4>
-<pre>public&nbsp;boolean&nbsp;isEnabled()</pre>
 </li>
 </ul>
 <a name="getFactoryId--">
