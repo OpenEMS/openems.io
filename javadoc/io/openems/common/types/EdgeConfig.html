@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":9,"i12":10,"i13":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":9,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -178,9 +178,11 @@ extends java.lang.Object</pre>
             <a href="../../../../io/openems/common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&nbsp;component)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.html#addFactory-java.lang.String-io.openems.common.types.EdgeConfig.Factory-">addFactory</a></span>(java.lang.String&nbsp;id,
-          <a href="../../../../io/openems/common/types/EdgeConfig.Factory.html" title="class in io.openems.common.types">EdgeConfig.Factory</a>&nbsp;factory)</code>&nbsp;</td>
+          <a href="../../../../io/openems/common/types/EdgeConfig.Factory.html" title="class in io.openems.common.types">EdgeConfig.Factory</a>&nbsp;factory)</code>
+<div class="block">Add a Factory.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
@@ -245,6 +247,10 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.html#removeComponent-java.lang.String-">removeComponent</a></span>(java.lang.String&nbsp;id)</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/types/EdgeConfig.html#toJson--">toJson</a></span>()</code>
 <div class="block">Returns the configuration as a JSON Object.</div>
@@ -299,14 +305,31 @@ extends java.lang.Object</pre>
                          <a href="../../../../io/openems/common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&nbsp;component)</pre>
 </li>
 </ul>
+<a name="removeComponent-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeComponent</h4>
+<pre>public&nbsp;void&nbsp;removeComponent(java.lang.String&nbsp;id)</pre>
+</li>
+</ul>
 <a name="addFactory-java.lang.String-io.openems.common.types.EdgeConfig.Factory-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addFactory</h4>
-<pre>public&nbsp;void&nbsp;addFactory(java.lang.String&nbsp;id,
-                       <a href="../../../../io/openems/common/types/EdgeConfig.Factory.html" title="class in io.openems.common.types">EdgeConfig.Factory</a>&nbsp;factory)</pre>
+<pre>public&nbsp;boolean&nbsp;addFactory(java.lang.String&nbsp;id,
+                          <a href="../../../../io/openems/common/types/EdgeConfig.Factory.html" title="class in io.openems.common.types">EdgeConfig.Factory</a>&nbsp;factory)</pre>
+<div class="block">Add a Factory.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - the Factory-ID</dd>
+<dd><code>factory</code> - the <a href="../../../../io/openems/common/types/EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if this operation changed the <a href="../../../../io/openems/common/types/EdgeConfig.html" title="class in io.openems.common.types"><code>EdgeConfig</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="getComponents--">

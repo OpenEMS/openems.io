@@ -153,8 +153,20 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected org.osgi.framework.BundleContext</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#bundleContext">bundleContext</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected org.osgi.service.cm.ConfigurationAdmin</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#cm">cm</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected org.osgi.service.event.EventAdmin</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#eventAdmin">eventAdmin</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected org.osgi.service.metatype.MetaTypeService</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#metaTypeService">metaTypeService</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -214,7 +226,7 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../io/openems/common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#getEdgeConfig-org.osgi.service.cm.ConfigurationEvent-">getEdgeConfig</a></span>(org.osgi.service.cm.ConfigurationEvent&nbsp;event)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#getEdgeConfig--">getEdgeConfig</a></span>()</code>
 <div class="block">Gets the complete configuration of this OpenEMS Edge.</div>
 </td>
 </tr>
@@ -323,13 +335,40 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 <!--   -->
 </a>
 <h3>Field Detail</h3>
+<a name="bundleContext">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bundleContext</h4>
+<pre>protected&nbsp;org.osgi.framework.BundleContext bundleContext</pre>
+</li>
+</ul>
+<a name="metaTypeService">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>metaTypeService</h4>
+<pre>protected&nbsp;org.osgi.service.metatype.MetaTypeService metaTypeService</pre>
+</li>
+</ul>
 <a name="cm">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>cm</h4>
+<pre>protected&nbsp;org.osgi.service.cm.ConfigurationAdmin cm</pre>
+</li>
+</ul>
+<a name="eventAdmin">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>cm</h4>
-<pre>protected&nbsp;org.osgi.service.cm.ConfigurationAdmin cm</pre>
+<h4>eventAdmin</h4>
+<pre>protected&nbsp;org.osgi.service.event.EventAdmin eventAdmin</pre>
 </li>
 </ul>
 </li>
@@ -589,23 +628,23 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 </dl>
 </li>
 </ul>
-<a name="getEdgeConfig-org.osgi.service.cm.ConfigurationEvent-">
+<a name="getEdgeConfig--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getEdgeConfig</h4>
-<pre>public&nbsp;<a href="../../../../../io/openems/common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a>&nbsp;getEdgeConfig(org.osgi.service.cm.ConfigurationEvent&nbsp;event)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html#getEdgeConfig-org.osgi.service.cm.ConfigurationEvent-">ComponentManager</a></code></span></div>
-<div class="block">Gets the complete configuration of this OpenEMS Edge.</div>
+<pre>public&nbsp;<a href="../../../../../io/openems/common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a>&nbsp;getEdgeConfig()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html#getEdgeConfig--">ComponentManager</a></code></span></div>
+<div class="block">Gets the complete configuration of this OpenEMS Edge.
+ 
+ Internally updates updates the cache if necessary and publishes a
+ CONFIG_UPDATE event on update.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html#getEdgeConfig-org.osgi.service.cm.ConfigurationEvent-">getEdgeConfig</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>event</code> - a ConfigurationEvent to incorporate; or null to refresh the
-              config completely</dd>
+<dd><code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html#getEdgeConfig--">getEdgeConfig</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the EdgeConfig object</dd>
+<dd>the <a href="../../../../../io/openems/common/types/EdgeConfig.html" title="class in io.openems.common.types"><code>EdgeConfig</code></a> object</dd>
 </dl>
 </li>
 </ul>
