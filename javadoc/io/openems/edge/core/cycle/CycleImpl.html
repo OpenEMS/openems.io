@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -160,36 +160,31 @@ implements <a href="../../../../../io/openems/edge/common/component/OpenemsCompo
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/cycle/CycleImpl.html#commonCycleTime">commonCycleTime</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/cycle/CycleImpl.html#componentManager">componentManager</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/cycle/CycleImpl.html#cycle">cycle</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected org.osgi.service.event.EventAdmin</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/cycle/CycleImpl.html#eventAdmin">eventAdmin</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/cycle/CycleImpl.html#maxCycles">maxCycles</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected java.util.TreeMap&lt;<a href="../../../../../io/openems/edge/scheduler/api/Scheduler.html" title="interface in io.openems.edge.scheduler.api">Scheduler</a>,java.lang.Integer&gt;</code></td>
+<td class="colFirst"><code>protected java.util.TreeSet&lt;<a href="../../../../../io/openems/edge/scheduler/api/Scheduler.html" title="interface in io.openems.edge.scheduler.api">Scheduler</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/cycle/CycleImpl.html#schedulers">schedulers</a></span></code>
 <div class="block">Holds the Schedulers and their relative cycleTime.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../io/openems/edge/common/sum/Sum.html" title="interface in io.openems.edge.common.sum">Sum</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/cycle/CycleImpl.html#sumComponent">sumComponent</a></span></code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.io.openems.edge.core.cycle.Cycle">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;io.openems.edge.core.cycle.<a href="../../../../../io/openems/edge/core/cycle/Cycle.html" title="interface in io.openems.edge.core.cycle">Cycle</a></h3>
+<code><a href="../../../../../io/openems/edge/core/cycle/Cycle.html#DEFAULT_CYCLE_TIME">DEFAULT_CYCLE_TIME</a></code></li>
+</ul>
 </li>
 </ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -232,13 +227,19 @@ implements <a href="../../../../../io/openems/edge/common/component/OpenemsCompo
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/cycle/CycleImpl.html#getCycleTime--">getCycleTime</a></span>()</code>
+<div class="block">Gets the duration of one global OpenEMS Cycle in [ms].</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/cycle/CycleImpl.html#logWarn-org.slf4j.Logger-java.lang.String-">logWarn</a></span>(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code>
 <div class="block">Log a warn message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/cycle/CycleImpl.html#removeScheduler-io.openems.edge.scheduler.api.Scheduler-">removeScheduler</a></span>(<a href="../../../../../io/openems/edge/scheduler/api/Scheduler.html" title="interface in io.openems.edge.scheduler.api">Scheduler</a>&nbsp;scheduler)</code>&nbsp;</td>
 </tr>
@@ -296,17 +297,6 @@ implements <a href="../../../../../io/openems/edge/common/component/OpenemsCompo
 <pre>protected&nbsp;<a href="../../../../../io/openems/edge/common/sum/Sum.html" title="interface in io.openems.edge.common.sum">Sum</a> sumComponent</pre>
 </li>
 </ul>
-<a name="schedulers">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>schedulers</h4>
-<pre>protected final&nbsp;java.util.TreeMap&lt;<a href="../../../../../io/openems/edge/scheduler/api/Scheduler.html" title="interface in io.openems.edge.scheduler.api">Scheduler</a>,java.lang.Integer&gt; schedulers</pre>
-<div class="block">Holds the Schedulers and their relative cycleTime. They are sorted ascending
- by their cycleTimes.</div>
-</li>
-</ul>
 <a name="componentManager">
 <!--   -->
 </a>
@@ -316,31 +306,15 @@ implements <a href="../../../../../io/openems/edge/common/component/OpenemsCompo
 <pre>protected&nbsp;<a href="../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a> componentManager</pre>
 </li>
 </ul>
-<a name="commonCycleTime">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>commonCycleTime</h4>
-<pre>protected&nbsp;int commonCycleTime</pre>
-</li>
-</ul>
-<a name="maxCycles">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>maxCycles</h4>
-<pre>protected&nbsp;int maxCycles</pre>
-</li>
-</ul>
-<a name="cycle">
+<a name="schedulers">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>cycle</h4>
-<pre>protected&nbsp;int cycle</pre>
+<h4>schedulers</h4>
+<pre>protected final&nbsp;java.util.TreeSet&lt;<a href="../../../../../io/openems/edge/scheduler/api/Scheduler.html" title="interface in io.openems.edge.scheduler.api">Scheduler</a>&gt; schedulers</pre>
+<div class="block">Holds the Schedulers and their relative cycleTime. They are sorted ascending
+ by their cycleTimes.</div>
 </li>
 </ul>
 </li>
@@ -404,7 +378,7 @@ implements <a href="../../../../../io/openems/edge/common/component/OpenemsCompo
 <a name="logWarn-org.slf4j.Logger-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>logWarn</h4>
 <pre>protected&nbsp;void&nbsp;logWarn(org.slf4j.Logger&nbsp;log,
@@ -417,6 +391,23 @@ implements <a href="../../../../../io/openems/edge/common/component/OpenemsCompo
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>log</code> - the Logger instance</dd>
 <dd><code>message</code> - the message</dd>
+</dl>
+</li>
+</ul>
+<a name="getCycleTime--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getCycleTime</h4>
+<pre>public&nbsp;int&nbsp;getCycleTime()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/core/cycle/Cycle.html#getCycleTime--">Cycle</a></code></span></div>
+<div class="block">Gets the duration of one global OpenEMS Cycle in [ms].</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/edge/core/cycle/Cycle.html#getCycleTime--">getCycleTime</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/core/cycle/Cycle.html" title="interface in io.openems.edge.core.cycle">Cycle</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the duration in milliseconds</dd>
 </dl>
 </li>
 </ul>
