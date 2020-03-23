@@ -112,13 +112,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>, <a href="../../../../../io/openems/edge/common/sum/Sum.html" title="interface in io.openems.edge.common.sum">Sum</a>, org.osgi.service.event.EventHandler</dd>
+<dd><a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>, <a href="../../../../../io/openems/edge/common/sum/Sum.html" title="interface in io.openems.edge.common.sum">Sum</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">SumImpl</span>
 extends <a href="../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="../../../../../io/openems/edge/common/sum/Sum.html" title="interface in io.openems.edge.common.sum">Sum</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>, org.osgi.service.event.EventHandler</pre>
+implements <a href="../../../../../io/openems/edge/common/sum/Sum.html" title="interface in io.openems.edge.common.sum">Sum</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></pre>
 </li>
 </ul>
 </div>
@@ -212,7 +212,9 @@ implements <a href="../../../../../io/openems/edge/common/sum/Sum.html" title="i
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/sum/SumImpl.html#handleEvent-org.osgi.service.event.Event-">handleEvent</a></span>(org.osgi.service.event.Event&nbsp;event)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/sum/SumImpl.html#updateChannelsBeforeProcessImage--">updateChannelsBeforeProcessImage</a></span>()</code>
+<div class="block">Update all Channel-Values of this Sum-Component.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -327,16 +329,21 @@ implements <a href="../../../../../io/openems/edge/common/sum/Sum.html" title="i
 </dl>
 </li>
 </ul>
-<a name="handleEvent-org.osgi.service.event.Event-">
+<a name="updateChannelsBeforeProcessImage--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>handleEvent</h4>
-<pre>public&nbsp;void&nbsp;handleEvent(org.osgi.service.event.Event&nbsp;event)</pre>
+<h4>updateChannelsBeforeProcessImage</h4>
+<pre>public&nbsp;void&nbsp;updateChannelsBeforeProcessImage()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/common/sum/Sum.html#updateChannelsBeforeProcessImage--">Sum</a></code></span></div>
+<div class="block">Update all Channel-Values of this Sum-Component.
+ 
+ This method is called by the 'Cycle' just before the
+ TOPIC_CYCLE_AFTER_PROCESS_IMAGE event.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../../../../../io/openems/edge/common/sum/Sum.html#updateChannelsBeforeProcessImage--">updateChannelsBeforeProcessImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/common/sum/Sum.html" title="interface in io.openems.edge.common.sum">Sum</a></code></dd>
 </dl>
 </li>
 </ul>
