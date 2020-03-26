@@ -217,32 +217,33 @@
 <li><a href="#_ess_ac_island">14. ESS AC-Island</a></li>
 <li><a href="#_ess_delay_charge">15. ESS Delay Charge</a></li>
 <li><a href="#_ess_limit_total_discharge">16. ESS Limit Total Discharge</a></li>
-<li><a href="#_ess_one_full_cycle">17. ESS One Full Cycle</a></li>
-<li><a href="#_ess_predictive_delay_charge">18. ESS Predictive Delay Charge</a></li>
-<li><a href="#_ess_sell_to_grid_limit">19. ESS Sell-To-Grid Limit</a></li>
-<li><a href="#_evcs">20. EVCS</a></li>
-<li><a href="#_evcs_fix_active_power">21. EVCS Fix Active Power</a></li>
-<li><a href="#_high_load_timeslot">22. High-Load Timeslot</a></li>
-<li><a href="#_io_alarm">23. IO Alarm</a>
+<li><a href="#_ess_minimum_discharge_period">17. ESS Minimum Discharge Period</a></li>
+<li><a href="#_ess_one_full_cycle">18. ESS One Full Cycle</a></li>
+<li><a href="#_ess_predictive_delay_charge">19. ESS Predictive Delay Charge</a></li>
+<li><a href="#_ess_sell_to_grid_limit">20. ESS Sell-To-Grid Limit</a></li>
+<li><a href="#_evcs">21. EVCS</a></li>
+<li><a href="#_evcs_fix_active_power">22. EVCS Fix Active Power</a></li>
+<li><a href="#_high_load_timeslot">23. High-Load Timeslot</a></li>
+<li><a href="#_io_alarm">24. IO Alarm</a>
 <ul class="sectlevel2">
-<li><a href="#_configuration_2">23.1. Configuration</a></li>
-<li><a href="#_example_configuration_2">23.2. Example Configuration</a></li>
+<li><a href="#_configuration_2">24.1. Configuration</a></li>
+<li><a href="#_example_configuration_2">24.2. Example Configuration</a></li>
 </ul>
 </li>
-<li><a href="#_io_channel_single_threshold">24. IO Channel-Single-Threshold</a></li>
-<li><a href="#_io_fix_digital_output">25. IO Fix Digital Output</a></li>
-<li><a href="#_pv_inverter_fix_power_limit">26. PV-Inverter Fix Power Limit</a></li>
-<li><a href="#_sell_to_grid_limit">27. Sell-To-Grid limit</a></li>
-<li><a href="#_symmetric_balancing">28. Symmetric Balancing</a></li>
-<li><a href="#_symmetric_balancing_schedule">29. Symmetric Balancing Schedule</a></li>
-<li><a href="#_symmetric_fix_active_power">30. Symmetric Fix Active Power</a></li>
-<li><a href="#_symmetric_fix_reactive_power">31. Symmetric Fix Reactive Power</a></li>
-<li><a href="#_symmetric_limit_active_power">32. Symmetric Limit Active Power</a></li>
-<li><a href="#_symmetric_linear_power_band">33. Symmetric Linear Power Band</a></li>
-<li><a href="#_symmetric_peak_shaving">34. Symmetric Peak-Shaving</a></li>
-<li><a href="#_symmetric_random_power">35. Symmetric Random-Power</a></li>
-<li><a href="#_symmetric_reactive_power_voltage_characteristics">36. Symmetric Reactive-Power Voltage-Characteristics</a></li>
-<li><a href="#_symmetric_timeslot_peak_shaving">37. Symmetric Timeslot Peak-Shaving</a></li>
+<li><a href="#_io_channel_single_threshold">25. IO Channel-Single-Threshold</a></li>
+<li><a href="#_io_fix_digital_output">26. IO Fix Digital Output</a></li>
+<li><a href="#_pv_inverter_fix_power_limit">27. PV-Inverter Fix Power Limit</a></li>
+<li><a href="#_sell_to_grid_limit">28. Sell-To-Grid limit</a></li>
+<li><a href="#_symmetric_balancing">29. Symmetric Balancing</a></li>
+<li><a href="#_symmetric_balancing_schedule">30. Symmetric Balancing Schedule</a></li>
+<li><a href="#_symmetric_fix_active_power">31. Symmetric Fix Active Power</a></li>
+<li><a href="#_symmetric_fix_reactive_power">32. Symmetric Fix Reactive Power</a></li>
+<li><a href="#_symmetric_limit_active_power">33. Symmetric Limit Active Power</a></li>
+<li><a href="#_symmetric_linear_power_band">34. Symmetric Linear Power Band</a></li>
+<li><a href="#_symmetric_peak_shaving">35. Symmetric Peak-Shaving</a></li>
+<li><a href="#_symmetric_random_power">36. Symmetric Random-Power</a></li>
+<li><a href="#_symmetric_reactive_power_voltage_characteristics">37. Symmetric Reactive-Power Voltage-Characteristics</a></li>
+<li><a href="#_symmetric_timeslot_peak_shaving">38. Symmetric Timeslot Peak-Shaving</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -677,7 +678,21 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_one_full_cycle"><a class="anchor" href="#_ess_one_full_cycle"></a>17. ESS One Full Cycle</h2>
+<h2 id="_ess_minimum_discharge_period"><a class="anchor" href="#_ess_minimum_discharge_period"></a>17. ESS Minimum Discharge Period</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Provides a minimum discharge power of the storage system for a configured time period, if a certain power peak has been reached.</p>
+</div>
+<div class="paragraph">
+<p>This can be used in some systems where the allowed charge power has been set to zero and the storage needs a minimum discharge power for a certain time, to recognize that the storage is not full and the allowed charge power should be higher.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.mindischargeperiod">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ess_one_full_cycle"><a class="anchor" href="#_ess_one_full_cycle"></a>18. ESS One Full Cycle</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Executes a full charge/discharge cycle with an energy storage system. This can be used to let the Battery Management System (BMS) reset its reference points for State-of-Charge calculattion.</p>
@@ -688,7 +703,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_predictive_delay_charge"><a class="anchor" href="#_ess_predictive_delay_charge"></a>18. ESS Predictive Delay Charge</h2>
+<h2 id="_ess_predictive_delay_charge"><a class="anchor" href="#_ess_predictive_delay_charge"></a>19. ESS Predictive Delay Charge</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Delays the charging of the AC or DC storage system based on predicted production and consumption.</p>
@@ -699,7 +714,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_sell_to_grid_limit"><a class="anchor" href="#_ess_sell_to_grid_limit"></a>19. ESS Sell-To-Grid Limit</h2>
+<h2 id="_ess_sell_to_grid_limit"><a class="anchor" href="#_ess_sell_to_grid_limit"></a>20. ESS Sell-To-Grid Limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Limits the maximum sell-to-grid power by actively charging the Ess.
@@ -711,7 +726,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_evcs"><a class="anchor" href="#_evcs"></a>20. EVCS</h2>
+<h2 id="_evcs"><a class="anchor" href="#_evcs"></a>21. EVCS</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls an Electric Vehicle Charging Station (EVCS) in different modes, like "Force-Charge" and "Surplus Energy Charging".</p>
@@ -722,7 +737,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>21. EVCS Fix Active Power</h2>
+<h2 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>22. EVCS Fix Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed maximum charge power to an Electric Vehicle Charging Station (EVCS).</p>
@@ -733,7 +748,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>22. High-Load Timeslot</h2>
+<h2 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>23. High-Load Timeslot</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls an energy storage system for a High-Load timeslot application (German "Hochlastzeitfenster").</p>
@@ -744,14 +759,14 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_alarm"><a class="anchor" href="#_io_alarm"></a>23. IO Alarm</h2>
+<h2 id="_io_alarm"><a class="anchor" href="#_io_alarm"></a>24. IO Alarm</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Switches a digital output, when one or more State-Channels are set. This controller can be used to signal alarms.
 This controller is used to check for the State-Channels which are boolean type, which typically represents the error channels. A specific configured digital output channel can be signaled based on the configured input State-Channels(one more channels).</p>
 </div>
 <div class="sect2">
-<h3 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>23.1. Configuration</h3>
+<h3 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>24.1. Configuration</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -773,7 +788,7 @@ This controller is used to check for the State-Channels which are boolean type, 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>23.2. Example Configuration</h3>
+<h3 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>24.2. Example Configuration</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -813,7 +828,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>24. IO Channel-Single-Threshold</h2>
+<h2 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>25. IO Channel-Single-Threshold</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Generic Controller that sets a digital output according to the value of given Channel - e.g. turn a Relay on or off, when configured input channel/SoC is above or below a given threshold respectively.</p>
@@ -824,7 +839,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>25. IO Fix Digital Output</h2>
+<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>26. IO Fix Digital Output</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a digital output statically ON or OFF.</p>
@@ -835,7 +850,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>26. PV-Inverter Fix Power Limit</h2>
+<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>27. PV-Inverter Fix Power Limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed power limit for PV-Inverter production.</p>
@@ -846,7 +861,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sell_to_grid_limit"><a class="anchor" href="#_sell_to_grid_limit"></a>27. Sell-To-Grid limit</h2>
+<h2 id="_sell_to_grid_limit"><a class="anchor" href="#_sell_to_grid_limit"></a>28. Sell-To-Grid limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Dynamically limits the Sell-To-Grid power to a defined maximum power.</p>
@@ -857,7 +872,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>28. Symmetric Balancing</h2>
+<h2 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>29. Symmetric Balancing</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in self-consumption optimization mode.</p>
@@ -868,7 +883,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>29. Symmetric Balancing Schedule</h2>
+<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>30. Symmetric Balancing Schedule</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in self-consumption optimization mode. Allows the definition of a Schedule to set the target power on the grid meter. This Controller can be controlled using the OpenEMS Backend-to-Backend interface.</p>
@@ -879,7 +894,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>30. Symmetric Fix Active Power</h2>
+<h2 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>31. Symmetric Fix Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed active power for charging/discharging of a symmetric energy storage system.</p>
@@ -890,7 +905,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>31. Symmetric Fix Reactive Power</h2>
+<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>32. Symmetric Fix Reactive Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed reactive power for a symmetric energy storage system.</p>
@@ -901,7 +916,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>32. Symmetric Limit Active Power</h2>
+<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>33. Symmetric Limit Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
@@ -912,7 +927,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>33. Symmetric Linear Power Band</h2>
+<h2 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>34. Symmetric Linear Power Band</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Executes a test cycle for a symmetric energy storage system by increasing and decreasing the charging/discharging power in given limits.</p>
@@ -923,7 +938,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>34. Symmetric Peak-Shaving</h2>
+<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>35. Symmetric Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
@@ -934,7 +949,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>35. Symmetric Random-Power</h2>
+<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>36. Symmetric Random-Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
@@ -945,7 +960,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_reactive_power_voltage_characteristics"><a class="anchor" href="#_symmetric_reactive_power_voltage_characteristics"></a>36. Symmetric Reactive-Power Voltage-Characteristics</h2>
+<h2 id="_symmetric_reactive_power_voltage_characteristics"><a class="anchor" href="#_symmetric_reactive_power_voltage_characteristics"></a>37. Symmetric Reactive-Power Voltage-Characteristics</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system using a Q-by-U reference function.</p>
@@ -956,7 +971,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>37. Symmetric Timeslot Peak-Shaving</h2>
+<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>38. Symmetric Timeslot Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving within a configured timeslot at the grid using a symmetric energy storage system. Outside of the timeslot the battery recharges.</p>
