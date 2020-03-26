@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -196,37 +196,44 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.time.Clock</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html#getClock--">getClock</a></span>()</code>
+<div class="block">Gets the OpenEMS Clock - either the real system clock or a mocked clock for
+ simulations.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>org.osgi.service.component.ComponentContext</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html#getComponentContext--">getComponentContext</a></span>()</code>
 <div class="block">Returns the ComponentContext.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../io/openems/common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html#getEdgeConfig--">getEdgeConfig</a></span>()</code>
 <div class="block">Gets the complete configuration of this OpenEMS Edge.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html#getEnabledComponents--">getEnabledComponents</a></span>()</code>
 <div class="block">Gets all enabled OpenEMS-Components.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html#handleJsonrpcRequest-io.openems.common.session.User-io.openems.common.jsonrpc.base.JsonrpcRequest-">handleJsonrpcRequest</a></span>(<a href="../../../../../io/openems/common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
                     <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code>
 <div class="block">Handles a JSON-RPC Request.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html#id--">id</a></span>()</code>
 <div class="block">Returns a unique ID for this OpenEMS component.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html#isEnabled--">isEnabled</a></span>()</code>
 <div class="block">Returns whether this component is enabled.</div>
@@ -464,7 +471,7 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 <a name="handleJsonrpcRequest-io.openems.common.session.User-io.openems.common.jsonrpc.base.JsonrpcRequest-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>handleJsonrpcRequest</h4>
 <pre>public&nbsp;java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;&nbsp;handleJsonrpcRequest(<a href="../../../../../io/openems/common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
@@ -483,6 +490,24 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
          OpenemsError.JSONRPC_UNHANDLED_METHOD</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="getClock--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getClock</h4>
+<pre>public&nbsp;java.time.Clock&nbsp;getClock()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html#getClock--">ComponentManager</a></code></span></div>
+<div class="block">Gets the OpenEMS Clock - either the real system clock or a mocked clock for
+ simulations.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html#getClock--">getClock</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Clock</dd>
 </dl>
 </li>
 </ul>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -101,7 +101,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">io.openems.edge.common.component.AbstractOpenemsComponent</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html" title="class in io.openems.edge.simulator.datasource.api">io.openems.edge.simulator.datasource.api.AbstractCsvDatasource</a></li>
+<li>
+<ul class="inheritance">
 <li>io.openems.edge.simulator.datasource.csv.predefined.CsvDatasourcePredefined</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -117,7 +122,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">CsvDatasourcePredefined</span>
-extends <a href="../../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
+extends <a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html" title="class in io.openems.edge.simulator.datasource.api">AbstractCsvDatasource</a>
 implements <a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html" title="interface in io.openems.edge.simulator.datasource.api">SimulatorDatasource</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler</pre>
 </li>
 </ul>
@@ -170,29 +175,21 @@ implements <a href="../../../../../../../io/openems/edge/simulator/datasource/ap
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.util.Set&lt;java.lang.String&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/simulator/datasource/csv/predefined/CsvDatasourcePredefined.html#getKeys--">getKeys</a></span>()</code>
-<div class="block">Gets the available keys.</div>
-</td>
+<td class="colFirst"><code>protected <a href="../../../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/simulator/datasource/csv/predefined/CsvDatasourcePredefined.html#getComponentManager--">getComponentManager</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/simulator/datasource/csv/predefined/CsvDatasourcePredefined.html#getTimeDelta--">getTimeDelta</a></span>()</code>
-<div class="block">Returns the delta between two values in seconds.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/simulator/datasource/csv/predefined/CsvDatasourcePredefined.html#getValue-io.openems.common.types.OpenemsType-java.lang.String-">getValue</a></span>(<a href="../../../../../../../io/openems/common/types/OpenemsType.html" title="enum in io.openems.common.types">OpenemsType</a>&nbsp;type,
-        java.lang.String&nbsp;key)</code>
-<div class="block">Gets the value for the given key (channelId) in the given type.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/simulator/datasource/csv/predefined/CsvDatasourcePredefined.html#handleEvent-org.osgi.service.event.Event-">handleEvent</a></span>(org.osgi.service.event.Event&nbsp;event)</code>&nbsp;</td>
+<td class="colFirst"><code>protected <a href="../../../../../../../io/openems/edge/simulator/DataContainer.html" title="class in io.openems.edge.simulator">DataContainer</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/simulator/datasource/csv/predefined/CsvDatasourcePredefined.html#getData--">getData</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.simulator.datasource.api.AbstractCsvDatasource">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;io.openems.edge.simulator.datasource.api.<a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html" title="class in io.openems.edge.simulator.datasource.api">AbstractCsvDatasource</a></h3>
+<code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html#activate-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-int-">activate</a>, <a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html#getKeys--">getKeys</a>, <a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html#getTimeDelta--">getTimeDelta</a>, <a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html#getValue-io.openems.common.types.OpenemsType-java.lang.String-">getValue</a>, <a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html#handleEvent-org.osgi.service.event.Event-">handleEvent</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.common.component.AbstractOpenemsComponent">
 <!--   -->
@@ -208,11 +205,25 @@ implements <a href="../../../../../../../io/openems/edge/simulator/datasource/ap
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 <ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.simulator.datasource.api.SimulatorDatasource">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.simulator.datasource.api.<a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html" title="interface in io.openems.edge.simulator.datasource.api">SimulatorDatasource</a></h3>
+<code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getKeys--">getKeys</a>, <a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getTimeDelta--">getTimeDelta</a>, <a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getValue-io.openems.common.types.OpenemsType-java.lang.String-">getValue</a></code></li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
 <code><a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#alias--">alias</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channels--">channels</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#id--">id</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.osgi.service.event.EventHandler">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.osgi.service.event.EventHandler</h3>
+<code>handleEvent</code></li>
 </ul>
 </li>
 </ul>
@@ -245,73 +256,34 @@ implements <a href="../../../../../../../io/openems/edge/simulator/datasource/ap
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="handleEvent-org.osgi.service.event.Event-">
+<a name="getComponentManager--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>handleEvent</h4>
-<pre>public&nbsp;void&nbsp;handleEvent(org.osgi.service.event.Event&nbsp;event)</pre>
+<h4>getComponentManager</h4>
+<pre>protected&nbsp;<a href="../../../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>&nbsp;getComponentManager()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html#getComponentManager--">getComponentManager</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html" title="class in io.openems.edge.simulator.datasource.api">AbstractCsvDatasource</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="getValue-io.openems.common.types.OpenemsType-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getValue</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;getValue(<a href="../../../../../../../io/openems/common/types/OpenemsType.html" title="enum in io.openems.common.types">OpenemsType</a>&nbsp;type,
-                      java.lang.String&nbsp;key)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getValue-io.openems.common.types.OpenemsType-java.lang.String-">SimulatorDatasource</a></code></span></div>
-<div class="block">Gets the value for the given key (channelId) in the given type.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getValue-io.openems.common.types.OpenemsType-java.lang.String-">getValue</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html" title="interface in io.openems.edge.simulator.datasource.api">SimulatorDatasource</a></code></dd>
-<dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - the type</dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>type</code> - the expected type</dd>
-<dd><code>key</code> - the Channel-Id</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the value</dd>
-</dl>
-</li>
-</ul>
-<a name="getKeys--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getKeys</h4>
-<pre>public&nbsp;java.util.Set&lt;java.lang.String&gt;&nbsp;getKeys()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getKeys--">SimulatorDatasource</a></code></span></div>
-<div class="block">Gets the available keys.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getKeys--">getKeys</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html" title="interface in io.openems.edge.simulator.datasource.api">SimulatorDatasource</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Channel-Id</dd>
-</dl>
-</li>
-</ul>
-<a name="getTimeDelta--">
+<a name="getData--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getTimeDelta</h4>
-<pre>public&nbsp;int&nbsp;getTimeDelta()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getTimeDelta--">SimulatorDatasource</a></code></span></div>
-<div class="block">Returns the delta between two values in seconds.</div>
+<h4>getData</h4>
+<pre>protected&nbsp;<a href="../../../../../../../io/openems/edge/simulator/DataContainer.html" title="class in io.openems.edge.simulator">DataContainer</a>&nbsp;getData()
+                         throws java.lang.NumberFormatException,
+                                java.io.IOException</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getTimeDelta--">getTimeDelta</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html" title="interface in io.openems.edge.simulator.datasource.api">SimulatorDatasource</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the delta in seconds</dd>
+<dd><code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html#getData--">getData</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../io/openems/edge/simulator/datasource/api/AbstractCsvDatasource.html" title="class in io.openems.edge.simulator.datasource.api">AbstractCsvDatasource</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.NumberFormatException</code></dd>
+<dd><code>java.io.IOException</code></dd>
 </dl>
 </li>
 </ul>

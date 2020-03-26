@@ -241,11 +241,16 @@
 <li><a href="#_kaco_blueplanet_pv_inverter">36. KACO blueplanet PV inverter</a></li>
 <li><a href="#_solar_log">37. Solar-Log</a></li>
 <li><a href="#_sunspec_pv_inverter">38. SunSpec PV inverter</a></li>
-<li><a href="#_solaredge_pv_inverter_grid_meter">39. SolarEdge PV Inverter + Grid-Meter</a></li>
-<li><a href="#_tesla_powerwall_2">40. Tesla Powerwall 2</a></li>
-<li><a href="#_influxdb">41. InfluxDB</a></li>
-<li><a href="#_rrd4j">42. RRD4J</a></li>
-<li><a href="#_kaco_blueplanet_hybrid_10_0_tl3">43. KACO blueplanet hybrid 10.0 TL3</a></li>
+<li><a href="#_simulated_openems_components">39. Simulated OpenEMS Components</a>
+<ul class="sectlevel2">
+<li><a href="#_simulator_app">39.1. Simulator-App</a></li>
+</ul>
+</li>
+<li><a href="#_solaredge_pv_inverter_grid_meter">40. SolarEdge PV Inverter + Grid-Meter</a></li>
+<li><a href="#_tesla_powerwall_2">41. Tesla Powerwall 2</a></li>
+<li><a href="#_influxdb">42. InfluxDB</a></li>
+<li><a href="#_rrd4j">43. RRD4J</a></li>
+<li><a href="#_kaco_blueplanet_hybrid_10_0_tl3">44. KACO blueplanet hybrid 10.0 TL3</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -1441,7 +1446,150 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>39. SolarEdge PV Inverter + Grid-Meter</h2>
+<h2 id="_simulated_openems_components"><a class="anchor" href="#_simulated_openems_components"></a>39. Simulated OpenEMS Components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This bundle provides simulated OpenEMS Components for the Natures. They are useful for testing and demoing without real hardware.</p>
+</div>
+<div class="sect2">
+<h3 id="_simulator_app"><a class="anchor" href="#_simulator_app"></a>39.1. Simulator-App</h3>
+<div class="paragraph">
+<p>The Simulator-App is a very specific component that needs to be handled with care. It provides a full simulation environment to run an OpenEMS Edge instance in simulated realtime environment.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Be aware that the SimulatorApp Component takes control over the complete OpenEMS Edge Application, i.e. if you enable it, it is going to <strong>delete all existing Component configurations</strong>!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To run a simulation:
+- Run OpenEMS Edge using the EdgeApp.bndrun
+- Configure a read-write JSON/REST Api
+- Send a <a href="https://openems.github.io/openems.io/openems/latest/edge/controller.html#_endpoint_jsonrpc">JSON-RPC Request</a> like the following, providing full configurations for all required OpenEMS Edge Components</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "method": "componentJsonApi",
+    "params": {
+        "componentId": "_simulator",
+        "payload": {
+            "method": "executeSimulation",
+            "params": {
+                "components": [
+                    {
+                        "factoryPid": "Scheduler.AllAlphabetically",
+                        "properties": [
+                            {
+                                "name": "id",
+                                "value": "scheduler0"
+                            }
+                        ]
+                    },
+                    {
+                        "factoryPid": "Simulator.GridMeter.Reacting",
+                        "properties": [
+                            {
+                                "name": "id",
+                                "value": "meter0"
+                            }
+                        ]
+                    },
+                    {
+                        "factoryPid": "Simulator.Datasource.CSV.Direct",
+                        "properties": [
+                            {
+                                "name": "id",
+                                "value": "datasource1"
+                            },
+                            {
+                                "name": "source",
+                                "value": "1000\n2000\n2500\n2000"
+                            },
+                            {
+                                "name": "timeDelta",
+                                "value": 5
+                            }
+                        ]
+                    },
+                    {
+                        "factoryPid": "Simulator.NRCMeter.Acting",
+                        "properties": [
+                            {
+                                "name": "id",
+                                "value": "meter1"
+                            },
+                            {
+                                "name": "datasource.id",
+                                "value": "datasource1"
+                            }
+                        ]
+                    },
+                    {
+                        "factoryPid": "Simulator.EssSymmetric.Reacting",
+                        "properties": [
+                            {
+                                "name": "id",
+                                "value": "ess0"
+                            },
+                            {
+                                "name": "maxApparentPower",
+                                "value": 10000
+                            },
+                            {
+                                "name": "capacity",
+                                "value": 10000
+                            },
+                            {
+                                "name": "initialSoc",
+                                "value": 50
+                            }
+                        ]
+                    },
+                    {
+                        "factoryPid": "Controller.Symmetric.Balancing",
+                        "properties": [
+                            {
+                                "name": "id",
+                                "value": "ctrlBalancing0"
+                            },
+                            {
+                                "name": "ess.id",
+                                "value": "ess0"
+                            },
+                            {
+                                "name": "meter.id",
+                                "value": "meter0"
+                            }
+                        ]
+                    }
+                ],
+                "clock": {
+                    "start": "2000-01-01T13:00:00.00Z",
+                    "end": "2000-01-01T14:00:00.00Z",
+                    "timeleapPerCycle": 1000
+                }
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.simulator">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>40. SolarEdge PV Inverter + Grid-Meter</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the SolarEdge PV inverters.</p>
@@ -1469,7 +1617,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>40. Tesla Powerwall 2</h2>
+<h2 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>41. Tesla Powerwall 2</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the Tesla Powerwall 2 energy storage system</p>
@@ -1494,7 +1642,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_influxdb"><a class="anchor" href="#_influxdb"></a>41. InfluxDB</h2>
+<h2 id="_influxdb"><a class="anchor" href="#_influxdb"></a>42. InfluxDB</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Persists all data of OpenEMS Edge Channels to an InfluxDB timeseries database.</p>
@@ -1505,7 +1653,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>42. RRD4J</h2>
+<h2 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>43. RRD4J</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Persists data of OpenEMS Edge Channels to RRD4J files.</p>
@@ -1516,7 +1664,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>43. KACO blueplanet hybrid 10.0 TL3</h2>
+<h2 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>44. KACO blueplanet hybrid 10.0 TL3</h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>

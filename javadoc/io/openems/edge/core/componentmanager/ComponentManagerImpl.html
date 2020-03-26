@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -157,14 +157,18 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#bundleContext">bundleContext</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../../io/openems/edge/common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#clockProvider">clockProvider</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>protected org.osgi.service.cm.ConfigurationAdmin</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#cm">cm</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected org.osgi.service.event.EventAdmin</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#eventAdmin">eventAdmin</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected org.osgi.service.metatype.MetaTypeService</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#metaTypeService">metaTypeService</a></span></code>&nbsp;</td>
 </tr>
@@ -225,67 +229,74 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.time.Clock</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#getClock--">getClock</a></span>()</code>
+<div class="block">Gets the OpenEMS Clock - either the real system clock or a mocked clock for
+ simulations.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../../io/openems/common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#getEdgeConfig--">getEdgeConfig</a></span>()</code>
 <div class="block">Gets the complete configuration of this OpenEMS Edge.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#getEnabledComponents--">getEnabledComponents</a></span>()</code>
 <div class="block">Gets all enabled OpenEMS-Components.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected org.osgi.service.cm.Configuration</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#getExistingConfigForId-java.lang.String-">getExistingConfigForId</a></span>(java.lang.String&nbsp;componentId)</code>
 <div class="block">Gets the ConfigAdmin Configuration for the OpenEMS Component with the given
  Component-ID.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#handleCreateComponentConfigRequest-io.openems.common.session.User-io.openems.common.jsonrpc.request.CreateComponentConfigRequest-">handleCreateComponentConfigRequest</a></span>(<a href="../../../../../io/openems/common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
                                   <a href="../../../../../io/openems/common/jsonrpc/request/CreateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request">CreateComponentConfigRequest</a>&nbsp;request)</code>
 <div class="block">Handles a CreateComponentConfigRequest.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#handleDeleteComponentConfigRequest-io.openems.common.session.User-io.openems.common.jsonrpc.request.DeleteComponentConfigRequest-">handleDeleteComponentConfigRequest</a></span>(<a href="../../../../../io/openems/common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
                                   <a href="../../../../../io/openems/common/jsonrpc/request/DeleteComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request">DeleteComponentConfigRequest</a>&nbsp;request)</code>
 <div class="block">Handles a DeleteComponentConfigRequest.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#handleJsonrpcRequest-io.openems.common.session.User-io.openems.common.jsonrpc.base.JsonrpcRequest-">handleJsonrpcRequest</a></span>(<a href="../../../../../io/openems/common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
                     <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code>
 <div class="block">Handles a JSON-RPC Request.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#handleUpdateComponentConfigRequest-io.openems.common.session.User-io.openems.common.jsonrpc.request.UpdateComponentConfigRequest-">handleUpdateComponentConfigRequest</a></span>(<a href="../../../../../io/openems/common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
                                   <a href="../../../../../io/openems/common/jsonrpc/request/UpdateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request">UpdateComponentConfigRequest</a>&nbsp;request)</code>
 <div class="block">Handles a UpdateComponentConfigRequest.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#logError-org.slf4j.Logger-java.lang.String-">logError</a></span>(org.slf4j.Logger&nbsp;log,
         java.lang.String&nbsp;message)</code>
 <div class="block">Log an error message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#logInfo-org.slf4j.Logger-java.lang.String-">logInfo</a></span>(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code>
 <div class="block">Log an info message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/componentmanager/ComponentManagerImpl.html#logWarn-org.slf4j.Logger-java.lang.String-">logWarn</a></span>(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code>
@@ -342,6 +353,15 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 <li class="blockList">
 <h4>bundleContext</h4>
 <pre>protected&nbsp;org.osgi.framework.BundleContext bundleContext</pre>
+</li>
+</ul>
+<a name="clockProvider">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clockProvider</h4>
+<pre>protected volatile&nbsp;<a href="../../../../../io/openems/edge/common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a> clockProvider</pre>
 </li>
 </ul>
 <a name="metaTypeService">
@@ -651,13 +671,31 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 <a name="configurationEvent-org.osgi.service.cm.ConfigurationEvent-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>configurationEvent</h4>
 <pre>public&nbsp;void&nbsp;configurationEvent(org.osgi.service.cm.ConfigurationEvent&nbsp;event)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>configurationEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.cm.ConfigurationListener</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getClock--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getClock</h4>
+<pre>public&nbsp;java.time.Clock&nbsp;getClock()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html#getClock--">ComponentManager</a></code></span></div>
+<div class="block">Gets the OpenEMS Clock - either the real system clock or a mocked clock for
+ simulations.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html#getClock--">getClock</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Clock</dd>
 </dl>
 </li>
 </ul>
