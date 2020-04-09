@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IO Heating Element :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/controller.adoc.d/io.openems.edge.controller.io.heatingelement.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="icon" href="../../../../_/img/feneco.ico" type="image/x-icon">
+<link rel="stylesheet" href="../../../../_/css/vendor/docsearch.min.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar" color="#2d8fab">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://github.com/OpenEMS/openems">OpenEMS // Docs</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+          <span class="gitlink">
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header><div class="main-wrapper">
+<div class="navigation-container" data-component="openems" data-version="latest">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../nature.html">Nature</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../bridge.html">Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../device_service.html">Device &amp; Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploy.html">Deploy OpenEMS Edge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/build.html">Build OpenEMS Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/deploy.html">Deploy OpenEMS Backend</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Simulation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/realtime.html">Real-Time Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/ui-history.html">UI History Simulation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../documentation.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../randd.html">Research and Development</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Open Energy Management System</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../../introduction.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../../introduction.html">Open Energy Management System</a></li>
+    <li class="crumb"><a href="io.openems.edge.controller.io.heatingelement.html">IO Heating Element</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/HEAD/doc/modules/ROOT/pages/edge/controller.adoc.d/io.openems.edge.controller.io.heatingelement.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>IO Heating Element</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls a three-phase heating element via Relays, according to grid active power.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>Phase and Level</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Controller distinguishes the definition of Phase and Level.
+<strong>Phase</strong> represents the electrical phase L1, L2 or L3.
+<strong>Level</strong> represents how many Phases are active at one point in time:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Level 1: only Phase L1 is active</p>
+</li>
+<li>
+<p>Level 2: Phase L1 and L2 are active</p>
+</li>
+<li>
+<p>Level 3: all three Phases are active</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_channels"><a class="anchor" href="#_channels"></a>Channels</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Example:
+* the power of the heating element per phase is 1000 W
+* each "x" below represents one hour</p>
+</div>
+<div class="paragraph">
+<p>Assume the Controller was activating Phases L1, L2 and L3 during the day like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>L3|           xxx
+L2|        xxxxxxxxx
+L1|     xxxxxxxxxxxxxxxx
+ t|------------------------</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Phase1Time</em></dt>
+<dd>
+<p><code>= 16 h = <strong>57600 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>        |--------------|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Phase2Time</em></dt>
+<dd>
+<p><code>= 9 hours = <strong>32400 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>           |-------|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Phase3Time</em></dt>
+<dd>
+<p><code>= 3 hours = <strong>10800 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>              |-|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Level1Time</em></dt>
+<dd>
+<p><code>= Phase1Time - Phase2Time = 7 hours = <strong>25200 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>        |-|         |--|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Level2Time</em></dt>
+<dd>
+<p><code>= Phase2Time - Phase3Time = 6 hours = <strong>21600 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>           |-|   |-|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Level3Time</em></dt>
+<dd>
+<p><code>= Phase3Time = 3 hours = <strong>10800 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>              |-|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Phase1Energy</em></dt>
+<dd>
+<p><code>= Phase1Time (16) x 1000 W = <strong>16000 Wh</strong> = 16 kWh</code></p>
+</dd>
+<dt class="hdlist1">Channel <em>Phase2Energy</em></dt>
+<dd>
+<p><code>= Phase2Time (9) x 1000 W = <strong>9000 Wh</strong> = 9 kWh</code></p>
+</dd>
+<dt class="hdlist1">Channel <em>Phase3Energy</em></dt>
+<dd>
+<p><code>= Phase3Time (3) x 1000 W = <strong>3000 Wh</strong> = 3 kWh</code></p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Sum of Phase1Energy, Phase2Energy and Phase3Energy is <code>16 \+ 9 \+ 3 = 28 kWh</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Level1Energy</em></dt>
+<dd>
+<p><code>= Phase1Energy - Phase2Energy = <strong>7000 Wh</strong> = 7 kWh</code></p>
+</dd>
+<dt class="hdlist1">Channel <em>Level2Energy</em></dt>
+<dd>
+<p><code>= (Phase2Energy - Phase3Energy) x 2 = 6000 Wh x 2 = <strong>12000 Wh</strong> = 12 kWh</code></p>
+</dd>
+<dt class="hdlist1">Channel <em>Level3Energy</em></dt>
+<dd>
+<p><code>= Phase3Energy x 3 = 3000 Wh x 3 = <strong>9000 Wh</strong> = 9 kWh</code></p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Sum of Level1Energy, Level2Energy and Level3Energy is <code>7 \+ 12 \+ 9 = 28 kWh</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>TotalTime</em></dt>
+<dd>
+<p><code><strong>28000 Wh</strong> = 28 kWh</code></p>
+</dd>
+<dt class="hdlist1">Channel <em>TotalPhaseTime</em></dt>
+<dd>
+<p><code>= Phase1Time + Phase2Time + Phase3Time = 16 + 9 + 3 = 28 h = <strong>100800 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.io.heatingelement">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<script src="../../../../_/js/site.js"></script>
+<script src="../../../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

@@ -232,18 +232,24 @@
 </li>
 <li><a href="#_io_channel_single_threshold">25. IO Channel-Single-Threshold</a></li>
 <li><a href="#_io_fix_digital_output">26. IO Fix Digital Output</a></li>
-<li><a href="#_pv_inverter_fix_power_limit">27. PV-Inverter Fix Power Limit</a></li>
-<li><a href="#_sell_to_grid_limit">28. Sell-To-Grid limit</a></li>
-<li><a href="#_symmetric_balancing">29. Symmetric Balancing</a></li>
-<li><a href="#_symmetric_balancing_schedule">30. Symmetric Balancing Schedule</a></li>
-<li><a href="#_symmetric_fix_active_power">31. Symmetric Fix Active Power</a></li>
-<li><a href="#_symmetric_fix_reactive_power">32. Symmetric Fix Reactive Power</a></li>
-<li><a href="#_symmetric_limit_active_power">33. Symmetric Limit Active Power</a></li>
-<li><a href="#_symmetric_linear_power_band">34. Symmetric Linear Power Band</a></li>
-<li><a href="#_symmetric_peak_shaving">35. Symmetric Peak-Shaving</a></li>
-<li><a href="#_symmetric_random_power">36. Symmetric Random-Power</a></li>
-<li><a href="#_symmetric_reactive_power_voltage_characteristics">37. Symmetric Reactive-Power Voltage-Characteristics</a></li>
-<li><a href="#_symmetric_timeslot_peak_shaving">38. Symmetric Timeslot Peak-Shaving</a></li>
+<li><a href="#_io_heating_element">27. IO Heating Element</a>
+<ul class="sectlevel2">
+<li><a href="#_phase_and_level">27.1. Phase and Level</a></li>
+<li><a href="#_channels">27.2. Channels</a></li>
+</ul>
+</li>
+<li><a href="#_pv_inverter_fix_power_limit">28. PV-Inverter Fix Power Limit</a></li>
+<li><a href="#_sell_to_grid_limit">29. Sell-To-Grid limit</a></li>
+<li><a href="#_symmetric_balancing">30. Symmetric Balancing</a></li>
+<li><a href="#_symmetric_balancing_schedule">31. Symmetric Balancing Schedule</a></li>
+<li><a href="#_symmetric_fix_active_power">32. Symmetric Fix Active Power</a></li>
+<li><a href="#_symmetric_fix_reactive_power">33. Symmetric Fix Reactive Power</a></li>
+<li><a href="#_symmetric_limit_active_power">34. Symmetric Limit Active Power</a></li>
+<li><a href="#_symmetric_linear_power_band">35. Symmetric Linear Power Band</a></li>
+<li><a href="#_symmetric_peak_shaving">36. Symmetric Peak-Shaving</a></li>
+<li><a href="#_symmetric_random_power">37. Symmetric Random-Power</a></li>
+<li><a href="#_symmetric_reactive_power_voltage_characteristics">38. Symmetric Reactive-Power Voltage-Characteristics</a></li>
+<li><a href="#_symmetric_timeslot_peak_shaving">39. Symmetric Timeslot Peak-Shaving</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -850,7 +856,204 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>27. PV-Inverter Fix Power Limit</h2>
+<h2 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>27. IO Heating Element</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls a three-phase heating element via Relays, according to grid active power.</p>
+</div>
+<div class="sect2">
+<h3 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>27.1. Phase and Level</h3>
+<div class="paragraph">
+<p>The Controller distinguishes the definition of Phase and Level.
+<strong>Phase</strong> represents the electrical phase L1, L2 or L3.
+<strong>Level</strong> represents how many Phases are active at one point in time:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Level 1: only Phase L1 is active</p>
+</li>
+<li>
+<p>Level 2: Phase L1 and L2 are active</p>
+</li>
+<li>
+<p>Level 3: all three Phases are active</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_channels"><a class="anchor" href="#_channels"></a>27.2. Channels</h3>
+<div class="paragraph">
+<p>Example:
+* the power of the heating element per phase is 1000 W
+* each "x" below represents one hour</p>
+</div>
+<div class="paragraph">
+<p>Assume the Controller was activating Phases L1, L2 and L3 during the day like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>L3|           xxx
+L2|        xxxxxxxxx
+L1|     xxxxxxxxxxxxxxxx
+ t|------------------------</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Phase1Time</em></dt>
+<dd>
+<p><code>= 16 h = <strong>57600 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>        |--------------|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Phase2Time</em></dt>
+<dd>
+<p><code>= 9 hours = <strong>32400 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>           |-------|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Phase3Time</em></dt>
+<dd>
+<p><code>= 3 hours = <strong>10800 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>              |-|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Level1Time</em></dt>
+<dd>
+<p><code>= Phase1Time - Phase2Time = 7 hours = <strong>25200 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>        |-|         |--|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Level2Time</em></dt>
+<dd>
+<p><code>= Phase2Time - Phase3Time = 6 hours = <strong>21600 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>           |-|   |-|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Level3Time</em></dt>
+<dd>
+<p><code>= Phase3Time = 3 hours = <strong>10800 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>              |-|</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Phase1Energy</em></dt>
+<dd>
+<p><code>= Phase1Time (16) x 1000 W = <strong>16000 Wh</strong> = 16 kWh</code></p>
+</dd>
+<dt class="hdlist1">Channel <em>Phase2Energy</em></dt>
+<dd>
+<p><code>= Phase2Time (9) x 1000 W = <strong>9000 Wh</strong> = 9 kWh</code></p>
+</dd>
+<dt class="hdlist1">Channel <em>Phase3Energy</em></dt>
+<dd>
+<p><code>= Phase3Time (3) x 1000 W = <strong>3000 Wh</strong> = 3 kWh</code></p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Sum of Phase1Energy, Phase2Energy and Phase3Energy is <code>16 \+ 9 \+ 3 = 28 kWh</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>Level1Energy</em></dt>
+<dd>
+<p><code>= Phase1Energy - Phase2Energy = <strong>7000 Wh</strong> = 7 kWh</code></p>
+</dd>
+<dt class="hdlist1">Channel <em>Level2Energy</em></dt>
+<dd>
+<p><code>= (Phase2Energy - Phase3Energy) x 2 = 6000 Wh x 2 = <strong>12000 Wh</strong> = 12 kWh</code></p>
+</dd>
+<dt class="hdlist1">Channel <em>Level3Energy</em></dt>
+<dd>
+<p><code>= Phase3Energy x 3 = 3000 Wh x 3 = <strong>9000 Wh</strong> = 9 kWh</code></p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Sum of Level1Energy, Level2Energy and Level3Energy is <code>7 \+ 12 \+ 9 = 28 kWh</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Channel <em>TotalTime</em></dt>
+<dd>
+<p><code><strong>28000 Wh</strong> = 28 kWh</code></p>
+</dd>
+<dt class="hdlist1">Channel <em>TotalPhaseTime</em></dt>
+<dd>
+<p><code>= Phase1Time + Phase2Time + Phase3Time = 16 + 9 + 3 = 28 h = <strong>100800 sec</strong></code></p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.io.heatingelement">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>28. PV-Inverter Fix Power Limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed power limit for PV-Inverter production.</p>
@@ -861,7 +1064,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sell_to_grid_limit"><a class="anchor" href="#_sell_to_grid_limit"></a>28. Sell-To-Grid limit</h2>
+<h2 id="_sell_to_grid_limit"><a class="anchor" href="#_sell_to_grid_limit"></a>29. Sell-To-Grid limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Dynamically limits the Sell-To-Grid power to a defined maximum power.</p>
@@ -872,7 +1075,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>29. Symmetric Balancing</h2>
+<h2 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>30. Symmetric Balancing</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in self-consumption optimization mode.</p>
@@ -883,7 +1086,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>30. Symmetric Balancing Schedule</h2>
+<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>31. Symmetric Balancing Schedule</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in self-consumption optimization mode. Allows the definition of a Schedule to set the target power on the grid meter. This Controller can be controlled using the OpenEMS Backend-to-Backend interface.</p>
@@ -894,7 +1097,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>31. Symmetric Fix Active Power</h2>
+<h2 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>32. Symmetric Fix Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed active power for charging/discharging of a symmetric energy storage system.</p>
@@ -905,7 +1108,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>32. Symmetric Fix Reactive Power</h2>
+<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>33. Symmetric Fix Reactive Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed reactive power for a symmetric energy storage system.</p>
@@ -916,7 +1119,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>33. Symmetric Limit Active Power</h2>
+<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>34. Symmetric Limit Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
@@ -927,7 +1130,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>34. Symmetric Linear Power Band</h2>
+<h2 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>35. Symmetric Linear Power Band</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Executes a test cycle for a symmetric energy storage system by increasing and decreasing the charging/discharging power in given limits.</p>
@@ -938,7 +1141,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>35. Symmetric Peak-Shaving</h2>
+<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>36. Symmetric Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
@@ -949,7 +1152,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>36. Symmetric Random-Power</h2>
+<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>37. Symmetric Random-Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
@@ -960,7 +1163,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_reactive_power_voltage_characteristics"><a class="anchor" href="#_symmetric_reactive_power_voltage_characteristics"></a>37. Symmetric Reactive-Power Voltage-Characteristics</h2>
+<h2 id="_symmetric_reactive_power_voltage_characteristics"><a class="anchor" href="#_symmetric_reactive_power_voltage_characteristics"></a>38. Symmetric Reactive-Power Voltage-Characteristics</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system using a Q-by-U reference function.</p>
@@ -971,7 +1174,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>38. Symmetric Timeslot Peak-Shaving</h2>
+<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>39. Symmetric Timeslot Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving within a configured timeslot at the grid using a symmetric energy storage system. Outside of the timeslot the battery recharges.</p>
