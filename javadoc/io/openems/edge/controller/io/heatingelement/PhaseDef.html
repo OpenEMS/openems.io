@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -152,31 +152,25 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>java.time.Duration</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/io/heatingelement/PhaseDef.html#getTotalDuration--">getTotalDuration</a></span>()</code>
+<div class="block">Gets the total switch-on time in seconds since last reset on midnight.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/io/heatingelement/PhaseDef.html#getTotalEnergy--">getTotalEnergy</a></span>()</code>
 <div class="block">Gets the total energy in watthours, calculated from total switch-on time
  since last reset on midnight multiplied with the switched power per phase.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/io/heatingelement/PhaseDef.html#getTotalTime--">getTotalTime</a></span>()</code>
-<div class="block">Gets the total switch-on time in seconds since last reset on midnight.</div>
-</td>
-</tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/io/heatingelement/PhaseDef.html#resetStopwatch--">resetStopwatch</a></span>()</code>
-<div class="block">Resets the Stopwatch - to be called at midnight.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/io/heatingelement/PhaseDef.html#switchOff--">switchOff</a></span>()</code>
 <div class="block">Switch the output OFF.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/io/heatingelement/PhaseDef.html#switchOn--">switchOn</a></span>()</code>
 <div class="block">Switch the output ON.</div>
@@ -260,24 +254,24 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="getTotalTime--">
+<a name="getTotalDuration--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getTotalTime</h4>
-<pre>public&nbsp;int&nbsp;getTotalTime()</pre>
+<h4>getTotalDuration</h4>
+<pre>public&nbsp;java.time.Duration&nbsp;getTotalDuration()</pre>
 <div class="block">Gets the total switch-on time in seconds since last reset on midnight.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the total time in [s]</dd>
+<dd>the total elapsed time</dd>
 </dl>
 </li>
 </ul>
 <a name="getTotalEnergy--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getTotalEnergy</h4>
 <pre>public&nbsp;int&nbsp;getTotalEnergy()</pre>
@@ -287,16 +281,6 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the total energy in [Wh]</dd>
 </dl>
-</li>
-</ul>
-<a name="resetStopwatch--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>resetStopwatch</h4>
-<pre>public&nbsp;void&nbsp;resetStopwatch()</pre>
-<div class="block">Resets the Stopwatch - to be called at midnight.</div>
 </li>
 </ul>
 </li>
