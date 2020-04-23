@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":17,"i11":18,"i12":18,"i13":18,"i14":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":17,"i11":18,"i12":18,"i13":18,"i14":18,"i15":18,"i16":18};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -103,11 +103,11 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Subinterfaces:</dt>
-<dd><a href="../../../../../io/openems/edge/battery/soltaro/SoltaroBattery.html" title="interface in io.openems.edge.battery.soltaro">SoltaroBattery</a></dd>
+<dd><a href="../../../../../io/openems/edge/battery/soltaro/single/versionc/SingleRackVersionC.html" title="interface in io.openems.edge.battery.soltaro.single.versionc">SingleRackVersionC</a>, <a href="../../../../../io/openems/edge/battery/soltaro/SoltaroBattery.html" title="interface in io.openems.edge.battery.soltaro">SoltaroBattery</a></dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../../io/openems/edge/simulator/battery/BatteryDummy.html" title="class in io.openems.edge.simulator.battery">BatteryDummy</a>, <a href="../../../../../io/openems/edge/battery/soltaro/cluster/versionb/Cluster.html" title="class in io.openems.edge.battery.soltaro.cluster.versionb">Cluster</a>, <a href="../../../../../io/openems/edge/battery/test/DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a>, <a href="../../../../../io/openems/edge/battery/soltaro/single/versionb/SingleRack.html" title="class in io.openems.edge.battery.soltaro.single.versionb">SingleRack</a>, <a href="../../../../../io/openems/edge/battery/soltaro/single/versiona/SingleRack.html" title="class in io.openems.edge.battery.soltaro.single.versiona">SingleRack</a></dd>
+<dd><a href="../../../../../io/openems/edge/simulator/battery/BatteryDummy.html" title="class in io.openems.edge.simulator.battery">BatteryDummy</a>, <a href="../../../../../io/openems/edge/battery/soltaro/cluster/versionb/Cluster.html" title="class in io.openems.edge.battery.soltaro.cluster.versionb">Cluster</a>, <a href="../../../../../io/openems/edge/battery/test/DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a>, <a href="../../../../../io/openems/edge/battery/soltaro/single/versionb/SingleRack.html" title="class in io.openems.edge.battery.soltaro.single.versionb">SingleRack</a>, <a href="../../../../../io/openems/edge/battery/soltaro/single/versiona/SingleRack.html" title="class in io.openems.edge.battery.soltaro.single.versiona">SingleRack</a>, <a href="../../../../../io/openems/edge/battery/soltaro/single/versionc/SingleRackVersionCImpl.html" title="class in io.openems.edge.battery.soltaro.single.versionc">SingleRackVersionCImpl</a></dd>
 </dl>
 <hr>
 <br>
@@ -222,22 +222,30 @@ extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponen
 </td>
 </tr>
 <tr id="i12" class="altColor">
+<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/BooleanReadChannel.html" title="class in io.openems.edge.common.channel">BooleanReadChannel</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/api/Battery.html#getReadyForWorkingChannel--">getReadyForWorkingChannel</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;java.lang.Integer&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/api/Battery.html#getSoc--">getSoc</a></span>()</code>
 <div class="block">Gets the State of Charge in [%], range 0..100 %.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;java.lang.Integer&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/api/Battery.html#getSoh--">getSoh</a></span>()</code>
 <div class="block">Gets the State of Health in [%], range 0..100 %.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;java.lang.Integer&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/api/Battery.html#getVoltage--">getVoltage</a></span>()</code>
 <div class="block">Gets the total voltage of this battery system.</div>
 </td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/api/Battery.html#setReadyForWorking-boolean-">setReadyForWorking</a></span>(boolean&nbsp;isReadyForWorking)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -261,6 +269,24 @@ extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponen
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getReadyForWorkingChannel--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReadyForWorkingChannel</h4>
+<pre>default&nbsp;<a href="../../../../../io/openems/edge/common/channel/BooleanReadChannel.html" title="class in io.openems.edge.common.channel">BooleanReadChannel</a>&nbsp;getReadyForWorkingChannel()</pre>
+</li>
+</ul>
+<a name="setReadyForWorking-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setReadyForWorking</h4>
+<pre>default&nbsp;void&nbsp;setReadyForWorking(boolean&nbsp;isReadyForWorking)</pre>
+</li>
+</ul>
 <a name="getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">
 <!--   -->
 </a>
