@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -153,29 +153,55 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>static java.lang.Integer</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#divide-java.lang.Integer-int-">divide</a></span>(java.lang.Integer&nbsp;dividend,
+      int&nbsp;divisor)</code>
+<div class="block">Safely divides Integers.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static java.lang.Long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#divide-java.lang.Long-long-">divide</a></span>(java.lang.Long&nbsp;dividend,
+      long&nbsp;divisor)</code>
+<div class="block">Safely divides Longs.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static com.google.gson.JsonElement</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#getAsJson-io.openems.common.types.OpenemsType-java.lang.Object-">getAsJson</a></span>(<a href="../../../../../io/openems/common/types/OpenemsType.html" title="enum in io.openems.common.types">OpenemsType</a>&nbsp;type,
          java.lang.Object&nbsp;originalValue)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#getAsType-io.openems.common.types.OpenemsType-java.lang.Object-">getAsType</a></span>(<a href="../../../../../io/openems/common/types/OpenemsType.html" title="enum in io.openems.common.types">OpenemsType</a>&nbsp;type,
          java.lang.Object&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static java.lang.Integer</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#max-java.lang.Integer...-">max</a></span>(java.lang.Integer...&nbsp;values)</code>
+<div class="block">Safely finds the max value of all values.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>static java.lang.Integer</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#multiply-java.lang.Integer...-">multiply</a></span>(java.lang.Integer...&nbsp;factors)</code>
+<div class="block">Safely multiply Integers.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static java.lang.Integer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#subtract-java.lang.Integer-java.lang.Integer-">subtract</a></span>(java.lang.Integer&nbsp;minuend,
         java.lang.Integer&nbsp;subtrahend)</code>
 <div class="block">Safely subtract Integers.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static java.lang.Integer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#sum-java.lang.Integer...-">sum</a></span>(java.lang.Integer...&nbsp;values)</code>
 <div class="block">Safely add Integers.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#sum-java.lang.Long...-">sum</a></span>(java.lang.Long...&nbsp;values)</code>
 <div class="block">Safely add Longs.</div>
@@ -298,6 +324,80 @@ extends java.lang.Object</pre>
 <dd><code>subtrahend</code> - the subtrahend of the subtraction</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the result, possibly null</dd>
+</dl>
+</li>
+</ul>
+<a name="multiply-java.lang.Integer...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>multiply</h4>
+<pre>public static&nbsp;java.lang.Integer&nbsp;multiply(java.lang.Integer...&nbsp;factors)</pre>
+<div class="block">Safely multiply Integers.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>factors</code> - the factors of the multiplication</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the result, possibly null if all factors are null</dd>
+</dl>
+</li>
+</ul>
+<a name="divide-java.lang.Integer-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>divide</h4>
+<pre>public static&nbsp;java.lang.Integer&nbsp;divide(java.lang.Integer&nbsp;dividend,
+                                       int&nbsp;divisor)</pre>
+<div class="block">Safely divides Integers.
+ 
+ <ul>
+ <li>if dividend is null -> result is null
+ </ul></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>minuend</code> - the dividend of the division</dd>
+<dd><code>subtrahend</code> - the divisor of the division</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the result, possibly null</dd>
+</dl>
+</li>
+</ul>
+<a name="divide-java.lang.Long-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>divide</h4>
+<pre>public static&nbsp;java.lang.Long&nbsp;divide(java.lang.Long&nbsp;dividend,
+                                    long&nbsp;divisor)</pre>
+<div class="block">Safely divides Longs.
+ 
+ <ul>
+ <li>if dividend is null -> result is null
+ </ul></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>minuend</code> - the dividend of the division</dd>
+<dd><code>subtrahend</code> - the divisor of the division</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the result, possibly null</dd>
+</dl>
+</li>
+</ul>
+<a name="max-java.lang.Integer...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>max</h4>
+<pre>public static&nbsp;java.lang.Integer&nbsp;max(java.lang.Integer...&nbsp;values)</pre>
+<div class="block">Safely finds the max value of all values.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the max value; or null if all values are null</dd>
 </dl>
 </li>
 </ul>
