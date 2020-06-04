@@ -113,8 +113,24 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">Value&lt;T&gt;</span>
 extends java.lang.Object</pre>
-<div class="block">This wraps a 'value' information for a Channel and provides convenience
- methods for retrieving it.</div>
+<div class="block">It is important to understand, that a Channel Value could be UNDEFINED (i.e.
+ 'null') at any point in time - e.g. due to lost communication connection to a
+ Device or Service, or because the system is just starting up and does not yet
+ have any data. This class wraps a 'value' information for a Channel and
+ provides convenience methods for retrieving it.
+ 
+ <p>
+ 
+ To get the actual value of a Channel using this object, typically one of the
+ following methods will fit:
+ <ul>
+ <li><a href="../../../../../../io/openems/edge/common/channel/value/Value.html#get--"><code>get()</code></a>: gets the value or null. Be aware of
+ <code>NullPointerException</code>s!
+ <li><a href="../../../../../../io/openems/edge/common/channel/value/Value.html#getOrError--"><code>getOrError()</code></a>: gets the value or throws an
+ <a href="../../../../../../io/openems/common/exceptions/InvalidValueException.html" title="class in io.openems.common.exceptions"><code>InvalidValueException</code></a> if the value is null
+ <li><a href="../../../../../../io/openems/edge/common/channel/value/Value.html#orElse-T-"><code>orElse(Object)</code></a>: gets the value; or fallback alternative if the
+ value is null
+ </ul></div>
 </li>
 </ul>
 </div>

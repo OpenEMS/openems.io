@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":6,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":6};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSChannelId.html" title="class in io.openems.edge.bridge.modbus.sunspec"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/DefaultSunSpecModel.html" title="enum in io.openems.edge.bridge.modbus.sunspec"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html" target="_top">Frames</a></li>
@@ -121,7 +121,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../../../io/openems/edge/meter/sunspec/AbstractSunSpecMeter.html" title="class in io.openems.edge.meter.sunspec">AbstractSunSpecMeter</a>, <a href="../../../../../../io/openems/edge/pvinverter/sunspec/AbstractSunSpecPvInverter.html" title="class in io.openems.edge.pvinverter.sunspec">AbstractSunSpecPvInverter</a></dd>
+<dd><a href="../../../../../../io/openems/edge/batteryinverter/sunspec/AbstractSunSpecBatteryInverter.html" title="class in io.openems.edge.batteryinverter.sunspec">AbstractSunSpecBatteryInverter</a>, <a href="../../../../../../io/openems/edge/meter/sunspec/AbstractSunSpecMeter.html" title="class in io.openems.edge.meter.sunspec">AbstractSunSpecMeter</a>, <a href="../../../../../../io/openems/edge/pvinverter/sunspec/AbstractSunSpecPvInverter.html" title="class in io.openems.edge.pvinverter.sunspec">AbstractSunSpecPvInverter</a></dd>
 </dl>
 <hr>
 <br>
@@ -168,7 +168,7 @@ extends <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpe
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#AbstractOpenemsSunSpecComponent-io.openems.edge.bridge.modbus.sunspec.SunSpecModelType:A-io.openems.edge.common.channel.ChannelId:A-io.openems.edge.common.channel.ChannelId:A...-">AbstractOpenemsSunSpecComponent</a></span>(<a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModelType.html" title="enum in io.openems.edge.bridge.modbus.sunspec">SunSpecModelType</a>[]&nbsp;modelTypes,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#AbstractOpenemsSunSpecComponent-java.util.Map-io.openems.edge.common.channel.ChannelId:A-io.openems.edge.common.channel.ChannelId:A...-">AbstractOpenemsSunSpecComponent</a></span>(java.util.Map&lt;<a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModel.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecModel</a>,<a href="../../../../../../io/openems/edge/common/taskmanager/Priority.html" title="enum in io.openems.edge.common.taskmanager">Priority</a>&gt;&nbsp;activeModels,
                                <a href="../../../../../../io/openems/edge/common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]&nbsp;firstInitialChannelIds,
                                <a href="../../../../../../io/openems/edge/common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]...&nbsp;furtherInitialChannelIds)</code>
 <div class="block">Constructs a AbstractOpenemsSunSpecComponent.</div>
@@ -215,28 +215,27 @@ extends <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpe
         int&nbsp;readFromCommonBlockNo)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>protected abstract void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#addUnknownBlock-int-int-">addUnknownBlock</a></span>(int&nbsp;startAddress,
-               int&nbsp;sunSpecBlockId)</code>
-<div class="block">Adds a SunSpec block/model that cannot be handled automatically.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/bridge/modbus/api/ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#defineModbusProtocol--">defineModbusProtocol</a></span>()</code>
 <div class="block">Defines the Modbus protocol.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected &lt;T extends <a href="../../../../../../io/openems/edge/common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;?&gt;&gt;<br>java.util.Optional&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#getSunSpecChannel-io.openems.edge.bridge.modbus.sunspec.SunSpecPoint-">getSunSpecChannel</a></span>(<a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecPoint.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecPoint</a>&nbsp;point)</code>
 <div class="block">Get the Channel for the given Point.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected &lt;T extends <a href="../../../../../../io/openems/edge/common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;?&gt;&gt;<br>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#getSunSpecChannelOrError-io.openems.edge.bridge.modbus.sunspec.SunSpecPoint-">getSunSpecChannelOrError</a></span>(<a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecPoint.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecPoint</a>&nbsp;point)</code>
 <div class="block">Get the Channel for the given Point or throw an error if it is not available.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModel.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecModel</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#getSunSpecModel-int-">getSunSpecModel</a></span>(int&nbsp;blockId)</code>
+<div class="block">Overwrite to provide custom SunSpecModel.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -286,7 +285,7 @@ extends <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpe
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
-<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
+<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#hasFaults--">hasFaults</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
 </ul>
 </li>
 </ul>
@@ -302,20 +301,21 @@ extends <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpe
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="AbstractOpenemsSunSpecComponent-io.openems.edge.bridge.modbus.sunspec.SunSpecModelType:A-io.openems.edge.common.channel.ChannelId:A-io.openems.edge.common.channel.ChannelId:A...-">
+<a name="AbstractOpenemsSunSpecComponent-java.util.Map-io.openems.edge.common.channel.ChannelId:A-io.openems.edge.common.channel.ChannelId:A...-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractOpenemsSunSpecComponent</h4>
-<pre>public&nbsp;AbstractOpenemsSunSpecComponent(<a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModelType.html" title="enum in io.openems.edge.bridge.modbus.sunspec">SunSpecModelType</a>[]&nbsp;modelTypes,
+<pre>public&nbsp;AbstractOpenemsSunSpecComponent(java.util.Map&lt;<a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModel.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecModel</a>,<a href="../../../../../../io/openems/edge/common/taskmanager/Priority.html" title="enum in io.openems.edge.common.taskmanager">Priority</a>&gt;&nbsp;activeModels,
                                        <a href="../../../../../../io/openems/edge/common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]&nbsp;firstInitialChannelIds,
                                        <a href="../../../../../../io/openems/edge/common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]...&nbsp;furtherInitialChannelIds)</pre>
 <div class="block">Constructs a AbstractOpenemsSunSpecComponent.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>modelTypes</code> - the SunSpec <a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModelType.html" title="enum in io.openems.edge.bridge.modbus.sunspec"><code>SunSpecModelType</code></a>s that
-                                 should be considered</dd>
+<dd><code>activeModels</code> - the active SunSpec Models (i.e.
+                                 <a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModel.html" title="interface in io.openems.edge.bridge.modbus.sunspec"><code>SunSpecModel</code></a>) that should be
+                                 considered and their reading-priority</dd>
 <dd><code>firstInitialChannelIds</code> - forwarded to
                                  <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api"><code>AbstractOpenemsModbusComponent</code></a></dd>
 <dd><code>furtherInitialChannelIds</code> - forwarded to
@@ -406,23 +406,22 @@ extends <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpe
 </dl>
 </li>
 </ul>
-<a name="addUnknownBlock-int-int-">
+<a name="getSunSpecModel-int-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>addUnknownBlock</h4>
-<pre>protected abstract&nbsp;void&nbsp;addUnknownBlock(int&nbsp;startAddress,
-                                        int&nbsp;sunSpecBlockId)</pre>
-<div class="block">Adds a SunSpec block/model that cannot be handled automatically.
- 
- <p>
- The purpose of this method is to add one or more tasks (using
- this.modbusProtocol.addTask(task)) and map the elements to Channels.</div>
+<h4>getSunSpecModel</h4>
+<pre>protected&nbsp;<a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModel.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecModel</a>&nbsp;getSunSpecModel(int&nbsp;blockId)
+                                throws java.lang.IllegalArgumentException</pre>
+<div class="block">Overwrite to provide custom SunSpecModel.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>startAddress</code> - the startAddress of the block</dd>
-<dd><code>sunSpecBlockId</code> - the SunSpec block/model-ID</dd>
+<dd><code>blockId</code> - the Block-Id</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModel.html" title="interface in io.openems.edge.bridge.modbus.sunspec"><code>SunSpecModel</code></a></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -549,7 +548,7 @@ extends <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpe
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSChannelId.html" title="class in io.openems.edge.bridge.modbus.sunspec"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/DefaultSunSpecModel.html" title="enum in io.openems.edge.bridge.modbus.sunspec"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html" target="_top">Frames</a></li>

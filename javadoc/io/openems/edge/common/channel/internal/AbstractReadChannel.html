@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":42,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var methods = {"i0":42,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -269,10 +269,16 @@ implements <a href="../../../../../../io/openems/edge/common/channel/Channel.htm
 </td>
 </tr>
 <tr id="i14" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/common/channel/internal/AbstractReadChannel.html#removeOnSetNextValueCallback-java.util.function.Consumer-">removeOnSetNextValueCallback</a></span>(java.util.function.Consumer&lt;?&gt;&nbsp;callback)</code>
+<div class="block">Removes an onSetNextValue callback.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/common/channel/internal/AbstractReadChannel.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="../../../../../../io/openems/edge/common/channel/internal/AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/common/channel/internal/AbstractReadChannel.html#value--">value</a></span>()</code>
 <div class="block">Gets the currently active value, wrapped in a @{link Value}.</div>
@@ -569,12 +575,39 @@ public&nbsp;void&nbsp;_setNextValue(<a href="../../../../../../io/openems/edge/c
 <pre>public&nbsp;void&nbsp;onSetNextValue(java.util.function.Consumer&lt;<a href="../../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="../../../../../../io/openems/edge/common/channel/internal/AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;&nbsp;callback)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../io/openems/edge/common/channel/Channel.html#onSetNextValue-java.util.function.Consumer-">Channel</a></code></span></div>
 <div class="block">Add an onSetNextValue callback. It is called, after a new NextValue was set.
- Note that usually you should prefer the onUpdate() callback.</div>
+ Note that usually you should prefer the onUpdate() callback.
+ 
+ <p>
+ 
+ Remember to remove the callback using
+ <a href="../../../../../../io/openems/edge/common/channel/Channel.html#removeOnSetNextValueCallback-java.util.function.Consumer-"><code>Channel.removeOnSetNextValueCallback(Consumer)</code></a> once it is not needed
+ anymore, e.g. on deactivate().</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../io/openems/edge/common/channel/Channel.html#onSetNextValue-java.util.function.Consumer-">onSetNextValue</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="../../../../../../io/openems/edge/common/channel/internal/AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>callback</code> - the callback <code>Consumer</code></dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../../io/openems/edge/common/channel/Channel.html#onUpdate-java.util.function.Consumer-"><code>Channel.onUpdate(java.util.function.Consumer&lt;io.openems.edge.common.channel.value.Value&lt;T&gt;&gt;)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="removeOnSetNextValueCallback-java.util.function.Consumer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeOnSetNextValueCallback</h4>
+<pre>public&nbsp;void&nbsp;removeOnSetNextValueCallback(java.util.function.Consumer&lt;?&gt;&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../io/openems/edge/common/channel/Channel.html#removeOnSetNextValueCallback-java.util.function.Consumer-">Channel</a></code></span></div>
+<div class="block">Removes an onSetNextValue callback.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../io/openems/edge/common/channel/Channel.html#removeOnSetNextValueCallback-java.util.function.Consumer-">removeOnSetNextValueCallback</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="../../../../../../io/openems/edge/common/channel/internal/AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>callback</code> - the callback <code>Consumer</code></dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../../io/openems/edge/common/channel/Channel.html#onSetNextValue-java.util.function.Consumer-"><code>Channel.onSetNextValue(Consumer)</code></a></dd>
 </dl>
 </li>
 </ul>

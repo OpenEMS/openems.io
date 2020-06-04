@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -91,14 +91,14 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">io.openems.edge.common.test</div>
-<h2 title="Class AbstractComponentTest" class="title">Class AbstractComponentTest</h2>
+<h2 title="Class AbstractComponentTest" class="title">Class AbstractComponentTest&lt;SELF extends AbstractComponentTest&lt;SELF,SUT&gt;,SUT extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>io.openems.edge.common.test.AbstractComponentTest</li>
+<li>io.openems.edge.common.test.AbstractComponentTest&lt;SELF,SUT&gt;</li>
 </ul>
 </li>
 </ul>
@@ -107,11 +107,11 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../../io/openems/edge/controller/test/ControllerTest.html" title="class in io.openems.edge.controller.test">ControllerTest</a></dd>
+<dd><a href="../../../../../io/openems/edge/common/test/ComponentTest.html" title="class in io.openems.edge.common.test">ComponentTest</a>, <a href="../../../../../io/openems/edge/controller/test/ControllerTest.html" title="class in io.openems.edge.controller.test">ControllerTest</a></dd>
 </dl>
 <hr>
 <br>
-<pre>public abstract class <span class="typeNameLabel">AbstractComponentTest</span>
+<pre>public abstract class <span class="typeNameLabel">AbstractComponentTest&lt;SELF extends AbstractComponentTest&lt;SELF,SUT&gt;,SUT extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;</span>
 extends java.lang.Object</pre>
 <div class="block">Provides a test framework for OpenEMS Components.</div>
 </li>
@@ -159,11 +159,7 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#AbstractComponentTest-io.openems.edge.common.component.OpenemsComponent...-">AbstractComponentTest</a></span>(<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>...&nbsp;components)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#AbstractComponentTest-io.openems.edge.common.component.OpenemsComponent:A-io.openems.edge.common.test.DummyComponentManager-">AbstractComponentTest</a></span>(<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>[]&nbsp;components,
-                     <a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html" title="class in io.openems.edge.common.test">DummyComponentManager</a>&nbsp;componentManager)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#AbstractComponentTest-SUT-">AbstractComponentTest</a></span>(<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SUT</a>&nbsp;sut)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -181,21 +177,60 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected abstract void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#executeLogic--">executeLogic</a></span>()</code>
-<div class="block">Executes the tested component logic.</div>
+<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#activate-io.openems.edge.common.test.AbstractComponentConfig-">activate</a></span>(<a href="../../../../../io/openems/edge/common/test/AbstractComponentConfig.html" title="class in io.openems.edge.common.test">AbstractComponentConfig</a>&nbsp;config)</code>
+<div class="block">Calls the 'activate()' method of the 'system-under-test'.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">AbstractComponentTest</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#next-io.openems.edge.common.test.AbstractComponentTest.TestCase-">next</a></span>(<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.TestCase.html" title="class in io.openems.edge.common.test">AbstractComponentTest.TestCase</a>&nbsp;testCase)</code>
-<div class="block">Adds a Test-Case.</div>
+<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#addComponent-io.openems.edge.common.component.OpenemsComponent-">addComponent</a></span>(<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&nbsp;component)</code>
+<div class="block">Adds an available <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component"><code>OpenemsComponent</code></a>.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#addReference-java.lang.String-java.lang.Object-">addReference</a></span>(java.lang.String&nbsp;memberName,
+            java.lang.Object&nbsp;object)</code>
+<div class="block">Adds a OSGi Declarative Services @Reference via java reflection.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#executeController--">executeController</a></span>()</code>
+<div class="block">Executes the Controller logic if SUT is a Controller.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SUT</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#getSut--">getSut</a></span>()</code>
+<div class="block">Gets the 'system-under-test', i.e.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#handleEvent-java.lang.String-">handleEvent</a></span>(java.lang.String&nbsp;topic)</code>
+<div class="block">If the 'system-under-test' is a <code>EventHandler</code> call the
+ <code>EventHandler.handleEvent(Event)</code> method.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#next-io.openems.edge.common.test.AbstractComponentTest.TestCase-">next</a></span>(<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.TestCase.html" title="class in io.openems.edge.common.test">AbstractComponentTest.TestCase</a>&nbsp;testCase)</code>
+<div class="block">Runs a Test-Case.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#run--">run</a></span>()</code>
-<div class="block">Runs all Test-Cases.</div>
+<div class="block">TODO: remove: Test-Cases are now executed directly on adding via
+ <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#next-io.openems.edge.common.test.AbstractComponentTest.TestCase-"><code>next(TestCase)</code></a>.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>protected abstract <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#self--">self</a></span>()</code>
+<div class="block">Gets an instance of the correct subclass of myself.</div>
 </td>
 </tr>
 </table>
@@ -220,23 +255,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="AbstractComponentTest-io.openems.edge.common.component.OpenemsComponent...-">
+<a name="AbstractComponentTest-io.openems.edge.common.component.OpenemsComponent-">
 <!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>AbstractComponentTest</h4>
-<pre>public&nbsp;AbstractComponentTest(<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>...&nbsp;components)</pre>
-</li>
-</ul>
-<a name="AbstractComponentTest-io.openems.edge.common.component.OpenemsComponent:A-io.openems.edge.common.test.DummyComponentManager-">
+</a><a name="AbstractComponentTest-SUT-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractComponentTest</h4>
-<pre>public&nbsp;AbstractComponentTest(<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>[]&nbsp;components,
-                             <a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html" title="class in io.openems.edge.common.test">DummyComponentManager</a>&nbsp;componentManager)</pre>
+<pre>public&nbsp;AbstractComponentTest(<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SUT</a>&nbsp;sut)</pre>
 </li>
 </ul>
 </li>
@@ -247,19 +274,116 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getSut--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSut</h4>
+<pre>public&nbsp;<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SUT</a>&nbsp;getSut()</pre>
+<div class="block">Gets the 'system-under-test', i.e. the tested <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component"><code>OpenemsComponent</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the tested Component</dd>
+</dl>
+</li>
+</ul>
+<a name="self--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>self</h4>
+<pre>protected abstract&nbsp;<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a>&nbsp;self()</pre>
+<div class="block">Gets an instance of the correct subclass of myself.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>myself</dd>
+</dl>
+</li>
+</ul>
+<a name="addReference-java.lang.String-java.lang.Object-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addReference</h4>
+<pre>public&nbsp;<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a>&nbsp;addReference(java.lang.String&nbsp;memberName,
+                         java.lang.Object&nbsp;object)
+                  throws java.lang.Exception</pre>
+<div class="block">Adds a OSGi Declarative Services @Reference via java reflection.
+ 
+ <p>
+ Can also be used to set any other private field via reflection.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>memberName</code> - the name of the field or method</dd>
+<dd><code>object</code> - the reference object</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>itself, to use as a builder</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.Exception</code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="addComponent-io.openems.edge.common.component.OpenemsComponent-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addComponent</h4>
+<pre>public&nbsp;<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a>&nbsp;addComponent(<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&nbsp;component)</pre>
+<div class="block">Adds an available <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component"><code>OpenemsComponent</code></a>.
+ 
+ <p>
+ If the provided Component is a <a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html" title="class in io.openems.edge.common.test"><code>DummyComponentManager</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>component</code> - </dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>itself, to use as a builder</dd>
+</dl>
+</li>
+</ul>
+<a name="activate-io.openems.edge.common.test.AbstractComponentConfig-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>activate</h4>
+<pre>public&nbsp;<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a>&nbsp;activate(<a href="../../../../../io/openems/edge/common/test/AbstractComponentConfig.html" title="class in io.openems.edge.common.test">AbstractComponentConfig</a>&nbsp;config)
+              throws java.lang.Exception</pre>
+<div class="block">Calls the 'activate()' method of the 'system-under-test'.
+ 
+ <p>
+ If 'activate()' changes the configuration, the OSGi behavior is simulated by
+ calling 'deactivate()' and then again 'activate()'</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>config</code> - the configuration</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>itself, to use as a builder</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.Exception</code> - on error</dd>
+</dl>
+</li>
+</ul>
 <a name="next-io.openems.edge.common.test.AbstractComponentTest.TestCase-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>next</h4>
-<pre>public&nbsp;<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">AbstractComponentTest</a>&nbsp;next(<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.TestCase.html" title="class in io.openems.edge.common.test">AbstractComponentTest.TestCase</a>&nbsp;testCase)</pre>
-<div class="block">Adds a Test-Case.</div>
+<pre>public&nbsp;<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a>&nbsp;next(<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.TestCase.html" title="class in io.openems.edge.common.test">AbstractComponentTest.TestCase</a>&nbsp;testCase)
+          throws java.lang.Exception</pre>
+<div class="block">Runs a Test-Case.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>testCase</code> - The TestCase</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>itself, to use as a builder</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.Exception</code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -269,25 +393,40 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>run</h4>
-<pre>public&nbsp;void&nbsp;run()
-         throws java.lang.Exception</pre>
-<div class="block">Runs all Test-Cases.</div>
+<pre>public&nbsp;void&nbsp;run()</pre>
+<div class="block">TODO: remove: Test-Cases are now executed directly on adding via
+ <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#next-io.openems.edge.common.test.AbstractComponentTest.TestCase-"><code>next(TestCase)</code></a>.</div>
+</li>
+</ul>
+<a name="handleEvent-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>handleEvent</h4>
+<pre>protected&nbsp;void&nbsp;handleEvent(java.lang.String&nbsp;topic)
+                    throws java.lang.Exception</pre>
+<div class="block">If the 'system-under-test' is a <code>EventHandler</code> call the
+ <code>EventHandler.handleEvent(Event)</code> method.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>topic</code> - the <code>Event</code> topic</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code> - on validation failure</dd>
+<dd><code>java.lang.Exception</code> - on error</dd>
 </dl>
 </li>
 </ul>
-<a name="executeLogic--">
+<a name="executeController--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>executeLogic</h4>
-<pre>protected abstract&nbsp;void&nbsp;executeLogic()
-                              throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block">Executes the tested component logic. This method is executed after the inputs
- are applied. After finishing the expected outputs are validated.</div>
+<h4>executeController</h4>
+<pre>protected&nbsp;void&nbsp;executeController()
+                          throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Executes the Controller logic if SUT is a Controller. This method is executed
+ after TOPIC_CYCLE_BEFORE_CONTROLLERS and before
+ TOPIC_CYCLE_AFTER_CONTROLLERS.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>

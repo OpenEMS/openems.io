@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.ChannelValue.html" title="class in io.openems.edge.common.test"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html" title="class in io.openems.edge.common.test"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../io/openems/edge/common/test/ComponentTest.html" title="class in io.openems.edge.common.test"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?io/openems/edge/common/test/AbstractComponentTest.TestCase.html" target="_top">Frames</a></li>
@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>Enclosing class:</dt>
-<dd><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">AbstractComponentTest</a></dd>
+<dd><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">AbstractComponentTest</a>&lt;<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a> extends <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">AbstractComponentTest</a>&lt;<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a>,<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SUT</a>&gt;,<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SUT</a> extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;</dd>
 </dl>
 <hr>
 <br>
@@ -134,6 +134,11 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.TestCase.html#TestCase--">TestCase</a></span>()</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.TestCase.html#TestCase-java.lang.String-">TestCase</a></span>(java.lang.String&nbsp;description)</code>
+<div class="block">Create a TestCase with a description.</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -150,7 +155,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.TestCase.html#applyInputs-java.util.Map-">applyInputs</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;components)</code>
 <div class="block">Applies the values for input channels.</div>
 </td>
@@ -178,9 +183,8 @@ extends java.lang.Object</pre>
         java.time.temporal.TemporalUnit&nbsp;unit)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.TestCase.html#validateOutputs-java.util.Map-int-">validateOutputs</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;components,
-               int&nbsp;index)</code>
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.TestCase.html#validateOutputs-java.util.Map-">validateOutputs</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;components)</code>
 <div class="block">Validates the output values.</div>
 </td>
 </tr>
@@ -209,10 +213,24 @@ extends java.lang.Object</pre>
 <a name="TestCase--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>TestCase</h4>
 <pre>public&nbsp;TestCase()</pre>
+</li>
+</ul>
+<a name="TestCase-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>TestCase</h4>
+<pre>public&nbsp;TestCase(java.lang.String&nbsp;description)</pre>
+<div class="block">Create a TestCase with a description.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>description</code> - the description</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -270,7 +288,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>applyInputs</h4>
-<pre>public&nbsp;void&nbsp;applyInputs(java.util.Map&lt;java.lang.String,<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;components)</pre>
+<pre>protected&nbsp;void&nbsp;applyInputs(java.util.Map&lt;java.lang.String,<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;components)</pre>
 <div class="block">Applies the values for input channels.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -278,15 +296,14 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="validateOutputs-java.util.Map-int-">
+<a name="validateOutputs-java.util.Map-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>validateOutputs</h4>
-<pre>public&nbsp;void&nbsp;validateOutputs(java.util.Map&lt;java.lang.String,<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;components,
-                            int&nbsp;index)
-                     throws java.lang.Exception</pre>
+<pre>protected&nbsp;void&nbsp;validateOutputs(java.util.Map&lt;java.lang.String,<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;components)
+                        throws java.lang.Exception</pre>
 <div class="block">Validates the output values.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -325,7 +342,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.ChannelValue.html" title="class in io.openems.edge.common.test"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html" title="class in io.openems.edge.common.test"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../io/openems/edge/common/test/ComponentTest.html" title="class in io.openems.edge.common.test"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?io/openems/edge/common/test/AbstractComponentTest.TestCase.html" target="_top">Frames</a></li>

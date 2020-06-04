@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10};
+var methods = {"i0":10,"i1":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -98,7 +98,7 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">io.openems.edge.common.test.AbstractComponentTest</a></li>
+<li><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">io.openems.edge.common.test.AbstractComponentTest</a>&lt;<a href="../../../../../io/openems/edge/controller/test/ControllerTest.html" title="class in io.openems.edge.controller.test">ControllerTest</a>,<a href="../../../../../io/openems/edge/controller/api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>&gt;</li>
 <li>
 <ul class="inheritance">
 <li>io.openems.edge.controller.test.ControllerTest</li>
@@ -113,8 +113,12 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">ControllerTest</span>
-extends <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">AbstractComponentTest</a></pre>
-<div class="block">Framework for testing a Controller.</div>
+extends <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">AbstractComponentTest</a>&lt;<a href="../../../../../io/openems/edge/controller/test/ControllerTest.html" title="class in io.openems.edge.controller.test">ControllerTest</a>,<a href="../../../../../io/openems/edge/controller/api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>&gt;</pre>
+<div class="block">Provides a generic test framework for OpenEMS <a href="../../../../../io/openems/edge/controller/api/Controller.html" title="interface in io.openems.edge.controller.api"><code>Controller</code></a>s.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><code>AbstractComponentTest} for implementation details</code></dd>
+</dl>
 </li>
 </ul>
 </div>
@@ -148,11 +152,6 @@ extends <a href="../../../../../io/openems/edge/common/test/AbstractComponentTes
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/controller/test/ControllerTest.html#ControllerTest-io.openems.edge.controller.api.Controller-io.openems.edge.common.test.DummyComponentManager-io.openems.edge.common.component.OpenemsComponent...-">ControllerTest</a></span>(<a href="../../../../../io/openems/edge/controller/api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>&nbsp;controller,
-              <a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html" title="class in io.openems.edge.common.test">DummyComponentManager</a>&nbsp;componentManager,
-              <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>...&nbsp;components)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/controller/test/ControllerTest.html#ControllerTest-io.openems.edge.controller.api.Controller-io.openems.edge.common.component.OpenemsComponent...-">ControllerTest</a></span>(<a href="../../../../../io/openems/edge/controller/api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>&nbsp;controller,
               <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>...&nbsp;components)</code>&nbsp;</td>
 </tr>
@@ -173,8 +172,14 @@ extends <a href="../../../../../io/openems/edge/common/test/AbstractComponentTes
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/controller/test/ControllerTest.html#executeLogic--">executeLogic</a></span>()</code>
-<div class="block">Executes the tested component logic.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/controller/test/ControllerTest.html#executeController--">executeController</a></span>()</code>
+<div class="block">Executes the Controller logic if SUT is a Controller.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../../io/openems/edge/controller/test/ControllerTest.html" title="class in io.openems.edge.controller.test">ControllerTest</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/controller/test/ControllerTest.html#self--">self</a></span>()</code>
+<div class="block">Gets an instance of the correct subclass of myself.</div>
 </td>
 </tr>
 </table>
@@ -183,7 +188,7 @@ extends <a href="../../../../../io/openems/edge/common/test/AbstractComponentTes
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.edge.common.test.<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">AbstractComponentTest</a></h3>
-<code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#next-io.openems.edge.common.test.AbstractComponentTest.TestCase-">next</a>, <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#run--">run</a></code></li>
+<code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#activate-io.openems.edge.common.test.AbstractComponentConfig-">activate</a>, <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#addComponent-io.openems.edge.common.component.OpenemsComponent-">addComponent</a>, <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#addReference-java.lang.String-java.lang.Object-">addReference</a>, <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#getSut--">getSut</a>, <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#handleEvent-java.lang.String-">handleEvent</a>, <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#next-io.openems.edge.common.test.AbstractComponentTest.TestCase-">next</a>, <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#run--">run</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -209,21 +214,10 @@ extends <a href="../../../../../io/openems/edge/common/test/AbstractComponentTes
 <a name="ControllerTest-io.openems.edge.controller.api.Controller-io.openems.edge.common.component.OpenemsComponent...-">
 <!--   -->
 </a>
-<ul class="blockList">
-<li class="blockList">
-<h4>ControllerTest</h4>
-<pre>public&nbsp;ControllerTest(<a href="../../../../../io/openems/edge/controller/api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>&nbsp;controller,
-                      <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>...&nbsp;components)</pre>
-</li>
-</ul>
-<a name="ControllerTest-io.openems.edge.controller.api.Controller-io.openems.edge.common.test.DummyComponentManager-io.openems.edge.common.component.OpenemsComponent...-">
-<!--   -->
-</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ControllerTest</h4>
 <pre>public&nbsp;ControllerTest(<a href="../../../../../io/openems/edge/controller/api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>&nbsp;controller,
-                      <a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html" title="class in io.openems.edge.common.test">DummyComponentManager</a>&nbsp;componentManager,
                       <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>...&nbsp;components)</pre>
 </li>
 </ul>
@@ -235,22 +229,40 @@ extends <a href="../../../../../io/openems/edge/common/test/AbstractComponentTes
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="executeLogic--">
+<a name="executeController--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>executeController</h4>
+<pre>protected&nbsp;void&nbsp;executeController()
+                          throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#executeController--">AbstractComponentTest</a></code></span></div>
+<div class="block">Executes the Controller logic if SUT is a Controller. This method is executed
+ after TOPIC_CYCLE_BEFORE_CONTROLLERS and before
+ TOPIC_CYCLE_AFTER_CONTROLLERS.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#executeController--">executeController</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">AbstractComponentTest</a>&lt;<a href="../../../../../io/openems/edge/controller/test/ControllerTest.html" title="class in io.openems.edge.controller.test">ControllerTest</a>,<a href="../../../../../io/openems/edge/controller/api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>&gt;</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="self--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>executeLogic</h4>
-<pre>protected&nbsp;void&nbsp;executeLogic()
-                     throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#executeLogic--">AbstractComponentTest</a></code></span></div>
-<div class="block">Executes the tested component logic. This method is executed after the inputs
- are applied. After finishing the expected outputs are validated.</div>
+<h4>self</h4>
+<pre>protected&nbsp;<a href="../../../../../io/openems/edge/controller/test/ControllerTest.html" title="class in io.openems.edge.controller.test">ControllerTest</a>&nbsp;self()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#self--">AbstractComponentTest</a></code></span></div>
+<div class="block">Gets an instance of the correct subclass of myself.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#executeLogic--">executeLogic</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">AbstractComponentTest</a></code></dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+<dd><code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#self--">self</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="class in io.openems.edge.common.test">AbstractComponentTest</a>&lt;<a href="../../../../../io/openems/edge/controller/test/ControllerTest.html" title="class in io.openems.edge.controller.test">ControllerTest</a>,<a href="../../../../../io/openems/edge/controller/api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>myself</dd>
 </dl>
 </li>
 </ul>
