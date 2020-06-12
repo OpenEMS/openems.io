@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":6,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":6,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -211,6 +211,13 @@ implements <a href="../../../../../../io/openems/edge/controller/api/Controller.
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#Z:Z_setUnableToStart-boolean-">_setUnableToStart</a></span>(boolean&nbsp;value)</code>
+<div class="block">Internal method to set the 'nextValue' on <a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.ChannelId.html#UNABLE_TO_START"><code>AbstractModbusTcpApi.ChannelId.UNABLE_TO_START</code></a>
+ Channel.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#activate-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-org.osgi.service.cm.ConfigurationAdmin-io.openems.edge.common.meta.Meta-java.lang.String:A-int-int-int-">activate</a></span>(org.osgi.service.component.ComponentContext&nbsp;context,
         java.lang.String&nbsp;id,
@@ -223,57 +230,69 @@ implements <a href="../../../../../../io/openems/edge/controller/api/Controller.
         int&nbsp;port,
         int&nbsp;maxConcurrentConnections)</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#addComponent-io.openems.edge.common.modbusslave.ModbusSlave-">addComponent</a></span>(<a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>&nbsp;component)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#deactivate--">deactivate</a></span>()</code>
 <div class="block">Handles @Deactivate of implementations.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../../../io/openems/common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#getAccessMode--">getAccessMode</a></span>()</code>
 <div class="block">Gets the AccessMode.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#getComponent-java.lang.String-">getComponent</a></span>(java.lang.String&nbsp;componentId)</code>
 <div class="block">Gets the Component.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#getUnableToStart--">getUnableToStart</a></span>()</code>
+<div class="block">Gets the Unable to Start Fault State.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#getUnableToStartChannel--">getUnableToStartChannel</a></span>()</code>
+<div class="block">Gets the Channel for <a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.ChannelId.html#UNABLE_TO_START"><code>AbstractModbusTcpApi.ChannelId.UNABLE_TO_START</code></a>.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../../../../io/openems/common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#handleJsonrpcRequest-io.openems.common.session.User-io.openems.common.jsonrpc.base.JsonrpcRequest-">handleJsonrpcRequest</a></span>(<a href="../../../../../../io/openems/common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
                     <a href="../../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;message)</code>
 <div class="block">Handles a JSON-RPC Request.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#logDebug-org.slf4j.Logger-java.lang.String-">logDebug</a></span>(org.slf4j.Logger&nbsp;log,
         java.lang.String&nbsp;message)</code>
 <div class="block">Log a debug message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#logInfo-org.slf4j.Logger-java.lang.String-">logInfo</a></span>(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code>
 <div class="block">Log an info message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#logWarn-org.slf4j.Logger-java.lang.String-">logWarn</a></span>(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code>
 <div class="block">Log a warn message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.html#run--">run</a></span>()</code>
 <div class="block">Executes the Controller logic.</div>
@@ -299,14 +318,14 @@ implements <a href="../../../../../../io/openems/edge/controller/api/Controller.
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.controller.api.<a href="../../../../../../io/openems/edge/controller/api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></h3>
-<code><a href="../../../../../../io/openems/edge/controller/api/Controller.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/controller/api/Controller.html#getRunFailed--">getRunFailed</a></code></li>
+<code><a href="../../../../../../io/openems/edge/controller/api/Controller.html#Z:Z_setRunFailed-boolean-">_setRunFailed</a>, <a href="../../../../../../io/openems/edge/controller/api/Controller.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/controller/api/Controller.html#getRunFailed--">getRunFailed</a>, <a href="../../../../../../io/openems/edge/controller/api/Controller.html#getRunFailedChannel--">getRunFailedChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
-<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#alias--">alias</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channels--">channels</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#hasFaults--">hasFaults</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#id--">id</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
+<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#alias--">alias</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channels--">channels</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getStateChannel--">getStateChannel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#hasFaults--">hasFaults</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#id--">id</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
 </ul>
 </li>
 </ul>
@@ -403,6 +422,49 @@ implements <a href="../../../../../../io/openems/edge/controller/api/Controller.
 <li class="blockList">
 <h4>addComponent</h4>
 <pre>protected&nbsp;void&nbsp;addComponent(<a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>&nbsp;component)</pre>
+</li>
+</ul>
+<a name="getUnableToStartChannel--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUnableToStartChannel</h4>
+<pre>public&nbsp;<a href="../../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a>&nbsp;getUnableToStartChannel()</pre>
+<div class="block">Gets the Channel for <a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.ChannelId.html#UNABLE_TO_START"><code>AbstractModbusTcpApi.ChannelId.UNABLE_TO_START</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel</dd>
+</dl>
+</li>
+</ul>
+<a name="getUnableToStart--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUnableToStart</h4>
+<pre>public&nbsp;<a href="../../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;&nbsp;getUnableToStart()</pre>
+<div class="block">Gets the Unable to Start Fault State. See <a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.ChannelId.html#UNABLE_TO_START"><code>AbstractModbusTcpApi.ChannelId.UNABLE_TO_START</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel <a href="../../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="Z:Z_setUnableToStart-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setUnableToStart</h4>
+<pre>public&nbsp;void&nbsp;_setUnableToStart(boolean&nbsp;value)</pre>
+<div class="block">Internal method to set the 'nextValue' on <a href="../../../../../../io/openems/edge/controller/api/modbus/AbstractModbusTcpApi.ChannelId.html#UNABLE_TO_START"><code>AbstractModbusTcpApi.ChannelId.UNABLE_TO_START</code></a>
+ Channel.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the next value</dd>
+</dl>
 </li>
 </ul>
 <a name="activate-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-org.osgi.service.cm.ConfigurationAdmin-io.openems.edge.common.meta.Meta-java.lang.String:A-int-int-int-">

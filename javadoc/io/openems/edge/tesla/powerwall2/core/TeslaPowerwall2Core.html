@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":18,"i1":6,"i2":18,"i3":18,"i4":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -98,12 +98,17 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt>All Superinterfaces:</dt>
+<dd><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></dd>
+</dl>
+<dl>
 <dt>All Known Implementing Classes:</dt>
 <dd><a href="../../../../../../io/openems/edge/tesla/powerwall2/core/TeslaPowerwall2CoreImpl.html" title="class in io.openems.edge.tesla.powerwall2.core">TeslaPowerwall2CoreImpl</a></dd>
 </dl>
 <hr>
 <br>
-<pre>public interface <span class="typeNameLabel">TeslaPowerwall2Core</span></pre>
+<pre>public interface <span class="typeNameLabel">TeslaPowerwall2Core</span>
+extends <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></pre>
 </li>
 </ul>
 </div>
@@ -127,6 +132,13 @@ var activeTableTab = "activeTableTab";
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/tesla/powerwall2/core/TeslaPowerwall2Core.CoreChannelId.html" title="enum in io.openems.edge.tesla.powerwall2.core">TeslaPowerwall2Core.CoreChannelId</a></span></code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="nested.classes.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
+<!--   -->
+</a>
+<h3>Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
+<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.ChannelId.html" title="enum in io.openems.edge.common.component">OpenemsComponent.ChannelId</a></code></li>
+</ul>
 </li>
 </ul>
 <!-- ========== METHOD SUMMARY =========== -->
@@ -136,20 +148,46 @@ var activeTableTab = "activeTableTab";
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/tesla/powerwall2/core/TeslaPowerwall2Core.html#Z:Z_setSlaveCommunicationFailed-boolean-">_setSlaveCommunicationFailed</a></span>(boolean&nbsp;value)</code>
+<div class="block">Internal method to set the 'nextValue' on
+ <code>ChannelId#SLAVE_COMMUNICATION_FAILED</code> Channel.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.util.Optional&lt;<a href="../../../../../../io/openems/edge/tesla/powerwall2/battery/TeslaPowerwall2Battery.html" title="class in io.openems.edge.tesla.powerwall2.battery">TeslaPowerwall2Battery</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/tesla/powerwall2/core/TeslaPowerwall2Core.html#getBattery--">getBattery</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>default <a href="../../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/tesla/powerwall2/core/TeslaPowerwall2Core.html#getSlaveCommunicationFailed--">getSlaveCommunicationFailed</a></span>()</code>
+<div class="block">Gets the Slave Communication Failed State.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/tesla/powerwall2/core/TeslaPowerwall2Core.html#getSlaveCommunicationFailedChannel--">getSlaveCommunicationFailedChannel</a></span>()</code>
+<div class="block">Gets the Channel for <code>ChannelId#SLAVE_COMMUNICATION_FAILED</code>.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/tesla/powerwall2/core/TeslaPowerwall2Core.html#setBattery-io.openems.edge.tesla.powerwall2.battery.TeslaPowerwall2Battery-">setBattery</a></span>(<a href="../../../../../../io/openems/edge/tesla/powerwall2/battery/TeslaPowerwall2Battery.html" title="class in io.openems.edge.tesla.powerwall2.battery">TeslaPowerwall2Battery</a>&nbsp;battery)</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
+<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#alias--">alias</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channels--">channels</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getStateChannel--">getStateChannel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#hasFaults--">hasFaults</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#id--">id</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -176,10 +214,54 @@ var activeTableTab = "activeTableTab";
 <a name="getBattery--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getBattery</h4>
 <pre>java.util.Optional&lt;<a href="../../../../../../io/openems/edge/tesla/powerwall2/battery/TeslaPowerwall2Battery.html" title="class in io.openems.edge.tesla.powerwall2.battery">TeslaPowerwall2Battery</a>&gt;&nbsp;getBattery()</pre>
+</li>
+</ul>
+<a name="getSlaveCommunicationFailedChannel--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSlaveCommunicationFailedChannel</h4>
+<pre>default&nbsp;<a href="../../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a>&nbsp;getSlaveCommunicationFailedChannel()</pre>
+<div class="block">Gets the Channel for <code>ChannelId#SLAVE_COMMUNICATION_FAILED</code>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel</dd>
+</dl>
+</li>
+</ul>
+<a name="getSlaveCommunicationFailed--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSlaveCommunicationFailed</h4>
+<pre>default&nbsp;<a href="../../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;&nbsp;getSlaveCommunicationFailed()</pre>
+<div class="block">Gets the Slave Communication Failed State. See
+ <code>ChannelId#SLAVE_COMMUNICATION_FAILED</code>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel <a href="../../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="Z:Z_setSlaveCommunicationFailed-boolean-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>_setSlaveCommunicationFailed</h4>
+<pre>default&nbsp;void&nbsp;_setSlaveCommunicationFailed(boolean&nbsp;value)</pre>
+<div class="block">Internal method to set the 'nextValue' on
+ <code>ChannelId#SLAVE_COMMUNICATION_FAILED</code> Channel.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the next value</dd>
+</dl>
 </li>
 </ul>
 </li>

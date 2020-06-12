@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -170,15 +170,34 @@ implements <a href="../../../../../io/openems/edge/thermometer/api/Thermometer.h
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/onewire/thermometer/OneWireThermometer.html#Z:Z_setCommunicationFailed-boolean-">_setCommunicationFailed</a></span>(boolean&nbsp;value)</code>
+<div class="block">Internal method to set the 'nextValue' on
+ <a href="../../../../../io/openems/edge/onewire/thermometer/ThisChannelId.html#COMMUNICATION_FAILED"><code>ThisChannelId.COMMUNICATION_FAILED</code></a> Channel.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/onewire/thermometer/OneWireThermometer.html#deactivate--">deactivate</a></span>()</code>
 <div class="block">Handles @Deactivate of implementations.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/onewire/thermometer/OneWireThermometer.html#debugLog--">debugLog</a></span>()</code>
 <div class="block">Gets some output that is suitable for a continuous Debug log.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/onewire/thermometer/OneWireThermometer.html#getCommunicationFailed--">getCommunicationFailed</a></span>()</code>
+<div class="block">Gets the Communication Failed Fault State.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/onewire/thermometer/OneWireThermometer.html#getCommunicationFailedChannel--">getCommunicationFailedChannel</a></span>()</code>
+<div class="block">Gets the Channel for <a href="../../../../../io/openems/edge/onewire/thermometer/ThisChannelId.html#COMMUNICATION_FAILED"><code>ThisChannelId.COMMUNICATION_FAILED</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -201,14 +220,14 @@ implements <a href="../../../../../io/openems/edge/thermometer/api/Thermometer.h
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.thermometer.api.<a href="../../../../../io/openems/edge/thermometer/api/Thermometer.html" title="interface in io.openems.edge.thermometer.api">Thermometer</a></h3>
-<code><a href="../../../../../io/openems/edge/thermometer/api/Thermometer.html#getTemperature--">getTemperature</a></code></li>
+<code><a href="../../../../../io/openems/edge/thermometer/api/Thermometer.html#Z:Z_setTemperature-int-">_setTemperature</a>, <a href="../../../../../io/openems/edge/thermometer/api/Thermometer.html#Z:Z_setTemperature-java.lang.Integer-">_setTemperature</a>, <a href="../../../../../io/openems/edge/thermometer/api/Thermometer.html#getTemperature--">getTemperature</a>, <a href="../../../../../io/openems/edge/thermometer/api/Thermometer.html#getTemperatureChannel--">getTemperatureChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
-<code><a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#alias--">alias</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channels--">channels</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#hasFaults--">hasFaults</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#id--">id</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
+<code><a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#alias--">alias</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channels--">channels</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getStateChannel--">getStateChannel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#hasFaults--">hasFaults</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#id--">id</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
 </ul>
 </li>
 </ul>
@@ -259,7 +278,7 @@ implements <a href="../../../../../io/openems/edge/thermometer/api/Thermometer.h
 <a name="debugLog--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>debugLog</h4>
 <pre>public&nbsp;java.lang.String&nbsp;debugLog()</pre>
@@ -271,6 +290,50 @@ implements <a href="../../../../../io/openems/edge/thermometer/api/Thermometer.h
 <dd><code><a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the debug log output</dd>
+</dl>
+</li>
+</ul>
+<a name="getCommunicationFailedChannel--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCommunicationFailedChannel</h4>
+<pre>public&nbsp;<a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a>&nbsp;getCommunicationFailedChannel()</pre>
+<div class="block">Gets the Channel for <a href="../../../../../io/openems/edge/onewire/thermometer/ThisChannelId.html#COMMUNICATION_FAILED"><code>ThisChannelId.COMMUNICATION_FAILED</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel</dd>
+</dl>
+</li>
+</ul>
+<a name="getCommunicationFailed--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCommunicationFailed</h4>
+<pre>public&nbsp;<a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;&nbsp;getCommunicationFailed()</pre>
+<div class="block">Gets the Communication Failed Fault State. See
+ <a href="../../../../../io/openems/edge/onewire/thermometer/ThisChannelId.html#COMMUNICATION_FAILED"><code>ThisChannelId.COMMUNICATION_FAILED</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel <a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="Z:Z_setCommunicationFailed-boolean-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>_setCommunicationFailed</h4>
+<pre>public&nbsp;void&nbsp;_setCommunicationFailed(boolean&nbsp;value)</pre>
+<div class="block">Internal method to set the 'nextValue' on
+ <a href="../../../../../io/openems/edge/onewire/thermometer/ThisChannelId.html#COMMUNICATION_FAILED"><code>ThisChannelId.COMMUNICATION_FAILED</code></a> Channel.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the next value</dd>
 </dl>
 </li>
 </ul>
