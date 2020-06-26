@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -105,6 +105,10 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../../io/openems/edge/ess/core/power/DisabledPidFilter.html" title="class in io.openems.edge.ess.core.power">DisabledPidFilter</a></dd>
+</dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">PidFilter</span>
@@ -186,6 +190,18 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>protected double</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#applyLowHighLimits-double-">applyLowHighLimits</a></span>(double&nbsp;value)</code>
+<div class="block">Applies the low and high limits to a value.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#applyLowHighLimits-int-">applyLowHighLimits</a></span>(int&nbsp;value)</code>
+<div class="block">Applies the low and high limits to a value.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#applyPidFilter-int-int-">applyPidFilter</a></span>(int&nbsp;input,
               int&nbsp;target)</code>
@@ -193,13 +209,13 @@ extends java.lang.Object</pre>
  value.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#reset--">reset</a></span>()</code>
 <div class="block">Reset the PID filter.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/filter/PidFilter.html#setLimits-java.lang.Integer-java.lang.Integer-">setLimits</a></span>(java.lang.Integer&nbsp;lowLimit,
          java.lang.Integer&nbsp;highLimit)</code>
@@ -349,7 +365,7 @@ extends java.lang.Object</pre>
 <a name="reset--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>reset</h4>
 <pre>public&nbsp;void&nbsp;reset()</pre>
@@ -357,6 +373,38 @@ extends java.lang.Object</pre>
  
  <p>
  This method should be called when the filter was not used for a while.</div>
+</li>
+</ul>
+<a name="applyLowHighLimits-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>applyLowHighLimits</h4>
+<pre>protected&nbsp;int&nbsp;applyLowHighLimits(int&nbsp;value)</pre>
+<div class="block">Applies the low and high limits to a value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the input value</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the value within low and high limit</dd>
+</dl>
+</li>
+</ul>
+<a name="applyLowHighLimits-double-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>applyLowHighLimits</h4>
+<pre>protected&nbsp;double&nbsp;applyLowHighLimits(double&nbsp;value)</pre>
+<div class="block">Applies the low and high limits to a value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the input value</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the value within low and high limit</dd>
+</dl>
 </li>
 </ul>
 </li>
