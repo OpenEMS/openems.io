@@ -276,8 +276,26 @@
 <div class="sect2">
 <h3 id="_open_energy_management_system"><a class="anchor" href="#_open_energy_management_system"></a>1.1. Open Energy Management System</h3>
 <div class="paragraph">
-<p>OpenEMS is a modular platform for energy management applications.
-It was developed around the requirements of controlling, monitoring and integrating energy storage systems together with renewable energy sources and complementary devices and services.</p>
+<p>OpenEMS - the Open Source Energy Management System - is a modular platform for energy management applications. It was developed around the requirements of monitoring, controlling, and integrating energy storage together with renewable energy sources and complementary devices and services like electric vehicle charging stations, heat-pumps, electrolysers, time-of-use electricity tariffs and more.</p>
+</div>
+<div class="paragraph">
+<p>If you plan to use OpenEMS for your own projects, please consider joining the <a href="https://openems.io/association">OpenEMS Association e.V. <span class="icon"><i class="fa fa-external-link"></i></span></a>, a network of universities, hardware manufacturers, software companies as well as commercial and private owners, and get in touch in the <a href="https://community.openems.io">OpenEMS Community forum <span class="icon"><i class="fa fa-external-link"></i></span></a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_openems_in_local_energy_management"><a class="anchor" href="#_openems_in_local_energy_management"></a>1.1.1. OpenEMS in »Local Energy Management«</h4>
+<div class="imageblock">
+<div class="content">
+<img src="_images/local-energy-management.png" alt="Local Energy Management">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_openems_in_areal_energy_management"><a class="anchor" href="#_openems_in_areal_energy_management"></a>1.1.2. OpenEMS in »Areal Energy Management«</h4>
+<div class="imageblock">
+<div class="content">
+<img src="_images/areal-energy-management.png" alt="Areal Energy Management">
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -288,10 +306,10 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="ulist">
 <ul>
 <li>
-<p><strong>OpenEMS Edge</strong> runs on-site and actually controls the devices</p>
+<p><strong>OpenEMS Edge</strong> runs on site, communicates with devices and services, collects data and executes control algorithms</p>
 </li>
 <li>
-<p><strong>OpenEMS UI</strong> is the generic user interface</p>
+<p><strong>OpenEMS UI</strong> is the real-time user interface for web browsers and smartphones</p>
 </li>
 <li>
 <p><strong>OpenEMS Backend</strong> runs on a (cloud) server, connects the decentralized Edge systems and provides aggregation, monitoring and control via internet</p>
@@ -307,16 +325,16 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="ulist">
 <ul>
 <li>
-<p>Fast, PLC-like control of battery inverters and other devices</p>
+<p>Fast, PLC-like control of devices</p>
 </li>
 <li>
 <p>Easily extendable due to the use of modern programming languages and modular architecture</p>
 </li>
 <li>
-<p>Wide range of supported devices - (battery) inverters, meters, etc. - and protocols</p>
+<p>Reusable, device independent control algorithms due to clear device abstraction</p>
 </li>
 <li>
-<p>Modern web-based real-time user interface</p>
+<p>Wide range of supported devices and protocols</p>
 </li>
 </ul>
 </div>
@@ -325,12 +343,12 @@ It was developed around the requirements of controlling, monitoring and integrat
 <h3 id="_openems_ui_screenshots"><a class="anchor" href="#_openems_ui_screenshots"></a>1.4. OpenEMS UI Screenshots</h3>
 <div class="imageblock">
 <div class="content">
-<img src="_images/ui-screenshots.png" alt="OpenEMS UI Screenshots">
+<img src="_images/ui-live.png" alt="OpenEMS UI Live View">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/ui-screenshots2.png" alt="OpenEMS UI Screenshots">
+<img src="_images/ui-history.png" alt="OpenEMS UI History View">
 </div>
 </div>
 </div>
@@ -354,7 +372,7 @@ As a brief overview, this is how OpenEMS is used in production setups:</p>
 <p>Development follows the <a href="https://de.wikipedia.org/wiki/Agile_Softwareentwicklung">Agile Manifesto <span class="icon"><i class="fa fa-external-link"></i></span></a> and is driven by the <a href="https://de.wikipedia.org/wiki/Scrum">Scrum <span class="icon"><i class="fa fa-external-link"></i></span></a> methodology.
 The source code is available online at <a href="http://openems.io" class="bare">http://openems.io</a> and on <a href="https://github.com/OpenEMS/openems">GitHub <span class="icon"><i class="fa fa-github"></i></span></a>.
 New versions are released after every Scrum Sprint and <a href="https://github.com/OpenEMS/openems/releases">tagged <span class="icon"><i class="fa fa-github"></i></span></a> accordingly.
-Version numbers are built using the pattern <code>year.number of sprint</code>, e.g. version <code>2018.4.0</code> is the result of the fourth sprint in 2018.
+Version numbers are built using the pattern <code>year.number of sprint</code>, e.g. version <code>2020.14.0</code> is the result of the 14th sprint in 2020.
 Git development follows the <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow Workflow</a>, so the <a href="https://github.com/OpenEMS/openems/tree/master/">master branch <span class="icon"><i class="fa fa-github"></i></span></a> always holds the stable release, while active development is happening on the <a href="https://github.com/OpenEMS/openems/tree/develop">develop branch <span class="icon"><i class="fa fa-github"></i></span></a> or in separate feature branches.</p>
 </div>
 <div class="paragraph">
@@ -367,10 +385,13 @@ For handling git we recommend <a href="https://www.sourcetreeapp.com/">Sourctree
 <div class="sect2">
 <h3 id="_open_source_philosophy"><a class="anchor" href="#_open_source_philosophy"></a>1.7. Open Source philosophy</h3>
 <div class="paragraph">
-<p>OpenEMS development was started by <a href="https://www.fenecon.de">FENECON GmbH <span class="icon"><i class="fa fa-external-link"></i></span></a>, a German company specialized in manufacturing and project development of energy storage systems. It is the software stack behind <a href="https://fenecon.de/page/fems">FEMS - FENECON Energy Management System <span class="icon"><i class="fa fa-external-link"></i></span></a> and widely used in private, commercial and industrial applications.</p>
+<p>The OpenEMS project ist driven by the <a href="https://openems.io/association">OpenEMS Association e.V.</a>, a network of users, vendors and scientific institutions from all kinds of areas like hardware manufacturers, software companies, grid operators and more. They share the common target of developing a free and open-source platform for energy management, that supports the 100 % energy transition.</p>
 </div>
 <div class="paragraph">
-<p>In 2019 governance of the OpenEMS project was taken over by the newly founded "OpenEMS Association e.V. (i.Gr.)". We are inviting third parties - like universities, hardware manufacturers, software companies, commercial and private owners,&#8230;&#8203; - to use OpenEMS for their own projects and are glad to support them with their first steps. In any case if you are interested in OpenEMS our development team would be glad to hear from you at <a href="mailto:info@openems.io">info@openems.io</a>.</p>
+<p>We are inviting third parties to use OpenEMS for their own projects and are glad to support them with their first steps. In any case if you are interested in OpenEMS we would be glad to hear from you in the <a href="https://community.openems.io">OpenEMS Community forum</a>.</p>
+</div>
+<div class="paragraph">
+<p>OpenEMS development was started by <a href="https://www.fenecon.de">FENECON GmbH</a>, a German company specialized in manufacturing and project development of energy storage systems. It is the software stack behind <a href="https://fenecon.de/page/fems">FEMS - FENECON Energy Management System</a> and widely used in private, commercial and industrial applications.</p>
 </div>
 <div class="paragraph">
 <p>OpenEMS is funded by several federal and EU funding projects. If you are a developer and you would like to get hired by one of the partner companies or universities for working on OpenEMS, please send your motivation letter to <a href="mailto:info@openems.io">info@openems.io</a>.</p>
@@ -389,7 +410,7 @@ For handling git we recommend <a href="https://www.sourcetreeapp.com/">Sourctree
 </ul>
 </div>
 <div class="paragraph">
-<p>Copyright &#169; 2016-2020 FENECON GmbH.</p>
+<p>Copyright &#169; 2016-2020 OpenEMS Association e.V., FENECON GmbH.</p>
 </div>
 <div class="paragraph">
 <p>This product includes software developed at FENECON GmbH: you can
@@ -403,7 +424,7 @@ redistribute it and/or modify it under the terms of the <a href="https://github.
 </ul>
 </div>
 <div class="paragraph">
-<p>Copyright &#169; 2016-2020 FENECON GmbH.</p>
+<p>Copyright &#169; 2016-2020 OpenEMS Association e.V., FENECON GmbH.</p>
 </div>
 <div class="paragraph">
 <p>This product includes software developed at FENECON GmbH: you can
