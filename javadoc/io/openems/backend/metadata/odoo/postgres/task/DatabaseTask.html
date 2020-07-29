@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":6,"i1":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -74,13 +74,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -91,25 +91,51 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">io.openems.backend.metadata.odoo.postgres.task</div>
-<h2 title="Interface DatabaseTask" class="title">Interface DatabaseTask</h2>
+<h2 title="Class DatabaseTask" class="title">Class DatabaseTask</h2>
 </div>
 <div class="contentContainer">
+<ul class="inheritance">
+<li>java.lang.Object</li>
+<li>
+<ul class="inheritance">
+<li>io.openems.backend.metadata.odoo.postgres.task.DatabaseTask</li>
+</ul>
+</li>
+</ul>
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
 <dl>
-<dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/InsertEdgeConfigUpdate.html" title="class in io.openems.backend.metadata.odoo.postgres.task">InsertEdgeConfigUpdate</a>, <a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/InsertOrUpdateDeviceState.html" title="class in io.openems.backend.metadata.odoo.postgres.task">InsertOrUpdateDeviceState</a>, <a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/UpdateEdgeConfig.html" title="class in io.openems.backend.metadata.odoo.postgres.task">UpdateEdgeConfig</a>, <a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/UpdateEdgeProducttype.html" title="class in io.openems.backend.metadata.odoo.postgres.task">UpdateEdgeProducttype</a>, <a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/UpdateEdgeStatesSum.html" title="class in io.openems.backend.metadata.odoo.postgres.task">UpdateEdgeStatesSum</a>, <a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/UpdateEdgeVersion.html" title="class in io.openems.backend.metadata.odoo.postgres.task">UpdateEdgeVersion</a></dd>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/InsertEdgeConfigUpdate.html" title="class in io.openems.backend.metadata.odoo.postgres.task">InsertEdgeConfigUpdate</a>, <a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/InsertOrUpdateDeviceStates.html" title="class in io.openems.backend.metadata.odoo.postgres.task">InsertOrUpdateDeviceStates</a>, <a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/UpdateEdgeConfig.html" title="class in io.openems.backend.metadata.odoo.postgres.task">UpdateEdgeConfig</a>, <a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/UpdateEdgeProducttype.html" title="class in io.openems.backend.metadata.odoo.postgres.task">UpdateEdgeProducttype</a>, <a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/UpdateEdgeStatesSum.html" title="class in io.openems.backend.metadata.odoo.postgres.task">UpdateEdgeStatesSum</a>, <a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/UpdateEdgeVersion.html" title="class in io.openems.backend.metadata.odoo.postgres.task">UpdateEdgeVersion</a></dd>
 </dl>
 <hr>
 <br>
-<pre>public interface <span class="typeNameLabel">DatabaseTask</span></pre>
+<pre>public abstract class <span class="typeNameLabel">DatabaseTask</span>
+extends java.lang.Object</pre>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/DatabaseTask.html#DatabaseTask--">DatabaseTask</a></span>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -117,16 +143,30 @@ var activeTableTab = "activeTableTab";
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>protected abstract void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/DatabaseTask.html#Z:Z_execute-java.sql.Connection-">_execute</a></span>(java.sql.Connection&nbsp;connection)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/DatabaseTask.html#execute-java.sql.Connection-">execute</a></span>(java.sql.Connection&nbsp;connection)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/backend/metadata/odoo/postgres/task/DatabaseTask.html#execute-com.zaxxer.hikari.HikariDataSource-">execute</a></span>(com.zaxxer.hikari.HikariDataSource&nbsp;dataSource)</code>
+<div class="block">Execute the Task, making sure the Connection handle is released properly on
+ exception.</div>
+</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -135,20 +175,55 @@ var activeTableTab = "activeTableTab";
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="DatabaseTask--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>DatabaseTask</h4>
+<pre>public&nbsp;DatabaseTask()</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="execute-java.sql.Connection-">
+<a name="execute-com.zaxxer.hikari.HikariDataSource-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>execute</h4>
+<pre>public&nbsp;void&nbsp;execute(com.zaxxer.hikari.HikariDataSource&nbsp;dataSource)
+             throws java.sql.SQLException</pre>
+<div class="block">Execute the Task, making sure the Connection handle is released properly on
+ exception.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dataSource</code> - the <code>HikariDataSource</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="Z:Z_execute-java.sql.Connection-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>execute</h4>
-<pre>void&nbsp;execute(java.sql.Connection&nbsp;connection)
-      throws java.sql.SQLException</pre>
+<h4>_execute</h4>
+<pre>protected abstract&nbsp;void&nbsp;_execute(java.sql.Connection&nbsp;connection)
+                          throws java.sql.SQLException</pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code></dd>
@@ -209,13 +284,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
