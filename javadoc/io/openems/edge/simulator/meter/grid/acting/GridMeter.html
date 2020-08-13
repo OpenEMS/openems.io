@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -112,13 +112,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../../io/openems/edge/meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>, <a href="../../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, org.osgi.service.event.EventHandler</dd>
+<dd><a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../../io/openems/edge/meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>, <a href="../../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, <a href="../../../../../../../io/openems/edge/timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, org.osgi.service.event.EventHandler</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">GridMeter</span>
 extends <a href="../../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="../../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, <a href="../../../../../../../io/openems/edge/meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler</pre>
+implements <a href="../../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, <a href="../../../../../../../io/openems/edge/meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>, <a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../../io/openems/edge/timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, org.osgi.service.event.EventHandler</pre>
 </li>
 </ul>
 </div>
@@ -222,6 +222,12 @@ implements <a href="../../../../../../../io/openems/edge/meter/api/SymmetricMete
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/simulator/meter/grid/acting/GridMeter.html#getTimedata--">getTimedata</a></span>()</code>
+<div class="block">Gets the <a href="../../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/simulator/meter/grid/acting/GridMeter.html#handleEvent-org.osgi.service.event.Event-">handleEvent</a></span>(org.osgi.service.event.Event&nbsp;event)</code>&nbsp;</td>
 </tr>
@@ -366,7 +372,7 @@ implements <a href="../../../../../../../io/openems/edge/meter/api/SymmetricMete
 <a name="debugLog--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>debugLog</h4>
 <pre>public&nbsp;java.lang.String&nbsp;debugLog()</pre>
@@ -378,6 +384,23 @@ implements <a href="../../../../../../../io/openems/edge/meter/api/SymmetricMete
 <dd><code><a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the debug log output</dd>
+</dl>
+</li>
+</ul>
+<a name="getTimedata--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getTimedata</h4>
+<pre>public&nbsp;<a href="../../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a>&nbsp;getTimedata()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../../io/openems/edge/timedata/api/TimedataProvider.html#getTimedata--">TimedataProvider</a></code></span></div>
+<div class="block">Gets the <a href="../../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../../io/openems/edge/timedata/api/TimedataProvider.html#getTimedata--">getTimedata</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../io/openems/edge/timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the service or null if it is not (yet) available.</dd>
 </dl>
 </li>
 </ul>
