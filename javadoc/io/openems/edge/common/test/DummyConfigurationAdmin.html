@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -185,35 +185,42 @@ implements org.osgi.service.cm.ConfigurationAdmin</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyConfigurationAdmin.html#addConfig-io.openems.edge.common.test.AbstractComponentConfig-">addConfig</a></span>(<a href="../../../../../io/openems/edge/common/test/AbstractComponentConfig.html" title="class in io.openems.edge.common.test">AbstractComponentConfig</a>&nbsp;config)</code>
+<div class="block">Adds a simulated <a href="../../../../../io/openems/edge/common/test/AbstractComponentConfig.html" title="class in io.openems.edge.common.test"><code>AbstractComponentConfig</code></a> with all its properties to
+ the configurations.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>org.osgi.service.cm.Configuration</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyConfigurationAdmin.html#createFactoryConfiguration-java.lang.String-">createFactoryConfiguration</a></span>(java.lang.String&nbsp;factoryPid)</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>org.osgi.service.cm.Configuration</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyConfigurationAdmin.html#createFactoryConfiguration-java.lang.String-java.lang.String-">createFactoryConfiguration</a></span>(java.lang.String&nbsp;factoryPid,
                           java.lang.String&nbsp;location)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>org.osgi.service.cm.Configuration</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyConfigurationAdmin.html#getConfiguration-java.lang.String-">getConfiguration</a></span>(java.lang.String&nbsp;pid)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>org.osgi.service.cm.Configuration</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyConfigurationAdmin.html#getConfiguration-java.lang.String-java.lang.String-">getConfiguration</a></span>(java.lang.String&nbsp;pid,
                 java.lang.String&nbsp;location)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>org.osgi.service.cm.Configuration</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyConfigurationAdmin.html#getFactoryConfiguration-java.lang.String-java.lang.String-">getFactoryConfiguration</a></span>(java.lang.String&nbsp;factoryPid,
                        java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>org.osgi.service.cm.Configuration</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyConfigurationAdmin.html#getFactoryConfiguration-java.lang.String-java.lang.String-java.lang.String-">getFactoryConfiguration</a></span>(java.lang.String&nbsp;factoryPid,
                        java.lang.String&nbsp;name,
                        java.lang.String&nbsp;location)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>org.osgi.service.cm.Configuration[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyConfigurationAdmin.html#listConfigurations-java.lang.String-">listConfigurations</a></span>(java.lang.String&nbsp;filter)</code>&nbsp;</td>
 </tr>
@@ -289,14 +296,13 @@ implements org.osgi.service.cm.ConfigurationAdmin</pre>
 </dl>
 </li>
 </ul>
-<a name="getConfiguration-java.lang.String-java.lang.String-">
+<a name="getConfiguration-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getConfiguration</h4>
-<pre>public&nbsp;org.osgi.service.cm.Configuration&nbsp;getConfiguration(java.lang.String&nbsp;pid,
-                                                          java.lang.String&nbsp;location)
+<pre>public&nbsp;org.osgi.service.cm.Configuration&nbsp;getConfiguration(java.lang.String&nbsp;pid)
                                                    throws java.io.IOException</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -306,13 +312,14 @@ implements org.osgi.service.cm.ConfigurationAdmin</pre>
 </dl>
 </li>
 </ul>
-<a name="getConfiguration-java.lang.String-">
+<a name="getConfiguration-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getConfiguration</h4>
-<pre>public&nbsp;org.osgi.service.cm.Configuration&nbsp;getConfiguration(java.lang.String&nbsp;pid)
+<pre>public&nbsp;org.osgi.service.cm.Configuration&nbsp;getConfiguration(java.lang.String&nbsp;pid,
+                                                          java.lang.String&nbsp;location)
                                                    throws java.io.IOException</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -361,7 +368,7 @@ implements org.osgi.service.cm.ConfigurationAdmin</pre>
 <a name="getFactoryConfiguration-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getFactoryConfiguration</h4>
 <pre>public&nbsp;org.osgi.service.cm.Configuration&nbsp;getFactoryConfiguration(java.lang.String&nbsp;factoryPid,
@@ -372,6 +379,28 @@ implements org.osgi.service.cm.ConfigurationAdmin</pre>
 <dd><code>getFactoryConfiguration</code>&nbsp;in interface&nbsp;<code>org.osgi.service.cm.ConfigurationAdmin</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code></dd>
+</dl>
+</li>
+</ul>
+<a name="addConfig-io.openems.edge.common.test.AbstractComponentConfig-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>addConfig</h4>
+<pre>public&nbsp;void&nbsp;addConfig(<a href="../../../../../io/openems/edge/common/test/AbstractComponentConfig.html" title="class in io.openems.edge.common.test">AbstractComponentConfig</a>&nbsp;config)
+               throws java.lang.IllegalAccessException,
+                      java.lang.IllegalArgumentException,
+                      java.lang.reflect.InvocationTargetException</pre>
+<div class="block">Adds a simulated <a href="../../../../../io/openems/edge/common/test/AbstractComponentConfig.html" title="class in io.openems.edge.common.test"><code>AbstractComponentConfig</code></a> with all its properties to
+ the configurations.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>config</code> - the <a href="../../../../../io/openems/edge/common/test/AbstractComponentConfig.html" title="class in io.openems.edge.common.test"><code>AbstractComponentConfig</code></a></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalAccessException</code> - on error</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - on error</dd>
+<dd><code>java.lang.reflect.InvocationTargetException</code> - on error</dd>
 </dl>
 </li>
 </ul>
