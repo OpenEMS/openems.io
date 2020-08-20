@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],16:["t5","Default Methods"]};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../../io/openems/edge/goodwe/et/ess/GoodWeEtBatteryInverterImpl.html" title="class in io.openems.edge.goodwe.et.ess">GoodWeEtBatteryInverterImpl</a></dd>
+<dd><a href="../../../../../io/openems/edge/ess/test/DummyHybridEss.html" title="class in io.openems.edge.ess.test">DummyHybridEss</a>, <a href="../../../../../io/openems/edge/goodwe/et/ess/GoodWeEtBatteryInverterImpl.html" title="class in io.openems.edge.goodwe.et.ess">GoodWeEtBatteryInverterImpl</a></dd>
 </dl>
 <hr>
 <br>
@@ -159,7 +159,7 @@ extends <a href="../../../../../io/openems/edge/ess/api/SymmetricEss.html" title
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -235,6 +235,13 @@ extends <a href="../../../../../io/openems/edge/ess/api/SymmetricEss.html" title
 <div class="block">Gets the Channel for <a href="../../../../../io/openems/edge/ess/api/HybridEss.ChannelId.html#DC_DISCHARGE_POWER"><code>HybridEss.ChannelId.DC_DISCHARGE_POWER</code></a>.</div>
 </td>
 </tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>java.lang.Integer</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/ess/api/HybridEss.html#getSurplusPower--">getSurplusPower</a></span>()</code>
+<div class="block">Gets the Surplus Power of the <a href="../../../../../io/openems/edge/ess/dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api"><code>EssDcCharger</code></a>s of this
+ <a href="../../../../../io/openems/edge/ess/api/HybridEss.html" title="interface in io.openems.edge.ess.api"><code>HybridEss</code></a>.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.ess.api.SymmetricEss">
@@ -264,6 +271,27 @@ extends <a href="../../../../../io/openems/edge/ess/api/SymmetricEss.html" title
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getSurplusPower--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSurplusPower</h4>
+<pre>java.lang.Integer&nbsp;getSurplusPower()</pre>
+<div class="block">Gets the Surplus Power of the <a href="../../../../../io/openems/edge/ess/dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api"><code>EssDcCharger</code></a>s of this
+ <a href="../../../../../io/openems/edge/ess/api/HybridEss.html" title="interface in io.openems.edge.ess.api"><code>HybridEss</code></a>.
+ 
+ <p>
+ This value is usually calculated from the
+ <a href="../../../../../io/openems/edge/ess/dccharger/api/EssDcCharger.html#getActualPower--"><code>EssDcCharger.getActualPower()</code></a> when the battery is full. It is used by
+ the Ess.Hybrid.Surplus-Feed-To-Grid Controller to feed the surplus power to
+ grid.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the surplus power, or 'null' if there is no surplus power</dd>
+</dl>
+</li>
+</ul>
 <a name="getDcDischargePowerChannel--">
 <!--   -->
 </a>
