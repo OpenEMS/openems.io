@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":6};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../../io/openems/edge/common/test/ComponentTest.html" title="class in io.openems.edge.common.test">ComponentTest</a>, <a href="../../../../../io/openems/edge/controller/test/ControllerTest.html" title="class in io.openems.edge.controller.test">ControllerTest</a></dd>
+<dd><a href="../../../../../io/openems/edge/common/test/ComponentTest.html" title="class in io.openems.edge.common.test">ComponentTest</a>, <a href="../../../../../io/openems/edge/controller/test/ControllerTest.html" title="class in io.openems.edge.controller.test">ControllerTest</a>, <a href="../../../../../io/openems/edge/ess/test/ManagedSymmetricEssTest.html" title="class in io.openems.edge.ess.test">ManagedSymmetricEssTest</a></dd>
 </dl>
 <hr>
 <br>
@@ -196,38 +196,88 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#executeController--">executeController</a></span>()</code>
-<div class="block">Executes the Controller logic if SUT is a Controller.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SUT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#getSut--">getSut</a></span>()</code>
 <div class="block">Gets the 'system-under-test', i.e.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#handleEvent-java.lang.String-">handleEvent</a></span>(java.lang.String&nbsp;topic)</code>
 <div class="block">If the 'system-under-test' is a <code>EventHandler</code> call the
  <code>EventHandler.handleEvent(Event)</code> method.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#next-io.openems.edge.common.test.AbstractComponentTest.TestCase-">next</a></span>(<a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.TestCase.html" title="class in io.openems.edge.common.test">AbstractComponentTest.TestCase</a>&nbsp;testCase)</code>
 <div class="block">Runs a Test-Case.</div>
 </td>
 </tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#onAfterControllers--">onAfterControllers</a></span>()</code>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_AFTER_CONTROLLERS event.</div>
+</td>
+</tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#onAfterProcessImage--">onAfterProcessImage</a></span>()</code>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_AFTER_PROCESS_IMAGE event.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#onAfterWrite--">onAfterWrite</a></span>()</code>
+<div class="block">This method is executed before
+ {@link EdgeEventConstants#TOPIC_CYCLE_AFTER_WRITE.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#onBeforeControllers--">onBeforeControllers</a></span>()</code>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_BEFORE_CONTROLLERS event.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#onBeforeProcessImage--">onBeforeProcessImage</a></span>()</code>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_BEFORE_PROCESS_IMAGE event.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#onBeforeWrite--">onBeforeWrite</a></span>()</code>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_BEFORE_WRITE event.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#onExecuteControllers--">onExecuteControllers</a></span>()</code>
+<div class="block">This method is executed after TOPIC_CYCLE_BEFORE_CONTROLLERS and before
+ TOPIC_CYCLE_AFTER_CONTROLLERS.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#onExecuteWrite--">onExecuteWrite</a></span>()</code>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_EXECUTE_WRITE event.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#run--">run</a></span>()</code>
 <div class="block">TODO: remove: Test-Cases are now executed directly on adding via
  <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#next-io.openems.edge.common.test.AbstractComponentTest.TestCase-"><code>next(TestCase)</code></a>.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html" title="type parameter in AbstractComponentTest">SELF</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/AbstractComponentTest.html#self--">self</a></span>()</code>
 <div class="block">Gets an instance of the correct subclass of myself.</div>
@@ -416,17 +466,127 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="executeController--">
+<a name="onBeforeProcessImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onBeforeProcessImage</h4>
+<pre>protected&nbsp;void&nbsp;onBeforeProcessImage()
+                             throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_BEFORE_PROCESS_IMAGE event.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="onAfterProcessImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onAfterProcessImage</h4>
+<pre>protected&nbsp;void&nbsp;onAfterProcessImage()
+                            throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_AFTER_PROCESS_IMAGE event.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="onBeforeControllers--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onBeforeControllers</h4>
+<pre>protected&nbsp;void&nbsp;onBeforeControllers()
+                            throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_BEFORE_CONTROLLERS event.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="onExecuteControllers--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onExecuteControllers</h4>
+<pre>protected&nbsp;void&nbsp;onExecuteControllers()
+                             throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">This method is executed after TOPIC_CYCLE_BEFORE_CONTROLLERS and before
+ TOPIC_CYCLE_AFTER_CONTROLLERS.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="onAfterControllers--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onAfterControllers</h4>
+<pre>protected&nbsp;void&nbsp;onAfterControllers()
+                           throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_AFTER_CONTROLLERS event.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="onBeforeWrite--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onBeforeWrite</h4>
+<pre>protected&nbsp;void&nbsp;onBeforeWrite()
+                      throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_BEFORE_WRITE event.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="onExecuteWrite--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onExecuteWrite</h4>
+<pre>protected&nbsp;void&nbsp;onExecuteWrite()
+                       throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">This method is executed before the
+ {@link EdgeEventConstants#TOPIC_CYCLE_EXECUTE_WRITE event.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="onAfterWrite--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>executeController</h4>
-<pre>protected&nbsp;void&nbsp;executeController()
-                          throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block">Executes the Controller logic if SUT is a Controller. This method is executed
- after TOPIC_CYCLE_BEFORE_CONTROLLERS and before
- TOPIC_CYCLE_AFTER_CONTROLLERS.</div>
+<h4>onAfterWrite</h4>
+<pre>protected&nbsp;void&nbsp;onAfterWrite()</pre>
+<div class="block">This method is executed before
+ {@link EdgeEventConstants#TOPIC_CYCLE_AFTER_WRITE.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>

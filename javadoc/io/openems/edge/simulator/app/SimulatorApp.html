@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -112,13 +112,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../io/openems/edge/common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../io/openems/edge/common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a>, org.osgi.service.event.EventHandler</dd>
+<dd><a href="../../../../../io/openems/common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a>, <a href="../../../../../io/openems/edge/common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../io/openems/edge/common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a>, <a href="../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html" title="interface in io.openems.edge.simulator.datasource.api">SimulatorDatasource</a>, <a href="../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a>, org.osgi.service.event.EventHandler</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">SimulatorApp</span>
 extends <a href="../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="../../../../../io/openems/edge/common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../io/openems/edge/common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a>, org.osgi.service.event.EventHandler</pre>
+implements <a href="../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html" title="interface in io.openems.edge.simulator.datasource.api">SimulatorDatasource</a>, <a href="../../../../../io/openems/edge/common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../io/openems/edge/common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a>, org.osgi.service.event.EventHandler, <a href="../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></pre>
 </li>
 </ul>
 </div>
@@ -186,14 +186,58 @@ implements <a href="../../../../../io/openems/edge/common/component/ClockProvide
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.Set&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/simulator/app/SimulatorApp.html#getKeys--">getKeys</a></span>()</code>
+<div class="block">Gets the available keys.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;java.util.Optional&lt;java.lang.Object&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/simulator/app/SimulatorApp.html#getLatestValue-io.openems.common.types.ChannelAddress-">getLatestValue</a></span>(<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channelAddress)</code>
+<div class="block">Gets the latest known value for the given <a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/simulator/app/SimulatorApp.html#getTimeDelta--">getTimeDelta</a></span>()</code>
+<div class="block">Returns the delta between two values in seconds.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/simulator/app/SimulatorApp.html#getValue-io.openems.common.types.OpenemsType-java.lang.String-">getValue</a></span>(<a href="../../../../../io/openems/common/types/OpenemsType.html" title="enum in io.openems.common.types">OpenemsType</a>&nbsp;type,
+        java.lang.String&nbsp;channelAddress)</code>
+<div class="block">Gets the value for the given key (channelId) in the given type.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/simulator/app/SimulatorApp.html#handleEvent-org.osgi.service.event.Event-">handleEvent</a></span>(org.osgi.service.event.Event&nbsp;event)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;? extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/simulator/app/SimulatorApp.html#handleJsonrpcRequest-io.openems.common.session.User-io.openems.common.jsonrpc.base.JsonrpcRequest-">handleJsonrpcRequest</a></span>(<a href="../../../../../io/openems/common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
                     <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code>
 <div class="block">Handles a JSON-RPC Request.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>java.util.SortedMap&lt;java.time.ZonedDateTime,java.util.SortedMap&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,com.google.gson.JsonElement&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/simulator/app/SimulatorApp.html#queryHistoricData-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">queryHistoricData</a></span>(java.lang.String&nbsp;edgeId,
+                 java.time.ZonedDateTime&nbsp;fromDate,
+                 java.time.ZonedDateTime&nbsp;toDate,
+                 java.util.Set&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
+                 int&nbsp;resolution)</code>
+<div class="block">Queries historic data.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.util.SortedMap&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,com.google.gson.JsonElement&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/simulator/app/SimulatorApp.html#queryHistoricEnergy-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-">queryHistoricEnergy</a></span>(java.lang.String&nbsp;edgeId,
+                   java.time.ZonedDateTime&nbsp;fromDate,
+                   java.time.ZonedDateTime&nbsp;toDate,
+                   java.util.Set&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code>
+<div class="block">Queries historic energy.</div>
 </td>
 </tr>
 </table>
@@ -210,6 +254,13 @@ implements <a href="../../../../../io/openems/edge/common/component/ClockProvide
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.io.openems.common.timedata.CommonTimedataService">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.common.timedata.<a href="../../../../../io/openems/common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></h3>
+<code><a href="../../../../../io/openems/common/timedata/CommonTimedataService.html#calculateResolution-java.time.ZonedDateTime-java.time.ZonedDateTime-">calculateResolution</a>, <a href="../../../../../io/openems/common/timedata/CommonTimedataService.html#handleQueryHistoricTimeseriesExportXlxsRequest-java.lang.String-io.openems.common.jsonrpc.request.QueryHistoricTimeseriesExportXlxsRequest-">handleQueryHistoricTimeseriesExportXlxsRequest</a>, <a href="../../../../../io/openems/common/timedata/CommonTimedataService.html#queryHistoricData-java.lang.String-io.openems.common.jsonrpc.request.QueryHistoricTimeseriesDataRequest-">queryHistoricData</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
@@ -305,7 +356,7 @@ implements <a href="../../../../../io/openems/edge/common/component/ClockProvide
 <a name="getClock--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getClock</h4>
 <pre>public&nbsp;java.time.Clock&nbsp;getClock()</pre>
@@ -316,6 +367,135 @@ implements <a href="../../../../../io/openems/edge/common/component/ClockProvide
 <dd><code><a href="../../../../../io/openems/edge/common/component/ClockProvider.html#getClock--">getClock</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the <code>Clock</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getKeys--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getKeys</h4>
+<pre>public&nbsp;java.util.Set&lt;java.lang.String&gt;&nbsp;getKeys()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getKeys--">SimulatorDatasource</a></code></span></div>
+<div class="block">Gets the available keys.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getKeys--">getKeys</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html" title="interface in io.openems.edge.simulator.datasource.api">SimulatorDatasource</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel-Id</dd>
+</dl>
+</li>
+</ul>
+<a name="getTimeDelta--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTimeDelta</h4>
+<pre>public&nbsp;int&nbsp;getTimeDelta()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getTimeDelta--">SimulatorDatasource</a></code></span></div>
+<div class="block">Returns the delta between two values in seconds.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getTimeDelta--">getTimeDelta</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html" title="interface in io.openems.edge.simulator.datasource.api">SimulatorDatasource</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the delta in seconds</dd>
+</dl>
+</li>
+</ul>
+<a name="getValue-io.openems.common.types.OpenemsType-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getValue</h4>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;getValue(<a href="../../../../../io/openems/common/types/OpenemsType.html" title="enum in io.openems.common.types">OpenemsType</a>&nbsp;type,
+                      java.lang.String&nbsp;channelAddress)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getValue-io.openems.common.types.OpenemsType-java.lang.String-">SimulatorDatasource</a></code></span></div>
+<div class="block">Gets the value for the given key (channelId) in the given type.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html#getValue-io.openems.common.types.OpenemsType-java.lang.String-">getValue</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/simulator/datasource/api/SimulatorDatasource.html" title="interface in io.openems.edge.simulator.datasource.api">SimulatorDatasource</a></code></dd>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - the type</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - the expected type</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the value</dd>
+</dl>
+</li>
+</ul>
+<a name="queryHistoricData-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>queryHistoricData</h4>
+<pre>public&nbsp;java.util.SortedMap&lt;java.time.ZonedDateTime,java.util.SortedMap&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,com.google.gson.JsonElement&gt;&gt;&nbsp;queryHistoricData(java.lang.String&nbsp;edgeId,
+                                                                                                                                      java.time.ZonedDateTime&nbsp;fromDate,
+                                                                                                                                      java.time.ZonedDateTime&nbsp;toDate,
+                                                                                                                                      java.util.Set&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
+                                                                                                                                      int&nbsp;resolution)
+                                                                                                                               throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/common/timedata/CommonTimedataService.html#queryHistoricData-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">CommonTimedataService</a></code></span></div>
+<div class="block">Queries historic data.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/timedata/CommonTimedataService.html#queryHistoricData-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">queryHistoricData</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edgeId</code> - the Edge-ID; or null query all</dd>
+<dd><code>fromDate</code> - the From-Date</dd>
+<dd><code>toDate</code> - the To-Date</dd>
+<dd><code>channels</code> - the Channels</dd>
+<dd><code>resolution</code> - the Resolution in seconds</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="queryHistoricEnergy-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>queryHistoricEnergy</h4>
+<pre>public&nbsp;java.util.SortedMap&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,com.google.gson.JsonElement&gt;&nbsp;queryHistoricEnergy(java.lang.String&nbsp;edgeId,
+                                                                                           java.time.ZonedDateTime&nbsp;fromDate,
+                                                                                           java.time.ZonedDateTime&nbsp;toDate,
+                                                                                           java.util.Set&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)
+                                                                                    throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/common/timedata/CommonTimedataService.html#queryHistoricEnergy-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-">CommonTimedataService</a></code></span></div>
+<div class="block">Queries historic energy.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/timedata/CommonTimedataService.html#queryHistoricEnergy-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-">queryHistoricEnergy</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edgeId</code> - the Edge-ID; or null query all</dd>
+<dd><code>fromDate</code> - the From-Date</dd>
+<dd><code>toDate</code> - the To-Date</dd>
+<dd><code>channels</code> - the Channels</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getLatestValue-io.openems.common.types.ChannelAddress-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getLatestValue</h4>
+<pre>public&nbsp;java.util.concurrent.CompletableFuture&lt;java.util.Optional&lt;java.lang.Object&gt;&gt;&nbsp;getLatestValue(<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channelAddress)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/timedata/api/Timedata.html#getLatestValue-io.openems.common.types.ChannelAddress-">Timedata</a></code></span></div>
+<div class="block">Gets the latest known value for the given <a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/edge/timedata/api/Timedata.html#getLatestValue-io.openems.common.types.ChannelAddress-">getLatestValue</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>channelAddress</code> - the ChannelAddress to be queried</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the latest known value or Empty</dd>
 </dl>
 </li>
 </ul>
