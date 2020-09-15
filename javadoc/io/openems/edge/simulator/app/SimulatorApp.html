@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -238,6 +238,16 @@ implements <a href="../../../../../io/openems/edge/simulator/datasource/api/Simu
                    java.time.ZonedDateTime&nbsp;toDate,
                    java.util.Set&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code>
 <div class="block">Queries historic energy.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>java.util.SortedMap&lt;java.time.ZonedDateTime,java.util.SortedMap&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,com.google.gson.JsonElement&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/simulator/app/SimulatorApp.html#queryHistoricEnergyPerPeriod-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">queryHistoricEnergyPerPeriod</a></span>(java.lang.String&nbsp;edgeId,
+                            java.time.ZonedDateTime&nbsp;fromDate,
+                            java.time.ZonedDateTime&nbsp;toDate,
+                            java.util.Set&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
+                            int&nbsp;resolution)</code>
+<div class="block">Queries historic energy per period.</div>
 </td>
 </tr>
 </table>
@@ -475,6 +485,40 @@ implements <a href="../../../../../io/openems/edge/simulator/datasource/api/Simu
 <dd><code>fromDate</code> - the From-Date</dd>
 <dd><code>toDate</code> - the To-Date</dd>
 <dd><code>channels</code> - the Channels</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="queryHistoricEnergyPerPeriod-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>queryHistoricEnergyPerPeriod</h4>
+<pre>public&nbsp;java.util.SortedMap&lt;java.time.ZonedDateTime,java.util.SortedMap&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,com.google.gson.JsonElement&gt;&gt;&nbsp;queryHistoricEnergyPerPeriod(java.lang.String&nbsp;edgeId,
+                                                                                                                                                 java.time.ZonedDateTime&nbsp;fromDate,
+                                                                                                                                                 java.time.ZonedDateTime&nbsp;toDate,
+                                                                                                                                                 java.util.Set&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
+                                                                                                                                                 int&nbsp;resolution)
+                                                                                                                                          throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/common/timedata/CommonTimedataService.html#queryHistoricEnergyPerPeriod-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">CommonTimedataService</a></code></span></div>
+<div class="block">Queries historic energy per period.
+ 
+ <p>
+ This is for use-cases where you want to get the energy for each period (with
+ length 'resolution') per Channel, e.g. to visualize energy in a histogram
+ chart. For each period the energy is calculated by subtracting first value of
+ the period from the last value of the period.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/timedata/CommonTimedataService.html#queryHistoricEnergyPerPeriod-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">queryHistoricEnergyPerPeriod</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edgeId</code> - the Edge-ID; or null query all</dd>
+<dd><code>fromDate</code> - the From-Date</dd>
+<dd><code>toDate</code> - the To-Date</dd>
+<dd><code>channels</code> - the Channels</dd>
+<dd><code>resolution</code> - the Resolution in seconds</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
 </dl>

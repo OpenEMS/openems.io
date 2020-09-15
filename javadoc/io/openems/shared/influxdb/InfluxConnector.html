@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":9,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9,"i7":9,"i8":9,"i9":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -206,14 +206,28 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>protected static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/shared/influxdb/InfluxConnector.html#toChannelAddressStringData-java.util.Set-">toChannelAddressStringData</a></span>(java.util.Set&lt;<a href="../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code>&nbsp;</td>
+<td class="colFirst"><code>java.util.SortedMap&lt;java.time.ZonedDateTime,java.util.SortedMap&lt;<a href="../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,com.google.gson.JsonElement&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/shared/influxdb/InfluxConnector.html#queryHistoricEnergyPerPeriod-java.util.Optional-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">queryHistoricEnergyPerPeriod</a></span>(java.util.Optional&lt;java.lang.Integer&gt;&nbsp;influxEdgeId,
+                            java.time.ZonedDateTime&nbsp;fromDate,
+                            java.time.ZonedDateTime&nbsp;toDate,
+                            java.util.Set&lt;<a href="../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
+                            int&nbsp;resolution)</code>
+<div class="block">Queries historic energy per period.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>protected static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/shared/influxdb/InfluxConnector.html#toChannelAddressStringEnergy-java.util.Set-">toChannelAddressStringEnergy</a></span>(java.util.Set&lt;<a href="../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/shared/influxdb/InfluxConnector.html#toChannelAddressStringData-java.util.Set-">toChannelAddressStringData</a></span>(java.util.Set&lt;<a href="../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>protected static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/shared/influxdb/InfluxConnector.html#toChannelAddressStringEnergy-java.util.Set-">toChannelAddressStringEnergy</a></span>(java.util.Set&lt;<a href="../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>protected static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/shared/influxdb/InfluxConnector.html#toChannelAddressStringNonNegativeDifferenceLast-java.util.Set-">toChannelAddressStringNonNegativeDifferenceLast</a></span>(java.util.Set&lt;<a href="../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/shared/influxdb/InfluxConnector.html#write-org.influxdb.dto.Point-">write</a></span>(org.influxdb.dto.Point&nbsp;point)</code>
 <div class="block">Actually write the Point to InfluxDB.</div>
@@ -363,6 +377,34 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="queryHistoricEnergyPerPeriod-java.util.Optional-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>queryHistoricEnergyPerPeriod</h4>
+<pre>public&nbsp;java.util.SortedMap&lt;java.time.ZonedDateTime,java.util.SortedMap&lt;<a href="../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,com.google.gson.JsonElement&gt;&gt;&nbsp;queryHistoricEnergyPerPeriod(java.util.Optional&lt;java.lang.Integer&gt;&nbsp;influxEdgeId,
+                                                                                                                                                 java.time.ZonedDateTime&nbsp;fromDate,
+                                                                                                                                                 java.time.ZonedDateTime&nbsp;toDate,
+                                                                                                                                                 java.util.Set&lt;<a href="../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
+                                                                                                                                                 int&nbsp;resolution)
+                                                                                                                                          throws <a href="../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Queries historic energy per period.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>influxEdgeId</code> - the unique, numeric Edge-ID; or Empty to query all Edges</dd>
+<dd><code>fromDate</code> - the From-Date</dd>
+<dd><code>toDate</code> - the To-Date</dd>
+<dd><code>channels</code> - the Channels to query</dd>
+<dd><code>resolution</code> - the resolution in seconds</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the historic data as Map</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+<dd><code><a href="../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</li>
+</ul>
 <a name="queryHistoricData-java.util.Optional-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">
 <!--   -->
 </a>
@@ -413,6 +455,20 @@ extends java.lang.Object</pre>
 <h4>toChannelAddressStringEnergy</h4>
 <pre>protected static&nbsp;java.lang.String&nbsp;toChannelAddressStringEnergy(java.util.Set&lt;<a href="../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)
                                                         throws <a href="../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="toChannelAddressStringNonNegativeDifferenceLast-java.util.Set-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toChannelAddressStringNonNegativeDifferenceLast</h4>
+<pre>protected static&nbsp;java.lang.String&nbsp;toChannelAddressStringNonNegativeDifferenceLast(java.util.Set&lt;<a href="../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)
+                                                                           throws <a href="../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
