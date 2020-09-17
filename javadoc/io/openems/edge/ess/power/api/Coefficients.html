@@ -154,7 +154,10 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/power/api/Coefficients.html#initialize-java.util.Set-">initialize</a></span>(java.util.Set&lt;java.lang.String&gt;&nbsp;essIds)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/power/api/Coefficients.html#initialize-boolean-java.util.Set-">initialize</a></span>(boolean&nbsp;symmetricMode,
+          java.util.Set&lt;java.lang.String&gt;&nbsp;essIds)</code>
+<div class="block">Initialize the Coefficients for the linear equation system.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../io/openems/edge/ess/power/api/Coefficient.html" title="class in io.openems.edge.ess.power.api">Coefficient</a></code></td>
@@ -201,13 +204,22 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="initialize-java.util.Set-">
+<a name="initialize-boolean-java.util.Set-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>initialize</h4>
-<pre>public&nbsp;void&nbsp;initialize(java.util.Set&lt;java.lang.String&gt;&nbsp;essIds)</pre>
+<pre>public&nbsp;void&nbsp;initialize(boolean&nbsp;symmetricMode,
+                       java.util.Set&lt;java.lang.String&gt;&nbsp;essIds)</pre>
+<div class="block">Initialize the Coefficients for the linear equation system.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>symmetricMode</code> - if activated, Coefficients are only added for Sum of all
+                      Phases. Otherwise Coefficients for Sum and each Phase
+                      are added.</dd>
+<dd><code>essIds</code> - Set of ESS-Ids</dd>
+</dl>
 </li>
 </ul>
 <a name="of-java.lang.String-io.openems.edge.ess.power.api.Phase-io.openems.edge.ess.power.api.Pwr-">
