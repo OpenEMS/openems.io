@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -164,10 +164,6 @@ implements <a href="../../../../../../io/openems/edge/common/component/OpenemsCo
 <td class="colFirst"><code>protected </code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/ess/predictivedelaycharge/AbstractPredictiveDelayCharge.html#AbstractPredictiveDelayCharge--">AbstractPredictiveDelayCharge</a></span>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/ess/predictivedelaycharge/AbstractPredictiveDelayCharge.html#AbstractPredictiveDelayCharge-java.time.Clock-">AbstractPredictiveDelayCharge</a></span>(java.time.Clock&nbsp;clock)</code>&nbsp;</td>
-</tr>
 </table>
 </li>
 </ul>
@@ -178,7 +174,7 @@ implements <a href="../../../../../../io/openems/edge/common/component/OpenemsCo
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -209,6 +205,10 @@ implements <a href="../../../../../../io/openems/edge/common/component/OpenemsCo
                   <a href="../../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>&nbsp;componentManager)</code>
 <div class="block">Calculates the charging power limit for the current cycle.</div>
 </td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected abstract <a href="../../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/ess/predictivedelaycharge/AbstractPredictiveDelayCharge.html#getComponentManager--">getComponentManager</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -249,19 +249,10 @@ implements <a href="../../../../../../io/openems/edge/common/component/OpenemsCo
 <a name="AbstractPredictiveDelayCharge--">
 <!--   -->
 </a>
-<ul class="blockList">
-<li class="blockList">
-<h4>AbstractPredictiveDelayCharge</h4>
-<pre>protected&nbsp;AbstractPredictiveDelayCharge()</pre>
-</li>
-</ul>
-<a name="AbstractPredictiveDelayCharge-java.time.Clock-">
-<!--   -->
-</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractPredictiveDelayCharge</h4>
-<pre>protected&nbsp;AbstractPredictiveDelayCharge(java.time.Clock&nbsp;clock)</pre>
+<pre>protected&nbsp;AbstractPredictiveDelayCharge()</pre>
 </li>
 </ul>
 </li>
@@ -312,7 +303,7 @@ implements <a href="../../../../../../io/openems/edge/common/component/OpenemsCo
 <a name="getCalculatedPower-io.openems.edge.ess.api.ManagedSymmetricEss-io.openems.edge.predictor.api.ProductionHourlyPredictor-io.openems.edge.predictor.api.ConsumptionHourlyPredictor-io.openems.edge.common.component.ComponentManager-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getCalculatedPower</h4>
 <pre>public&nbsp;java.lang.Integer&nbsp;getCalculatedPower(<a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
@@ -332,6 +323,15 @@ implements <a href="../../../../../../io/openems/edge/common/component/OpenemsCo
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
+</li>
+</ul>
+<a name="getComponentManager--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getComponentManager</h4>
+<pre>protected abstract&nbsp;<a href="../../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>&nbsp;getComponentManager()</pre>
 </li>
 </ul>
 </li>
