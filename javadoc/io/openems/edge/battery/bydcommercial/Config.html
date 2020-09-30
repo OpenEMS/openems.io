@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../io/openems/edge/battery/bydcommercial/ClusterRunState.html" title="enum in io.openems.edge.battery.bydcommercial"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../io/openems/edge/battery/bydcommercial/PreChargeControl.html" title="enum in io.openems.edge.battery.bydcommercial"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../io/openems/edge/battery/bydcommercial/PowerCircuitControl.html" title="enum in io.openems.edge.battery.bydcommercial"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?io/openems/edge/battery/bydcommercial/Config.html" target="_top">Frames</a></li>
@@ -119,16 +119,8 @@
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#enabled--">enabled</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#errorLevel2Delay--">errorLevel2Delay</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#id--">id</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#minimalCellVoltage--">minimalCellVoltage</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
@@ -143,30 +135,10 @@
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#modbusUnitId--">modbusUnitId</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#numberOfSlaves--">numberOfSlaves</a></span></code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/startstop/StartStopConfig.html" title="enum in io.openems.edge.common.startstop">StartStopConfig</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#startStop--">startStop</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#pendingTolerance--">pendingTolerance</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#SocLowAlarm--">SocLowAlarm</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#startUnsuccessfulDelay--">startUnsuccessfulDelay</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#switchedOn--">switchedOn</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#watchdog--">watchdog</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/Config.html#webconsole_configurationFactory_nameHint--">webconsole_configurationFactory_nameHint</a></span></code>&nbsp;</td>
 </tr>
@@ -233,16 +205,16 @@
 </li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="switchedOn--">
+<li class="blockList"><a name="startStop--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>switchedOn</h4>
-<pre>public abstract&nbsp;boolean&nbsp;switchedOn</pre>
+<h4>startStop</h4>
+<pre>public abstract&nbsp;<a href="../../../../../io/openems/edge/common/startstop/StartStopConfig.html" title="enum in io.openems.edge.common.startstop">StartStopConfig</a>&nbsp;startStop</pre>
 <dl>
 <dt>Default:</dt>
-<dd>true</dd>
+<dd>io.openems.edge.common.startstop.StartStopConfig.AUTO</dd>
 </dl>
 </li>
 </ul>
@@ -274,119 +246,7 @@
 <pre>public abstract&nbsp;int&nbsp;modbusUnitId</pre>
 <dl>
 <dt>Default:</dt>
-<dd>0</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="numberOfSlaves--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>numberOfSlaves</h4>
-<pre>public abstract&nbsp;int&nbsp;numberOfSlaves</pre>
-<dl>
-<dt>Default:</dt>
-<dd>20</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="errorLevel2Delay--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>errorLevel2Delay</h4>
-<pre>public abstract&nbsp;int&nbsp;errorLevel2Delay</pre>
-<dl>
-<dt>Default:</dt>
-<dd>600</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="startUnsuccessfulDelay--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>startUnsuccessfulDelay</h4>
-<pre>public abstract&nbsp;int&nbsp;startUnsuccessfulDelay</pre>
-<dl>
-<dt>Default:</dt>
-<dd>3600</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="watchdog--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>watchdog</h4>
-<pre>public abstract&nbsp;int&nbsp;watchdog</pre>
-<dl>
-<dt>Default:</dt>
-<dd>60</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="pendingTolerance--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>pendingTolerance</h4>
-<pre>public abstract&nbsp;int&nbsp;pendingTolerance</pre>
-<dl>
-<dt>Default:</dt>
-<dd>15</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="SocLowAlarm--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>SocLowAlarm</h4>
-<pre>public abstract&nbsp;int&nbsp;SocLowAlarm</pre>
-<dl>
-<dt>Default:</dt>
-<dd>0</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="minimalCellVoltage--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>minimalCellVoltage</h4>
-<pre>public abstract&nbsp;int&nbsp;minimalCellVoltage</pre>
-<dl>
-<dt>Default:</dt>
-<dd>2800</dd>
+<dd>1</dd>
 </dl>
 </li>
 </ul>
@@ -450,7 +310,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../io/openems/edge/battery/bydcommercial/ClusterRunState.html" title="enum in io.openems.edge.battery.bydcommercial"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../io/openems/edge/battery/bydcommercial/PreChargeControl.html" title="enum in io.openems.edge.battery.bydcommercial"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../io/openems/edge/battery/bydcommercial/PowerCircuitControl.html" title="enum in io.openems.edge.battery.bydcommercial"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?io/openems/edge/battery/bydcommercial/Config.html" target="_top">Frames</a></li>

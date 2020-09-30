@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],16:["t5","Default Methods"]};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":6,"i10":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">BatteryBoxC130</span>
-extends <a href="../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></pre>
+extends <a href="../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></pre>
 </li>
 </ul>
 </div>
@@ -141,46 +141,79 @@ extends <a href="../../../../../io/openems/edge/battery/api/Battery.html" title=
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getMaxStartAttempts--">getMaxStartAttempts</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#Z:Z_setMaxStartAttempts-java.lang.Boolean-">_setMaxStartAttempts</a></span>(java.lang.Boolean&nbsp;value)</code>
+<div class="block">Internal method to set the 'nextValue' on
+ <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_START_ATTEMPTS</code></a> Channel.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getMaxStartAttemptsChannel--">getMaxStartAttemptsChannel</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#Z:Z_setMaxStopAttempts-java.lang.Boolean-">_setMaxStopAttempts</a></span>(java.lang.Boolean&nbsp;value)</code>
+<div class="block">Internal method to set the 'nextValue' on <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_STOP_ATTEMPTS</code></a>
+ Channel.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getMaxStopAttempts--">getMaxStopAttempts</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#Z:Z_setPowerCircuitControl-io.openems.edge.battery.bydcommercial.PowerCircuitControl-">_setPowerCircuitControl</a></span>(<a href="../../../../../io/openems/edge/battery/bydcommercial/PowerCircuitControl.html" title="enum in io.openems.edge.battery.bydcommercial">PowerCircuitControl</a>&nbsp;value)</code>
+<div class="block">Internal method to set the 'nextValue' on
+ <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#POWER_CIRCUIT_CONTROL"><code>BatteryBoxC130.ChannelId.POWER_CIRCUIT_CONTROL</code></a> Channel.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getMaxStopAttemptsChannel--">getMaxStopAttemptsChannel</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getMaxStartAttempts--">getMaxStartAttempts</a></span>()</code>
+<div class="block">Gets the <a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_START_ATTEMPTS</code></a>.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/battery/bydcommercial/PreChargeControl.html" title="enum in io.openems.edge.battery.bydcommercial">PreChargeControl</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getPreChargeControl--">getPreChargeControl</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getMaxStartAttemptsChannel--">getMaxStartAttemptsChannel</a></span>()</code>
+<div class="block">Gets the Channel for <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_START_ATTEMPTS</code></a>.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/EnumWriteChannel.html" title="class in io.openems.edge.common.channel">EnumWriteChannel</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getPreChargeControlChannel--">getPreChargeControlChannel</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getMaxStopAttempts--">getMaxStopAttempts</a></span>()</code>
+<div class="block">Gets the <a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_STOP_ATTEMPTS</code></a>.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>default void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#setMaxStartAttempts-boolean-">setMaxStartAttempts</a></span>(boolean&nbsp;isMaxStartAttempts)</code>&nbsp;</td>
+<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getMaxStopAttemptsChannel--">getMaxStopAttemptsChannel</a></span>()</code>
+<div class="block">Gets the Channel for <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_STOP_ATTEMPTS</code></a>.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>default void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#setMaxStopAttempts-boolean-">setMaxStopAttempts</a></span>(boolean&nbsp;isMaxStopAttempts)</code>&nbsp;</td>
+<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/battery/bydcommercial/PowerCircuitControl.html" title="enum in io.openems.edge.battery.bydcommercial">PowerCircuitControl</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getPowerCircuitControl--">getPowerCircuitControl</a></span>()</code>
+<div class="block">Gets the PreChargeControl, see <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#POWER_CIRCUIT_CONTROL"><code>BatteryBoxC130.ChannelId.POWER_CIRCUIT_CONTROL</code></a>.</div>
+</td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/WriteChannel.html" title="interface in io.openems.edge.common.channel">WriteChannel</a>&lt;<a href="../../../../../io/openems/edge/battery/bydcommercial/PowerCircuitControl.html" title="enum in io.openems.edge.battery.bydcommercial">PowerCircuitControl</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getPowerCircuitControlChannel--">getPowerCircuitControlChannel</a></span>()</code>
+<div class="block">Gets the Channel for <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#POWER_CIRCUIT_CONTROL"><code>BatteryBoxC130.ChannelId.POWER_CIRCUIT_CONTROL</code></a>.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#getStartStopTarget--">getStartStopTarget</a></span>()</code>
+<div class="block">Gets the target Start/Stop mode from config or StartStop-Channel.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>default void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#setPreChargeControl-io.openems.edge.battery.bydcommercial.PreChargeControl-">setPreChargeControl</a></span>(<a href="../../../../../io/openems/edge/battery/bydcommercial/PreChargeControl.html" title="enum in io.openems.edge.battery.bydcommercial">PreChargeControl</a>&nbsp;preChargeControl)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.html#setPowerCircuitControl-io.openems.edge.battery.bydcommercial.PowerCircuitControl-">setPowerCircuitControl</a></span>(<a href="../../../../../io/openems/edge/battery/bydcommercial/PowerCircuitControl.html" title="enum in io.openems.edge.battery.bydcommercial">PowerCircuitControl</a>&nbsp;value)</code>
+<div class="block">Writes the value to the <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#POWER_CIRCUIT_CONTROL"><code>BatteryBoxC130.ChannelId.POWER_CIRCUIT_CONTROL</code></a> Register.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -218,35 +251,63 @@ extends <a href="../../../../../io/openems/edge/battery/api/Battery.html" title=
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getPreChargeControlChannel--">
+<a name="getPowerCircuitControlChannel--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getPreChargeControlChannel</h4>
-<pre>default&nbsp;<a href="../../../../../io/openems/edge/common/channel/EnumWriteChannel.html" title="class in io.openems.edge.common.channel">EnumWriteChannel</a>&nbsp;getPreChargeControlChannel()</pre>
-</li>
-</ul>
-<a name="getPreChargeControl--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getPreChargeControl</h4>
-<pre>default&nbsp;<a href="../../../../../io/openems/edge/battery/bydcommercial/PreChargeControl.html" title="enum in io.openems.edge.battery.bydcommercial">PreChargeControl</a>&nbsp;getPreChargeControl()</pre>
-</li>
-</ul>
-<a name="setPreChargeControl-io.openems.edge.battery.bydcommercial.PreChargeControl-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setPreChargeControl</h4>
-<pre>default&nbsp;void&nbsp;setPreChargeControl(<a href="../../../../../io/openems/edge/battery/bydcommercial/PreChargeControl.html" title="enum in io.openems.edge.battery.bydcommercial">PreChargeControl</a>&nbsp;preChargeControl)
-                          throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<h4>getPowerCircuitControlChannel</h4>
+<pre>default&nbsp;<a href="../../../../../io/openems/edge/common/channel/WriteChannel.html" title="interface in io.openems.edge.common.channel">WriteChannel</a>&lt;<a href="../../../../../io/openems/edge/battery/bydcommercial/PowerCircuitControl.html" title="enum in io.openems.edge.battery.bydcommercial">PowerCircuitControl</a>&gt;&nbsp;getPowerCircuitControlChannel()</pre>
+<div class="block">Gets the Channel for <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#POWER_CIRCUIT_CONTROL"><code>BatteryBoxC130.ChannelId.POWER_CIRCUIT_CONTROL</code></a>.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel</dd>
+</dl>
+</li>
+</ul>
+<a name="getPowerCircuitControl--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPowerCircuitControl</h4>
+<pre>default&nbsp;<a href="../../../../../io/openems/edge/battery/bydcommercial/PowerCircuitControl.html" title="enum in io.openems.edge.battery.bydcommercial">PowerCircuitControl</a>&nbsp;getPowerCircuitControl()</pre>
+<div class="block">Gets the PreChargeControl, see <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#POWER_CIRCUIT_CONTROL"><code>BatteryBoxC130.ChannelId.POWER_CIRCUIT_CONTROL</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel <a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="Z:Z_setPowerCircuitControl-io.openems.edge.battery.bydcommercial.PowerCircuitControl-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setPowerCircuitControl</h4>
+<pre>default&nbsp;void&nbsp;_setPowerCircuitControl(<a href="../../../../../io/openems/edge/battery/bydcommercial/PowerCircuitControl.html" title="enum in io.openems.edge.battery.bydcommercial">PowerCircuitControl</a>&nbsp;value)</pre>
+<div class="block">Internal method to set the 'nextValue' on
+ <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#POWER_CIRCUIT_CONTROL"><code>BatteryBoxC130.ChannelId.POWER_CIRCUIT_CONTROL</code></a> Channel.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the next value</dd>
+</dl>
+</li>
+</ul>
+<a name="setPowerCircuitControl-io.openems.edge.battery.bydcommercial.PowerCircuitControl-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPowerCircuitControl</h4>
+<pre>default&nbsp;void&nbsp;setPowerCircuitControl(<a href="../../../../../io/openems/edge/battery/bydcommercial/PowerCircuitControl.html" title="enum in io.openems.edge.battery.bydcommercial">PowerCircuitControl</a>&nbsp;value)
+                             throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Writes the value to the <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#POWER_CIRCUIT_CONTROL"><code>BatteryBoxC130.ChannelId.POWER_CIRCUIT_CONTROL</code></a> Register.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the next value</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -257,6 +318,11 @@ extends <a href="../../../../../io/openems/edge/battery/api/Battery.html" title=
 <li class="blockList">
 <h4>getMaxStartAttemptsChannel</h4>
 <pre>default&nbsp;<a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a>&nbsp;getMaxStartAttemptsChannel()</pre>
+<div class="block">Gets the Channel for <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_START_ATTEMPTS</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel</dd>
+</dl>
 </li>
 </ul>
 <a name="getMaxStartAttempts--">
@@ -266,19 +332,25 @@ extends <a href="../../../../../io/openems/edge/battery/api/Battery.html" title=
 <li class="blockList">
 <h4>getMaxStartAttempts</h4>
 <pre>default&nbsp;<a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;&nbsp;getMaxStartAttempts()</pre>
+<div class="block">Gets the <a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_START_ATTEMPTS</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel <a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
+</dl>
 </li>
 </ul>
-<a name="setMaxStartAttempts-boolean-">
+<a name="Z:Z_setMaxStartAttempts-java.lang.Boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setMaxStartAttempts</h4>
-<pre>default&nbsp;void&nbsp;setMaxStartAttempts(boolean&nbsp;isMaxStartAttempts)
-                          throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<h4>_setMaxStartAttempts</h4>
+<pre>default&nbsp;void&nbsp;_setMaxStartAttempts(java.lang.Boolean&nbsp;value)</pre>
+<div class="block">Internal method to set the 'nextValue' on
+ <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_START_ATTEMPTS</code></a> Channel.</div>
 <dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the next value</dd>
 </dl>
 </li>
 </ul>
@@ -289,6 +361,11 @@ extends <a href="../../../../../io/openems/edge/battery/api/Battery.html" title=
 <li class="blockList">
 <h4>getMaxStopAttemptsChannel</h4>
 <pre>default&nbsp;<a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a>&nbsp;getMaxStopAttemptsChannel()</pre>
+<div class="block">Gets the Channel for <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_STOP_ATTEMPTS</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel</dd>
+</dl>
 </li>
 </ul>
 <a name="getMaxStopAttempts--">
@@ -298,19 +375,39 @@ extends <a href="../../../../../io/openems/edge/battery/api/Battery.html" title=
 <li class="blockList">
 <h4>getMaxStopAttempts</h4>
 <pre>default&nbsp;<a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;&nbsp;getMaxStopAttempts()</pre>
+<div class="block">Gets the <a href="../../../../../io/openems/edge/common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_STOP_ATTEMPTS</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel <a href="../../../../../io/openems/edge/common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
+</dl>
 </li>
 </ul>
-<a name="setMaxStopAttempts-boolean-">
+<a name="Z:Z_setMaxStopAttempts-java.lang.Boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setMaxStopAttempts</h4>
+<pre>default&nbsp;void&nbsp;_setMaxStopAttempts(java.lang.Boolean&nbsp;value)</pre>
+<div class="block">Internal method to set the 'nextValue' on <a href="../../../../../io/openems/edge/battery/bydcommercial/BatteryBoxC130.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryBoxC130.ChannelId.MAX_STOP_ATTEMPTS</code></a>
+ Channel.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the next value</dd>
+</dl>
+</li>
+</ul>
+<a name="getStartStopTarget--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>setMaxStopAttempts</h4>
-<pre>default&nbsp;void&nbsp;setMaxStopAttempts(boolean&nbsp;isMaxStopAttempts)
-                         throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<h4>getStartStopTarget</h4>
+<pre><a href="../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&nbsp;getStartStopTarget()</pre>
+<div class="block">Gets the target Start/Stop mode from config or StartStop-Channel.</div>
 <dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><a href="../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop"><code>StartStop</code></a></dd>
 </dl>
 </li>
 </ul>
