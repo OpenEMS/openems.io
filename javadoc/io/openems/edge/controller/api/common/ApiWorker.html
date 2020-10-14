@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -168,7 +168,9 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/common/ApiWorker.html#addValue-io.openems.edge.common.channel.WriteChannel-io.openems.edge.controller.api.common.WriteObject-">addValue</a></span>(<a href="../../../../../../io/openems/edge/common/channel/WriteChannel.html" title="interface in io.openems.edge.common.channel">WriteChannel</a>&lt;?&gt;&nbsp;channel,
-        <a href="../../../../../../io/openems/edge/controller/api/common/WriteObject.html" title="class in io.openems.edge.controller.api.common">WriteObject</a>&nbsp;writeObject)</code>&nbsp;</td>
+        <a href="../../../../../../io/openems/edge/controller/api/common/WriteObject.html" title="class in io.openems.edge.controller.api.common">WriteObject</a>&nbsp;writeObject)</code>
+<div class="block">Adds a value to the write-pipeline.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../../../../io/openems/common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
@@ -185,6 +187,13 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/common/ApiWorker.html#setLogChannel-io.openems.edge.common.channel.StringReadChannel-">setLogChannel</a></span>(<a href="../../../../../../io/openems/edge/common/channel/StringReadChannel.html" title="class in io.openems.edge.common.channel">StringReadChannel</a>&nbsp;logChannel)</code>
+<div class="block">Sets the Channel that should be used to log debug information about writes to
+ channels.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/common/ApiWorker.html#setTimeoutSeconds-int-">setTimeoutSeconds</a></span>(int&nbsp;timeoutSeconds)</code>
 <div class="block">Sets the timeout in seconds.</div>
@@ -250,6 +259,21 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="setLogChannel-io.openems.edge.common.channel.StringReadChannel-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLogChannel</h4>
+<pre>public&nbsp;void&nbsp;setLogChannel(<a href="../../../../../../io/openems/edge/common/channel/StringReadChannel.html" title="class in io.openems.edge.common.channel">StringReadChannel</a>&nbsp;logChannel)</pre>
+<div class="block">Sets the Channel that should be used to log debug information about writes to
+ channels.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>logChannel</code> - a <a href="../../../../../../io/openems/edge/common/channel/StringReadChannel.html" title="class in io.openems.edge.common.channel"><code>StringReadChannel</code></a></dd>
+</dl>
+</li>
+</ul>
 <a name="addValue-io.openems.edge.common.channel.WriteChannel-io.openems.edge.controller.api.common.WriteObject-">
 <!--   -->
 </a>
@@ -258,6 +282,13 @@ extends java.lang.Object</pre>
 <h4>addValue</h4>
 <pre>public&nbsp;void&nbsp;addValue(<a href="../../../../../../io/openems/edge/common/channel/WriteChannel.html" title="interface in io.openems.edge.common.channel">WriteChannel</a>&lt;?&gt;&nbsp;channel,
                      <a href="../../../../../../io/openems/edge/controller/api/common/WriteObject.html" title="class in io.openems.edge.controller.api.common">WriteObject</a>&nbsp;writeObject)</pre>
+<div class="block">Adds a value to the write-pipeline. The values are then set in the next
+ execution of <a href="../../../../../../io/openems/edge/controller/api/common/ApiWorker.html#run--"><code>run()</code></a>, until the timeout is reached.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>channel</code> - the <a href="../../../../../../io/openems/edge/common/channel/WriteChannel.html" title="interface in io.openems.edge.common.channel"><code>WriteChannel</code></a></dd>
+<dd><code>writeObject</code> - the <a href="../../../../../../io/openems/edge/controller/api/common/WriteObject.html" title="class in io.openems.edge.controller.api.common"><code>WriteObject</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="handleSetChannelValueRequest-io.openems.edge.common.component.ComponentManager-io.openems.common.session.User-io.openems.common.jsonrpc.request.SetChannelValueRequest-">
@@ -274,6 +305,7 @@ extends java.lang.Object</pre>
 <div class="block">Adds a value via JSON-RPC SetChannelValueRequest.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>componentManager</code> - the <a href="../../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component"><code>ComponentManager</code></a></dd>
 <dd><code>user</code> - the authenticated User</dd>
 <dd><code>request</code> - the Request</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
