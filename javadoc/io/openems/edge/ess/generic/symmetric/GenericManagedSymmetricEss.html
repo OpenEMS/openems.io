@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":6};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd><a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../../../../../io/openems/edge/ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></dd>
+<dd><a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../../../../../io/openems/edge/ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">GenericManagedSymmetricEss</span>
-extends <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></pre>
+extends <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></pre>
 </li>
 </ul>
 </div>
@@ -263,6 +263,12 @@ extends <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.h
 </td>
 </tr>
 <tr id="i12" class="altColor">
+<td class="colFirst"><code>default <a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlaveTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveTable</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">getModbusSlaveTable</a></span>(<a href="../../../../../../io/openems/common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</code>
+<div class="block">Gets the Modbus-Slave-Table for this OpenEMS-Component.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getStartStopTarget--">getStartStopTarget</a></span>()</code>
 <div class="block">Gets the target Start/Stop mode from config or StartStop-Channel.</div>
@@ -295,7 +301,7 @@ extends <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.h
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.startstop.<a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></h3>
-<code><a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#Z:Z_setStartStop-io.openems.edge.common.startstop.StartStop-">_setStartStop</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#getStartStop--">getStartStop</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#getStartStopChannel--">getStartStopChannel</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStarted--">isStarted</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStopped--">isStopped</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#setStartStop-io.openems.edge.common.startstop.StartStop-">setStartStop</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#start--">start</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#stop--">stop</a></code></li>
+<code><a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#Z:Z_setStartStop-io.openems.edge.common.startstop.StartStop-">_setStartStop</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#getStartStop--">getStartStop</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#getStartStopChannel--">getStartStopChannel</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStarted--">isStarted</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStopped--">isStopped</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#setStartStop-io.openems.edge.common.startstop.StartStop-">setStartStop</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#start--">start</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#stop--">stop</a></code></li>
 </ul>
 </li>
 </ul>
@@ -348,6 +354,25 @@ extends <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.h
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getModbusSlaveTable-io.openems.common.channel.AccessMode-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getModbusSlaveTable</h4>
+<pre>default&nbsp;<a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlaveTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveTable</a>&nbsp;getModbusSlaveTable(<a href="../../../../../../io/openems/common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">ModbusSlave</a></code></span></div>
+<div class="block">Gets the Modbus-Slave-Table for this OpenEMS-Component.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">getModbusSlaveTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>accessMode</code> - filters the Modbus-Records that should be shown</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Modbus-Slave-Table</dd>
+</dl>
+</li>
+</ul>
 <a name="getStartStopTarget--">
 <!--   -->
 </a>

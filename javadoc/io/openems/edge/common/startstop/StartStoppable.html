@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":6,"i6":18,"i7":18};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
+var methods = {"i0":18,"i1":17,"i2":18,"i3":18,"i4":18,"i5":18,"i6":6,"i7":18,"i8":18};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -116,12 +116,10 @@ extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponen
 <div class="block">Declares an OpenEMS Component as being able to get started and stopped.
  
  <p>
- 
  A device or service inside OpenEMS that implements this OpenEMS Nature can be
  started or stopped.
  
  <p>
- 
  Implementing this Nature also requires the Component to have a configuration
  property "startStop" of type <a href="../../../../../io/openems/edge/common/startstop/StartStopConfig.html" title="enum in io.openems.edge.common.startstop"><code>StartStopConfig</code></a> that overrides the logic
  of the <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html#setStartStop-io.openems.edge.common.startstop.StartStop-"><code>setStartStop(StartStop)</code></a> method:
@@ -170,7 +168,7 @@ extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponen
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -183,57 +181,50 @@ extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponen
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../../io/openems/edge/common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveNatureTable</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a></span>(<a href="../../../../../io/openems/common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</code>
+<div class="block">Gets the <a href="../../../../../io/openems/edge/common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave"><code>ModbusSlaveNatureTable</code></a> for <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop"><code>StartStoppable</code></a> used by
+ the Modbus/TCP Slave API.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html#getStartStop--">getStartStop</a></span>()</code>
 <div class="block">Gets the current <a href="../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop"><code>StartStop</code></a> state of the <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop"><code>StartStoppable</code></a>
  Component.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../../../io/openems/edge/common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html#getStartStopChannel--">getStartStopChannel</a></span>()</code>
 <div class="block">Gets the Channel for <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.ChannelId.html#START_STOP"><code>StartStoppable.ChannelId.START_STOP</code></a>.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>default boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStarted--">isStarted</a></span>()</code>
-<div class="block">Is this device or service started?
- 
- 
- true - if (and only if) <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.ChannelId.html#START_STOP"><code>StartStoppable.ChannelId.START_STOP</code></a> is
- <a href="../../../../../io/openems/edge/common/startstop/StartStop.html#START"><code>StartStop.START</code></a>
- false - if <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.ChannelId.html#START_STOP"><code>StartStoppable.ChannelId.START_STOP</code></a> is <a href="../../../../../io/openems/edge/common/startstop/StartStop.html#STOP"><code>StartStop.STOP</code></a> or
- <a href="../../../../../io/openems/edge/common/startstop/StartStop.html#UNDEFINED"><code>StartStop.UNDEFINED</code></a>
- </div>
-</td>
-</tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStopped--">isStopped</a></span>()</code>
-<div class="block">Is this device or service stopped?
- 
- 
- true - if (and only if) <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.ChannelId.html#START_STOP"><code>StartStoppable.ChannelId.START_STOP</code></a> is
- <a href="../../../../../io/openems/edge/common/startstop/StartStop.html#STOP"><code>StartStop.STOP</code></a>
- false - if <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.ChannelId.html#START_STOP"><code>StartStoppable.ChannelId.START_STOP</code></a> is <a href="../../../../../io/openems/edge/common/startstop/StartStop.html#START"><code>StartStop.START</code></a> or
- <a href="../../../../../io/openems/edge/common/startstop/StartStop.html#UNDEFINED"><code>StartStop.UNDEFINED</code></a>
- </div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStarted--">isStarted</a></span>()</code>
+<div class="block">Is this device or service started?.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStopped--">isStopped</a></span>()</code>
+<div class="block">Is this device or service stopped?.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html#setStartStop-io.openems.edge.common.startstop.StartStop-">setStartStop</a></span>(<a href="../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</code>
 <div class="block">Starts or stops the device or service represented by this OpenEMS Component.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>default void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html#start--">start</a></span>()</code>
 <div class="block">Starts the device or service represented by this OpenEMS Component.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>default void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html#stop--">stop</a></span>()</code>
 <div class="block">Stops the device or service represented by this OpenEMS Component.</div>
@@ -245,7 +236,7 @@ extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponen
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
-<code><a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#alias--">alias</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channels--">channels</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getStateChannel--">getStateChannel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#hasFaults--">hasFaults</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#id--">id</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
+<code><a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#alias--">alias</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#channels--">channels</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getStateChannel--">getStateChannel</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#hasFaults--">hasFaults</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#id--">id</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
 </ul>
 </li>
 </ul>
@@ -261,6 +252,25 @@ extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponen
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getModbusSlaveNatureTable</h4>
+<pre>static&nbsp;<a href="../../../../../io/openems/edge/common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveNatureTable</a>&nbsp;getModbusSlaveNatureTable(<a href="../../../../../io/openems/common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</pre>
+<div class="block">Gets the <a href="../../../../../io/openems/edge/common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave"><code>ModbusSlaveNatureTable</code></a> for <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop"><code>StartStoppable</code></a> used by
+ the Modbus/TCP Slave API.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>accessMode</code> - the <a href="../../../../../io/openems/common/channel/AccessMode.html" title="enum in io.openems.common.channel"><code>AccessMode</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../../../../io/openems/edge/common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave"><code>ModbusSlaveNatureTable</code></a></dd>
+</dl>
+</li>
+</ul>
 <a name="getStartStopChannel--">
 <!--   -->
 </a>
@@ -297,7 +307,7 @@ extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponen
 <li class="blockList">
 <h4>isStarted</h4>
 <pre>default&nbsp;boolean&nbsp;isStarted()</pre>
-<div class="block">Is this device or service started?
+<div class="block">Is this device or service started?.
  
  <ul>
  <li>true - if (and only if) <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.ChannelId.html#START_STOP"><code>StartStoppable.ChannelId.START_STOP</code></a> is
@@ -318,7 +328,7 @@ extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponen
 <li class="blockList">
 <h4>isStopped</h4>
 <pre>default&nbsp;boolean&nbsp;isStopped()</pre>
-<div class="block">Is this device or service stopped?
+<div class="block">Is this device or service stopped?.
  
  <ul>
  <li>true - if (and only if) <a href="../../../../../io/openems/edge/common/startstop/StartStoppable.ChannelId.html#START_STOP"><code>StartStoppable.ChannelId.START_STOP</code></a> is
