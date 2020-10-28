@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -117,13 +117,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></dd>
+<dd><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, <a href="../../../../../../io/openems/edge/timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, org.osgi.service.event.EventHandler</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">FeneconMiniPvMeter</span>
 extends <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a>
-implements <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></pre>
+implements <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../io/openems/edge/timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, org.osgi.service.event.EventHandler</pre>
 </li>
 </ul>
 </div>
@@ -229,10 +229,16 @@ implements <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.h
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/fenecon/mini/pvmeter/FeneconMiniPvMeter.html#getModbusBridgeId--">getModbusBridgeId</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/fenecon/mini/pvmeter/FeneconMiniPvMeter.html#getTimedata--">getTimedata</a></span>()</code>
+<div class="block">Gets the <a href="../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/fenecon/mini/pvmeter/FeneconMiniPvMeter.html#handleEvent-org.osgi.service.event.Event-">handleEvent</a></span>(org.osgi.service.event.Event&nbsp;event)</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/fenecon/mini/pvmeter/FeneconMiniPvMeter.html#setModbus-io.openems.edge.bridge.modbus.api.BridgeModbus-">setModbus</a></span>(<a href="../../../../../../io/openems/edge/bridge/modbus/api/BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a>&nbsp;modbus)</code>
 <div class="block">Set the Modbus bridge.</div>
@@ -266,13 +272,6 @@ implements <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.h
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.meter.api.<a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></h3>
 <code><a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setActiveConsumptionEnergy-long-">_setActiveConsumptionEnergy</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setActiveConsumptionEnergy-java.lang.Long-">_setActiveConsumptionEnergy</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setActivePower-int-">_setActivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setActivePower-java.lang.Integer-">_setActivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setActiveProductionEnergy-long-">_setActiveProductionEnergy</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setActiveProductionEnergy-java.lang.Long-">_setActiveProductionEnergy</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setCurrent-int-">_setCurrent</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setCurrent-java.lang.Integer-">_setCurrent</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setFrequency-int-">_setFrequency</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setFrequency-java.lang.Integer-">_setFrequency</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setMaxActivePower-int-">_setMaxActivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setMaxActivePower-java.lang.Integer-">_setMaxActivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setMinActivePower-int-">_setMinActivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setMinActivePower-java.lang.Integer-">_setMinActivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setReactivePower-int-">_setReactivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setReactivePower-java.lang.Integer-">_setReactivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setVoltage-int-">_setVoltage</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#Z:Z_setVoltage-java.lang.Integer-">_setVoltage</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getActiveConsumptionEnergy--">getActiveConsumptionEnergy</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getActiveConsumptionEnergyChannel--">getActiveConsumptionEnergyChannel</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getActivePower--">getActivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getActivePowerChannel--">getActivePowerChannel</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getActiveProductionEnergy--">getActiveProductionEnergy</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getActiveProductionEnergyChannel--">getActiveProductionEnergyChannel</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getCurrent--">getCurrent</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getCurrentChannel--">getCurrentChannel</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getFrequency--">getFrequency</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getFrequencyChannel--">getFrequencyChannel</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getMaxActivePower--">getMaxActivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getMaxActivePowerChannel--">getMaxActivePowerChannel</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getMinActivePower--">getMinActivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getMinActivePowerChannel--">getMinActivePowerChannel</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getReactivePower--">getReactivePower</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getReactivePowerChannel--">getReactivePowerChannel</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getVoltage--">getVoltage</a>, <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.html#getVoltageChannel--">getVoltageChannel</a></code></li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
-<!--   -->
-</a>
-<h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
-<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#alias--">alias</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channels--">channels</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getStateChannel--">getStateChannel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#hasFaults--">hasFaults</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#id--">id</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
 </ul>
 </li>
 </ul>
@@ -354,15 +353,6 @@ implements <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.h
 </dl>
 </li>
 </ul>
-<a name="getModbusBridgeId--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getModbusBridgeId</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getModbusBridgeId()</pre>
-</li>
-</ul>
 <a name="defineModbusProtocol--">
 <!--   -->
 </a>
@@ -400,7 +390,7 @@ implements <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.h
 <a name="debugLog--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>debugLog</h4>
 <pre>public&nbsp;java.lang.String&nbsp;debugLog()</pre>
@@ -412,6 +402,36 @@ implements <a href="../../../../../../io/openems/edge/meter/api/SymmetricMeter.h
 <dd><code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the debug log output</dd>
+</dl>
+</li>
+</ul>
+<a name="handleEvent-org.osgi.service.event.Event-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>handleEvent</h4>
+<pre>public&nbsp;void&nbsp;handleEvent(org.osgi.service.event.Event&nbsp;event)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getTimedata--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getTimedata</h4>
+<pre>public&nbsp;<a href="../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a>&nbsp;getTimedata()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../io/openems/edge/timedata/api/TimedataProvider.html#getTimedata--">TimedataProvider</a></code></span></div>
+<div class="block">Gets the <a href="../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../io/openems/edge/timedata/api/TimedataProvider.html#getTimedata--">getTimedata</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the service or null if it is not (yet) available.</dd>
 </dl>
 </li>
 </ul>
