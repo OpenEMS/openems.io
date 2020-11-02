@@ -216,7 +216,7 @@ implements <a href="../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.h
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
+<td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/ess/streetscooter/AbstractEssStreetscooter.html#activate-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-boolean-int-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-">activate</a></span>(org.osgi.service.component.ComponentContext&nbsp;context,
         java.lang.String&nbsp;id,
         java.lang.String&nbsp;alias,
@@ -428,15 +428,20 @@ implements <a href="../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.h
 <ul class="blockList">
 <li class="blockList">
 <h4>activate</h4>
-<pre>protected&nbsp;void&nbsp;activate(org.osgi.service.component.ComponentContext&nbsp;context,
-                        java.lang.String&nbsp;id,
-                        java.lang.String&nbsp;alias,
-                        boolean&nbsp;enabled,
-                        boolean&nbsp;readonly,
-                        int&nbsp;unitId,
-                        org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
-                        java.lang.String&nbsp;modbusReference,
-                        java.lang.String&nbsp;modbusId)</pre>
+<pre>protected&nbsp;boolean&nbsp;activate(org.osgi.service.component.ComponentContext&nbsp;context,
+                           java.lang.String&nbsp;id,
+                           java.lang.String&nbsp;alias,
+                           boolean&nbsp;enabled,
+                           boolean&nbsp;readonly,
+                           int&nbsp;unitId,
+                           org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
+                           java.lang.String&nbsp;modbusReference,
+                           java.lang.String&nbsp;modbusId)
+                    throws <a href="../../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="debugLog--">
@@ -514,7 +519,8 @@ implements <a href="../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.h
 <ul class="blockList">
 <li class="blockList">
 <h4>defineModbusProtocol</h4>
-<pre>protected&nbsp;<a href="../../../../../io/openems/edge/bridge/modbus/api/ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a>&nbsp;defineModbusProtocol()</pre>
+<pre>protected&nbsp;<a href="../../../../../io/openems/edge/bridge/modbus/api/ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a>&nbsp;defineModbusProtocol()
+                                       throws <a href="../../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#defineModbusProtocol--">AbstractOpenemsModbusComponent</a></code></span></div>
 <div class="block">Defines the Modbus protocol.</div>
 <dl>
@@ -522,6 +528,8 @@ implements <a href="../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.h
 <dd><code><a href="../../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#defineModbusProtocol--">defineModbusProtocol</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the ModbusProtocol</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
