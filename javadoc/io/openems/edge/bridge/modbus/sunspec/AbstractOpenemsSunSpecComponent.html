@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":6};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -215,36 +215,44 @@ extends <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpe
         int&nbsp;readFromCommonBlockNo)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#addBlock-int-io.openems.edge.bridge.modbus.sunspec.SunSpecModel-io.openems.edge.common.taskmanager.Priority-">addBlock</a></span>(int&nbsp;startAddress,
+        <a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModel.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecModel</a>&nbsp;model,
+        <a href="../../../../../../io/openems/edge/common/taskmanager/Priority.html" title="enum in io.openems.edge.common.taskmanager">Priority</a>&nbsp;priority)</code>
+<div class="block">Adds the block starting from startAddress.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/bridge/modbus/api/ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#defineModbusProtocol--">defineModbusProtocol</a></span>()</code>
 <div class="block">Defines the Modbus protocol.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected &lt;T extends <a href="../../../../../../io/openems/edge/common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;?&gt;&gt;<br>java.util.Optional&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#getSunSpecChannel-io.openems.edge.bridge.modbus.sunspec.SunSpecPoint-">getSunSpecChannel</a></span>(<a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecPoint.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecPoint</a>&nbsp;point)</code>
 <div class="block">Get the Channel for the given Point.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected &lt;T extends <a href="../../../../../../io/openems/edge/common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;?&gt;&gt;<br>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#getSunSpecChannelOrError-io.openems.edge.bridge.modbus.sunspec.SunSpecPoint-">getSunSpecChannelOrError</a></span>(<a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecPoint.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecPoint</a>&nbsp;point)</code>
 <div class="block">Get the Channel for the given Point or throw an error if it is not available.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModel.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecModel</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#getSunSpecModel-int-">getSunSpecModel</a></span>(int&nbsp;blockId)</code>
 <div class="block">Overwrite to provide custom SunSpecModel.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#isSunSpecInitializationCompleted--">isSunSpecInitializationCompleted</a></span>()</code>
 <div class="block">Is the SunSpec initialization completed?.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#mapFirstPointToChannel-io.openems.edge.common.channel.ChannelId-io.openems.edge.bridge.modbus.api.ElementToChannelConverter-io.openems.edge.bridge.modbus.sunspec.SunSpecPoint...-">mapFirstPointToChannel</a></span>(<a href="../../../../../../io/openems/edge/common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;targetChannel,
                       <a href="../../../../../../io/openems/edge/bridge/modbus/api/ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a>&nbsp;converter,
@@ -252,7 +260,7 @@ extends <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpe
 <div class="block">Maps the first available SunSpec <a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecPoint.html" title="interface in io.openems.edge.bridge.modbus.sunspec"><code>SunSpecPoint</code></a> to the targetChannel.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#onSunSpecInitializationCompleted--">onSunSpecInitializationCompleted</a></span>()</code>
 <div class="block">This method is called after the SunSpec initialization was completed.</div>
@@ -462,6 +470,27 @@ extends <a href="../../../../../../io/openems/edge/bridge/modbus/api/AbstractOpe
  <p>
  The purpose of this method is to add mappings between SunSpec Channel-Points
  to OpenEMS Nature Channels.</div>
+</li>
+</ul>
+<a name="addBlock-int-io.openems.edge.bridge.modbus.sunspec.SunSpecModel-io.openems.edge.common.taskmanager.Priority-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addBlock</h4>
+<pre>protected&nbsp;void&nbsp;addBlock(int&nbsp;startAddress,
+                        <a href="../../../../../../io/openems/edge/bridge/modbus/sunspec/SunSpecModel.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecModel</a>&nbsp;model,
+                        <a href="../../../../../../io/openems/edge/common/taskmanager/Priority.html" title="enum in io.openems.edge.common.taskmanager">Priority</a>&nbsp;priority)
+                 throws <a href="../../../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<div class="block">Adds the block starting from startAddress.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>startAddress</code> - the address to start reading from</dd>
+<dd><code>model</code> - the SunSpecModel</dd>
+<dd><code>priority</code> - the reading priority</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+</dl>
 </li>
 </ul>
 <a name="getSunSpecChannel-io.openems.edge.bridge.modbus.sunspec.SunSpecPoint-">
