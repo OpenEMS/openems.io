@@ -231,7 +231,7 @@
 <li><a href="#_openems_backend">7. OpenEMS Backend</a>
 <ul class="sectlevel2">
 <li><a href="#_backend_architecture">7.1. Backend Architecture</a></li>
-<li><a href="#_configuration_7">7.2. Configuration</a></li>
+<li><a href="#_configuration_6">7.2. Configuration</a></li>
 <li><a href="#_backend_to_backend_communication">7.3. Backend-to-Backend communication</a></li>
 <li><a href="#_build_openems_backend">7.4. Build OpenEMS Backend</a></li>
 <li><a href="#_deploy_openems_backend">7.5. Deploy OpenEMS Backend</a></li>
@@ -4110,48 +4110,31 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect3">
-<h4 id="_virtual_symmetric_add"><a class="anchor" href="#_virtual_symmetric_add"></a>5.7.43. Virtual Symmetric Add</h4>
+<h4 id="_virtual_symmetric_subtract"><a class="anchor" href="#_virtual_symmetric_subtract"></a>5.7.43. Virtual Symmetric Subtract</h4>
+<div class="paragraph">
+<p>This is a virtual meter built from subtracting other meters or energy storage systems.</p>
+</div>
+<div class="paragraph">
+<p>The logic calculates <code>Minuend - Subtrahend1 - Subtrahend2 - &#8230;&#8203;</code>.</p>
+</div>
+<div class="paragraph">
+<p>Example use-case: create a virtual Grid-Meter from Production-Meter, Consumption-Meter and Energy Storage System (ESS)
+- by definition Consumption is defined as `Consumption = ESS + Grid + Production (AC)
+- or: `Grid = Consumption - ESS - Production (AC)
+- this can be achieved by configuring the Consumption-Meter as Minuend and Production-Meter and ESS as Subtrahends.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_virtual_symmetric_add"><a class="anchor" href="#_virtual_symmetric_add"></a>5.7.44. Virtual Symmetric Add</h4>
 <div class="paragraph">
 <p>This is a virtual meter which is used to sum up the values from multiple symmetric meters. The use case for this feature is, Usually when there are multiple meters reading values from different systems, The average values from the systems make more sense for calculation and statistics.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Implemented Natures</dt>
-<dd>
-<div class="ulist">
-<ul>
-<li>
-<p>SymmetricMeter</p>
-</li>
-</ul>
-</div>
-</dd>
-</dl>
+<div class="paragraph">
+<p>Implemented Natures
+- SymmetricMeter</p>
 </div>
 <div class="sect4">
-<h5 id="_configuration_6"><a class="anchor" href="#_configuration_6"></a>5.7.43.1. Configuration</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Component-ID</code> Unique ID of this Component (id), e.g. "ctrlIoAlarm0", "ctrlIoAlarm1"</p>
-</li>
-<li>
-<p><code>Alias</code> Human-readable name of this Component; defaults to Component-ID (alias)</p>
-</li>
-<li>
-<p><code>Is enabled</code>  Is this Component enabled?</p>
-</li>
-<li>
-<p><code>Meter-Type</code> Type of the Meters (Grid meter or Production meter)</p>
-</li>
-<li>
-<p><code>Meter IDs</code> Ids of the meters to be summed up,</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_example_configuration_4"><a class="anchor" href="#_example_configuration_4"></a>5.7.43.2. Example Configuration</h5>
+<h5 id="_example_configuration_4"><a class="anchor" href="#_example_configuration_4"></a>5.7.44.1. Example Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -4189,7 +4172,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_weidmueller_525_meter"><a class="anchor" href="#_weidmueller_525_meter"></a>5.7.44. Weidmueller 525 Meter</h4>
+<h4 id="_weidmueller_525_meter"><a class="anchor" href="#_weidmueller_525_meter"></a>5.7.45. Weidmueller 525 Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4212,7 +4195,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_onewire_thermometer"><a class="anchor" href="#_onewire_thermometer"></a>5.7.45. OneWire Thermometer</h4>
+<h4 id="_onewire_thermometer"><a class="anchor" href="#_onewire_thermometer"></a>5.7.46. OneWire Thermometer</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4232,13 +4215,13 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_persistence_model_predictor"><a class="anchor" href="#_persistence_model_predictor"></a>5.7.46. Persistence Model Predictor</h4>
+<h4 id="_persistence_model_predictor"><a class="anchor" href="#_persistence_model_predictor"></a>5.7.47. Persistence Model Predictor</h4>
 <div class="paragraph">
 <p>Predicts values using the 'same-as-last-day' approach.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>5.7.47. PV-Inverter Cluster</h4>
+<h4 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>5.7.48. PV-Inverter Cluster</h4>
 <div class="paragraph">
 <p>Combines multiple PV-Inverters to one common PV-Inverter. This way every Controller can easily work with multiple PV-Inverters in parallel.</p>
 </div>
@@ -4247,7 +4230,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>5.7.48. KACO blueplanet PV inverter</h4>
+<h4 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>5.7.49. KACO blueplanet PV inverter</h4>
 <div class="paragraph">
 <p>Implementation of the KACO blueplanet series PV inverters.</p>
 </div>
@@ -4273,7 +4256,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sma_sunny_tripower_pv_inverter"><a class="anchor" href="#_sma_sunny_tripower_pv_inverter"></a>5.7.49. SMA Sunny Tripower PV inverter</h4>
+<h4 id="_sma_sunny_tripower_pv_inverter"><a class="anchor" href="#_sma_sunny_tripower_pv_inverter"></a>5.7.50. SMA Sunny Tripower PV inverter</h4>
 <div class="paragraph">
 <p>Implementation of the SMA Sunny Tripower PV inverters.</p>
 </div>
@@ -4291,7 +4274,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solar_log"><a class="anchor" href="#_solar_log"></a>5.7.50. Solar-Log</h4>
+<h4 id="_solar_log"><a class="anchor" href="#_solar_log"></a>5.7.51. Solar-Log</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4314,7 +4297,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sunspec_pv_inverter_2"><a class="anchor" href="#_sunspec_pv_inverter_2"></a>5.7.51. SunSpec PV inverter</h4>
+<h4 id="_sunspec_pv_inverter_2"><a class="anchor" href="#_sunspec_pv_inverter_2"></a>5.7.52. SunSpec PV inverter</h4>
 <div class="paragraph">
 <p>Generic implementation of SunSpec PV inverters. It is tested with
 - KACO blueplanet TL.3 series
@@ -4342,12 +4325,12 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_simulated_openems_components"><a class="anchor" href="#_simulated_openems_components"></a>5.7.52. Simulated OpenEMS Components</h4>
+<h4 id="_simulated_openems_components"><a class="anchor" href="#_simulated_openems_components"></a>5.7.53. Simulated OpenEMS Components</h4>
 <div class="paragraph">
 <p>This bundle provides simulated OpenEMS Components for the Natures. They are useful for testing and demoing without real hardware.</p>
 </div>
 <div class="sect4">
-<h5 id="_simulator_app"><a class="anchor" href="#_simulator_app"></a>5.7.52.1. Simulator-App</h5>
+<h5 id="_simulator_app"><a class="anchor" href="#_simulator_app"></a>5.7.53.1. Simulator-App</h5>
 <div class="paragraph">
 <p>The Simulator-App is a very specific component that needs to be handled with care. It provides a full simulation environment to run an OpenEMS Edge instance in simulated realtime environment. After you ran a Simulation, you will receive the simulation result as a JSON. Also the simulation result can be viewed in OpenEMS UI.</p>
 </div>
@@ -4503,7 +4486,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>5.7.53. SolarEdge PV Inverter + Grid-Meter</h4>
+<h4 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>5.7.54. SolarEdge PV Inverter + Grid-Meter</h4>
 <div class="paragraph">
 <p>Implementation of the SolarEdge PV inverters.</p>
 </div>
@@ -4529,7 +4512,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>5.7.54. Tesla Powerwall 2</h4>
+<h4 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>5.7.55. Tesla Powerwall 2</h4>
 <div class="paragraph">
 <p>Implementation of the Tesla Powerwall 2 energy storage system</p>
 </div>
@@ -4552,7 +4535,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_influxdb"><a class="anchor" href="#_influxdb"></a>5.7.55. InfluxDB</h4>
+<h4 id="_influxdb"><a class="anchor" href="#_influxdb"></a>5.7.56. InfluxDB</h4>
 <div class="paragraph">
 <p>Persists all data of OpenEMS Edge Channels to an InfluxDB timeseries database.</p>
 </div>
@@ -4561,7 +4544,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>5.7.56. RRD4J</h4>
+<h4 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>5.7.57. RRD4J</h4>
 <div class="paragraph">
 <p>Persists data of OpenEMS Edge Channels to RRD4J files.</p>
 </div>
@@ -4570,7 +4553,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>5.7.57. KACO blueplanet hybrid 10.0 TL3</h4>
+<h4 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>5.7.58. KACO blueplanet hybrid 10.0 TL3</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -5897,7 +5880,7 @@ in how angular-cli generates the service-worker configuration file (ngsw-config.
 
 </div>
 <div class="sect2">
-<h3 id="_configuration_7"><a class="anchor" href="#_configuration_7"></a>7.2. Configuration</h3>
+<h3 id="_configuration_6"><a class="anchor" href="#_configuration_6"></a>7.2. Configuration</h3>
 
 </div>
 <div class="sect2">
