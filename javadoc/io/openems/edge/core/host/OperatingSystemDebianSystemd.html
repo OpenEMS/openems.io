@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html" title="interface in io.openems.edge.core.host"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../io/openems/edge/core/host/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../io/openems/edge/core/host/OperatingSystemWindows.html" title="class in io.openems.edge.core.host"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?io/openems/edge/core/host/OperatingSystemDebianSystemd.html" target="_top">Frames</a></li>
@@ -135,7 +135,7 @@ implements <a href="../../../../../io/openems/edge/core/host/OperatingSystem.htm
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystemDebianSystemd.html#OperatingSystemDebianSystemd-io.openems.edge.core.host.Host-">OperatingSystemDebianSystemd</a></span>(<a href="../../../../../io/openems/edge/core/host/Host.html" title="class in io.openems.edge.core.host">Host</a>&nbsp;parent)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystemDebianSystemd.html#OperatingSystemDebianSystemd-io.openems.edge.core.host.HostImpl-">OperatingSystemDebianSystemd</a></span>(<a href="../../../../../io/openems/edge/core/host/HostImpl.html" title="class in io.openems.edge.core.host">HostImpl</a>&nbsp;parent)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -159,15 +159,21 @@ implements <a href="../../../../../io/openems/edge/core/host/OperatingSystem.htm
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/edge/core/host/ExecuteSystemCommandResponse.html" title="class in io.openems.edge.core.host">ExecuteSystemCommandResponse</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystemDebianSystemd.html#handleExecuteCommandRequest-io.openems.edge.core.host.ExecuteSystemCommandRequest-">handleExecuteCommandRequest</a></span>(<a href="../../../../../io/openems/edge/core/host/ExecuteSystemCommandRequest.html" title="class in io.openems.edge.core.host">ExecuteSystemCommandRequest</a>&nbsp;request)</code>
-<div class="block">Executes a command.</div>
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystemDebianSystemd.html#getUsbConfiguration--">getUsbConfiguration</a></span>()</code>
+<div class="block">Gets the USB configuration.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/edge/core/host/jsonrpc/ExecuteSystemCommandResponse.html" title="class in io.openems.edge.core.host.jsonrpc">ExecuteSystemCommandResponse</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystemDebianSystemd.html#handleExecuteCommandRequest-io.openems.edge.core.host.jsonrpc.ExecuteSystemCommandRequest-">handleExecuteCommandRequest</a></span>(<a href="../../../../../io/openems/edge/core/host/jsonrpc/ExecuteSystemCommandRequest.html" title="class in io.openems.edge.core.host.jsonrpc">ExecuteSystemCommandRequest</a>&nbsp;request)</code>
+<div class="block">Executes a command.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystemDebianSystemd.html#handleSetNetworkConfigRequest-io.openems.edge.core.host.NetworkConfiguration-io.openems.edge.core.host.SetNetworkConfigRequest-">handleSetNetworkConfigRequest</a></span>(<a href="../../../../../io/openems/edge/core/host/NetworkConfiguration.html" title="class in io.openems.edge.core.host">NetworkConfiguration</a>&nbsp;oldNetworkConfiguration,
-                             <a href="../../../../../io/openems/edge/core/host/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host">SetNetworkConfigRequest</a>&nbsp;request)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystemDebianSystemd.html#handleSetNetworkConfigRequest-io.openems.edge.core.host.NetworkConfiguration-io.openems.edge.core.host.jsonrpc.SetNetworkConfigRequest-">handleSetNetworkConfigRequest</a></span>(<a href="../../../../../io/openems/edge/core/host/NetworkConfiguration.html" title="class in io.openems.edge.core.host">NetworkConfiguration</a>&nbsp;oldNetworkConfiguration,
+                             <a href="../../../../../io/openems/edge/core/host/jsonrpc/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host.jsonrpc">SetNetworkConfigRequest</a>&nbsp;request)</code>
 <div class="block">Handles a SetNetworkConfigRequest for systemd-networkd.</div>
 </td>
 </tr>
@@ -193,13 +199,13 @@ implements <a href="../../../../../io/openems/edge/core/host/OperatingSystem.htm
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="OperatingSystemDebianSystemd-io.openems.edge.core.host.Host-">
+<a name="OperatingSystemDebianSystemd-io.openems.edge.core.host.HostImpl-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>OperatingSystemDebianSystemd</h4>
-<pre>protected&nbsp;OperatingSystemDebianSystemd(<a href="../../../../../io/openems/edge/core/host/Host.html" title="class in io.openems.edge.core.host">Host</a>&nbsp;parent)</pre>
+<pre>protected&nbsp;OperatingSystemDebianSystemd(<a href="../../../../../io/openems/edge/core/host/HostImpl.html" title="class in io.openems.edge.core.host">HostImpl</a>&nbsp;parent)</pre>
 </li>
 </ul>
 </li>
@@ -230,19 +236,19 @@ implements <a href="../../../../../io/openems/edge/core/host/OperatingSystem.htm
 </dl>
 </li>
 </ul>
-<a name="handleSetNetworkConfigRequest-io.openems.edge.core.host.NetworkConfiguration-io.openems.edge.core.host.SetNetworkConfigRequest-">
+<a name="handleSetNetworkConfigRequest-io.openems.edge.core.host.NetworkConfiguration-io.openems.edge.core.host.jsonrpc.SetNetworkConfigRequest-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>handleSetNetworkConfigRequest</h4>
 <pre>public&nbsp;void&nbsp;handleSetNetworkConfigRequest(<a href="../../../../../io/openems/edge/core/host/NetworkConfiguration.html" title="class in io.openems.edge.core.host">NetworkConfiguration</a>&nbsp;oldNetworkConfiguration,
-                                          <a href="../../../../../io/openems/edge/core/host/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host">SetNetworkConfigRequest</a>&nbsp;request)
+                                          <a href="../../../../../io/openems/edge/core/host/jsonrpc/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host.jsonrpc">SetNetworkConfigRequest</a>&nbsp;request)
                                    throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Handles a SetNetworkConfigRequest for systemd-networkd.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#handleSetNetworkConfigRequest-io.openems.edge.core.host.NetworkConfiguration-io.openems.edge.core.host.SetNetworkConfigRequest-">handleSetNetworkConfigRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html" title="interface in io.openems.edge.core.host">OperatingSystem</a></code></dd>
+<dd><code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#handleSetNetworkConfigRequest-io.openems.edge.core.host.NetworkConfiguration-io.openems.edge.core.host.jsonrpc.SetNetworkConfigRequest-">handleSetNetworkConfigRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html" title="interface in io.openems.edge.core.host">OperatingSystem</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>oldNetworkConfiguration</code> - the current/old network configuration</dd>
 <dd><code>request</code> - the JSON-RPC request</dd>
@@ -252,22 +258,42 @@ implements <a href="../../../../../io/openems/edge/core/host/OperatingSystem.htm
 </dl>
 </li>
 </ul>
-<a name="handleExecuteCommandRequest-io.openems.edge.core.host.ExecuteSystemCommandRequest-">
+<a name="handleExecuteCommandRequest-io.openems.edge.core.host.jsonrpc.ExecuteSystemCommandRequest-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>handleExecuteCommandRequest</h4>
-<pre>public&nbsp;java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/edge/core/host/ExecuteSystemCommandResponse.html" title="class in io.openems.edge.core.host">ExecuteSystemCommandResponse</a>&gt;&nbsp;handleExecuteCommandRequest(<a href="../../../../../io/openems/edge/core/host/ExecuteSystemCommandRequest.html" title="class in io.openems.edge.core.host">ExecuteSystemCommandRequest</a>&nbsp;request)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#handleExecuteCommandRequest-io.openems.edge.core.host.ExecuteSystemCommandRequest-">OperatingSystem</a></code></span></div>
+<pre>public&nbsp;java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/edge/core/host/jsonrpc/ExecuteSystemCommandResponse.html" title="class in io.openems.edge.core.host.jsonrpc">ExecuteSystemCommandResponse</a>&gt;&nbsp;handleExecuteCommandRequest(<a href="../../../../../io/openems/edge/core/host/jsonrpc/ExecuteSystemCommandRequest.html" title="class in io.openems.edge.core.host.jsonrpc">ExecuteSystemCommandRequest</a>&nbsp;request)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#handleExecuteCommandRequest-io.openems.edge.core.host.jsonrpc.ExecuteSystemCommandRequest-">OperatingSystem</a></code></span></div>
 <div class="block">Executes a command.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#handleExecuteCommandRequest-io.openems.edge.core.host.ExecuteSystemCommandRequest-">handleExecuteCommandRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html" title="interface in io.openems.edge.core.host">OperatingSystem</a></code></dd>
+<dd><code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#handleExecuteCommandRequest-io.openems.edge.core.host.jsonrpc.ExecuteSystemCommandRequest-">handleExecuteCommandRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html" title="interface in io.openems.edge.core.host">OperatingSystem</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>request</code> - the ExecuteCommandRequest</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a ExecuteCommandResponse</dd>
+</dl>
+</li>
+</ul>
+<a name="getUsbConfiguration--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getUsbConfiguration</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getUsbConfiguration()
+                                     throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#getUsbConfiguration--">OperatingSystem</a></code></span></div>
+<div class="block">Gets the USB configuration.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#getUsbConfiguration--">getUsbConfiguration</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html" title="interface in io.openems.edge.core.host">OperatingSystem</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the original configuration in textual form</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -299,7 +325,7 @@ implements <a href="../../../../../io/openems/edge/core/host/OperatingSystem.htm
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html" title="interface in io.openems.edge.core.host"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../io/openems/edge/core/host/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../io/openems/edge/core/host/OperatingSystemWindows.html" title="class in io.openems.edge.core.host"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?io/openems/edge/core/host/OperatingSystemDebianSystemd.html" target="_top">Frames</a></li>

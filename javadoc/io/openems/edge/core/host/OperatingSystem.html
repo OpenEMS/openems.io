@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../../io/openems/edge/core/host/OperatingSystemDebianSystemd.html" title="class in io.openems.edge.core.host">OperatingSystemDebianSystemd</a></dd>
+<dd><a href="../../../../../io/openems/edge/core/host/OperatingSystemDebianSystemd.html" title="class in io.openems.edge.core.host">OperatingSystemDebianSystemd</a>, <a href="../../../../../io/openems/edge/core/host/OperatingSystemWindows.html" title="class in io.openems.edge.core.host">OperatingSystemWindows</a></dd>
 </dl>
 <hr>
 <br>
@@ -129,15 +129,21 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/edge/core/host/ExecuteSystemCommandResponse.html" title="class in io.openems.edge.core.host">ExecuteSystemCommandResponse</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#handleExecuteCommandRequest-io.openems.edge.core.host.ExecuteSystemCommandRequest-">handleExecuteCommandRequest</a></span>(<a href="../../../../../io/openems/edge/core/host/ExecuteSystemCommandRequest.html" title="class in io.openems.edge.core.host">ExecuteSystemCommandRequest</a>&nbsp;request)</code>
-<div class="block">Executes a command.</div>
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#getUsbConfiguration--">getUsbConfiguration</a></span>()</code>
+<div class="block">Gets the USB configuration.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/edge/core/host/jsonrpc/ExecuteSystemCommandResponse.html" title="class in io.openems.edge.core.host.jsonrpc">ExecuteSystemCommandResponse</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#handleExecuteCommandRequest-io.openems.edge.core.host.jsonrpc.ExecuteSystemCommandRequest-">handleExecuteCommandRequest</a></span>(<a href="../../../../../io/openems/edge/core/host/jsonrpc/ExecuteSystemCommandRequest.html" title="class in io.openems.edge.core.host.jsonrpc">ExecuteSystemCommandRequest</a>&nbsp;request)</code>
+<div class="block">Executes a command.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#handleSetNetworkConfigRequest-io.openems.edge.core.host.NetworkConfiguration-io.openems.edge.core.host.SetNetworkConfigRequest-">handleSetNetworkConfigRequest</a></span>(<a href="../../../../../io/openems/edge/core/host/NetworkConfiguration.html" title="class in io.openems.edge.core.host">NetworkConfiguration</a>&nbsp;oldNetworkConfiguration,
-                             <a href="../../../../../io/openems/edge/core/host/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host">SetNetworkConfigRequest</a>&nbsp;request)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/core/host/OperatingSystem.html#handleSetNetworkConfigRequest-io.openems.edge.core.host.NetworkConfiguration-io.openems.edge.core.host.jsonrpc.SetNetworkConfigRequest-">handleSetNetworkConfigRequest</a></span>(<a href="../../../../../io/openems/edge/core/host/NetworkConfiguration.html" title="class in io.openems.edge.core.host">NetworkConfiguration</a>&nbsp;oldNetworkConfiguration,
+                             <a href="../../../../../io/openems/edge/core/host/jsonrpc/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host.jsonrpc">SetNetworkConfigRequest</a>&nbsp;request)</code>
 <div class="block">Handles a SetNetworkConfigRequest.</div>
 </td>
 </tr>
@@ -173,14 +179,14 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
-<a name="handleSetNetworkConfigRequest-io.openems.edge.core.host.NetworkConfiguration-io.openems.edge.core.host.SetNetworkConfigRequest-">
+<a name="handleSetNetworkConfigRequest-io.openems.edge.core.host.NetworkConfiguration-io.openems.edge.core.host.jsonrpc.SetNetworkConfigRequest-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>handleSetNetworkConfigRequest</h4>
 <pre>void&nbsp;handleSetNetworkConfigRequest(<a href="../../../../../io/openems/edge/core/host/NetworkConfiguration.html" title="class in io.openems.edge.core.host">NetworkConfiguration</a>&nbsp;oldNetworkConfiguration,
-                                   <a href="../../../../../io/openems/edge/core/host/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host">SetNetworkConfigRequest</a>&nbsp;request)
+                                   <a href="../../../../../io/openems/edge/core/host/jsonrpc/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host.jsonrpc">SetNetworkConfigRequest</a>&nbsp;request)
                             throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Handles a SetNetworkConfigRequest.</div>
 <dl>
@@ -192,19 +198,39 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
-<a name="handleExecuteCommandRequest-io.openems.edge.core.host.ExecuteSystemCommandRequest-">
+<a name="getUsbConfiguration--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUsbConfiguration</h4>
+<pre>java.lang.String&nbsp;getUsbConfiguration()
+                              throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Gets the USB configuration.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the original configuration in textual form</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="handleExecuteCommandRequest-io.openems.edge.core.host.jsonrpc.ExecuteSystemCommandRequest-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>handleExecuteCommandRequest</h4>
-<pre>java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/edge/core/host/ExecuteSystemCommandResponse.html" title="class in io.openems.edge.core.host">ExecuteSystemCommandResponse</a>&gt;&nbsp;handleExecuteCommandRequest(<a href="../../../../../io/openems/edge/core/host/ExecuteSystemCommandRequest.html" title="class in io.openems.edge.core.host">ExecuteSystemCommandRequest</a>&nbsp;request)</pre>
+<pre>java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/edge/core/host/jsonrpc/ExecuteSystemCommandResponse.html" title="class in io.openems.edge.core.host.jsonrpc">ExecuteSystemCommandResponse</a>&gt;&nbsp;handleExecuteCommandRequest(<a href="../../../../../io/openems/edge/core/host/jsonrpc/ExecuteSystemCommandRequest.html" title="class in io.openems.edge.core.host.jsonrpc">ExecuteSystemCommandRequest</a>&nbsp;request)
+                                                                                          throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Executes a command.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>request</code> - the ExecuteCommandRequest</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a ExecuteCommandResponse</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
