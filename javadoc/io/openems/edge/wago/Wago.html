@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":9,"i10":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -152,7 +152,7 @@ implements <a href="../../../../io/openems/edge/io/api/DigitalOutput.html" title
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from class&nbsp;io.openems.edge.bridge.modbus.api.<a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></h3>
-<code><a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.BitConverter.html" title="enum in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.BitConverter</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.ChannelMapper</a></code></li>
+<code><a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.BitConverter.html" title="enum in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.BitConverter</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.ChannelMapper</a>&lt;<a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.ChannelMapper.html" title="type parameter in AbstractOpenemsModbusComponent.ChannelMapper">T</a> extends <a href="../../../../io/openems/edge/bridge/modbus/api/element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;&gt;</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="nested.classes.inherited.from.class.io.openems.edge.io.api.DigitalOutput">
@@ -186,6 +186,10 @@ implements <a href="../../../../io/openems/edge/io/api/DigitalOutput.html" title
 <td class="colFirst"><code>protected org.osgi.service.cm.ConfigurationAdmin</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#cm">cm</a></span></code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../io/openems/edge/bridge/modbus/api/ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#protocol">protocol</a></span></code>&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -213,7 +217,7 @@ implements <a href="../../../../io/openems/edge/io/api/DigitalOutput.html" title
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -223,41 +227,60 @@ implements <a href="../../../../io/openems/edge/io/api/DigitalOutput.html" title
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#addChannel-io.openems.edge.wago.FieldbusChannelId-">addChannel</a></span>(<a href="../../../../io/openems/edge/wago/FieldbusChannelId.html" title="class in io.openems.edge.wago">FieldbusChannelId</a>&nbsp;channelId)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../../io/openems/edge/bridge/modbus/api/element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#createModbusElement-io.openems.edge.common.channel.ChannelId-int-">createModbusElement</a></span>(<a href="../../../../io/openems/edge/common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
-                   int&nbsp;address)</code>&nbsp;</td>
+<td class="colFirst"><code>protected <a href="../../../../io/openems/edge/bridge/modbus/api/element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">CoilElement</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#createModbusCoilElement-io.openems.edge.common.channel.ChannelId-int-">createModbusCoilElement</a></span>(<a href="../../../../io/openems/edge/common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
+                       int&nbsp;address)</code>
+<div class="block">Creates a Modbus <a href="../../../../io/openems/edge/bridge/modbus/api/element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>CoilElement</code></a> on the address and maps it to the given
+ Channel-ID.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#createProtocolFromModules-java.util.List-">createProtocolFromModules</a></span>(java.util.List&lt;<a href="../../../../io/openems/edge/wago/FieldbusModule.html" title="class in io.openems.edge.wago">FieldbusModule</a>&gt;&nbsp;modules)</code>
+<div class="block">Takes a list of FieldbusModules and adds Modbus tasks to the protocol.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#deactivate--">deactivate</a></span>()</code>
 <div class="block">Handles @Deactivate of implementations.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#debugLog--">debugLog</a></span>()</code>
 <div class="block">Gets some output that is suitable for a continuous Debug log.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../io/openems/edge/bridge/modbus/api/ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#defineModbusProtocol--">defineModbusProtocol</a></span>()</code>
 <div class="block">Defines the Modbus protocol.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../io/openems/edge/common/channel/BooleanReadChannel.html" title="class in io.openems.edge.common.channel">BooleanReadChannel</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#digitalInputChannels--">digitalInputChannels</a></span>()</code>
 <div class="block">Gets all Output Channels</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../io/openems/edge/common/channel/BooleanWriteChannel.html" title="class in io.openems.edge.common.channel">BooleanWriteChannel</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#digitalOutputChannels--">digitalOutputChannels</a></span>()</code>
 <div class="block">Gets all Output Channels.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>protected java.util.List&lt;<a href="../../../../io/openems/edge/wago/FieldbusModule.html" title="class in io.openems.edge.wago">FieldbusModule</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#parseXml-org.w3c.dom.Document-">parseXml</a></span>(org.w3c.dom.Document&nbsp;doc)</code>
+<div class="block">Parses the config xml file.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>protected static org.w3c.dom.Document</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#parseXmlToDocument-java.io.InputStream-">parseXmlToDocument</a></span>(java.io.InputStream&nbsp;is)</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/Wago.html#setModbus-io.openems.edge.bridge.modbus.api.BridgeModbusTcp-">setModbus</a></span>(<a href="../../../../io/openems/edge/bridge/modbus/api/BridgeModbusTcp.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbusTcp</a>&nbsp;modbus)</code>&nbsp;</td>
 </tr>
@@ -267,7 +290,7 @@ implements <a href="../../../../io/openems/edge/io/api/DigitalOutput.html" title
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.<a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></h3>
-<code><a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#activate-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-">activate</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#activate-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-int-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-">activate</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#activate-java.lang.String-">activate</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#convert-int-int-">convert</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#getUnitId--">getUnitId</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#m-io.openems.edge.bridge.modbus.api.element.AbstractModbusElement-">m</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#m-io.openems.edge.bridge.modbus.api.element.BitsWordElement-">m</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#m-io.openems.edge.common.channel.ChannelId-io.openems.edge.bridge.modbus.api.element.AbstractModbusElement-">m</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#m-io.openems.edge.common.channel.ChannelId-io.openems.edge.bridge.modbus.api.element.AbstractModbusElement-io.openems.edge.bridge.modbus.api.ElementToChannelConverter-">m</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#setModbus-io.openems.edge.bridge.modbus.api.BridgeModbus-">setModbus</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#unsetModbus-io.openems.edge.bridge.modbus.api.BridgeModbus-">unsetModbus</a></code></li>
+<code><a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#activate-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-">activate</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#activate-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-int-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-">activate</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#activate-java.lang.String-">activate</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#convert-int-int-">convert</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#getUnitId--">getUnitId</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#m-io.openems.edge.bridge.modbus.api.element.BitsWordElement-">m</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#m-io.openems.edge.common.channel.ChannelId-T-">m</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#m-io.openems.edge.common.channel.ChannelId-T-io.openems.edge.bridge.modbus.api.ElementToChannelConverter-">m</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#m-T-">m</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#setModbus-io.openems.edge.bridge.modbus.api.BridgeModbus-">setModbus</a>, <a href="../../../../io/openems/edge/bridge/modbus/api/AbstractOpenemsModbusComponent.html#unsetModbus-io.openems.edge.bridge.modbus.api.BridgeModbus-">unsetModbus</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.common.component.AbstractOpenemsComponent">
@@ -307,10 +330,19 @@ implements <a href="../../../../io/openems/edge/io/api/DigitalOutput.html" title
 <a name="cm">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>cm</h4>
 <pre>protected&nbsp;org.osgi.service.cm.ConfigurationAdmin cm</pre>
+</li>
+</ul>
+<a name="protocol">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>protocol</h4>
+<pre>protected&nbsp;<a href="../../../../io/openems/edge/bridge/modbus/api/ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a> protocol</pre>
 </li>
 </ul>
 </li>
@@ -347,14 +379,74 @@ implements <a href="../../../../io/openems/edge/io/api/DigitalOutput.html" title
 <pre>protected&nbsp;void&nbsp;setModbus(<a href="../../../../io/openems/edge/bridge/modbus/api/BridgeModbusTcp.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbusTcp</a>&nbsp;modbus)</pre>
 </li>
 </ul>
-<a name="createModbusElement-io.openems.edge.common.channel.ChannelId-int-">
+<a name="parseXmlToDocument-java.io.InputStream-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>createModbusElement</h4>
-<pre>protected&nbsp;<a href="../../../../io/openems/edge/bridge/modbus/api/element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;&nbsp;createModbusElement(<a href="../../../../io/openems/edge/common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
-                                                       int&nbsp;address)</pre>
+<h4>parseXmlToDocument</h4>
+<pre>protected static&nbsp;org.w3c.dom.Document&nbsp;parseXmlToDocument(java.io.InputStream&nbsp;is)
+                                                  throws javax.xml.parsers.ParserConfigurationException,
+                                                         org.xml.sax.SAXException,
+                                                         java.io.IOException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>javax.xml.parsers.ParserConfigurationException</code></dd>
+<dd><code>org.xml.sax.SAXException</code></dd>
+<dd><code>java.io.IOException</code></dd>
+</dl>
+</li>
+</ul>
+<a name="parseXml-org.w3c.dom.Document-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>parseXml</h4>
+<pre>protected&nbsp;java.util.List&lt;<a href="../../../../io/openems/edge/wago/FieldbusModule.html" title="class in io.openems.edge.wago">FieldbusModule</a>&gt;&nbsp;parseXml(org.w3c.dom.Document&nbsp;doc)</pre>
+<div class="block">Parses the config xml file.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>doc</code> - the XML document</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a list of FieldbusModules</dd>
+</dl>
+</li>
+</ul>
+<a name="createProtocolFromModules-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createProtocolFromModules</h4>
+<pre>protected&nbsp;void&nbsp;createProtocolFromModules(java.util.List&lt;<a href="../../../../io/openems/edge/wago/FieldbusModule.html" title="class in io.openems.edge.wago">FieldbusModule</a>&gt;&nbsp;modules)
+                                  throws <a href="../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<div class="block">Takes a list of FieldbusModules and adds Modbus tasks to the protocol.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>modules</code> - lit of <a href="../../../../io/openems/edge/wago/FieldbusModule.html" title="class in io.openems.edge.wago"><code>FieldbusModule</code></a>s</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="createModbusCoilElement-io.openems.edge.common.channel.ChannelId-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createModbusCoilElement</h4>
+<pre>protected&nbsp;<a href="../../../../io/openems/edge/bridge/modbus/api/element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">CoilElement</a>&nbsp;createModbusCoilElement(<a href="../../../../io/openems/edge/common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
+                                              int&nbsp;address)</pre>
+<div class="block">Creates a Modbus <a href="../../../../io/openems/edge/bridge/modbus/api/element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>CoilElement</code></a> on the address and maps it to the given
+ Channel-ID.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>channelId</code> - the Channel-ID</dd>
+<dd><code>address</code> - the modbus start address of the coil</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the modbus <a href="../../../../io/openems/edge/bridge/modbus/api/element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>CoilElement</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="defineModbusProtocol--">

@@ -119,8 +119,7 @@ var activeTableTab = "activeTableTab";
 extends java.lang.Object
 implements <a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></pre>
 <div class="block">An abstract Modbus 'AbstractTask' is holding references to one or more Modbus
- <a href="../../../../../../../io/openems/edge/bridge/modbus/api/element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>AbstractModbusElement</code></a> which have register addresses in the same
- range.</div>
+ <a href="../../../../../../../io/openems/edge/bridge/modbus/api/element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element"><code>ModbusElement</code></a> which have register addresses in the same range.</div>
 </li>
 </ul>
 </div>
@@ -139,8 +138,8 @@ implements <a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/AbstractTask.html#AbstractTask-int-io.openems.edge.bridge.modbus.api.element.AbstractModbusElement...-">AbstractTask</a></span>(int&nbsp;startAddress,
-            <a href="../../../../../../../io/openems/edge/bridge/modbus/api/element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;...&nbsp;elements)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/AbstractTask.html#AbstractTask-int-io.openems.edge.bridge.modbus.api.element.ModbusElement...-">AbstractTask</a></span>(int&nbsp;startAddress,
+            <a href="../../../../../../../io/openems/edge/bridge/modbus/api/element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;?&gt;...&nbsp;elements)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -196,7 +195,9 @@ implements <a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/AbstractTask.html#getLength--">getLength</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/AbstractTask.html#getLength--">getLength</a></span>()</code>
+<div class="block">Gets the length from first to last Modbus register address.</div>
+</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../../../io/openems/edge/bridge/modbus/api/LogVerbosity.html" title="enum in io.openems.edge.bridge.modbus.api">LogVerbosity</a></code></td>
@@ -265,14 +266,14 @@ implements <a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="AbstractTask-int-io.openems.edge.bridge.modbus.api.element.AbstractModbusElement...-">
+<a name="AbstractTask-int-io.openems.edge.bridge.modbus.api.element.ModbusElement...-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractTask</h4>
 <pre>public&nbsp;AbstractTask(int&nbsp;startAddress,
-                    <a href="../../../../../../../io/openems/edge/bridge/modbus/api/element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;...&nbsp;elements)</pre>
+                    <a href="../../../../../../../io/openems/edge/bridge/modbus/api/element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;?&gt;...&nbsp;elements)</pre>
 </li>
 </ul>
 </li>
@@ -307,6 +308,14 @@ implements <a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/
 <li class="blockList">
 <h4>getLength</h4>
 <pre>public&nbsp;int&nbsp;getLength()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/Task.html#getLength--">Task</a></code></span></div>
+<div class="block">Gets the length from first to last Modbus register address.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/Task.html#getLength--">getLength</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../io/openems/edge/bridge/modbus/api/task/Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the address</dd>
+</dl>
 </li>
 </ul>
 <a name="getStartAddress--">

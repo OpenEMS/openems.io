@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -150,27 +150,35 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>abstract <a href="../../../../io/openems/edge/common/channel/BooleanReadChannel.html" title="class in io.openems.edge.common.channel">BooleanReadChannel</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/FieldbusModule.html#getChannels--">getChannels</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/FieldbusModule.html#getChannels--">getChannels</a></span>()</code>
+<div class="block">Gets the Channels of the <a href="../../../../io/openems/edge/wago/FieldbusModule.html" title="class in io.openems.edge.wago"><code>FieldbusModule</code></a>.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>abstract int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/FieldbusModule.html#getInputCoils--">getInputCoils</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>abstract <a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/FieldbusModule.html#getInputCoil0Elements--">getInputCoil0Elements</a></span>()</code>
+<div class="block">Gets the <a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element"><code>ModbusCoilElement</code></a> for the input coils starting at address 0.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>abstract <a href="../../../../io/openems/edge/bridge/modbus/api/element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/FieldbusModule.html#getInputElements--">getInputElements</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>abstract <a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/FieldbusModule.html#getInputCoil512Elements--">getInputCoil512Elements</a></span>()</code>
+<div class="block">Gets the <a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element"><code>ModbusCoilElement</code></a> for the input coils starting at address
+ 512.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>abstract java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/FieldbusModule.html#getName--">getName</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/FieldbusModule.html#getName--">getName</a></span>()</code>
+<div class="block">Gets the Name of the <a href="../../../../io/openems/edge/wago/FieldbusModule.html" title="class in io.openems.edge.wago"><code>FieldbusModule</code></a>.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>abstract int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/FieldbusModule.html#getOutputCoils--">getOutputCoils</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>abstract <a href="../../../../io/openems/edge/bridge/modbus/api/element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/FieldbusModule.html#getOutputElements--">getOutputElements</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>abstract <a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/edge/wago/FieldbusModule.html#getOutputCoil512Elements--">getOutputCoil512Elements</a></span>()</code>
+<div class="block">Gets the <a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element"><code>ModbusCoilElement</code></a> for the output coils starting at address
+ 512.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -218,42 +226,55 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getName</h4>
 <pre>public abstract&nbsp;java.lang.String&nbsp;getName()</pre>
+<div class="block">Gets the Name of the <a href="../../../../io/openems/edge/wago/FieldbusModule.html" title="class in io.openems.edge.wago"><code>FieldbusModule</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the name</dd>
+</dl>
 </li>
 </ul>
-<a name="getInputElements--">
+<a name="getInputCoil0Elements--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getInputElements</h4>
-<pre>public abstract&nbsp;<a href="../../../../io/openems/edge/bridge/modbus/api/element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;[]&nbsp;getInputElements()</pre>
+<h4>getInputCoil0Elements</h4>
+<pre>public abstract&nbsp;<a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>[]&nbsp;getInputCoil0Elements()</pre>
+<div class="block">Gets the <a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element"><code>ModbusCoilElement</code></a> for the input coils starting at address 0.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the array; empty for no input coils</dd>
+</dl>
 </li>
 </ul>
-<a name="getOutputElements--">
+<a name="getInputCoil512Elements--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getOutputElements</h4>
-<pre>public abstract&nbsp;<a href="../../../../io/openems/edge/bridge/modbus/api/element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;[]&nbsp;getOutputElements()</pre>
+<h4>getInputCoil512Elements</h4>
+<pre>public abstract&nbsp;<a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>[]&nbsp;getInputCoil512Elements()</pre>
+<div class="block">Gets the <a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element"><code>ModbusCoilElement</code></a> for the input coils starting at address
+ 512.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the array; empty for no input coils</dd>
+</dl>
 </li>
 </ul>
-<a name="getOutputCoils--">
+<a name="getOutputCoil512Elements--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getOutputCoils</h4>
-<pre>public abstract&nbsp;int&nbsp;getOutputCoils()</pre>
-</li>
-</ul>
-<a name="getInputCoils--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getInputCoils</h4>
-<pre>public abstract&nbsp;int&nbsp;getInputCoils()</pre>
+<h4>getOutputCoil512Elements</h4>
+<pre>public abstract&nbsp;<a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>[]&nbsp;getOutputCoil512Elements()</pre>
+<div class="block">Gets the <a href="../../../../io/openems/edge/bridge/modbus/api/element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element"><code>ModbusCoilElement</code></a> for the output coils starting at address
+ 512.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the array; empty for no output coils</dd>
+</dl>
 </li>
 </ul>
 <a name="getChannels--">
@@ -263,6 +284,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getChannels</h4>
 <pre>public abstract&nbsp;<a href="../../../../io/openems/edge/common/channel/BooleanReadChannel.html" title="class in io.openems.edge.common.channel">BooleanReadChannel</a>[]&nbsp;getChannels()</pre>
+<div class="block">Gets the Channels of the <a href="../../../../io/openems/edge/wago/FieldbusModule.html" title="class in io.openems.edge.wago"><code>FieldbusModule</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../../../io/openems/edge/common/channel/Channel.html" title="interface in io.openems.edge.common.channel"><code>Channel</code></a></dd>
+</dl>
 </li>
 </ul>
 </li>
