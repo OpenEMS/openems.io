@@ -2642,7 +2642,62 @@ L1|     xxxxxxxxxxxxxxxx
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>5.5.33. PV-Inverter Fix Power Limit</h4>
+<h4 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>5.5.33. IO SG-Ready Heat Pump</h4>
+<div class="paragraph">
+<p>Controls a heat pump that implements the SG-Ready standard via two Relay contacts, depending on surplus power and battery state-of-charge.</p>
+</div>
+<div class="sect4">
+<h5 id="_states"><a class="anchor" href="#_states"></a>5.5.33.1. States</h5>
+<div class="paragraph">
+<p>The Controller distinguishes the different States, according to the SG-Ready standard.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lock State</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The lock state blocks everything till an internal maximum time of (default) two hours</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regular State</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The heat pump runs in energy-efficient standard operation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recommendation State</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">State: The heat pump runs in a more sufficient mode for space heating and hot water production, to use available surplus power</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Force-On State</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The heat pump runs in a definitive start/heat-up mode. Depending on the heat pump, heating is forced and additional heaters may be switched on</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_channels_2"><a class="anchor" href="#_channels_2"></a>5.5.33.2. Channels</h5>
+<div class="paragraph">
+<p>The Controller has an ongoing time counter for every state, that is started and stopped if the corresponding state is active or not.</p>
+</div>
+<div class="paragraph">
+<p>Minimum switching time:
+As an additional preventative, the controller has a minimum switching time. If a state changed, it will wait for this time (default 60 seconds) till the next state can be set.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.io.heatpump.sgready">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>5.5.34. PV-Inverter Fix Power Limit</h4>
 <div class="paragraph">
 <p>Sets a fixed power limit for PV-Inverter production.</p>
 </div>
@@ -2651,7 +2706,7 @@ L1|     xxxxxxxxxxxxxxxx
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>5.5.34. PV-Inverter Sell-To-Grid limit</h4>
+<h4 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>5.5.35. PV-Inverter Sell-To-Grid limit</h4>
 <div class="paragraph">
 <p>Dynamically limits the Sell-To-Grid power of a PV-Inverter to a defined maximum power.</p>
 </div>
@@ -2660,7 +2715,7 @@ L1|     xxxxxxxxxxxxxxxx
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>5.5.35. Symmetric Balancing</h4>
+<h4 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>5.5.36. Symmetric Balancing</h4>
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in self-consumption optimization mode.</p>
 </div>
@@ -2669,7 +2724,7 @@ L1|     xxxxxxxxxxxxxxxx
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>5.5.36. Symmetric Balancing Schedule</h4>
+<h4 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>5.5.37. Symmetric Balancing Schedule</h4>
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in balancing mode. The control algorithm charges or discharges the battery in order to reach a given power target set-point at the grid connection point. If the target set-point is defined as zero, the behaviour is like with self-consumption optimization.</p>
 </div>
@@ -2677,7 +2732,7 @@ L1|     xxxxxxxxxxxxxxxx
 <p>This controller allows two ways of controlling the power target set-point:</p>
 </div>
 <div class="sect4">
-<h5 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>5.5.36.1. 1. Definition of a power target set-point Schedule</h5>
+<h5 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>5.5.37.1. 1. Definition of a power target set-point Schedule</h5>
 <div class="paragraph">
 <p>The static configuration parameter "schedule" takes a Schedule of set-points as a Json-Array. An example schedule looks like this:</p>
 </div>
@@ -2725,7 +2780,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect4">
-<h5 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>5.5.36.2. 2. Immediate control of the power target set-point</h5>
+<h5 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>5.5.37.2. 2. Immediate control of the power target set-point</h5>
 <div class="paragraph">
 <p>The power target set-point may also be controlled directly via the <code>GridActivePowerSetPoint</code> channel. E.g. if the controller component has the Id <code>ctrlBalancingSchedule0</code> one can use e.g. the <a href="https://openems.github.io/openems.io/openems/latest/edge/controller.html#_rest_api_controller">REST-Api Controller</a> and write</p>
 </div>
@@ -2745,7 +2800,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>5.5.37. Symmetric Fix Active Power</h4>
+<h4 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>5.5.38. Symmetric Fix Active Power</h4>
 <div class="paragraph">
 <p>Sets a fixed active power for charging/discharging of a symmetric energy storage system.</p>
 </div>
@@ -2754,7 +2809,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>5.5.38. Symmetric Fix Reactive Power</h4>
+<h4 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>5.5.39. Symmetric Fix Reactive Power</h4>
 <div class="paragraph">
 <p>Sets a fixed reactive power for a symmetric energy storage system.</p>
 </div>
@@ -2763,7 +2818,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>5.5.39. Symmetric Limit Active Power</h4>
+<h4 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>5.5.40. Symmetric Limit Active Power</h4>
 <div class="paragraph">
 <p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
 </div>
@@ -2772,7 +2827,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>5.5.40. Symmetric Linear Power Band</h4>
+<h4 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>5.5.41. Symmetric Linear Power Band</h4>
 <div class="paragraph">
 <p>Executes a test cycle for a symmetric energy storage system by increasing and decreasing the charging/discharging power in given limits.</p>
 </div>
@@ -2781,7 +2836,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>5.5.41. Symmetric Peak-Shaving</h4>
+<h4 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>5.5.42. Symmetric Peak-Shaving</h4>
 <div class="paragraph">
 <p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
 </div>
@@ -2790,7 +2845,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>5.5.42. Symmetric Random-Power</h4>
+<h4 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>5.5.43. Symmetric Random-Power</h4>
 <div class="paragraph">
 <p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
 </div>
@@ -2799,7 +2854,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>5.5.43. Symmetric Timeslot Peak-Shaving</h4>
+<h4 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>5.5.44. Symmetric Timeslot Peak-Shaving</h4>
 <div class="paragraph">
 <p>Applies peak-shaving within a configured timeslot at the grid using a symmetric energy storage system. Outside of the timeslot the battery recharges.</p>
 </div>
