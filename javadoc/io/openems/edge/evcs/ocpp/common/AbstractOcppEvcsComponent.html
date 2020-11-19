@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":6,"i4":6,"i5":6,"i6":6,"i7":10,"i8":6,"i9":6,"i10":10,"i11":6,"i12":6,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":6,"i4":6,"i5":6,"i6":6,"i7":10,"i8":6,"i9":6,"i10":10,"i11":10,"i12":10,"i13":6,"i14":6,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":6,"i22":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -112,7 +112,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a>, <a href="../../../../../../io/openems/edge/evcs/api/MeasuringEvcs.html" title="interface in io.openems.edge.evcs.api">MeasuringEvcs</a>, org.osgi.service.event.EventHandler</dd>
+<dd><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a>, <a href="../../../../../../io/openems/edge/evcs/api/MeasuringEvcs.html" title="interface in io.openems.edge.evcs.api">MeasuringEvcs</a>, <a href="../../../../../../io/openems/edge/timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, org.osgi.service.event.EventHandler</dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -122,7 +122,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public abstract class <span class="typeNameLabel">AbstractOcppEvcsComponent</span>
 extends <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a>, <a href="../../../../../../io/openems/edge/evcs/api/MeasuringEvcs.html" title="interface in io.openems.edge.evcs.api">MeasuringEvcs</a>, org.osgi.service.event.EventHandler</pre>
+implements <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a>, <a href="../../../../../../io/openems/edge/evcs/api/MeasuringEvcs.html" title="interface in io.openems.edge.evcs.api">MeasuringEvcs</a>, org.osgi.service.event.EventHandler, <a href="../../../../../../io/openems/edge/timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></pre>
 </li>
 </ul>
 </div>
@@ -262,47 +262,65 @@ implements <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html" title=
 </td>
 </tr>
 <tr id="i10" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../io/openems/edge/evcs/ocpp/common/ChargeSessionStamp.html" title="class in io.openems.edge.evcs.ocpp.common">ChargeSessionStamp</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#getSessionEnd--">getSessionEnd</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.util.UUID</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#getSessionId--">getSessionId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../io/openems/edge/evcs/ocpp/common/ChargeSessionStamp.html" title="class in io.openems.edge.evcs.ocpp.common">ChargeSessionStamp</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#getSessionStart--">getSessionStart</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>abstract <a href="../../../../../../io/openems/edge/evcs/ocpp/common/OcppStandardRequests.html" title="interface in io.openems.edge.evcs.ocpp.common">OcppStandardRequests</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#getStandardRequests--">getStandardRequests</a></span>()</code>
 <div class="block">Default requests that every OCPP EVCS should have.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>abstract java.util.Set&lt;<a href="../../../../../../io/openems/edge/evcs/ocpp/common/OcppInformations.html" title="enum in io.openems.edge.evcs.ocpp.common">OcppInformations</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#getSupportedMeasurements--">getSupportedMeasurements</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#getTimedata--">getTimedata</a></span>()</code>
+<div class="block">Gets the <a href="../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#handleEvent-org.osgi.service.event.Event-">handleEvent</a></span>(org.osgi.service.event.Event&nbsp;event)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#logInfo-org.slf4j.Logger-java.lang.String-">logInfo</a></span>(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code>
 <div class="block">Log an info message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#logWarn-org.slf4j.Logger-java.lang.String-">logWarn</a></span>(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code>
 <div class="block">Log a warn message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#lostSession--">lostSession</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#newSession-io.openems.edge.evcs.ocpp.common.OcppServer-java.util.UUID-">newSession</a></span>(<a href="../../../../../../io/openems/edge/evcs/ocpp/common/OcppServer.html" title="interface in io.openems.edge.evcs.ocpp.common">OcppServer</a>&nbsp;server,
           java.util.UUID&nbsp;sessionId)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>abstract boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#returnsSessionEnergy--">returnsSessionEnergy</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/evcs/ocpp/common/AbstractOcppEvcsComponent.html#setLastChargingProperty-io.openems.edge.evcs.ocpp.common.ChargingProperty-">setLastChargingProperty</a></span>(<a href="../../../../../../io/openems/edge/evcs/ocpp/common/ChargingProperty.html" title="class in io.openems.edge.evcs.ocpp.common">ChargingProperty</a>&nbsp;chargingProperty)</code>&nbsp;</td>
 </tr>
@@ -326,7 +344,7 @@ implements <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html" title=
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.evcs.api.<a href="../../../../../../io/openems/edge/evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a></h3>
-<code><a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setChargePower-int-">_setChargePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setChargePower-java.lang.Integer-">_setChargePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setChargingstationCommunicationFailed-boolean-">_setChargingstationCommunicationFailed</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setChargingType-io.openems.edge.evcs.api.ChargingType-">_setChargingType</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setEnergySession-int-">_setEnergySession</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setEnergySession-java.lang.Integer-">_setEnergySession</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMaximumHardwarePower-int-">_setMaximumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMaximumHardwarePower-java.lang.Integer-">_setMaximumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMaximumPower-int-">_setMaximumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMaximumPower-java.lang.Integer-">_setMaximumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMinimumHardwarePower-int-">_setMinimumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMinimumHardwarePower-java.lang.Integer-">_setMinimumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMinimumPower-int-">_setMinimumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMinimumPower-java.lang.Integer-">_setMinimumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setPhases-int-">_setPhases</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setPhases-java.lang.Integer-">_setPhases</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setStatus-io.openems.edge.evcs.api.Status-">_setStatus</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargePower--">getChargePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargePowerChannel--">getChargePowerChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargingstationCommunicationFailed--">getChargingstationCommunicationFailed</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargingstationCommunicationFailedChannel--">getChargingstationCommunicationFailedChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargingType--">getChargingType</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargingTypeChannel--">getChargingTypeChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getEnergySession--">getEnergySession</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getEnergySessionChannel--">getEnergySessionChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMaximumHardwarePower--">getMaximumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMaximumHardwarePowerChannel--">getMaximumHardwarePowerChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMaximumPower--">getMaximumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMaximumPowerChannel--">getMaximumPowerChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMinimumHardwarePower--">getMinimumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMinimumHardwarePowerChannel--">getMinimumHardwarePowerChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMinimumPower--">getMinimumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMinimumPowerChannel--">getMinimumPowerChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getPhases--">getPhases</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getPhasesChannel--">getPhasesChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getStatus--">getStatus</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getStatusChannel--">getStatusChannel</a></code></li>
+<code><a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setActiveConsumptionEnergy-long-">_setActiveConsumptionEnergy</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setActiveConsumptionEnergy-java.lang.Long-">_setActiveConsumptionEnergy</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setChargePower-int-">_setChargePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setChargePower-java.lang.Integer-">_setChargePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setChargingstationCommunicationFailed-boolean-">_setChargingstationCommunicationFailed</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setChargingType-io.openems.edge.evcs.api.ChargingType-">_setChargingType</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setEnergySession-int-">_setEnergySession</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setEnergySession-java.lang.Integer-">_setEnergySession</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMaximumHardwarePower-int-">_setMaximumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMaximumHardwarePower-java.lang.Integer-">_setMaximumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMaximumPower-int-">_setMaximumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMaximumPower-java.lang.Integer-">_setMaximumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMinimumHardwarePower-int-">_setMinimumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMinimumHardwarePower-java.lang.Integer-">_setMinimumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMinimumPower-int-">_setMinimumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setMinimumPower-java.lang.Integer-">_setMinimumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setPhases-int-">_setPhases</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setPhases-java.lang.Integer-">_setPhases</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#Z:Z_setStatus-io.openems.edge.evcs.api.Status-">_setStatus</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getActiveConsumptionEnergy--">getActiveConsumptionEnergy</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getActiveConsumptionEnergyChannel--">getActiveConsumptionEnergyChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargePower--">getChargePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargePowerChannel--">getChargePowerChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargingstationCommunicationFailed--">getChargingstationCommunicationFailed</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargingstationCommunicationFailedChannel--">getChargingstationCommunicationFailedChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargingType--">getChargingType</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getChargingTypeChannel--">getChargingTypeChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getEnergySession--">getEnergySession</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getEnergySessionChannel--">getEnergySessionChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMaximumHardwarePower--">getMaximumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMaximumHardwarePowerChannel--">getMaximumHardwarePowerChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMaximumPower--">getMaximumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMaximumPowerChannel--">getMaximumPowerChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMinimumHardwarePower--">getMinimumHardwarePower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMinimumHardwarePowerChannel--">getMinimumHardwarePowerChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMinimumPower--">getMinimumPower</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getMinimumPowerChannel--">getMinimumPowerChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getPhases--">getPhases</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getPhasesChannel--">getPhasesChannel</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getStatus--">getStatus</a>, <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html#getStatusChannel--">getStatusChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
@@ -519,6 +537,15 @@ implements <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html" title=
 <pre>public abstract&nbsp;java.lang.Integer&nbsp;getConfiguredMinimumHardwarePower()</pre>
 </li>
 </ul>
+<a name="returnsSessionEnergy--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>returnsSessionEnergy</h4>
+<pre>public abstract&nbsp;boolean&nbsp;returnsSessionEnergy()</pre>
+</li>
+</ul>
 <a name="getRequiredRequestsAfterConnection--">
 <!--   -->
 </a>
@@ -586,6 +613,41 @@ implements <a href="../../../../../../io/openems/edge/evcs/api/Evcs.html" title=
 <li class="blockList">
 <h4>setLastChargingProperty</h4>
 <pre>public&nbsp;void&nbsp;setLastChargingProperty(<a href="../../../../../../io/openems/edge/evcs/ocpp/common/ChargingProperty.html" title="class in io.openems.edge.evcs.ocpp.common">ChargingProperty</a>&nbsp;chargingProperty)</pre>
+</li>
+</ul>
+<a name="getSessionStart--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSessionStart</h4>
+<pre>public&nbsp;<a href="../../../../../../io/openems/edge/evcs/ocpp/common/ChargeSessionStamp.html" title="class in io.openems.edge.evcs.ocpp.common">ChargeSessionStamp</a>&nbsp;getSessionStart()</pre>
+</li>
+</ul>
+<a name="getSessionEnd--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSessionEnd</h4>
+<pre>public&nbsp;<a href="../../../../../../io/openems/edge/evcs/ocpp/common/ChargeSessionStamp.html" title="class in io.openems.edge.evcs.ocpp.common">ChargeSessionStamp</a>&nbsp;getSessionEnd()</pre>
+</li>
+</ul>
+<a name="getTimedata--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTimedata</h4>
+<pre>public&nbsp;<a href="../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a>&nbsp;getTimedata()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../io/openems/edge/timedata/api/TimedataProvider.html#getTimedata--">TimedataProvider</a></code></span></div>
+<div class="block">Gets the <a href="../../../../../../io/openems/edge/timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../io/openems/edge/timedata/api/TimedataProvider.html#getTimedata--">getTimedata</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the service or null if it is not (yet) available.</dd>
+</dl>
 </li>
 </ul>
 <a name="logInfo-org.slf4j.Logger-java.lang.String-">
