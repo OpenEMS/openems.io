@@ -167,7 +167,7 @@
     <li class="crumb"><a href="io.openems.edge.controller.api.rest.html">REST-Api Controller</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/HEAD/doc/modules/ROOT/pages/edge/controller.adoc.d/io.openems.edge.controller.api.rest.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/feature/github-actions/doc/modules/ROOT/pages/edge/controller.adoc.d/io.openems.edge.controller.api.rest.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
 <h1>REST-Api Controller</h1>
@@ -230,8 +230,53 @@
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code>{
-  "value": 50
+  "type":"INTEGER",
+  "accessMode":"RO",
+  "text":"",
+  "unit":"%",
+  "value":50
 }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>GET</code> api also understands regular expressions. Send a GET request to <a href="http://x:user@localhost:8084/rest/channel/.*/Active.*Power" class="bare">http://x:user@localhost:8084/rest/channel/.*/Active.*Power</a> to read all <code>ActivePower</code> and <code>ReactivePower</code> channels of all components. It returns a response like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>[
+  {
+    "address":"pvInverter0/ActivePower",
+    "type":"INTEGER",
+    "accessMode":"RO",
+    "text":"Negative values for Consumption; positive for Production",
+    "unit":"W",
+    "value":90
+  },
+  {
+    "address":"meter0/ActiveProductionPower",
+    "type":"INTEGER",
+    "accessMode":"RO",
+    "text":"",
+    "unit":"W",
+    "value":465
+  },
+  {
+    "address":"meter0/ActivePower",
+    "type":"INTEGER",
+    "accessMode":"RO",
+    "text":"Negative values for Consumption; positive for Production",
+    "unit":"W",
+    "value":465
+  },
+  {
+    "address":"meter0/ActiveConsumptionPower",
+    "type":"INTEGER",
+    "accessMode":"RO",
+    "text":"",
+    "unit":"W",
+    "value":0
+  }
+]</code></pre>
 </div>
 </div>
 </div>
