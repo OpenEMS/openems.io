@@ -85,6 +85,9 @@
     <span class="nav-text">OpenEMS UI</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../ui/build.html">Build OpenEMS UI</a>
   </li>
 </ul>
@@ -95,9 +98,6 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../backend/architecture.html">Architecture</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../backend/configuration.html">Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../backend/backend-to-backend.html">Backend-to-Backend</a>
@@ -176,11 +176,14 @@
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_input_process_output">1. Input-Process-Output</a></li>
-<li><a href="#_scheduler_and_controller">2. Scheduler and Controller</a></li>
-<li><a href="#_cycle">3. Cycle</a></li>
-<li><a href="#_asynchronous_threads_and_cycle_synchronization">4. Asynchronous threads and Cycle synchronization</a></li>
-<li><a href="#_architecture_scheme">5. Architecture scheme</a></li>
+<li><a href="#_high_level_programming_language">1. High-Level programming language</a></li>
+<li><a href="#_input_process_output">2. Input-Process-Output</a></li>
+<li><a href="#_controller">3. Controller</a></li>
+<li><a href="#_scheduler">4. Scheduler</a></li>
+<li><a href="#_cycle">5. Cycle</a></li>
+<li><a href="#_process_image">6. Process Image</a></li>
+<li><a href="#_asynchronous_threads_and_cycle_synchronization">7. Asynchronous threads and Cycle synchronization</a></li>
+<li><a href="#_architecture_scheme">8. Architecture scheme</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -195,7 +198,41 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_input_process_output"><a class="anchor" href="#_input_process_output"></a>1. Input-Process-Output</h2>
+<h2 id="_high_level_programming_language"><a class="anchor" href="#_high_level_programming_language"></a>1. High-Level programming language</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenEMS Edge and Backend are implemented in the Java programming language and requires a Java Runtime Environment (JRE). This allows convenient development on a personal laptop on any operating system. For productive use, the software typically runs on an Industrial IoT Gateway or a development board like a Raspberry Pi with GNU/Linux Operating System.</p>
+</div>
+<div class="paragraph">
+<p>The usage of a high-level programming language for an EMS leads to a trade-off between easy and efficient software development and loss of hard real-time capabilities.</p>
+</div>
+<div class="paragraph">
+<p>An Energy Management System collects input data, like measured grid power and state of charge of a battery, and processes it with its control algorithms to derive setpoints which are sent to the hardware devices. (see "Input-Process-Output" below).</p>
+</div>
+<div class="paragraph">
+<p>The possible and feasible speed of this execution cycle depends on the performance of the connected devices and the communication paths.
+It also means that the EMS has to deal with multi-threading, asynchronous communication and latencies.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A power smoothing algorithm needs to process the current output power of a photovoltaics system. Most external power meters provide measurements approximately only once every second. In this scenario it is not feasible to run the execution cycle more often than once every second.</p>
+</li>
+<li>
+<p>For control algorithms that require high-performance and minimum delay between measurement and action, e.g. providing Virtual Inertia Ancillary Services, the EMS cycle duration is not sufficient and soft real-time behaviour is not suitable. The same point applies for critical safety measures like fire extinguishing and disaster control measures."</p>
+</li>
+<li>
+<p>Due to the asynchronous communication, new data can arrive at every moment, e.g. the value for active power received by the meter can change at any time between the operation of two consecutive lines of code. The EMS needs to provide measures to avoid errors arising from this multi-threading.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_input_process_output"><a class="anchor" href="#_input_process_output"></a>2. Input-Process-Output</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>OpenEMS Edge is built around the well-known IPO (input-process-output) model which defines the internal execution cycle.</p>
@@ -225,13 +262,63 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_scheduler_and_controller"><a class="anchor" href="#_scheduler_and_controller"></a>2. Scheduler and Controller</h2>
+<h2 id="_controller"><a class="anchor" href="#_controller"></a>3. Controller</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>During the 'process' phase different algorithms (Controllers) might try to access the same resources - e.g. two Controllers try to switch the same digital output. It is therefore necessary to prioritize their execution and restrict access according to priority.</p>
+<p>Controllers are consumers of Channel data and hold the actual business logic, e.g. the control algorithm that evaluates input data and defines setpoints for the controlled hardware.</p>
 </div>
 <div class="paragraph">
-<p>OpenEMS Edge uses Scheduler implementations to receive a sorted list of Controllers. The Controllers are then executed in order. Later executed Controllers are not allowed to overwrite a previously written result.</p>
+<p>Examples for controllers are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Controller.Ess.LimitTotalDischarge</code> maintains a minimum battery level</p>
+</li>
+<li>
+<p><code>Controller.Backend.Api</code> connects to the OpenEMS Backend server</p>
+</li>
+<li>
+<p><code>Controller.Rest.Api</code> provides a JSON/REST-Api for external access</p>
+</li>
+<li>
+<p><code>Controller.Debug.Log</code> logs regular system status messages to the standard output</p>
+</li>
+<li>
+<p><code>Controller.Ess.PeakShaving</code> charges or discharges an ESS in order to cut power peaks at the PCC</p>
+</li>
+<li>
+<p><code>Controller.Ess.Balancing</code> charges or discharges an ESS in order to optimize self-consumption from a local photovoltaics system.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ideally controller implementations follow the KISS (Keep It Simple Stupid) principle, which means that they carry out only one specific, encapsulated task.
+This approach allows very flexible system architectures and avoids duplicated code.
+For example, both <code>Ess.PeakShaving</code> and <code>Ess.Balancing</code> controllers do not need to repeat any logic for keeping the battery at a safe state, as this is what the <code>Ess.LimitTotalDischarge</code> controller is responsible for.</p>
+</div>
+<div class="paragraph">
+<p>As can be seen above, controllers are not necessarily restricted to control algorithms.
+Even northbound connections to a backend server or SCADA system and alike are implemented as Controllers.
+This assures for any setpoint request by an external system being embedded in the local prioritization system and naturally restricted by higher-priority controllers.</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em> An external request to discharge the battery will be limited by the <code>Ess.LimitTotalDischarge</code> controller just like any other internal control algorithm.</p>
+</div>
+<div class="paragraph">
+<p>Controllers are executed regularly e.g. once per second (see "Cycle" below).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scheduler"><a class="anchor" href="#_scheduler"></a>4. Scheduler</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>During the 'process' phase different algorithms (Controllers) might try to access the same resources - e.g. two Controllers try to switch the same digital output.
+It is therefore necessary to prioritize their execution and restrict access according to priority.
+OpenEMS Edge uses Scheduler implementations to receive a sorted list of Controllers.
+The Controllers are then executed in order.
+Later executed Controllers are not allowed to overwrite a previously written result.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -239,10 +326,32 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 <div class="title">Figure 2. IPO model with Scheduler and Controllers</div>
 </div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="paragraph">
+<p>In the example of energy storage system, the following figure shows, how the interval of possible solutions is reduced by sequentially executed Controllers.
+In the example the initial ESS limits from battery and converter allow charging and discharging with <code>50 kW</code>.
+The 'Limit Total Discharge' controller then adds a constraint to force charge the ESS, i.e. enforcing a setpoint that is smaller than <code>-5 kW</code>.
+No further limitations are applied by the Api controllers.
+The 'Balancing' controller then requests discharging the ESS with <code>20 kW</code> but is forced to fulfil the constraints.
+Eventually the ESS gets force-charged with <code>5 kW</code>.</p>
+</div>
+<div class="paragraph">
+<p>The scheduler in OpenEMS Edge handles this prioritization and sequential execution of controllers.
+In the example of controlling an ESS, a separate <code>Ess.Power</code> component synchronizes with the IPO cycle and manages feasible solutions via a linear equation system that allows constraints on three-phase or single-phase setpoints for active and reactive power.
+It is also used for optimizing distribution of setpoints in the case of multiple ESS.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/scheduler-ess-priority.png" alt="Prioritization of ESS power setpoints">
+</div>
+<div class="title">Figure 3. Prioritization of ESS power setpoints</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cycle"><a class="anchor" href="#_cycle"></a>3. Cycle</h2>
+<h2 id="_cycle"><a class="anchor" href="#_cycle"></a>5. Cycle</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The input-process-output model in OpenEMS Edge is executed in a Cycle - implemented by the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.core/src/io/openems/edge/core/cycle/Cycle.java">Cycle component <span class="icon"><i class="fa fa-code"></i></span></a>. It handles the setting of a process image in the input phase and executes the Controllers in the process phase. Furthermore it emits Cycle Events that can be used in other Components to synchronize with the Cycle.</p>
@@ -251,12 +360,32 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="content">
 <img src="../_images/edge-cycle.png" alt="OpenEMS Edge Cycle">
 </div>
-<div class="title">Figure 3. OpenEMS Edge Cycle</div>
+<div class="title">Figure 4. OpenEMS Edge Cycle</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_asynchronous_threads_and_cycle_synchronization"><a class="anchor" href="#_asynchronous_threads_and_cycle_synchronization"></a>4. Asynchronous threads and Cycle synchronization</h2>
+<h2 id="_process_image"><a class="anchor" href="#_process_image"></a>6. Process Image</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Due to asynchronous communication with external devices and services, data can potentially be updated or invalidated at any point in time.
+This could lead to confusing situations, e.g. where a Channel value changes between two consecutive controllers that act on its data.
+To avoid these situations and relieve the programmer from taking care of all kinds of concurrency problems, OpenEMS uses a "Process Image", a technique well proven in the field of PLC programming.
+The idea is to untie the producers and consumers of data and introducing a central buffer for all channel data. This buffer - the Process Image - is updated only once in every computing cycle when it activates the latest data in each Channel.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, the implementation of channel objects in OpenEMS has two data variables:
+- The <code>value</code> field keeping the currently active value that should be used by consumers
+- The <code>nextValue</code> field representing the latest data that was received, e.g. via Modbus communication.</p>
+</div>
+<div class="paragraph">
+<p>At - and only at - 'Switch Process Image' of the Cycle, the <code>nextValue</code> gets copied to the <code>value</code> field.
+This assures, that the data in the Process Image does not change during a computing Cycle.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asynchronous_threads_and_cycle_synchronization"><a class="anchor" href="#_asynchronous_threads_and_cycle_synchronization"></a>7. Asynchronous threads and Cycle synchronization</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Communication with external hardware and services needs to be executed in asynchronous threads to not block the system. At the same time, those threads need to synchronize with the Cycle.</p>
@@ -268,13 +397,16 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="content">
 <img src="../_images/cycle-modbus.png" alt="Synchronize Cycle with Modbus read/write">
 </div>
-<div class="title">Figure 4. Synchronize Cycle with Modbus read/write</div>
+<div class="title">Figure 5. Synchronize Cycle with Modbus read/write</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_architecture_scheme"><a class="anchor" href="#_architecture_scheme"></a>5. Architecture scheme</h2>
+<h2 id="_architecture_scheme"><a class="anchor" href="#_architecture_scheme"></a>8. Architecture scheme</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The OpenEMS Edge software architecture is carefully designed to abstract device communication and control algorithms in a way to provide maximum flexibility, predictability and stability while simplifying the process of implementing new components.</p>
+</div>
 <div class="paragraph">
 <p>The following scheme shows the abstraction of hardware via Channels, Natures and Devices as well as the execution of control algorithms via Scheduler and Controllers.</p>
 </div>
@@ -282,7 +414,7 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="content">
 <img src="../_images/device-nature-channel-scheduler-controller.png" alt="Architecture scheme">
 </div>
-<div class="title">Figure 5. Architecture scheme</div>
+<div class="title">Figure 6. Architecture scheme</div>
 </div>
 </div>
 </div>

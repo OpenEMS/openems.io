@@ -85,6 +85,9 @@
     <span class="nav-text">OpenEMS UI</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="ui/build.html">Build OpenEMS UI</a>
   </li>
 </ul>
@@ -95,9 +98,6 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="backend/architecture.html">Architecture</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="backend/configuration.html">Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="backend/backend-to-backend.html">Backend-to-Backend</a>
@@ -195,72 +195,85 @@
 <li><a href="#_setup_visual_studio_code_for_openems_ui">2.4. Setup Visual Studio Code for OpenEMS UI</a></li>
 <li><a href="#_run_openems_ui">2.5. Run OpenEMS UI</a></li>
 <li><a href="#_integrate_openems_backend">2.6. Integrate OpenEMS Backend</a></li>
+<li><a href="#_next_steps">2.7. Next steps</a></li>
 </ul>
 </li>
-<li><a href="#_next_steps">3. Next steps</a></li>
-<li><a href="#_core_concepts_terminology">4. Core concepts &amp; terminology</a>
+<li><a href="#_core_concepts_terminology">3. Core concepts &amp; terminology</a>
 <ul class="sectlevel2">
-<li><a href="#_osgi_bundle">4.1. OSGi Bundle</a></li>
-<li><a href="#_openems_component">4.2. OpenEMS Component</a></li>
-<li><a href="#_channel">4.3. Channel</a></li>
-<li><a href="#_nature">4.4. Nature</a></li>
-<li><a href="#_channel_address">4.5. Channel Address</a></li>
-<li><a href="#_scheduler">4.6. Scheduler</a></li>
-<li><a href="#_controller">4.7. Controller</a></li>
+<li><a href="#_osgi_bundle">3.1. OSGi Bundle</a></li>
+<li><a href="#_openems_component">3.2. OpenEMS Component</a></li>
+<li><a href="#_channel">3.3. Channel</a></li>
+<li><a href="#_nature">3.4. Nature</a></li>
+<li><a href="#_channel_address">3.5. Channel Address</a></li>
+<li><a href="#_scheduler">3.6. Scheduler</a></li>
+<li><a href="#_controller">3.7. Controller</a></li>
 </ul>
 </li>
-<li><a href="#_openems_edge">5. OpenEMS Edge</a>
+<li><a href="#_openems_edge">4. OpenEMS Edge</a>
 <ul class="sectlevel2">
-<li><a href="#_edge_architecture">5.1. Edge Architecture</a></li>
-<li><a href="#_configuration">5.2. Configuration</a></li>
-<li><a href="#_nature_2">5.3. Nature</a></li>
-<li><a href="#_scheduler_3">5.4. Scheduler</a></li>
-<li><a href="#_controller_3">5.5. Controller</a></li>
-<li><a href="#_bridge">5.6. Bridge</a></li>
-<li><a href="#_controller_4">5.7. Controller</a></li>
-<li><a href="#_implementing_a_device">5.8. Implementing a device</a></li>
-<li><a href="#_build_openems_edge">5.9. Build OpenEMS Edge</a></li>
-<li><a href="#_deploy_openems_edge">5.10. Deploy OpenEMS Edge</a></li>
+<li><a href="#_edge_architecture">4.1. Edge Architecture</a></li>
+<li><a href="#_configuration">4.2. Configuration</a></li>
+<li><a href="#_nature_2">4.3. Nature</a></li>
+<li><a href="#_scheduler_4">4.4. Scheduler</a></li>
+<li><a href="#_controller_4">4.5. Controller</a></li>
+<li><a href="#_bridge">4.6. Bridge</a></li>
+<li><a href="#_controller_5">4.7. Controller</a></li>
+<li><a href="#_implementing_a_device">4.8. Implementing a device</a></li>
+<li><a href="#_build_openems_edge">4.9. Build OpenEMS Edge</a></li>
+<li><a href="#_deploy_openems_edge">4.10. Deploy OpenEMS Edge</a></li>
 </ul>
 </li>
-<li><a href="#_openems_ui">6. OpenEMS UI</a>
+<li><a href="#_openems_ui">5. OpenEMS UI</a>
 <ul class="sectlevel2">
-<li><a href="#_build_openems_ui">6.1. Build OpenEMS UI</a></li>
+<li><a href="#_ui_architecture">5.1. UI Architecture</a></li>
+<li><a href="#_build_openems_ui">5.2. Build OpenEMS UI</a></li>
 </ul>
 </li>
-<li><a href="#_openems_backend">7. OpenEMS Backend</a>
+<li><a href="#_openems_backend">6. OpenEMS Backend</a>
 <ul class="sectlevel2">
-<li><a href="#_backend_architecture">7.1. Backend Architecture</a></li>
-<li><a href="#_configuration_6">7.2. Configuration</a></li>
-<li><a href="#_backend_to_backend_communication">7.3. Backend-to-Backend communication</a></li>
-<li><a href="#_build_openems_backend">7.4. Build OpenEMS Backend</a></li>
-<li><a href="#_deploy_openems_backend">7.5. Deploy OpenEMS Backend</a></li>
+<li><a href="#_backend_architecture">6.1. Backend Architecture</a></li>
+<li><a href="#_backend_to_backend_communication">6.2. Backend-to-Backend communication</a></li>
+<li><a href="#_build_openems_backend">6.3. Build OpenEMS Backend</a></li>
+<li><a href="#_deploy_openems_backend">6.4. Deploy OpenEMS Backend</a></li>
 </ul>
 </li>
-<li><a href="#_internal_component_communication">8. Internal Component Communication</a>
+<li><a href="#_internal_component_communication">7. Internal Component Communication</a>
 <ul class="sectlevel2">
-<li><a href="#_authenticate_ui_to_edgebackend_using_token">8.1. Authenticate UI to Edge/Backend using token</a></li>
-<li><a href="#_authenticate_ui_to_edge_using_password">8.2. Authenticate UI to Edge using password</a></li>
-<li><a href="#_subscribe_to_channels">8.3. Subscribe to Channels</a></li>
-<li><a href="#_subscribe_to_system_log">8.4. Subscribe to System-Log</a></li>
-<li><a href="#_store_channel_data_in_time_series_database">8.5. Store channel data in Time-Series database</a></li>
-<li><a href="#_communicate_with_a_specific_edge_component">8.6. Communicate with a specific Edge Component</a></li>
+<li><a href="#_json_rpc_introduction">7.1. JSON-RPC introduction</a></li>
+<li><a href="#_example_communication_messages">7.2. Example communication messages</a></li>
+<li><a href="#_subscribe_channels">7.3. Subscribe Channels</a></li>
+<li><a href="#_edge_rpc">7.4. Edge-RPC</a></li>
+<li><a href="#_jsonapi_component">7.5. JsonApi Component</a></li>
+<li><a href="#_authenticate_ui_to_edgebackend_using_token">7.6. Authenticate UI to Edge/Backend using token</a></li>
+<li><a href="#_authenticate_ui_to_edge_using_password">7.7. Authenticate UI to Edge using password</a></li>
+<li><a href="#_subscribe_to_channels">7.8. Subscribe to Channels</a></li>
+<li><a href="#_subscribe_to_system_log">7.9. Subscribe to System-Log</a></li>
+<li><a href="#_store_channel_data_in_time_series_database">7.10. Store channel data in Time-Series database</a></li>
+<li><a href="#_communicate_with_a_specific_edge_component">7.11. Communicate with a specific Edge Component</a></li>
 </ul>
 </li>
-<li><a href="#_documentation">Documentation</a>
-<ul class="sectlevel1">
-<li><a href="#_concept">1. Concept</a></li>
-<li><a href="#_edit_a_page">2. Edit a page</a></li>
-<li><a href="#_add_a_page">3. Add a page</a></li>
-<li><a href="#_build_docs">4. Build Docs</a></li>
-<li><a href="#_research_and_development">5. Research and Development</a>
+<li><a href="#_real_time_simulation">8. Real-Time Simulation</a>
 <ul class="sectlevel2">
-<li><a href="#_easy_res">5.1. EASY-RES</a></li>
-<li><a href="#_emsig">5.2. EMSIG</a></li>
-<li><a href="#_blogpv">5.3. BloGPV</a></li>
-<li><a href="#_memap">5.4. MEMAP</a></li>
+<li><a href="#_types_of_simulated_components">8.1. Types of Simulated Components</a></li>
+<li><a href="#_simulator_components">8.2. Simulator Components</a></li>
+<li><a href="#_possible_combinations">8.3. Possible Combinations</a></li>
 </ul>
 </li>
+<li><a href="#_ui_history_simulation">9. UI History Simulation</a></li>
+<li><a href="#_documentation">10. Documentation</a>
+<ul class="sectlevel2">
+<li><a href="#_concept">10.1. Concept</a></li>
+<li><a href="#_edit_a_page">10.2. Edit a page</a></li>
+<li><a href="#_add_a_page">10.3. Add a page</a></li>
+<li><a href="#_build_docs">10.4. Build Docs</a></li>
+</ul>
+</li>
+<li><a href="#_research_and_development">11. Research and Development</a>
+<ul class="sectlevel2">
+<li><a href="#_easy_res">11.1. EASY-RES</a></li>
+<li><a href="#_emsig">11.2. EMSIG</a></li>
+<li><a href="#_blogpv">11.3. BloGPV</a></li>
+<li><a href="#_memap">11.4. MEMAP</a></li>
 </ul>
 </li>
 </ul>
@@ -1201,24 +1214,22 @@ export const environment: Environment = {
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>3. Next steps</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_next_steps"><a class="anchor" href="#_next_steps"></a>2.7. Next steps</h3>
 <div class="paragraph">
 <p>Now that you setup a complete development environment and have a working instance of OpenEMS Edge, OpenEMS Backend an OpenEMS UI, you can continue implementing your first device driver in OpenEMS. We provide a tutorial that explains the steps to implement an electric meter in OpenEMS Edge that is connected via Modbus/TCP. The meter itself is simulated using a small Modbus slave application, so no external hardware is required for this guide. → <a href="edge/implement.html" class="page">Implementing a Device</a></p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_core_concepts_terminology"><a class="anchor" href="#_core_concepts_terminology"></a>4. Core concepts &amp; terminology</h2>
+<h2 id="_core_concepts_terminology"><a class="anchor" href="#_core_concepts_terminology"></a>3. Core concepts &amp; terminology</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter describes some of the core concepts and commonly used terms in OpenEMS:</p>
 </div>
 <div class="sect2">
-<h3 id="_osgi_bundle"><a class="anchor" href="#_osgi_bundle"></a>4.1. OSGi Bundle</h3>
+<h3 id="_osgi_bundle"><a class="anchor" href="#_osgi_bundle"></a>3.1. OSGi Bundle</h3>
 <div class="paragraph">
 <p>OpenEMS Edge is using the <a href="https://en.wikipedia.org/wiki/OSGi">OSGi <span class="icon"><i class="fa fa-external-link"></i></span></a> platform to provide a completely modular and dynamic service oriented system.</p>
 </div>
@@ -1313,89 +1324,96 @@ export const environment: Environment = {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_openems_component"><a class="anchor" href="#_openems_component"></a>4.2. OpenEMS Component</h3>
+<h3 id="_openems_component"><a class="anchor" href="#_openems_component"></a>3.2. OpenEMS Component</h3>
 <div class="paragraph">
-<p>OpenEMS Edge is built of Components, i.e. every main component implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.common/src/io/openems/edge/common/component/OpenemsComponent.java">OpenemsComponent interface <span class="icon"><i class="fa fa-code"></i></span></a>.</p>
-</div>
-<div class="paragraph">
-<p>By definition each Component has a unique ID. Those <strong>Component-IDs</strong> are typically:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ess0</code> for the first storage system or battery inverter</p>
-</li>
-<li>
-<p><code>ess1</code> for the second storage system or battery inverter</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p><code>meter0</code> for the first meter in the system</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
+<p>An OpenEMS Component is the fundamental building block in OpenEMS. Within the used OSGi Java framework, an OpenEMS component represents a service with requirements and capabilities.</p>
 </div>
 <div class="paragraph">
-<p>If you receive your OpenEMS together with a FENECON energy storage system, you will find the following Component-IDs:</p>
+<p>As an example, an OpenEMS Component can declare to have the capabilities of an Energy Storage System (ESS) and as such represents the digital twin of a real device.
+A specific control algorithm can be implemented as a separate OpenEMS Component that declares a requirement for an ESS.
+Using this metadata, these building blocks are wired together at runtime and form a very flexible system.
+OSGi provides the capability to enable, modify or disable an OpenEMS Component at any time, without requiring a restart of the software.
+Re-wiring of the building blocks happens transparently in the background by the framework.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>FENECON Pro</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ess0</code>: FENECON Pro Ess</p>
-</li>
-<li>
-<p><code>meter0</code>: Socomec grid meter</p>
-</li>
-<li>
-<p><code>meter1</code>: FENECON Pro production meter</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Every OpenEMS Component is identified by a unique ID, the "Component-ID".
+In an ecosystem consisting of a couple of ESS, a power meter at the grid connection point, and a measured photovoltaic system, those Component-IDs can be represented as follows:
+*	<code>ess1</code> for the first ESS
+*	<code>ess2</code> for the second ESS
+*	<code>ess0</code> for a virtual ESS cluster Component that aggregates ess1 and ess2
+*	<code>meter0</code> for the power meter at the grid connection point
+*	<code>meter1</code> for the measured photovoltaic system
+* &#8230;&#8203;</p>
 </div>
-</li>
-<li>
-<p>FENECON Mini</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ess0</code>: FENECON Mini</p>
-</li>
-<li>
-<p><code>meter0</code>: FENECON Mini grid meter</p>
-</li>
-<li>
-<p><code>meter1</code>: FENECON Mini production meter</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<div class="paragraph">
+<p>To declare an OpenEMS component, the Java class has to <code>implement</code> the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.common/src/io/openems/edge/common/component/OpenemsComponent.java">OpenemsComponent interface <span class="icon"><i class="fa fa-code"></i></span></a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_channel"><a class="anchor" href="#_channel"></a>4.3. Channel</h3>
+<h3 id="_channel"><a class="anchor" href="#_channel"></a>3.3. Channel</h3>
 <div class="paragraph">
-<p>Each OpenemsComponent provides a number of Channels. Each represents a single piece of information. Each Channel implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.common/src/io/openems/edge/common/channel/Channel.java">Channel interface <span class="icon"><i class="fa fa-code"></i></span></a>. By definition each Channel has a unique ID within its parent Component.</p>
+<p>Each OpenEMS component has a defined set of data points.
+These data points are called "Channels".
+Each represents a single piece of information about a component.
+By definition, each channel has a unique ID, the "Channel-ID", within its parent component.
+Channels are defined by metadata like descriptive text, access-mode (<code>read-only</code>, <code>read-write</code>, <code>write-only</code>), data type (<code>string</code>, <code>integer</code>, <code>float</code>, etc.), and unit of measure (<code>Watt</code>, <code>Volt</code>, <code>Degree Celsius</code>, etc.).
+It is up to the OpenEMS component to provide the input for its read-channels as well as triggering actions on write-channels.</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em> An OpenEMS Component that represents a device connected via the Modbus communication protocol continuously reads data, such as the current measured power and provides the data in its Channels.
+Other Components in the system can then use the channel data for their application, e.g. as input for a control algorithm, to analyse it, store it locally or publish it via an application programming interface (API).</p>
+</div>
+<div class="paragraph">
+<p>An energy system architecture as depicted in the Introduction is complex: connected to multiple hardware devices - batteries, converters, meters, and others - and an operating system and other software components.
+All of these elements are possible sources of errors.
+Because of this, measures are implemented in OpenEMS to improve fault tolerance.
+The developer needs to be aware, that every Channel value, while it will never change within a cycle, it could always be <code>undefined</code> or <code>null</code>, e.g. because there is no communication (yet) with the external hardware device or service.
+Therefore, the programming API for accessing a channel value requires an explicit declaration of what should be done in that case.
+It provides the following methods to get the actual value:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>public T getOrError() throws InvalidValueException;</code></p>
+</li>
+<li>
+<p><code>public T orElse(T alternativeValue);</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each Channel implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.common/src/io/openems/edge/common/channel/Channel.java">Channel interface <span class="icon"><i class="fa fa-code"></i></span></a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_nature"><a class="anchor" href="#_nature"></a>4.4. Nature</h3>
+<h3 id="_nature"><a class="anchor" href="#_nature"></a>3.4. Nature</h3>
 <div class="paragraph">
-<p>Natures extend normal Java interfaces with 'Channels'. If a Component implements a Nature it also needs to provide the required Channels. For example the Energy Storage System (ESS) Simulator <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.simulator/src/io/openems/edge/simulator/ess/symmetric/reacting/EssSymmetric.java">Simulator.EssSymmetric.Reacting <span class="icon"><i class="fa fa-code"></i></span></a> implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/SymmetricEss.java">Ess interface <span class="icon"><i class="fa fa-code"></i></span></a> and therefor needs to provide a <code>Soc</code> Channel that provides the current 'State of Charge' of the battery.</p>
+<p>Certain categories of devices and services provide the same kind of information (i.e. Channels).
+To group these similar devices and services, OpenEMS defines "Natures" as sets of characteristics and attributes which need to be provided by each component that implements them.
+That is, a Nature extends a normal Java interface with channels.</p>
+</div>
+<div class="paragraph">
+<p>Examples of abstracting physical devices using Natures are:
+-	"SymmetricMeter" for power meters
+-	"SymmetricEss" for symmetric battery energy storage systems
+-	"Evcs" for electric vehicle charging stations.</p>
+</div>
+<div class="paragraph">
+<p>OpenEMS components can declare their service capabilities and requirements as Natures.
+In this way, a control algorithm can simply declare a requirement for a controllable energy storage system (“ManagedSymmetricEss”) and will at runtime be wired with a service that provides this capability.
+The control algorithm does not need to know anything about the ESS&#8217;s specific communication interface, protocol, or manufacturer.</p>
+</div>
+<div class="paragraph">
+<p>Natures extend normal Java interfaces with 'Channels'.
+If a Component implements a Nature it also needs to provide the required Channels.
+For example the Energy Storage System (ESS) Simulator <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.simulator/src/io/openems/edge/simulator/ess/symmetric/reacting/EssSymmetric.java">Simulator.EssSymmetric.Reacting <span class="icon"><i class="fa fa-code"></i></span></a> implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/SymmetricEss.java">Ess interface <span class="icon"><i class="fa fa-code"></i></span></a> and therefor needs to provide a <code>Soc</code> Channel that provides the current 'State of Charge' of the battery.</p>
 </div>
 <div class="paragraph">
 <p><a href="edge/controller.html" class="page">Controllers</a> are written against Nature implementations. Example: A Controller can be used with any ESS, because it can be sure that it provides all the data the Controller requires for its algorithm.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_channel_address"><a class="anchor" href="#_channel_address"></a>4.5. Channel Address</h3>
+<h3 id="_channel_address"><a class="anchor" href="#_channel_address"></a>3.5. Channel Address</h3>
 <div class="paragraph">
 <p>By combining the unique <strong>Component-ID</strong> and <strong>Channel-ID</strong> each Channel in the system can be addressed by a distinct 'Channel Address' in the form <code>Component-ID/Channel-ID</code>.</p>
 </div>
@@ -1404,13 +1422,13 @@ export const environment: Environment = {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_scheduler"><a class="anchor" href="#_scheduler"></a>4.6. Scheduler</h3>
+<h3 id="_scheduler"><a class="anchor" href="#_scheduler"></a>3.6. Scheduler</h3>
 <div class="paragraph">
 <p>The Scheduler handles the order, in which Controllers are executed. For details see <a href="edge/controller.html" class="page">Scheduler and Controller</a> below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_controller"><a class="anchor" href="#_controller"></a>4.7. Controller</h3>
+<h3 id="_controller"><a class="anchor" href="#_controller"></a>3.7. Controller</h3>
 <div class="paragraph">
 <p>The actual business logic or algorithms are wrapped as 'Controllers'. i.e. they implement the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.controller.api/src/io/openems/edge/controller/api/Controller.java">Controller interface <span class="icon"><i class="fa fa-code"></i></span></a>. Each Controller holds one specific, encapsulated task.</p>
 </div>
@@ -1418,10 +1436,10 @@ export const environment: Environment = {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_openems_edge"><a class="anchor" href="#_openems_edge"></a>5. OpenEMS Edge</h2>
+<h2 id="_openems_edge"><a class="anchor" href="#_openems_edge"></a>4. OpenEMS Edge</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_edge_architecture"><a class="anchor" href="#_edge_architecture"></a>5.1. Edge Architecture</h3>
+<h3 id="_edge_architecture"><a class="anchor" href="#_edge_architecture"></a>4.1. Edge Architecture</h3>
 <div class="paragraph">
 <p>OpenEMS is a modular platform for energy management applications.
 It was developed around the requirements of controlling, monitoring and integrating energy storage systems together with renewable energy sources and complementary devices and services.</p>
@@ -1430,7 +1448,39 @@ It was developed around the requirements of controlling, monitoring and integrat
 <p>The OpenEMS Edge software architecture is carefully designed to abstract device communication and control algorithms in a way to provide maximum flexibility, predictability and stability, while simplifying the process of implementing new components.</p>
 </div>
 <div class="sect3">
-<h4 id="_input_process_output"><a class="anchor" href="#_input_process_output"></a>5.1.1. Input-Process-Output</h4>
+<h4 id="_high_level_programming_language"><a class="anchor" href="#_high_level_programming_language"></a>4.1.1. High-Level programming language</h4>
+<div class="paragraph">
+<p>OpenEMS Edge and Backend are implemented in the Java programming language and requires a Java Runtime Environment (JRE). This allows convenient development on a personal laptop on any operating system. For productive use, the software typically runs on an Industrial IoT Gateway or a development board like a Raspberry Pi with GNU/Linux Operating System.</p>
+</div>
+<div class="paragraph">
+<p>The usage of a high-level programming language for an EMS leads to a trade-off between easy and efficient software development and loss of hard real-time capabilities.</p>
+</div>
+<div class="paragraph">
+<p>An Energy Management System collects input data, like measured grid power and state of charge of a battery, and processes it with its control algorithms to derive setpoints which are sent to the hardware devices. (see "Input-Process-Output" below).</p>
+</div>
+<div class="paragraph">
+<p>The possible and feasible speed of this execution cycle depends on the performance of the connected devices and the communication paths.
+It also means that the EMS has to deal with multi-threading, asynchronous communication and latencies.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A power smoothing algorithm needs to process the current output power of a photovoltaics system. Most external power meters provide measurements approximately only once every second. In this scenario it is not feasible to run the execution cycle more often than once every second.</p>
+</li>
+<li>
+<p>For control algorithms that require high-performance and minimum delay between measurement and action, e.g. providing Virtual Inertia Ancillary Services, the EMS cycle duration is not sufficient and soft real-time behaviour is not suitable. The same point applies for critical safety measures like fire extinguishing and disaster control measures."</p>
+</li>
+<li>
+<p>Due to the asynchronous communication, new data can arrive at every moment, e.g. the value for active power received by the meter can change at any time between the operation of two consecutive lines of code. The EMS needs to provide measures to avoid errors arising from this multi-threading.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_input_process_output"><a class="anchor" href="#_input_process_output"></a>4.1.2. Input-Process-Output</h4>
 <div class="paragraph">
 <p>OpenEMS Edge is built around the well-known IPO (input-process-output) model which defines the internal execution cycle.</p>
 </div>
@@ -1458,12 +1508,60 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect3">
-<h4 id="_scheduler_and_controller"><a class="anchor" href="#_scheduler_and_controller"></a>5.1.2. Scheduler and Controller</h4>
+<h4 id="_controller_2"><a class="anchor" href="#_controller_2"></a>4.1.3. Controller</h4>
 <div class="paragraph">
-<p>During the 'process' phase different algorithms (Controllers) might try to access the same resources - e.g. two Controllers try to switch the same digital output. It is therefore necessary to prioritize their execution and restrict access according to priority.</p>
+<p>Controllers are consumers of Channel data and hold the actual business logic, e.g. the control algorithm that evaluates input data and defines setpoints for the controlled hardware.</p>
 </div>
 <div class="paragraph">
-<p>OpenEMS Edge uses Scheduler implementations to receive a sorted list of Controllers. The Controllers are then executed in order. Later executed Controllers are not allowed to overwrite a previously written result.</p>
+<p>Examples for controllers are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Controller.Ess.LimitTotalDischarge</code> maintains a minimum battery level</p>
+</li>
+<li>
+<p><code>Controller.Backend.Api</code> connects to the OpenEMS Backend server</p>
+</li>
+<li>
+<p><code>Controller.Rest.Api</code> provides a JSON/REST-Api for external access</p>
+</li>
+<li>
+<p><code>Controller.Debug.Log</code> logs regular system status messages to the standard output</p>
+</li>
+<li>
+<p><code>Controller.Ess.PeakShaving</code> charges or discharges an ESS in order to cut power peaks at the PCC</p>
+</li>
+<li>
+<p><code>Controller.Ess.Balancing</code> charges or discharges an ESS in order to optimize self-consumption from a local photovoltaics system.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ideally controller implementations follow the KISS (Keep It Simple Stupid) principle, which means that they carry out only one specific, encapsulated task.
+This approach allows very flexible system architectures and avoids duplicated code.
+For example, both <code>Ess.PeakShaving</code> and <code>Ess.Balancing</code> controllers do not need to repeat any logic for keeping the battery at a safe state, as this is what the <code>Ess.LimitTotalDischarge</code> controller is responsible for.</p>
+</div>
+<div class="paragraph">
+<p>As can be seen above, controllers are not necessarily restricted to control algorithms.
+Even northbound connections to a backend server or SCADA system and alike are implemented as Controllers.
+This assures for any setpoint request by an external system being embedded in the local prioritization system and naturally restricted by higher-priority controllers.</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em> An external request to discharge the battery will be limited by the <code>Ess.LimitTotalDischarge</code> controller just like any other internal control algorithm.</p>
+</div>
+<div class="paragraph">
+<p>Controllers are executed regularly e.g. once per second (see "Cycle" below).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_scheduler_2"><a class="anchor" href="#_scheduler_2"></a>4.1.4. Scheduler</h4>
+<div class="paragraph">
+<p>During the 'process' phase different algorithms (Controllers) might try to access the same resources - e.g. two Controllers try to switch the same digital output.
+It is therefore necessary to prioritize their execution and restrict access according to priority.
+OpenEMS Edge uses Scheduler implementations to receive a sorted list of Controllers.
+The Controllers are then executed in order.
+Later executed Controllers are not allowed to overwrite a previously written result.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1471,9 +1569,31 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 <div class="title">Figure 28. IPO model with Scheduler and Controllers</div>
 </div>
+<div class="paragraph">
+<p><em>Example:</em></p>
+</div>
+<div class="paragraph">
+<p>In the example of energy storage system, the following figure shows, how the interval of possible solutions is reduced by sequentially executed Controllers.
+In the example the initial ESS limits from battery and converter allow charging and discharging with <code>50 kW</code>.
+The 'Limit Total Discharge' controller then adds a constraint to force charge the ESS, i.e. enforcing a setpoint that is smaller than <code>-5 kW</code>.
+No further limitations are applied by the Api controllers.
+The 'Balancing' controller then requests discharging the ESS with <code>20 kW</code> but is forced to fulfil the constraints.
+Eventually the ESS gets force-charged with <code>5 kW</code>.</p>
+</div>
+<div class="paragraph">
+<p>The scheduler in OpenEMS Edge handles this prioritization and sequential execution of controllers.
+In the example of controlling an ESS, a separate <code>Ess.Power</code> component synchronizes with the IPO cycle and manages feasible solutions via a linear equation system that allows constraints on three-phase or single-phase setpoints for active and reactive power.
+It is also used for optimizing distribution of setpoints in the case of multiple ESS.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/scheduler-ess-priority.png" alt="Prioritization of ESS power setpoints">
+</div>
+<div class="title">Figure 29. Prioritization of ESS power setpoints</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_cycle"><a class="anchor" href="#_cycle"></a>5.1.3. Cycle</h4>
+<h4 id="_cycle"><a class="anchor" href="#_cycle"></a>4.1.5. Cycle</h4>
 <div class="paragraph">
 <p>The input-process-output model in OpenEMS Edge is executed in a Cycle - implemented by the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.core/src/io/openems/edge/core/cycle/Cycle.java">Cycle component <span class="icon"><i class="fa fa-code"></i></span></a>. It handles the setting of a process image in the input phase and executes the Controllers in the process phase. Furthermore it emits Cycle Events that can be used in other Components to synchronize with the Cycle.</p>
 </div>
@@ -1481,11 +1601,29 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="content">
 <img src="_images/edge-cycle.png" alt="OpenEMS Edge Cycle">
 </div>
-<div class="title">Figure 29. OpenEMS Edge Cycle</div>
+<div class="title">Figure 30. OpenEMS Edge Cycle</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_asynchronous_threads_and_cycle_synchronization"><a class="anchor" href="#_asynchronous_threads_and_cycle_synchronization"></a>5.1.4. Asynchronous threads and Cycle synchronization</h4>
+<h4 id="_process_image"><a class="anchor" href="#_process_image"></a>4.1.6. Process Image</h4>
+<div class="paragraph">
+<p>Due to asynchronous communication with external devices and services, data can potentially be updated or invalidated at any point in time.
+This could lead to confusing situations, e.g. where a Channel value changes between two consecutive controllers that act on its data.
+To avoid these situations and relieve the programmer from taking care of all kinds of concurrency problems, OpenEMS uses a "Process Image", a technique well proven in the field of PLC programming.
+The idea is to untie the producers and consumers of data and introducing a central buffer for all channel data. This buffer - the Process Image - is updated only once in every computing cycle when it activates the latest data in each Channel.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, the implementation of channel objects in OpenEMS has two data variables:
+- The <code>value</code> field keeping the currently active value that should be used by consumers
+- The <code>nextValue</code> field representing the latest data that was received, e.g. via Modbus communication.</p>
+</div>
+<div class="paragraph">
+<p>At - and only at - 'Switch Process Image' of the Cycle, the <code>nextValue</code> gets copied to the <code>value</code> field.
+This assures, that the data in the Process Image does not change during a computing Cycle.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_asynchronous_threads_and_cycle_synchronization"><a class="anchor" href="#_asynchronous_threads_and_cycle_synchronization"></a>4.1.7. Asynchronous threads and Cycle synchronization</h4>
 <div class="paragraph">
 <p>Communication with external hardware and services needs to be executed in asynchronous threads to not block the system. At the same time, those threads need to synchronize with the Cycle.</p>
 </div>
@@ -1496,11 +1634,14 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="content">
 <img src="_images/cycle-modbus.png" alt="Synchronize Cycle with Modbus read/write">
 </div>
-<div class="title">Figure 30. Synchronize Cycle with Modbus read/write</div>
+<div class="title">Figure 31. Synchronize Cycle with Modbus read/write</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_architecture_scheme"><a class="anchor" href="#_architecture_scheme"></a>5.1.5. Architecture scheme</h4>
+<h4 id="_architecture_scheme"><a class="anchor" href="#_architecture_scheme"></a>4.1.8. Architecture scheme</h4>
+<div class="paragraph">
+<p>The OpenEMS Edge software architecture is carefully designed to abstract device communication and control algorithms in a way to provide maximum flexibility, predictability and stability while simplifying the process of implementing new components.</p>
+</div>
 <div class="paragraph">
 <p>The following scheme shows the abstraction of hardware via Channels, Natures and Devices as well as the execution of control algorithms via Scheduler and Controllers.</p>
 </div>
@@ -1508,33 +1649,274 @@ It was developed around the requirements of controlling, monitoring and integrat
 <div class="content">
 <img src="_images/device-nature-channel-scheduler-controller.png" alt="Architecture scheme">
 </div>
-<div class="title">Figure 31. Architecture scheme</div>
+<div class="title">Figure 32. Architecture scheme</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>5.2. Configuration</h3>
+<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>4.2. Configuration</h3>
 <div class="paragraph">
-<p>OpenEMS Edge and Backend are configured using the standard OSGi configuration admin service. The easiest way to set a configuration is via the <a href="http://localhost:8080/system/console/configMgr">Apache Felix Web Console Configuration <span class="icon"><i class="fa fa-external-link"></i></span></a> as described in the <a href="gettingstarted.html" class="page">Getting Started</a> guide above.</p>
+<p>The actual hardware setup behind an Energy Management System (EMS) usually varies from site to site.
+To comply with this, the EMS needs a static, local configuration that declares available hardware components and services and activated control algorithms with their parameters.
+This configuration persists locally on the EMS hardware on a storage like an on-board eMMC flash drive or an external SD card.
+To reduce writes to local storage and avoid hardware defects, the configuration should not be changed frequently.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"Power meter of type SOCOMEC Diris A40, measuring the power at the grid connection point is connected on interface /dev/ttySC0 via RS485 bus with baudrate 9600. It listens on Modbus Unit-ID 5"</p>
+</li>
+<li>
+<p>"Battery inverter of type KACO 50, connected via Modbus/TCP on IP address 10.4.0.15, port 502"</p>
+</li>
+<li>
+<p>"Algorithm for using an energy storage system to apply power smoothing of a photovoltaics installation to a maximum defined ramp rate. Discharge battery on suddenly reduced DRES power; recharge on suddenly increased DRES power."</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_manage_configuration"><a class="anchor" href="#_manage_configuration"></a>4.2.1. Manage configuration</h4>
+<div class="paragraph">
+<p>OpenEMS Edge and Backend are configured using the standard OSGi <a href="https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.cm.html">Configuration Admin Service</a>. There are multiple ways to manage this configuration:</p>
+</div>
+<div class="sect4">
+<h5 id="_via_openems_ui"><a class="anchor" href="#_via_openems_ui"></a>4.2.1.1. Via OpenEMS UI</h5>
+<div class="paragraph">
+<p>Via the OpenEMS UI it is possible to configure an OpenEMS Edge that is connected directly or via an OpenEMS Backend:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/ui-component-install-overview.png" alt="OpenEMS UI Install Components Overview">
+</div>
+<div class="title">Figure 33. OpenEMS UI Install Components</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/ui-component-install.png" alt="OpenEMS UI Install Component">
+</div>
+<div class="title">Figure 34. OpenEMS UI Install Component</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_via_apache_felix_web_console"><a class="anchor" href="#_via_apache_felix_web_console"></a>4.2.1.2. Via Apache Felix Web Console</h5>
+<div class="paragraph">
+<p>The 'native way' to manage an OSGi configuration is via the Apache Felix Web Console. By default it listens on port 8080 and can be accessed via <a href="http://localhost:8080/system/console/configMgr" class="bare">http://localhost:8080/system/console/configMgr</a> as described in the <a href="gettingstarted.html" class="page">Getting Started</a> guide.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="_images/apache-felix-console-configuration.png" alt="Apache Felix Web Console Configuration">
 </div>
-<div class="title">Figure 32. Apache Felix Web Console Configuration</div>
+<div class="title">Figure 35. Apache Felix Web Console Configuration</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_via_json_rpc"><a class="anchor" href="#_via_json_rpc"></a>4.2.1.3. Via JSON-RPC</h5>
+<div class="paragraph">
+<p>The JSON-RPC protocol is used throughout the project to enable access to functions directly on the OpenEMS Edge or via an OpenEMS Backend. See <a href="component-communication/index.html" class="page">Component Communication</a> for details. Configuration may be adjusted using the following JSON-RPC methods:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "method": "createComponentConfig",
+  "params": {
+    "factoryPid": string,
+    "properties": [{
+      "name": string,
+      "value": any
+    }]
+  }
+}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Configuration via OpenEMS UI is currently not available due to the ongoing migration to <a href="coreconcepts.html#_osgi_bundle" class="page">OSGi</a>. Once migration is finished, it is going to be possible to change every configuration using the settings menu in OpenEMS UI - directly to OpenEMS Edge and via Backend.</p>
+<p>and</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "method": "updateComponentConfig",
+  "params": {
+    "componentId": string,
+    "properties": [{
+      "name": string,
+      "value": any
+    }]
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The parameters for updating a component configuration are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>componentId</code>: The unique ID of the Component</p>
+</li>
+<li>
+<p><code>properties</code>: A set of properties with ‘name’ and ‘value</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>Example:</em> The "Symmetric Balancing Schedule Controller" charges or discharges an ESS in order to reach a given power target setpoint at the grid connection point. Setpoints are given as a schedule in JSON format. Using an Update Component Config JSON-RPC request, an existing controller can be reconfigured with a new setpoint schedule:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "id": UUID,
+  "method": "updateComponentConfig",
+  "params": {
+    "componentId": "ctrlBalancingSchedule0",
+    "properties": [
+      {
+        "name": "schedule",
+        "value": [
+          {
+            "startTimestamp": 1577836800,
+            "duration": 900,
+            "activePowerSetPoint": 0
+          },
+          {
+            "startTimestamp": 1577837700,
+            "duration": 900,
+            "activePowerSetPoint": -2000
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With this new configuration the algorithm will try to keep the grid connection point at <code>0 W</code> starting from timestamp <code>1577836800</code> (1st January 2020 00:00:00) for <code>900 seconds</code> (15 minutes) and at <code>-2000</code> (2000 W sell-to-grid power) starting from <code>1577837700</code> for another <code>900 seconds</code>. Outside of these two timeslots it sets no setpoint and allows a controller with lower priority to take over.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_by_editingpreseeding_configuration_files"><a class="anchor" href="#_by_editingpreseeding_configuration_files"></a>4.2.1.4. By editing/preseeding configuration files</h5>
+<div class="paragraph">
+<p>The OSGi Configuration Admin stores the configuration in plain text files on the filesystem. See the <code>felix.cm.dir</code> parameter in <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.application/EdgeApp.bndrun">EdgeApp.bndrun</a> file as an example.</p>
+</div>
+<div class="paragraph">
+<p>This way can be used to conveniently preseed a configuration on an Edge device in productive deployment or for quick changes. Make sure to restart the application afterwards to apply changes.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_edge_config"><a class="anchor" href="#_edge_config"></a>4.2.2. Edge-Config</h4>
 <div class="imageblock">
 <div class="content">
-<img src="_images/ui-config.png" alt="OpenEMS UI Configuration">
+<img src="_images/config-architecture.png" alt="OpenEMS Edge Configuration Architecture">
 </div>
-<div class="title">Figure 33. OpenEMS UI Configuration</div>
+<div class="title">Figure 36. OpenEMS Edge Configuration Architecture</div>
+</div>
+<div class="paragraph">
+<p>The architecture of OpenEMS Edge configuration is shown in the image above. It consists of</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Nature</dt>
+<dd>
+<p>A Nature defines as set of characteristics and attributes. In OpenEMS Edge a Nature is a Java 'Interface', that defines required channels of an implementing OpenEMS Component.</p>
+<div class="paragraph">
+<p><em>Example:</em> The Nature for a <code>Battery</code> defines Channels like <code>ChargeMaxVoltage</code>, <code>DischargeMaxVoltage</code> and <code>Soc</code> (state-of-charge) that need to be provided by every Battery implementation.</p>
+</div>
+</dd>
+<dt class="hdlist1">Channel</dt>
+<dd>
+<p>A Channel represents a single piece of information about a component; enriched with metadata like a description, unit of measure and more.</p>
+<div class="paragraph">
+<p><em>Example:</em> The <code>ChargeMaxVoltage</code> channel of the Battery nature has a descriptive text "Maximal voltage for charging", is defined as type Integer with the unit Ampere.</p>
+</div>
+</dd>
+<dt class="hdlist1">Factory</dt>
+<dd>
+<p>A Factory is comparable to a 'Class' in object-oriented software development that is enriched with Java/OSGi metadata like a unique string identifier and defines a set of required configuration parameters.
+A factory implements one or more Natures to indicate that it provides all channels defined by the Nature.
+Additionally, a factory may define further channels that are specific to the individual implementation.</p>
+<div class="paragraph">
+<p><em>Example:</em> The OpenEMS Edge "Factory" for BMW battery implements the <code>Battery</code> Nature.
+Additionally, it declares channels  like <code>AmbientTemperature</code> that are not available and required by every Battery implementation.</p>
+</div>
+</dd>
+<dt class="hdlist1">Instance</dt>
+<dd>
+<p>An Instance is comparable to an "Object", i.e. a runtime instantiation of a factory with defined configuration parameters. The Instance is then further referred to as an OpenEMS Component and uniquely identified by its Component-ID.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>OpenEMS Edge provides the specific configuration via its API in the form of a JSON definition referred to as <strong>EdgeConfig</strong>. The following shortened example shows its general structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "components": {
+    "ess0": {
+      "alias": "Battery Energy Storage System",
+      "factoryId": "Ess.Generic.ManagedSymmetric",
+      "properties": {
+        "enabled": true,
+        "battery.id": "battery0",
+        "batteryInverter.id": "batteryInverter0"
+      },
+      "channels": {
+        "ActivePower": {
+          "type": "INTEGER",
+          "accessMode": "RO",
+          "text": "Negative values for Charge; positive for Discharge",
+          "unit": "W"
+        }
+      }
+    }
+  },
+  "factories": {
+    "Ess.Generic.ManagedSymmetric": {
+      "id": "Ess.Generic.ManagedSymmetric",
+      "name": "ESS Generic Managed Symmetric",
+      "description": "",
+      "natureIds": [
+        "io.openems.edge.ess.api.SymmetricEss",
+      ],
+      "properties": [
+        {
+          "id": "id",
+          "name": "Component-ID",
+          "description": "Unique ID of this Component",
+          "isRequired": true,
+          "defaultValue": "ess0"
+        }
+      ]
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The EdgeConfig may be retrieved using the following JSON-RPC method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "id": "UUID",
+  "method": "getEdgeConfig",
+  "params": {}
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>External services - like OpenEMS UI - can use the EdgeConfig to adapt to the actual configuration of the OpenEMS Edge.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_nature_2"><a class="anchor" href="#_nature_2"></a>5.3. Nature</h3>
+<h3 id="_nature_2"><a class="anchor" href="#_nature_2"></a>4.3. Nature</h3>
 <div class="paragraph">
 <p>Physical hardware is abstracted in OpenEMS Edge using <em>Natures</em>. A Nature defines a set of characteristics and attributes which need to be provided by each OpenEMS component that implements it. These characteristics are defined by Channels. For example an implementation of an <code>Ess</code> (Energy Storage System), needs to provide an <code>Soc</code>-Channel (State of charge of the battery).</p>
 </div>
@@ -1542,13 +1924,13 @@ It was developed around the requirements of controlling, monitoring and integrat
 <p>Technically Natures are implemented as OSGi API Bundles.</p>
 </div>
 <div class="sect3">
-<h4 id="_battery"><a class="anchor" href="#_battery"></a>5.3.1. Battery</h4>
+<h4 id="_battery"><a class="anchor" href="#_battery"></a>4.3.1. Battery</h4>
 <div class="paragraph">
 <p>A battery that is connected to a battery inverter.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_battery_inverter"><a class="anchor" href="#_battery_inverter"></a>5.3.2. Battery-Inverter</h4>
+<h4 id="_battery_inverter"><a class="anchor" href="#_battery_inverter"></a>4.3.2. Battery-Inverter</h4>
 <div class="paragraph">
 <p>Together with a battery, a battery-inverter builds an Energy Storage System.</p>
 </div>
@@ -1557,13 +1939,13 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect3">
-<h4 id="_controller_2"><a class="anchor" href="#_controller_2"></a>5.3.3. Controller</h4>
+<h4 id="_controller_3"><a class="anchor" href="#_controller_3"></a>4.3.3. Controller</h4>
 <div class="paragraph">
 <p>A Controller; see the Controller chapter for details.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_energy_storage_system"><a class="anchor" href="#_ess_energy_storage_system"></a>5.3.4. ESS (Energy Storage System)</h4>
+<h4 id="_ess_energy_storage_system"><a class="anchor" href="#_ess_energy_storage_system"></a>4.3.4. ESS (Energy Storage System)</h4>
 <div class="paragraph">
 <p>An Energy Storage System is an integrated system with battery and battery inverter.</p>
 </div>
@@ -1592,7 +1974,7 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect3">
-<h4 id="_evcs_electric_vehicle_charging_station"><a class="anchor" href="#_evcs_electric_vehicle_charging_station"></a>5.3.5. EVCS (Electric Vehicle Charging Station)</h4>
+<h4 id="_evcs_electric_vehicle_charging_station"><a class="anchor" href="#_evcs_electric_vehicle_charging_station"></a>4.3.5. EVCS (Electric Vehicle Charging Station)</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.evcs.api/src/io/openems/edge/evcs/api/Evcs.java">Evcs <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -1603,7 +1985,7 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect3">
-<h4 id="_io_digital_inputoutput"><a class="anchor" href="#_io_digital_inputoutput"></a>5.3.6. I/O (Digital Input/Output)</h4>
+<h4 id="_io_digital_inputoutput"><a class="anchor" href="#_io_digital_inputoutput"></a>4.3.6. I/O (Digital Input/Output)</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.io.api/src/io/openems/edge/io/api/DigitalOutput.java">DigitalOutput <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -1614,7 +1996,7 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect3">
-<h4 id="_meter"><a class="anchor" href="#_meter"></a>5.3.7. Meter</h4>
+<h4 id="_meter"><a class="anchor" href="#_meter"></a>4.3.7. Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.meter.api/src/io/openems/edge/meter/api/MeterType.java">Meter <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -1633,32 +2015,32 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect3">
-<h4 id="_predictor"><a class="anchor" href="#_predictor"></a>5.3.8. Predictor</h4>
+<h4 id="_predictor"><a class="anchor" href="#_predictor"></a>4.3.8. Predictor</h4>
 <div class="paragraph">
 <p>A Predictor provides abstract access to prediction of production and consumption.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_scheduler_2"><a class="anchor" href="#_scheduler_2"></a>5.3.9. Scheduler</h4>
+<h4 id="_scheduler_3"><a class="anchor" href="#_scheduler_3"></a>4.3.9. Scheduler</h4>
 <div class="paragraph">
 <p>A Scheduler; see the Scheduler chapter for details.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_thermometer"><a class="anchor" href="#_thermometer"></a>5.3.10. Thermometer</h4>
+<h4 id="_thermometer"><a class="anchor" href="#_thermometer"></a>4.3.10. Thermometer</h4>
 <div class="paragraph">
 <p>A Thermometer measures temperature.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_timedata"><a class="anchor" href="#_timedata"></a>5.3.11. Timedata</h4>
+<h4 id="_timedata"><a class="anchor" href="#_timedata"></a>4.3.11. Timedata</h4>
 <div class="paragraph">
 <p>A provider for time-series data, like historic recordings of Channels.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_scheduler_3"><a class="anchor" href="#_scheduler_3"></a>5.4. Scheduler</h3>
+<h3 id="_scheduler_4"><a class="anchor" href="#_scheduler_4"></a>4.4. Scheduler</h3>
 <div class="paragraph">
 <p>A OpenEMS Edge Scheduler plans the execution of Controllers. It defines&#8230;&#8203;</p>
 </div>
@@ -1673,7 +2055,7 @@ It was developed around the requirements of controlling, monitoring and integrat
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_all_alphabetically"><a class="anchor" href="#_all_alphabetically"></a>5.4.1. All-Alphabetically</h4>
+<h4 id="_all_alphabetically"><a class="anchor" href="#_all_alphabetically"></a>4.4.1. All-Alphabetically</h4>
 <div class="paragraph">
 <p>Takes an ordered list of Component IDs. All remaining Controllers are afterwards ordered alphabetically by their ID.</p>
 </div>
@@ -1682,14 +2064,14 @@ It was developed around the requirements of controlling, monitoring and integrat
 </div>
 </div>
 <div class="sect3">
-<h4 id="_daily"><a class="anchor" href="#_daily"></a>5.4.2. Daily</h4>
+<h4 id="_daily"><a class="anchor" href="#_daily"></a>4.4.2. Daily</h4>
 <div class="paragraph">
 <p>This scheduler can execute different Controllers at different times of the day according to the "Daily Schedule" configuration.
 Controllers that need to run regardless of the time of the day like 'ctrlBackend0' and 'ctrlDebugLog0' etc.,
 can be specified in the configuration using "Always Run Before" and "Always Run After'.</p>
 </div>
 <div class="sect4">
-<h5 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>5.4.2.1. Configuration</h5>
+<h5 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>4.4.2.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1724,7 +2106,7 @@ can be specified in the configuration using "Always Run Before" and "Always Run 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fixed_order"><a class="anchor" href="#_fixed_order"></a>5.4.3. Fixed Order</h4>
+<h4 id="_fixed_order"><a class="anchor" href="#_fixed_order"></a>4.4.3. Fixed Order</h4>
 <div class="paragraph">
 <p>Takes a list of Component IDs and returns the Controllers statically sorted by this order.</p>
 </div>
@@ -1734,12 +2116,40 @@ can be specified in the configuration using "Always Run Before" and "Always Run 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_controller_3"><a class="anchor" href="#_controller_3"></a>5.5. Controller</h3>
+<h3 id="_controller_4"><a class="anchor" href="#_controller_4"></a>4.5. Controller</h3>
 <div class="paragraph">
 <p>A OpenEMS Edge Controller holds the actual business logic or the actual algorithm that controls hardware. The logic of each active Controller is executed regularly on every Cycle, i.e. once per second.</p>
 </div>
+<div class="paragraph">
+<p>On each execution cycle, e.g. once every second, the EMS can send a control command, which allows two different ways of controlling the hardware:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Control by setpoint</strong></p>
+<div class="paragraph">
+<p>In “control by setpoint” mode, the EMS calculates setpoint commands and sends them to the hardware for immediate execution.</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em> A power smoothing algorithm uses the current and previous output power values of a photovoltaics system. By applying its configured maximum defined ramp rate it deduces that the energy storage systems needs to be discharged with 150 kW to compensate a suddenly reduced output power. It therefore sends a setpoint for "discharge with 150 kW" to the ESS for immediate execution.</p>
+</div>
+</li>
+<li>
+<p><strong>Control by parameterization</strong></p>
+<div class="paragraph">
+<p>In “control by parameterization” mode, the EMS sends the configuration parameters for control algorithms embedded into the hardware for internal execution.</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em> In a Virtual Inertia Ancillary Services application,     the EMS sends the configuration parameters for the control characteristics to the ESS. The ESS uses this parameter set for its internal, high-performance algorithm.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following Controllers are implemented in the OpenEMS standard codebase. The links point directly to the source code.</p>
+</div>
 <div class="sect3">
-<h4 id="_api_backend"><a class="anchor" href="#_api_backend"></a>5.5.1. Api Backend</h4>
+<h4 id="_api_backend"><a class="anchor" href="#_api_backend"></a>4.5.1. Api Backend</h4>
 <div class="paragraph">
 <p>Connects to OpenEMS Backend and sends all Channel data regularly. It is implemented as a Controller, as Channels can be written from OpenEMS Backend.</p>
 </div>
@@ -1748,16 +2158,54 @@ can be specified in the configuration using "Always Run Before" and "Always Run 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_api_modbus"><a class="anchor" href="#_api_modbus"></a>5.5.2. Api Modbus</h4>
+<h4 id="_api_modbus"><a class="anchor" href="#_api_modbus"></a>4.5.2. Api Modbus</h4>
 <div class="paragraph">
-<p>Provides a Modbus-Slave implementation for OpenEMS Edge. It provides access to Channels from an external device via Modbus/TCP.</p>
+<p>The OpenEMS Edge Modbus-Slave-API is provided by the "Modbus-API Controller".
+As the Modbus protocol is widely used in industrial monitoring and automation, this allows for easy access to OpenEMS channels from external systems.</p>
+</div>
+<div class="paragraph">
+<p>The configuration of the Modbus-API controller defines which OpenEMS Components should be exported and made available via the API.
+It then generates a dynamic Modbus protocol that is structured in address blocks that map to OpenEMS Components and Modbus register addresses that map to OpenEMS channels.</p>
+</div>
+<div class="paragraph">
+<p>The modbus table is designed in a way that allows dynamic parsing of all available registers.</p>
+</div>
+<div class="paragraph">
+<p>The following example describes a Controller that is configured to export the Sum-Component (<code>_sum</code>). By reading the headers of the individual blocks, the entire Modbus protocol can be parsed dynamically:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Register <code>0</code> identifies the system as an OpenEMS by the hash value <code>0x17ed6201</code>.</p>
+</li>
+<li>
+<p>Register <code>1</code> shows the length of the first block. Adding the length (<code>199</code>) the current address (<code>1</code>) gives the starting address of the next block (<code>200</code>).</p>
+</li>
+<li>
+<p>Register <code>200</code> gives a string with fixed length of 16 characters with the Component-ID.</p>
+</li>
+<li>
+<p>Register <code>216</code> shows the length of the complete block. Adding the length (<code>300</code>) to the starting address of the block (<code>200</code>) gives the starting address of the next block (<code>500</code>) and so forth.</p>
+</li>
+<li>
+<p>Register <code>220</code> identifies the first sub-block as Nature <code>OpenemsComponent</code>. The length of the sub-block follows in Register <code>221</code> and gives the starting address of the next sub-block (<code>300</code>) and so on.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Instead of parsing the Modbus protocol, it is also possible to download the EMS specific Excel file via OpenEMS UI "System Profile" menu. An example export is available in the 'doc' folder of this bundle.</p>
+</div>
+<div class="paragraph">
+<p>To communicate with specific channels, it is then sufficient to read or write to the matching registers, e.g.
+- Read register <code>302 _sum/EssSoc</code> to get the total average state of charge of the ESS.
+- Write to register <code>806 ess0/SetActivePowerEquals</code> to trigger charging or discharging of the ESS with ID <code>ess0</code>.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.modbus">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rest_api_controller"><a class="anchor" href="#_rest_api_controller"></a>5.5.3. REST-Api Controller</h4>
+<h4 id="_rest_api_controller"><a class="anchor" href="#_rest_api_controller"></a>4.5.3. REST-Api Controller</h4>
 <div class="paragraph">
 <p>A REST-Api for external access to OpenEMS Edge. This Controller provides access to Channels and JSON-RPC Requests from an external device via JSON/REST.</p>
 </div>
@@ -1790,7 +2238,7 @@ can be specified in the configuration using "Always Run Before" and "Always Run 
 <p>Those are the available REST-Api endpoints:</p>
 </div>
 <div class="sect4">
-<h5 id="_endpoint_restchannelcomponent_idchannel_id"><a class="anchor" href="#_endpoint_restchannelcomponent_idchannel_id"></a>5.5.3.1. Endpoint <code>/rest/channel/&lt;Component-ID&gt;/&lt;Channel-ID&gt;</code></h5>
+<h5 id="_endpoint_restchannelcomponent_idchannel_id"><a class="anchor" href="#_endpoint_restchannelcomponent_idchannel_id"></a>4.5.3.1. Endpoint <code>/rest/channel/&lt;Component-ID&gt;/&lt;Channel-ID&gt;</code></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1880,7 +2328,7 @@ can be specified in the configuration using "Always Run Before" and "Always Run 
 </div>
 </div>
 <div class="sect4">
-<h5 id="_endpoint_jsonrpc"><a class="anchor" href="#_endpoint_jsonrpc"></a>5.5.3.2. Endpoint '/jsonrpc'</h5>
+<h5 id="_endpoint_jsonrpc"><a class="anchor" href="#_endpoint_jsonrpc"></a>4.5.3.2. Endpoint '/jsonrpc'</h5>
 <div class="paragraph">
 <p>This allows remote procedure calls (RPC) using JSON-RPC. The JSON-RPC commands need to be sent as <code>POST</code> requests with the specified body.</p>
 </div>
@@ -1964,7 +2412,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 </div>
 </div>
 <div class="sect3">
-<h4 id="_api_websocket"><a class="anchor" href="#_api_websocket"></a>5.5.4. Api Websocket</h4>
+<h4 id="_api_websocket"><a class="anchor" href="#_api_websocket"></a>4.5.4. Api Websocket</h4>
 <div class="paragraph">
 <p>Provides a JSON/REST implementation via HTTP Websocket for OpenEMS Edge. It provides access to Channels and JSON-RPC Requests from an external device via Websocket. This Controller is used for local connection of OpenEMS UI.</p>
 </div>
@@ -1973,7 +2421,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 </div>
 </div>
 <div class="sect3">
-<h4 id="_asymmetric_balancing_cos_phi"><a class="anchor" href="#_asymmetric_balancing_cos_phi"></a>5.5.5. Asymmetric Balancing Cos-Phi</h4>
+<h4 id="_asymmetric_balancing_cos_phi"><a class="anchor" href="#_asymmetric_balancing_cos_phi"></a>4.5.5. Asymmetric Balancing Cos-Phi</h4>
 <div class="paragraph">
 <p>Controls an asymmetric energy storage system in self-consumption optimization mode while keeping the grid meter on a defined cos-phi.</p>
 </div>
@@ -1982,7 +2430,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 </div>
 </div>
 <div class="sect3">
-<h4 id="_asymmetric_fix_active_power"><a class="anchor" href="#_asymmetric_fix_active_power"></a>5.5.6. Asymmetric Fix Active Power</h4>
+<h4 id="_asymmetric_fix_active_power"><a class="anchor" href="#_asymmetric_fix_active_power"></a>4.5.6. Asymmetric Fix Active Power</h4>
 <div class="paragraph">
 <p>Sets a fixed active power for charging/discharging of an asymmetric energy storage system.</p>
 </div>
@@ -1991,7 +2439,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 </div>
 </div>
 <div class="sect3">
-<h4 id="_asymmetric_fix_reactive_power"><a class="anchor" href="#_asymmetric_fix_reactive_power"></a>5.5.7. Asymmetric Fix Reactive Power</h4>
+<h4 id="_asymmetric_fix_reactive_power"><a class="anchor" href="#_asymmetric_fix_reactive_power"></a>4.5.7. Asymmetric Fix Reactive Power</h4>
 <div class="paragraph">
 <p>Sets a fixed reactive power for an asymmetric energy storage system.</p>
 </div>
@@ -2000,7 +2448,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 </div>
 </div>
 <div class="sect3">
-<h4 id="_asymmetric_peak_shaving"><a class="anchor" href="#_asymmetric_peak_shaving"></a>5.5.8. Asymmetric Peak-Shaving</h4>
+<h4 id="_asymmetric_peak_shaving"><a class="anchor" href="#_asymmetric_peak_shaving"></a>4.5.8. Asymmetric Peak-Shaving</h4>
 <div class="paragraph">
 <p>Applies asymmetric peak-shaving at the grid meter using a energy storage system. The controller evaluates the grid meter phase with the highest load and discharges the energy storage system accordingly to cut this power peak in order to avoid the fuse to be triggered. On low consumption periods the energy storage system recharges.</p>
 </div>
@@ -2009,7 +2457,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 </div>
 </div>
 <div class="sect3">
-<h4 id="_asymmetric_phase_rectification"><a class="anchor" href="#_asymmetric_phase_rectification"></a>5.5.9. Asymmetric Phase Rectification</h4>
+<h4 id="_asymmetric_phase_rectification"><a class="anchor" href="#_asymmetric_phase_rectification"></a>4.5.9. Asymmetric Phase Rectification</h4>
 <div class="paragraph">
 <p>Balances the three phases at the grid using an asymmetric energy storage system.</p>
 </div>
@@ -2018,7 +2466,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 </div>
 </div>
 <div class="sect3">
-<h4 id="_channel_threshold"><a class="anchor" href="#_channel_threshold"></a>5.5.10. Channel-Threshold</h4>
+<h4 id="_channel_threshold"><a class="anchor" href="#_channel_threshold"></a>4.5.10. Channel-Threshold</h4>
 <div class="paragraph">
 <p>Generic Controller that sets a digital output according to the value of given Channel - e.g. turn a Relay on, when battery state of charge is above a given threshold.</p>
 </div>
@@ -2027,7 +2475,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 </div>
 </div>
 <div class="sect3">
-<h4 id="_chp_control_via_state_of_charge_soc"><a class="anchor" href="#_chp_control_via_state_of_charge_soc"></a>5.5.11. CHP control via State-of-Charge (SoC)</h4>
+<h4 id="_chp_control_via_state_of_charge_soc"><a class="anchor" href="#_chp_control_via_state_of_charge_soc"></a>4.5.11. CHP control via State-of-Charge (SoC)</h4>
 <div class="paragraph">
 <p>Controls a CHP device. Signals the CHP to turn 'ON' when battery SoC is low; signal it to turn 'OFF' when SoC is high. This controller needs four parameters,</p>
 </div>
@@ -2064,7 +2512,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 </ul>
 </div>
 <div class="sect4">
-<h5 id="_configuration_3"><a class="anchor" href="#_configuration_3"></a>5.5.11.1. Configuration</h5>
+<h5 id="_configuration_3"><a class="anchor" href="#_configuration_3"></a>4.5.11.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2089,7 +2537,7 @@ JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitte
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_configuration"><a class="anchor" href="#_example_configuration"></a>5.5.11.2. Example Configuration</h5>
+<h5 id="_example_configuration"><a class="anchor" href="#_example_configuration"></a>4.5.11.2. Example Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2131,7 +2579,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_detailed_debug_log"><a class="anchor" href="#_detailed_debug_log"></a>5.5.12. Detailed Debug Log</h4>
+<h4 id="_detailed_debug_log"><a class="anchor" href="#_detailed_debug_log"></a>4.5.12. Detailed Debug Log</h4>
 <div class="paragraph">
 <p>Constantly shows the values of all Channels of a Component on the console. Primarily used for developing and debugging.</p>
 </div>
@@ -2140,7 +2588,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_debug_log"><a class="anchor" href="#_debug_log"></a>5.5.13. Debug Log</h4>
+<h4 id="_debug_log"><a class="anchor" href="#_debug_log"></a>4.5.13. Debug Log</h4>
 <div class="paragraph">
 <p>Constantly shows the most important values of all Components on the console. This is often activated by default to be able to track the running system easily.</p>
 </div>
@@ -2167,7 +2615,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_ac_island"><a class="anchor" href="#_ess_ac_island"></a>5.5.14. ESS AC-Island</h4>
+<h4 id="_ess_ac_island"><a class="anchor" href="#_ess_ac_island"></a>4.5.14. ESS AC-Island</h4>
 <div class="paragraph">
 <p>Switches an AC PV inverter to the emergency power on grid outage.</p>
 </div>
@@ -2176,7 +2624,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_active_power_voltage_characteristic"><a class="anchor" href="#_ess_active_power_voltage_characteristic"></a>5.5.15. Ess Active Power Voltage Characteristic</h4>
+<h4 id="_ess_active_power_voltage_characteristic"><a class="anchor" href="#_ess_active_power_voltage_characteristic"></a>4.5.15. Ess Active Power Voltage Characteristic</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2232,7 +2680,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_delay_charge"><a class="anchor" href="#_ess_delay_charge"></a>5.5.16. ESS Delay Charge</h4>
+<h4 id="_ess_delay_charge"><a class="anchor" href="#_ess_delay_charge"></a>4.5.16. ESS Delay Charge</h4>
 <div class="paragraph">
 <p>This Controller delays full charing of an energy storage system (ESS) to a certain hour of the day. If for example configured to delay till 4 pm, the allowed charge power is limited in a way, that 100 % State-of-Charge is reached only at 4 pm. The Controller therefor constantly watches the remaining time and remaining capacity of the ESS.</p>
 </div>
@@ -2241,7 +2689,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_delayed_sell_to_grid"><a class="anchor" href="#_ess_delayed_sell_to_grid"></a>5.5.17. ESS Delayed Sell-To-Grid</h4>
+<h4 id="_ess_delayed_sell_to_grid"><a class="anchor" href="#_ess_delayed_sell_to_grid"></a>4.5.17. ESS Delayed Sell-To-Grid</h4>
 <div class="paragraph">
 <p>Controls an energy storage system so, that it delays the sell-to-grid power e.g. of a photovoltaics system.</p>
 </div>
@@ -2254,7 +2702,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>5.5.18. Symmetric Fix Active Power</h4>
+<h4 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>4.5.18. Symmetric Fix Active Power</h4>
 <div class="paragraph">
 <p>Sets a fixed active power for charging/discharging of a symmetric energy storage system.</p>
 </div>
@@ -2263,7 +2711,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect3">
-<h4 id="_hybrid_ess_surplus_feed_to_grid_controller"><a class="anchor" href="#_hybrid_ess_surplus_feed_to_grid_controller"></a>5.5.19. Hybrid-Ess Surplus-Feed-To-Grid Controller</h4>
+<h4 id="_hybrid_ess_surplus_feed_to_grid_controller"><a class="anchor" href="#_hybrid_ess_surplus_feed_to_grid_controller"></a>4.5.19. Hybrid-Ess Surplus-Feed-To-Grid Controller</h4>
 <div class="paragraph">
 <p>Controls a Hybrid Battery Inverter (i.e. integrated Energy Storage System) so, that the surplus DC production of its chargers gets fed to grid.</p>
 </div>
@@ -2272,7 +2720,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_limit_total_discharge"><a class="anchor" href="#_ess_limit_total_discharge"></a>5.5.20. ESS Limit Total Discharge</h4>
+<h4 id="_ess_limit_total_discharge"><a class="anchor" href="#_ess_limit_total_discharge"></a>4.5.20. ESS Limit Total Discharge</h4>
 <div class="paragraph">
 <p>Limits the discharge power of an energy storage system according to its State-of-Charge, e.g. to keep energy for emergency power or to avoid deep discharge.</p>
 </div>
@@ -2281,7 +2729,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_minimum_discharge_period"><a class="anchor" href="#_ess_minimum_discharge_period"></a>5.5.21. ESS Minimum Discharge Period</h4>
+<h4 id="_ess_minimum_discharge_period"><a class="anchor" href="#_ess_minimum_discharge_period"></a>4.5.21. ESS Minimum Discharge Period</h4>
 <div class="paragraph">
 <p>Provides a minimum discharge power of the storage system for a configured time period, if a certain power peak has been reached.</p>
 </div>
@@ -2293,7 +2741,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_one_full_cycle"><a class="anchor" href="#_ess_one_full_cycle"></a>5.5.22. ESS One Full Cycle</h4>
+<h4 id="_ess_one_full_cycle"><a class="anchor" href="#_ess_one_full_cycle"></a>4.5.22. ESS One Full Cycle</h4>
 <div class="paragraph">
 <p>Executes a full charge/discharge cycle with an energy storage system. This can be used to let the Battery Management System (BMS) reset its reference points for State-of-Charge calculation.</p>
 </div>
@@ -2302,7 +2750,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_predictive_delay_charge"><a class="anchor" href="#_ess_predictive_delay_charge"></a>5.5.23. ESS Predictive Delay Charge</h4>
+<h4 id="_ess_predictive_delay_charge"><a class="anchor" href="#_ess_predictive_delay_charge"></a>4.5.23. ESS Predictive Delay Charge</h4>
 <div class="paragraph">
 <p>Delays the charging of the AC or DC storage system based on predicted production and consumption.</p>
 </div>
@@ -2311,7 +2759,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_reactive_power_voltage_characteristic"><a class="anchor" href="#_ess_reactive_power_voltage_characteristic"></a>5.5.24. Ess Reactive Power Voltage Characteristic</h4>
+<h4 id="_ess_reactive_power_voltage_characteristic"><a class="anchor" href="#_ess_reactive_power_voltage_characteristic"></a>4.5.24. Ess Reactive Power Voltage Characteristic</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2362,7 +2810,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_sell_to_grid_limit"><a class="anchor" href="#_ess_sell_to_grid_limit"></a>5.5.25. ESS Sell-To-Grid Limit</h4>
+<h4 id="_ess_sell_to_grid_limit"><a class="anchor" href="#_ess_sell_to_grid_limit"></a>4.5.25. ESS Sell-To-Grid Limit</h4>
 <div class="paragraph">
 <p>Limits the maximum sell-to-grid power by actively charging the Ess.
 Can be used to apply a 70 % limit to the sell-to-grid power according to German law.</p>
@@ -2372,7 +2820,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_evcs"><a class="anchor" href="#_evcs"></a>5.5.26. EVCS</h4>
+<h4 id="_evcs"><a class="anchor" href="#_evcs"></a>4.5.26. EVCS</h4>
 <div class="paragraph">
 <p>Controls an Electric Vehicle Charging Station (EVCS) in different modes, like "Force-Charge" and "Surplus Energy Charging".</p>
 </div>
@@ -2381,7 +2829,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>5.5.27. EVCS Fix Active Power</h4>
+<h4 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>4.5.27. EVCS Fix Active Power</h4>
 <div class="paragraph">
 <p>Sets a fixed maximum charge power to an Electric Vehicle Charging Station (EVCS).</p>
 </div>
@@ -2390,7 +2838,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_generic_jsonlogic"><a class="anchor" href="#_generic_jsonlogic"></a>5.5.28. Generic JsonLogic</h4>
+<h4 id="_generic_jsonlogic"><a class="anchor" href="#_generic_jsonlogic"></a>4.5.28. Generic JsonLogic</h4>
 <div class="paragraph">
 <p>The JsonLogic-Controller is a very generic Controller that allows the definition of a complex logic as a configuration at runtime, e.g. via Apache Felix Web Console.</p>
 </div>
@@ -2460,7 +2908,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>5.5.29. High-Load Timeslot</h4>
+<h4 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>4.5.29. High-Load Timeslot</h4>
 <div class="paragraph">
 <p>Controls an energy storage system for a High-Load timeslot application (German "Hochlastzeitfenster").</p>
 </div>
@@ -2469,13 +2917,13 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_io_alarm"><a class="anchor" href="#_io_alarm"></a>5.5.30. IO Alarm</h4>
+<h4 id="_io_alarm"><a class="anchor" href="#_io_alarm"></a>4.5.30. IO Alarm</h4>
 <div class="paragraph">
 <p>Switches a digital output, when one or more State-Channels are set. This controller can be used to signal alarms.
 This controller is used to check for the State-Channels which are boolean type, which typically represents the error channels. A specific configured digital output channel can be signaled based on the configured input State-Channels(one more channels).</p>
 </div>
 <div class="sect4">
-<h5 id="_configuration_4"><a class="anchor" href="#_configuration_4"></a>5.5.30.1. Configuration</h5>
+<h5 id="_configuration_4"><a class="anchor" href="#_configuration_4"></a>4.5.30.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2497,7 +2945,7 @@ This controller is used to check for the State-Channels which are boolean type, 
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>5.5.30.2. Example Configuration</h5>
+<h5 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>4.5.30.2. Example Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2536,7 +2984,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>5.5.31. IO Channel-Single-Threshold</h4>
+<h4 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>4.5.31. IO Channel-Single-Threshold</h4>
 <div class="paragraph">
 <p>Generic Controller that sets a digital output according to the value of given Channel - e.g. turn a Relay on or off, when configured input channel/SoC is above or below a given threshold respectively.</p>
 </div>
@@ -2545,7 +2993,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>5.5.32. IO Fix Digital Output</h4>
+<h4 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>4.5.32. IO Fix Digital Output</h4>
 <div class="paragraph">
 <p>Sets a digital output statically ON or OFF.</p>
 </div>
@@ -2554,12 +3002,12 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>5.5.33. IO Heating Element</h4>
+<h4 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>4.5.33. IO Heating Element</h4>
 <div class="paragraph">
 <p>Controls a three-phase heating element via Relays, according to grid active power.</p>
 </div>
 <div class="sect4">
-<h5 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>5.5.33.1. Phase and Level</h5>
+<h5 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>4.5.33.1. Phase and Level</h5>
 <div class="paragraph">
 <p>The Controller distinguishes the definition of Phase and Level.
 <strong>Phase</strong> represents the electrical phase L1, L2 or L3.
@@ -2580,7 +3028,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect4">
-<h5 id="_channels"><a class="anchor" href="#_channels"></a>5.5.33.2. Channels</h5>
+<h5 id="_channels"><a class="anchor" href="#_channels"></a>4.5.33.2. Channels</h5>
 <div class="paragraph">
 <p>Example:
 * the power of the heating element per phase is 1000 W
@@ -2693,12 +3141,12 @@ L1|     xxxxxxxxxxxxxxxx
 </div>
 </div>
 <div class="sect3">
-<h4 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>5.5.34. IO SG-Ready Heat Pump</h4>
+<h4 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>4.5.34. IO SG-Ready Heat Pump</h4>
 <div class="paragraph">
 <p>Controls a heat pump that implements the SG-Ready standard via two Relay contacts, depending on surplus power and battery state-of-charge.</p>
 </div>
 <div class="sect4">
-<h5 id="_states"><a class="anchor" href="#_states"></a>5.5.34.1. States</h5>
+<h5 id="_states"><a class="anchor" href="#_states"></a>4.5.34.1. States</h5>
 <div class="paragraph">
 <p>The Controller distinguishes the different States, according to the SG-Ready standard.</p>
 </div>
@@ -2734,7 +3182,7 @@ L1|     xxxxxxxxxxxxxxxx
 </table>
 </div>
 <div class="sect4">
-<h5 id="_channels_2"><a class="anchor" href="#_channels_2"></a>5.5.34.2. Channels</h5>
+<h5 id="_channels_2"><a class="anchor" href="#_channels_2"></a>4.5.34.2. Channels</h5>
 <div class="paragraph">
 <p>The Controller has an ongoing time counter for every state, that is started and stopped if the corresponding state is active or not.</p>
 </div>
@@ -2748,7 +3196,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>5.5.35. PV-Inverter Fix Power Limit</h4>
+<h4 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>4.5.35. PV-Inverter Fix Power Limit</h4>
 <div class="paragraph">
 <p>Sets a fixed power limit for PV-Inverter production.</p>
 </div>
@@ -2757,7 +3205,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>5.5.36. PV-Inverter Sell-To-Grid limit</h4>
+<h4 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>4.5.36. PV-Inverter Sell-To-Grid limit</h4>
 <div class="paragraph">
 <p>Dynamically limits the Sell-To-Grid power of a PV-Inverter to a defined maximum power.</p>
 </div>
@@ -2766,7 +3214,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>5.5.37. Symmetric Balancing</h4>
+<h4 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>4.5.37. Symmetric Balancing</h4>
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in self-consumption optimization mode.</p>
 </div>
@@ -2775,7 +3223,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>5.5.38. Symmetric Balancing Schedule</h4>
+<h4 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>4.5.38. Symmetric Balancing Schedule</h4>
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in balancing mode. The control algorithm charges or discharges the battery in order to reach a given power target set-point at the grid connection point. If the target set-point is defined as zero, the behaviour is like with self-consumption optimization.</p>
 </div>
@@ -2783,7 +3231,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 <p>This controller allows two ways of controlling the power target set-point:</p>
 </div>
 <div class="sect4">
-<h5 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>5.5.38.1. 1. Definition of a power target set-point Schedule</h5>
+<h5 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>4.5.38.1. 1. Definition of a power target set-point Schedule</h5>
 <div class="paragraph">
 <p>The static configuration parameter "schedule" takes a Schedule of set-points as a Json-Array. An example schedule looks like this:</p>
 </div>
@@ -2831,7 +3279,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect4">
-<h5 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>5.5.38.2. 2. Immediate control of the power target set-point</h5>
+<h5 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>4.5.38.2. 2. Immediate control of the power target set-point</h5>
 <div class="paragraph">
 <p>The power target set-point may also be controlled directly via the <code>GridActivePowerSetPoint</code> channel. E.g. if the controller component has the Id <code>ctrlBalancingSchedule0</code> one can use e.g. the <a href="https://openems.github.io/openems.io/openems/latest/edge/controller.html#_rest_api_controller">REST-Api Controller</a> and write</p>
 </div>
@@ -2851,7 +3299,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>5.5.39. Symmetric Fix Reactive Power</h4>
+<h4 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>4.5.39. Symmetric Fix Reactive Power</h4>
 <div class="paragraph">
 <p>Sets a fixed reactive power for a symmetric energy storage system.</p>
 </div>
@@ -2860,7 +3308,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>5.5.40. Symmetric Limit Active Power</h4>
+<h4 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>4.5.40. Symmetric Limit Active Power</h4>
 <div class="paragraph">
 <p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
 </div>
@@ -2869,7 +3317,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>5.5.41. Symmetric Linear Power Band</h4>
+<h4 id="_symmetric_linear_power_band"><a class="anchor" href="#_symmetric_linear_power_band"></a>4.5.41. Symmetric Linear Power Band</h4>
 <div class="paragraph">
 <p>Executes a test cycle for a symmetric energy storage system by increasing and decreasing the charging/discharging power in given limits.</p>
 </div>
@@ -2878,7 +3326,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>5.5.42. Symmetric Peak-Shaving</h4>
+<h4 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>4.5.42. Symmetric Peak-Shaving</h4>
 <div class="paragraph">
 <p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
 </div>
@@ -2887,7 +3335,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>5.5.43. Symmetric Random-Power</h4>
+<h4 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>4.5.43. Symmetric Random-Power</h4>
 <div class="paragraph">
 <p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
 </div>
@@ -2896,7 +3344,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>5.5.44. Symmetric Timeslot Peak-Shaving</h4>
+<h4 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>4.5.44. Symmetric Timeslot Peak-Shaving</h4>
 <div class="paragraph">
 <p>Applies peak-shaving within a configured timeslot at the grid using a symmetric energy storage system. Outside of the timeslot the battery recharges.</p>
 </div>
@@ -2909,17 +3357,17 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect2">
-<h3 id="_bridge"><a class="anchor" href="#_bridge"></a>5.6. Bridge</h3>
+<h3 id="_bridge"><a class="anchor" href="#_bridge"></a>4.6. Bridge</h3>
 <div class="paragraph">
 <p>To simplify the implementation of hardware that is connected via certain standardized physical connection layers and protocols, those are implemented as Bridges.</p>
 </div>
 <div class="sect3">
-<h4 id="_m_bus"><a class="anchor" href="#_m_bus"></a>5.6.1. M-Bus</h4>
+<h4 id="_m_bus"><a class="anchor" href="#_m_bus"></a>4.6.1. M-Bus</h4>
 <div class="paragraph">
 <p>M-Bus is a widely used standard for fieldbus communication. It enables connection to M-Bus devices like meters.</p>
 </div>
 <div class="sect4">
-<h5 id="_setup_note"><a class="anchor" href="#_setup_note"></a>5.6.1.1. Setup note</h5>
+<h5 id="_setup_note"><a class="anchor" href="#_setup_note"></a>4.6.1.1. Setup note</h5>
 <div class="paragraph">
 <p>This bridge depends on jMbus, a user guide for it can be found at <a href="https://www.openmuc.org/m-bus/user-guide/" class="bare">https://www.openmuc.org/m-bus/user-guide/</a>.</p>
 </div>
@@ -2934,12 +3382,12 @@ communication jMbus is dependent on. See paragraph 2.5 for further information.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="_modbus"><a class="anchor" href="#_modbus"></a>5.6.2. Modbus</h4>
+<h4 id="_modbus"><a class="anchor" href="#_modbus"></a>4.6.2. Modbus</h4>
 <div class="paragraph">
 <p>Modbus is a widely used standard for fieldbus connections. It is used by all kinds of hardware devices like photovoltaics inverters, electric meters, and so on.</p>
 </div>
 <div class="sect4">
-<h5 id="_modbustcp"><a class="anchor" href="#_modbustcp"></a>5.6.2.1. Modbus/TCP</h5>
+<h5 id="_modbustcp"><a class="anchor" href="#_modbustcp"></a>4.6.2.1. Modbus/TCP</h5>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusTcpImpl.java">Modbus/TCP <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -2950,7 +3398,7 @@ communication jMbus is dependent on. See paragraph 2.5 for further information.<
 </div>
 </div>
 <div class="sect4">
-<h5 id="_modbusrtu"><a class="anchor" href="#_modbusrtu"></a>5.6.2.2. Modbus/RTU</h5>
+<h5 id="_modbusrtu"><a class="anchor" href="#_modbusrtu"></a>4.6.2.2. Modbus/RTU</h5>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusSerialImpl.java">Modbus/Serial <span class="icon"><i class="fa fa-code"></i></span></a></dt>
@@ -2962,7 +3410,7 @@ communication jMbus is dependent on. See paragraph 2.5 for further information.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="_onewire"><a class="anchor" href="#_onewire"></a>5.6.3. OneWire</h4>
+<h4 id="_onewire"><a class="anchor" href="#_onewire"></a>4.6.3. OneWire</h4>
 <div class="paragraph">
 <p>OneWire is a widely used protocol for home automation. It is used by sensors like thermometers.</p>
 </div>
@@ -3009,12 +3457,12 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_controller_4"><a class="anchor" href="#_controller_4"></a>5.7. Controller</h3>
+<h3 id="_controller_5"><a class="anchor" href="#_controller_5"></a>4.7. Controller</h3>
 <div class="paragraph">
 <p>For the following devices driver implementations are available in OpenEMS Edge.</p>
 </div>
 <div class="sect3">
-<h4 id="_byd_battery_box_commercial"><a class="anchor" href="#_byd_battery_box_commercial"></a>5.7.1. BYD Battery-Box Commercial</h4>
+<h4 id="_byd_battery_box_commercial"><a class="anchor" href="#_byd_battery_box_commercial"></a>4.7.1. BYD Battery-Box Commercial</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3034,13 +3482,13 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_battery_fenecon_home"><a class="anchor" href="#_battery_fenecon_home"></a>5.7.2. Battery FENECON Home</h4>
+<h4 id="_battery_fenecon_home"><a class="anchor" href="#_battery_fenecon_home"></a>4.7.2. Battery FENECON Home</h4>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.battery.fenecon.home">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_soltaro_battery_rack"><a class="anchor" href="#_soltaro_battery_rack"></a>5.7.3. Soltaro Battery Rack</h4>
+<h4 id="_soltaro_battery_rack"><a class="anchor" href="#_soltaro_battery_rack"></a>4.7.3. Soltaro Battery Rack</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3060,7 +3508,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_gridsave"><a class="anchor" href="#_kaco_blueplanet_gridsave"></a>5.7.4. KACO blueplanet gridsave</h4>
+<h4 id="_kaco_blueplanet_gridsave"><a class="anchor" href="#_kaco_blueplanet_gridsave"></a>4.7.4. KACO blueplanet gridsave</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3099,7 +3547,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_refustore_88k"><a class="anchor" href="#_refustore_88k"></a>5.7.5. REFUstore 88K</h4>
+<h4 id="_refustore_88k"><a class="anchor" href="#_refustore_88k"></a>4.7.5. REFUstore 88K</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3123,7 +3571,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sunspec_pv_inverter"><a class="anchor" href="#_sunspec_pv_inverter"></a>5.7.6. SunSpec PV inverter</h4>
+<h4 id="_sunspec_pv_inverter"><a class="anchor" href="#_sunspec_pv_inverter"></a>4.7.6. SunSpec PV inverter</h4>
 <div class="paragraph">
 <p>Generic implementation of SunSpec PV inverters. It is tested with
 - KACO blueplanet TL.3 series
@@ -3151,9 +3599,9 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_core_services_for_openems_edge"><a class="anchor" href="#_core_services_for_openems_edge"></a>5.7.7. Core services for OpenEMS Edge</h4>
+<h4 id="_core_services_for_openems_edge"><a class="anchor" href="#_core_services_for_openems_edge"></a>4.7.7. Core services for OpenEMS Edge</h4>
 <div class="sect4">
-<h5 id="_componentmanager"><a class="anchor" href="#_componentmanager"></a>5.7.7.1. ComponentManager</h5>
+<h5 id="_componentmanager"><a class="anchor" href="#_componentmanager"></a>4.7.7.1. ComponentManager</h5>
 <div class="paragraph">
 <p>A service that provides easy access to OpenEMS-Components and Channels. It also provides some sub-services:</p>
 </div>
@@ -3175,32 +3623,32 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_cycle_2"><a class="anchor" href="#_cycle_2"></a>5.7.7.2. Cycle</h5>
+<h5 id="_cycle_2"><a class="anchor" href="#_cycle_2"></a>4.7.7.2. Cycle</h5>
 <div class="paragraph">
 <p>Provides the core runtime Cycle of OpenEMS Edge</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_host"><a class="anchor" href="#_host"></a>5.7.7.3. Host</h5>
+<h5 id="_host"><a class="anchor" href="#_host"></a>4.7.7.3. Host</h5>
 <div class="paragraph">
 <p>A service that provides host and operating system specific commands like configuration of TCP/IP network.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_meta"><a class="anchor" href="#_meta"></a>5.7.7.4. Meta</h5>
+<h5 id="_meta"><a class="anchor" href="#_meta"></a>4.7.7.4. Meta</h5>
 <div class="paragraph">
 <p>A service that provides 'OpenemsConstants' as Channels so that they are available via Apis; example: _meta/Version for the current version of OpenEMS Edge.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sum"><a class="anchor" href="#_sum"></a>5.7.7.5. Sum</h5>
+<h5 id="_sum"><a class="anchor" href="#_sum"></a>4.7.7.5. Sum</h5>
 <div class="paragraph">
 <p>A service that holds summed up information on the power and energy flows, like aggregated production, consumption and energy storage charge/discharge.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fenecon_byd_container"><a class="anchor" href="#_fenecon_byd_container"></a>5.7.8. FENECON BYD Container</h4>
+<h4 id="_fenecon_byd_container"><a class="anchor" href="#_fenecon_byd_container"></a>4.7.8. FENECON BYD Container</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3223,7 +3671,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_cluster"><a class="anchor" href="#_ess_cluster"></a>5.7.9. ESS Cluster</h4>
+<h4 id="_ess_cluster"><a class="anchor" href="#_ess_cluster"></a>4.7.9. ESS Cluster</h4>
 <div class="paragraph">
 <p>Combines multiple energy storage systems (ESS) to one common ESS. This way every Controller can easily work with multiple ESS in parallel. Distribution of power requests to each ESS is controlled via the <a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.ess.core/src/io/openems/edge/ess/core/power">Power-Class <span class="icon"><i class="fa fa-github"></i></span></a>.</p>
 </div>
@@ -3232,7 +3680,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fenecon_commercial_40_acdchybrid"><a class="anchor" href="#_fenecon_commercial_40_acdchybrid"></a>5.7.10. FENECON Commercial 40 AC/DC/Hybrid</h4>
+<h4 id="_fenecon_commercial_40_acdchybrid"><a class="anchor" href="#_fenecon_commercial_40_acdchybrid"></a>4.7.10. FENECON Commercial 40 AC/DC/Hybrid</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3258,7 +3706,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_generic_energy_storage_system"><a class="anchor" href="#_generic_energy_storage_system"></a>5.7.11. Generic Energy Storage System</h4>
+<h4 id="_generic_energy_storage_system"><a class="anchor" href="#_generic_energy_storage_system"></a>4.7.11. Generic Energy Storage System</h4>
 <div class="paragraph">
 <p>Represents an Energy Storage System consisting of a Battery-Inverter and a Battery.</p>
 </div>
@@ -3267,7 +3715,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_gridsave_50_0_tl3"><a class="anchor" href="#_kaco_blueplanet_gridsave_50_0_tl3"></a>5.7.12. KACO blueplanet gridsave 50.0 TL3</h4>
+<h4 id="_kaco_blueplanet_gridsave_50_0_tl3"><a class="anchor" href="#_kaco_blueplanet_gridsave_50_0_tl3"></a>4.7.12. KACO blueplanet gridsave 50.0 TL3</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3290,7 +3738,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_maschinenfabrik_rheinhausen_mr_gridcon"><a class="anchor" href="#_maschinenfabrik_rheinhausen_mr_gridcon"></a>5.7.13. Maschinenfabrik Rheinhausen (MR) Gridcon</h4>
+<h4 id="_maschinenfabrik_rheinhausen_mr_gridcon"><a class="anchor" href="#_maschinenfabrik_rheinhausen_mr_gridcon"></a>4.7.13. Maschinenfabrik Rheinhausen (MR) Gridcon</h4>
 <div class="paragraph">
 <p>Implemented Natures
 - SymmetricEss
@@ -3304,7 +3752,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_refu_battery_inverter"><a class="anchor" href="#_refu_battery_inverter"></a>5.7.14. REFU Battery Inverter</h4>
+<h4 id="_refu_battery_inverter"><a class="anchor" href="#_refu_battery_inverter"></a>4.7.14. REFU Battery Inverter</h4>
 <div class="paragraph">
 <p>Project specific implementation of a REFU inverter. This will not directly apply to all REFU battery inverters.</p>
 </div>
@@ -3336,7 +3784,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sinexcel_battery_inverter"><a class="anchor" href="#_sinexcel_battery_inverter"></a>5.7.15. Sinexcel Battery Inverter</h4>
+<h4 id="_sinexcel_battery_inverter"><a class="anchor" href="#_sinexcel_battery_inverter"></a>4.7.15. Sinexcel Battery Inverter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3359,7 +3807,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sma_sunnyisland_6_0h"><a class="anchor" href="#_sma_sunnyisland_6_0h"></a>5.7.16. SMA SunnyIsland 6.0H</h4>
+<h4 id="_sma_sunnyisland_6_0h"><a class="anchor" href="#_sma_sunnyisland_6_0h"></a>4.7.16. SMA SunnyIsland 6.0H</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3394,7 +3842,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_evcs_cluster"><a class="anchor" href="#_evcs_cluster"></a>5.7.17. EVCS Cluster</h4>
+<h4 id="_evcs_cluster"><a class="anchor" href="#_evcs_cluster"></a>4.7.17. EVCS Cluster</h4>
 <div class="paragraph">
 <p>Distributes the charging power (Depending on the implementation) to the priorized charging stations.
 The implementations calculate the maximum power that can be used by all charging stations.</p>
@@ -3415,7 +3863,7 @@ The self consumption cluster is calculating the power depending on the excess po
 </div>
 </div>
 <div class="sect3">
-<h4 id="_evcs_core"><a class="anchor" href="#_evcs_core"></a>5.7.18. EVCS Core</h4>
+<h4 id="_evcs_core"><a class="anchor" href="#_evcs_core"></a>4.7.18. EVCS Core</h4>
 <div class="paragraph">
 <p>Core services for electric vehicle charging.</p>
 </div>
@@ -3424,7 +3872,7 @@ The self consumption cluster is calculating the power depending on the excess po
 </div>
 </div>
 <div class="sect3">
-<h4 id="_hardy_barth_charging_station_salia"><a class="anchor" href="#_hardy_barth_charging_station_salia"></a>5.7.19. Hardy Barth Charging Station (Salia)</h4>
+<h4 id="_hardy_barth_charging_station_salia"><a class="anchor" href="#_hardy_barth_charging_station_salia"></a>4.7.19. Hardy Barth Charging Station (Salia)</h4>
 <div class="paragraph">
 <p>This component implements the Salia charging station by the manufacturer Hardy Barth: <a href="https://www.echarge.de/de/home" class="bare">https://www.echarge.de/de/home</a></p>
 </div>
@@ -3438,7 +3886,7 @@ The self consumption cluster is calculating the power depending on the excess po
 </div>
 </div>
 <div class="sect3">
-<h4 id="_keba_kecontact_c_series_charging_station"><a class="anchor" href="#_keba_kecontact_c_series_charging_station"></a>5.7.20. KEBA KeContact c-series Charging Station</h4>
+<h4 id="_keba_kecontact_c_series_charging_station"><a class="anchor" href="#_keba_kecontact_c_series_charging_station"></a>4.7.20. KEBA KeContact c-series Charging Station</h4>
 <div class="paragraph">
 <p>This component implements the KEBA c-series charging station, which is controlled and read out using the proprietary UDP protocol.
 It collects all relevant information into the given Nature Channels and its own Channels and sends charging commands that have been set by another controllers.</p>
@@ -3453,7 +3901,7 @@ It collects all relevant information into the given Nature Channels and its own 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_abl_charging_station"><a class="anchor" href="#_abl_charging_station"></a>5.7.21. ABL Charging Station</h4>
+<h4 id="_abl_charging_station"><a class="anchor" href="#_abl_charging_station"></a>4.7.21. ABL Charging Station</h4>
 <div class="paragraph">
 <p>This component implements the ABL EMH 3 series charging station, which is controlled and read out using the OCPP protocol.
 It provides specific information for the AbstractOcppEvcsComponent.</p>
@@ -3472,7 +3920,7 @@ It provides specific information for the AbstractOcppEvcsComponent.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_electric_vehicle_charging_station_ocpp_common"><a class="anchor" href="#_electric_vehicle_charging_station_ocpp_common"></a>5.7.22. Electric Vehicle Charging Station OCPP Common</h4>
+<h4 id="_electric_vehicle_charging_station_ocpp_common"><a class="anchor" href="#_electric_vehicle_charging_station_ocpp_common"></a>4.7.22. Electric Vehicle Charging Station OCPP Common</h4>
 <div class="paragraph">
 <p>The Open Charge Point Protocol (OCPP) is an application protocol for communication between
 Electric vehicle charging stations (EVCS) and a central management system.</p>
@@ -3491,7 +3939,7 @@ It also provides a default abstract ocpp EVCS component that can be used by ever
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ies_keywatt_charging_station"><a class="anchor" href="#_ies_keywatt_charging_station"></a>5.7.23. IES KeyWatt Charging Station</h4>
+<h4 id="_ies_keywatt_charging_station"><a class="anchor" href="#_ies_keywatt_charging_station"></a>4.7.23. IES KeyWatt Charging Station</h4>
 <div class="paragraph">
 <p>This component implements the IES KeyWatt CCS charging station with a single plug, which is controlled and read out using the OCPP protocol.
 It provides specific information for the AbstractOcppEvcsComponent.</p>
@@ -3511,7 +3959,7 @@ It provides specific information for the AbstractOcppEvcsComponent.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ocpp_server"><a class="anchor" href="#_ocpp_server"></a>5.7.24. OCPP Server</h4>
+<h4 id="_ocpp_server"><a class="anchor" href="#_ocpp_server"></a>4.7.24. OCPP Server</h4>
 <div class="paragraph">
 <p>The OCPP Server is implementing a central management system.
 The server maintains connections to the EVCS&#8217;s, i.e.</p>
@@ -3534,7 +3982,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fenecon_dess"><a class="anchor" href="#_fenecon_dess"></a>5.7.25. FENECON DESS</h4>
+<h4 id="_fenecon_dess"><a class="anchor" href="#_fenecon_dess"></a>4.7.25. FENECON DESS</h4>
 <div class="paragraph">
 <p>Applies to multiple similar products like the FENECON by BYD PRO Hybrid.</p>
 </div>
@@ -3569,7 +4017,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fenecon_mini_3_3_3_6"><a class="anchor" href="#_fenecon_mini_3_3_3_6"></a>5.7.26. FENECON Mini 3-3 | 3-6</h4>
+<h4 id="_fenecon_mini_3_3_3_6"><a class="anchor" href="#_fenecon_mini_3_3_3_6"></a>4.7.26. FENECON Mini 3-3 | 3-6</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3598,7 +4046,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fenecon_pro_9_12"><a class="anchor" href="#_fenecon_pro_9_12"></a>5.7.27. FENECON Pro 9-12</h4>
+<h4 id="_fenecon_pro_9_12"><a class="anchor" href="#_fenecon_pro_9_12"></a>4.7.27. FENECON Pro 9-12</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3633,7 +4081,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_goodwe_et_and_bt_series_hybrid_inverters"><a class="anchor" href="#_goodwe_et_and_bt_series_hybrid_inverters"></a>5.7.28. GoodWe ET and BT-Series Hybrid Inverters</h4>
+<h4 id="_goodwe_et_and_bt_series_hybrid_inverters"><a class="anchor" href="#_goodwe_et_and_bt_series_hybrid_inverters"></a>4.7.28. GoodWe ET and BT-Series Hybrid Inverters</h4>
 <div class="paragraph">
 <p>Ess:</p>
 </div>
@@ -3672,7 +4120,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kmtronic_modbus_relay_board"><a class="anchor" href="#_kmtronic_modbus_relay_board"></a>5.7.29. KMtronic Modbus Relay Board</h4>
+<h4 id="_kmtronic_modbus_relay_board"><a class="anchor" href="#_kmtronic_modbus_relay_board"></a>4.7.29. KMtronic Modbus Relay Board</h4>
 <div class="paragraph">
 <p>This bundle implements the Kmtronic Modbus Relay board. Relay outputs can be used to turn ON/OFF lights, motors and signal alarms. This relay has 8 output channels.</p>
 </div>
@@ -3691,7 +4139,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </dl>
 </div>
 <div class="sect4">
-<h5 id="_configuration_5"><a class="anchor" href="#_configuration_5"></a>5.7.29.1. Configuration</h5>
+<h5 id="_configuration_5"><a class="anchor" href="#_configuration_5"></a>4.7.29.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -3727,7 +4175,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_revolutionpi_digital_io_module"><a class="anchor" href="#_revolutionpi_digital_io_module"></a>5.7.30. RevolutionPi Digital IO Module</h4>
+<h4 id="_revolutionpi_digital_io_module"><a class="anchor" href="#_revolutionpi_digital_io_module"></a>4.7.30. RevolutionPi Digital IO Module</h4>
 <div class="paragraph">
 <p>This bundle implements the Kunbus RevolutionPI DigitalIO enhancement board. It can be used to turn ON/OFF a data output or to read in digital data input. It provides 14 digital input and 14 digital output channels.</p>
 </div>
@@ -3737,13 +4185,13 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 - DigitalInput</p>
 </div>
 <div class="sect4">
-<h5 id="_dependencies"><a class="anchor" href="#_dependencies"></a>5.7.30.1. Dependencies</h5>
+<h5 id="_dependencies"><a class="anchor" href="#_dependencies"></a>4.7.30.1. Dependencies</h5>
 <div class="paragraph">
 <p>The RevolutionPi Digital IO OpenEms Bundle depends on the librevpi-dio-java git library project. A binary version of this library is already included in this OpenEMS Bundle. See <a href="https://github.com/clehne/librevpi-dio-java" class="bare">https://github.com/clehne/librevpi-dio-java</a>  for more information.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_notes"><a class="anchor" href="#_notes"></a>5.7.30.2. Notes</h5>
+<h5 id="_notes"><a class="anchor" href="#_notes"></a>4.7.30.2. Notes</h5>
 <div class="paragraph">
 <p><strong>Prepare Kunbus RevPi:</strong></p>
 </div>
@@ -3753,7 +4201,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_shelly_wifi_relay_switch"><a class="anchor" href="#_shelly_wifi_relay_switch"></a>5.7.31. Shelly WiFi Relay Switch</h4>
+<h4 id="_shelly_wifi_relay_switch"><a class="anchor" href="#_shelly_wifi_relay_switch"></a>4.7.31. Shelly WiFi Relay Switch</h4>
 <div class="paragraph">
 <p>This bundle implements Shelly WiFi Relay Switches.</p>
 </div>
@@ -3771,7 +4219,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_wago_fieldbus_coupler_750_352"><a class="anchor" href="#_wago_fieldbus_coupler_750_352"></a>5.7.32. WAGO Fieldbus Coupler 750-352</h4>
+<h4 id="_wago_fieldbus_coupler_750_352"><a class="anchor" href="#_wago_fieldbus_coupler_750_352"></a>4.7.32. WAGO Fieldbus Coupler 750-352</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3811,7 +4259,7 @@ For extensions 2, 3,&#8230;&#8203; just increase the number behind <code>M</code
 Channel names follow this logic:</p>
 </div>
 <div class="sect4">
-<h5 id="_wago_750_523_1_channel_relay_output"><a class="anchor" href="#_wago_750_523_1_channel_relay_output"></a>5.7.32.1. WAGO 750-523 "1-channel relay output"</h5>
+<h5 id="_wago_750_523_1_channel_relay_output"><a class="anchor" href="#_wago_750_523_1_channel_relay_output"></a>4.7.32.1. WAGO 750-523 "1-channel relay output"</h5>
 <div class="paragraph">
 <p><a href="https://www.wago.com/global/i-o-systems/1-channel-relay-output/p/750-523">wago.com <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
 </div>
@@ -3836,7 +4284,7 @@ Channel names follow this logic:</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_wago_750_501_2_channel_digital_output"><a class="anchor" href="#_wago_750_501_2_channel_digital_output"></a>5.7.32.2. WAGO 750-501 "2-channel digital output"</h5>
+<h5 id="_wago_750_501_2_channel_digital_output"><a class="anchor" href="#_wago_750_501_2_channel_digital_output"></a>4.7.32.2. WAGO 750-501 "2-channel digital output"</h5>
 <div class="paragraph">
 <p><a href="https://www.wago.com/global/i-o-systems/2-channel-digital-output/p/750-501">wago.com <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
 </div>
@@ -3861,7 +4309,7 @@ Channel names follow this logic:</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_wago_750_400_2_channel_digital_input"><a class="anchor" href="#_wago_750_400_2_channel_digital_input"></a>5.7.32.3. WAGO 750-400 "2-channel digital input"</h5>
+<h5 id="_wago_750_400_2_channel_digital_input"><a class="anchor" href="#_wago_750_400_2_channel_digital_input"></a>4.7.32.3. WAGO 750-400 "2-channel digital input"</h5>
 <div class="paragraph">
 <p><a href="https://www.wago.com/global/i-o-systems/2-channel-digital-input/p/750-400">wago.com <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
 </div>
@@ -3890,7 +4338,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kostal_piko"><a class="anchor" href="#_kostal_piko"></a>5.7.33. KOSTAL PIKO</h4>
+<h4 id="_kostal_piko"><a class="anchor" href="#_kostal_piko"></a>4.7.33. KOSTAL PIKO</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3916,7 +4364,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_abb_b23_meter"><a class="anchor" href="#_abb_b23_meter"></a>5.7.34. ABB B23 Meter</h4>
+<h4 id="_abb_b23_meter"><a class="anchor" href="#_abb_b23_meter"></a>4.7.34. ABB B23 Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3939,7 +4387,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_artemes_am_2"><a class="anchor" href="#_artemes_am_2"></a>5.7.35. Artemes AM-2</h4>
+<h4 id="_artemes_am_2"><a class="anchor" href="#_artemes_am_2"></a>4.7.35. Artemes AM-2</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3962,7 +4410,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_b_control_tq_systems_em300_meter"><a class="anchor" href="#_b_control_tq_systems_em300_meter"></a>5.7.36. B-Control | TQ-Systems EM300 Meter</h4>
+<h4 id="_b_control_tq_systems_em300_meter"><a class="anchor" href="#_b_control_tq_systems_em300_meter"></a>4.7.36. B-Control | TQ-Systems EM300 Meter</h4>
 <div class="paragraph">
 <p>Implemented Natures</p>
 </div>
@@ -3981,7 +4429,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_carlo_gavazzi_em300_meter"><a class="anchor" href="#_carlo_gavazzi_em300_meter"></a>5.7.37. Carlo Gavazzi EM300 Meter</h4>
+<h4 id="_carlo_gavazzi_em300_meter"><a class="anchor" href="#_carlo_gavazzi_em300_meter"></a>4.7.37. Carlo Gavazzi EM300 Meter</h4>
 <div class="paragraph">
 <p>Applies to
 - CARLO GAVAZZI EM330
@@ -3997,7 +4445,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_discovergy_smart_meter"><a class="anchor" href="#_discovergy_smart_meter"></a>5.7.38. Discovergy Smart-Meter</h4>
+<h4 id="_discovergy_smart_meter"><a class="anchor" href="#_discovergy_smart_meter"></a>4.7.38. Discovergy Smart-Meter</h4>
 <div class="paragraph">
 <p>Reads data of a Discovergy Smart-Meter via online REST-Api. See <a href="https://api.discovergy.com" class="bare">https://api.discovergy.com</a> for details.</p>
 </div>
@@ -4023,7 +4471,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_janitza_meters_umg_96rm_e_umg_604"><a class="anchor" href="#_janitza_meters_umg_96rm_e_umg_604"></a>5.7.39. Janitza Meters UMG 96RM-E | UMG 604</h4>
+<h4 id="_janitza_meters_umg_96rm_e_umg_604"><a class="anchor" href="#_janitza_meters_umg_96rm_e_umg_604"></a>4.7.39. Janitza Meters UMG 96RM-E | UMG 604</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4046,7 +4494,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_microcare_sdm_630_meter"><a class="anchor" href="#_microcare_sdm_630_meter"></a>5.7.40. Microcare SDM 630 Meter</h4>
+<h4 id="_microcare_sdm_630_meter"><a class="anchor" href="#_microcare_sdm_630_meter"></a>4.7.40. Microcare SDM 630 Meter</h4>
 <div class="paragraph">
 <p>This implementation is functionally compatible with a number of energy meters with the name "SDM 630".</p>
 </div>
@@ -4068,7 +4516,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pq_plus_umd_97_meter"><a class="anchor" href="#_pq_plus_umd_97_meter"></a>5.7.41. PQ Plus UMD 97 Meter</h4>
+<h4 id="_pq_plus_umd_97_meter"><a class="anchor" href="#_pq_plus_umd_97_meter"></a>4.7.41. PQ Plus UMD 97 Meter</h4>
 <div class="paragraph">
 <p>Applies also to UMD 96, UMD 97, UMD 98, UMD 807, UMD 701, UMD 704, UMD 705, UMD 706, UMD 707, UMD 709, UMD 710, UMD 913, UMC 26</p>
 </div>
@@ -4094,7 +4542,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_schneider_acti9_smartlink_meter"><a class="anchor" href="#_schneider_acti9_smartlink_meter"></a>5.7.42. Schneider Acti9 Smartlink Meter</h4>
+<h4 id="_schneider_acti9_smartlink_meter"><a class="anchor" href="#_schneider_acti9_smartlink_meter"></a>4.7.42. Schneider Acti9 Smartlink Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4120,7 +4568,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sma_sunny_home_manager_2_0_integrated_meter"><a class="anchor" href="#_sma_sunny_home_manager_2_0_integrated_meter"></a>5.7.43. SMA Sunny Home Manager 2.0 Integrated Meter</h4>
+<h4 id="_sma_sunny_home_manager_2_0_integrated_meter"><a class="anchor" href="#_sma_sunny_home_manager_2_0_integrated_meter"></a>4.7.43. SMA Sunny Home Manager 2.0 Integrated Meter</h4>
 <div class="paragraph">
 <p>This implementation uses the integrated energy meter of the SMA Sunny Home Manager 2.0
 Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 does not have a local API on the device itself</p>
@@ -4143,7 +4591,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect3">
-<h4 id="_socomec_meter"><a class="anchor" href="#_socomec_meter"></a>5.7.44. SOCOMEC Meter</h4>
+<h4 id="_socomec_meter"><a class="anchor" href="#_socomec_meter"></a>4.7.44. SOCOMEC Meter</h4>
 <div class="paragraph">
 <p>Just configure <code>Meter.Socomec.Singlephase</code> or <code>Meter.Socomec.Threephase</code>. The actual type and modbus protocol of the Socomec meter is identified automatically.</p>
 </div>
@@ -4201,7 +4649,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sunspec_meter"><a class="anchor" href="#_sunspec_meter"></a>5.7.45. SunSpec Meter</h4>
+<h4 id="_sunspec_meter"><a class="anchor" href="#_sunspec_meter"></a>4.7.45. SunSpec Meter</h4>
 <div class="paragraph">
 <p>Generic implementation of SunSpec Meters.</p>
 </div>
@@ -4227,7 +4675,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect3">
-<h4 id="_virtual_symmetric_subtract"><a class="anchor" href="#_virtual_symmetric_subtract"></a>5.7.46. Virtual Symmetric Subtract</h4>
+<h4 id="_virtual_symmetric_subtract"><a class="anchor" href="#_virtual_symmetric_subtract"></a>4.7.46. Virtual Symmetric Subtract</h4>
 <div class="paragraph">
 <p>This is a virtual meter built from subtracting other meters or energy storage systems.</p>
 </div>
@@ -4242,7 +4690,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect3">
-<h4 id="_virtual_symmetric_add"><a class="anchor" href="#_virtual_symmetric_add"></a>5.7.47. Virtual Symmetric Add</h4>
+<h4 id="_virtual_symmetric_add"><a class="anchor" href="#_virtual_symmetric_add"></a>4.7.47. Virtual Symmetric Add</h4>
 <div class="paragraph">
 <p>This is a virtual meter which is used to sum up the values from multiple symmetric meters. The use case for this feature is, Usually when there are multiple meters reading values from different systems, The average values from the systems make more sense for calculation and statistics.</p>
 </div>
@@ -4251,7 +4699,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 - SymmetricMeter</p>
 </div>
 <div class="sect4">
-<h5 id="_example_configuration_4"><a class="anchor" href="#_example_configuration_4"></a>5.7.47.1. Example Configuration</h5>
+<h5 id="_example_configuration_4"><a class="anchor" href="#_example_configuration_4"></a>4.7.47.1. Example Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -4289,7 +4737,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_weidmueller_525_meter"><a class="anchor" href="#_weidmueller_525_meter"></a>5.7.48. Weidmueller 525 Meter</h4>
+<h4 id="_weidmueller_525_meter"><a class="anchor" href="#_weidmueller_525_meter"></a>4.7.48. Weidmueller 525 Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4312,7 +4760,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_onewire_thermometer"><a class="anchor" href="#_onewire_thermometer"></a>5.7.49. OneWire Thermometer</h4>
+<h4 id="_onewire_thermometer"><a class="anchor" href="#_onewire_thermometer"></a>4.7.49. OneWire Thermometer</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4332,13 +4780,13 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_persistence_model_predictor"><a class="anchor" href="#_persistence_model_predictor"></a>5.7.50. Persistence Model Predictor</h4>
+<h4 id="_persistence_model_predictor"><a class="anchor" href="#_persistence_model_predictor"></a>4.7.50. Persistence Model Predictor</h4>
 <div class="paragraph">
 <p>Predicts values using the 'same-as-last-day' approach.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>5.7.51. PV-Inverter Cluster</h4>
+<h4 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>4.7.51. PV-Inverter Cluster</h4>
 <div class="paragraph">
 <p>Combines multiple PV-Inverters to one common PV-Inverter. This way every Controller can easily work with multiple PV-Inverters in parallel.</p>
 </div>
@@ -4347,7 +4795,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>5.7.52. KACO blueplanet PV inverter</h4>
+<h4 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>4.7.52. KACO blueplanet PV inverter</h4>
 <div class="paragraph">
 <p>Implementation of the KACO blueplanet series PV inverters.</p>
 </div>
@@ -4373,7 +4821,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sma_sunny_tripower_pv_inverter"><a class="anchor" href="#_sma_sunny_tripower_pv_inverter"></a>5.7.53. SMA Sunny Tripower PV inverter</h4>
+<h4 id="_sma_sunny_tripower_pv_inverter"><a class="anchor" href="#_sma_sunny_tripower_pv_inverter"></a>4.7.53. SMA Sunny Tripower PV inverter</h4>
 <div class="paragraph">
 <p>Implementation of the SMA Sunny Tripower PV inverters.</p>
 </div>
@@ -4391,7 +4839,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solar_log"><a class="anchor" href="#_solar_log"></a>5.7.54. Solar-Log</h4>
+<h4 id="_solar_log"><a class="anchor" href="#_solar_log"></a>4.7.54. Solar-Log</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4414,7 +4862,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sunspec_pv_inverter_2"><a class="anchor" href="#_sunspec_pv_inverter_2"></a>5.7.55. SunSpec PV inverter</h4>
+<h4 id="_sunspec_pv_inverter_2"><a class="anchor" href="#_sunspec_pv_inverter_2"></a>4.7.55. SunSpec PV inverter</h4>
 <div class="paragraph">
 <p>Generic implementation of SunSpec PV inverters. It is tested with
 - KACO blueplanet TL.3 series
@@ -4442,12 +4890,12 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_simulated_openems_components"><a class="anchor" href="#_simulated_openems_components"></a>5.7.56. Simulated OpenEMS Components</h4>
+<h4 id="_simulated_openems_components"><a class="anchor" href="#_simulated_openems_components"></a>4.7.56. Simulated OpenEMS Components</h4>
 <div class="paragraph">
 <p>This bundle provides simulated OpenEMS Components for the Natures. They are useful for testing and demoing without real hardware.</p>
 </div>
 <div class="sect4">
-<h5 id="_simulator_app"><a class="anchor" href="#_simulator_app"></a>5.7.56.1. Simulator-App</h5>
+<h5 id="_simulator_app"><a class="anchor" href="#_simulator_app"></a>4.7.56.1. Simulator-App</h5>
 <div class="paragraph">
 <p>The Simulator-App is a very specific component that needs to be handled with care. It provides a full simulation environment to run an OpenEMS Edge instance in simulated realtime environment. After you ran a Simulation, you will receive the simulation result as a JSON. Also the simulation result can be viewed in OpenEMS UI.</p>
 </div>
@@ -4603,7 +5051,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>5.7.57. SolarEdge PV Inverter + Grid-Meter</h4>
+<h4 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>4.7.57. SolarEdge PV Inverter + Grid-Meter</h4>
 <div class="paragraph">
 <p>Implementation of the SolarEdge PV inverters.</p>
 </div>
@@ -4629,7 +5077,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>5.7.58. Tesla Powerwall 2</h4>
+<h4 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>4.7.58. Tesla Powerwall 2</h4>
 <div class="paragraph">
 <p>Implementation of the Tesla Powerwall 2 energy storage system</p>
 </div>
@@ -4652,7 +5100,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_influxdb"><a class="anchor" href="#_influxdb"></a>5.7.59. InfluxDB</h4>
+<h4 id="_influxdb"><a class="anchor" href="#_influxdb"></a>4.7.59. InfluxDB</h4>
 <div class="paragraph">
 <p>Persists all data of OpenEMS Edge Channels to an InfluxDB timeseries database.</p>
 </div>
@@ -4661,7 +5109,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>5.7.60. RRD4J</h4>
+<h4 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>4.7.60. RRD4J</h4>
 <div class="paragraph">
 <p>Persists data of OpenEMS Edge Channels to RRD4J files.</p>
 </div>
@@ -4670,7 +5118,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>5.7.61. KACO blueplanet hybrid 10.0 TL3</h4>
+<h4 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>4.7.61. KACO blueplanet hybrid 10.0 TL3</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4694,9 +5142,9 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect2">
-<h3 id="_implementing_a_device"><a class="anchor" href="#_implementing_a_device"></a>5.8. Implementing a device</h3>
+<h3 id="_implementing_a_device"><a class="anchor" href="#_implementing_a_device"></a>4.8. Implementing a device</h3>
 <div class="sect3">
-<h4 id="_step_by_step_guide"><a class="anchor" href="#_step_by_step_guide"></a>5.8.1. Step-by-step guide</h4>
+<h4 id="_step_by_step_guide"><a class="anchor" href="#_step_by_step_guide"></a>4.8.1. Step-by-step guide</h4>
 <div class="paragraph">
 <p>This chapter explains the steps required to implement an electric meter in OpenEMS Edge that is connected via Modbus/TCP. The meter itself is simulated using a small Modbus slave application, so no external hardware is required for this guide.</p>
 </div>
@@ -4704,7 +5152,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 <p>The tutorial is based on the <a href="gettingstarted.html" class="page">Getting Started</a> guide.</p>
 </div>
 <div class="sect4">
-<h5 id="_create_a_new_osgi_bundle"><a class="anchor" href="#_create_a_new_osgi_bundle"></a>5.8.1.1. Create a new OSGi Bundle</h5>
+<h5 id="_create_a_new_osgi_bundle"><a class="anchor" href="#_create_a_new_osgi_bundle"></a>4.8.1.1. Create a new OSGi Bundle</h5>
 <div class="paragraph">
 <p>For more information see <a href="coreconcepts.html#_osgi_bundle" class="page">OSGi Bundle</a>.</p>
 </div>
@@ -4716,7 +5164,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 <div class="content">
 <img src="_images/eclipse-file-new-other.png" alt="Creating a new project in Eclipse IDE">
 </div>
-<div class="title">Figure 34. Creating a new project in Eclipse IDE</div>
+<div class="title">Figure 37. Creating a new project in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -4725,7 +5173,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 <div class="content">
 <img src="_images/eclipse-bndtools-osgi-project.png" alt="Creating a Bnd OSGi Project in Eclipse IDE">
 </div>
-<div class="title">Figure 35. Creating a Bnd OSGi Project in Eclipse IDE</div>
+<div class="title">Figure 38. Creating a Bnd OSGi Project in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -4734,7 +5182,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 <div class="content">
 <img src="_images/eclipse-new-openems-modbus-device.png" alt="Creating an OpenEMS Modbus Devices Bundle in Eclipse IDE">
 </div>
-<div class="title">Figure 36. Creating an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
+<div class="title">Figure 39. Creating an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -4755,7 +5203,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="_images/eclipse-new-osgi-provider-simulatedmeter.png" alt="Naming an OpenEMS Modbus Devices Bundle in Eclipse IDE">
 </div>
-<div class="title">Figure 37. Naming an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
+<div class="title">Figure 40. Naming an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -4764,7 +5212,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="_images/eclipse-new-osgi-provider-simulatedmeter-final.png" alt="Java settings for an OpenEMS Modbus Devices Bundle in Eclipse IDE">
 </div>
-<div class="title">Figure 38. Java settings for an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
+<div class="title">Figure 41. Java settings for an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -4774,7 +5222,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 </div>
 </div>
 <div class="sect4">
-<h5 id="_define_bundle_dependencies"><a class="anchor" href="#_define_bundle_dependencies"></a>5.8.1.2. Define Bundle dependencies</h5>
+<h5 id="_define_bundle_dependencies"><a class="anchor" href="#_define_bundle_dependencies"></a>4.8.1.2. Define Bundle dependencies</h5>
 <div class="paragraph">
 <p>OSGi Bundles can be dependent on certain other Bundles. This information needs to be set in a <strong>bnd.bnd</strong> file.</p>
 </div>
@@ -4786,7 +5234,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="_images/eclipse-new-simulatedmeter-bundle.png" alt="New simulated meter OpenEMS Modbus Devices Bundle in Eclipse IDE">
 </div>
-<div class="title">Figure 39. New simulated meter OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
+<div class="title">Figure 42. New simulated meter OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -4836,7 +5284,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="_images/eclipse-bnd-file-build.png" alt="Bndtools Build configuration">
 </div>
-<div class="title">Figure 40. Bndtools Build configuration</div>
+<div class="title">Figure 43. Bndtools Build configuration</div>
 </div>
 </li>
 <li>
@@ -4845,7 +5293,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="_images/eclipse-osgi-build-path.png" alt="Bndtools Project Build Path configuration">
 </div>
-<div class="title">Figure 41. Bndtools Project Build Path configuration</div>
+<div class="title">Figure 44. Bndtools Project Build Path configuration</div>
 </div>
 </li>
 <li>
@@ -4897,7 +5345,7 @@ The <code>;version=latest</code> declaration is not required and can be removed.
 </div>
 </div>
 <div class="sect4">
-<h5 id="_define_configuration_parameters"><a class="anchor" href="#_define_configuration_parameters"></a>5.8.1.3. Define configuration parameters</h5>
+<h5 id="_define_configuration_parameters"><a class="anchor" href="#_define_configuration_parameters"></a>4.8.1.3. Define configuration parameters</h5>
 <div class="paragraph">
 <p>OpenEMS Components can have several configuration parameters. They are defined as Java annotations and specific OSGi annotations are used to generate meta information that is used e.g. by Apache Felix Web Console to generate a user interface form (see <a href="gettingstarted.html" class="page">Getting Started</a>).</p>
 </div>
@@ -4968,7 +5416,7 @@ import io.openems.edge.meter.api.MeterType;
 	@AttributeDefinition(name = "Modbus target filter", description = "This is auto-generated by 'Modbus-ID'.")
 	String Modbus_target() default ""; <i class="conum" data-value="9"></i><b>(9)</b>
 
-	String webconsole_configurationFactory_nameHint() default "Meter Simulated [{id}]"; <i class="conum" data-value="10"></i><b>(10)</b>
+	String webconsole_configurationFactory_nameHint() default "Meter Simulated [\{id\}]"; <i class="conum" data-value="10"></i><b>(10)</b>
 
 }</code></pre>
 </div>
@@ -5022,7 +5470,7 @@ import io.openems.edge.meter.api.MeterType;
 </div>
 </div>
 <div class="sect4">
-<h5 id="_implement_the_openems_component"><a class="anchor" href="#_implement_the_openems_component"></a>5.8.1.4. Implement the OpenEMS Component</h5>
+<h5 id="_implement_the_openems_component"><a class="anchor" href="#_implement_the_openems_component"></a>4.8.1.4. Implement the OpenEMS Component</h5>
 <div class="paragraph">
 <p>The Bndtools assistant created a <code>MyModbusDevice.java</code> file. First step is to set a proper name for this file. To rename the file, select it by clicking on it and choose <b class="button">Refactor</b> &#8594; <b class="button">Rename&#8230;&#8203;</b> in the menu. Write <code>MeterSimulated</code> as 'New name' and press <b class="button">Finish</b>.</p>
 </div>
@@ -5030,7 +5478,7 @@ import io.openems.edge.meter.api.MeterType;
 <div class="content">
 <img src="_images/eclipse-rename.png" alt="Renaming a Java class in Eclipse IDE">
 </div>
-<div class="title">Figure 42. Renaming a Java class in Eclipse IDE</div>
+<div class="title">Figure 45. Renaming a Java class in Eclipse IDE</div>
 </div>
 <div class="paragraph">
 <p>Afterwards adjust the following content in the template:</p>
@@ -5405,7 +5853,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </div>
 </div>
 <div class="sect4">
-<h5 id="_start_the_device_simulator"><a class="anchor" href="#_start_the_device_simulator"></a>5.8.1.5. Start the device simulator</h5>
+<h5 id="_start_the_device_simulator"><a class="anchor" href="#_start_the_device_simulator"></a>4.8.1.5. Start the device simulator</h5>
 <div class="paragraph">
 <p>To start the device simulator, open the <b class="button">io.openems.edge.bridge.modbus</b> project and navigate to the <b class="button">test</b> &#8594; <b class="button">io.openems.edge.bridge.modbus</b> folder. There you find the <b class="button">ModbusSlaveSimulator.java</b> file. Right-click that file and select <b class="button">Run As</b> &#8594; <b class="button">Java Application</b>.</p>
 </div>
@@ -5452,7 +5900,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </div>
 </div>
 <div class="sect4">
-<h5 id="_enable_the_component"><a class="anchor" href="#_enable_the_component"></a>5.8.1.6. Enable the Component</h5>
+<h5 id="_enable_the_component"><a class="anchor" href="#_enable_the_component"></a>4.8.1.6. Enable the Component</h5>
 <div class="paragraph">
 <p>To enable the Component for running, open the <b class="button">io.openems.edge.application</b> project and open the <b class="button">EdgeApp.bndrun</b> file.</p>
 </div>
@@ -5460,7 +5908,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/eclipse-edgeapp-bndrun.png" alt="Eclipse IDE EdgeApp.bndrun">
 </div>
-<div class="title">Figure 43. Eclipse IDE EdgeApp.bndrun</div>
+<div class="title">Figure 46. Eclipse IDE EdgeApp.bndrun</div>
 </div>
 <div class="paragraph">
 <p>Select the <code>io.openems.edge.meter.simulated</code> bundle in the left <strong>Repositories</strong> list and drag &amp; drop it to the <strong>Run Requirements</strong> list.</p>
@@ -5472,7 +5920,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/eclipse-edgeapp-resolve.png" alt="Eclipse IDE Resolve EdgeApp.bndrun">
 </div>
-<div class="title">Figure 44. Eclipse IDE Resolve EdgeApp.bndrun</div>
+<div class="title">Figure 47. Eclipse IDE Resolve EdgeApp.bndrun</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5515,7 +5963,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </div>
 </div>
 <div class="sect4">
-<h5 id="_run_the_implementation"><a class="anchor" href="#_run_the_implementation"></a>5.8.1.7. Run the implementation</h5>
+<h5 id="_run_the_implementation"><a class="anchor" href="#_run_the_implementation"></a>4.8.1.7. Run the implementation</h5>
 <div class="paragraph">
 <p>Press <b class="button">Run OSGi</b> to run OpenEMS Edge.</p>
 </div>
@@ -5606,7 +6054,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </div>
 </div>
 <div class="sect4">
-<h5 id="_debug_the_implementation"><a class="anchor" href="#_debug_the_implementation"></a>5.8.1.8. Debug the implementation</h5>
+<h5 id="_debug_the_implementation"><a class="anchor" href="#_debug_the_implementation"></a>4.8.1.8. Debug the implementation</h5>
 <div class="paragraph">
 <p>If you experience any errors you can always run OpenEMS Edge using the <b class="button">Debug OSGi</b> button in EdgeApp.bndrun. This allows you to stop code execution at any time using <a href="https://help.eclipse.org/2019-12/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Ftasks%2Ftask-add_line_breakpoints.htm">Breakpoints</a>.</p>
 </div>
@@ -5614,12 +6062,12 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </div>
 </div>
 <div class="sect2">
-<h3 id="_build_openems_edge"><a class="anchor" href="#_build_openems_edge"></a>5.9. Build OpenEMS Edge</h3>
+<h3 id="_build_openems_edge"><a class="anchor" href="#_build_openems_edge"></a>4.9. Build OpenEMS Edge</h3>
 <div class="paragraph">
 <p>This chapter explains, how OpenEMS Edge can be compiled to a JAR file that can be executed outside of an IDE.</p>
 </div>
 <div class="sect3">
-<h4 id="_build_using_eclipse_ide"><a class="anchor" href="#_build_using_eclipse_ide"></a>5.9.1. Build using Eclipse IDE</h4>
+<h4 id="_build_using_eclipse_ide"><a class="anchor" href="#_build_using_eclipse_ide"></a>4.9.1. Build using Eclipse IDE</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5628,7 +6076,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/eclipse-edgeapp-bndrun.png" alt="Eclipse IDE EdgeApp.bndrun">
 </div>
-<div class="title">Figure 45. Eclipse IDE EdgeApp.bndrun</div>
+<div class="title">Figure 48. Eclipse IDE EdgeApp.bndrun</div>
 </div>
 </li>
 <li>
@@ -5640,7 +6088,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/eclipse-bnd-file-export.png" alt="Eclipse Export Wizard Selection assistant">
 </div>
-<div class="title">Figure 46. Eclipse Export Wizard Selection assistant</div>
+<div class="title">Figure 49. Eclipse Export Wizard Selection assistant</div>
 </div>
 </li>
 <li>
@@ -5649,7 +6097,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/eclipse-bnd-file-export-destination.png" alt="Eclipse Export Destination">
 </div>
-<div class="title">Figure 47. Eclipse Export Destination</div>
+<div class="title">Figure 50. Eclipse Export Destination</div>
 </div>
 </li>
 <li>
@@ -5662,7 +6110,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </div>
 </div>
 <div class="sect3">
-<h4 id="_build_using_gradle_from_command_line"><a class="anchor" href="#_build_using_gradle_from_command_line"></a>5.9.2. Build using Gradle from command line</h4>
+<h4 id="_build_using_gradle_from_command_line"><a class="anchor" href="#_build_using_gradle_from_command_line"></a>4.9.2. Build using Gradle from command line</h4>
 <div class="paragraph">
 <p><a href="https://gradle.org/">Gradle</a> is a build tool that is used in the OpenEMS project to compile the JAR-files and to execute other tasks like building the documentation webpage using <a href="https://antora.org/">Antora</a> and the Javadocs. To build OpenEMS Edge:</p>
 </div>
@@ -5679,7 +6127,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deploy_openems_edge"><a class="anchor" href="#_deploy_openems_edge"></a>5.10. Deploy OpenEMS Edge</h3>
+<h3 id="_deploy_openems_edge"><a class="anchor" href="#_deploy_openems_edge"></a>4.10. Deploy OpenEMS Edge</h3>
 <div class="paragraph">
 <p>This chapter explains how OpenEMS can be deployed on a Debian Linux Internet-of-Things Gateway. Similar techniques will work for other operating systems as well.</p>
 </div>
@@ -5706,7 +6154,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_connect_via_ssh_and_scp"><a class="anchor" href="#_connect_via_ssh_and_scp"></a>5.10.1. Connect via SSH and SCP</h4>
+<h4 id="_connect_via_ssh_and_scp"><a class="anchor" href="#_connect_via_ssh_and_scp"></a>4.10.1. Connect via SSH and SCP</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5722,7 +6170,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/deploy-kitty.png" alt="KiTTY Configuration">
 </div>
-<div class="title">Figure 48. KiTTY Configuration</div>
+<div class="title">Figure 51. KiTTY Configuration</div>
 </div>
 </li>
 <li>
@@ -5731,7 +6179,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/deploy-ssh-root.png" alt="KiTTY Configuration">
 </div>
-<div class="title">Figure 49. KiTTY Configuration</div>
+<div class="title">Figure 52. KiTTY Configuration</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5765,7 +6213,7 @@ As an example, for the FENECON Energy Management System (FEMS) it is required to
 <div class="content">
 <img src="_images/deploy-kitty-start-winscp.png" alt="Start WinSCP from KiTTY">
 </div>
-<div class="title">Figure 50. Start WinSCP from KiTTY</div>
+<div class="title">Figure 53. Start WinSCP from KiTTY</div>
 </div>
 </li>
 <li>
@@ -5774,7 +6222,7 @@ As an example, for the FENECON Energy Management System (FEMS) it is required to
 <div class="content">
 <img src="_images/deploy-winscp.png" alt="Start WinSCP from KiTTY">
 </div>
-<div class="title">Figure 51. Start WinSCP from KiTTY</div>
+<div class="title">Figure 54. Start WinSCP from KiTTY</div>
 </div>
 </li>
 </ol>
@@ -5783,7 +6231,7 @@ As an example, for the FENECON Energy Management System (FEMS) it is required to
 </ol>
 </div>
 <div class="sect4">
-<h5 id="_prepare_operating_system_environment"><a class="anchor" href="#_prepare_operating_system_environment"></a>5.10.1.1. Prepare operating system environment</h5>
+<h5 id="_prepare_operating_system_environment"><a class="anchor" href="#_prepare_operating_system_environment"></a>4.10.1.1. Prepare operating system environment</h5>
 <div class="sect5">
 <h6 id="_create_an_application_directory"><a class="anchor" href="#_create_an_application_directory"></a>Create an application directory</h6>
 <div class="paragraph">
@@ -5912,7 +6360,7 @@ WantedBy=multi-user.target</pre>
 <div class="content">
 <img src="_images/deploy-winscp-copy.png" alt="WinSCP copy file">
 </div>
-<div class="title">Figure 52. WinSCP copy file</div>
+<div class="title">Figure 55. WinSCP copy file</div>
 </div>
 </li>
 <li>
@@ -5927,7 +6375,7 @@ WantedBy=multi-user.target</pre>
 <div class="content">
 <img src="_images/deploy-openems-start.png" alt="OpenEMS Edge start-up">
 </div>
-<div class="title">Figure 53. OpenEMS Edge start-up</div>
+<div class="title">Figure 56. OpenEMS Edge start-up</div>
 </div>
 </li>
 </ol>
@@ -5939,10 +6387,37 @@ WantedBy=multi-user.target</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_openems_ui"><a class="anchor" href="#_openems_ui"></a>6. OpenEMS UI</h2>
+<h2 id="_openems_ui"><a class="anchor" href="#_openems_ui"></a>5. OpenEMS UI</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_build_openems_ui"><a class="anchor" href="#_build_openems_ui"></a>6.1. Build OpenEMS UI</h3>
+<h3 id="_ui_architecture"><a class="anchor" href="#_ui_architecture"></a>5.1. UI Architecture</h3>
+<div class="paragraph">
+<p>OpenEMS UI is the real-time user interface for web browsers and smartphones.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/ui-live.png" alt="OpenEMS UI Live view">
+</div>
+<div class="title">Figure 57. OpenEMS UI Live view</div>
+</div>
+<div class="sect3">
+<h4 id="_adaptive_user_interface"><a class="anchor" href="#_adaptive_user_interface"></a>5.1.1. Adaptive User Interface</h4>
+<div class="paragraph">
+<p>The OpenEMS UI is the standard user interface for OpenEMS.
+It uses the <code>EdgeConfig</code> (see Edge &#8594; Configuration) to adapt its visualisation in accordance with the actual configuration.
+The screenshot above visualizes the 'Live view' of OpenEMS UI.
+It shows Storage System, Production and Grid because corresponding OpenEMS Components are listed in the EdgeConfig.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configuration_of_openems_edge"><a class="anchor" href="#_configuration_of_openems_edge"></a>5.1.2. Configuration of OpenEMS Edge</h4>
+<div class="paragraph">
+<p>OpenEMS UI provides a way to instantiate an OpenEMS Component from a factory by providing configuration parameters. See Edge &#8594; Configuration for details.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_build_openems_ui"><a class="anchor" href="#_build_openems_ui"></a>5.2. Build OpenEMS UI</h3>
 <div class="paragraph">
 <p>This chapter explains, how OpenEMS UI can be compiled so that it can be executed outside of an IDE.</p>
 </div>
@@ -5950,7 +6425,7 @@ WantedBy=multi-user.target</pre>
 <p>Open the terminal inside Visual Studio Code (Menu: <b class="button">Terminal</b> &#8594; <b class="button">New Terminal</b>).</p>
 </div>
 <div class="sect3">
-<h4 id="_build_using_angular_cli_from_command_line"><a class="anchor" href="#_build_using_angular_cli_from_command_line"></a>6.1.1. Build using angular-cli from command line</h4>
+<h4 id="_build_using_angular_cli_from_command_line"><a class="anchor" href="#_build_using_angular_cli_from_command_line"></a>5.2.1. Build using angular-cli from command line</h4>
 <div class="paragraph">
 <p>Execute the following commands inside the <code>ui</code> directory of your OpenEMS repository. The build artifacts will be stored in a subfolder of the <code>target</code> directory</p>
 </div>
@@ -5962,7 +6437,7 @@ WantedBy=multi-user.target</pre>
 in how angular-cli generates the service-worker configuration file (ngsw-config.json). After running the above command it is required to fix 'regex' statements in the file, replacing double &#8216;\\&#8217; by single &#8216;\&#8217; to avoid wrong escaping.</p>
 </div>
 <div class="sect4">
-<h5 id="_build_for_openems_backend"><a class="anchor" href="#_build_for_openems_backend"></a>6.1.1.1. Build for OpenEMS Backend</h5>
+<h5 id="_build_for_openems_backend"><a class="anchor" href="#_build_for_openems_backend"></a>5.2.1.1. Build for OpenEMS Backend</h5>
 <div class="paragraph">
 <p>Execute</p>
 </div>
@@ -5974,7 +6449,7 @@ in how angular-cli generates the service-worker configuration file (ngsw-config.
 </div>
 </div>
 <div class="sect4">
-<h5 id="_build_for_openems_edge"><a class="anchor" href="#_build_for_openems_edge"></a>6.1.1.2. Build for OpenEMS Edge</h5>
+<h5 id="_build_for_openems_edge"><a class="anchor" href="#_build_for_openems_edge"></a>5.2.1.2. Build for OpenEMS Edge</h5>
 <div class="paragraph">
 <p>Execute</p>
 </div>
@@ -5990,29 +6465,25 @@ in how angular-cli generates the service-worker configuration file (ngsw-config.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_openems_backend"><a class="anchor" href="#_openems_backend"></a>7. OpenEMS Backend</h2>
+<h2 id="_openems_backend"><a class="anchor" href="#_openems_backend"></a>6. OpenEMS Backend</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_backend_architecture"><a class="anchor" href="#_backend_architecture"></a>7.1. Backend Architecture</h3>
+<h3 id="_backend_architecture"><a class="anchor" href="#_backend_architecture"></a>6.1. Backend Architecture</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_configuration_6"><a class="anchor" href="#_configuration_6"></a>7.2. Configuration</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_backend_to_backend_communication"><a class="anchor" href="#_backend_to_backend_communication"></a>7.3. Backend-to-Backend communication</h3>
+<h3 id="_backend_to_backend_communication"><a class="anchor" href="#_backend_to_backend_communication"></a>6.2. Backend-to-Backend communication</h3>
 <div class="paragraph">
 <p>OpenEMS Backend provides two "Backend-to-Backend-Api" implementations, that provide a way to communicate with one or more OpenEMS Edge devices via backend connection. They are designed using the JSON-RPC communication protocol via REST/JSON (<em>io.openems.backend.b2brest</em>) or via Websocket (<em>io.openems.backend.b2bwebsocket</em>) connection.</p>
 </div>
 <div class="sect3">
-<h4 id="_authentication"><a class="anchor" href="#_authentication"></a>7.3.1. Authentication</h4>
+<h4 id="_authentication"><a class="anchor" href="#_authentication"></a>6.2.1. Authentication</h4>
 <div class="paragraph">
 <p>BasicAuth on opening of the connection.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_error_handling"><a class="anchor" href="#_error_handling"></a>7.3.2. Error Handling</h4>
+<h4 id="_error_handling"><a class="anchor" href="#_error_handling"></a>6.2.2. Error Handling</h4>
 <div class="paragraph">
 <p>Errors are implemented according to the specs of JSON-RPC 2.0 (<a href="https://www.jsonrpc.org/specification#response_object" class="bare">https://www.jsonrpc.org/specification#response_object</a>). Possible error codes are documented here:
 <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.common/src/io/openems/common/exceptions/OpenemsError.java#L13" class="bare">https://github.com/OpenEMS/openems/blob/develop/io.openems.common/src/io/openems/common/exceptions/OpenemsError.java#L13</a></p>
@@ -6047,9 +6518,9 @@ Properties <code>id</code> and <code>jsonrpc</code> can be omitted for JSON/REST
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requests"><a class="anchor" href="#_requests"></a>7.3.3. Requests</h4>
+<h4 id="_requests"><a class="anchor" href="#_requests"></a>6.2.3. Requests</h4>
 <div class="sect4">
-<h5 id="_getedgesstatus"><a class="anchor" href="#_getedgesstatus"></a>7.3.3.1. GetEdgesStatus</h5>
+<h5 id="_getedgesstatus"><a class="anchor" href="#_getedgesstatus"></a>6.2.3.1. GetEdgesStatus</h5>
 <div class="paragraph">
 <p>Lists the current status of all accessible Edges.</p>
 </div>
@@ -6093,7 +6564,7 @@ Properties <code>id</code> and <code>jsonrpc</code> can be omitted for JSON/REST
 </div>
 </div>
 <div class="sect4">
-<h5 id="_getedgeschannelsvalues"><a class="anchor" href="#_getedgeschannelsvalues"></a>7.3.3.2. GetEdgesChannelsValues</h5>
+<h5 id="_getedgeschannelsvalues"><a class="anchor" href="#_getedgeschannelsvalues"></a>6.2.3.2. GetEdgesChannelsValues</h5>
 <div class="paragraph">
 <p>Queries the latest value of certain channels for a number of Edge-Devices. Channels that are not available or do not have a current value are returned as <code>null</code>.</p>
 </div>
@@ -6148,7 +6619,7 @@ Properties <code>id</code> and <code>jsonrpc</code> can be omitted for JSON/REST
 </div>
 </div>
 <div class="sect4">
-<h5 id="_subscribetochannels"><a class="anchor" href="#_subscribetochannels"></a>7.3.3.3. SubscribeToChannels</h5>
+<h5 id="_subscribetochannels"><a class="anchor" href="#_subscribetochannels"></a>6.2.3.3. SubscribeToChannels</h5>
 <div class="paragraph">
 <p>Registers a subscription for regular updates of channel values. Request is acknowledged by an empty success Response and followed by regular JSON-RPC Notifications. Du stop the subscription, an empty 'subscribeEdgesChannels' Request needs to be sent.</p>
 </div>
@@ -6235,7 +6706,7 @@ Properties <code>id</code> and <code>jsonrpc</code> can be omitted for JSON/REST
 </div>
 </div>
 <div class="sect4">
-<h5 id="_setgridconnschedule"><a class="anchor" href="#_setgridconnschedule"></a>7.3.3.4. SetGridConnSchedule</h5>
+<h5 id="_setgridconnschedule"><a class="anchor" href="#_setgridconnschedule"></a>6.2.3.4. SetGridConnSchedule</h5>
 <div class="paragraph">
 <p>Each battery storage system in an Edge-Device can be controlled to balance on a specific value at the grid connection point. This Request allows sending such a Schedule to an Edge-Device.</p>
 </div>
@@ -6283,12 +6754,12 @@ Properties <code>id</code> and <code>jsonrpc</code> can be omitted for JSON/REST
 </div>
 </div>
 <div class="sect2">
-<h3 id="_build_openems_backend"><a class="anchor" href="#_build_openems_backend"></a>7.4. Build OpenEMS Backend</h3>
+<h3 id="_build_openems_backend"><a class="anchor" href="#_build_openems_backend"></a>6.3. Build OpenEMS Backend</h3>
 <div class="paragraph">
 <p>This chapter explains, how OpenEMS Edge can be compiled to a JAR file that can be executed outside of an IDE.</p>
 </div>
 <div class="sect3">
-<h4 id="_build_using_eclipse_ide_2"><a class="anchor" href="#_build_using_eclipse_ide_2"></a>7.4.1. Build using Eclipse IDE</h4>
+<h4 id="_build_using_eclipse_ide_2"><a class="anchor" href="#_build_using_eclipse_ide_2"></a>6.3.1. Build using Eclipse IDE</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -6313,7 +6784,7 @@ Properties <code>id</code> and <code>jsonrpc</code> can be omitted for JSON/REST
 </div>
 </div>
 <div class="sect3">
-<h4 id="_build_using_gradle_from_command_line_2"><a class="anchor" href="#_build_using_gradle_from_command_line_2"></a>7.4.2. Build using Gradle from command line</h4>
+<h4 id="_build_using_gradle_from_command_line_2"><a class="anchor" href="#_build_using_gradle_from_command_line_2"></a>6.3.2. Build using Gradle from command line</h4>
 <div class="paragraph">
 <p><a href="https://gradle.org/">Gradle</a> is a build tool that is used in the OpenEMS project to compile the JAR-files and to execute other tasks like building the documentation webpage using <a href="https://antora.org/">Antora</a> and the Javadocs. To build OpenEMS Backend:</p>
 </div>
@@ -6330,12 +6801,12 @@ Properties <code>id</code> and <code>jsonrpc</code> can be omitted for JSON/REST
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deploy_openems_backend"><a class="anchor" href="#_deploy_openems_backend"></a>7.5. Deploy OpenEMS Backend</h3>
+<h3 id="_deploy_openems_backend"><a class="anchor" href="#_deploy_openems_backend"></a>6.4. Deploy OpenEMS Backend</h3>
 <div class="paragraph">
 <p>This chapter explains how OpenEMS Backend can be deployed on a Debian Linux server. Similar techniques will work for other operating systems as well.</p>
 </div>
 <div class="sect3">
-<h4 id="_prepare_operating_system_environment_2"><a class="anchor" href="#_prepare_operating_system_environment_2"></a>7.5.1. Prepare operating system environment</h4>
+<h4 id="_prepare_operating_system_environment_2"><a class="anchor" href="#_prepare_operating_system_environment_2"></a>6.4.1. Prepare operating system environment</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -6349,7 +6820,7 @@ It is recommended to run every service on a server with limited permissions. Thi
 </table>
 </div>
 <div class="sect4">
-<h5 id="_create_an_application_directory_2"><a class="anchor" href="#_create_an_application_directory_2"></a>7.5.1.1. Create an application directory</h5>
+<h5 id="_create_an_application_directory_2"><a class="anchor" href="#_create_an_application_directory_2"></a>6.4.1.1. Create an application directory</h5>
 <div class="paragraph">
 <p>Create the directory <strong>/opt/openems-backend</strong>. This is going to be the place, where we put the JAR file.</p>
 </div>
@@ -6358,7 +6829,7 @@ It is recommended to run every service on a server with limited permissions. Thi
 </div>
 </div>
 <div class="sect4">
-<h5 id="_create_a_config_directory_2"><a class="anchor" href="#_create_a_config_directory_2"></a>7.5.1.2. Create a config directory</h5>
+<h5 id="_create_a_config_directory_2"><a class="anchor" href="#_create_a_config_directory_2"></a>6.4.1.2. Create a config directory</h5>
 <div class="paragraph">
 <p>Create the directory <strong>/opt/openems-backend/config.d</strong>. This is going to be the place, where all the bundle configurations are held.</p>
 </div>
@@ -6367,7 +6838,7 @@ It is recommended to run every service on a server with limited permissions. Thi
 </div>
 </div>
 <div class="sect4">
-<h5 id="_create_a_systemd_service_definition_2"><a class="anchor" href="#_create_a_systemd_service_definition_2"></a>7.5.1.3. Create a systemd service definition</h5>
+<h5 id="_create_a_systemd_service_definition_2"><a class="anchor" href="#_create_a_systemd_service_definition_2"></a>6.4.1.3. Create a systemd service definition</h5>
 <div class="paragraph">
 <p>The systemd 'Service Manager' manages system processes in a Debian Linux. We will create a systemd service definition file, so that systemd takes care of managing (starting/restarting/&#8230;&#8203;) the OpenEMS Backend service.</p>
 </div>
@@ -6451,7 +6922,7 @@ WantedBy=multi-user.target</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_start_openems_backend"><a class="anchor" href="#_start_openems_backend"></a>7.5.1.4. Start OpenEMS Backend</h5>
+<h5 id="_start_openems_backend"><a class="anchor" href="#_start_openems_backend"></a>6.4.1.4. Start OpenEMS Backend</h5>
 <div class="paragraph">
 <p>To update the OpenEMS JAR file at the target device, it is required to copy the JAR file from your build directory to <code>/opt/openems-backend/openems-backend.jar</code> on the server. Afterwards it is required to restart the systemd service</p>
 </div>
@@ -6474,36 +6945,205 @@ WantedBy=multi-user.target</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_internal_component_communication"><a class="anchor" href="#_internal_component_communication"></a>8. Internal Component Communication</h2>
+<h2 id="_internal_component_communication"><a class="anchor" href="#_internal_component_communication"></a>7. Internal Component Communication</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This page describes the internal communication protocol between OpenEMS Edge, OpenEMS Backend and OpenEMS UI. The components keep an open <a href="https://de.wikipedia.org/wiki/WebSocket">Websocket</a> connection which is used for bi-directional communication. The protocol is based on <a href="https://www.jsonrpc.org/specification">JSON-RPC</a>. For details about JSON-RPC please refer to the specification. As a rough summary, the protocol is divided into</p>
+<p>This page describes the internal communication protocol between OpenEMS Edge, OpenEMS Backend and OpenEMS UI. The components keep an open <a href="https://de.wikipedia.org/wiki/WebSocket">Websocket</a> connection which is used for bi-directional communication.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">JSON-RPC Request</dt>
-<dd>
+<div class="sect2">
+<h3 id="_json_rpc_introduction"><a class="anchor" href="#_json_rpc_introduction"></a>7.1. JSON-RPC introduction</h3>
+<div class="paragraph">
+<p>The protocol is based on <a href="https://www.jsonrpc.org/specification">JSON-RPC</a>. For details about JSON-RPC please refer to the specification. As a rough summary, the protocol is divided into</p>
+</div>
+<div class="sect3">
+<h4 id="_json_rpc_request"><a class="anchor" href="#_json_rpc_request"></a>7.1.1. JSON-RPC Request</h4>
+<div class="paragraph">
 <p>Identified by a unique ID and method name with specific params. Expects a Response.</p>
-</dd>
-<dt class="hdlist1">JSON-RPC Success Response</dt>
-<dd>
-<p>Referring to the ID of the Request, providing a result which can be empty or hold specific data.</p>
-</dd>
-<dt class="hdlist1">JSON-RPC Error Response</dt>
-<dd>
-<p>Referring to the ID of the Request, providing error code, message and optionally data.</p>
-</dd>
-<dt class="hdlist1">JSON-RPC Notification</dt>
-<dd>
-<p>Identified by a unique method name with specific params. Does not expect a Response.</p>
-</dd>
-</dl>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "id": UUID,
+  "method": "method",
+  "params": {}
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_json_rpc_success_response"><a class="anchor" href="#_json_rpc_success_response"></a>7.1.2. JSON-RPC Success Response</h4>
+<div class="paragraph">
+<p>Referring to the ID of the Request, providing a result which can be empty or hold specific data.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "id": UUID,
+  "result": {}
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_json_rpc_error_response"><a class="anchor" href="#_json_rpc_error_response"></a>7.1.3. JSON-RPC Error Response</h4>
+<div class="paragraph">
+<p>Referring to the ID of the Request, providing error code, message and optionally data.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "id": UUID,
+  "result": {
+    "code": number,
+    "message": string,
+    "data"?: {}
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_json_rpc_notification"><a class="anchor" href="#_json_rpc_notification"></a>7.1.4. JSON-RPC Notification</h4>
+<div class="paragraph">
+<p>Identified by a unique method name with specific params. Does not expect a Response.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "method": "method",
+  "params": {}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_communication_messages"><a class="anchor" href="#_example_communication_messages"></a>7.2. Example communication messages</h3>
 <div class="paragraph">
 <p>The information on this page is useful to understand the internal communication structure and can help if your plan is to replace one component by a custom implementation, e.g. implementing your own frontend application, or if you plan to extend the provided feature-set.</p>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_authenticate_ui_to_edgebackend_using_token"><a class="anchor" href="#_authenticate_ui_to_edgebackend_using_token"></a>8.1. Authenticate UI to Edge/Backend using token</h3>
+<h3 id="_subscribe_channels"><a class="anchor" href="#_subscribe_channels"></a>7.3. Subscribe Channels</h3>
+<div class="paragraph">
+<p>Real-time channel data may change at a high rate. Instead of requiring the consumer to constantly pull the data, the OpenEMS API provides a publish-subscribe schema that notifies the consumer about updated values. It is initiated via a JSON-RPC request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "id": UUID,
+  "method": "subscribeChannels",
+  "params": {
+    "count": number,
+    "channels": string[]
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The parameters for subscribing to channel data are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>count</code>: a request count value that needs to be increased on each request to avoid concurrency problems</p>
+</li>
+<li>
+<p><code>channels</code>: a list of channel addresses as strings, e.g. "ess0/Soc", "ess0/ActivePower"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>From then on, the API constantly keeps sending <code>currentData</code> JSON-RPC notifications, containing the data for all subscribed channels:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "method": "currentData",
+  "params": {
+    [channelAddress]: string | number
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To unsubscribe from channels, a new <code>subscribeChannels</code> request has to be sent with an empty list of channels.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_edge_rpc"><a class="anchor" href="#_edge_rpc"></a>7.4. Edge-RPC</h3>
+<div class="paragraph">
+<p>When using the API via OpenEMS Backend, it is possible to transparently target a specific OpenEMS Edge, that is connected to the Backend by wrapping the JSON-RPC request into an <code>Edge-RPC</code> request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "id": UUID,
+  "method": "edgeRpc",
+  "params": {
+    "edgeId": string,
+    "payload": JSON-RPC-Request
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The parameters for an “edgeRpc” request are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edgeId</code>: the unique ID of the Edge at the Backend</p>
+</li>
+<li>
+<p><code>payload</code>: the JSON-RPC Request that should be forwarded to the Edge, e.g. <code>getEdgeConfig</code> or <code>updateComponentConfig</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The JSON-RPC response then also wraps the original result as a payload:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "id": UUID,
+  "result": {
+    "payload": JSON-RPC-Response
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jsonapi_component"><a class="anchor" href="#_jsonapi_component"></a>7.5. JsonApi Component</h3>
+<div class="paragraph">
+<p>To directly send a JSON-RPC request to one specific OpenEMS Component, that component has to implement the <code>JsonApi</code> interface.
+Then the <code>componentJsonApi</code> request can be used to wrap a JSON-RPC request as payload:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "id": "UUID",
+  "method": "componentJsonApi",
+  "params": {
+    "componentId": string,
+    "payload": JSON-RPC-Request
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authenticate_ui_to_edgebackend_using_token"><a class="anchor" href="#_authenticate_ui_to_edgebackend_using_token"></a>7.6. Authenticate UI to Edge/Backend using token</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -6523,7 +7163,7 @@ On opening of the websocket connection to Edge/Backend, the UI is authenticated 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_authenticate_ui_to_edge_using_password"><a class="anchor" href="#_authenticate_ui_to_edge_using_password"></a>8.2. Authenticate UI to Edge using password</h3>
+<h3 id="_authenticate_ui_to_edge_using_password"><a class="anchor" href="#_authenticate_ui_to_edge_using_password"></a>7.7. Authenticate UI to Edge using password</h3>
 <div class="imageblock">
 <div class="content">
 <img src="_images/authenticateWithPassword.png" alt="authenticateWithPassword">
@@ -6531,7 +7171,7 @@ On opening of the websocket connection to Edge/Backend, the UI is authenticated 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_subscribe_to_channels"><a class="anchor" href="#_subscribe_to_channels"></a>8.3. Subscribe to Channels</h3>
+<h3 id="_subscribe_to_channels"><a class="anchor" href="#_subscribe_to_channels"></a>7.8. Subscribe to Channels</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -6549,7 +7189,7 @@ Allows a Component to subscribe on certain Channel values. The latest Channel va
 </div>
 </div>
 <div class="sect2">
-<h3 id="_subscribe_to_system_log"><a class="anchor" href="#_subscribe_to_system_log"></a>8.4. Subscribe to System-Log</h3>
+<h3 id="_subscribe_to_system_log"><a class="anchor" href="#_subscribe_to_system_log"></a>7.9. Subscribe to System-Log</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -6567,7 +7207,7 @@ Sends the log output of Edge to UI via Backend.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_store_channel_data_in_time_series_database"><a class="anchor" href="#_store_channel_data_in_time_series_database"></a>8.5. Store channel data in Time-Series database</h3>
+<h3 id="_store_channel_data_in_time_series_database"><a class="anchor" href="#_store_channel_data_in_time_series_database"></a>7.10. Store channel data in Time-Series database</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -6582,7 +7222,7 @@ Edge Backend Api-Controller periodically sends data of Channels to Backend, wher
 </div>
 </div>
 <div class="sect2">
-<h3 id="_communicate_with_a_specific_edge_component"><a class="anchor" href="#_communicate_with_a_specific_edge_component"></a>8.6. Communicate with a specific Edge Component</h3>
+<h3 id="_communicate_with_a_specific_edge_component"><a class="anchor" href="#_communicate_with_a_specific_edge_component"></a>7.11. Communicate with a specific Edge Component</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -6595,17 +7235,152 @@ This provides a way to send a JSON-RPC Request directly to a specific Edge Compo
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Unresolved include directive in modules/ROOT/pages/single_document.adoc - include::simulation.adoc[]
-:leveloffset: +1</p>
 </div>
 </div>
 </div>
-</div>
-<h1 id="_documentation" class="sect0"><a class="anchor" href="#_documentation"></a>Documentation</h1>
 <div class="sect1">
-<h2 id="_concept"><a class="anchor" href="#_concept"></a>1. Concept</h2>
+<h2 id="_real_time_simulation"><a class="anchor" href="#_real_time_simulation"></a>8. Real-Time Simulation</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>OpenEMS provides several virtual devices for testing and development. To set up the simulation-environment follow the setup guide in <a href="gettingstarted.html" class="page">Getting Started</a>. The Apache Felix Web Console Configuration lists all OpenEMS component, but those which rely on external hardware can&#8217;t be used for simulation. These are replaced by more generic components tagged with the "Simulator" prefix. Still, not all non-simulator devices rely on real hardware. Other components used in production, like Loggers, Controllers and Schedulers can be combined with the virtual devices to build a "living" system.</p>
+</div>
+<div class="sect2">
+<h3 id="_types_of_simulated_components"><a class="anchor" href="#_types_of_simulated_components"></a>Types of Simulated Components</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>DataSource</strong>: A data-source generates lists of data and provides them as a channel to other components. The data can be generated by different means, which could be an augmented random-generator or a reader for a specific data-format like the "Simulator Datasource: CSV Reader".</p>
+</li>
+<li>
+<p><strong>Devices</strong>: Devices replace a hardware-component like a meter or an ess. There are two kinds of devices:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>acting</strong>: These devices act on their own. Their actions do not depend on other device&#8217;s actions, but on data-sources.</p>
+</li>
+<li>
+<p><strong>reacting</strong>: These devices analyse other device&#8217;s channels/properties to deduce their own behavior.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_simulator_components"><a class="anchor" href="#_simulator_components"></a>Simulator Components</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Simulator DataSource: CSV Reader</code>: Reads .csv files and provides their content according to the <code>io.openems.edge.simulator.datasource.api.SimulatorDatasource</code> interface. Its package contains several sample csv-files for different devices and situations.</p>
+</li>
+<li>
+<p><code>Simulator EssSymmetric Reacting</code>: Simulates the State of Charge of a ess device. Its behavior depends on configured controllers.</p>
+</li>
+<li>
+<p><code>Simulator GridMeter Acting</code>: Intended to represent grid consumption/production. Portrays a datasource' values. It requests those tagged with the "ActivePower" key. The values are portrayed in the <code>SimulatedActivePower</code>, <code>ActivePower</code> and - divided by three - in the <code>ActivePowerL1</code>, <code>ActivePowerL2</code> and <code>ActivePowerL3</code> channels.</p>
+</li>
+<li>
+<p><code>Simulator ProductionMeter Acting</code>: Intended to represent fixed production like photovoltaic arrays. To date the functionality equals the one of <code>Simulator GridMeter Acting</code>.</p>
+</li>
+<li>
+<p><code>Simulator NRCMeter Acting</code>: Intended to represent non-regulated-consumption. To date the functionality equals the one of <code>Simulator GridMeter Acting</code>.</p>
+</li>
+<li>
+<p><code>Simulator GridMeter Reacting</code>: Intended to represent grid consumption/production. Takes all meters (but grid-meters) and esss, sums up their ActivePowers and divides this value by the number of grid-meters in the system. The negative of this result is then portrayed in the <code>SimulatedActivePower</code>, <code>ActivePower</code> and - divided by three - in the <code>ActivePowerL1</code>, <code>ActivePowerL2</code> and <code>ActivePowerL3</code> channels. This equals the physical reaction of the real grid.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_possible_combinations"><a class="anchor" href="#_possible_combinations"></a>Possible Combinations</h3>
+<div class="paragraph">
+<p>In reality the OpenEMS can not measure the non-regulated-consumers, as they are spread all over the building. However, it can measure the power at the mains connection, which can be used to calculate the non-regulated-consumption. This approach can be simulated using the <code>Simulator GridMeter Acting</code> combined with a <code>Simulator EssSymmetric Reacting</code>.</p>
+</div>
+<div class="paragraph">
+<p>For intelligent systems going beyond real-time-regulation, however, having a - even in production - virtual meter measuring the non-regulated-consumers can be a major advantage. In order to test algorithms depending on such an environment, the simulator provides the <code>Simulator ProductionMeter Acting</code>, the <code>Simulator NRCMeter Acting</code> and the <code>Simulator GridMeter Reacting</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ui_history_simulation"><a class="anchor" href="#_ui_history_simulation"></a>UI History Simulation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sometimes it can be useful to mock historic data in OpenEMS UI in order to take consistent screenshots or to visualize how a certain Controller would have behaved during a day.</p>
+</div>
+<div class="paragraph">
+<p>Prepare the mock for the historic view:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>first copy the example <a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.simulator/src/io/openems/edge/simulator/timedata/timedata.csv">CSV file <span class="icon"><i class="fa fa-github"></i></span></a> to your home directory, e.g. <code>C:\Users\username\</code> on windows.</p>
+</li>
+<li>
+<p>adjust the file to mock all required channel values.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The CSV file is read on every data query by the UI. So in order to update the values, just save the CSV file and click again on 'Today' or 'Yesterday' in the history view to refresh.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To provide data for one day, that file should have 288 lines with values.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/ui-mock-csv.png" alt="The mocked data in the CSV file">
+</div>
+<div class="title">Figure 58. The mocked data in the CSV file</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>OpenEMS UI creates charts dynamically according to which OpenEMS Components are enabled. To mock the historic view, it is required to activate OpenEMS Component via Apache Felix (see <a href="gettingstarted.html" class="page">Getting Started</a>) or directly in the UI OpenEMS Settings screen.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>configure the OpenEMS Components that should be simulated, e.g. a meter, PV inverter,&#8230;&#8203;</p>
+</li>
+<li>
+<p>configure the <code>Simulator Timedata</code> service.</p>
+</li>
+<li>
+<p>open the OpenEMS UI (see <a href="gettingstarted.html" class="page">Getting Started</a>), login and open the 'History' view. You should be presented the mocked data.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/ui-mock-history.png" alt="The mocked data in the UI 'History' view">
+</div>
+<div class="title">Figure 59. The mocked data in the UI 'History' view</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_documentation"><a class="anchor" href="#_documentation"></a>Documentation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_concept"><a class="anchor" href="#_concept"></a>10.1. Concept</h3>
 <div class="paragraph">
 <p>The OpenEMS Documentation is built with <a href="https://antora.org/">Antora <span class="icon"><i class="fa fa-external-link"></i></span></a>.</p>
 </div>
@@ -6628,10 +7403,8 @@ For more Information regarding <a href="https://asciidoctor.org/docs/asciidoc-wr
 </table>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_edit_a_page"><a class="anchor" href="#_edit_a_page"></a>2. Edit a page</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_edit_a_page"><a class="anchor" href="#_edit_a_page"></a>10.2. Edit a page</h3>
 <div class="paragraph">
 <p>If you want to edit a Docs - Page just click on 'Edit this Page' in the upper right corner to edit the page you are currently visiting.</p>
 </div>
@@ -6642,10 +7415,8 @@ For more Information regarding <a href="https://asciidoctor.org/docs/asciidoc-wr
 <p>You will see the changes you have made after our frequent Docs - Update.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_add_a_page"><a class="anchor" href="#_add_a_page"></a>3. Add a page</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_add_a_page"><a class="anchor" href="#_add_a_page"></a>10.3. Add a page</h3>
 <div class="paragraph">
 <p>To add a page, clone the OpenEMS Repository (preferably <a href="gettingstarted.html#_download_the_source_code" class="page">Source Tree</a>) and open it with a Code Editor (preferably <a href="gettingstarted.html#_setup_visual_studio_code_for_openems_ui" class="page">Visual Studio Code</a>).</p>
 </div>
@@ -6660,10 +7431,8 @@ For more Information regarding <a href="https://asciidoctor.org/docs/asciidoc-wr
 </ol>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_build_docs"><a class="anchor" href="#_build_docs"></a>4. Build Docs</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_build_docs"><a class="anchor" href="#_build_docs"></a>10.4. Build Docs</h3>
 <div class="paragraph">
 <p>To build the docs, clone the OpenEMS Repository (preferably <a href="gettingstarted.html#_download_the_source_code" class="page">Source Tree</a>) and open it with a Code Editor (preferably <a href="gettingstarted.html#_setup_visual_studio_code_for_openems_ui" class="page">Visual Studio Code</a>).</p>
 </div>
@@ -6709,8 +7478,9 @@ If you want to build your own docs with Antora see <a href="https://fabianfnc.gi
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_research_and_development"><a class="anchor" href="#_research_and_development"></a>5. Research and Development</h2>
+<h2 id="_research_and_development"><a class="anchor" href="#_research_and_development"></a>11. Research and Development</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_easy_res"><a class="anchor" href="#_easy_res"></a>EASY-RES</h3>

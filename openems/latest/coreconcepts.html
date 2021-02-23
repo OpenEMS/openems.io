@@ -85,6 +85,9 @@
     <span class="nav-text">OpenEMS UI</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="ui/build.html">Build OpenEMS UI</a>
   </li>
 </ul>
@@ -95,9 +98,6 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="backend/architecture.html">Architecture</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="backend/configuration.html">Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="backend/backend-to-backend.html">Backend-to-Backend</a>
@@ -292,68 +292,27 @@
 <h2 id="_openems_component"><a class="anchor" href="#_openems_component"></a>2. OpenEMS Component</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>OpenEMS Edge is built of Components, i.e. every main component implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.common/src/io/openems/edge/common/component/OpenemsComponent.java">OpenemsComponent interface <span class="icon"><i class="fa fa-code"></i></span></a>.</p>
+<p>An OpenEMS Component is the fundamental building block in OpenEMS. Within the used OSGi Java framework, an OpenEMS component represents a service with requirements and capabilities.</p>
 </div>
 <div class="paragraph">
-<p>By definition each Component has a unique ID. Those <strong>Component-IDs</strong> are typically:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ess0</code> for the first storage system or battery inverter</p>
-</li>
-<li>
-<p><code>ess1</code> for the second storage system or battery inverter</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p><code>meter0</code> for the first meter in the system</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
+<p>As an example, an OpenEMS Component can declare to have the capabilities of an Energy Storage System (ESS) and as such represents the digital twin of a real device.
+A specific control algorithm can be implemented as a separate OpenEMS Component that declares a requirement for an ESS.
+Using this metadata, these building blocks are wired together at runtime and form a very flexible system.
+OSGi provides the capability to enable, modify or disable an OpenEMS Component at any time, without requiring a restart of the software.
+Re-wiring of the building blocks happens transparently in the background by the framework.</p>
 </div>
 <div class="paragraph">
-<p>If you receive your OpenEMS together with a FENECON energy storage system, you will find the following Component-IDs:</p>
+<p>Every OpenEMS Component is identified by a unique ID, the "Component-ID".
+In an ecosystem consisting of a couple of ESS, a power meter at the grid connection point, and a measured photovoltaic system, those Component-IDs can be represented as follows:
+*	<code>ess1</code> for the first ESS
+*	<code>ess2</code> for the second ESS
+*	<code>ess0</code> for a virtual ESS cluster Component that aggregates ess1 and ess2
+*	<code>meter0</code> for the power meter at the grid connection point
+*	<code>meter1</code> for the measured photovoltaic system
+* &#8230;&#8203;</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>FENECON Pro</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ess0</code>: FENECON Pro Ess</p>
-</li>
-<li>
-<p><code>meter0</code>: Socomec grid meter</p>
-</li>
-<li>
-<p><code>meter1</code>: FENECON Pro production meter</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>FENECON Mini</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ess0</code>: FENECON Mini</p>
-</li>
-<li>
-<p><code>meter0</code>: FENECON Mini grid meter</p>
-</li>
-<li>
-<p><code>meter1</code>: FENECON Mini production meter</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<div class="paragraph">
+<p>To declare an OpenEMS component, the Java class has to <code>implement</code> the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.common/src/io/openems/edge/common/component/OpenemsComponent.java">OpenemsComponent interface <span class="icon"><i class="fa fa-code"></i></span></a>.</p>
 </div>
 </div>
 </div>
@@ -361,7 +320,37 @@
 <h2 id="_channel"><a class="anchor" href="#_channel"></a>3. Channel</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Each OpenemsComponent provides a number of Channels. Each represents a single piece of information. Each Channel implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.common/src/io/openems/edge/common/channel/Channel.java">Channel interface <span class="icon"><i class="fa fa-code"></i></span></a>. By definition each Channel has a unique ID within its parent Component.</p>
+<p>Each OpenEMS component has a defined set of data points.
+These data points are called "Channels".
+Each represents a single piece of information about a component.
+By definition, each channel has a unique ID, the "Channel-ID", within its parent component.
+Channels are defined by metadata like descriptive text, access-mode (<code>read-only</code>, <code>read-write</code>, <code>write-only</code>), data type (<code>string</code>, <code>integer</code>, <code>float</code>, etc.), and unit of measure (<code>Watt</code>, <code>Volt</code>, <code>Degree Celsius</code>, etc.).
+It is up to the OpenEMS component to provide the input for its read-channels as well as triggering actions on write-channels.</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em> An OpenEMS Component that represents a device connected via the Modbus communication protocol continuously reads data, such as the current measured power and provides the data in its Channels.
+Other Components in the system can then use the channel data for their application, e.g. as input for a control algorithm, to analyse it, store it locally or publish it via an application programming interface (API).</p>
+</div>
+<div class="paragraph">
+<p>An energy system architecture as depicted in the Introduction is complex: connected to multiple hardware devices - batteries, converters, meters, and others - and an operating system and other software components.
+All of these elements are possible sources of errors.
+Because of this, measures are implemented in OpenEMS to improve fault tolerance.
+The developer needs to be aware, that every Channel value, while it will never change within a cycle, it could always be <code>undefined</code> or <code>null</code>, e.g. because there is no communication (yet) with the external hardware device or service.
+Therefore, the programming API for accessing a channel value requires an explicit declaration of what should be done in that case.
+It provides the following methods to get the actual value:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>public T getOrError() throws InvalidValueException;</code></p>
+</li>
+<li>
+<p><code>public T orElse(T alternativeValue);</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each Channel implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.common/src/io/openems/edge/common/channel/Channel.java">Channel interface <span class="icon"><i class="fa fa-code"></i></span></a>.</p>
 </div>
 </div>
 </div>
@@ -369,7 +358,25 @@
 <h2 id="_nature"><a class="anchor" href="#_nature"></a>4. Nature</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Natures extend normal Java interfaces with 'Channels'. If a Component implements a Nature it also needs to provide the required Channels. For example the Energy Storage System (ESS) Simulator <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.simulator/src/io/openems/edge/simulator/ess/symmetric/reacting/EssSymmetric.java">Simulator.EssSymmetric.Reacting <span class="icon"><i class="fa fa-code"></i></span></a> implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/SymmetricEss.java">Ess interface <span class="icon"><i class="fa fa-code"></i></span></a> and therefor needs to provide a <code>Soc</code> Channel that provides the current 'State of Charge' of the battery.</p>
+<p>Certain categories of devices and services provide the same kind of information (i.e. Channels).
+To group these similar devices and services, OpenEMS defines "Natures" as sets of characteristics and attributes which need to be provided by each component that implements them.
+That is, a Nature extends a normal Java interface with channels.</p>
+</div>
+<div class="paragraph">
+<p>Examples of abstracting physical devices using Natures are:
+-	"SymmetricMeter" for power meters
+-	"SymmetricEss" for symmetric battery energy storage systems
+-	"Evcs" for electric vehicle charging stations.</p>
+</div>
+<div class="paragraph">
+<p>OpenEMS components can declare their service capabilities and requirements as Natures.
+In this way, a control algorithm can simply declare a requirement for a controllable energy storage system (“ManagedSymmetricEss”) and will at runtime be wired with a service that provides this capability.
+The control algorithm does not need to know anything about the ESS&#8217;s specific communication interface, protocol, or manufacturer.</p>
+</div>
+<div class="paragraph">
+<p>Natures extend normal Java interfaces with 'Channels'.
+If a Component implements a Nature it also needs to provide the required Channels.
+For example the Energy Storage System (ESS) Simulator <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.simulator/src/io/openems/edge/simulator/ess/symmetric/reacting/EssSymmetric.java">Simulator.EssSymmetric.Reacting <span class="icon"><i class="fa fa-code"></i></span></a> implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/SymmetricEss.java">Ess interface <span class="icon"><i class="fa fa-code"></i></span></a> and therefor needs to provide a <code>Soc</code> Channel that provides the current 'State of Charge' of the battery.</p>
 </div>
 <div class="paragraph">
 <p><a href="edge/controller.html" class="page">Controllers</a> are written against Nature implementations. Example: A Controller can be used with any ESS, because it can be sure that it provides all the data the Controller requires for its algorithm.</p>

@@ -85,6 +85,9 @@
     <span class="nav-text">OpenEMS UI</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../ui/build.html">Build OpenEMS UI</a>
   </li>
 </ul>
@@ -95,9 +98,6 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../backend/architecture.html">Architecture</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../backend/configuration.html">Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../backend/backend-to-backend.html">Backend-to-Backend</a>
@@ -272,6 +272,34 @@
 <div class="paragraph">
 <p>A OpenEMS Edge Controller holds the actual business logic or the actual algorithm that controls hardware. The logic of each active Controller is executed regularly on every Cycle, i.e. once per second.</p>
 </div>
+<div class="paragraph">
+<p>On each execution cycle, e.g. once every second, the EMS can send a control command, which allows two different ways of controlling the hardware:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Control by setpoint</strong></p>
+<div class="paragraph">
+<p>In “control by setpoint” mode, the EMS calculates setpoint commands and sends them to the hardware for immediate execution.</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em> A power smoothing algorithm uses the current and previous output power values of a photovoltaics system. By applying its configured maximum defined ramp rate it deduces that the energy storage systems needs to be discharged with 150 kW to compensate a suddenly reduced output power. It therefore sends a setpoint for "discharge with 150 kW" to the ESS for immediate execution.</p>
+</div>
+</li>
+<li>
+<p><strong>Control by parameterization</strong></p>
+<div class="paragraph">
+<p>In “control by parameterization” mode, the EMS sends the configuration parameters for control algorithms embedded into the hardware for internal execution.</p>
+</div>
+<div class="paragraph">
+<p><em>Example:</em> In a Virtual Inertia Ancillary Services application,     the EMS sends the configuration parameters for the control characteristics to the ESS. The ESS uses this parameter set for its internal, high-performance algorithm.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following Controllers are implemented in the OpenEMS standard codebase. The links point directly to the source code.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -289,7 +317,45 @@
 <h2 id="_api_modbus"><a class="anchor" href="#_api_modbus"></a>2. Api Modbus</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Provides a Modbus-Slave implementation for OpenEMS Edge. It provides access to Channels from an external device via Modbus/TCP.</p>
+<p>The OpenEMS Edge Modbus-Slave-API is provided by the "Modbus-API Controller".
+As the Modbus protocol is widely used in industrial monitoring and automation, this allows for easy access to OpenEMS channels from external systems.</p>
+</div>
+<div class="paragraph">
+<p>The configuration of the Modbus-API controller defines which OpenEMS Components should be exported and made available via the API.
+It then generates a dynamic Modbus protocol that is structured in address blocks that map to OpenEMS Components and Modbus register addresses that map to OpenEMS channels.</p>
+</div>
+<div class="paragraph">
+<p>The modbus table is designed in a way that allows dynamic parsing of all available registers.</p>
+</div>
+<div class="paragraph">
+<p>The following example describes a Controller that is configured to export the Sum-Component (<code>_sum</code>). By reading the headers of the individual blocks, the entire Modbus protocol can be parsed dynamically:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Register <code>0</code> identifies the system as an OpenEMS by the hash value <code>0x17ed6201</code>.</p>
+</li>
+<li>
+<p>Register <code>1</code> shows the length of the first block. Adding the length (<code>199</code>) the current address (<code>1</code>) gives the starting address of the next block (<code>200</code>).</p>
+</li>
+<li>
+<p>Register <code>200</code> gives a string with fixed length of 16 characters with the Component-ID.</p>
+</li>
+<li>
+<p>Register <code>216</code> shows the length of the complete block. Adding the length (<code>300</code>) to the starting address of the block (<code>200</code>) gives the starting address of the next block (<code>500</code>) and so forth.</p>
+</li>
+<li>
+<p>Register <code>220</code> identifies the first sub-block as Nature <code>OpenemsComponent</code>. The length of the sub-block follows in Register <code>221</code> and gives the starting address of the next sub-block (<code>300</code>) and so on.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Instead of parsing the Modbus protocol, it is also possible to download the EMS specific Excel file via OpenEMS UI "System Profile" menu. An example export is available in the 'doc' folder of this bundle.</p>
+</div>
+<div class="paragraph">
+<p>To communicate with specific channels, it is then sufficient to read or write to the matching registers, e.g.
+- Read register <code>302 _sum/EssSoc</code> to get the total average state of charge of the ESS.
+- Write to register <code>806 ess0/SetActivePowerEquals</code> to trigger charging or discharging of the ESS with ID <code>ess0</code>.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.modbus">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
