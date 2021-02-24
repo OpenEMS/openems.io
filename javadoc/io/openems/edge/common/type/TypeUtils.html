@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -147,9 +147,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#assertNull-java.lang.String-java.lang.Object-">assertNull</a></span>(java.lang.String&nbsp;description,
-          java.lang.Object&nbsp;object)</code>
-<div class="block">Throws an descriptive exception if the object is null.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#assertNull-java.lang.String-java.lang.Object...-">assertNull</a></span>(java.lang.String&nbsp;description,
+          java.lang.Object...&nbsp;objects)</code>
+<div class="block">Throws a descriptive exception if any of the objects is null.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -196,35 +196,59 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code>static java.lang.Double</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#min-java.lang.Double...-">min</a></span>(java.lang.Double...&nbsp;values)</code>
+<div class="block">Safely finds the min value of all values.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>static java.lang.Double</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#multiply-java.lang.Double...-">multiply</a></span>(java.lang.Double...&nbsp;factors)</code>
+<div class="block">Safely multiply Doubles.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static java.lang.Integer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#multiply-java.lang.Integer...-">multiply</a></span>(java.lang.Integer...&nbsp;factors)</code>
 <div class="block">Safely multiply Integers.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static java.lang.Integer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#subtract-java.lang.Integer-java.lang.Integer-">subtract</a></span>(java.lang.Integer&nbsp;minuend,
         java.lang.Integer&nbsp;subtrahend)</code>
 <div class="block">Safely subtract Integers.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#subtract-java.lang.Long-java.lang.Long-">subtract</a></span>(java.lang.Long&nbsp;minuend,
         java.lang.Long&nbsp;subtrahend)</code>
 <div class="block">Safely subtract Longs.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static java.lang.Integer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#sum-java.lang.Integer...-">sum</a></span>(java.lang.Integer...&nbsp;values)</code>
 <div class="block">Safely add Integers.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#sum-java.lang.Long...-">sum</a></span>(java.lang.Long...&nbsp;values)</code>
 <div class="block">Safely add Longs.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>static java.lang.Double</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#toDouble-java.lang.Float-">toDouble</a></span>(java.lang.Float&nbsp;value)</code>
+<div class="block">Safely convert from <code>Float</code> to <code>Double</code></div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>static java.lang.Double</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/type/TypeUtils.html#toDouble-java.lang.Integer-">toDouble</a></span>(java.lang.Integer&nbsp;value)</code>
+<div class="block">Safely convert from <code>Integer</code> to <code>Double</code></div>
 </td>
 </tr>
 </table>
@@ -387,6 +411,22 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="multiply-java.lang.Double...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>multiply</h4>
+<pre>public static&nbsp;java.lang.Double&nbsp;multiply(java.lang.Double...&nbsp;factors)</pre>
+<div class="block">Safely multiply Doubles.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>factors</code> - the factors of the multiplication</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the result, possibly null if all factors are null</dd>
+</dl>
+</li>
+</ul>
 <a name="divide-java.lang.Integer-int-">
 <!--   -->
 </a>
@@ -445,6 +485,20 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="min-java.lang.Double...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>min</h4>
+<pre>public static&nbsp;java.lang.Double&nbsp;min(java.lang.Double...&nbsp;values)</pre>
+<div class="block">Safely finds the min value of all values.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the min value; or null if all values are null</dd>
+</dl>
+</li>
+</ul>
 <a name="average-java.lang.Integer...-">
 <!--   -->
 </a>
@@ -474,22 +528,54 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="assertNull-java.lang.String-java.lang.Object-">
+<a name="assertNull-java.lang.String-java.lang.Object...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>assertNull</h4>
+<pre>public static&nbsp;void&nbsp;assertNull(java.lang.String&nbsp;description,
+                              java.lang.Object...&nbsp;objects)
+                       throws java.lang.IllegalArgumentException</pre>
+<div class="block">Throws a descriptive exception if any of the objects is null.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>description</code> - text that is added to the exception</dd>
+<dd><code>objects</code> - the objects</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - if any object is null</dd>
+</dl>
+</li>
+</ul>
+<a name="toDouble-java.lang.Integer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toDouble</h4>
+<pre>public static&nbsp;java.lang.Double&nbsp;toDouble(java.lang.Integer&nbsp;value)</pre>
+<div class="block">Safely convert from <code>Integer</code> to <code>Double</code></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the Integer value, possibly null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Double value, possibly null</dd>
+</dl>
+</li>
+</ul>
+<a name="toDouble-java.lang.Float-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>assertNull</h4>
-<pre>public static&nbsp;void&nbsp;assertNull(java.lang.String&nbsp;description,
-                              java.lang.Object&nbsp;object)
-                       throws <a href="../../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
-<div class="block">Throws an descriptive exception if the object is null.</div>
+<h4>toDouble</h4>
+<pre>public static&nbsp;java.lang.Double&nbsp;toDouble(java.lang.Float&nbsp;value)</pre>
+<div class="block">Safely convert from <code>Float</code> to <code>Double</code></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>description</code> - text that is added to the exception</dd>
-<dd><code>object</code> - the object</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - if object is null</dd>
+<dd><code>value</code> - the Float value, possibly null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Double value, possibly null</dd>
 </dl>
 </li>
 </ul>
