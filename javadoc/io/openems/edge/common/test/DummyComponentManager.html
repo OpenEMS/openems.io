@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":42,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var methods = {"i0":42,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -224,19 +224,25 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 </td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>&lt;T extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>java.util.List&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html#getEnabledComponentsOfType-java.lang.Class-">getEnabledComponentsOfType</a></span>(java.lang.Class&lt;T&gt;&nbsp;clazz)</code>
+<div class="block">Gets all enabled OpenEMS-Components of the given Type.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html#handleJsonrpcRequest-io.openems.common.session.User-io.openems.common.jsonrpc.base.JsonrpcRequest-">handleJsonrpcRequest</a></span>(<a href="../../../../../io/openems/common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
                     <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code>
 <div class="block">Handles a JSON-RPC Request.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html#id--">id</a></span>()</code>
 <div class="block">Returns a unique ID for this OpenEMS component.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/common/test/DummyComponentManager.html#isEnabled--">isEnabled</a></span>()</code>
 <div class="block">Returns whether this component is enabled.</div>
@@ -333,6 +339,27 @@ implements <a href="../../../../../io/openems/edge/common/component/ComponentMan
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html#getAllComponents--">getAllComponents</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a List of OpenEMS-Components</dd>
+</dl>
+</li>
+</ul>
+<a name="getEnabledComponentsOfType-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEnabledComponentsOfType</h4>
+<pre>public&nbsp;&lt;T extends <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;java.util.List&lt;T&gt;&nbsp;getEnabledComponentsOfType(java.lang.Class&lt;T&gt;&nbsp;clazz)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html#getEnabledComponentsOfType-java.lang.Class-">ComponentManager</a></code></span></div>
+<div class="block">Gets all enabled OpenEMS-Components of the given Type.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html#getEnabledComponentsOfType-java.lang.Class-">getEnabledComponentsOfType</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - the given Type, subclass of <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component"><code>OpenemsComponent</code></a></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>clazz</code> - the given Type, subclass of <a href="../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component"><code>OpenemsComponent</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a List of OpenEMS-Components</dd>
 </dl>

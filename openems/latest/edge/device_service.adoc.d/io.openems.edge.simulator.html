@@ -197,22 +197,38 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </table>
 </div>
 <div class="paragraph">
-<p>To run a simulation:
-- Run OpenEMS Edge using the EdgeApp.bndrun
-- Configure a read-write JSON/REST Api
-- Send a <a href="https://openems.github.io/openems.io/openems/latest/edge/controller.html#_endpoint_jsonrpc">JSON-RPC Request</a> like the following, providing full configurations for all required OpenEMS Edge Components</p>
+<p>To run a simulation:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Run OpenEMS Edge using the EdgeApp.bndrun</p>
+</li>
+<li>
+<p>Open up Apache Felix Web Console and</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>activate a "Controller Api REST/JSON Read-Write"</p>
+</li>
+<li>
+<p>activate a "Simulator App"</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Send a <a href="https://openems.github.io/openems.io/openems/latest/edge/controller.html#_endpoint_jsonrpc">JSON-RPC Request</a> like the following, providing full configurations for all required OpenEMS Edge Components</p>
+</li>
+</ol>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
-   "jsonrpc":"2.0",
-   "id":"7132233f-1ca3-1eb3-8800-86d246d47c1d",
    "method":"componentJsonApi",
    "params":{
       "componentId":"_simulator",
       "payload":{
-         "jsonrpc":"2.0",
-         "id":"addccd39-1bac-89c2-91ac-13bf5b1e9743",
          "method":"executeSimulation",
          "params":{
             "components":[
@@ -243,7 +259,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
                      },
                      {
                         "name":"alias",
-                        "value":"Verbrauch"
+                        "value":"Consumption"
                      },
                      {
                         "name":"datasource.id",
@@ -260,7 +276,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
                      },
                      {
                         "name":"alias",
-                        "value":"S�ddach"
+                        "value":"South Roof"
                      },
                      {
                         "name":"datasource.id",

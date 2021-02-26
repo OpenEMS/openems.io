@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":9,"i8":10,"i9":10,"i10":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -156,6 +156,18 @@ implements <a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedata.
 <td class="colFirst"><code>protected <a href="../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedataImpl.html#componentManager">componentManager</a></span></code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedataImpl.html#DEFAULT_DATASOURCE_NAME">DEFAULT_DATASOURCE_NAME</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedataImpl.html#DEFAULT_HEARTBEAT_SECONDS">DEFAULT_HEARTBEAT_SECONDS</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedataImpl.html#DEFAULT_STEP_SECONDS">DEFAULT_STEP_SECONDS</a></span></code>&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -183,7 +195,7 @@ implements <a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedata.
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -233,6 +245,13 @@ implements <a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedata.
 </td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>protected static double[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedataImpl.html#postProcessData-org.rrd4j.core.FetchRequest-int-">postProcessData</a></span>(org.rrd4j.core.FetchRequest&nbsp;request,
+               int&nbsp;resolution)</code>
+<div class="block">Post-Process the received data.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.SortedMap&lt;java.time.ZonedDateTime,java.util.SortedMap&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,com.google.gson.JsonElement&gt;&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedataImpl.html#queryHistoricData-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">queryHistoricData</a></span>(java.lang.String&nbsp;edgeId,
                  java.time.ZonedDateTime&nbsp;fromDate,
@@ -242,7 +261,7 @@ implements <a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedata.
 <div class="block">Queries historic data.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.SortedMap&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,com.google.gson.JsonElement&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedataImpl.html#queryHistoricEnergy-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-">queryHistoricEnergy</a></span>(java.lang.String&nbsp;edgeId,
                    java.time.ZonedDateTime&nbsp;fromDate,
@@ -251,7 +270,7 @@ implements <a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedata.
 <div class="block">Queries historic energy.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.SortedMap&lt;java.time.ZonedDateTime,java.util.SortedMap&lt;<a href="../../../../../io/openems/common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,com.google.gson.JsonElement&gt;&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedataImpl.html#queryHistoricEnergyPerPeriod-java.lang.String-java.time.ZonedDateTime-java.time.ZonedDateTime-java.util.Set-int-">queryHistoricEnergyPerPeriod</a></span>(java.lang.String&nbsp;edgeId,
                             java.time.ZonedDateTime&nbsp;fromDate,
@@ -311,6 +330,45 @@ implements <a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedata.
 <!--   -->
 </a>
 <h3>Field Detail</h3>
+<a name="DEFAULT_DATASOURCE_NAME">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEFAULT_DATASOURCE_NAME</h4>
+<pre>protected static final&nbsp;java.lang.String DEFAULT_DATASOURCE_NAME</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#io.openems.edge.timedata.rrd4j.Rrd4jTimedataImpl.DEFAULT_DATASOURCE_NAME">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="DEFAULT_STEP_SECONDS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEFAULT_STEP_SECONDS</h4>
+<pre>protected static final&nbsp;int DEFAULT_STEP_SECONDS</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#io.openems.edge.timedata.rrd4j.Rrd4jTimedataImpl.DEFAULT_STEP_SECONDS">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="DEFAULT_HEARTBEAT_SECONDS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEFAULT_HEARTBEAT_SECONDS</h4>
+<pre>protected static final&nbsp;int DEFAULT_HEARTBEAT_SECONDS</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#io.openems.edge.timedata.rrd4j.Rrd4jTimedataImpl.DEFAULT_HEARTBEAT_SECONDS">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
 <a name="componentManager">
 <!--   -->
 </a>
@@ -385,6 +443,32 @@ implements <a href="../../../../../io/openems/edge/timedata/rrd4j/Rrd4jTimedata.
 <dd><code>resolution</code> - the Resolution in seconds</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="postProcessData-org.rrd4j.core.FetchRequest-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>postProcessData</h4>
+<pre>protected static&nbsp;double[]&nbsp;postProcessData(org.rrd4j.core.FetchRequest&nbsp;request,
+                                          int&nbsp;resolution)
+                                   throws java.io.IOException,
+                                          java.lang.IllegalArgumentException</pre>
+<div class="block">Post-Process the received data.
+ 
+ <p>
+ This mainly makes sure the data has the correct resolution.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>request</code> - the RRD4j <code>FetchRequest</code></dd>
+<dd><code>resolution</code> - the resolution in seconds</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the result array</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code> - on error</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - on error</dd>
 </dl>
 </li>
 </ul>
