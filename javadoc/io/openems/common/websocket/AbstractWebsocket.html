@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":10,"i9":10,"i10":6,"i11":6};
+var methods = {"i0":6,"i1":10,"i2":10,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":10,"i10":10,"i11":6,"i12":6,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -131,7 +131,11 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#AbstractWebsocket-java.lang.String-">AbstractWebsocket</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#AbstractWebsocket-java.lang.String-int-boolean-">AbstractWebsocket</a></span>(java.lang.String&nbsp;name,
+                 int&nbsp;poolSize,
+                 boolean&nbsp;debugMode)</code>
+<div class="block">Construct this <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html" title="class in io.openems.common.websocket"><code>AbstractWebsocket</code></a>.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -156,73 +160,87 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#execute-java.lang.Runnable-">execute</a></span>(java.lang.Runnable&nbsp;command)</code>
+<div class="block">Execute a <code>Runnable</code> using the shared <code>ExecutorService</code>.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getName--">getName</a></span>()</code>
 <div class="block">Gets the internal name of this websocket client/server</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../io/openems/common/websocket/OnClose.html" title="interface in io.openems.common.websocket">OnClose</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnClose--">getOnClose</a></span>()</code>
 <div class="block">Callback for websocket OnClose event</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../io/openems/common/websocket/OnError.html" title="interface in io.openems.common.websocket">OnError</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnError--">getOnError</a></span>()</code>
 <div class="block">Callback for websocket error</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../io/openems/common/websocket/OnInternalError.html" title="interface in io.openems.common.websocket">OnInternalError</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnInternalError--">getOnInternalError</a></span>()</code>
 <div class="block">Callback for internal error</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../io/openems/common/websocket/OnNotification.html" title="interface in io.openems.common.websocket">OnNotification</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnNotification--">getOnNotification</a></span>()</code>
 <div class="block">Callback for JSON-RPC notification</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../io/openems/common/websocket/OnOpen.html" title="interface in io.openems.common.websocket">OnOpen</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnOpen--">getOnOpen</a></span>()</code>
 <div class="block">Callback for websocket OnOpen event</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../io/openems/common/websocket/OnRequest.html" title="interface in io.openems.common.websocket">OnRequest</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnRequest--">getOnRequest</a></span>()</code>
 <div class="block">Callback for JSON-RPC request</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#handleInternalErrorAsync-java.lang.Exception-">handleInternalErrorAsync</a></span>(java.lang.Exception&nbsp;e)</code>
 <div class="block">Handles an internal Error asynchronously</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#handleInternalErrorSync-java.lang.Exception-java.lang.String-">handleInternalErrorSync</a></span>(java.lang.Exception&nbsp;e,
                        java.lang.String&nbsp;wsDataString)</code>
 <div class="block">Handles an internal Error synchronously</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#logInfo-org.slf4j.Logger-java.lang.String-">logInfo</a></span>(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code>
 <div class="block">Log a info message.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#logWarn-org.slf4j.Logger-java.lang.String-">logWarn</a></span>(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code>
 <div class="block">Log a warn message.</div>
 </td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#start--">start</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#stop--">stop</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -246,13 +264,22 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="AbstractWebsocket-java.lang.String-">
+<a name="AbstractWebsocket-java.lang.String-int-boolean-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractWebsocket</h4>
-<pre>public&nbsp;AbstractWebsocket(java.lang.String&nbsp;name)</pre>
+<pre>public&nbsp;AbstractWebsocket(java.lang.String&nbsp;name,
+                         int&nbsp;poolSize,
+                         boolean&nbsp;debugMode)</pre>
+<div class="block">Construct this <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html" title="class in io.openems.common.websocket"><code>AbstractWebsocket</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - a name that is used to identify log messages</dd>
+<dd><code>poolSize</code> - number of threads dedicated to handle the tasks</dd>
+<dd><code>debugMode</code> - activate a regular debug log about the state of the tasks</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -365,6 +392,38 @@ extends java.lang.Object</pre>
 <div class="block">Gets the internal name of this websocket client/server</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
+</dl>
+</li>
+</ul>
+<a name="start--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>start</h4>
+<pre>protected&nbsp;void&nbsp;start()</pre>
+</li>
+</ul>
+<a name="stop--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>stop</h4>
+<pre>public&nbsp;void&nbsp;stop()</pre>
+</li>
+</ul>
+<a name="execute-java.lang.Runnable-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>execute</h4>
+<pre>protected&nbsp;void&nbsp;execute(java.lang.Runnable&nbsp;command)</pre>
+<div class="block">Execute a <code>Runnable</code> using the shared <code>ExecutorService</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>command</code> - the <code>Runnable</code></dd>
 </dl>
 </li>
 </ul>

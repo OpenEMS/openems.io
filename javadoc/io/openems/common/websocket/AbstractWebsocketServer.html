@@ -112,7 +112,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../io/openems/common/websocket/DummyWebsocketServer.html" title="class in io.openems.common.websocket">DummyWebsocketServer</a>, <a href="../../../../io/openems/backend/b2bwebsocket/WebsocketServer.html" title="class in io.openems.backend.b2bwebsocket">WebsocketServer</a>, <a href="../../../../io/openems/backend/edgewebsocket/impl/WebsocketServer.html" title="class in io.openems.backend.edgewebsocket.impl">WebsocketServer</a>, <a href="../../../../io/openems/backend/uiwebsocket/impl/WebsocketServer.html" title="class in io.openems.backend.uiwebsocket.impl">WebsocketServer</a>, <a href="../../../../io/openems/edge/controller/api/websocket/WebsocketServer.html" title="class in io.openems.edge.controller.api.websocket">WebsocketServer</a></dd>
+<dd><a href="../../../../io/openems/common/websocket/DummyWebsocketServer.html" title="class in io.openems.common.websocket">DummyWebsocketServer</a>, <a href="../../../../io/openems/backend/b2bwebsocket/WebsocketServer.html" title="class in io.openems.backend.b2bwebsocket">WebsocketServer</a>, <a href="../../../../io/openems/backend/edgewebsocket/WebsocketServer.html" title="class in io.openems.backend.edgewebsocket">WebsocketServer</a>, <a href="../../../../io/openems/backend/uiwebsocket/impl/WebsocketServer.html" title="class in io.openems.backend.uiwebsocket.impl">WebsocketServer</a>, <a href="../../../../io/openems/edge/controller/api/websocket/WebsocketServer.html" title="class in io.openems.edge.controller.api.websocket">WebsocketServer</a></dd>
 </dl>
 <hr>
 <br>
@@ -138,8 +138,10 @@ extends <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html"
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocketServer.html#AbstractWebsocketServer-java.lang.String-int-">AbstractWebsocketServer</a></span>(java.lang.String&nbsp;name,
-                       int&nbsp;port)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocketServer.html#AbstractWebsocketServer-java.lang.String-int-int-boolean-">AbstractWebsocketServer</a></span>(java.lang.String&nbsp;name,
+                       int&nbsp;port,
+                       int&nbsp;poolSize,
+                       boolean&nbsp;debugMode)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -210,7 +212,7 @@ extends <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html"
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.common.websocket.<a href="../../../../io/openems/common/websocket/AbstractWebsocket.html" title="class in io.openems.common.websocket">AbstractWebsocket</a></h3>
-<code><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#createWsData--">createWsData</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getName--">getName</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnClose--">getOnClose</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnError--">getOnError</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnNotification--">getOnNotification</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnOpen--">getOnOpen</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnRequest--">getOnRequest</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#handleInternalErrorAsync-java.lang.Exception-">handleInternalErrorAsync</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#handleInternalErrorSync-java.lang.Exception-java.lang.String-">handleInternalErrorSync</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#logInfo-org.slf4j.Logger-java.lang.String-">logInfo</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#logWarn-org.slf4j.Logger-java.lang.String-">logWarn</a></code></li>
+<code><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#createWsData--">createWsData</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#execute-java.lang.Runnable-">execute</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getName--">getName</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnClose--">getOnClose</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnError--">getOnError</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnNotification--">getOnNotification</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnOpen--">getOnOpen</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#getOnRequest--">getOnRequest</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#handleInternalErrorAsync-java.lang.Exception-">handleInternalErrorAsync</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#handleInternalErrorSync-java.lang.Exception-java.lang.String-">handleInternalErrorSync</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#logInfo-org.slf4j.Logger-java.lang.String-">logInfo</a>, <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#logWarn-org.slf4j.Logger-java.lang.String-">logWarn</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -233,18 +235,22 @@ extends <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html"
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="AbstractWebsocketServer-java.lang.String-int-">
+<a name="AbstractWebsocketServer-java.lang.String-int-int-boolean-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractWebsocketServer</h4>
 <pre>protected&nbsp;AbstractWebsocketServer(java.lang.String&nbsp;name,
-                                  int&nbsp;port)</pre>
+                                  int&nbsp;port,
+                                  int&nbsp;poolSize,
+                                  boolean&nbsp;debugMode)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - to identify this server</dd>
 <dd><code>port</code> - to listen on</dd>
+<dd><code>poolSize</code> - number of threads dedicated to handle the tasks</dd>
+<dd><code>debugMode</code> - activate a regular debug log about the state of the tasks</dd>
 </dl>
 </li>
 </ul>
@@ -333,6 +339,10 @@ extends <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html"
 <h4>start</h4>
 <pre>public&nbsp;void&nbsp;start()</pre>
 <div class="block">Starts the websocket server</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#start--">start</a></code>&nbsp;in class&nbsp;<code><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html" title="class in io.openems.common.websocket">AbstractWebsocket</a>&lt;<a href="../../../../io/openems/common/websocket/AbstractWebsocketServer.html" title="type parameter in AbstractWebsocketServer">T</a> extends <a href="../../../../io/openems/common/websocket/WsData.html" title="class in io.openems.common.websocket">WsData</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a name="stop--">
@@ -343,6 +353,10 @@ extends <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html"
 <h4>stop</h4>
 <pre>public&nbsp;void&nbsp;stop()</pre>
 <div class="block">Stops the websocket server</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html#stop--">stop</a></code>&nbsp;in class&nbsp;<code><a href="../../../../io/openems/common/websocket/AbstractWebsocket.html" title="class in io.openems.common.websocket">AbstractWebsocket</a>&lt;<a href="../../../../io/openems/common/websocket/AbstractWebsocketServer.html" title="type parameter in AbstractWebsocketServer">T</a> extends <a href="../../../../io/openems/common/websocket/WsData.html" title="class in io.openems.common.websocket">WsData</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a name="handleNonJsonrpcMessage-java.lang.String-io.openems.common.exceptions.OpenemsError.OpenemsNamedException-">
