@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -112,7 +112,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../io/openems/backend/b2bwebsocket/WebsocketServer.html" title="class in io.openems.backend.b2bwebsocket">WebsocketServer</a>, <a href="../../../../io/openems/backend/edgewebsocket/impl/WebsocketServer.html" title="class in io.openems.backend.edgewebsocket.impl">WebsocketServer</a>, <a href="../../../../io/openems/backend/uiwebsocket/impl/WebsocketServer.html" title="class in io.openems.backend.uiwebsocket.impl">WebsocketServer</a>, <a href="../../../../io/openems/edge/controller/api/websocket/WebsocketServer.html" title="class in io.openems.edge.controller.api.websocket">WebsocketServer</a></dd>
+<dd><a href="../../../../io/openems/common/websocket/DummyWebsocketServer.html" title="class in io.openems.common.websocket">DummyWebsocketServer</a>, <a href="../../../../io/openems/backend/b2bwebsocket/WebsocketServer.html" title="class in io.openems.backend.b2bwebsocket">WebsocketServer</a>, <a href="../../../../io/openems/backend/edgewebsocket/impl/WebsocketServer.html" title="class in io.openems.backend.edgewebsocket.impl">WebsocketServer</a>, <a href="../../../../io/openems/backend/uiwebsocket/impl/WebsocketServer.html" title="class in io.openems.backend.uiwebsocket.impl">WebsocketServer</a>, <a href="../../../../io/openems/edge/controller/api/websocket/WebsocketServer.html" title="class in io.openems.edge.controller.api.websocket">WebsocketServer</a></dd>
 </dl>
 <hr>
 <br>
@@ -173,26 +173,32 @@ extends <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html"
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocketServer.html#getPort--">getPort</a></span>()</code>
+<div class="block">Gets the port number that this server listens on.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../io/openems/common/jsonrpc/base/JsonrpcMessage.html" title="class in io.openems.common.jsonrpc.base">JsonrpcMessage</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocketServer.html#handleNonJsonrpcMessage-java.lang.String-io.openems.common.exceptions.OpenemsError.OpenemsNamedException-">handleNonJsonrpcMessage</a></span>(java.lang.String&nbsp;stringMessage,
                        <a href="../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&nbsp;e)</code>
 <div class="block">Convert deprecated Non-JSON-RPC messages to JSON-RPC messages.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocketServer.html#sendMessage-org.java_websocket.WebSocket-io.openems.common.jsonrpc.base.JsonrpcMessage-">sendMessage</a></span>(org.java_websocket.WebSocket&nbsp;ws,
            <a href="../../../../io/openems/common/jsonrpc/base/JsonrpcMessage.html" title="class in io.openems.common.jsonrpc.base">JsonrpcMessage</a>&nbsp;message)</code>
 <div class="block">Sends a message to WebSocket.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocketServer.html#start--">start</a></span>()</code>
 <div class="block">Starts the websocket server</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../io/openems/common/websocket/AbstractWebsocketServer.html#stop--">stop</a></span>()</code>
 <div class="block">Stops the websocket server</div>
@@ -302,6 +308,20 @@ extends <a href="../../../../io/openems/common/websocket/AbstractWebsocket.html"
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>message</code> - the JSON-RPC Message</dd>
+</dl>
+</li>
+</ul>
+<a name="getPort--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPort</h4>
+<pre>public&nbsp;int&nbsp;getPort()</pre>
+<div class="block">Gets the port number that this server listens on.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The port number.</dd>
 </dl>
 </li>
 </ul>

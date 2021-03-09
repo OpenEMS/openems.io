@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApi.ChannelId.html" title="enum in io.openems.edge.controller.api.backend"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../io/openems/edge/controller/api/backend/OnError.html" title="class in io.openems.edge.controller.api.backend"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../io/openems/edge/controller/api/backend/BackendWorker.html" title="class in io.openems.edge.controller.api.backend"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?io/openems/edge/controller/api/backend/BackendApiImpl.html" target="_top">Frames</a></li>
@@ -165,24 +165,24 @@ implements <a href="../../../../../../io/openems/edge/controller/api/backend/Bac
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#componentManager">componentManager</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#debug">debug</a></span></code>&nbsp;</td>
+<td class="colFirst"><code>protected io.openems.edge.controller.api.backend.Config</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#config">config</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle">Cycle</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#cycle">cycle</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#DEFAULT_NO_OF_CYCLES">DEFAULT_NO_OF_CYCLES</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#noOfCycles">noOfCycles</a></span></code>&nbsp;</td>
-</tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/controller/api/backend/SendChannelValuesWorker.html" title="class in io.openems.edge.controller.api.backend">SendChannelValuesWorker</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#sendChannelValuesWorker">sendChannelValuesWorker</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/controller/api/backend/WebsocketClient.html" title="class in io.openems.edge.controller.api.backend">WebsocketClient</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#websocket">websocket</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected io.openems.edge.controller.api.backend.BackendWorker</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#worker">worker</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -231,26 +231,30 @@ implements <a href="../../../../../../io/openems/edge/controller/api/backend/Bac
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#handleEvent-org.osgi.service.event.Event-">handleEvent</a></span>(org.osgi.service.event.Event&nbsp;event)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#isConnected--">isConnected</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#logInfo-org.slf4j.Logger-java.lang.String-">logInfo</a></span>(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code>
 <div class="block">Log an info message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#logWarn-org.slf4j.Logger-java.lang.String-">logWarn</a></span>(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code>
 <div class="block">Log a warn message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#run--">run</a></span>()</code>
 <div class="block">Executes the Controller logic.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApiImpl.html#setSystemLogSubscribed-boolean-">setSystemLogSubscribed</a></span>(boolean&nbsp;isSystemLogSubscribed)</code>
 <div class="block">Activates/deactivates subscription to System-Log.</div>
@@ -276,7 +280,7 @@ implements <a href="../../../../../../io/openems/edge/controller/api/backend/Bac
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.controller.api.backend.<a href="../../../../../../io/openems/edge/controller/api/backend/BackendApi.html" title="interface in io.openems.edge.controller.api.backend">BackendApi</a></h3>
-<code><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApi.html#getApiWorkerLogChannel--">getApiWorkerLogChannel</a></code></li>
+<code><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApi.html#getApiWorkerLogChannel--">getApiWorkerLogChannel</a>, <a href="../../../../../../io/openems/edge/controller/api/backend/BackendApi.html#getUnableToSendChannel--">getUnableToSendChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.controller.api.Controller">
@@ -332,13 +336,13 @@ implements <a href="../../../../../../io/openems/edge/controller/api/backend/Bac
 </dl>
 </li>
 </ul>
-<a name="worker">
+<a name="sendChannelValuesWorker">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>worker</h4>
-<pre>protected final&nbsp;io.openems.edge.controller.api.backend.BackendWorker worker</pre>
+<h4>sendChannelValuesWorker</h4>
+<pre>protected final&nbsp;<a href="../../../../../../io/openems/edge/controller/api/backend/SendChannelValuesWorker.html" title="class in io.openems.edge.controller.api.backend">SendChannelValuesWorker</a> sendChannelValuesWorker</pre>
 </li>
 </ul>
 <a name="apiWorker">
@@ -359,31 +363,31 @@ implements <a href="../../../../../../io/openems/edge/controller/api/backend/Bac
 <pre>protected&nbsp;<a href="../../../../../../io/openems/edge/controller/api/backend/WebsocketClient.html" title="class in io.openems.edge.controller.api.backend">WebsocketClient</a> websocket</pre>
 </li>
 </ul>
-<a name="noOfCycles">
+<a name="config">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>noOfCycles</h4>
-<pre>protected&nbsp;int noOfCycles</pre>
-</li>
-</ul>
-<a name="debug">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>debug</h4>
-<pre>protected&nbsp;boolean debug</pre>
+<h4>config</h4>
+<pre>protected&nbsp;io.openems.edge.controller.api.backend.Config config</pre>
 </li>
 </ul>
 <a name="componentManager">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>componentManager</h4>
 <pre>protected&nbsp;<a href="../../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a> componentManager</pre>
+</li>
+</ul>
+<a name="cycle">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>cycle</h4>
+<pre>protected&nbsp;<a href="../../../../../../io/openems/edge/common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle">Cycle</a> cycle</pre>
 </li>
 </ul>
 </li>
@@ -516,7 +520,7 @@ implements <a href="../../../../../../io/openems/edge/controller/api/backend/Bac
 <a name="handleEvent-org.osgi.service.event.Event-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>handleEvent</h4>
 <pre>public&nbsp;void&nbsp;handleEvent(org.osgi.service.event.Event&nbsp;event)</pre>
@@ -524,6 +528,15 @@ implements <a href="../../../../../../io/openems/edge/controller/api/backend/Bac
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
+</li>
+</ul>
+<a name="isConnected--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isConnected</h4>
+<pre>public&nbsp;boolean&nbsp;isConnected()</pre>
 </li>
 </ul>
 </li>
@@ -554,7 +567,7 @@ implements <a href="../../../../../../io/openems/edge/controller/api/backend/Bac
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../../io/openems/edge/controller/api/backend/BackendApi.ChannelId.html" title="enum in io.openems.edge.controller.api.backend"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../io/openems/edge/controller/api/backend/OnError.html" title="class in io.openems.edge.controller.api.backend"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../io/openems/edge/controller/api/backend/BackendWorker.html" title="class in io.openems.edge.controller.api.backend"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?io/openems/edge/controller/api/backend/BackendApiImpl.html" target="_top">Frames</a></li>
