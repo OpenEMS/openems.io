@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.ChannelId.html" title="enum in io.openems.edge.ess.generic.symmetric"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../io/openems/edge/ess/generic/symmetric/ChannelManager.html" title="class in io.openems.edge.ess.generic.symmetric"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
@@ -101,7 +101,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">io.openems.edge.common.component.AbstractOpenemsComponent</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">io.openems.edge.ess.generic.common.AbstractGenericManagedEss</a>&lt;<a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</li>
+<li>
+<ul class="inheritance">
 <li>io.openems.edge.ess.generic.symmetric.GenericManagedSymmetricEssImpl</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -112,13 +117,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../../../../../io/openems/edge/ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html" title="interface in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEss</a>, org.osgi.service.event.EventHandler</dd>
+<dd><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../../../../../io/openems/edge/ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a>, org.osgi.service.event.EventHandler</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">GenericManagedSymmetricEssImpl</span>
-extends <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html" title="interface in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEss</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../../../../../io/openems/edge/ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></pre>
+extends <a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericManagedEss</a>&lt;<a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;
+implements <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../../../../../io/openems/edge/ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></pre>
 </li>
 </ul>
 </div>
@@ -132,11 +137,11 @@ implements <a href="../../../../../../io/openems/edge/ess/generic/symmetric/Gene
 </a>
 <h3>Nested Class Summary</h3>
 <ul class="blockList">
-<li class="blockList"><a name="nested.classes.inherited.from.class.io.openems.edge.ess.generic.symmetric.GenericManagedSymmetricEss">
+<li class="blockList"><a name="nested.classes.inherited.from.class.io.openems.edge.ess.generic.common.GenericManagedEss">
 <!--   -->
 </a>
-<h3>Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.ess.generic.symmetric.<a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html" title="interface in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEss</a></h3>
-<code><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.ChannelId.html" title="enum in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEss.ChannelId</a></code></li>
+<h3>Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.ess.generic.common.<a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a></h3>
+<code><a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.ChannelId.html" title="enum in io.openems.edge.ess.generic.common">GenericManagedEss.ChannelId</a></code></li>
 </ul>
 </li>
 </ul>
@@ -147,11 +152,11 @@ implements <a href="../../../../../../io/openems/edge/ess/generic/symmetric/Gene
 </a>
 <h3>Field Summary</h3>
 <ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.io.openems.edge.ess.generic.symmetric.GenericManagedSymmetricEss">
+<li class="blockList"><a name="fields.inherited.from.class.io.openems.edge.ess.generic.common.GenericManagedEss">
 <!--   -->
 </a>
-<h3>Fields inherited from interface&nbsp;io.openems.edge.ess.generic.symmetric.<a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html" title="interface in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEss</a></h3>
-<code><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#EFFICIENCY_FACTOR">EFFICIENCY_FACTOR</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#RETRY_COMMAND_MAX_ATTEMPTS">RETRY_COMMAND_MAX_ATTEMPTS</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#RETRY_COMMAND_SECONDS">RETRY_COMMAND_SECONDS</a></code></li>
+<h3>Fields inherited from interface&nbsp;io.openems.edge.ess.generic.common.<a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a></h3>
+<code><a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#EFFICIENCY_FACTOR">EFFICIENCY_FACTOR</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#RETRY_COMMAND_MAX_ATTEMPTS">RETRY_COMMAND_MAX_ATTEMPTS</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#RETRY_COMMAND_SECONDS">RETRY_COMMAND_SECONDS</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.io.openems.edge.ess.api.SymmetricEss">
@@ -192,72 +197,54 @@ implements <a href="../../../../../../io/openems/edge/ess/generic/symmetric/Gene
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#applyPower-int-int-">applyPower</a></span>(int&nbsp;activePower,
-          int&nbsp;reactivePower)</code>
-<div class="block">Forwards the power request to the <a href="../../../../../../io/openems/edge/batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>SymmetricBatteryInverter</code></a>.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#deactivate--">deactivate</a></span>()</code>
 <div class="block">Handles @Deactivate of implementations.</div>
 </td>
 </tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#getBattery--">getBattery</a></span>()</code>&nbsp;</td>
+</tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#debugLog--">debugLog</a></span>()</code>
-<div class="block">Gets some output that is suitable for a continuous Debug log.</div>
-</td>
+<td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#getBatteryInverter--">getBatteryInverter</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlaveTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveTable</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">getModbusSlaveTable</a></span>(<a href="../../../../../../io/openems/common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</code>
-<div class="block">Gets the Modbus-Slave-Table for this OpenEMS-Component.</div>
+<td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericEssChannelManager.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericEssChannelManager</a>&lt;<a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#getChannelManager--">getChannelManager</a></span>()</code>
+<div class="block">Helper wrapping class to handle everything related to Channels.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#getComponentManager--">getComponentManager</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../io/openems/edge/ess/power/api/Power.html" title="interface in io.openems.edge.ess.power.api">Power</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#getPower--">getPower</a></span>()</code>
 <div class="block">Gets an instance of the 'Power' class, which allows to set limitations to
  Active and Reactive Power.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#getPowerPrecision--">getPowerPrecision</a></span>()</code>
-<div class="block">Retrieves PowerPrecision from <a href="../../../../../../io/openems/edge/batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>SymmetricBatteryInverter</code></a>.</div>
-</td>
-</tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#getStartStopTarget--">getStartStopTarget</a></span>()</code>
-<div class="block">Gets the target Start/Stop mode from config or StartStop-Channel.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../../io/openems/edge/ess/power/api/Constraint.html" title="class in io.openems.edge.ess.power.api">Constraint</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#getStaticConstraints--">getStaticConstraints</a></span>()</code>
-<div class="block">Retrieves StaticConstraints from <a href="../../../../../../io/openems/edge/batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>SymmetricBatteryInverter</code></a>.</div>
-</td>
-</tr>
-<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#handleEvent-org.osgi.service.event.Event-">handleEvent</a></span>(org.osgi.service.event.Event&nbsp;event)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEssImpl.html#setStartStop-io.openems.edge.common.startstop.StartStop-">setStartStop</a></span>(<a href="../../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</code>
-<div class="block">Starts or stops the device or service represented by this OpenEMS Component.</div>
-</td>
-</tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.ess.generic.common.AbstractGenericManagedEss">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;io.openems.edge.ess.generic.common.<a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericManagedEss</a></h3>
+<code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#activate-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-">activate</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#activate-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-io.openems.edge.common.startstop.StartStopConfig-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-">activate</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#applyPower-int-int-">applyPower</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#debugLog--">debugLog</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">getModbusSlaveTable</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#getPowerPrecision--">getPowerPrecision</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#getStartStopTarget--">getStartStopTarget</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#getStaticConstraints--">getStaticConstraints</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#setStartStop-io.openems.edge.common.startstop.StartStop-">setStartStop</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.common.component.AbstractOpenemsComponent">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.edge.common.component.<a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a></h3>
-<code><a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#activate-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-">activate</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#addChannel-io.openems.edge.common.channel.ChannelId-">addChannel</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#addChannels-io.openems.edge.common.channel.ChannelId:A-">addChannels</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#addChannels-io.openems.edge.common.channel.ChannelId:A:A-">addChannels</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#alias--">alias</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#channels--">channels</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#id--">id</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#logDebug-org.slf4j.Logger-java.lang.String-">logDebug</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#logError-org.slf4j.Logger-java.lang.String-">logError</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#logInfo-org.slf4j.Logger-java.lang.String-">logInfo</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#logWarn-org.slf4j.Logger-java.lang.String-">logWarn</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#modified-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-">modified</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#removeChannel-io.openems.edge.common.channel.Channel-">removeChannel</a></code></li>
+<code><a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#addChannel-io.openems.edge.common.channel.ChannelId-">addChannel</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#addChannels-io.openems.edge.common.channel.ChannelId:A-">addChannels</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#addChannels-io.openems.edge.common.channel.ChannelId:A:A-">addChannels</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#alias--">alias</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#channels--">channels</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#id--">id</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#logDebug-org.slf4j.Logger-java.lang.String-">logDebug</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#logError-org.slf4j.Logger-java.lang.String-">logError</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#logInfo-org.slf4j.Logger-java.lang.String-">logInfo</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#logWarn-org.slf4j.Logger-java.lang.String-">logWarn</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#modified-org.osgi.service.component.ComponentContext-java.lang.String-java.lang.String-boolean-">modified</a>, <a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#removeChannel-io.openems.edge.common.channel.Channel-">removeChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -267,18 +254,18 @@ implements <a href="../../../../../../io/openems/edge/ess/generic/symmetric/Gene
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.ess.generic.symmetric.GenericManagedSymmetricEss">
+<li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.ess.generic.common.GenericManagedEss">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;io.openems.edge.ess.generic.symmetric.<a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html" title="interface in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEss</a></h3>
-<code><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#Z:Z_setMaxBatteryInverterStartAttemptsFault-boolean-">_setMaxBatteryInverterStartAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#Z:Z_setMaxBatteryInverterStopAttemptsFault-boolean-">_setMaxBatteryInverterStopAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#Z:Z_setMaxBatteryStartAttemptsFault-boolean-">_setMaxBatteryStartAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#Z:Z_setMaxBatteryStopAttemptsFault-boolean-">_setMaxBatteryStopAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getMaxBatteryInverterStartAttemptsFault--">getMaxBatteryInverterStartAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getMaxBatteryInverterStartAttemptsFaultChannel--">getMaxBatteryInverterStartAttemptsFaultChannel</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getMaxBatteryInverterStopAttemptsFault--">getMaxBatteryInverterStopAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getMaxBatteryInverterStopAttemptsFaultChannel--">getMaxBatteryInverterStopAttemptsFaultChannel</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getMaxBatteryStartAttemptsFault--">getMaxBatteryStartAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getMaxBatteryStartAttemptsFaultChannel--">getMaxBatteryStartAttemptsFaultChannel</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getMaxBatteryStopAttemptsFault--">getMaxBatteryStopAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getMaxBatteryStopAttemptsFaultChannel--">getMaxBatteryStopAttemptsFaultChannel</a></code></li>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.ess.generic.common.<a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a></h3>
+<code><a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#Z:Z_setMaxBatteryInverterStartAttemptsFault-boolean-">_setMaxBatteryInverterStartAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#Z:Z_setMaxBatteryInverterStopAttemptsFault-boolean-">_setMaxBatteryInverterStopAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#Z:Z_setMaxBatteryStartAttemptsFault-boolean-">_setMaxBatteryStartAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#Z:Z_setMaxBatteryStopAttemptsFault-boolean-">_setMaxBatteryStopAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#getMaxBatteryInverterStartAttemptsFault--">getMaxBatteryInverterStartAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#getMaxBatteryInverterStartAttemptsFaultChannel--">getMaxBatteryInverterStartAttemptsFaultChannel</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#getMaxBatteryInverterStopAttemptsFault--">getMaxBatteryInverterStopAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#getMaxBatteryInverterStopAttemptsFaultChannel--">getMaxBatteryInverterStopAttemptsFaultChannel</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#getMaxBatteryStartAttemptsFault--">getMaxBatteryStartAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#getMaxBatteryStartAttemptsFaultChannel--">getMaxBatteryStartAttemptsFaultChannel</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#getMaxBatteryStopAttemptsFault--">getMaxBatteryStopAttemptsFault</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#getMaxBatteryStopAttemptsFaultChannel--">getMaxBatteryStopAttemptsFaultChannel</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">getModbusSlaveTable</a>, <a href="../../../../../../io/openems/edge/ess/generic/common/GenericManagedEss.html#getStartStopTarget--">getStartStopTarget</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.ess.api.ManagedSymmetricEss">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.ess.api.<a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></h3>
-<code><a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setAllowedChargePower-int-">_setAllowedChargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setAllowedChargePower-java.lang.Integer-">_setAllowedChargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setAllowedDischargePower-int-">_setAllowedDischargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setAllowedDischargePower-java.lang.Integer-">_setAllowedDischargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setApplyPowerFailed-boolean-">_setApplyPowerFailed</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setDebugSetActivePower-int-">_setDebugSetActivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setDebugSetActivePower-java.lang.Integer-">_setDebugSetActivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setDebugSetReactivePower-int-">_setDebugSetReactivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setDebugSetReactivePower-java.lang.Integer-">_setDebugSetReactivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#addPowerConstraint-java.lang.String-io.openems.edge.ess.power.api.Phase-io.openems.edge.ess.power.api.Pwr-io.openems.edge.ess.power.api.Relationship-double-">addPowerConstraint</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#addPowerConstraintAndValidate-java.lang.String-io.openems.edge.ess.power.api.Phase-io.openems.edge.ess.power.api.Pwr-io.openems.edge.ess.power.api.Relationship-double-">addPowerConstraintAndValidate</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#createPowerConstraint-java.lang.String-io.openems.edge.ess.power.api.Phase-io.openems.edge.ess.power.api.Pwr-io.openems.edge.ess.power.api.Relationship-double-">createPowerConstraint</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getAllowedChargePower--">getAllowedChargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getAllowedChargePowerChannel--">getAllowedChargePowerChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getAllowedDischargePower--">getAllowedDischargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getAllowedDischargePowerChannel--">getAllowedDischargePowerChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getApplyPowerFailed--">getApplyPowerFailed</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getApplyPowerFailedChannel--">getApplyPowerFailedChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getDebugSetActivePower--">getDebugSetActivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getDebugSetActivePowerChannel--">getDebugSetActivePowerChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getDebugSetReactivePower--">getDebugSetReactivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getDebugSetReactivePowerChannel--">getDebugSetReactivePowerChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetActivePowerEqualsChannel--">getSetActivePowerEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetActivePowerEqualsWithPidChannel--">getSetActivePowerEqualsWithPidChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetActivePowerGreaterOrEqualsChannel--">getSetActivePowerGreaterOrEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetActivePowerLessOrEqualsChannel--">getSetActivePowerLessOrEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetReactivePowerEqualsChannel--">getSetReactivePowerEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetReactivePowerGreaterOrEqualsChannel--">getSetReactivePowerGreaterOrEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetReactivePowerLessOrEqualsChannel--">getSetReactivePowerLessOrEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setActivePowerEquals-java.lang.Integer-">setActivePowerEquals</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setActivePowerEqualsWithPid-java.lang.Integer-">setActivePowerEqualsWithPid</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setActivePowerGreaterOrEquals-java.lang.Integer-">setActivePowerGreaterOrEquals</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setActivePowerLessOrEquals-java.lang.Integer-">setActivePowerLessOrEquals</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setReactivePowerEquals-java.lang.Integer-">setReactivePowerEquals</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setReactivePowerGreaterOrEquals-java.lang.Integer-">setReactivePowerGreaterOrEquals</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setReactivePowerLessOrEquals-java.lang.Integer-">setReactivePowerLessOrEquals</a></code></li>
+<code><a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setAllowedChargePower-int-">_setAllowedChargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setAllowedChargePower-java.lang.Integer-">_setAllowedChargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setAllowedDischargePower-int-">_setAllowedDischargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setAllowedDischargePower-java.lang.Integer-">_setAllowedDischargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setApplyPowerFailed-boolean-">_setApplyPowerFailed</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setDebugSetActivePower-int-">_setDebugSetActivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setDebugSetActivePower-java.lang.Integer-">_setDebugSetActivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setDebugSetReactivePower-int-">_setDebugSetReactivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#Z:Z_setDebugSetReactivePower-java.lang.Integer-">_setDebugSetReactivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#addPowerConstraint-java.lang.String-io.openems.edge.ess.power.api.Phase-io.openems.edge.ess.power.api.Pwr-io.openems.edge.ess.power.api.Relationship-double-">addPowerConstraint</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#addPowerConstraintAndValidate-java.lang.String-io.openems.edge.ess.power.api.Phase-io.openems.edge.ess.power.api.Pwr-io.openems.edge.ess.power.api.Relationship-double-">addPowerConstraintAndValidate</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#applyPower-int-int-">applyPower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#createPowerConstraint-java.lang.String-io.openems.edge.ess.power.api.Phase-io.openems.edge.ess.power.api.Pwr-io.openems.edge.ess.power.api.Relationship-double-">createPowerConstraint</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getAllowedChargePower--">getAllowedChargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getAllowedChargePowerChannel--">getAllowedChargePowerChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getAllowedDischargePower--">getAllowedDischargePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getAllowedDischargePowerChannel--">getAllowedDischargePowerChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getApplyPowerFailed--">getApplyPowerFailed</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getApplyPowerFailedChannel--">getApplyPowerFailedChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getDebugSetActivePower--">getDebugSetActivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getDebugSetActivePowerChannel--">getDebugSetActivePowerChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getDebugSetReactivePower--">getDebugSetReactivePower</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getDebugSetReactivePowerChannel--">getDebugSetReactivePowerChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getPowerPrecision--">getPowerPrecision</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetActivePowerEqualsChannel--">getSetActivePowerEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetActivePowerEqualsWithPidChannel--">getSetActivePowerEqualsWithPidChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetActivePowerGreaterOrEqualsChannel--">getSetActivePowerGreaterOrEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetActivePowerLessOrEqualsChannel--">getSetActivePowerLessOrEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetReactivePowerEqualsChannel--">getSetReactivePowerEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetReactivePowerGreaterOrEqualsChannel--">getSetReactivePowerGreaterOrEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getSetReactivePowerLessOrEqualsChannel--">getSetReactivePowerLessOrEqualsChannel</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getStaticConstraints--">getStaticConstraints</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setActivePowerEquals-java.lang.Integer-">setActivePowerEquals</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setActivePowerEqualsWithPid-java.lang.Integer-">setActivePowerEqualsWithPid</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setActivePowerGreaterOrEquals-java.lang.Integer-">setActivePowerGreaterOrEquals</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setActivePowerLessOrEquals-java.lang.Integer-">setActivePowerLessOrEquals</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setReactivePowerEquals-java.lang.Integer-">setReactivePowerEquals</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setReactivePowerGreaterOrEquals-java.lang.Integer-">setReactivePowerGreaterOrEquals</a>, <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#setReactivePowerLessOrEquals-java.lang.Integer-">setReactivePowerLessOrEquals</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.ess.api.SymmetricEss">
@@ -292,14 +279,14 @@ implements <a href="../../../../../../io/openems/edge/ess/generic/symmetric/Gene
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
-<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#alias--">alias</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channels--">channels</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getStateChannel--">getStateChannel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#hasFaults--">hasFaults</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#id--">id</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#logDebug-io.openems.edge.common.component.OpenemsComponent-org.slf4j.Logger-java.lang.String-">logDebug</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#logError-io.openems.edge.common.component.OpenemsComponent-org.slf4j.Logger-java.lang.String-">logError</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#logInfo-io.openems.edge.common.component.OpenemsComponent-org.slf4j.Logger-java.lang.String-">logInfo</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#logWarn-io.openems.edge.common.component.OpenemsComponent-org.slf4j.Logger-java.lang.String-">logWarn</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
+<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_channel-java.lang.String-">_channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#Z:Z_getChannelAs-io.openems.edge.common.component.OpenemsComponent.ChannelId-java.lang.Class-">_getChannelAs</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#alias--">alias</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-io.openems.edge.common.channel.ChannelId-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channel-java.lang.String-">channel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#channels--">channels</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getComponentContext--">getComponentContext</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getState--">getState</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#getStateChannel--">getStateChannel</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#hasFaults--">hasFaults</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#id--">id</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#isEnabled--">isEnabled</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#logDebug-io.openems.edge.common.component.OpenemsComponent-org.slf4j.Logger-java.lang.String-">logDebug</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#logError-io.openems.edge.common.component.OpenemsComponent-org.slf4j.Logger-java.lang.String-">logError</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#logInfo-io.openems.edge.common.component.OpenemsComponent-org.slf4j.Logger-java.lang.String-">logInfo</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#logWarn-io.openems.edge.common.component.OpenemsComponent-org.slf4j.Logger-java.lang.String-">logWarn</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#serviceFactoryPid--">serviceFactoryPid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#servicePid--">servicePid</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateConfigurationProperty-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.Object-">updateConfigurationProperty</a>, <a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#updateReferenceFilter-org.osgi.service.cm.ConfigurationAdmin-java.lang.String-java.lang.String-java.lang.String...-">updateReferenceFilter</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.edge.common.startstop.StartStoppable">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.startstop.<a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></h3>
-<code><a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#Z:Z_setStartStop-io.openems.edge.common.startstop.StartStop-">_setStartStop</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#getStartStop--">getStartStop</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#getStartStopChannel--">getStartStopChannel</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStarted--">isStarted</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStopped--">isStopped</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#start--">start</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#stop--">stop</a></code></li>
+<code><a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#Z:Z_setStartStop-io.openems.edge.common.startstop.StartStop-">_setStartStop</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#getModbusSlaveNatureTable-io.openems.common.channel.AccessMode-">getModbusSlaveNatureTable</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#getStartStop--">getStartStop</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#getStartStopChannel--">getStartStopChannel</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStarted--">isStarted</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#isStopped--">isStopped</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#setStartStop-io.openems.edge.common.startstop.StartStop-">setStartStop</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#start--">start</a>, <a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#stop--">stop</a></code></li>
 </ul>
 </li>
 </ul>
@@ -343,7 +330,7 @@ implements <a href="../../../../../../io/openems/edge/ess/generic/symmetric/Gene
 <div class="block">Handles @Deactivate of implementations. Prints log output.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html#deactivate--">deactivate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../io/openems/edge/common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a></code></dd>
+<dd><code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#deactivate--">deactivate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericManagedEss</a>&lt;<a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -357,24 +344,8 @@ implements <a href="../../../../../../io/openems/edge/ess/generic/symmetric/Gene
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
-</dl>
-</li>
-</ul>
-<a name="debugLog--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>debugLog</h4>
-<pre>public&nbsp;java.lang.String&nbsp;debugLog()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">OpenemsComponent</a></code></span></div>
-<div class="block">Gets some output that is suitable for a continuous Debug log. Returns 'null'
- by default which causes no output.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html#debugLog--">debugLog</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the debug log output</dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#handleEvent-org.osgi.service.event.Event-">handleEvent</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericManagedEss</a>&lt;<a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -396,135 +367,59 @@ implements <a href="../../../../../../io/openems/edge/ess/generic/symmetric/Gene
 </dl>
 </li>
 </ul>
-<a name="applyPower-int-int-">
+<a name="getChannelManager--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>applyPower</h4>
-<pre>public&nbsp;void&nbsp;applyPower(int&nbsp;activePower,
-                       int&nbsp;reactivePower)
-                throws <a href="../../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block">Forwards the power request to the <a href="../../../../../../io/openems/edge/batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>SymmetricBatteryInverter</code></a>.
- 
- Apply the calculated Power.
- 
- <p>
- Careful: do not adjust activePower and reactivePower in this method, e.g.
- setting it to zero on error. The purpose of this method is solely to apply
- the calculated power to the ESS. If you need to constrain the allowed power,
- add Constraints using the <a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getStaticConstraints--"><code>ManagedSymmetricEss.getStaticConstraints()</code></a> method.</div>
+<h4>getChannelManager</h4>
+<pre>protected&nbsp;<a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericEssChannelManager.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericEssChannelManager</a>&lt;<a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;&nbsp;getChannelManager()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#getChannelManager--">AbstractGenericManagedEss</a></code></span></div>
+<div class="block">Helper wrapping class to handle everything related to Channels.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#applyPower-int-int-">applyPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>activePower</code> - the active power in [W]</dd>
-<dd><code>reactivePower</code> - the reactive power in [var]</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error; causes activation of
-                               APPLY_POWER_FAILED StateChannel</dd>
-</dl>
-</li>
-</ul>
-<a name="getPowerPrecision--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getPowerPrecision</h4>
-<pre>public&nbsp;int&nbsp;getPowerPrecision()</pre>
-<div class="block">Retrieves PowerPrecision from <a href="../../../../../../io/openems/edge/batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>SymmetricBatteryInverter</code></a>.
- 
- Gets the smallest positive power that can be set (in W, VA or var). Example:
- <ul>
- <li>FENECON Commercial 40 allows setting of power in 100 W steps. It should
- return 100.
- <li>KACO blueplanet gridsave 50 allows setting of power in 0.1 % of 52 VA. It
- should return 52 (= 52000 * 0.001)
- </ul></div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getPowerPrecision--">getPowerPrecision</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></dd>
+<dd><code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#getChannelManager--">getChannelManager</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericManagedEss</a>&lt;<a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the power precision</dd>
+<dd>the <a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericEssChannelManager.html" title="class in io.openems.edge.ess.generic.common"><code>AbstractGenericEssChannelManager</code></a></dd>
 </dl>
 </li>
 </ul>
-<a name="getStaticConstraints--">
+<a name="getBattery--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getStaticConstraints</h4>
-<pre>public&nbsp;<a href="../../../../../../io/openems/edge/ess/power/api/Constraint.html" title="class in io.openems.edge.ess.power.api">Constraint</a>[]&nbsp;getStaticConstraints()
-                                  throws <a href="../../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block">Retrieves StaticConstraints from <a href="../../../../../../io/openems/edge/batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>SymmetricBatteryInverter</code></a>.
- 
- Gets static Constraints for this Ess. Override this method to provide
- specific Constraints for this Ess on every Cycle.</div>
+<h4>getBattery</h4>
+<pre>protected&nbsp;<a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;getBattery()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html#getStaticConstraints--">getStaticConstraints</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Constraints</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../../io/openems/common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
-<dd><code><a href="../../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+<dd><code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#getBattery--">getBattery</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericManagedEss</a>&lt;<a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
-<a name="setStartStop-io.openems.edge.common.startstop.StartStop-">
+<a name="getBatteryInverter--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setStartStop</h4>
-<pre>public&nbsp;void&nbsp;setStartStop(<a href="../../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#setStartStop-io.openems.edge.common.startstop.StartStop-">StartStoppable</a></code></span></div>
-<div class="block">Starts or stops the device or service represented by this OpenEMS Component.</div>
+<h4>getBatteryInverter</h4>
+<pre>protected&nbsp;<a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&nbsp;getBatteryInverter()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html#setStartStop-io.openems.edge.common.startstop.StartStop-">setStartStop</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>value</code> - target <a href="../../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop"><code>StartStop</code></a> state</dd>
+<dd><code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#getBatteryInverter--">getBatteryInverter</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericManagedEss</a>&lt;<a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
-<a name="getStartStopTarget--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getStartStopTarget</h4>
-<pre>public&nbsp;<a href="../../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&nbsp;getStartStopTarget()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getStartStopTarget--">GenericManagedSymmetricEss</a></code></span></div>
-<div class="block">Gets the target Start/Stop mode from config or StartStop-Channel.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getStartStopTarget--">getStartStopTarget</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html" title="interface in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEss</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd><a href="../../../../../../io/openems/edge/common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop"><code>StartStop</code></a></dd>
-</dl>
-</li>
-</ul>
-<a name="getModbusSlaveTable-io.openems.common.channel.AccessMode-">
+<a name="getComponentManager--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getModbusSlaveTable</h4>
-<pre>public&nbsp;<a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlaveTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveTable</a>&nbsp;getModbusSlaveTable(<a href="../../../../../../io/openems/common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">ModbusSlave</a></code></span></div>
-<div class="block">Gets the Modbus-Slave-Table for this OpenEMS-Component.</div>
+<h4>getComponentManager</h4>
+<pre>protected&nbsp;<a href="../../../../../../io/openems/edge/common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>&nbsp;getComponentManager()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">getModbusSlaveTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code></dd>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html#getModbusSlaveTable-io.openems.common.channel.AccessMode-">getModbusSlaveTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.html" title="interface in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEss</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>accessMode</code> - filters the Modbus-Records that should be shown</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Modbus-Slave-Table</dd>
+<dd><code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html#getComponentManager--">getComponentManager</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../io/openems/edge/ess/generic/common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericManagedEss</a>&lt;<a href="../../../../../../io/openems/edge/battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<a href="../../../../../../io/openems/edge/batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -555,7 +450,7 @@ implements <a href="../../../../../../io/openems/edge/ess/generic/symmetric/Gene
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../io/openems/edge/ess/generic/symmetric/GenericManagedSymmetricEss.ChannelId.html" title="enum in io.openems.edge.ess.generic.symmetric"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../io/openems/edge/ess/generic/symmetric/ChannelManager.html" title="class in io.openems.edge.ess.generic.symmetric"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
