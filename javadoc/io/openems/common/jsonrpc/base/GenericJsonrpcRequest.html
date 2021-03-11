@@ -73,7 +73,7 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.io.openems.common.jsonrpc.base.JsonrpcMessage">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.io.openems.common.jsonrpc.base.JsonrpcRequest">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
@@ -131,7 +131,8 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
    "jsonrpc": "2.0",
    "id": "UUID",
    "method": string,
-   "params": {}
+   "params": {},
+   "timeout"?: number, defaults to 60 seconds; negative or zero to disable timeout
  }
  </pre></div>
 <dl>
@@ -151,6 +152,13 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.io.openems.common.jsonrpc.base.JsonrpcRequest">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;io.openems.common.jsonrpc.base.<a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a></h3>
+<code><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#DEFAULT_TIMEOUT_SECONDS">DEFAULT_TIMEOUT_SECONDS</a>, <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#NO_TIMEOUT">NO_TIMEOUT</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.io.openems.common.jsonrpc.base.JsonrpcMessage">
 <!--   -->
@@ -172,9 +180,16 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html#GenericJsonrpcRequest-java.util.UUID-java.lang.String-com.google.gson.JsonObject-">GenericJsonrpcRequest</a></span>(java.util.UUID&nbsp;id,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html#GenericJsonrpcRequest-java.util.UUID-java.lang.String-com.google.gson.JsonObject-int-">GenericJsonrpcRequest</a></span>(java.util.UUID&nbsp;id,
                      java.lang.String&nbsp;method,
-                     com.google.gson.JsonObject&nbsp;params)</code>&nbsp;</td>
+                     com.google.gson.JsonObject&nbsp;params,
+                     int&nbsp;timeout)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html#GenericJsonrpcRequest-java.util.UUID-java.lang.String-com.google.gson.JsonObject-java.util.Optional-">GenericJsonrpcRequest</a></span>(java.util.UUID&nbsp;id,
+                     java.lang.String&nbsp;method,
+                     com.google.gson.JsonObject&nbsp;params,
+                     java.util.Optional&lt;java.lang.Integer&gt;&nbsp;timeout)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -225,7 +240,7 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.common.jsonrpc.base.<a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a></h3>
-<code><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#getId--">getId</a>, <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#toJsonObject--">toJsonObject</a></code></li>
+<code><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#getId--">getId</a>, <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#getTimeout--">getTimeout</a>, <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#toJsonObject--">toJsonObject</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.io.openems.common.jsonrpc.base.AbstractJsonrpcRequest">
@@ -262,7 +277,19 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="GenericJsonrpcRequest-java.util.UUID-java.lang.String-com.google.gson.JsonObject-">
+<a name="GenericJsonrpcRequest-java.util.UUID-java.lang.String-com.google.gson.JsonObject-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>GenericJsonrpcRequest</h4>
+<pre>public&nbsp;GenericJsonrpcRequest(java.util.UUID&nbsp;id,
+                             java.lang.String&nbsp;method,
+                             com.google.gson.JsonObject&nbsp;params,
+                             int&nbsp;timeout)</pre>
+</li>
+</ul>
+<a name="GenericJsonrpcRequest-java.util.UUID-java.lang.String-com.google.gson.JsonObject-java.util.Optional-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -270,7 +297,8 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <h4>GenericJsonrpcRequest</h4>
 <pre>public&nbsp;GenericJsonrpcRequest(java.util.UUID&nbsp;id,
                              java.lang.String&nbsp;method,
-                             com.google.gson.JsonObject&nbsp;params)</pre>
+                             com.google.gson.JsonObject&nbsp;params,
+                             java.util.Optional&lt;java.lang.Integer&gt;&nbsp;timeout)</pre>
 </li>
 </ul>
 </li>
@@ -292,27 +320,7 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <div class="block">Parses the String to a <a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>GenericJsonrpcRequest</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>j</code> - the String</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>GenericJsonrpcRequest</code></a></dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
-</dl>
-</li>
-</ul>
-<a name="fromIgnoreId-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>fromIgnoreId</h4>
-<pre>public static&nbsp;<a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">GenericJsonrpcRequest</a>&nbsp;fromIgnoreId(java.lang.String&nbsp;json)
-                                          throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block">Parses the String to a <a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>GenericJsonrpcRequest</code></a>. If the request UUID is
- missing, it is replaced by a random UUID.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>j</code> - the String</dd>
+<dd><code>json</code> - the String</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the <a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>GenericJsonrpcRequest</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -332,6 +340,26 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>j</code> - the <code>JsonObject</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>GenericJsonrpcRequest</code></a></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a name="fromIgnoreId-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fromIgnoreId</h4>
+<pre>public static&nbsp;<a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">GenericJsonrpcRequest</a>&nbsp;fromIgnoreId(java.lang.String&nbsp;json)
+                                          throws <a href="../../../../../io/openems/common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Parses the String to a <a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>GenericJsonrpcRequest</code></a>. If the request UUID is
+ missing, it is replaced by a random UUID.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>json</code> - the String</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the <a href="../../../../../io/openems/common/jsonrpc/base/GenericJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>GenericJsonrpcRequest</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -425,7 +453,7 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.ht
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.io.openems.common.jsonrpc.base.JsonrpcMessage">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.io.openems.common.jsonrpc.base.JsonrpcRequest">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>

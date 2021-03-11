@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.io.openems.common.jsonrpc.base.JsonrpcMessage">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -130,7 +130,8 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/AbstractJsonrpcRe
    "jsonrpc": "2.0",
    "id": "UUID",
    "method": string,
-   "params": {}
+   "params": {},
+   "timeout"?: number, defaults to 60 seconds; negative or zero to disable timeout
  }
  </pre></div>
 <dl>
@@ -150,6 +151,21 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/AbstractJsonrpcRe
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#DEFAULT_TIMEOUT_SECONDS">DEFAULT_TIMEOUT_SECONDS</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#NO_TIMEOUT">NO_TIMEOUT</a></span></code>&nbsp;</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.io.openems.common.jsonrpc.base.JsonrpcMessage">
 <!--   -->
@@ -168,14 +184,53 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/AbstractJsonrpcRe
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
 <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colOne" scope="col">Constructor and Description</th>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colLast" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#JsonrpcRequest-java.lang.String-">JsonrpcRequest</a></span>(java.lang.String&nbsp;method)</code>&nbsp;</td>
+<td class="colFirst"><code>protected </code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#JsonrpcRequest-io.openems.common.jsonrpc.base.JsonrpcRequest-java.lang.String-">JsonrpcRequest</a></span>(<a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request,
+              java.lang.String&nbsp;method)</code>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a> by copying and validating header
+ information.</div>
+</td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#JsonrpcRequest-java.util.UUID-java.lang.String-">JsonrpcRequest</a></span>(java.util.UUID&nbsp;id,
-              java.lang.String&nbsp;method)</code>&nbsp;</td>
+<td class="colFirst"><code>&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#JsonrpcRequest-java.lang.String-">JsonrpcRequest</a></span>(java.lang.String&nbsp;method)</code>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a> with random <code>UUID</code> as id and
+ <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#DEFAULT_TIMEOUT_SECONDS"><code>DEFAULT_TIMEOUT_SECONDS</code></a> timeout.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#JsonrpcRequest-java.lang.String-int-">JsonrpcRequest</a></span>(java.lang.String&nbsp;method,
+              int&nbsp;timeout)</code>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a> with random <code>UUID</code> as id.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#JsonrpcRequest-java.lang.String-java.util.Optional-">JsonrpcRequest</a></span>(java.lang.String&nbsp;method,
+              java.util.Optional&lt;java.lang.Integer&gt;&nbsp;timeout)</code>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a> with random <code>UUID</code> as id.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#JsonrpcRequest-java.util.UUID-java.lang.String-int-">JsonrpcRequest</a></span>(java.util.UUID&nbsp;id,
+              java.lang.String&nbsp;method,
+              int&nbsp;timeout)</code>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#JsonrpcRequest-java.util.UUID-java.lang.String-java.util.Optional-">JsonrpcRequest</a></span>(java.util.UUID&nbsp;id,
+              java.lang.String&nbsp;method,
+              java.util.Optional&lt;java.lang.Integer&gt;&nbsp;timeout)</code>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -194,9 +249,18 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/AbstractJsonrpcRe
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.util.UUID</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#getId--">getId</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#getId--">getId</a></span>()</code>
+<div class="block">Gets the JSON-RPC id.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.util.Optional&lt;java.lang.Integer&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#getTimeout--">getTimeout</a></span>()</code>
+<div class="block">Gets the max time in seconds to wait for the <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponse.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponse</code></a>,
+ negative or zero to disable timeout.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#toJsonObject--">toJsonObject</a></span>()</code>&nbsp;</td>
 </tr>
@@ -230,6 +294,40 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/AbstractJsonrpcRe
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="DEFAULT_TIMEOUT_SECONDS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEFAULT_TIMEOUT_SECONDS</h4>
+<pre>public static final&nbsp;int DEFAULT_TIMEOUT_SECONDS</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#io.openems.common.jsonrpc.base.JsonrpcRequest.DEFAULT_TIMEOUT_SECONDS">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="NO_TIMEOUT">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>NO_TIMEOUT</h4>
+<pre>public static final&nbsp;int NO_TIMEOUT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#io.openems.common.jsonrpc.base.JsonrpcRequest.NO_TIMEOUT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -243,16 +341,108 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/AbstractJsonrpcRe
 <li class="blockList">
 <h4>JsonrpcRequest</h4>
 <pre>public&nbsp;JsonrpcRequest(java.lang.String&nbsp;method)</pre>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a> with random <code>UUID</code> as id and
+ <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#DEFAULT_TIMEOUT_SECONDS"><code>DEFAULT_TIMEOUT_SECONDS</code></a> timeout.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>method</code> - the JSON-RPC method</dd>
+</dl>
 </li>
 </ul>
-<a name="JsonrpcRequest-java.util.UUID-java.lang.String-">
+<a name="JsonrpcRequest-java.lang.String-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>JsonrpcRequest</h4>
+<pre>public&nbsp;JsonrpcRequest(java.lang.String&nbsp;method,
+                      int&nbsp;timeout)</pre>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a> with random <code>UUID</code> as id.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>method</code> - the JSON-RPC method</dd>
+<dd><code>timeout</code> - max time in seconds to wait for the <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponse.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponse</code></a>,
+                negative or zero to disable timeout</dd>
+</dl>
+</li>
+</ul>
+<a name="JsonrpcRequest-java.lang.String-java.util.Optional-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>JsonrpcRequest</h4>
+<pre>public&nbsp;JsonrpcRequest(java.lang.String&nbsp;method,
+                      java.util.Optional&lt;java.lang.Integer&gt;&nbsp;timeout)</pre>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a> with random <code>UUID</code> as id.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>method</code> - the JSON-RPC method</dd>
+<dd><code>timeout</code> - max time in seconds to wait for the <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponse.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponse</code></a>,
+                negative or zero to disable timeout, empty for
+                <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#DEFAULT_TIMEOUT_SECONDS"><code>DEFAULT_TIMEOUT_SECONDS</code></a> timeout</dd>
+</dl>
+</li>
+</ul>
+<a name="JsonrpcRequest-java.util.UUID-java.lang.String-java.util.Optional-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>JsonrpcRequest</h4>
+<pre>public&nbsp;JsonrpcRequest(java.util.UUID&nbsp;id,
+                      java.lang.String&nbsp;method,
+                      java.util.Optional&lt;java.lang.Integer&gt;&nbsp;timeout)</pre>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - the JSON-RPC id</dd>
+<dd><code>method</code> - the JSON-RPC method</dd>
+<dd><code>timeout</code> - max time in seconds to wait for the <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponse.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponse</code></a>,
+                negative or zero to disable timeout, empty for
+                <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html#DEFAULT_TIMEOUT_SECONDS"><code>DEFAULT_TIMEOUT_SECONDS</code></a> timeout</dd>
+</dl>
+</li>
+</ul>
+<a name="JsonrpcRequest-io.openems.common.jsonrpc.base.JsonrpcRequest-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>JsonrpcRequest</h4>
+<pre>protected&nbsp;JsonrpcRequest(<a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request,
+                         java.lang.String&nbsp;method)</pre>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a> by copying and validating header
+ information.
+ 
+ <ul>
+ <li>copies id and timeout
+ <li>validates that the method names match
+ </ul></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>request</code> - the template JSON-RPC Request</dd>
+<dd><code>method</code> - the JSON-RPC method</dd>
+</dl>
+</li>
+</ul>
+<a name="JsonrpcRequest-java.util.UUID-java.lang.String-int-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>JsonrpcRequest</h4>
 <pre>public&nbsp;JsonrpcRequest(java.util.UUID&nbsp;id,
-                      java.lang.String&nbsp;method)</pre>
+                      java.lang.String&nbsp;method,
+                      int&nbsp;timeout)</pre>
+<div class="block">Creates a <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - the JSON-RPC id</dd>
+<dd><code>method</code> - the JSON-RPC method</dd>
+<dd><code>timeout</code> - max time in seconds to wait for the <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponse.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponse</code></a>,
+                negative or zero to disable timeout</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -270,6 +460,26 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/AbstractJsonrpcRe
 <li class="blockList">
 <h4>getId</h4>
 <pre>public&nbsp;java.util.UUID&nbsp;getId()</pre>
+<div class="block">Gets the JSON-RPC id.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <code>UUID</code> id</dd>
+</dl>
+</li>
+</ul>
+<a name="getTimeout--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTimeout</h4>
+<pre>public&nbsp;java.util.Optional&lt;java.lang.Integer&gt;&nbsp;getTimeout()</pre>
+<div class="block">Gets the max time in seconds to wait for the <a href="../../../../../io/openems/common/jsonrpc/base/JsonrpcResponse.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponse</code></a>,
+ negative or zero to disable timeout.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the timeout in seconds</dd>
+</dl>
 </li>
 </ul>
 <a name="toJsonObject--">
@@ -338,13 +548,13 @@ extends <a href="../../../../../io/openems/common/jsonrpc/base/AbstractJsonrpcRe
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.io.openems.common.jsonrpc.base.JsonrpcMessage">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
