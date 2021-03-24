@@ -182,16 +182,22 @@
 <li><a href="#_json_rpc_notification">1.4. JSON-RPC Notification</a></li>
 </ul>
 </li>
-<li><a href="#_example_communication_messages">2. Example communication messages</a></li>
-<li><a href="#_subscribe_channels">3. Subscribe Channels</a></li>
-<li><a href="#_edge_rpc">4. Edge-RPC</a></li>
-<li><a href="#_jsonapi_component">5. JsonApi Component</a></li>
-<li><a href="#_authenticate_ui_to_edgebackend_using_token">6. Authenticate UI to Edge/Backend using token</a></li>
-<li><a href="#_authenticate_ui_to_edge_using_password">7. Authenticate UI to Edge using password</a></li>
-<li><a href="#_subscribe_to_channels">8. Subscribe to Channels</a></li>
-<li><a href="#_subscribe_to_system_log">9. Subscribe to System-Log</a></li>
-<li><a href="#_store_channel_data_in_time_series_database">10. Store channel data in Time-Series database</a></li>
-<li><a href="#_communicate_with_a_specific_edge_component">11. Communicate with a specific Edge Component</a></li>
+<li><a href="#_example_communication_messages">2. Example communication messages</a>
+<ul class="sectlevel2">
+<li><a href="#_subscribe_channels">2.1. Subscribe Channels</a></li>
+<li><a href="#_edge_rpc">2.2. Edge-RPC</a></li>
+<li><a href="#_jsonapi_component">2.3. JsonApi Component</a></li>
+<li><a href="#_edge_config">2.4. Edge-Config</a></li>
+</ul>
+</li>
+<li><a href="#_communication_schema">3. Communication schema</a>
+<ul class="sectlevel2">
+<li><a href="#_authenticate_ui_to_edgebackend_using_token">3.1. Authenticate UI to Edge/Backend using token</a></li>
+<li><a href="#_authenticate_ui_to_edge_using_password">3.2. Authenticate UI to Edge using password</a></li>
+<li><a href="#_subscribe_to_channels">3.3. Subscribe to Channels</a></li>
+<li><a href="#_subscribe_to_system_log">3.4. Subscribe to System-Log</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div id="preamble">
@@ -280,11 +286,8 @@
 <div class="paragraph">
 <p>The information on this page is useful to understand the internal communication structure and can help if your plan is to replace one component by a custom implementation, e.g. implementing your own frontend application, or if you plan to extend the provided feature-set.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_subscribe_channels"><a class="anchor" href="#_subscribe_channels"></a>3. Subscribe Channels</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_subscribe_channels"><a class="anchor" href="#_subscribe_channels"></a>2.1. Subscribe Channels</h3>
 <div class="paragraph">
 <p>Real-time channel data may change at a high rate. Instead of requiring the consumer to constantly pull the data, the OpenEMS API provides a publish-subscribe schema that notifies the consumer about updated values. It is initiated via a JSON-RPC request:</p>
 </div>
@@ -332,10 +335,8 @@
 <p>To unsubscribe from channels, a new <code>subscribeChannels</code> request has to be sent with an empty list of channels.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_edge_rpc"><a class="anchor" href="#_edge_rpc"></a>4. Edge-RPC</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_edge_rpc"><a class="anchor" href="#_edge_rpc"></a>2.2. Edge-RPC</h3>
 <div class="paragraph">
 <p>When using the API via OpenEMS Backend, it is possible to transparently target a specific OpenEMS Edge, that is connected to the Backend by wrapping the JSON-RPC request into an <code>Edge-RPC</code> request:</p>
 </div>
@@ -380,10 +381,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_jsonapi_component"><a class="anchor" href="#_jsonapi_component"></a>5. JsonApi Component</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_jsonapi_component"><a class="anchor" href="#_jsonapi_component"></a>2.3. JsonApi Component</h3>
 <div class="paragraph">
 <p>To directly send a JSON-RPC request to one specific OpenEMS Component, that component has to implement the <code>JsonApi</code> interface.
 Then the <code>componentJsonApi</code> request can be used to wrap a JSON-RPC request as payload:</p>
@@ -402,10 +401,32 @@ Then the <code>componentJsonApi</code> request can be used to wrap a JSON-RPC re
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_edge_config"><a class="anchor" href="#_edge_config"></a>2.4. Edge-Config</h3>
+<div class="paragraph">
+<p>The EdgeConfig may be retrieved using the following JSON-RPC method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc": "2.0",
+  "id": "UUID",
+  "method": "getEdgeConfig",
+  "params": {}
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="../edge/configuration.html" class="page">Edge &#8594; Configuration</a></p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect1">
-<h2 id="_authenticate_ui_to_edgebackend_using_token"><a class="anchor" href="#_authenticate_ui_to_edgebackend_using_token"></a>6. Authenticate UI to Edge/Backend using token</h2>
+<h2 id="_communication_schema"><a class="anchor" href="#_communication_schema"></a>3. Communication schema</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_authenticate_ui_to_edgebackend_using_token"><a class="anchor" href="#_authenticate_ui_to_edgebackend_using_token"></a>3.1. Authenticate UI to Edge/Backend using token</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -424,20 +445,16 @@ On opening of the websocket connection to Edge/Backend, the UI is authenticated 
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_authenticate_ui_to_edge_using_password"><a class="anchor" href="#_authenticate_ui_to_edge_using_password"></a>7. Authenticate UI to Edge using password</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_authenticate_ui_to_edge_using_password"><a class="anchor" href="#_authenticate_ui_to_edge_using_password"></a>3.2. Authenticate UI to Edge using password</h3>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/authenticateWithPassword.png" alt="authenticateWithPassword">
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_subscribe_to_channels"><a class="anchor" href="#_subscribe_to_channels"></a>8. Subscribe to Channels</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_subscribe_to_channels"><a class="anchor" href="#_subscribe_to_channels"></a>3.3. Subscribe to Channels</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -454,10 +471,8 @@ Allows a Component to subscribe on certain Channel values. The latest Channel va
 <p><span class="image"><img src="../_images/subscribeChannels+currentData.png" alt="subscribeChannels+currentData"></span></p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_subscribe_to_system_log"><a class="anchor" href="#_subscribe_to_system_log"></a>9. Subscribe to System-Log</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_subscribe_to_system_log"><a class="anchor" href="#_subscribe_to_system_log"></a>3.4. Subscribe to System-Log</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -473,39 +488,6 @@ Sends the log output of Edge to UI via Backend.
 <div class="paragraph">
 <p><span class="image"><img src="../_images/subscribeSystemLog.png" alt="subscribeSystemLog"></span></p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_store_channel_data_in_time_series_database"><a class="anchor" href="#_store_channel_data_in_time_series_database"></a>10. Store channel data in Time-Series database</h2>
-<div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Edge Backend Api-Controller periodically sends data of Channels to Backend, where it is stored in a Time-Series database (like InfluxDB) via a Timedata service.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_communicate_with_a_specific_edge_component"><a class="anchor" href="#_communicate_with_a_specific_edge_component"></a>11. Communicate with a specific Edge Component</h2>
-<div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This provides a way to send a JSON-RPC Request directly to a specific Edge Component identified by its Component-ID - e.g. to a specific Controller. To enable this, the Edge Component needs to implement the 'JsonApi' interface.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
