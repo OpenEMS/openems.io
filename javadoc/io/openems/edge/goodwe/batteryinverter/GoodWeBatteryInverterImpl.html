@@ -297,17 +297,17 @@ implements <a href="GoodWeBatteryInverter.html" title="interface in io.openems.e
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#debugLog()">debugLog</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Gets some output that is suitable for a continuous Debug log.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPowerPrecision()">getPowerPrecision</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the smallest positive power that can be set (in W, VA or var).</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../batteryinverter/api/BatteryInverterConstraint.html" title="class in io.openems.edge.batteryinverter.api">BatteryInverterConstraint</a>[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStaticConstraints()">getStaticConstraints</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets static Constraints for this Battery-Inverter.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -354,7 +354,7 @@ implements <a href="GoodWeBatteryInverter.html" title="interface in io.openems.e
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.edge.goodwe.common.<a href="../common/AbstractGoodWe.html" title="class in io.openems.edge.goodwe.common">AbstractGoodWe</a></h3>
-<code><a href="../common/AbstractGoodWe.html#addCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">addCharger</a>, <a href="../common/AbstractGoodWe.html#calculateActivePower()">calculateActivePower</a>, <a href="../common/AbstractGoodWe.html#calculatePvProduction()">calculatePvProduction</a>, <a href="../common/AbstractGoodWe.html#defineModbusProtocol()">defineModbusProtocol</a>, <a href="../common/AbstractGoodWe.html#getSocModbusElement(int)">getSocModbusElement</a>, <a href="../common/AbstractGoodWe.html#removeCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">removeCharger</a></code></li>
+<code><a href="../common/AbstractGoodWe.html#addCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">addCharger</a>, <a href="../common/AbstractGoodWe.html#calculatePvProduction()">calculatePvProduction</a>, <a href="../common/AbstractGoodWe.html#defineModbusProtocol()">defineModbusProtocol</a>, <a href="../common/AbstractGoodWe.html#getSocModbusElement(int)">getSocModbusElement</a>, <a href="../common/AbstractGoodWe.html#removeCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">removeCharger</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent">
@@ -385,18 +385,25 @@ implements <a href="GoodWeBatteryInverter.html" title="interface in io.openems.e
 <code><a href="../common/GoodWe.html#addCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">addCharger</a>, <a href="../common/GoodWe.html#getGoodweType()">getGoodweType</a>, <a href="../common/GoodWe.html#getGoodweTypeChannel()">getGoodweTypeChannel</a>, <a href="../common/GoodWe.html#removeCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">removeCharger</a></code></li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.batteryinverter.api.ManagedSymmetricBatteryInverter">
+<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.goodwe.batteryinverter.GoodWeBatteryInverter">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;io.openems.edge.batteryinverter.api.<a href="../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a></h3>
-<code><a href="../../batteryinverter/api/ManagedSymmetricBatteryInverter.html#getStaticConstraints()">getStaticConstraints</a></code></li>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.goodwe.batteryinverter.<a href="GoodWeBatteryInverter.html" title="interface in io.openems.edge.goodwe.batteryinverter">GoodWeBatteryInverter</a></h3>
+<code><a href="GoodWeBatteryInverter.html#_setMaxAcExport(java.lang.Integer)">_setMaxAcExport</a>, <a href="GoodWeBatteryInverter.html#_setMaxAcImport(java.lang.Integer)">_setMaxAcImport</a>, <a href="GoodWeBatteryInverter.html#getMaxAcExport()">getMaxAcExport</a>, <a href="GoodWeBatteryInverter.html#getMaxAcExportChannel()">getMaxAcExportChannel</a>, <a href="GoodWeBatteryInverter.html#getMaxAcImport()">getMaxAcImport</a>, <a href="GoodWeBatteryInverter.html#getMaxAcImportChannel()">getMaxAcImportChannel</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.batteryinverter.api.HybridManagedSymmetricBatteryInverter">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.batteryinverter.api.<a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">HybridManagedSymmetricBatteryInverter</a></h3>
+<code><a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#_setDcChargeEnergy(long)">_setDcChargeEnergy</a>, <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#_setDcChargeEnergy(java.lang.Long)">_setDcChargeEnergy</a>, <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#_setDcDischargeEnergy(long)">_setDcDischargeEnergy</a>, <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#_setDcDischargeEnergy(java.lang.Long)">_setDcDischargeEnergy</a>, <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#_setDcDischargePower(java.lang.Integer)">_setDcDischargePower</a>, <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#getDcChargeEnergy()">getDcChargeEnergy</a>, <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#getDcChargeEnergyChannel()">getDcChargeEnergyChannel</a>, <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#getDcDischargeEnergy()">getDcDischargeEnergy</a>, <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#getDcDischargeEnergyChannel()">getDcDischargeEnergyChannel</a>, <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#getDcDischargePower()">getDcDischargePower</a>, <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#getDcDischargePowerChannel()">getDcDischargePowerChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
-<code><a href="../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></li>
+<code><a href="../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../common/component/OpenemsComponent.html#debugLog()">debugLog</a>, <a href="../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.startstop.StartStoppable">
@@ -618,21 +625,25 @@ implements <a href="GoodWeBatteryInverter.html" title="interface in io.openems.e
 </dl>
 </li>
 </ul>
-<a id="debugLog()">
+<a id="getStaticConstraints()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>debugLog</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;debugLog()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/component/OpenemsComponent.html#debugLog()">OpenemsComponent</a></code></span></div>
-<div class="block">Gets some output that is suitable for a continuous Debug log. Returns 'null'
- by default which causes no output.</div>
+<h4>getStaticConstraints</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../batteryinverter/api/BatteryInverterConstraint.html" title="class in io.openems.edge.batteryinverter.api">BatteryInverterConstraint</a>[]&nbsp;getStaticConstraints()
+                                                 throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../batteryinverter/api/ManagedSymmetricBatteryInverter.html#getStaticConstraints()">ManagedSymmetricBatteryInverter</a></code></span></div>
+<div class="block">Gets static Constraints for this Battery-Inverter. Override this method to
+ provide specific Constraints for this Battery-Inverter on every Cycle.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../common/component/OpenemsComponent.html#debugLog()">debugLog</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code></dd>
+<dd><code><a href="../../batteryinverter/api/ManagedSymmetricBatteryInverter.html#getStaticConstraints()">getStaticConstraints</a></code>&nbsp;in interface&nbsp;<code><a href="../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the debug log output</dd>
+<dd>the Constraints</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
 </dl>
 </li>
 </ul>

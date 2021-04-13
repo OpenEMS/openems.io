@@ -115,7 +115,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <main role="main">
 <div class="header">
 <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">io.openems.edge.ess.generic.common</a></div>
-<h2 title="Class AbstractGenericManagedEss" class="title">Class AbstractGenericManagedEss&lt;BATTERY extends <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,&#8203;BATTERY_INVERTER extends <a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</h2>
+<h2 title="Class AbstractGenericManagedEss" class="title">Class AbstractGenericManagedEss&lt;ESS extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>,&#8203;BATTERY extends <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,&#8203;BATTERY_INVERTER extends <a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
@@ -125,7 +125,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li><a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">io.openems.edge.common.component.AbstractOpenemsComponent</a></li>
 <li>
 <ul class="inheritance">
-<li>io.openems.edge.ess.generic.common.AbstractGenericManagedEss&lt;BATTERY,&#8203;BATTERY_INVERTER&gt;</li>
+<li>io.openems.edge.ess.generic.common.AbstractGenericManagedEss&lt;ESS,&#8203;BATTERY,&#8203;BATTERY_INVERTER&gt;</li>
 </ul>
 </li>
 </ul>
@@ -143,7 +143,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="../hybrid/GenericHybridManagedSymmetricEssImpl.html" title="class in io.openems.edge.ess.generic.hybrid">GenericHybridManagedSymmetricEssImpl</a></code>, <code><a href="../symmetric/GenericManagedSymmetricEssImpl.html" title="class in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEssImpl</a></code></dd>
 </dl>
 <hr>
-<pre>public abstract class <span class="typeNameLabel">AbstractGenericManagedEss&lt;BATTERY extends <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,&#8203;BATTERY_INVERTER extends <a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</span>
+<pre>public abstract class <span class="typeNameLabel">AbstractGenericManagedEss&lt;ESS extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>,&#8203;BATTERY extends <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,&#8203;BATTERY_INVERTER extends <a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</span>
 extends <a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
 implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a>, <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler, <a href="../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></pre>
 <div class="block">Parent class for different implementations of Managed Energy Storage Systems,
@@ -316,7 +316,7 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>protected abstract <a href="AbstractGenericEssChannelManager.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericEssChannelManager</a>&lt;<a href="AbstractGenericManagedEss.html" title="type parameter in AbstractGenericManagedEss">BATTERY</a>,&#8203;<a href="AbstractGenericManagedEss.html" title="type parameter in AbstractGenericManagedEss">BATTERY_INVERTER</a>&gt;</code></td>
+<td class="colFirst"><code>protected abstract <a href="AbstractChannelManager.html" title="class in io.openems.edge.ess.generic.common">AbstractChannelManager</a>&lt;<a href="AbstractGenericManagedEss.html" title="type parameter in AbstractGenericManagedEss">ESS</a>,&#8203;<a href="AbstractGenericManagedEss.html" title="type parameter in AbstractGenericManagedEss">BATTERY</a>,&#8203;<a href="AbstractGenericManagedEss.html" title="type parameter in AbstractGenericManagedEss">BATTERY_INVERTER</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChannelManager()">getChannelManager</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Helper wrapping class to handle everything related to Channels.</div>
@@ -459,11 +459,11 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 <ul class="blockList">
 <li class="blockList">
 <h4>getChannelManager</h4>
-<pre class="methodSignature">protected abstract&nbsp;<a href="AbstractGenericEssChannelManager.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericEssChannelManager</a>&lt;<a href="AbstractGenericManagedEss.html" title="type parameter in AbstractGenericManagedEss">BATTERY</a>,&#8203;<a href="AbstractGenericManagedEss.html" title="type parameter in AbstractGenericManagedEss">BATTERY_INVERTER</a>&gt;&nbsp;getChannelManager()</pre>
+<pre class="methodSignature">protected abstract&nbsp;<a href="AbstractChannelManager.html" title="class in io.openems.edge.ess.generic.common">AbstractChannelManager</a>&lt;<a href="AbstractGenericManagedEss.html" title="type parameter in AbstractGenericManagedEss">ESS</a>,&#8203;<a href="AbstractGenericManagedEss.html" title="type parameter in AbstractGenericManagedEss">BATTERY</a>,&#8203;<a href="AbstractGenericManagedEss.html" title="type parameter in AbstractGenericManagedEss">BATTERY_INVERTER</a>&gt;&nbsp;getChannelManager()</pre>
 <div class="block">Helper wrapping class to handle everything related to Channels.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="AbstractGenericEssChannelManager.html" title="class in io.openems.edge.ess.generic.common"><code>AbstractGenericEssChannelManager</code></a></dd>
+<dd>the <a href="AbstractChannelManager.html" title="class in io.openems.edge.ess.generic.common"><code>AbstractChannelManager</code></a></dd>
 </dl>
 </li>
 </ul>
