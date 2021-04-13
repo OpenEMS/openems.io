@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -157,7 +157,7 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.backend.uiwebsocket.impl.UiWebsocketImpl)">WsData</a></span>&#8203;(<a href="UiWebsocketImpl.html" title="class in io.openems.backend.uiwebsocket.impl">UiWebsocketImpl</a>&nbsp;parent)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.backend.uiwebsocket.impl.WebsocketServer)">WsData</a></span>&#8203;(<a href="WebsocketServer.html" title="class in io.openems.backend.uiwebsocket.impl">WebsocketServer</a>&nbsp;parent)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -219,16 +219,26 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>protected java.util.concurrent.ScheduledFuture&lt;?&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">scheduleWithFixedDelay</a></span>&#8203;(java.lang.Runnable&nbsp;command,
+                      long&nbsp;initialDelay,
+                      long&nbsp;delay,
+                      java.util.concurrent.TimeUnit&nbsp;unit)</code></th>
+<td class="colLast">
+<div class="block">Execute a <code>Runnable</code>.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setToken(java.util.UUID)">setToken</a></span>&#8203;(java.util.UUID&nbsp;token)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUserId(java.lang.String)">setUserId</a></span>&#8203;(java.lang.String&nbsp;userId)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">
@@ -266,13 +276,13 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(io.openems.backend.uiwebsocket.impl.UiWebsocketImpl)">
+<a id="&lt;init&gt;(io.openems.backend.uiwebsocket.impl.WebsocketServer)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>WsData</h4>
-<pre>public&nbsp;WsData&#8203;(<a href="UiWebsocketImpl.html" title="class in io.openems.backend.uiwebsocket.impl">UiWebsocketImpl</a>&nbsp;parent)</pre>
+<pre>public&nbsp;WsData&#8203;(<a href="WebsocketServer.html" title="class in io.openems.backend.uiwebsocket.impl">WebsocketServer</a>&nbsp;parent)</pre>
 </li>
 </ul>
 </li>
@@ -395,7 +405,7 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <a id="toString()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
@@ -406,6 +416,26 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <dd><code><a href="../../../common/websocket/WsData.html#toString()">toString</a></code>&nbsp;in class&nbsp;<code><a href="../../../common/websocket/WsData.html" title="class in io.openems.common.websocket">WsData</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a specific string for this instance</dd>
+</dl>
+</li>
+</ul>
+<a id="scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>scheduleWithFixedDelay</h4>
+<pre class="methodSignature">protected&nbsp;java.util.concurrent.ScheduledFuture&lt;?&gt;&nbsp;scheduleWithFixedDelay&#8203;(java.lang.Runnable&nbsp;command,
+                                                                         long&nbsp;initialDelay,
+                                                                         long&nbsp;delay,
+                                                                         java.util.concurrent.TimeUnit&nbsp;unit)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../common/websocket/WsData.html#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">WsData</a></code></span></div>
+<div class="block">Execute a <code>Runnable</code>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../common/websocket/WsData.html#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">scheduleWithFixedDelay</a></code>&nbsp;in class&nbsp;<code><a href="../../../common/websocket/WsData.html" title="class in io.openems.common.websocket">WsData</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>command</code> - the <code>Runnable</code></dd>
 </dl>
 </li>
 </ul>
