@@ -244,28 +244,28 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></span>&#8203;(java.lang.String&nbsp;edgeId,
-    <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
-<td class="colLast">
-<div class="block">Send a JSON-RPC Notification broadcast to all UI sessions with a given
- Edge-ID.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></span>&#8203;(java.util.UUID&nbsp;token,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></span>&#8203;(java.lang.String&nbsp;token,
     <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
 <td class="colLast">
 <div class="block">Send a JSON-RPC Notification to a UI session.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></span>&#8203;(java.util.UUID&nbsp;token,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></span>&#8203;(java.lang.String&nbsp;token,
     <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Send a JSON-RPC Request to a UI session via WebSocket and expect a JSON-RPC
  Response.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendBroadcast(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">sendBroadcast</a></span>&#8203;(java.lang.String&nbsp;edgeId,
+             <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
+<td class="colLast">
+<div class="block">Send a JSON-RPC Notification broadcast to all UI sessions with a given
+ Edge-ID.</div>
 </td>
 </tr>
 </table>
@@ -411,20 +411,20 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 </dl>
 </li>
 </ul>
-<a id="send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcNotification)">
+<a id="send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>send</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;send&#8203;(java.util.UUID&nbsp;token,
+<pre class="methodSignature">public&nbsp;void&nbsp;send&#8203;(java.lang.String&nbsp;token,
                  <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)
           throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcNotification)">UiWebsocket</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">UiWebsocket</a></code></span></div>
 <div class="block">Send a JSON-RPC Notification to a UI session.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html" title="interface in io.openems.backend.common.uiwebsocket">UiWebsocket</a></code></dd>
+<dd><code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html" title="interface in io.openems.backend.common.uiwebsocket">UiWebsocket</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>token</code> - the UI token</dd>
 <dd><code>notification</code> - the JsonrpcNotification</dd>
@@ -433,21 +433,21 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 </dl>
 </li>
 </ul>
-<a id="send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcRequest)">
+<a id="send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcRequest)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>send</h4>
-<pre class="methodSignature">public&nbsp;java.util.concurrent.CompletableFuture&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;&nbsp;send&#8203;(java.util.UUID&nbsp;token,
+<pre class="methodSignature">public&nbsp;java.util.concurrent.CompletableFuture&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;&nbsp;send&#8203;(java.lang.String&nbsp;token,
                                                                            <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)
                                                                     throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcRequest)">UiWebsocket</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcRequest)">UiWebsocket</a></code></span></div>
 <div class="block">Send a JSON-RPC Request to a UI session via WebSocket and expect a JSON-RPC
  Response.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html" title="interface in io.openems.backend.common.uiwebsocket">UiWebsocket</a></code></dd>
+<dd><code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html" title="interface in io.openems.backend.common.uiwebsocket">UiWebsocket</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>token</code> - the UI token</dd>
 <dd><code>request</code> - the JsonrpcRequest</dd>
@@ -458,21 +458,21 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 </dl>
 </li>
 </ul>
-<a id="send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">
+<a id="sendBroadcast(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>send</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;send&#8203;(java.lang.String&nbsp;edgeId,
-                 <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)
-          throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">UiWebsocket</a></code></span></div>
+<h4>sendBroadcast</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;sendBroadcast&#8203;(java.lang.String&nbsp;edgeId,
+                          <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)
+                   throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html#sendBroadcast(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">UiWebsocket</a></code></span></div>
 <div class="block">Send a JSON-RPC Notification broadcast to all UI sessions with a given
  Edge-ID.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html" title="interface in io.openems.backend.common.uiwebsocket">UiWebsocket</a></code></dd>
+<dd><code><a href="../../common/uiwebsocket/UiWebsocket.html#sendBroadcast(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">sendBroadcast</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html" title="interface in io.openems.backend.common.uiwebsocket">UiWebsocket</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>edgeId</code> - the Edge-ID</dd>
 <dd><code>notification</code> - the JsonrpcNotification</dd>

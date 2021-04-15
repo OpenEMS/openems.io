@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10};
+var data = {"i0":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -147,7 +147,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">AuthenticateWithSessionIdNotification</span>
 extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a></pre>
-<div class="block">Represents a JSON-RPC Notification for UI authentication with session_id.
+<div class="block">Represents a JSON-RPC Notification for UI authentication with a `session_id`
+ or `token`.
  
  <pre>
  {
@@ -155,7 +156,8 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
    "method": "authenticatedWithSessionId",
    "params": {
      "token": String,
-     "edges": <a href="../shared/EdgeMetadata.html#toJson(java.util.Collection)"><code>EdgeMetadata.toJson(java.util.Collection)</code></a>
+     "user": <a href="../../session/AbstractUser.html#toJsonObject()"><code>AbstractUser.toJsonObject()</code></a>
+     "edges": <a href="../response/AuthenticateWithPasswordResponse.EdgeMetadata.html#toJson(java.util.Collection)"><code>AuthenticateWithPasswordResponse.EdgeMetadata.toJson(java.util.Collection)</code></a>
    }
  }
  </pre></div>
@@ -209,8 +211,9 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.util.List)">AuthenticateWithSessionIdNotification</a></span>&#8203;(java.lang.String&nbsp;token,
-                                     java.util.List&lt;<a href="../shared/EdgeMetadata.html" title="class in io.openems.common.jsonrpc.shared">EdgeMetadata</a>&gt;&nbsp;metadatas)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,io.openems.common.session.AbstractUser,java.util.List)">AuthenticateWithSessionIdNotification</a></span>&#8203;(java.lang.String&nbsp;token,
+                                     <a href="../../session/AbstractUser.html" title="class in io.openems.common.session">AbstractUser</a>&nbsp;user,
+                                     java.util.List&lt;<a href="../response/AuthenticateWithPasswordResponse.EdgeMetadata.html" title="class in io.openems.common.jsonrpc.response">AuthenticateWithPasswordResponse.EdgeMetadata</a>&gt;&nbsp;edges)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -232,18 +235,8 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../shared/EdgeMetadata.html" title="class in io.openems.common.jsonrpc.shared">EdgeMetadata</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMetadatas()">getMetadatas</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParams()">getParams</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getToken()">getToken</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -307,14 +300,15 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,java.util.List)">
+<a id="&lt;init&gt;(java.lang.String,io.openems.common.session.AbstractUser,java.util.List)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AuthenticateWithSessionIdNotification</h4>
 <pre>public&nbsp;AuthenticateWithSessionIdNotification&#8203;(java.lang.String&nbsp;token,
-                                             java.util.List&lt;<a href="../shared/EdgeMetadata.html" title="class in io.openems.common.jsonrpc.shared">EdgeMetadata</a>&gt;&nbsp;metadatas)</pre>
+                                             <a href="../../session/AbstractUser.html" title="class in io.openems.common.session">AbstractUser</a>&nbsp;user,
+                                             java.util.List&lt;<a href="../response/AuthenticateWithPasswordResponse.EdgeMetadata.html" title="class in io.openems.common.jsonrpc.response">AuthenticateWithPasswordResponse.EdgeMetadata</a>&gt;&nbsp;edges)</pre>
 </li>
 </ul>
 </li>
@@ -330,7 +324,7 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <a id="getParams()">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getParams</h4>
 <pre class="methodSignature">public&nbsp;com.google.gson.JsonObject&nbsp;getParams()</pre>
@@ -338,24 +332,6 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../base/AbstractJsonrpcRequest.html#getParams()">getParams</a></code>&nbsp;in class&nbsp;<code><a href="../base/AbstractJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">AbstractJsonrpcRequest</a></code></dd>
 </dl>
-</li>
-</ul>
-<a id="getToken()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getToken</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getToken()</pre>
-</li>
-</ul>
-<a id="getMetadatas()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getMetadatas</h4>
-<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="../shared/EdgeMetadata.html" title="class in io.openems.common.jsonrpc.shared">EdgeMetadata</a>&gt;&nbsp;getMetadatas()</pre>
 </li>
 </ul>
 </li>

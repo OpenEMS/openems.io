@@ -115,7 +115,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <main role="main">
 <div class="header">
 <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">io.openems.common.jsonrpc.request</a></div>
-<h2 title="Class AuthenticatedRpcRequest" class="title">Class AuthenticatedRpcRequest</h2>
+<h2 title="Class AuthenticatedRpcRequest" class="title">Class AuthenticatedRpcRequest&lt;USER extends <a href="../../session/AbstractUser.html" title="class in io.openems.common.session">AbstractUser</a>&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
@@ -131,7 +131,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li><a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">io.openems.common.jsonrpc.base.JsonrpcRequest</a></li>
 <li>
 <ul class="inheritance">
-<li>io.openems.common.jsonrpc.request.AuthenticatedRpcRequest</li>
+<li>io.openems.common.jsonrpc.request.AuthenticatedRpcRequest&lt;USER&gt;</li>
 </ul>
 </li>
 </ul>
@@ -145,7 +145,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <hr>
-<pre>public class <span class="typeNameLabel">AuthenticatedRpcRequest</span>
+<pre>public class <span class="typeNameLabel">AuthenticatedRpcRequest&lt;USER extends <a href="../../session/AbstractUser.html" title="class in io.openems.common.session">AbstractUser</a>&gt;</span>
 extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a></pre>
 <div class="block">Wraps a JSON-RPC Request from an authenticated User.
  
@@ -221,7 +221,7 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.common.session.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">AuthenticatedRpcRequest</a></span>&#8203;(<a href="../../session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(USER,io.openems.common.jsonrpc.base.JsonrpcRequest)">AuthenticatedRpcRequest</a></span>&#8203;(<a href="AuthenticatedRpcRequest.html" title="type parameter in AuthenticatedRpcRequest">USER</a>&nbsp;user,
                        <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;payload)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -244,8 +244,9 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request">AuthenticatedRpcRequest</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#from(io.openems.common.jsonrpc.base.JsonrpcRequest)">from</a></span>&#8203;(<a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;r)</code></th>
+<td class="colFirst"><code>static &lt;USER extends <a href="../../session/AbstractUser.html" title="class in io.openems.common.session">AbstractUser</a>&gt;<br><a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request">AuthenticatedRpcRequest</a>&lt;USER&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#from(io.openems.common.jsonrpc.base.JsonrpcRequest,io.openems.common.function.ThrowingFunction)">from</a></span>&#8203;(<a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;r,
+    <a href="../../function/ThrowingFunction.html" title="interface in io.openems.common.function">ThrowingFunction</a>&lt;com.google.gson.JsonObject,&#8203;USER,&#8203;<a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&nbsp;userFactory)</code></th>
 <td class="colLast">
 <div class="block">Create <a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request"><code>AuthenticatedRpcRequest</code></a> from a template
  <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.</div>
@@ -264,10 +265,10 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="../../session/User.html" title="class in io.openems.common.session">User</a></code></td>
+<td class="colFirst"><code><a href="AuthenticatedRpcRequest.html" title="type parameter in AuthenticatedRpcRequest">USER</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUser()">getUser</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Gets the <a href="../../session/User.html" title="class in io.openems.common.session"><code>User</code></a>.</div>
+<div class="block">Gets the <a href="../../session/AbstractUser.html" title="class in io.openems.common.session"><code>AbstractUser</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -338,13 +339,15 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(io.openems.common.session.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">
+<a id="&lt;init&gt;(io.openems.common.session.AbstractUser,io.openems.common.jsonrpc.base.JsonrpcRequest)">
+<!--   -->
+</a><a id="&lt;init&gt;(USER,io.openems.common.jsonrpc.base.JsonrpcRequest)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AuthenticatedRpcRequest</h4>
-<pre>public&nbsp;AuthenticatedRpcRequest&#8203;(<a href="../../session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
+<pre>public&nbsp;AuthenticatedRpcRequest&#8203;(<a href="AuthenticatedRpcRequest.html" title="type parameter in AuthenticatedRpcRequest">USER</a>&nbsp;user,
                                <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;payload)</pre>
 </li>
 </ul>
@@ -358,19 +361,22 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="from(io.openems.common.jsonrpc.base.JsonrpcRequest)">
+<a id="from(io.openems.common.jsonrpc.base.JsonrpcRequest,io.openems.common.function.ThrowingFunction)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>from</h4>
-<pre class="methodSignature">public static&nbsp;<a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request">AuthenticatedRpcRequest</a>&nbsp;from&#8203;(<a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;r)
-                                    throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<pre class="methodSignature">public static&nbsp;&lt;USER extends <a href="../../session/AbstractUser.html" title="class in io.openems.common.session">AbstractUser</a>&gt;&nbsp;<a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request">AuthenticatedRpcRequest</a>&lt;USER&gt;&nbsp;from&#8203;(<a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;r,
+                                                                             <a href="../../function/ThrowingFunction.html" title="interface in io.openems.common.function">ThrowingFunction</a>&lt;com.google.gson.JsonObject,&#8203;USER,&#8203;<a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&nbsp;userFactory)
+                                                                      throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Create <a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request"><code>AuthenticatedRpcRequest</code></a> from a template
  <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>r</code> - the template <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a></dd>
+<dd><code>userFactory</code> - a <a href="../../function/ThrowingFunction.html" title="interface in io.openems.common.function"><code>ThrowingFunction</code></a> that parses a
+                    <code>JsonObject</code> to a <a href="../../session/AbstractUser.html" title="class in io.openems.common.session"><code>AbstractUser</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the <a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request"><code>AuthenticatedRpcRequest</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -384,8 +390,8 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <ul class="blockList">
 <li class="blockList">
 <h4>getUser</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../session/User.html" title="class in io.openems.common.session">User</a>&nbsp;getUser()</pre>
-<div class="block">Gets the <a href="../../session/User.html" title="class in io.openems.common.session"><code>User</code></a>.</div>
+<pre class="methodSignature">public&nbsp;<a href="AuthenticatedRpcRequest.html" title="type parameter in AuthenticatedRpcRequest">USER</a>&nbsp;getUser()</pre>
+<div class="block">Gets the <a href="../../session/AbstractUser.html" title="class in io.openems.common.session"><code>AbstractUser</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>User</dd>

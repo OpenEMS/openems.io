@@ -226,7 +226,7 @@ implements <a href="../Controller.html" title="interface in io.openems.edge.cont
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected java.util.Map&lt;java.util.UUID,&#8203;<a href="../../../common/user/EdgeUser.html" title="class in io.openems.edge.common.user">EdgeUser</a>&gt;</code></td>
+<td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,&#8203;<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sessionTokens">sessionTokens</a></span></code></th>
 <td class="colLast">
 <div class="block">Stores valid session tokens for authentication via Cookie.</div>
@@ -303,7 +303,7 @@ implements <a href="../Controller.html" title="interface in io.openems.edge.cont
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>protected <a href="WsData.html" title="class in io.openems.edge.controller.api.websocket">WsData</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getWsDataForTokenOrError(java.util.UUID)">getWsDataForTokenOrError</a></span>&#8203;(java.util.UUID&nbsp;token)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getWsDataForTokenOrError(java.lang.String)">getWsDataForTokenOrError</a></span>&#8203;(java.lang.String&nbsp;token)</code></th>
 <td class="colLast">
 <div class="block">Gets the WebSocket connection attachment for a UI token.</div>
 </td>
@@ -315,7 +315,7 @@ implements <a href="../Controller.html" title="interface in io.openems.edge.cont
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleSubscribeSystemLogRequest(java.util.UUID,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">handleSubscribeSystemLogRequest</a></span>&#8203;(java.util.UUID&nbsp;token,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleSubscribeSystemLogRequest(java.lang.String,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">handleSubscribeSystemLogRequest</a></span>&#8203;(java.lang.String&nbsp;token,
                                <a href="../../../../common/jsonrpc/request/SubscribeSystemLogRequest.html" title="class in io.openems.common.jsonrpc.request">SubscribeSystemLogRequest</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Handles a SubscribeSystemLogRequest by forwarding it to the
@@ -466,7 +466,7 @@ implements <a href="../Controller.html" title="interface in io.openems.edge.cont
 <ul class="blockList">
 <li class="blockList">
 <h4>sessionTokens</h4>
-<pre>protected final&nbsp;java.util.Map&lt;java.util.UUID,&#8203;<a href="../../../common/user/EdgeUser.html" title="class in io.openems.edge.common.user">EdgeUser</a>&gt; sessionTokens</pre>
+<pre>protected final&nbsp;java.util.Map&lt;java.lang.String,&#8203;<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&gt; sessionTokens</pre>
 <div class="block">Stores valid session tokens for authentication via Cookie.</div>
 </li>
 </ul>
@@ -620,13 +620,13 @@ implements <a href="../Controller.html" title="interface in io.openems.edge.cont
 </dl>
 </li>
 </ul>
-<a id="getWsDataForTokenOrError(java.util.UUID)">
+<a id="getWsDataForTokenOrError(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getWsDataForTokenOrError</h4>
-<pre class="methodSignature">protected&nbsp;<a href="WsData.html" title="class in io.openems.edge.controller.api.websocket">WsData</a>&nbsp;getWsDataForTokenOrError&#8203;(java.util.UUID&nbsp;token)
+<pre class="methodSignature">protected&nbsp;<a href="WsData.html" title="class in io.openems.edge.controller.api.websocket">WsData</a>&nbsp;getWsDataForTokenOrError&#8203;(java.lang.String&nbsp;token)
                                    throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Gets the WebSocket connection attachment for a UI token.</div>
 <dl>
@@ -639,13 +639,13 @@ implements <a href="../Controller.html" title="interface in io.openems.edge.cont
 </dl>
 </li>
 </ul>
-<a id="handleSubscribeSystemLogRequest(java.util.UUID,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">
+<a id="handleSubscribeSystemLogRequest(java.lang.String,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>handleSubscribeSystemLogRequest</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;handleSubscribeSystemLogRequest&#8203;(java.util.UUID&nbsp;token,
+<pre class="methodSignature">protected&nbsp;void&nbsp;handleSubscribeSystemLogRequest&#8203;(java.lang.String&nbsp;token,
                                                <a href="../../../../common/jsonrpc/request/SubscribeSystemLogRequest.html" title="class in io.openems.common.jsonrpc.request">SubscribeSystemLogRequest</a>&nbsp;request)
                                         throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Handles a SubscribeSystemLogRequest by forwarding it to the

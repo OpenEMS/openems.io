@@ -218,9 +218,9 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleSubscribeSystemLogRequest(java.lang.String,io.openems.common.session.User,java.util.UUID,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">handleSubscribeSystemLogRequest</a></span>&#8203;(java.lang.String&nbsp;edgeId,
-                               <a href="../../common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
-                               java.util.UUID&nbsp;token,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleSubscribeSystemLogRequest(java.lang.String,io.openems.backend.common.metadata.User,java.lang.String,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">handleSubscribeSystemLogRequest</a></span>&#8203;(java.lang.String&nbsp;edgeId,
+                               <a href="../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
+                               java.lang.String&nbsp;token,
                                <a href="../../common/jsonrpc/request/SubscribeSystemLogRequest.html" title="class in io.openems.common.jsonrpc.request">SubscribeSystemLogRequest</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Handles a <a href="../../common/jsonrpc/request/SubscribeSystemLogRequest.html" title="class in io.openems.common.jsonrpc.request"><code>SubscribeSystemLogRequest</code></a>.</div>
@@ -258,21 +258,21 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.backend.common.metadata.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></span>&#8203;(java.lang.String&nbsp;edgeId,
+    <a href="../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
+    <a href="../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></th>
+<td class="colLast">
+<div class="block">Send an authenticated JSON-RPC Request to an Edge via Websocket and expect a
+ JSON-RPC Response.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></span>&#8203;(java.lang.String&nbsp;edgeId,
     <a href="../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
 <td class="colLast">
 <div class="block">Send a JSON-RPC Notification to an Edge.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.session.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></span>&#8203;(java.lang.String&nbsp;edgeId,
-    <a href="../../common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
-    <a href="../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></th>
-<td class="colLast">
-<div class="block">Send an authenticated JSON-RPC Request to an Edge via Websocket and expect a
- JSON-RPC Response.</div>
 </td>
 </tr>
 </table>
@@ -378,26 +378,26 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 </dl>
 </li>
 </ul>
-<a id="send(java.lang.String,io.openems.common.session.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">
+<a id="send(java.lang.String,io.openems.backend.common.metadata.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>send</h4>
 <pre class="methodSignature">public&nbsp;java.util.concurrent.CompletableFuture&lt;<a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;&nbsp;send&#8203;(java.lang.String&nbsp;edgeId,
-                                                                           <a href="../../common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
+                                                                           <a href="../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
                                                                            <a href="../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)
                                                                     throws <a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../common/edgewebsocket/EdgeWebsocket.html#send(java.lang.String,io.openems.common.session.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">EdgeWebsocket</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../common/edgewebsocket/EdgeWebsocket.html#send(java.lang.String,io.openems.backend.common.metadata.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">EdgeWebsocket</a></code></span></div>
 <div class="block">Send an authenticated JSON-RPC Request to an Edge via Websocket and expect a
  JSON-RPC Response.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../common/edgewebsocket/EdgeWebsocket.html#send(java.lang.String,io.openems.common.session.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></code>&nbsp;in interface&nbsp;<code><a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface in io.openems.backend.common.edgewebsocket">EdgeWebsocket</a></code></dd>
+<dd><code><a href="../common/edgewebsocket/EdgeWebsocket.html#send(java.lang.String,io.openems.backend.common.metadata.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></code>&nbsp;in interface&nbsp;<code><a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface in io.openems.backend.common.edgewebsocket">EdgeWebsocket</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>edgeId</code> - the Edge-ID</dd>
-<dd><code>user</code> - the authenticated User</dd>
-<dd><code>request</code> - the JsonrpcRequest</dd>
+<dd><code>user</code> - the authenticated <a href="../common/metadata/User.html" title="class in io.openems.backend.common.metadata"><code>User</code></a></dd>
+<dd><code>request</code> - the <a href="../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the JSON-RPC Success Response Future</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -465,24 +465,25 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 </dl>
 </li>
 </ul>
-<a id="handleSubscribeSystemLogRequest(java.lang.String,io.openems.common.session.User,java.util.UUID,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">
+<a id="handleSubscribeSystemLogRequest(java.lang.String,io.openems.backend.common.metadata.User,java.lang.String,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>handleSubscribeSystemLogRequest</h4>
 <pre class="methodSignature">public&nbsp;java.util.concurrent.CompletableFuture&lt;<a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;&nbsp;handleSubscribeSystemLogRequest&#8203;(java.lang.String&nbsp;edgeId,
-                                                                                                      <a href="../../common/session/User.html" title="class in io.openems.common.session">User</a>&nbsp;user,
-                                                                                                      java.util.UUID&nbsp;token,
+                                                                                                      <a href="../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
+                                                                                                      java.lang.String&nbsp;token,
                                                                                                       <a href="../../common/jsonrpc/request/SubscribeSystemLogRequest.html" title="class in io.openems.common.jsonrpc.request">SubscribeSystemLogRequest</a>&nbsp;request)
                                                                                                throws <a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../common/edgewebsocket/EdgeWebsocket.html#handleSubscribeSystemLogRequest(java.lang.String,io.openems.common.session.User,java.util.UUID,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">EdgeWebsocket</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../common/edgewebsocket/EdgeWebsocket.html#handleSubscribeSystemLogRequest(java.lang.String,io.openems.backend.common.metadata.User,java.lang.String,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">EdgeWebsocket</a></code></span></div>
 <div class="block">Handles a <a href="../../common/jsonrpc/request/SubscribeSystemLogRequest.html" title="class in io.openems.common.jsonrpc.request"><code>SubscribeSystemLogRequest</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../common/edgewebsocket/EdgeWebsocket.html#handleSubscribeSystemLogRequest(java.lang.String,io.openems.common.session.User,java.util.UUID,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">handleSubscribeSystemLogRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface in io.openems.backend.common.edgewebsocket">EdgeWebsocket</a></code></dd>
+<dd><code><a href="../common/edgewebsocket/EdgeWebsocket.html#handleSubscribeSystemLogRequest(java.lang.String,io.openems.backend.common.metadata.User,java.lang.String,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">handleSubscribeSystemLogRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface in io.openems.backend.common.edgewebsocket">EdgeWebsocket</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>edgeId</code> - the Edge-ID</dd>
+<dd><code>user</code> - the <a href="../common/metadata/User.html" title="class in io.openems.backend.common.metadata"><code>User</code></a></dd>
 <dd><code>token</code> - the UI session token</dd>
 <dd><code>request</code> - the <a href="../../common/jsonrpc/request/SubscribeSystemLogRequest.html" title="class in io.openems.common.jsonrpc.request"><code>SubscribeSystemLogRequest</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>

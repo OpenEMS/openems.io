@@ -179,7 +179,7 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.util.UUID</code></td>
+<td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#assertToken()">assertToken</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the token or throws an error if no token was set.</div>
@@ -200,12 +200,14 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.util.Optional&lt;java.util.UUID&gt;</code></td>
+<td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getToken()">getToken</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the Login-Token.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.util.Optional&lt;<a href="../../common/metadata/BackendUser.html" title="class in io.openems.backend.common.metadata">BackendUser</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.Optional&lt;<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUser(io.openems.backend.common.metadata.Metadata)">getUser</a></span>&#8203;(<a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a>&nbsp;metadata)</code></th>
 <td class="colLast">
 <div class="block">Gets the authenticated User.</div>
@@ -230,7 +232,7 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setToken(java.util.UUID)">setToken</a></span>&#8203;(java.util.UUID&nbsp;token)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setToken(java.lang.String)">setToken</a></span>&#8203;(java.lang.String&nbsp;token)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
@@ -340,7 +342,7 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <ul class="blockList">
 <li class="blockList">
 <h4>getUser</h4>
-<pre class="methodSignature">public&nbsp;java.util.Optional&lt;<a href="../../common/metadata/BackendUser.html" title="class in io.openems.backend.common.metadata">BackendUser</a>&gt;&nbsp;getUser&#8203;(<a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a>&nbsp;metadata)</pre>
+<pre class="methodSignature">public&nbsp;java.util.Optional&lt;<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&gt;&nbsp;getUser&#8203;(<a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a>&nbsp;metadata)</pre>
 <div class="block">Gets the authenticated User.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -351,13 +353,13 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 </dl>
 </li>
 </ul>
-<a id="setToken(java.util.UUID)">
+<a id="setToken(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setToken</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setToken&#8203;(java.util.UUID&nbsp;token)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setToken&#8203;(java.lang.String&nbsp;token)</pre>
 </li>
 </ul>
 <a id="getToken()">
@@ -366,7 +368,12 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <ul class="blockList">
 <li class="blockList">
 <h4>getToken</h4>
-<pre class="methodSignature">public&nbsp;java.util.Optional&lt;java.util.UUID&gt;&nbsp;getToken()</pre>
+<pre class="methodSignature">public&nbsp;java.util.Optional&lt;java.lang.String&gt;&nbsp;getToken()</pre>
+<div class="block">Gets the Login-Token.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Login-Token</dd>
+</dl>
 </li>
 </ul>
 <a id="assertToken()">
@@ -375,8 +382,8 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <ul class="blockList">
 <li class="blockList">
 <h4>assertToken</h4>
-<pre class="methodSignature">public&nbsp;java.util.UUID&nbsp;assertToken()
-                           throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;assertToken()
+                             throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Gets the token or throws an error if no token was set.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
