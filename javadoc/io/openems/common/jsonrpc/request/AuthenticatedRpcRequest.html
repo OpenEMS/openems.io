@@ -221,7 +221,8 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(USER,io.openems.common.jsonrpc.base.JsonrpcRequest)">AuthenticatedRpcRequest</a></span>&#8203;(<a href="AuthenticatedRpcRequest.html" title="type parameter in AuthenticatedRpcRequest">USER</a>&nbsp;user,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,USER,io.openems.common.jsonrpc.base.JsonrpcRequest)">AuthenticatedRpcRequest</a></span>&#8203;(java.lang.String&nbsp;edgeId,
+                       <a href="AuthenticatedRpcRequest.html" title="type parameter in AuthenticatedRpcRequest">USER</a>&nbsp;user,
                        <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;payload)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -255,7 +256,12 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParams()">getParams</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">This method is called in OpenEMS Backend and formats the
+ <a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request"><code>AuthenticatedRpcRequest</code></a>, especially the `user` property so, that it
+ contains only the required information for OpenEMS Edge and can be parsed via
+ {@link #from(JsonrpcRequest, ThrowingFunction).</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a></code></td>
@@ -339,15 +345,16 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(io.openems.common.session.AbstractUser,io.openems.common.jsonrpc.base.JsonrpcRequest)">
+<a id="&lt;init&gt;(java.lang.String,io.openems.common.session.AbstractUser,io.openems.common.jsonrpc.base.JsonrpcRequest)">
 <!--   -->
-</a><a id="&lt;init&gt;(USER,io.openems.common.jsonrpc.base.JsonrpcRequest)">
+</a><a id="&lt;init&gt;(java.lang.String,USER,io.openems.common.jsonrpc.base.JsonrpcRequest)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AuthenticatedRpcRequest</h4>
-<pre>public&nbsp;AuthenticatedRpcRequest&#8203;(<a href="AuthenticatedRpcRequest.html" title="type parameter in AuthenticatedRpcRequest">USER</a>&nbsp;user,
+<pre>public&nbsp;AuthenticatedRpcRequest&#8203;(java.lang.String&nbsp;edgeId,
+                               <a href="AuthenticatedRpcRequest.html" title="type parameter in AuthenticatedRpcRequest">USER</a>&nbsp;user,
                                <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;payload)</pre>
 </li>
 </ul>
@@ -371,12 +378,25 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
                                                                              <a href="../../function/ThrowingFunction.html" title="interface in io.openems.common.function">ThrowingFunction</a>&lt;com.google.gson.JsonObject,&#8203;USER,&#8203;<a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&nbsp;userFactory)
                                                                       throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Create <a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request"><code>AuthenticatedRpcRequest</code></a> from a template
- <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.</div>
+ <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.
+ 
+ <p>
+ 
+ This method is called by OpenEMS Edge after it receives a message from
+ OpenEMS Backend. As such the `edgeId` is empty here.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>r</code> - the template <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a></dd>
-<dd><code>userFactory</code> - a <a href="../../function/ThrowingFunction.html" title="interface in io.openems.common.function"><code>ThrowingFunction</code></a> that parses a
-                    <code>JsonObject</code> to a <a href="../../session/AbstractUser.html" title="class in io.openems.common.session"><code>AbstractUser</code></a></dd>
+<dd><code>userFactory</code> - a <a href="../../function/ThrowingFunction.html" title="interface in io.openems.common.function"><code>ThrowingFunction</code></a> that parses the following
+                    <code>JsonObject</code> structure to a <a href="../../session/AbstractUser.html" title="class in io.openems.common.session"><code>AbstractUser</code></a>
+ 
+                    <pre>
+ {
+   "id": string,
+   "name": string,
+   "role": <a href="../../session/Role.html" title="enum in io.openems.common.session"><code>Role</code></a>
+ }
+                    </pre></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the <a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request"><code>AuthenticatedRpcRequest</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -419,6 +439,10 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <li class="blockList">
 <h4>getParams</h4>
 <pre class="methodSignature">public&nbsp;com.google.gson.JsonObject&nbsp;getParams()</pre>
+<div class="block">This method is called in OpenEMS Backend and formats the
+ <a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request"><code>AuthenticatedRpcRequest</code></a>, especially the `user` property so, that it
+ contains only the required information for OpenEMS Edge and can be parsed via
+ {@link #from(JsonrpcRequest, ThrowingFunction).</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../base/AbstractJsonrpcRequest.html#getParams()">getParams</a></code>&nbsp;in class&nbsp;<code><a href="../base/AbstractJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">AbstractJsonrpcRequest</a></code></dd>
