@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":10,"i5":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -191,7 +191,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -214,13 +214,28 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a></code></td>
+<td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#authenticateSession(java.lang.String)">authenticateSession</a></span>&#8203;(java.lang.String&nbsp;sessionId)</code></th>
 <td class="colLast">
 <div class="block">Authenticates a user using a Session-ID.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>static java.util.Optional&lt;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFieldFromSetCookieHeader(java.util.Map,java.lang.String)">getFieldFromSetCookieHeader</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.util.List&lt;java.lang.String&gt;&gt;&nbsp;headers,
+                           java.lang.String&nbsp;fieldname)</code></th>
+<td class="colLast">
+<div class="block">Get field from the 'Set-Cookie' field in HTTP headers.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logout(java.lang.String)">logout</a></span>&#8203;(java.lang.String&nbsp;sessionId)</code></th>
+<td class="colLast">
+<div class="block">Logout a User.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeEdge(io.openems.backend.metadata.odoo.MyEdge,io.openems.backend.metadata.odoo.odoo.FieldValue...)">writeEdge</a></span>&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge,
          <a href="FieldValue.html" title="class in io.openems.backend.metadata.odoo.odoo">FieldValue</a>&lt;?&gt;...&nbsp;fieldValues)</code></th>
@@ -338,28 +353,66 @@ extends java.lang.Object</pre>
 <dd><code>username</code> - the Username</dd>
 <dd><code>password</code> - the Password</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Odoo Session-ID</dd>
+<dd>the session_id</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on login error</dd>
 </dl>
 </li>
 </ul>
 <a id="authenticateSession(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>authenticateSession</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&nbsp;authenticateSession&#8203;(java.lang.String&nbsp;sessionId)
-                                           throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<pre class="methodSignature">public&nbsp;com.google.gson.JsonObject&nbsp;authenticateSession&#8203;(java.lang.String&nbsp;sessionId)
+                                               throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Authenticates a user using a Session-ID.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>sessionId</code> - the Odoo Session-ID</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Odoo response</dd>
+<dd>the <code>JsonObject</code> received from /openems_backend/info.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="logout(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>logout</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;logout&#8203;(java.lang.String&nbsp;sessionId)</pre>
+<div class="block">Logout a User.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sessionId</code> - the Session-ID</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="getFieldFromSetCookieHeader(java.util.Map,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getFieldFromSetCookieHeader</h4>
+<pre class="methodSignature">public static&nbsp;java.util.Optional&lt;java.lang.String&gt;&nbsp;getFieldFromSetCookieHeader&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.util.List&lt;java.lang.String&gt;&gt;&nbsp;headers,
+                                                                               java.lang.String&nbsp;fieldname)</pre>
+<div class="block">Get field from the 'Set-Cookie' field in HTTP headers.
+ 
+ <p>
+ Per <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">specification</a>
+ all variants of 'cookie' are accepted.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>headers</code> - the HTTP headers</dd>
+<dd><code>fieldname</code> - the field name</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>value as optional</dd>
 </dl>
 </li>
 </ul>

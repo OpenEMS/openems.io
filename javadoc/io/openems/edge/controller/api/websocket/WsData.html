@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -188,21 +188,33 @@ extends <a href="../../../../common/websocket/WsData.html" title="class in io.op
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSessionToken()">getSessionToken</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the Session Token.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="SubscribedChannelsWorker.html" title="class in io.openems.edge.controller.api.websocket">SubscribedChannelsWorker</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSubscribedChannelsWorker()">getSubscribedChannelsWorker</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Gets the SubscribedChannelsWorker to take care of subscribe to CurrentData.</div>
+<div class="block">Gets the <a href="SubscribedChannelsWorker.html" title="class in io.openems.edge.controller.api.websocket"><code>SubscribedChannelsWorker</code></a> to take care of subscribe to
+ CurrentData.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.Optional&lt;<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUser()">getUser</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the <a href="../../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a>.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logout()">logout</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Logout and invalidate Session.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected java.util.concurrent.ScheduledFuture&lt;?&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">scheduleWithFixedDelay</a></span>&#8203;(java.lang.Runnable&nbsp;command,
                       long&nbsp;initialDelay,
@@ -212,27 +224,33 @@ extends <a href="../../../../common/websocket/WsData.html" title="class in io.op
 <div class="block">Execute a <code>Runnable</code>.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSessionToken(java.lang.String)">setSessionToken</a></span>&#8203;(java.lang.String&nbsp;sessionToken)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUser(io.openems.edge.common.user.User)">setUser</a></span>&#8203;(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user)</code></th>
-<td class="colLast">&nbsp;</td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSessionToken(java.lang.String)">setSessionToken</a></span>&#8203;(java.lang.String&nbsp;sessionToken)</code></th>
+<td class="colLast">
+<div class="block">Sets the Session Token.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUser(io.openems.edge.common.user.User)">setUser</a></span>&#8203;(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user)</code></th>
+<td class="colLast">
+<div class="block">Sets the <a href="../../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a>.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Provides a specific toString method.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unsetUser()">unsetUser</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Unsets the <a href="../../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a>.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -284,6 +302,16 @@ extends <a href="../../../../common/websocket/WsData.html" title="class in io.op
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="logout()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>logout</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;logout()</pre>
+<div class="block">Logout and invalidate Session.</div>
+</li>
+</ul>
 <a id="setSessionToken(java.lang.String)">
 <!--   -->
 </a>
@@ -291,6 +319,11 @@ extends <a href="../../../../common/websocket/WsData.html" title="class in io.op
 <li class="blockList">
 <h4>setSessionToken</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setSessionToken&#8203;(java.lang.String&nbsp;sessionToken)</pre>
+<div class="block">Sets the Session Token.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sessionToken</code> - the Session Token</dd>
+</dl>
 </li>
 </ul>
 <a id="getSessionToken()">
@@ -300,6 +333,11 @@ extends <a href="../../../../common/websocket/WsData.html" title="class in io.op
 <li class="blockList">
 <h4>getSessionToken</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getSessionToken()</pre>
+<div class="block">Gets the Session Token.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Session Token</dd>
+</dl>
 </li>
 </ul>
 <a id="setUser(io.openems.edge.common.user.User)">
@@ -309,6 +347,11 @@ extends <a href="../../../../common/websocket/WsData.html" title="class in io.op
 <li class="blockList">
 <h4>setUser</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setUser&#8203;(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user)</pre>
+<div class="block">Sets the <a href="../../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>user</code> - the <a href="../../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a></dd>
+</dl>
 </li>
 </ul>
 <a id="unsetUser()">
@@ -318,6 +361,7 @@ extends <a href="../../../../common/websocket/WsData.html" title="class in io.op
 <li class="blockList">
 <h4>unsetUser</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;unsetUser()</pre>
+<div class="block">Unsets the <a href="../../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a>.</div>
 </li>
 </ul>
 <a id="getUser()">
@@ -327,6 +371,11 @@ extends <a href="../../../../common/websocket/WsData.html" title="class in io.op
 <li class="blockList">
 <h4>getUser</h4>
 <pre class="methodSignature">public&nbsp;java.util.Optional&lt;<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&gt;&nbsp;getUser()</pre>
+<div class="block">Gets the <a href="../../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <code>Optional</code> <a href="../../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a></dd>
+</dl>
 </li>
 </ul>
 <a id="assertUserIsAuthenticated(java.lang.String)">
@@ -355,10 +404,11 @@ extends <a href="../../../../common/websocket/WsData.html" title="class in io.op
 <li class="blockList">
 <h4>getSubscribedChannelsWorker</h4>
 <pre class="methodSignature">public&nbsp;<a href="SubscribedChannelsWorker.html" title="class in io.openems.edge.controller.api.websocket">SubscribedChannelsWorker</a>&nbsp;getSubscribedChannelsWorker()</pre>
-<div class="block">Gets the SubscribedChannelsWorker to take care of subscribe to CurrentData.</div>
+<div class="block">Gets the <a href="SubscribedChannelsWorker.html" title="class in io.openems.edge.controller.api.websocket"><code>SubscribedChannelsWorker</code></a> to take care of subscribe to
+ CurrentData.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the SubscribedChannelsWorker</dd>
+<dd>the <a href="SubscribedChannelsWorker.html" title="class in io.openems.edge.controller.api.websocket"><code>SubscribedChannelsWorker</code></a></dd>
 </dl>
 </li>
 </ul>

@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -255,12 +255,16 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="odoo/OdooHandler.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooHandler</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOdooHandler()">getOdooHandler</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the <a href="odoo/OdooHandler.html" title="class in io.openems.backend.metadata.odoo.odoo"><code>OdooHandler</code></a>.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="postgres/PostgresHandler.html" title="class in io.openems.backend.metadata.odoo.postgres">PostgresHandler</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPostgresHandler()">getPostgresHandler</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the <a href="postgres/PostgresHandler.html" title="class in io.openems.backend.metadata.odoo.postgres"><code>PostgresHandler</code></a>.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.Optional&lt;<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&gt;</code></td>
@@ -286,6 +290,13 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 </td>
 </tr>
 <tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logout(io.openems.backend.common.metadata.User)">logout</a></span>&#8203;(<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</code></th>
+<td class="colLast">
+<div class="block">Closes a session for a User.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -320,7 +331,7 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.backend.common.metadata.<a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a></h3>
-<code><a href="../../common/metadata/Metadata.html#addOnIsInitializedListener(java.lang.Runnable)">addOnIsInitializedListener</a>, <a href="../../common/metadata/Metadata.html#authenticate()">authenticate</a>, <a href="../../common/metadata/Metadata.html#getEdgeOrError(java.lang.String)">getEdgeOrError</a>, <a href="../../common/metadata/Metadata.html#isInitialized()">isInitialized</a>, <a href="../../common/metadata/Metadata.html#removeOnIsInitializedListener(java.lang.Runnable)">removeOnIsInitializedListener</a></code></li>
+<code><a href="../../common/metadata/Metadata.html#addOnIsInitializedListener(java.lang.Runnable)">addOnIsInitializedListener</a>, <a href="../../common/metadata/Metadata.html#getEdgeOrError(java.lang.String)">getEdgeOrError</a>, <a href="../../common/metadata/Metadata.html#isInitialized()">isInitialized</a>, <a href="../../common/metadata/Metadata.html#removeOnIsInitializedListener(java.lang.Runnable)">removeOnIsInitializedListener</a></code></li>
 </ul>
 </li>
 </ul>
@@ -431,6 +442,23 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 </dl>
 </li>
 </ul>
+<a id="logout(io.openems.backend.common.metadata.User)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>logout</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;logout&#8203;(<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/metadata/Metadata.html#logout(io.openems.backend.common.metadata.User)">Metadata</a></code></span></div>
+<div class="block">Closes a session for a User.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../common/metadata/Metadata.html#logout(io.openems.backend.common.metadata.User)">logout</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>user</code> - the <a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata"><code>User</code></a></dd>
+</dl>
+</li>
+</ul>
 <a id="getEdgeIdForApikey(java.lang.String)">
 <!--   -->
 </a>
@@ -512,6 +540,11 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 <li class="blockList">
 <h4>getOdooHandler</h4>
 <pre class="methodSignature">public&nbsp;<a href="odoo/OdooHandler.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooHandler</a>&nbsp;getOdooHandler()</pre>
+<div class="block">Gets the <a href="odoo/OdooHandler.html" title="class in io.openems.backend.metadata.odoo.odoo"><code>OdooHandler</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="odoo/OdooHandler.html" title="class in io.openems.backend.metadata.odoo.odoo"><code>OdooHandler</code></a></dd>
+</dl>
 </li>
 </ul>
 <a id="getPostgresHandler()">
@@ -521,6 +554,11 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 <li class="blockList">
 <h4>getPostgresHandler</h4>
 <pre class="methodSignature">public&nbsp;<a href="postgres/PostgresHandler.html" title="class in io.openems.backend.metadata.odoo.postgres">PostgresHandler</a>&nbsp;getPostgresHandler()</pre>
+<div class="block">Gets the <a href="postgres/PostgresHandler.html" title="class in io.openems.backend.metadata.odoo.postgres"><code>PostgresHandler</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="postgres/PostgresHandler.html" title="class in io.openems.backend.metadata.odoo.postgres"><code>PostgresHandler</code></a></dd>
+</dl>
 </li>
 </ul>
 <a id="logInfo(org.slf4j.Logger,java.lang.String)">

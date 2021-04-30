@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -154,10 +154,10 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="OdooUtils.JsonrpcResponseSuccessAndHeaders.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooUtils.JsonrpcResponseSuccessAndHeaders</a></span></code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="OdooUtils.SuccessResponseAndHeaders.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooUtils.SuccessResponseAndHeaders</a></span></code></th>
 <td class="colLast">
 <div class="block">Wrapper for the reply of a call to
- <a href="#sendJsonrpcRequest(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcRequest)"><code>sendJsonrpcRequest(String, JsonrpcRequest)</code></a>.</div>
+ <a href="#sendJsonrpcRequest(java.lang.String,com.google.gson.JsonObject)"><code>sendJsonrpcRequest(String, JsonObject)</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -290,14 +290,23 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>static <a href="OdooUtils.JsonrpcResponseSuccessAndHeaders.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooUtils.JsonrpcResponseSuccessAndHeaders</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendJsonrpcRequest(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcRequest)">sendJsonrpcRequest</a></span>&#8203;(java.lang.String&nbsp;url,
-                  <a href="../../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></th>
+<td class="colFirst"><code>static <a href="OdooUtils.SuccessResponseAndHeaders.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooUtils.SuccessResponseAndHeaders</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendJsonrpcRequest(java.lang.String,com.google.gson.JsonObject)">sendJsonrpcRequest</a></span>&#8203;(java.lang.String&nbsp;url,
+                  com.google.gson.JsonObject&nbsp;request)</code></th>
+<td class="colLast">
+<div class="block">Sends a JSON-RPC Request to an Odoo server - without Cookie header.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>static <a href="OdooUtils.SuccessResponseAndHeaders.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooUtils.SuccessResponseAndHeaders</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendJsonrpcRequest(java.lang.String,java.lang.String,com.google.gson.JsonObject)">sendJsonrpcRequest</a></span>&#8203;(java.lang.String&nbsp;url,
+                  java.lang.String&nbsp;cookie,
+                  com.google.gson.JsonObject&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Sends a JSON-RPC Request to an Odoo server.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#write(io.openems.backend.metadata.odoo.odoo.Credentials,java.lang.String,java.lang.Integer%5B%5D,io.openems.backend.metadata.odoo.odoo.FieldValue...)">write</a></span>&#8203;(<a href="Credentials.html" title="class in io.openems.backend.metadata.odoo.odoo">Credentials</a>&nbsp;credentials,
      java.lang.String&nbsp;model,
@@ -389,22 +398,47 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="sendJsonrpcRequest(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcRequest)">
+<a id="sendJsonrpcRequest(java.lang.String,com.google.gson.JsonObject)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>sendJsonrpcRequest</h4>
-<pre class="methodSignature">public static&nbsp;<a href="OdooUtils.JsonrpcResponseSuccessAndHeaders.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooUtils.JsonrpcResponseSuccessAndHeaders</a>&nbsp;sendJsonrpcRequest&#8203;(java.lang.String&nbsp;url,
-                                                                            <a href="../../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)
-                                                                     throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<pre class="methodSignature">public static&nbsp;<a href="OdooUtils.SuccessResponseAndHeaders.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooUtils.SuccessResponseAndHeaders</a>&nbsp;sendJsonrpcRequest&#8203;(java.lang.String&nbsp;url,
+                                                                     com.google.gson.JsonObject&nbsp;request)
+                                                              throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Sends a JSON-RPC Request to an Odoo server - without Cookie header.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>url</code> - the URL</dd>
+<dd><code>request</code> - the JSON-RPC Request as <code>JsonObject</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <code>JsonObject</code> response and HTTP connection headers on
+         success</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="sendJsonrpcRequest(java.lang.String,java.lang.String,com.google.gson.JsonObject)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sendJsonrpcRequest</h4>
+<pre class="methodSignature">public static&nbsp;<a href="OdooUtils.SuccessResponseAndHeaders.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooUtils.SuccessResponseAndHeaders</a>&nbsp;sendJsonrpcRequest&#8203;(java.lang.String&nbsp;url,
+                                                                     java.lang.String&nbsp;cookie,
+                                                                     com.google.gson.JsonObject&nbsp;request)
+                                                              throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Sends a JSON-RPC Request to an Odoo server.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>url</code> - the URL</dd>
-<dd><code>request</code> - the JSON-RPC Request</dd>
+<dd><code>cookie</code> - a Cookie string</dd>
+<dd><code>request</code> - the JSON-RPC Request as <code>JsonObject</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the JSON-RPC Response and HTTP connection headers</dd>
+<dd>the <code>JsonObject</code> response and HTTP connection headers on
+         success</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>

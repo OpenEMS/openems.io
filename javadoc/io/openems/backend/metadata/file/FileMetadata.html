@@ -207,19 +207,12 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#authenticate()">authenticate</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#authenticate(java.lang.String)">authenticate</a></span>&#8203;(java.lang.String&nbsp;token)</code></th>
 <td class="colLast">
-<div class="block">Authenticates a User without any information.</div>
+<div class="block">Authenticates the User by a Token.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#authenticate(java.lang.String)">authenticate</a></span>&#8203;(java.lang.String&nbsp;sessionId)</code></th>
-<td class="colLast">
-<div class="block">Authenticates the User by a Session-ID.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#authenticate(java.lang.String,java.lang.String)">authenticate</a></span>&#8203;(java.lang.String&nbsp;username,
             java.lang.String&nbsp;password)</code></th>
@@ -227,32 +220,39 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 <div class="block">Authenticates the User by username and password.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.Collection&lt;<a href="../../common/metadata/Edge.html" title="class in io.openems.backend.common.metadata">Edge</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAllEdges()">getAllEdges</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets all Edges.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.Optional&lt;<a href="../../common/metadata/Edge.html" title="class in io.openems.backend.common.metadata">Edge</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdge(java.lang.String)">getEdge</a></span>&#8203;(java.lang.String&nbsp;edgeId)</code></th>
 <td class="colLast">
 <div class="block">Get an Edge by its unique Edge-ID.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgeIdForApikey(java.lang.String)">getEdgeIdForApikey</a></span>&#8203;(java.lang.String&nbsp;apikey)</code></th>
 <td class="colLast">
 <div class="block">Gets the Edge-ID for an API-Key, i.e.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.util.Optional&lt;<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUser(java.lang.String)">getUser</a></span>&#8203;(java.lang.String&nbsp;userId)</code></th>
 <td class="colLast">
 <div class="block">Gets the User for the given User-ID.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logout(io.openems.backend.common.metadata.User)">logout</a></span>&#8203;(<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</code></th>
+<td class="colLast">
+<div class="block">Closes a session for a User.</div>
 </td>
 </tr>
 </table>
@@ -319,30 +319,6 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="authenticate()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>authenticate</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;authenticate()
-                  throws <a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/metadata/Metadata.html#authenticate()">Metadata</a></code></span></div>
-<div class="block">Authenticates a User without any information.
- 
- <p>
- This is only useful for Dummy-Implementations. By default authentication is
- denied in this case.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../common/metadata/Metadata.html#authenticate()">authenticate</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the User</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
-</dl>
-</li>
-</ul>
 <a id="authenticate(java.lang.String,java.lang.String)">
 <!--   -->
 </a>
@@ -373,19 +349,36 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 <ul class="blockList">
 <li class="blockList">
 <h4>authenticate</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;authenticate&#8203;(java.lang.String&nbsp;sessionId)
-                  throws <a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<pre class="methodSignature">public&nbsp;<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;authenticate&#8203;(java.lang.String&nbsp;token)
+                  throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/metadata/Metadata.html#authenticate(java.lang.String)">Metadata</a></code></span></div>
-<div class="block">Authenticates the User by a Session-ID.</div>
+<div class="block">Authenticates the User by a Token.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../common/metadata/Metadata.html#authenticate(java.lang.String)">authenticate</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>sessionId</code> - the Session-ID</dd>
+<dd><code>token</code> - the Token</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the <a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata"><code>User</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="logout(io.openems.backend.common.metadata.User)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>logout</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;logout&#8203;(<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/metadata/Metadata.html#logout(io.openems.backend.common.metadata.User)">Metadata</a></code></span></div>
+<div class="block">Closes a session for a User.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../common/metadata/Metadata.html#logout(io.openems.backend.common.metadata.User)">logout</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>user</code> - the <a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata"><code>User</code></a></dd>
 </dl>
 </li>
 </ul>
