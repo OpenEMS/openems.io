@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -157,9 +157,10 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,boolean,boolean,com.google.gson.JsonElement,com.google.gson.JsonObject)">Property</a></span>&#8203;(java.lang.String&nbsp;id,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,io.openems.common.types.OpenemsType,boolean,boolean,com.google.gson.JsonElement,com.google.gson.JsonObject)">Property</a></span>&#8203;(java.lang.String&nbsp;id,
         java.lang.String&nbsp;name,
         java.lang.String&nbsp;description,
+        <a href="OpenemsType.html" title="enum in io.openems.common.types">OpenemsType</a>&nbsp;type,
         boolean&nbsp;isRequired,
         boolean&nbsp;isPassword,
         com.google.gson.JsonElement&nbsp;defaultValue,
@@ -186,9 +187,10 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types">EdgeConfig.Factory.Property</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#from(org.osgi.service.metatype.AttributeDefinition,boolean)">from</a></span>&#8203;(org.osgi.service.metatype.AttributeDefinition&nbsp;ad,
-    boolean&nbsp;isRequired)</code></th>
-<td class="colLast">&nbsp;</td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#from(org.osgi.service.metatype.AttributeDefinition)">from</a></span>&#8203;(org.osgi.service.metatype.AttributeDefinition&nbsp;ad)</code></th>
+<td class="colLast">
+<div class="block">Creates a <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a> from an <code>AttributeDefinition</code>.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types">EdgeConfig.Factory.Property</a></code></td>
@@ -200,34 +202,53 @@ extends java.lang.Object</pre>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>com.google.gson.JsonElement</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDefaultValue()">getDefaultValue</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the default value of the Property.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDescription()">getDescription</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the Description of the <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId()">getId</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the ID of the <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the Name of the <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isPassword()">isPassword</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colFirst"><code><a href="OpenemsType.html" title="enum in io.openems.common.types">OpenemsType</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getType()">getType</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the <a href="OpenemsType.html" title="enum in io.openems.common.types"><code>OpenemsType</code></a> of the <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isRequired()">isRequired</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isPassword()">isPassword</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Does this Property represent a password?.</div>
+</td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isRequired()">isRequired</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Is this Property required?.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson()">toJson</a></span>()</code></th>
 <td class="colLast">
@@ -258,7 +279,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String,boolean,boolean,com.google.gson.JsonElement,com.google.gson.JsonObject)">
+<a id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String,io.openems.common.types.OpenemsType,boolean,boolean,com.google.gson.JsonElement,com.google.gson.JsonObject)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -267,6 +288,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;Property&#8203;(java.lang.String&nbsp;id,
                 java.lang.String&nbsp;name,
                 java.lang.String&nbsp;description,
+                <a href="OpenemsType.html" title="enum in io.openems.common.types">OpenemsType</a>&nbsp;type,
                 boolean&nbsp;isRequired,
                 boolean&nbsp;isPassword,
                 com.google.gson.JsonElement&nbsp;defaultValue,
@@ -283,14 +305,20 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="from(org.osgi.service.metatype.AttributeDefinition,boolean)">
+<a id="from(org.osgi.service.metatype.AttributeDefinition)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>from</h4>
-<pre class="methodSignature">public static&nbsp;<a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types">EdgeConfig.Factory.Property</a>&nbsp;from&#8203;(org.osgi.service.metatype.AttributeDefinition&nbsp;ad,
-                                               boolean&nbsp;isRequired)</pre>
+<pre class="methodSignature">public static&nbsp;<a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types">EdgeConfig.Factory.Property</a>&nbsp;from&#8203;(org.osgi.service.metatype.AttributeDefinition&nbsp;ad)</pre>
+<div class="block">Creates a <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a> from an <code>AttributeDefinition</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ad</code> - the <code>AttributeDefinition</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a></dd>
+</dl>
 </li>
 </ul>
 <a id="fromJson(com.google.gson.JsonElement)">
@@ -347,6 +375,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getId</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getId()</pre>
+<div class="block">Gets the ID of the <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Property-ID</dd>
+</dl>
 </li>
 </ul>
 <a id="getName()">
@@ -356,6 +389,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getName</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getName()</pre>
+<div class="block">Gets the Name of the <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Name</dd>
+</dl>
 </li>
 </ul>
 <a id="getDescription()">
@@ -365,6 +403,25 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getDescription</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getDescription()</pre>
+<div class="block">Gets the Description of the <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Description</dd>
+</dl>
+</li>
+</ul>
+<a id="getType()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getType</h4>
+<pre class="methodSignature">public&nbsp;<a href="OpenemsType.html" title="enum in io.openems.common.types">OpenemsType</a>&nbsp;getType()</pre>
+<div class="block">Gets the <a href="OpenemsType.html" title="enum in io.openems.common.types"><code>OpenemsType</code></a> of the <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="OpenemsType.html" title="enum in io.openems.common.types"><code>OpenemsType</code></a></dd>
+</dl>
 </li>
 </ul>
 <a id="isPassword()">
@@ -374,6 +431,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isPassword</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isPassword()</pre>
+<div class="block">Does this Property represent a password?.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if it is a password</dd>
+</dl>
 </li>
 </ul>
 <a id="isRequired()">
@@ -383,6 +445,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isRequired</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isRequired()</pre>
+<div class="block">Is this Property required?.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if it is required</dd>
+</dl>
 </li>
 </ul>
 <a id="getDefaultValue()">
@@ -392,6 +459,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getDefaultValue</h4>
 <pre class="methodSignature">public&nbsp;com.google.gson.JsonElement&nbsp;getDefaultValue()</pre>
+<div class="block">Gets the default value of the Property.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the default value</dd>
+</dl>
 </li>
 </ul>
 </li>

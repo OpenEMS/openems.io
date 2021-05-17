@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -212,7 +212,9 @@ extends java.lang.Object</pre>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#create(java.lang.String,org.osgi.service.metatype.ObjectClassDefinition,java.lang.String%5B%5D)">create</a></span>&#8203;(java.lang.String&nbsp;factoryId,
       org.osgi.service.metatype.ObjectClassDefinition&nbsp;ocd,
       java.lang.String[]&nbsp;natureIds)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Creates a <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a> from an <code>ObjectClassDefinition</code>.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types">EdgeConfig.Factory</a></code></td>
@@ -225,27 +227,37 @@ extends java.lang.Object</pre>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDescription()">getDescription</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the Description of the <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a>.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId()">getId</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the ID of the <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a>.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the Name of the <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a>.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNatureIds()">getNatureIds</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the Nature-IDs of the <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a>.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types">EdgeConfig.Factory.Property</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperties()">getProperties</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>s of the <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a>.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.Optional&lt;<a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types">EdgeConfig.Factory.Property</a>&gt;</code></td>
@@ -259,6 +271,13 @@ extends java.lang.Object</pre>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson()">toJson</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the Factory configuration as a JSON Object.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>static java.util.List&lt;<a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types">EdgeConfig.Factory.Property</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toProperties(org.osgi.service.metatype.ObjectClassDefinition)">toProperties</a></span>&#8203;(org.osgi.service.metatype.ObjectClassDefinition&nbsp;ocd)</code></th>
+<td class="colLast">
+<div class="block">Parses a <code>ObjectClassDefinition</code> to a list of <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>s.</div>
 </td>
 </tr>
 </table>
@@ -317,6 +336,31 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public static&nbsp;<a href="EdgeConfig.Factory.html" title="class in io.openems.common.types">EdgeConfig.Factory</a>&nbsp;create&#8203;(java.lang.String&nbsp;factoryId,
                                         org.osgi.service.metatype.ObjectClassDefinition&nbsp;ocd,
                                         java.lang.String[]&nbsp;natureIds)</pre>
+<div class="block">Creates a <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a> from an <code>ObjectClassDefinition</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>factoryId</code> - the Factory-ID</dd>
+<dd><code>ocd</code> - the <code>ObjectClassDefinition</code></dd>
+<dd><code>natureIds</code> - the Nature-IDs</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="toProperties(org.osgi.service.metatype.ObjectClassDefinition)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toProperties</h4>
+<pre class="methodSignature">public static&nbsp;java.util.List&lt;<a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types">EdgeConfig.Factory.Property</a>&gt;&nbsp;toProperties&#8203;(org.osgi.service.metatype.ObjectClassDefinition&nbsp;ocd)</pre>
+<div class="block">Parses a <code>ObjectClassDefinition</code> to a list of <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>s.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ocd</code> - the <code>ObjectClassDefinition</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a list of <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>s</dd>
+</dl>
 </li>
 </ul>
 <a id="getId()">
@@ -326,6 +370,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getId</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getId()</pre>
+<div class="block">Gets the ID of the <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the ID</dd>
+</dl>
 </li>
 </ul>
 <a id="getName()">
@@ -335,6 +384,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getName</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getName()</pre>
+<div class="block">Gets the Name of the <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the name</dd>
+</dl>
 </li>
 </ul>
 <a id="getDescription()">
@@ -344,6 +398,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getDescription</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getDescription()</pre>
+<div class="block">Gets the Description of the <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the description</dd>
+</dl>
 </li>
 </ul>
 <a id="getProperties()">
@@ -353,6 +412,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getProperties</h4>
 <pre class="methodSignature">public&nbsp;<a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types">EdgeConfig.Factory.Property</a>[]&nbsp;getProperties()</pre>
+<div class="block">Gets the <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>s of the <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an array of <a href="EdgeConfig.Factory.Property.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory.Property</code></a>s</dd>
+</dl>
 </li>
 </ul>
 <a id="getProperty(java.lang.String)">
@@ -378,6 +442,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getNatureIds</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String[]&nbsp;getNatureIds()</pre>
+<div class="block">Gets the Nature-IDs of the <a href="EdgeConfig.Factory.html" title="class in io.openems.common.types"><code>EdgeConfig.Factory</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Nature-IDs</dd>
+</dl>
 </li>
 </ul>
 <a id="toJson()">
