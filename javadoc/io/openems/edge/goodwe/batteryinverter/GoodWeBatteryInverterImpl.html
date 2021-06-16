@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -297,20 +297,27 @@ implements <a href="GoodWeBatteryInverter.html" title="interface in io.openems.e
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDcPvPower()">getDcPvPower</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the DC-PV Power, i.e.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPowerPrecision()">getPowerPrecision</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the smallest positive power that can be set (in W, VA or var).</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../batteryinverter/api/BatteryInverterConstraint.html" title="class in io.openems.edge.batteryinverter.api">BatteryInverterConstraint</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStaticConstraints()">getStaticConstraints</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets static Constraints for this Battery-Inverter.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSurplusPower()">getSurplusPower</a></span>()</code></th>
 <td class="colLast">
@@ -318,14 +325,14 @@ implements <a href="GoodWeBatteryInverter.html" title="interface in io.openems.e
  <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>HybridManagedSymmetricBatteryInverter</code></a>.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimedata()">getTimedata</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the <a href="../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run(io.openems.edge.battery.api.Battery,int,int)">run</a></span>&#8203;(<a href="../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery,
    int&nbsp;setActivePower,
@@ -334,14 +341,14 @@ implements <a href="GoodWeBatteryInverter.html" title="interface in io.openems.e
 <div class="block">Run the Battery-Inverter.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)">setModbus</a></span>&#8203;(<a href="../../bridge/modbus/api/BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a>&nbsp;modbus)</code></th>
 <td class="colLast">
 <div class="block">Set the Modbus bridge.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStartStop(io.openems.edge.common.startstop.StartStop)">setStartStop</a></span>&#8203;(<a href="../../common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</code></th>
 <td class="colLast">
@@ -547,6 +554,24 @@ implements <a href="GoodWeBatteryInverter.html" title="interface in io.openems.e
 <dd><code><a href="../../timedata/api/TimedataProvider.html#getTimedata()">getTimedata</a></code>&nbsp;in interface&nbsp;<code><a href="../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the service or null if it is not (yet) available.</dd>
+</dl>
+</li>
+</ul>
+<a id="getDcPvPower()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDcPvPower</h4>
+<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;getDcPvPower()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#getDcPvPower()">HybridManagedSymmetricBatteryInverter</a></code></span></div>
+<div class="block">Gets the DC-PV Power, i.e. the sum of the <a href="../../ess/dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api"><code>EssDcCharger</code></a>s of this
+ <a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>HybridManagedSymmetricBatteryInverter</code></a>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html#getDcPvPower()">getDcPvPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../batteryinverter/api/HybridManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">HybridManagedSymmetricBatteryInverter</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the DC-PV power, or 'null' if there is no <a href="../../ess/dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api"><code>EssDcCharger</code></a></dd>
 </dl>
 </li>
 </ul>
