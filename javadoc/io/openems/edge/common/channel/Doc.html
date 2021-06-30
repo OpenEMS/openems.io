@@ -459,7 +459,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>source</h4>
-<pre class="methodSignature">&lt;SOURCE&gt;&nbsp;<a href="Doc.html" title="interface in io.openems.edge.common.channel">Doc</a>&nbsp;source&#8203;(SOURCE&nbsp;source)</pre>
+<pre class="methodSignature">&lt;SOURCE&gt;&nbsp;<a href="Doc.html" title="interface in io.openems.edge.common.channel">Doc</a>&nbsp;source&#8203;(SOURCE&nbsp;source)
+             throws java.lang.IllegalArgumentException</pre>
 <div class="block">Sets an object that holds information about the source of this Channel, i.e.
  a Modbus Register or REST-Api endpoint address. Defaults to null.</div>
 <dl>
@@ -469,6 +470,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code>source</code> - the source object</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>myself</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - if there is already a source registered with
+                                  the Channel</dd>
 </dl>
 </li>
 </ul>

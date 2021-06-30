@@ -549,7 +549,8 @@ implements <a href="../Doc.html" title="interface in io.openems.edge.common.chan
 <ul class="blockList">
 <li class="blockList">
 <h4>source</h4>
-<pre class="methodSignature">public&nbsp;&lt;SOURCE&gt;&nbsp;<a href="AbstractDoc.html" title="class in io.openems.edge.common.channel.internal">AbstractDoc</a>&lt;<a href="AbstractDoc.html" title="type parameter in AbstractDoc">T</a>&gt;&nbsp;source&#8203;(SOURCE&nbsp;source)</pre>
+<pre class="methodSignature">public&nbsp;&lt;SOURCE&gt;&nbsp;<a href="AbstractDoc.html" title="class in io.openems.edge.common.channel.internal">AbstractDoc</a>&lt;<a href="AbstractDoc.html" title="type parameter in AbstractDoc">T</a>&gt;&nbsp;source&#8203;(SOURCE&nbsp;source)
+                               throws java.lang.IllegalArgumentException</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Doc.html#source(SOURCE)">Doc</a></code></span></div>
 <div class="block">Sets an object that holds information about the source of this Channel, i.e.
  a Modbus Register or REST-Api endpoint address. Defaults to null.</div>
@@ -562,6 +563,9 @@ implements <a href="../Doc.html" title="interface in io.openems.edge.common.chan
 <dd><code>source</code> - the source object</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>myself</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - if there is already a source registered with
+                                  the Channel</dd>
 </dl>
 </li>
 </ul>

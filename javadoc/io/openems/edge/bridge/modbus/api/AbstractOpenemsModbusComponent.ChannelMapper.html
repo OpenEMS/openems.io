@@ -182,20 +182,27 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="type parameter in AbstractOpenemsModbusComponent.ChannelMapper">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#build()">build</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Builds the <a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api"><code>AbstractOpenemsModbusComponent.ChannelMapper</code></a>.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.ChannelMapper</a>&lt;<a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="type parameter in AbstractOpenemsModbusComponent.ChannelMapper">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#m(io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.ElementToChannelConverter)">m</a></span>&#8203;(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
  <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a>&nbsp;converter)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Maps the given element 1-to-1 to the Channel identified by channelId.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.ChannelMapper</a>&lt;<a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="type parameter in AbstractOpenemsModbusComponent.ChannelMapper">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#m(io.openems.edge.common.channel.ChannelId,java.util.function.Function,java.util.function.Function)">m</a></span>&#8203;(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
  java.util.function.Function&lt;java.lang.Object,&#8203;java.lang.Object&gt;&nbsp;elementToChannel,
  java.util.function.Function&lt;java.lang.Object,&#8203;java.lang.Object&gt;&nbsp;channelToElement)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Maps the given element to the Channel identified by channelId, applying the
+ given @link{ElementToChannelConverter}.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -250,6 +257,14 @@ extends java.lang.Object</pre>
 <h4>m</h4>
 <pre class="methodSignature">public&nbsp;<a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.ChannelMapper</a>&lt;<a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="type parameter in AbstractOpenemsModbusComponent.ChannelMapper">T</a>&gt;&nbsp;m&#8203;(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
                                                          <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a>&nbsp;converter)</pre>
+<div class="block">Maps the given element 1-to-1 to the Channel identified by channelId.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>channelId</code> - the Channel-ID</dd>
+<dd><code>converter</code> - the <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverter</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the element parameter</dd>
+</dl>
 </li>
 </ul>
 <a id="m(io.openems.edge.common.channel.ChannelId,java.util.function.Function,java.util.function.Function)">
@@ -261,6 +276,18 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;<a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.ChannelMapper</a>&lt;<a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="type parameter in AbstractOpenemsModbusComponent.ChannelMapper">T</a>&gt;&nbsp;m&#8203;(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
                                                          java.util.function.Function&lt;java.lang.Object,&#8203;java.lang.Object&gt;&nbsp;elementToChannel,
                                                          java.util.function.Function&lt;java.lang.Object,&#8203;java.lang.Object&gt;&nbsp;channelToElement)</pre>
+<div class="block">Maps the given element to the Channel identified by channelId, applying the
+ given @link{ElementToChannelConverter}.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>channelId</code> - the Channel-ID</dd>
+<dd><code>elementToChannel</code> - the Element-To-Channel converter function for
+                         <a href="task/ReadTask.html" title="interface in io.openems.edge.bridge.modbus.api.task"><code>ReadTask</code></a>s</dd>
+<dd><code>channelToElement</code> - the Channel-To-Channel converter function for
+                         <a href="task/WriteTask.html" title="interface in io.openems.edge.bridge.modbus.api.task"><code>WriteTask</code></a>s</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the element parameter</dd>
+</dl>
 </li>
 </ul>
 <a id="build()">
@@ -270,6 +297,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>build</h4>
 <pre class="methodSignature">public&nbsp;<a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="type parameter in AbstractOpenemsModbusComponent.ChannelMapper">T</a>&nbsp;build()</pre>
+<div class="block">Builds the <a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api"><code>AbstractOpenemsModbusComponent.ChannelMapper</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api"><code>AbstractOpenemsModbusComponent.ChannelMapper</code></a></dd>
+</dl>
 </li>
 </ul>
 </li>
