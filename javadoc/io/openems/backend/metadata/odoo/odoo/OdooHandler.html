@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":10,"i5":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -206,6 +206,15 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#assignEdgeToUser(io.openems.backend.metadata.odoo.MyUser,io.openems.backend.metadata.odoo.MyEdge,io.openems.backend.metadata.odoo.odoo.OdooUserRole)">assignEdgeToUser</a></span>&#8203;(<a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo">MyUser</a>&nbsp;user,
+                <a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge,
+                <a href="OdooUserRole.html" title="enum in io.openems.backend.metadata.odoo.odoo">OdooUserRole</a>&nbsp;userRole)</code></th>
+<td class="colLast">
+<div class="block">Assigns the given user with given <a href="OdooUserRole.html" title="enum in io.openems.backend.metadata.odoo.odoo"><code>OdooUserRole</code></a> to the Edge.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#authenticate(java.lang.String,java.lang.String)">authenticate</a></span>&#8203;(java.lang.String&nbsp;username,
             java.lang.String&nbsp;password)</code></th>
@@ -213,14 +222,21 @@ extends java.lang.Object</pre>
 <div class="block">Authenticates a user using Username and Password.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#authenticateSession(java.lang.String)">authenticateSession</a></span>&#8203;(java.lang.String&nbsp;sessionId)</code></th>
 <td class="colLast">
 <div class="block">Authenticates a user using a Session-ID.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgeIdBySetupPassword(java.lang.String)">getEdgeIdBySetupPassword</a></span>&#8203;(java.lang.String&nbsp;setupPassword)</code></th>
+<td class="colLast">
+<div class="block">Returns Edge by setupPassword, otherwise an empty <code>Optional</code>.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static java.util.Optional&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFieldFromSetCookieHeader(java.util.Map,java.lang.String)">getFieldFromSetCookieHeader</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.util.List&lt;java.lang.String&gt;&gt;&nbsp;headers,
                            java.lang.String&nbsp;fieldname)</code></th>
@@ -228,14 +244,52 @@ extends java.lang.Object</pre>
 <div class="block">Get field from the 'Set-Cookie' field in HTTP headers.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOdooSetupProtocolReport(int)">getOdooSetupProtocolReport</a></span>&#8203;(int&nbsp;setupProtocolId)</code></th>
+<td class="colLast">
+<div class="block">Returns the Odoo report for a setup protocol.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.util.Map&lt;java.lang.String,&#8203;java.lang.Object&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUserInformation(io.openems.backend.metadata.odoo.MyUser)">getUserInformation</a></span>&#8203;(<a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo">MyUser</a>&nbsp;user)</code></th>
+<td class="colLast">
+<div class="block">Returns information about the given <a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo"><code>MyUser</code></a>.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logout(java.lang.String)">logout</a></span>&#8203;(java.lang.String&nbsp;sessionId)</code></th>
 <td class="colLast">
 <div class="block">Logout a User.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerUser(com.google.gson.JsonObject,io.openems.backend.metadata.odoo.odoo.OdooUserRole)">registerUser</a></span>&#8203;(com.google.gson.JsonObject&nbsp;jsonObject,
+            <a href="OdooUserRole.html" title="enum in io.openems.backend.metadata.odoo.odoo">OdooUserRole</a>&nbsp;role)</code></th>
+<td class="colLast">
+<div class="block">Register an user in Odoo with the given <a href="OdooUserRole.html" title="enum in io.openems.backend.metadata.odoo.odoo"><code>OdooUserRole</code></a>.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUserInformation(io.openems.backend.metadata.odoo.MyUser,com.google.gson.JsonObject)">setUserInformation</a></span>&#8203;(<a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo">MyUser</a>&nbsp;user,
+                  com.google.gson.JsonObject&nbsp;userJson)</code></th>
+<td class="colLast">
+<div class="block">Update the given <a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo"><code>MyUser</code></a> with information from <code>JsonObject</code>.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#submitSetupProtocol(io.openems.backend.metadata.odoo.MyUser,com.google.gson.JsonObject)">submitSetupProtocol</a></span>&#8203;(<a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo">MyUser</a>&nbsp;user,
+                   com.google.gson.JsonObject&nbsp;setupProtocolJson)</code></th>
+<td class="colLast">
+<div class="block">Save the Setup Protocol to Odoo.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeEdge(io.openems.backend.metadata.odoo.MyEdge,io.openems.backend.metadata.odoo.odoo.FieldValue...)">writeEdge</a></span>&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge,
          <a href="FieldValue.html" title="class in io.openems.backend.metadata.odoo.odoo">FieldValue</a>&lt;?&gt;...&nbsp;fieldValues)</code></th>
@@ -338,6 +392,44 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a id="getEdgeIdBySetupPassword(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEdgeIdBySetupPassword</h4>
+<pre class="methodSignature">public&nbsp;java.util.Optional&lt;java.lang.String&gt;&nbsp;getEdgeIdBySetupPassword&#8203;(java.lang.String&nbsp;setupPassword)</pre>
+<div class="block">Returns Edge by setupPassword, otherwise an empty <code>Optional</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>setupPassword</code> - to find Edge</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Edge or empty <code>Optional</code></dd>
+</dl>
+</li>
+</ul>
+<a id="assignEdgeToUser(io.openems.backend.metadata.odoo.MyUser,io.openems.backend.metadata.odoo.MyEdge,io.openems.backend.metadata.odoo.odoo.OdooUserRole)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>assignEdgeToUser</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;assignEdgeToUser&#8203;(<a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo">MyUser</a>&nbsp;user,
+                             <a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge,
+                             <a href="OdooUserRole.html" title="enum in io.openems.backend.metadata.odoo.odoo">OdooUserRole</a>&nbsp;userRole)
+                      throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Assigns the given user with given <a href="OdooUserRole.html" title="enum in io.openems.backend.metadata.odoo.odoo"><code>OdooUserRole</code></a> to the Edge. If Edge
+ already assigned to user exit method.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>user</code> - the Odoo user</dd>
+<dd><code>edge</code> - the Odoo edge</dd>
+<dd><code>userRole</code> - the Odoo user role</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
 <a id="authenticate(java.lang.String,java.lang.String)">
 <!--   -->
 </a>
@@ -397,7 +489,7 @@ extends java.lang.Object</pre>
 <a id="getFieldFromSetCookieHeader(java.util.Map,java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getFieldFromSetCookieHeader</h4>
 <pre class="methodSignature">public static&nbsp;java.util.Optional&lt;java.lang.String&gt;&nbsp;getFieldFromSetCookieHeader&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.util.List&lt;java.lang.String&gt;&gt;&nbsp;headers,
@@ -413,6 +505,105 @@ extends java.lang.Object</pre>
 <dd><code>fieldname</code> - the field name</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>value as optional</dd>
+</dl>
+</li>
+</ul>
+<a id="getUserInformation(io.openems.backend.metadata.odoo.MyUser)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUserInformation</h4>
+<pre class="methodSignature">public&nbsp;java.util.Map&lt;java.lang.String,&#8203;java.lang.Object&gt;&nbsp;getUserInformation&#8203;(<a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo">MyUser</a>&nbsp;user)
+                                                                          throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Returns information about the given <a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo"><code>MyUser</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>user</code> - the <a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo"><code>MyUser</code></a> to get information</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../Field.Partner.html" title="enum in io.openems.backend.metadata.odoo"><code>Field.Partner</code></a></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="setUserInformation(io.openems.backend.metadata.odoo.MyUser,com.google.gson.JsonObject)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUserInformation</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setUserInformation&#8203;(<a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo">MyUser</a>&nbsp;user,
+                               com.google.gson.JsonObject&nbsp;userJson)
+                        throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Update the given <a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo"><code>MyUser</code></a> with information from <code>JsonObject</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>user</code> - the <a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo"><code>MyUser</code></a> to update</dd>
+<dd><code>userJson</code> - the <code>JsonObject</code> information to update</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="getOdooSetupProtocolReport(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOdooSetupProtocolReport</h4>
+<pre class="methodSignature">public&nbsp;byte[]&nbsp;getOdooSetupProtocolReport&#8203;(int&nbsp;setupProtocolId)
+                                  throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Returns the Odoo report for a setup protocol.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>setupProtocolId</code> - the Odoo setup protocol id</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>report as a byte array</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="submitSetupProtocol(io.openems.backend.metadata.odoo.MyUser,com.google.gson.JsonObject)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>submitSetupProtocol</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;submitSetupProtocol&#8203;(<a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo">MyUser</a>&nbsp;user,
+                               com.google.gson.JsonObject&nbsp;setupProtocolJson)
+                        throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Save the Setup Protocol to Odoo.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>user</code> - <a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo"><code>MyUser</code></a> current user</dd>
+<dd><code>setupProtocolJson</code> - <a href="../Field.SetupProtocol.html" title="enum in io.openems.backend.metadata.odoo"><code>Field.SetupProtocol</code></a> the setup protocol</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Setup Protocol ID</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="registerUser(com.google.gson.JsonObject,io.openems.backend.metadata.odoo.odoo.OdooUserRole)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>registerUser</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;registerUser&#8203;(com.google.gson.JsonObject&nbsp;jsonObject,
+                         <a href="OdooUserRole.html" title="enum in io.openems.backend.metadata.odoo.odoo">OdooUserRole</a>&nbsp;role)
+                  throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Register an user in Odoo with the given <a href="OdooUserRole.html" title="enum in io.openems.backend.metadata.odoo.odoo"><code>OdooUserRole</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>jsonObject</code> - <code>JsonObject</code> that represents an user</dd>
+<dd><code>role</code> - <a href="OdooUserRole.html" title="enum in io.openems.backend.metadata.odoo.odoo"><code>OdooUserRole</code></a> to set for the user</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
