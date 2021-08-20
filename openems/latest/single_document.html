@@ -4905,7 +4905,28 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>4.7.52. PV-Inverter Cluster</h4>
+<h4 id="_similarday_model_predictor"><a class="anchor" href="#_similarday_model_predictor"></a>4.7.52. Similarday-Model Predictor</h4>
+<div class="paragraph">
+<p>This predictor uses "Similar day technique" for prediction.
+This particular implmentation requires mainly two inputs, which are
+* Num of past weeks (n)
+* The channels address data, which needs to predicted.</p>
+</div>
+<div class="paragraph">
+<p>The similar-day models predicts by calculating the average of a 'n' number of previous period values.</p>
+</div>
+<div class="paragraph">
+<p><em>example</em>: the next monday predictions values is equal to average of past n = 4 monday values.</p>
+</div>
+<div class="paragraph">
+<p>This predictor is mainly used for predicting the Consumption power and energy. And the Accuracy of the model is scientifically verified within <a href="https://openems.io/research/emsig/" target="_blank" rel="noopener">EMSIG project</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.predictor.similardaymodel">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>4.7.53. PV-Inverter Cluster</h4>
 <div class="paragraph">
 <p>Combines multiple PV-Inverters to one common PV-Inverter. This way every Controller can easily work with multiple PV-Inverters in parallel.</p>
 </div>
@@ -4914,7 +4935,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>4.7.53. KACO blueplanet PV inverter</h4>
+<h4 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>4.7.54. KACO blueplanet PV inverter</h4>
 <div class="paragraph">
 <p>Implementation of the KACO blueplanet series PV inverters.</p>
 </div>
@@ -4940,7 +4961,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sma_sunny_tripower_pv_inverter"><a class="anchor" href="#_sma_sunny_tripower_pv_inverter"></a>4.7.54. SMA Sunny Tripower PV inverter</h4>
+<h4 id="_sma_sunny_tripower_pv_inverter"><a class="anchor" href="#_sma_sunny_tripower_pv_inverter"></a>4.7.55. SMA Sunny Tripower PV inverter</h4>
 <div class="paragraph">
 <p>Implementation of the SMA Sunny Tripower PV inverters.</p>
 </div>
@@ -4959,7 +4980,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solar_log"><a class="anchor" href="#_solar_log"></a>4.7.55. Solar-Log</h4>
+<h4 id="_solar_log"><a class="anchor" href="#_solar_log"></a>4.7.56. Solar-Log</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4982,7 +5003,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sunspec_pv_inverter_2"><a class="anchor" href="#_sunspec_pv_inverter_2"></a>4.7.56. SunSpec PV inverter</h4>
+<h4 id="_sunspec_pv_inverter_2"><a class="anchor" href="#_sunspec_pv_inverter_2"></a>4.7.57. SunSpec PV inverter</h4>
 <div class="paragraph">
 <p>Generic implementation of SunSpec PV inverters. It is tested with
 - KACO blueplanet TL.3 series
@@ -5010,12 +5031,12 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_simulated_openems_components"><a class="anchor" href="#_simulated_openems_components"></a>4.7.57. Simulated OpenEMS Components</h4>
+<h4 id="_simulated_openems_components"><a class="anchor" href="#_simulated_openems_components"></a>4.7.58. Simulated OpenEMS Components</h4>
 <div class="paragraph">
 <p>This bundle provides simulated OpenEMS Components for the Natures. They are useful for testing and demoing without real hardware.</p>
 </div>
 <div class="sect4">
-<h5 id="_simulator_app"><a class="anchor" href="#_simulator_app"></a>4.7.57.1. Simulator-App</h5>
+<h5 id="_simulator_app"><a class="anchor" href="#_simulator_app"></a>4.7.58.1. Simulator-App</h5>
 <div class="paragraph">
 <p>The Simulator-App is a very specific component that needs to be handled with care. It provides a full simulation environment to run an OpenEMS Edge instance in simulated realtime environment. After you ran a Simulation, you will receive the simulation result as a JSON. Also the simulation result can be viewed in OpenEMS UI.</p>
 </div>
@@ -5187,7 +5208,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>4.7.58. SolarEdge PV Inverter + Grid-Meter</h4>
+<h4 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>4.7.59. SolarEdge PV Inverter + Grid-Meter</h4>
 <div class="paragraph">
 <p>Implementation of the SolarEdge PV inverters.</p>
 </div>
@@ -5213,7 +5234,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>4.7.59. Tesla Powerwall 2</h4>
+<h4 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>4.7.60. Tesla Powerwall 2</h4>
 <div class="paragraph">
 <p>Implementation of the Tesla Powerwall 2 energy storage system</p>
 </div>
@@ -5236,7 +5257,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_influxdb"><a class="anchor" href="#_influxdb"></a>4.7.60. InfluxDB</h4>
+<h4 id="_influxdb"><a class="anchor" href="#_influxdb"></a>4.7.61. InfluxDB</h4>
 <div class="paragraph">
 <p>Persists all data of OpenEMS Edge Channels to an InfluxDB timeseries database.</p>
 </div>
@@ -5245,7 +5266,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>4.7.61. RRD4J</h4>
+<h4 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>4.7.62. RRD4J</h4>
 <div class="paragraph">
 <p>Persists data of OpenEMS Edge Channels to RRD4J files.</p>
 </div>
@@ -5254,7 +5275,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>4.7.62. KACO blueplanet hybrid 10.0 TL3</h4>
+<h4 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>4.7.63. KACO blueplanet hybrid 10.0 TL3</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
