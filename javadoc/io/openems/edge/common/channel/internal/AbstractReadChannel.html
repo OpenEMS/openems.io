@@ -262,29 +262,29 @@ implements <a href="../Channel.html" title="interface in io.openems.edge.common.
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>&lt;SOURCE&gt;&nbsp;SOURCE</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMetaInfo()">getMetaInfo</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the meta information object.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextValue()">getNextValue</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the 'next value'.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected java.util.List&lt;<a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>,&#8203;<a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOnSetNextWrites()">getOnSetNextWrites</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../type/CircularTreeMap.html" title="class in io.openems.edge.common.type">CircularTreeMap</a>&lt;java.time.LocalDateTime,&#8203;<a href="../value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPastValues()">getPastValues</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the past values for this Channel.</div>
-</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>&lt;READ_SOURCE&gt;<br>READ_SOURCE</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReadSource()">getReadSource</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Gets the read source information object.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
@@ -344,11 +344,10 @@ implements <a href="../Channel.html" title="interface in io.openems.edge.common.
 </td>
 </tr>
 <tr id="i18" class="altColor">
-<td class="colFirst"><code>&lt;READ_SOURCE&gt;<br>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setReadSource(READ_SOURCE)">setReadSource</a></span>&#8203;(READ_SOURCE&nbsp;readSource)</code></th>
+<td class="colFirst"><code>&lt;SOURCE&gt;&nbsp;void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMetaInfo(SOURCE)">setMetaInfo</a></span>&#8203;(SOURCE&nbsp;source)</code></th>
 <td class="colLast">
-<div class="block">Sets an object that holds information about the read source of this Channel,
- i.e.</div>
+<div class="block">Sets an object that holds meta information about the Channel, e.g.</div>
 </td>
 </tr>
 <tr id="i19" class="rowColor">
@@ -765,48 +764,49 @@ public&nbsp;void&nbsp;_setNextValue&#8203;(<a href="AbstractReadChannel.html" ti
 </dl>
 </li>
 </ul>
-<a id="setReadSource(java.lang.Object)">
+<a id="setMetaInfo(java.lang.Object)">
 <!--   -->
-</a><a id="setReadSource(READ_SOURCE)">
+</a><a id="setMetaInfo(SOURCE)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setReadSource</h4>
-<pre class="methodSignature">public&nbsp;&lt;READ_SOURCE&gt;&nbsp;void&nbsp;setReadSource&#8203;(READ_SOURCE&nbsp;readSource)
-                                 throws java.lang.IllegalArgumentException</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Channel.html#setReadSource(SOURCE)">Channel</a></code></span></div>
-<div class="block">Sets an object that holds information about the read source of this Channel,
- i.e. a Modbus Register or REST-Api endpoint address. Defaults to null.</div>
+<h4>setMetaInfo</h4>
+<pre class="methodSignature">public&nbsp;&lt;SOURCE&gt;&nbsp;void&nbsp;setMetaInfo&#8203;(SOURCE&nbsp;source)
+                          throws java.lang.IllegalArgumentException</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Channel.html#setMetaInfo(META_INFO)">Channel</a></code></span></div>
+<div class="block">Sets an object that holds meta information about the Channel, e.g. a read
+ source or write target of this Channel, like a Modbus Register or REST-Api
+ endpoint address. Defaults to null.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../Channel.html#setReadSource(SOURCE)">setReadSource</a></code>&nbsp;in interface&nbsp;<code><a href="../Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">D</a> extends <a href="AbstractDoc.html" title="class in io.openems.edge.common.channel.internal">AbstractDoc</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</code></dd>
+<dd><code><a href="../Channel.html#setMetaInfo(META_INFO)">setMetaInfo</a></code>&nbsp;in interface&nbsp;<code><a href="../Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">D</a> extends <a href="AbstractDoc.html" title="class in io.openems.edge.common.channel.internal">AbstractDoc</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</code></dd>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>READ_SOURCE</code> - the type of the source attachment</dd>
+<dd><code>SOURCE</code> - the type of the meta info</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>readSource</code> - the source object</dd>
+<dd><code>source</code> - the meta info object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - if there is already a source registered with
-                                  the Channel</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - if there is already a different meta-info
+                                  registered with the Channel</dd>
 </dl>
 </li>
 </ul>
-<a id="getReadSource()">
+<a id="getMetaInfo()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getReadSource</h4>
-<pre class="methodSignature">public&nbsp;&lt;READ_SOURCE&gt;&nbsp;READ_SOURCE&nbsp;getReadSource()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Channel.html#getReadSource()">Channel</a></code></span></div>
-<div class="block">Gets the read source information object. Defaults to empty String.</div>
+<h4>getMetaInfo</h4>
+<pre class="methodSignature">public&nbsp;&lt;SOURCE&gt;&nbsp;SOURCE&nbsp;getMetaInfo()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Channel.html#getMetaInfo()">Channel</a></code></span></div>
+<div class="block">Gets the meta information object. Defaults to null.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../Channel.html#getReadSource()">getReadSource</a></code>&nbsp;in interface&nbsp;<code><a href="../Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">D</a> extends <a href="AbstractDoc.html" title="class in io.openems.edge.common.channel.internal">AbstractDoc</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</code></dd>
+<dd><code><a href="../Channel.html#getMetaInfo()">getMetaInfo</a></code>&nbsp;in interface&nbsp;<code><a href="../Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">D</a> extends <a href="AbstractDoc.html" title="class in io.openems.edge.common.channel.internal">AbstractDoc</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</code></dd>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>READ_SOURCE</code> - the type of the source attachment</dd>
+<dd><code>SOURCE</code> - the type of the meta info attachment</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the source information object</dd>
+<dd>the meta info object</dd>
 </dl>
 </li>
 </ul>

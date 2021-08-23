@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":38,"i1":1,"i2":6,"i3":18,"i4":6,"i5":6,"i6":6,"i7":18,"i8":18,"i9":6};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"],32:["t6","Deprecated Methods"]};
+var data = {"i0":38,"i1":6,"i2":18,"i3":6,"i4":6,"i5":18,"i6":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -163,7 +163,7 @@ extends <a href="Channel.html" title="interface in io.openems.edge.common.channe
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -177,67 +177,43 @@ extends <a href="Channel.html" title="interface in io.openems.edge.common.channe
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static &lt;WRITE_TARGET&gt;<br>WRITE_TARGET</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkWriteTarget(io.openems.edge.common.channel.WriteChannel,WRITE_TARGET,WRITE_TARGET)">checkWriteTarget</a></span>&#8203;(<a href="WriteChannel.html" title="interface in io.openems.edge.common.channel">WriteChannel</a>&lt;?&gt;&nbsp;channel,
-                WRITE_TARGET&nbsp;existingValue,
-                WRITE_TARGET&nbsp;newValue)</code></th>
-<td class="colLast">
-<div class="block">Static helper method to be used within <a href="#setWriteTarget(WRITE_TARGET)"><code>setWriteTarget(Object)</code></a>.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.Optional&lt;<a href="WriteChannel.html" title="type parameter in WriteChannel">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextWriteValue()">getNextWriteValue</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the next write value.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>default java.util.Optional&lt;<a href="WriteChannel.html" title="type parameter in WriteChannel">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextWriteValueAndReset()">getNextWriteValueAndReset</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the next write value and resets it.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="WriteChannel.html" title="type parameter in WriteChannel">T</a>,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOnSetNextWrites()">getOnSetNextWrites</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>&lt;WRITE_TARGET&gt;<br>WRITE_TARGET</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getWriteTarget()">getWriteTarget</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Gets the write target information object.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSetNextWrite(io.openems.common.function.ThrowingConsumer)">onSetNextWrite</a></span>&#8203;(<a href="../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="WriteChannel.html" title="type parameter in WriteChannel">T</a>,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&nbsp;callback)</code></th>
 <td class="colLast">
 <div class="block">Add an onSetNextWrite callback.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>default void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNextWriteValue(T)">setNextWriteValue</a></span>&#8203;(<a href="WriteChannel.html" title="type parameter in WriteChannel">T</a>&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">Updates the 'next' write value of Channel.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>default void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNextWriteValueFromObject(java.lang.Object)">setNextWriteValueFromObject</a></span>&#8203;(java.lang.Object&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">Updates the 'next' write value of Channel from an Object value.</div>
-</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>&lt;WRITE_TARGET&gt;<br>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setWriteTarget(WRITE_TARGET)">setWriteTarget</a></span>&#8203;(WRITE_TARGET&nbsp;target)</code></th>
-<td class="colLast">
-<div class="block">Sets an object that holds information about the write target of this Channel,
- i.e.</div>
 </td>
 </tr>
 </table>
@@ -246,7 +222,7 @@ extends <a href="Channel.html" title="interface in io.openems.edge.common.channe
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.channel.<a href="Channel.html" title="interface in io.openems.edge.common.channel">Channel</a></h3>
-<code><a href="Channel.html#_setNextValue(T)">_setNextValue</a>, <a href="Channel.html#address()">address</a>, <a href="Channel.html#channelDoc()">channelDoc</a>, <a href="Channel.html#channelId()">channelId</a>, <a href="Channel.html#deactivate()">deactivate</a>, <a href="Channel.html#getComponent()">getComponent</a>, <a href="Channel.html#getNextValue()">getNextValue</a>, <a href="Channel.html#getPastValues()">getPastValues</a>, <a href="Channel.html#getReadSource()">getReadSource</a>, <a href="Channel.html#getType()">getType</a>, <a href="Channel.html#nextProcessImage()">nextProcessImage</a>, <a href="Channel.html#onChange(java.util.function.BiConsumer)">onChange</a>, <a href="Channel.html#onSetNextValue(java.util.function.Consumer)">onSetNextValue</a>, <a href="Channel.html#onUpdate(java.util.function.Consumer)">onUpdate</a>, <a href="Channel.html#removeOnChangeCallback(java.util.function.BiConsumer)">removeOnChangeCallback</a>, <a href="Channel.html#removeOnSetNextValueCallback(java.util.function.Consumer)">removeOnSetNextValueCallback</a>, <a href="Channel.html#removeOnUpdateCallback(java.util.function.Consumer)">removeOnUpdateCallback</a>, <a href="Channel.html#setNextValue(java.lang.Object)">setNextValue</a>, <a href="Channel.html#setReadSource(SOURCE)">setReadSource</a>, <a href="Channel.html#value()">value</a></code></li>
+<code><a href="Channel.html#_setNextValue(T)">_setNextValue</a>, <a href="Channel.html#address()">address</a>, <a href="Channel.html#channelDoc()">channelDoc</a>, <a href="Channel.html#channelId()">channelId</a>, <a href="Channel.html#deactivate()">deactivate</a>, <a href="Channel.html#getComponent()">getComponent</a>, <a href="Channel.html#getMetaInfo()">getMetaInfo</a>, <a href="Channel.html#getNextValue()">getNextValue</a>, <a href="Channel.html#getPastValues()">getPastValues</a>, <a href="Channel.html#getType()">getType</a>, <a href="Channel.html#nextProcessImage()">nextProcessImage</a>, <a href="Channel.html#onChange(java.util.function.BiConsumer)">onChange</a>, <a href="Channel.html#onSetNextValue(java.util.function.Consumer)">onSetNextValue</a>, <a href="Channel.html#onUpdate(java.util.function.Consumer)">onUpdate</a>, <a href="Channel.html#removeOnChangeCallback(java.util.function.BiConsumer)">removeOnChangeCallback</a>, <a href="Channel.html#removeOnSetNextValueCallback(java.util.function.Consumer)">removeOnSetNextValueCallback</a>, <a href="Channel.html#removeOnUpdateCallback(java.util.function.Consumer)">removeOnUpdateCallback</a>, <a href="Channel.html#setMetaInfo(META_INFO)">setMetaInfo</a>, <a href="Channel.html#setNextValue(java.lang.Object)">setNextValue</a>, <a href="Channel.html#value()">value</a></code></li>
 </ul>
 </li>
 </ul>
@@ -368,77 +344,10 @@ void&nbsp;_setNextWriteValue&#8203;(<a href="WriteChannel.html" title="type para
 <a id="getOnSetNextWrites()">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getOnSetNextWrites</h4>
 <pre class="methodSignature">java.util.List&lt;<a href="../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="WriteChannel.html" title="type parameter in WriteChannel">T</a>,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&gt;&nbsp;getOnSetNextWrites()</pre>
-</li>
-</ul>
-<a id="setWriteTarget(java.lang.Object)">
-<!--   -->
-</a><a id="setWriteTarget(WRITE_TARGET)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setWriteTarget</h4>
-<pre class="methodSignature">&lt;WRITE_TARGET&gt;&nbsp;void&nbsp;setWriteTarget&#8203;(WRITE_TARGET&nbsp;target)
-                            throws java.lang.IllegalArgumentException</pre>
-<div class="block">Sets an object that holds information about the write target of this Channel,
- i.e. a Modbus Register or REST-Api endpoint address. Defaults to null.</div>
-<dl>
-<dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>WRITE_TARGET</code> - the type of the target attachment</dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>target</code> - the target object</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - if there is already a target registered with
-                                  the Channel</dd>
-</dl>
-</li>
-</ul>
-<a id="getWriteTarget()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getWriteTarget</h4>
-<pre class="methodSignature">&lt;WRITE_TARGET&gt;&nbsp;WRITE_TARGET&nbsp;getWriteTarget()</pre>
-<div class="block">Gets the write target information object. Defaults to empty String.</div>
-<dl>
-<dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>WRITE_TARGET</code> - the type of the target attachment</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the target information object</dd>
-</dl>
-</li>
-</ul>
-<a id="checkWriteTarget(io.openems.edge.common.channel.WriteChannel,java.lang.Object,java.lang.Object)">
-<!--   -->
-</a><a id="checkWriteTarget(io.openems.edge.common.channel.WriteChannel,WRITE_TARGET,WRITE_TARGET)">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>checkWriteTarget</h4>
-<pre class="methodSignature">static&nbsp;&lt;WRITE_TARGET&gt;&nbsp;WRITE_TARGET&nbsp;checkWriteTarget&#8203;(<a href="WriteChannel.html" title="interface in io.openems.edge.common.channel">WriteChannel</a>&lt;?&gt;&nbsp;channel,
-                                                    WRITE_TARGET&nbsp;existingValue,
-                                                    WRITE_TARGET&nbsp;newValue)
-                                             throws java.lang.IllegalArgumentException</pre>
-<div class="block">Static helper method to be used within <a href="#setWriteTarget(WRITE_TARGET)"><code>setWriteTarget(Object)</code></a>.</div>
-<dl>
-<dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>WRITE_TARGET</code> - the type of the target attachment</dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>channel</code> - the <a href="WriteChannel.html" title="interface in io.openems.edge.common.channel"><code>WriteChannel</code></a></dd>
-<dd><code>existingValue</code> - the existing value, or null</dd>
-<dd><code>newValue</code> - the new value</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the new value</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - if the Channel already has a different
-                                  Write-Target set</dd>
-</dl>
 </li>
 </ul>
 </li>
