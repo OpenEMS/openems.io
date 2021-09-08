@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,12 +136,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code><a href="GridOptimizedCharge.html" title="interface in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge</a></code></dd>
+<dd><code><a href="../../../common/component/ComponentManagerProvider.html" title="interface in io.openems.edge.common.component">ComponentManagerProvider</a></code>, <code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code><a href="GridOptimizedCharge.html" title="interface in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge</a></code>, <code><a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">GridOptimizedChargeImpl</span>
 extends <a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="GridOptimizedCharge.html" title="interface in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge</a>, <a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></pre>
+implements <a href="GridOptimizedCharge.html" title="interface in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge</a>, <a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, <a href="../../../common/component/ComponentManagerProvider.html" title="interface in io.openems.edge.common.component">ComponentManagerProvider</a></pre>
 </li>
 </ul>
 </div>
@@ -204,18 +204,31 @@ implements <a href="GridOptimizedCharge.html" title="interface in io.openems.edg
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_POWER_BUFFER">DEFAULT_POWER_BUFFER</a></span></code></th>
+<td class="colLast">
+<div class="block">Buffer in watt taken into account in the calculation of the first and last
+ time when production is lower or higher than consumption.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ess">ess</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#meter">meter</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../predictor/api/manager/PredictorManager.html" title="interface in io.openems.edge.predictor.api.manager">PredictorManager</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#predictorManager">predictorManager</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../common/sum/Sum.html" title="interface in io.openems.edge.common.sum">Sum</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sum">sum</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -265,11 +278,25 @@ implements <a href="GridOptimizedCharge.html" title="interface in io.openems.edg
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getComponentManager()">getComponentManager</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the <a href="../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component"><code>ComponentManager</code></a> service.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimedata()">getTimedata</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the <a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logDebug(java.lang.String)">logDebug</a></span>&#8203;(java.lang.String&nbsp;message)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run()">run</a></span>()</code></th>
 <td class="colLast">
@@ -303,7 +330,7 @@ implements <a href="GridOptimizedCharge.html" title="interface in io.openems.edg
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.controller.ess.gridoptimizedcharge.<a href="GridOptimizedCharge.html" title="interface in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge</a></h3>
-<code><a href="GridOptimizedCharge.html#_setDelayChargeLimit(int)">_setDelayChargeLimit</a>, <a href="GridOptimizedCharge.html#_setDelayChargeLimit(java.lang.Integer)">_setDelayChargeLimit</a>, <a href="GridOptimizedCharge.html#_setDelayChargeState(io.openems.edge.controller.ess.gridoptimizedcharge.DelayChargeState)">_setDelayChargeState</a>, <a href="GridOptimizedCharge.html#_setPredictedTargetMinute(int)">_setPredictedTargetMinute</a>, <a href="GridOptimizedCharge.html#_setPredictedTargetMinute(java.lang.Integer)">_setPredictedTargetMinute</a>, <a href="GridOptimizedCharge.html#_setPredictedTargetMinuteAdjusted(int)">_setPredictedTargetMinuteAdjusted</a>, <a href="GridOptimizedCharge.html#_setPredictedTargetMinuteAdjusted(java.lang.Integer)">_setPredictedTargetMinuteAdjusted</a>, <a href="GridOptimizedCharge.html#_setSellToGridLimitMinimumChargeLimit(int)">_setSellToGridLimitMinimumChargeLimit</a>, <a href="GridOptimizedCharge.html#_setSellToGridLimitMinimumChargeLimit(java.lang.Integer)">_setSellToGridLimitMinimumChargeLimit</a>, <a href="GridOptimizedCharge.html#_setSellToGridLimitState(io.openems.edge.controller.ess.gridoptimizedcharge.SellToGridLimitState)">_setSellToGridLimitState</a>, <a href="GridOptimizedCharge.html#_setTargetMinute(int)">_setTargetMinute</a>, <a href="GridOptimizedCharge.html#_setTargetMinute(java.lang.Integer)">_setTargetMinute</a>, <a href="GridOptimizedCharge.html#getDelayChargeLimit()">getDelayChargeLimit</a>, <a href="GridOptimizedCharge.html#getDelayChargeLimitChannel()">getDelayChargeLimitChannel</a>, <a href="GridOptimizedCharge.html#getDelayChargeState()">getDelayChargeState</a>, <a href="GridOptimizedCharge.html#getDelayChargeStateChannel()">getDelayChargeStateChannel</a>, <a href="GridOptimizedCharge.html#getPredictedTargetMinute()">getPredictedTargetMinute</a>, <a href="GridOptimizedCharge.html#getPredictedTargetMinuteAdjusted()">getPredictedTargetMinuteAdjusted</a>, <a href="GridOptimizedCharge.html#getPredictedTargetMinuteAdjustedChannel()">getPredictedTargetMinuteAdjustedChannel</a>, <a href="GridOptimizedCharge.html#getPredictedTargetMinuteChannel()">getPredictedTargetMinuteChannel</a>, <a href="GridOptimizedCharge.html#getSellToGridLimitMinimumChargeLimit()">getSellToGridLimitMinimumChargeLimit</a>, <a href="GridOptimizedCharge.html#getSellToGridLimitMinimumChargeLimitChannel()">getSellToGridLimitMinimumChargeLimitChannel</a>, <a href="GridOptimizedCharge.html#getSellToGridLimitState()">getSellToGridLimitState</a>, <a href="GridOptimizedCharge.html#getSellToGridLimitStateChannel()">getSellToGridLimitStateChannel</a>, <a href="GridOptimizedCharge.html#getTargetMinute()">getTargetMinute</a>, <a href="GridOptimizedCharge.html#getTargetMinuteChannel()">getTargetMinuteChannel</a></code></li>
+<code><a href="GridOptimizedCharge.html#_setConfiguredEssIsNotManaged(java.lang.Boolean)">_setConfiguredEssIsNotManaged</a>, <a href="GridOptimizedCharge.html#_setDelayChargeLimit(int)">_setDelayChargeLimit</a>, <a href="GridOptimizedCharge.html#_setDelayChargeLimit(java.lang.Integer)">_setDelayChargeLimit</a>, <a href="GridOptimizedCharge.html#_setDelayChargeState(io.openems.edge.controller.ess.gridoptimizedcharge.DelayChargeState)">_setDelayChargeState</a>, <a href="GridOptimizedCharge.html#_setDelayChargeTime(int)">_setDelayChargeTime</a>, <a href="GridOptimizedCharge.html#_setDelayChargeTime(java.lang.Integer)">_setDelayChargeTime</a>, <a href="GridOptimizedCharge.html#_setNoLimitationTime(int)">_setNoLimitationTime</a>, <a href="GridOptimizedCharge.html#_setNoLimitationTime(java.lang.Integer)">_setNoLimitationTime</a>, <a href="GridOptimizedCharge.html#_setPredictedTargetMinute(int)">_setPredictedTargetMinute</a>, <a href="GridOptimizedCharge.html#_setPredictedTargetMinute(java.lang.Integer)">_setPredictedTargetMinute</a>, <a href="GridOptimizedCharge.html#_setPredictedTargetMinuteAdjusted(int)">_setPredictedTargetMinuteAdjusted</a>, <a href="GridOptimizedCharge.html#_setPredictedTargetMinuteAdjusted(java.lang.Integer)">_setPredictedTargetMinuteAdjusted</a>, <a href="GridOptimizedCharge.html#_setRawSellToGridLimitChargeLimit(int)">_setRawSellToGridLimitChargeLimit</a>, <a href="GridOptimizedCharge.html#_setRawSellToGridLimitChargeLimit(java.lang.Integer)">_setRawSellToGridLimitChargeLimit</a>, <a href="GridOptimizedCharge.html#_setSellToGridLimitMinimumChargeLimit(int)">_setSellToGridLimitMinimumChargeLimit</a>, <a href="GridOptimizedCharge.html#_setSellToGridLimitMinimumChargeLimit(java.lang.Integer)">_setSellToGridLimitMinimumChargeLimit</a>, <a href="GridOptimizedCharge.html#_setSellToGridLimitState(io.openems.edge.controller.ess.gridoptimizedcharge.SellToGridLimitState)">_setSellToGridLimitState</a>, <a href="GridOptimizedCharge.html#_setSellToGridLimitTime(int)">_setSellToGridLimitTime</a>, <a href="GridOptimizedCharge.html#_setSellToGridLimitTime(java.lang.Integer)">_setSellToGridLimitTime</a>, <a href="GridOptimizedCharge.html#_setStartEpochSeconds(java.lang.Long)">_setStartEpochSeconds</a>, <a href="GridOptimizedCharge.html#_setStartEpochSeconds(java.time.LocalTime,java.time.Clock)">_setStartEpochSeconds</a>, <a href="GridOptimizedCharge.html#_setTargetMinute(int)">_setTargetMinute</a>, <a href="GridOptimizedCharge.html#_setTargetMinute(java.lang.Integer)">_setTargetMinute</a>, <a href="GridOptimizedCharge.html#getConfiguredEssIsNotManaged()">getConfiguredEssIsNotManaged</a>, <a href="GridOptimizedCharge.html#getConfiguredEssIsNotManagedChannel()">getConfiguredEssIsNotManagedChannel</a>, <a href="GridOptimizedCharge.html#getDelayChargeLimit()">getDelayChargeLimit</a>, <a href="GridOptimizedCharge.html#getDelayChargeLimitChannel()">getDelayChargeLimitChannel</a>, <a href="GridOptimizedCharge.html#getDelayChargeState()">getDelayChargeState</a>, <a href="GridOptimizedCharge.html#getDelayChargeStateChannel()">getDelayChargeStateChannel</a>, <a href="GridOptimizedCharge.html#getDelayChargeTime()">getDelayChargeTime</a>, <a href="GridOptimizedCharge.html#getDelayChargeTimeChannel()">getDelayChargeTimeChannel</a>, <a href="GridOptimizedCharge.html#getNoLimitationTime()">getNoLimitationTime</a>, <a href="GridOptimizedCharge.html#getNoLimitationTimeChannel()">getNoLimitationTimeChannel</a>, <a href="GridOptimizedCharge.html#getPredictedTargetMinute()">getPredictedTargetMinute</a>, <a href="GridOptimizedCharge.html#getPredictedTargetMinuteAdjusted()">getPredictedTargetMinuteAdjusted</a>, <a href="GridOptimizedCharge.html#getPredictedTargetMinuteAdjustedChannel()">getPredictedTargetMinuteAdjustedChannel</a>, <a href="GridOptimizedCharge.html#getPredictedTargetMinuteChannel()">getPredictedTargetMinuteChannel</a>, <a href="GridOptimizedCharge.html#getRawSellToGridLimitChargeLimit()">getRawSellToGridLimitChargeLimit</a>, <a href="GridOptimizedCharge.html#getRawSellToGridLimitChargeLimitChannel()">getRawSellToGridLimitChargeLimitChannel</a>, <a href="GridOptimizedCharge.html#getSellToGridLimitMinimumChargeLimit()">getSellToGridLimitMinimumChargeLimit</a>, <a href="GridOptimizedCharge.html#getSellToGridLimitMinimumChargeLimitChannel()">getSellToGridLimitMinimumChargeLimitChannel</a>, <a href="GridOptimizedCharge.html#getSellToGridLimitState()">getSellToGridLimitState</a>, <a href="GridOptimizedCharge.html#getSellToGridLimitStateChannel()">getSellToGridLimitStateChannel</a>, <a href="GridOptimizedCharge.html#getSellToGridLimitTime()">getSellToGridLimitTime</a>, <a href="GridOptimizedCharge.html#getSellToGridLimitTimeChannel()">getSellToGridLimitTimeChannel</a>, <a href="GridOptimizedCharge.html#getStartEpochSeconds()">getStartEpochSeconds</a>, <a href="GridOptimizedCharge.html#getStartEpochSecondsChannel()">getStartEpochSecondsChannel</a>, <a href="GridOptimizedCharge.html#getTargetMinute()">getTargetMinute</a>, <a href="GridOptimizedCharge.html#getTargetMinuteChannel()">getTargetMinuteChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
@@ -335,6 +362,30 @@ implements <a href="GridOptimizedCharge.html" title="interface in io.openems.edg
 <li class="blockList">
 <h4>config</h4>
 <pre>protected&nbsp;io.openems.edge.controller.ess.gridoptimizedcharge.Config config</pre>
+</li>
+</ul>
+<a id="DEFAULT_POWER_BUFFER">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEFAULT_POWER_BUFFER</h4>
+<pre>protected static final&nbsp;int DEFAULT_POWER_BUFFER</pre>
+<div class="block">Buffer in watt taken into account in the calculation of the first and last
+ time when production is lower or higher than consumption.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../../constant-values.html#io.openems.edge.controller.ess.gridoptimizedcharge.GridOptimizedChargeImpl.DEFAULT_POWER_BUFFER">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a id="sum">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sum</h4>
+<pre>protected&nbsp;<a href="../../../common/sum/Sum.html" title="interface in io.openems.edge.common.sum">Sum</a> sum</pre>
 </li>
 </ul>
 <a id="predictorManager">
@@ -438,10 +489,44 @@ implements <a href="GridOptimizedCharge.html" title="interface in io.openems.edg
 <a id="logDebug(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>logDebug</h4>
 <pre class="methodSignature">protected&nbsp;void&nbsp;logDebug&#8203;(java.lang.String&nbsp;message)</pre>
+</li>
+</ul>
+<a id="getComponentManager()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getComponentManager</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>&nbsp;getComponentManager()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../common/component/ComponentManagerProvider.html#getComponentManager()">ComponentManagerProvider</a></code></span></div>
+<div class="block">Gets the <a href="../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component"><code>ComponentManager</code></a> service.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../common/component/ComponentManagerProvider.html#getComponentManager()">getComponentManager</a></code>&nbsp;in interface&nbsp;<code><a href="../../../common/component/ComponentManagerProvider.html" title="interface in io.openems.edge.common.component">ComponentManagerProvider</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the service or null if it is not (yet) available.</dd>
+</dl>
+</li>
+</ul>
+<a id="getTimedata()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getTimedata</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a>&nbsp;getTimedata()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../timedata/api/TimedataProvider.html#getTimedata()">TimedataProvider</a></code></span></div>
+<div class="block">Gets the <a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../timedata/api/TimedataProvider.html#getTimedata()">getTimedata</a></code>&nbsp;in interface&nbsp;<code><a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the service or null if it is not (yet) available.</dd>
+</dl>
 </li>
 </ul>
 </li>

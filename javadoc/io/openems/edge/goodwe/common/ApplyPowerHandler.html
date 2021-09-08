@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -167,17 +167,21 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#apply(io.openems.edge.goodwe.common.GoodWe,boolean,int)">apply</a></span>&#8203;(<a href="GoodWe.html" title="interface in io.openems.edge.goodwe.common">GoodWe</a>&nbsp;goodWe,
-     boolean&nbsp;readOnlyMode,
-     int&nbsp;setActivePower)</code></th>
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#apply(io.openems.edge.goodwe.common.AbstractGoodWe,int,io.openems.edge.goodwe.common.enums.ControlMode,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value)">apply</a></span>&#8203;(<a href="AbstractGoodWe.html" title="class in io.openems.edge.goodwe.common">AbstractGoodWe</a>&nbsp;goodWe,
+     int&nbsp;setActivePower,
+     <a href="enums/ControlMode.html" title="enum in io.openems.edge.goodwe.common.enums">ControlMode</a>&nbsp;controlMode,
+     <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;gridActivePower,
+     <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;essActivePower,
+     <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;maxAcImport,
+     <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;maxAcExport)</code></th>
 <td class="colLast">
 <div class="block">Apply the desired Active-Power Set-Point by setting the appropriate
  EMS_POWER_SET and EMS_POWER_MODE settings.</div>
@@ -226,23 +230,32 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="apply(io.openems.edge.goodwe.common.GoodWe,boolean,int)">
+<a id="apply(io.openems.edge.goodwe.common.AbstractGoodWe,int,io.openems.edge.goodwe.common.enums.ControlMode,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>apply</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;apply&#8203;(<a href="GoodWe.html" title="interface in io.openems.edge.goodwe.common">GoodWe</a>&nbsp;goodWe,
-                         boolean&nbsp;readOnlyMode,
-                         int&nbsp;setActivePower)
-                  throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;apply&#8203;(<a href="AbstractGoodWe.html" title="class in io.openems.edge.goodwe.common">AbstractGoodWe</a>&nbsp;goodWe,
+                  int&nbsp;setActivePower,
+                  <a href="enums/ControlMode.html" title="enum in io.openems.edge.goodwe.common.enums">ControlMode</a>&nbsp;controlMode,
+                  <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;gridActivePower,
+                  <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;essActivePower,
+                  <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;maxAcImport,
+                  <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;maxAcExport)
+           throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Apply the desired Active-Power Set-Point by setting the appropriate
  EMS_POWER_SET and EMS_POWER_MODE settings.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>goodWe</code> - the GoodWe - either Battery-Inverter or ESS</dd>
-<dd><code>readOnlyMode</code> - is Read-Only-Mode activated?</dd>
 <dd><code>setActivePower</code> - the Active-Power Set-Point</dd>
+<dd><code>controlMode</code> - the <a href="enums/ControlMode.html" title="enum in io.openems.edge.goodwe.common.enums"><code>ControlMode</code></a> to handle the different
+                        <a href="enums/EmsPowerMode.html" title="enum in io.openems.edge.goodwe.common.enums"><code>EmsPowerMode</code></a> for the GoodWe battery inverter</dd>
+<dd><code>gridActivePower</code> - the grid active power</dd>
+<dd><code>essActivePower</code> - the ESS active power</dd>
+<dd><code>maxAcImport</code> - the max AC import power</dd>
+<dd><code>maxAcExport</code> - the max AC export power</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>

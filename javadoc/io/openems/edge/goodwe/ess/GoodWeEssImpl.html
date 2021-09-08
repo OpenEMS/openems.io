@@ -146,7 +146,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../ess/api/HybridEss.html" title="interface in io.openems.edge.ess.api">HybridEss</a></code>, <code><a href="../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code>, <code><a href="../../ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></code>, <code><a href="../common/GoodWe.html" title="interface in io.openems.edge.goodwe.common">GoodWe</a></code>, <code><a href="GoodWeEss.html" title="interface in io.openems.edge.goodwe.ess">GoodWeEss</a></code>, <code><a href="../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a></code>, <code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../ess/api/HybridEss.html" title="interface in io.openems.edge.ess.api">HybridEss</a></code>, <code><a href="../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code>, <code><a href="../../ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></code>, <code><a href="../common/GoodWe.html" title="interface in io.openems.edge.goodwe.common">GoodWe</a></code>, <code><a href="GoodWeEss.html" title="interface in io.openems.edge.goodwe.ess">GoodWeEss</a></code>, <code><a href="../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">GoodWeEssImpl</span>
@@ -201,6 +201,13 @@ implements <a href="GoodWeEss.html" title="interface in io.openems.edge.goodwe.e
 <code><a href="../../ess/api/ManagedSymmetricEss.ChannelId.html" title="enum in io.openems.edge.ess.api">ManagedSymmetricEss.ChannelId</a></code></li>
 </ul>
 <ul class="blockList">
+<li class="blockList"><a id="nested.classes.inherited.from.class.io.openems.edge.bridge.modbus.api.ModbusComponent">
+<!--   -->
+</a>
+<h3>Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.<a href="../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a></h3>
+<code><a href="../../bridge/modbus/api/ModbusComponent.ChannelId.html" title="enum in io.openems.edge.bridge.modbus.api">ModbusComponent.ChannelId</a></code></li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a id="nested.classes.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
 <!--   -->
 </a>
@@ -234,11 +241,6 @@ implements <a href="GoodWeEss.html" title="interface in io.openems.edge.goodwe.e
 <tr class="altColor">
 <td class="colFirst"><code>protected org.osgi.service.cm.ConfigurationAdmin</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cm">cm</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#componentManager">componentManager</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -332,31 +334,30 @@ implements <a href="GoodWeEss.html" title="interface in io.openems.edge.goodwe.e
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../ess/power/api/Constraint.html" title="class in io.openems.edge.ess.power.api">Constraint</a>[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStaticConstraints()">getStaticConstraints</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Gets static Constraints for this Ess.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSurplusPower()">getSurplusPower</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Gets the Surplus Power of the <a href="../../ess/dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api"><code>EssDcCharger</code></a>s of this
- <a href="../../ess/api/HybridEss.html" title="interface in io.openems.edge.ess.api"><code>HybridEss</code></a>.</div>
+<div class="block">Gets Surplus Power.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimedata()">getTimedata</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the <a href="../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isManaged()">isManaged</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets a boolean if the ess is managed or not.</div>
+</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
@@ -371,7 +372,7 @@ implements <a href="GoodWeEss.html" title="interface in io.openems.edge.goodwe.e
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.edge.goodwe.common.<a href="../common/AbstractGoodWe.html" title="class in io.openems.edge.goodwe.common">AbstractGoodWe</a></h3>
-<code><a href="../common/AbstractGoodWe.html#addCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">addCharger</a>, <a href="../common/AbstractGoodWe.html#calculatePvProduction()">calculatePvProduction</a>, <a href="../common/AbstractGoodWe.html#defineModbusProtocol()">defineModbusProtocol</a>, <a href="../common/AbstractGoodWe.html#getSocModbusElement(int)">getSocModbusElement</a>, <a href="../common/AbstractGoodWe.html#removeCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">removeCharger</a>, <a href="../common/AbstractGoodWe.html#updatePowerAndEnergyChannels()">updatePowerAndEnergyChannels</a></code></li>
+<code><a href="../common/AbstractGoodWe.html#addCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">addCharger</a>, <a href="../common/AbstractGoodWe.html#calculateMaxAcPower(int)">calculateMaxAcPower</a>, <a href="../common/AbstractGoodWe.html#calculatePvProduction()">calculatePvProduction</a>, <a href="../common/AbstractGoodWe.html#defineModbusProtocol()">defineModbusProtocol</a>, <a href="../common/AbstractGoodWe.html#getSocModbusElement(int)">getSocModbusElement</a>, <a href="../common/AbstractGoodWe.html#removeCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">removeCharger</a>, <a href="../common/AbstractGoodWe.html#updatePowerAndEnergyChannels()">updatePowerAndEnergyChannels</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent">
@@ -399,7 +400,7 @@ implements <a href="GoodWeEss.html" title="interface in io.openems.edge.goodwe.e
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.goodwe.common.<a href="../common/GoodWe.html" title="interface in io.openems.edge.goodwe.common">GoodWe</a></h3>
-<code><a href="../common/GoodWe.html#addCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">addCharger</a>, <a href="../common/GoodWe.html#getGoodweType()">getGoodweType</a>, <a href="../common/GoodWe.html#getGoodweTypeChannel()">getGoodweTypeChannel</a>, <a href="../common/GoodWe.html#removeCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">removeCharger</a></code></li>
+<code><a href="../common/GoodWe.html#_setBmsChargeMaxCurrent(java.lang.Integer)">_setBmsChargeMaxCurrent</a>, <a href="../common/GoodWe.html#_setBmsChargeMaxVoltage(java.lang.Integer)">_setBmsChargeMaxVoltage</a>, <a href="../common/GoodWe.html#_setBmsDischargeMaxCurrent(java.lang.Integer)">_setBmsDischargeMaxCurrent</a>, <a href="../common/GoodWe.html#_setBmsDischargeMinVoltage(java.lang.Integer)">_setBmsDischargeMinVoltage</a>, <a href="../common/GoodWe.html#_setMaxAcExport(java.lang.Integer)">_setMaxAcExport</a>, <a href="../common/GoodWe.html#_setMaxAcImport(java.lang.Integer)">_setMaxAcImport</a>, <a href="../common/GoodWe.html#addCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">addCharger</a>, <a href="../common/GoodWe.html#getBmsChargeMaxCurrent()">getBmsChargeMaxCurrent</a>, <a href="../common/GoodWe.html#getBmsChargeMaxCurrentChannel()">getBmsChargeMaxCurrentChannel</a>, <a href="../common/GoodWe.html#getBmsChargeMaxVoltage()">getBmsChargeMaxVoltage</a>, <a href="../common/GoodWe.html#getBmsChargeMaxVoltageChannel()">getBmsChargeMaxVoltageChannel</a>, <a href="../common/GoodWe.html#getBmsDischargeMaxCurrent()">getBmsDischargeMaxCurrent</a>, <a href="../common/GoodWe.html#getBmsDischargeMaxCurrentChannel()">getBmsDischargeMaxCurrentChannel</a>, <a href="../common/GoodWe.html#getBmsDischargeMinVoltage()">getBmsDischargeMinVoltage</a>, <a href="../common/GoodWe.html#getBmsDischargeMinVoltageChannel()">getBmsDischargeMinVoltageChannel</a>, <a href="../common/GoodWe.html#getGoodweType()">getGoodweType</a>, <a href="../common/GoodWe.html#getGoodweTypeChannel()">getGoodweTypeChannel</a>, <a href="../common/GoodWe.html#getMaxAcExport()">getMaxAcExport</a>, <a href="../common/GoodWe.html#getMaxAcExportChannel()">getMaxAcExportChannel</a>, <a href="../common/GoodWe.html#getMaxAcImport()">getMaxAcImport</a>, <a href="../common/GoodWe.html#getMaxAcImportChannel()">getMaxAcImportChannel</a>, <a href="../common/GoodWe.html#getWbmsChargeMaxCurrent()">getWbmsChargeMaxCurrent</a>, <a href="../common/GoodWe.html#getWbmsChargeMaxCurrentChannel()">getWbmsChargeMaxCurrentChannel</a>, <a href="../common/GoodWe.html#getWbmsDischargeMaxCurrent()">getWbmsDischargeMaxCurrent</a>, <a href="../common/GoodWe.html#getWbmsDischargeMaxCurrentChannel()">getWbmsDischargeMaxCurrentChannel</a>, <a href="../common/GoodWe.html#getWbmsVoltage()">getWbmsVoltage</a>, <a href="../common/GoodWe.html#getWbmsVoltageChannel()">getWbmsVoltageChannel</a>, <a href="../common/GoodWe.html#removeCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">removeCharger</a>, <a href="../common/GoodWe.html#setBmsChargeMaxCurrent(java.lang.Integer)">setBmsChargeMaxCurrent</a>, <a href="../common/GoodWe.html#setBmsChargeMaxVoltage(java.lang.Integer)">setBmsChargeMaxVoltage</a>, <a href="../common/GoodWe.html#setBmsDischargeMaxCurrent(java.lang.Integer)">setBmsDischargeMaxCurrent</a>, <a href="../common/GoodWe.html#setBmsDischargeMinVoltage(java.lang.Integer)">setBmsDischargeMinVoltage</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.ess.api.HybridEss">
@@ -413,7 +414,7 @@ implements <a href="GoodWeEss.html" title="interface in io.openems.edge.goodwe.e
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.ess.api.<a href="../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></h3>
-<code><a href="../../ess/api/ManagedSymmetricEss.html#_setAllowedChargePower(int)">_setAllowedChargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setAllowedChargePower(java.lang.Integer)">_setAllowedChargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setAllowedDischargePower(int)">_setAllowedDischargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setAllowedDischargePower(java.lang.Integer)">_setAllowedDischargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setApplyPowerFailed(boolean)">_setApplyPowerFailed</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setDebugSetActivePower(int)">_setDebugSetActivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setDebugSetActivePower(java.lang.Integer)">_setDebugSetActivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setDebugSetReactivePower(int)">_setDebugSetReactivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setDebugSetReactivePower(java.lang.Integer)">_setDebugSetReactivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#addPowerConstraint(java.lang.String,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,io.openems.edge.ess.power.api.Relationship,double)">addPowerConstraint</a>, <a href="../../ess/api/ManagedSymmetricEss.html#addPowerConstraintAndValidate(java.lang.String,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,io.openems.edge.ess.power.api.Relationship,double)">addPowerConstraintAndValidate</a>, <a href="../../ess/api/ManagedSymmetricEss.html#createPowerConstraint(java.lang.String,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,io.openems.edge.ess.power.api.Relationship,double)">createPowerConstraint</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getAllowedChargePower()">getAllowedChargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getAllowedChargePowerChannel()">getAllowedChargePowerChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getAllowedDischargePower()">getAllowedDischargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getAllowedDischargePowerChannel()">getAllowedDischargePowerChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getApplyPowerFailed()">getApplyPowerFailed</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getApplyPowerFailedChannel()">getApplyPowerFailedChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getDebugSetActivePower()">getDebugSetActivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getDebugSetActivePowerChannel()">getDebugSetActivePowerChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getDebugSetReactivePower()">getDebugSetReactivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getDebugSetReactivePowerChannel()">getDebugSetReactivePowerChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetActivePowerEqualsChannel()">getSetActivePowerEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetActivePowerEqualsWithPidChannel()">getSetActivePowerEqualsWithPidChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetActivePowerGreaterOrEqualsChannel()">getSetActivePowerGreaterOrEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetActivePowerLessOrEqualsChannel()">getSetActivePowerLessOrEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetReactivePowerEqualsChannel()">getSetReactivePowerEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetReactivePowerGreaterOrEqualsChannel()">getSetReactivePowerGreaterOrEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetReactivePowerLessOrEqualsChannel()">getSetReactivePowerLessOrEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setActivePowerEquals(java.lang.Integer)">setActivePowerEquals</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setActivePowerEqualsWithPid(java.lang.Integer)">setActivePowerEqualsWithPid</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setActivePowerGreaterOrEquals(java.lang.Integer)">setActivePowerGreaterOrEquals</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setActivePowerLessOrEquals(java.lang.Integer)">setActivePowerLessOrEquals</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setReactivePowerEquals(java.lang.Integer)">setReactivePowerEquals</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setReactivePowerGreaterOrEquals(java.lang.Integer)">setReactivePowerGreaterOrEquals</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setReactivePowerLessOrEquals(java.lang.Integer)">setReactivePowerLessOrEquals</a></code></li>
+<code><a href="../../ess/api/ManagedSymmetricEss.html#_setAllowedChargePower(int)">_setAllowedChargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setAllowedChargePower(java.lang.Integer)">_setAllowedChargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setAllowedDischargePower(int)">_setAllowedDischargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setAllowedDischargePower(java.lang.Integer)">_setAllowedDischargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setApplyPowerFailed(boolean)">_setApplyPowerFailed</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setDebugSetActivePower(int)">_setDebugSetActivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setDebugSetActivePower(java.lang.Integer)">_setDebugSetActivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setDebugSetReactivePower(int)">_setDebugSetReactivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#_setDebugSetReactivePower(java.lang.Integer)">_setDebugSetReactivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#addPowerConstraint(java.lang.String,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,io.openems.edge.ess.power.api.Relationship,double)">addPowerConstraint</a>, <a href="../../ess/api/ManagedSymmetricEss.html#addPowerConstraintAndValidate(java.lang.String,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,io.openems.edge.ess.power.api.Relationship,double)">addPowerConstraintAndValidate</a>, <a href="../../ess/api/ManagedSymmetricEss.html#createPowerConstraint(java.lang.String,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,io.openems.edge.ess.power.api.Relationship,double)">createPowerConstraint</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getAllowedChargePower()">getAllowedChargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getAllowedChargePowerChannel()">getAllowedChargePowerChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getAllowedDischargePower()">getAllowedDischargePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getAllowedDischargePowerChannel()">getAllowedDischargePowerChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getApplyPowerFailed()">getApplyPowerFailed</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getApplyPowerFailedChannel()">getApplyPowerFailedChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getDebugSetActivePower()">getDebugSetActivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getDebugSetActivePowerChannel()">getDebugSetActivePowerChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getDebugSetReactivePower()">getDebugSetReactivePower</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getDebugSetReactivePowerChannel()">getDebugSetReactivePowerChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetActivePowerEqualsChannel()">getSetActivePowerEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetActivePowerEqualsWithPidChannel()">getSetActivePowerEqualsWithPidChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetActivePowerGreaterOrEqualsChannel()">getSetActivePowerGreaterOrEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetActivePowerLessOrEqualsChannel()">getSetActivePowerLessOrEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetReactivePowerEqualsChannel()">getSetReactivePowerEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetReactivePowerGreaterOrEqualsChannel()">getSetReactivePowerGreaterOrEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getSetReactivePowerLessOrEqualsChannel()">getSetReactivePowerLessOrEqualsChannel</a>, <a href="../../ess/api/ManagedSymmetricEss.html#getStaticConstraints()">getStaticConstraints</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setActivePowerEquals(java.lang.Integer)">setActivePowerEquals</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setActivePowerEqualsWithPid(java.lang.Integer)">setActivePowerEqualsWithPid</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setActivePowerGreaterOrEquals(java.lang.Integer)">setActivePowerGreaterOrEquals</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setActivePowerLessOrEquals(java.lang.Integer)">setActivePowerLessOrEquals</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setReactivePowerEquals(java.lang.Integer)">setReactivePowerEquals</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setReactivePowerGreaterOrEquals(java.lang.Integer)">setReactivePowerGreaterOrEquals</a>, <a href="../../ess/api/ManagedSymmetricEss.html#setReactivePowerLessOrEquals(java.lang.Integer)">setReactivePowerLessOrEquals</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
@@ -448,19 +449,10 @@ implements <a href="GoodWeEss.html" title="interface in io.openems.edge.goodwe.e
 <a id="cm">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>cm</h4>
 <pre>protected&nbsp;org.osgi.service.cm.ConfigurationAdmin cm</pre>
-</li>
-</ul>
-<a id="componentManager">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>componentManager</h4>
-<pre>protected&nbsp;<a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a> componentManager</pre>
 </li>
 </ul>
 </li>
@@ -630,28 +622,6 @@ implements <a href="GoodWeEss.html" title="interface in io.openems.edge.goodwe.e
 </dl>
 </li>
 </ul>
-<a id="getStaticConstraints()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getStaticConstraints</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../ess/power/api/Constraint.html" title="class in io.openems.edge.ess.power.api">Constraint</a>[]&nbsp;getStaticConstraints()
-                                  throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../ess/api/ManagedSymmetricEss.html#getStaticConstraints()">ManagedSymmetricEss</a></code></span></div>
-<div class="block">Gets static Constraints for this Ess. Override this method to provide
- specific Constraints for this Ess on every Cycle.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../ess/api/ManagedSymmetricEss.html#getStaticConstraints()">getStaticConstraints</a></code>&nbsp;in interface&nbsp;<code><a href="../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Constraints</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
-<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
-</dl>
-</li>
-</ul>
 <a id="getTimedata()">
 <!--   -->
 </a>
@@ -672,24 +642,39 @@ implements <a href="GoodWeEss.html" title="interface in io.openems.edge.goodwe.e
 <a id="getSurplusPower()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getSurplusPower</h4>
 <pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;getSurplusPower()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../ess/api/HybridEss.html#getSurplusPower()">HybridEss</a></code></span></div>
-<div class="block">Gets the Surplus Power of the <a href="../../ess/dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api"><code>EssDcCharger</code></a>s of this
- <a href="../../ess/api/HybridEss.html" title="interface in io.openems.edge.ess.api"><code>HybridEss</code></a>.
- 
- <p>
- This value is usually calculated from the
- <a href="../../ess/dccharger/api/EssDcCharger.html#getActualPower()"><code>EssDcCharger.getActualPower()</code></a> when the battery is full. It is used by
- the Ess.Hybrid.Surplus-Feed-To-Grid Controller to feed the surplus power to
- grid.</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../common/AbstractGoodWe.html#getSurplusPower()">AbstractGoodWe</a></code></span></div>
+<div class="block">Gets Surplus Power.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../ess/api/HybridEss.html#getSurplusPower()">getSurplusPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../ess/api/HybridEss.html" title="interface in io.openems.edge.ess.api">HybridEss</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../common/AbstractGoodWe.html#getSurplusPower()">getSurplusPower</a></code>&nbsp;in class&nbsp;<code><a href="../common/AbstractGoodWe.html" title="class in io.openems.edge.goodwe.common">AbstractGoodWe</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the surplus power, or 'null' if there is no surplus power</dd>
+<dd><code>Integer</code></dd>
+</dl>
+</li>
+</ul>
+<a id="isManaged()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isManaged</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isManaged()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../ess/api/ManagedSymmetricEss.html#isManaged()">ManagedSymmetricEss</a></code></span></div>
+<div class="block">Gets a boolean if the ess is managed or not.
+ 
+ <p>
+ Returns false if the ess itself is not managed or in a read only mode.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../ess/api/ManagedSymmetricEss.html#isManaged()">isManaged</a></code>&nbsp;in interface&nbsp;<code><a href="../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>is managed or not</dd>
 </dl>
 </li>
 </ul>

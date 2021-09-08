@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,12 +136,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a></code>, <code><a href="../../evcs/api/ManagedEvcs.html" title="interface in io.openems.edge.evcs.api">ManagedEvcs</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a></code>, <code><a href="../../evcs/api/ManagedEvcs.html" title="interface in io.openems.edge.evcs.api">ManagedEvcs</a></code>, <code><a href="../../meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a></code>, <code><a href="../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">SimulatedEvcs</span>
 extends <a href="../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="../../evcs/api/ManagedEvcs.html" title="interface in io.openems.edge.evcs.api">ManagedEvcs</a>, <a href="../../evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler</pre>
+implements <a href="../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, <a href="../../meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>, <a href="../../evcs/api/ManagedEvcs.html" title="interface in io.openems.edge.evcs.api">ManagedEvcs</a>, <a href="../../evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler</pre>
 </li>
 </ul>
 </div>
@@ -191,6 +191,13 @@ implements <a href="../../evcs/api/ManagedEvcs.html" title="interface in io.open
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a id="fields.inherited.from.class.io.openems.edge.meter.api.AsymmetricMeter">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;io.openems.edge.meter.api.<a href="../../meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a></h3>
+<code><a href="../../meter/api/AsymmetricMeter.html#POWER_DOC_TEXT">POWER_DOC_TEXT</a></code></li>
+</ul>
 </li>
 </ul>
 </section>
@@ -230,25 +237,62 @@ implements <a href="../../evcs/api/ManagedEvcs.html" title="interface in io.open
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_setActiveConsumptionEnergy(long)">_setActiveConsumptionEnergy</a></span>&#8203;(long&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Internal method to set the 'nextValue' on
+ <a href="../../meter/api/SymmetricMeter.ChannelId.html#ACTIVE_CONSUMPTION_ENERGY"><code>SymmetricMeter.ChannelId.ACTIVE_CONSUMPTION_ENERGY</code></a> Channel.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_setActiveConsumptionEnergy(java.lang.Long)">_setActiveConsumptionEnergy</a></span>&#8203;(java.lang.Long&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Internal method to set the 'nextValue' on
+ <a href="../../meter/api/SymmetricMeter.ChannelId.html#ACTIVE_CONSUMPTION_ENERGY"><code>SymmetricMeter.ChannelId.ACTIVE_CONSUMPTION_ENERGY</code></a> Channel.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deactivate()">deactivate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Handles @Deactivate of implementations.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#debugLog()">debugLog</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets some output that is suitable for a continuous Debug log.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Long&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getActiveConsumptionEnergy()">getActiveConsumptionEnergy</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the Active Consumption Energy in [Wh].</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="../../common/channel/LongReadChannel.html" title="class in io.openems.edge.common.channel">LongReadChannel</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getActiveConsumptionEnergyChannel()">getActiveConsumptionEnergyChannel</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the Channel for <a href="../../meter/api/SymmetricMeter.ChannelId.html#ACTIVE_CONSUMPTION_ENERGY"><code>SymmetricMeter.ChannelId.ACTIVE_CONSUMPTION_ENERGY</code></a>.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../evcs/api/EvcsPower.html" title="interface in io.openems.edge.evcs.api">EvcsPower</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEvcsPower()">getEvcsPower</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="../../meter/api/MeterType.html" title="enum in io.openems.edge.meter.api">MeterType</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMeterType()">getMeterType</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the type of this Meter.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -269,11 +313,18 @@ implements <a href="../../evcs/api/ManagedEvcs.html" title="interface in io.open
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 <ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.meter.api.AsymmetricMeter">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.meter.api.<a href="../../meter/api/AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a></h3>
+<code><a href="../../meter/api/AsymmetricMeter.html#_setActivePowerL1(int)">_setActivePowerL1</a>, <a href="../../meter/api/AsymmetricMeter.html#_setActivePowerL1(java.lang.Integer)">_setActivePowerL1</a>, <a href="../../meter/api/AsymmetricMeter.html#_setActivePowerL2(int)">_setActivePowerL2</a>, <a href="../../meter/api/AsymmetricMeter.html#_setActivePowerL2(java.lang.Integer)">_setActivePowerL2</a>, <a href="../../meter/api/AsymmetricMeter.html#_setActivePowerL3(int)">_setActivePowerL3</a>, <a href="../../meter/api/AsymmetricMeter.html#_setActivePowerL3(java.lang.Integer)">_setActivePowerL3</a>, <a href="../../meter/api/AsymmetricMeter.html#_setCurrentL1(int)">_setCurrentL1</a>, <a href="../../meter/api/AsymmetricMeter.html#_setCurrentL1(java.lang.Integer)">_setCurrentL1</a>, <a href="../../meter/api/AsymmetricMeter.html#_setCurrentL2(int)">_setCurrentL2</a>, <a href="../../meter/api/AsymmetricMeter.html#_setCurrentL2(java.lang.Integer)">_setCurrentL2</a>, <a href="../../meter/api/AsymmetricMeter.html#_setCurrentL3(int)">_setCurrentL3</a>, <a href="../../meter/api/AsymmetricMeter.html#_setCurrentL3(java.lang.Integer)">_setCurrentL3</a>, <a href="../../meter/api/AsymmetricMeter.html#_setReactivePowerL1(int)">_setReactivePowerL1</a>, <a href="../../meter/api/AsymmetricMeter.html#_setReactivePowerL1(java.lang.Integer)">_setReactivePowerL1</a>, <a href="../../meter/api/AsymmetricMeter.html#_setReactivePowerL2(int)">_setReactivePowerL2</a>, <a href="../../meter/api/AsymmetricMeter.html#_setReactivePowerL2(java.lang.Integer)">_setReactivePowerL2</a>, <a href="../../meter/api/AsymmetricMeter.html#_setReactivePowerL3(int)">_setReactivePowerL3</a>, <a href="../../meter/api/AsymmetricMeter.html#_setReactivePowerL3(java.lang.Integer)">_setReactivePowerL3</a>, <a href="../../meter/api/AsymmetricMeter.html#_setVoltageL1(int)">_setVoltageL1</a>, <a href="../../meter/api/AsymmetricMeter.html#_setVoltageL1(java.lang.Integer)">_setVoltageL1</a>, <a href="../../meter/api/AsymmetricMeter.html#_setVoltageL2(int)">_setVoltageL2</a>, <a href="../../meter/api/AsymmetricMeter.html#_setVoltageL2(java.lang.Integer)">_setVoltageL2</a>, <a href="../../meter/api/AsymmetricMeter.html#_setVoltageL3(int)">_setVoltageL3</a>, <a href="../../meter/api/AsymmetricMeter.html#_setVoltageL3(java.lang.Integer)">_setVoltageL3</a>, <a href="../../meter/api/AsymmetricMeter.html#getActivePowerL1()">getActivePowerL1</a>, <a href="../../meter/api/AsymmetricMeter.html#getActivePowerL1Channel()">getActivePowerL1Channel</a>, <a href="../../meter/api/AsymmetricMeter.html#getActivePowerL2()">getActivePowerL2</a>, <a href="../../meter/api/AsymmetricMeter.html#getActivePowerL2Channel()">getActivePowerL2Channel</a>, <a href="../../meter/api/AsymmetricMeter.html#getActivePowerL3()">getActivePowerL3</a>, <a href="../../meter/api/AsymmetricMeter.html#getActivePowerL3Channel()">getActivePowerL3Channel</a>, <a href="../../meter/api/AsymmetricMeter.html#getCurrentL1()">getCurrentL1</a>, <a href="../../meter/api/AsymmetricMeter.html#getCurrentL1Channel()">getCurrentL1Channel</a>, <a href="../../meter/api/AsymmetricMeter.html#getCurrentL2()">getCurrentL2</a>, <a href="../../meter/api/AsymmetricMeter.html#getCurrentL2Channel()">getCurrentL2Channel</a>, <a href="../../meter/api/AsymmetricMeter.html#getCurrentL3()">getCurrentL3</a>, <a href="../../meter/api/AsymmetricMeter.html#getCurrentL3Channel()">getCurrentL3Channel</a>, <a href="../../meter/api/AsymmetricMeter.html#getReactivePowerL1()">getReactivePowerL1</a>, <a href="../../meter/api/AsymmetricMeter.html#getReactivePowerL1Channel()">getReactivePowerL1Channel</a>, <a href="../../meter/api/AsymmetricMeter.html#getReactivePowerL2()">getReactivePowerL2</a>, <a href="../../meter/api/AsymmetricMeter.html#getReactivePowerL2Channel()">getReactivePowerL2Channel</a>, <a href="../../meter/api/AsymmetricMeter.html#getReactivePowerL3()">getReactivePowerL3</a>, <a href="../../meter/api/AsymmetricMeter.html#getReactivePowerL3Channel()">getReactivePowerL3Channel</a>, <a href="../../meter/api/AsymmetricMeter.html#getVoltageL1()">getVoltageL1</a>, <a href="../../meter/api/AsymmetricMeter.html#getVoltageL1Channel()">getVoltageL1Channel</a>, <a href="../../meter/api/AsymmetricMeter.html#getVoltageL2()">getVoltageL2</a>, <a href="../../meter/api/AsymmetricMeter.html#getVoltageL2Channel()">getVoltageL2Channel</a>, <a href="../../meter/api/AsymmetricMeter.html#getVoltageL3()">getVoltageL3</a>, <a href="../../meter/api/AsymmetricMeter.html#getVoltageL3Channel()">getVoltageL3Channel</a></code></li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.evcs.api.Evcs">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.evcs.api.<a href="../../evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a></h3>
-<code><a href="../../evcs/api/Evcs.html#_setActiveConsumptionEnergy(long)">_setActiveConsumptionEnergy</a>, <a href="../../evcs/api/Evcs.html#_setActiveConsumptionEnergy(java.lang.Long)">_setActiveConsumptionEnergy</a>, <a href="../../evcs/api/Evcs.html#_setChargePower(int)">_setChargePower</a>, <a href="../../evcs/api/Evcs.html#_setChargePower(java.lang.Integer)">_setChargePower</a>, <a href="../../evcs/api/Evcs.html#_setChargingstationCommunicationFailed(boolean)">_setChargingstationCommunicationFailed</a>, <a href="../../evcs/api/Evcs.html#_setChargingType(io.openems.edge.evcs.api.ChargingType)">_setChargingType</a>, <a href="../../evcs/api/Evcs.html#_setEnergySession(int)">_setEnergySession</a>, <a href="../../evcs/api/Evcs.html#_setEnergySession(java.lang.Integer)">_setEnergySession</a>, <a href="../../evcs/api/Evcs.html#_setMaximumHardwarePower(int)">_setMaximumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#_setMaximumHardwarePower(java.lang.Integer)">_setMaximumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#_setMaximumPower(int)">_setMaximumPower</a>, <a href="../../evcs/api/Evcs.html#_setMaximumPower(java.lang.Integer)">_setMaximumPower</a>, <a href="../../evcs/api/Evcs.html#_setMinimumHardwarePower(int)">_setMinimumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#_setMinimumHardwarePower(java.lang.Integer)">_setMinimumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#_setMinimumPower(int)">_setMinimumPower</a>, <a href="../../evcs/api/Evcs.html#_setMinimumPower(java.lang.Integer)">_setMinimumPower</a>, <a href="../../evcs/api/Evcs.html#_setPhases(int)">_setPhases</a>, <a href="../../evcs/api/Evcs.html#_setPhases(java.lang.Integer)">_setPhases</a>, <a href="../../evcs/api/Evcs.html#_setStatus(io.openems.edge.evcs.api.Status)">_setStatus</a>, <a href="../../evcs/api/Evcs.html#getActiveConsumptionEnergy()">getActiveConsumptionEnergy</a>, <a href="../../evcs/api/Evcs.html#getActiveConsumptionEnergyChannel()">getActiveConsumptionEnergyChannel</a>, <a href="../../evcs/api/Evcs.html#getChargePower()">getChargePower</a>, <a href="../../evcs/api/Evcs.html#getChargePowerChannel()">getChargePowerChannel</a>, <a href="../../evcs/api/Evcs.html#getChargingstationCommunicationFailed()">getChargingstationCommunicationFailed</a>, <a href="../../evcs/api/Evcs.html#getChargingstationCommunicationFailedChannel()">getChargingstationCommunicationFailedChannel</a>, <a href="../../evcs/api/Evcs.html#getChargingType()">getChargingType</a>, <a href="../../evcs/api/Evcs.html#getChargingTypeChannel()">getChargingTypeChannel</a>, <a href="../../evcs/api/Evcs.html#getEnergySession()">getEnergySession</a>, <a href="../../evcs/api/Evcs.html#getEnergySessionChannel()">getEnergySessionChannel</a>, <a href="../../evcs/api/Evcs.html#getMaximumHardwarePower()">getMaximumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#getMaximumHardwarePowerChannel()">getMaximumHardwarePowerChannel</a>, <a href="../../evcs/api/Evcs.html#getMaximumPower()">getMaximumPower</a>, <a href="../../evcs/api/Evcs.html#getMaximumPowerChannel()">getMaximumPowerChannel</a>, <a href="../../evcs/api/Evcs.html#getMinimumHardwarePower()">getMinimumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#getMinimumHardwarePowerChannel()">getMinimumHardwarePowerChannel</a>, <a href="../../evcs/api/Evcs.html#getMinimumPower()">getMinimumPower</a>, <a href="../../evcs/api/Evcs.html#getMinimumPowerChannel()">getMinimumPowerChannel</a>, <a href="../../evcs/api/Evcs.html#getPhases()">getPhases</a>, <a href="../../evcs/api/Evcs.html#getPhasesChannel()">getPhasesChannel</a>, <a href="../../evcs/api/Evcs.html#getStatus()">getStatus</a>, <a href="../../evcs/api/Evcs.html#getStatusChannel()">getStatusChannel</a></code></li>
+<code><a href="../../evcs/api/Evcs.html#_setChargePower(int)">_setChargePower</a>, <a href="../../evcs/api/Evcs.html#_setChargePower(java.lang.Integer)">_setChargePower</a>, <a href="../../evcs/api/Evcs.html#_setChargingstationCommunicationFailed(boolean)">_setChargingstationCommunicationFailed</a>, <a href="../../evcs/api/Evcs.html#_setChargingType(io.openems.edge.evcs.api.ChargingType)">_setChargingType</a>, <a href="../../evcs/api/Evcs.html#_setEnergySession(int)">_setEnergySession</a>, <a href="../../evcs/api/Evcs.html#_setEnergySession(java.lang.Integer)">_setEnergySession</a>, <a href="../../evcs/api/Evcs.html#_setMaximumHardwarePower(int)">_setMaximumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#_setMaximumHardwarePower(java.lang.Integer)">_setMaximumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#_setMaximumPower(int)">_setMaximumPower</a>, <a href="../../evcs/api/Evcs.html#_setMaximumPower(java.lang.Integer)">_setMaximumPower</a>, <a href="../../evcs/api/Evcs.html#_setMinimumHardwarePower(int)">_setMinimumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#_setMinimumHardwarePower(java.lang.Integer)">_setMinimumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#_setMinimumPower(int)">_setMinimumPower</a>, <a href="../../evcs/api/Evcs.html#_setMinimumPower(java.lang.Integer)">_setMinimumPower</a>, <a href="../../evcs/api/Evcs.html#_setPhases(int)">_setPhases</a>, <a href="../../evcs/api/Evcs.html#_setPhases(java.lang.Integer)">_setPhases</a>, <a href="../../evcs/api/Evcs.html#_setStatus(io.openems.edge.evcs.api.Status)">_setStatus</a>, <a href="../../evcs/api/Evcs.html#getChargePower()">getChargePower</a>, <a href="../../evcs/api/Evcs.html#getChargePowerChannel()">getChargePowerChannel</a>, <a href="../../evcs/api/Evcs.html#getChargingstationCommunicationFailed()">getChargingstationCommunicationFailed</a>, <a href="../../evcs/api/Evcs.html#getChargingstationCommunicationFailedChannel()">getChargingstationCommunicationFailedChannel</a>, <a href="../../evcs/api/Evcs.html#getChargingType()">getChargingType</a>, <a href="../../evcs/api/Evcs.html#getChargingTypeChannel()">getChargingTypeChannel</a>, <a href="../../evcs/api/Evcs.html#getEnergySession()">getEnergySession</a>, <a href="../../evcs/api/Evcs.html#getEnergySessionChannel()">getEnergySessionChannel</a>, <a href="../../evcs/api/Evcs.html#getMaximumHardwarePower()">getMaximumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#getMaximumHardwarePowerChannel()">getMaximumHardwarePowerChannel</a>, <a href="../../evcs/api/Evcs.html#getMaximumPower()">getMaximumPower</a>, <a href="../../evcs/api/Evcs.html#getMaximumPowerChannel()">getMaximumPowerChannel</a>, <a href="../../evcs/api/Evcs.html#getMinimumHardwarePower()">getMinimumHardwarePower</a>, <a href="../../evcs/api/Evcs.html#getMinimumHardwarePowerChannel()">getMinimumHardwarePowerChannel</a>, <a href="../../evcs/api/Evcs.html#getMinimumPower()">getMinimumPower</a>, <a href="../../evcs/api/Evcs.html#getMinimumPowerChannel()">getMinimumPowerChannel</a>, <a href="../../evcs/api/Evcs.html#getPhases()">getPhases</a>, <a href="../../evcs/api/Evcs.html#getPhasesChannel()">getPhasesChannel</a>, <a href="../../evcs/api/Evcs.html#getStatus()">getStatus</a>, <a href="../../evcs/api/Evcs.html#getStatusChannel()">getStatusChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.evcs.api.ManagedEvcs">
@@ -288,6 +339,13 @@ implements <a href="../../evcs/api/ManagedEvcs.html" title="interface in io.open
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
 <code><a href="../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.meter.api.SymmetricMeter">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.meter.api.<a href="../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></h3>
+<code><a href="../../meter/api/SymmetricMeter.html#_setActivePower(int)">_setActivePower</a>, <a href="../../meter/api/SymmetricMeter.html#_setActivePower(java.lang.Integer)">_setActivePower</a>, <a href="../../meter/api/SymmetricMeter.html#_setActiveProductionEnergy(long)">_setActiveProductionEnergy</a>, <a href="../../meter/api/SymmetricMeter.html#_setActiveProductionEnergy(java.lang.Long)">_setActiveProductionEnergy</a>, <a href="../../meter/api/SymmetricMeter.html#_setCurrent(int)">_setCurrent</a>, <a href="../../meter/api/SymmetricMeter.html#_setCurrent(java.lang.Integer)">_setCurrent</a>, <a href="../../meter/api/SymmetricMeter.html#_setFrequency(int)">_setFrequency</a>, <a href="../../meter/api/SymmetricMeter.html#_setFrequency(java.lang.Integer)">_setFrequency</a>, <a href="../../meter/api/SymmetricMeter.html#_setMaxActivePower(int)">_setMaxActivePower</a>, <a href="../../meter/api/SymmetricMeter.html#_setMaxActivePower(java.lang.Integer)">_setMaxActivePower</a>, <a href="../../meter/api/SymmetricMeter.html#_setMinActivePower(int)">_setMinActivePower</a>, <a href="../../meter/api/SymmetricMeter.html#_setMinActivePower(java.lang.Integer)">_setMinActivePower</a>, <a href="../../meter/api/SymmetricMeter.html#_setReactivePower(int)">_setReactivePower</a>, <a href="../../meter/api/SymmetricMeter.html#_setReactivePower(java.lang.Integer)">_setReactivePower</a>, <a href="../../meter/api/SymmetricMeter.html#_setVoltage(int)">_setVoltage</a>, <a href="../../meter/api/SymmetricMeter.html#_setVoltage(java.lang.Integer)">_setVoltage</a>, <a href="../../meter/api/SymmetricMeter.html#getActivePower()">getActivePower</a>, <a href="../../meter/api/SymmetricMeter.html#getActivePowerChannel()">getActivePowerChannel</a>, <a href="../../meter/api/SymmetricMeter.html#getActiveProductionEnergy()">getActiveProductionEnergy</a>, <a href="../../meter/api/SymmetricMeter.html#getActiveProductionEnergyChannel()">getActiveProductionEnergyChannel</a>, <a href="../../meter/api/SymmetricMeter.html#getCurrent()">getCurrent</a>, <a href="../../meter/api/SymmetricMeter.html#getCurrentChannel()">getCurrentChannel</a>, <a href="../../meter/api/SymmetricMeter.html#getFrequency()">getFrequency</a>, <a href="../../meter/api/SymmetricMeter.html#getFrequencyChannel()">getFrequencyChannel</a>, <a href="../../meter/api/SymmetricMeter.html#getMaxActivePower()">getMaxActivePower</a>, <a href="../../meter/api/SymmetricMeter.html#getMaxActivePowerChannel()">getMaxActivePowerChannel</a>, <a href="../../meter/api/SymmetricMeter.html#getMinActivePower()">getMinActivePower</a>, <a href="../../meter/api/SymmetricMeter.html#getMinActivePowerChannel()">getMinActivePowerChannel</a>, <a href="../../meter/api/SymmetricMeter.html#getReactivePower()">getReactivePower</a>, <a href="../../meter/api/SymmetricMeter.html#getReactivePowerChannel()">getReactivePowerChannel</a>, <a href="../../meter/api/SymmetricMeter.html#getVoltage()">getVoltage</a>, <a href="../../meter/api/SymmetricMeter.html#getVoltageChannel()">getVoltageChannel</a></code></li>
 </ul>
 </li>
 </ul>
@@ -392,13 +450,109 @@ implements <a href="../../evcs/api/ManagedEvcs.html" title="interface in io.open
 <a id="getEvcsPower()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getEvcsPower</h4>
 <pre class="methodSignature">public&nbsp;<a href="../../evcs/api/EvcsPower.html" title="interface in io.openems.edge.evcs.api">EvcsPower</a>&nbsp;getEvcsPower()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../evcs/api/ManagedEvcs.html#getEvcsPower()">getEvcsPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../evcs/api/ManagedEvcs.html" title="interface in io.openems.edge.evcs.api">ManagedEvcs</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="getActiveConsumptionEnergy()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getActiveConsumptionEnergy</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Long&gt;&nbsp;getActiveConsumptionEnergy()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../meter/api/SymmetricMeter.html#getActiveConsumptionEnergy()">SymmetricMeter</a></code></span></div>
+<div class="block">Gets the Active Consumption Energy in [Wh]. This relates to negative
+ ACTIVE_POWER. See <a href="../../meter/api/SymmetricMeter.ChannelId.html#ACTIVE_CONSUMPTION_ENERGY"><code>SymmetricMeter.ChannelId.ACTIVE_CONSUMPTION_ENERGY</code></a>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../evcs/api/Evcs.html#getActiveConsumptionEnergy()">getActiveConsumptionEnergy</a></code>&nbsp;in interface&nbsp;<code><a href="../../evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../meter/api/SymmetricMeter.html#getActiveConsumptionEnergy()">getActiveConsumptionEnergy</a></code>&nbsp;in interface&nbsp;<code><a href="../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="getMeterType()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMeterType</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../meter/api/MeterType.html" title="enum in io.openems.edge.meter.api">MeterType</a>&nbsp;getMeterType()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../meter/api/SymmetricMeter.html#getMeterType()">SymmetricMeter</a></code></span></div>
+<div class="block">Gets the type of this Meter.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../meter/api/SymmetricMeter.html#getMeterType()">getMeterType</a></code>&nbsp;in interface&nbsp;<code><a href="../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the MeterType</dd>
+</dl>
+</li>
+</ul>
+<a id="_setActiveConsumptionEnergy(java.lang.Long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setActiveConsumptionEnergy</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;_setActiveConsumptionEnergy&#8203;(java.lang.Long&nbsp;value)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../meter/api/SymmetricMeter.html#_setActiveConsumptionEnergy(java.lang.Long)">SymmetricMeter</a></code></span></div>
+<div class="block">Internal method to set the 'nextValue' on
+ <a href="../../meter/api/SymmetricMeter.ChannelId.html#ACTIVE_CONSUMPTION_ENERGY"><code>SymmetricMeter.ChannelId.ACTIVE_CONSUMPTION_ENERGY</code></a> Channel.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../evcs/api/Evcs.html#_setActiveConsumptionEnergy(java.lang.Long)">_setActiveConsumptionEnergy</a></code>&nbsp;in interface&nbsp;<code><a href="../../evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../meter/api/SymmetricMeter.html#_setActiveConsumptionEnergy(java.lang.Long)">_setActiveConsumptionEnergy</a></code>&nbsp;in interface&nbsp;<code><a href="../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the next value</dd>
+</dl>
+</li>
+</ul>
+<a id="_setActiveConsumptionEnergy(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setActiveConsumptionEnergy</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;_setActiveConsumptionEnergy&#8203;(long&nbsp;value)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../meter/api/SymmetricMeter.html#_setActiveConsumptionEnergy(long)">SymmetricMeter</a></code></span></div>
+<div class="block">Internal method to set the 'nextValue' on
+ <a href="../../meter/api/SymmetricMeter.ChannelId.html#ACTIVE_CONSUMPTION_ENERGY"><code>SymmetricMeter.ChannelId.ACTIVE_CONSUMPTION_ENERGY</code></a> Channel.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../evcs/api/Evcs.html#_setActiveConsumptionEnergy(long)">_setActiveConsumptionEnergy</a></code>&nbsp;in interface&nbsp;<code><a href="../../evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../meter/api/SymmetricMeter.html#_setActiveConsumptionEnergy(long)">_setActiveConsumptionEnergy</a></code>&nbsp;in interface&nbsp;<code><a href="../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the next value</dd>
+</dl>
+</li>
+</ul>
+<a id="getActiveConsumptionEnergyChannel()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getActiveConsumptionEnergyChannel</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../common/channel/LongReadChannel.html" title="class in io.openems.edge.common.channel">LongReadChannel</a>&nbsp;getActiveConsumptionEnergyChannel()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../meter/api/SymmetricMeter.html#getActiveConsumptionEnergyChannel()">SymmetricMeter</a></code></span></div>
+<div class="block">Gets the Channel for <a href="../../meter/api/SymmetricMeter.ChannelId.html#ACTIVE_CONSUMPTION_ENERGY"><code>SymmetricMeter.ChannelId.ACTIVE_CONSUMPTION_ENERGY</code></a>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../evcs/api/Evcs.html#getActiveConsumptionEnergyChannel()">getActiveConsumptionEnergyChannel</a></code>&nbsp;in interface&nbsp;<code><a href="../../evcs/api/Evcs.html" title="interface in io.openems.edge.evcs.api">Evcs</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../meter/api/SymmetricMeter.html#getActiveConsumptionEnergyChannel()">getActiveConsumptionEnergyChannel</a></code>&nbsp;in interface&nbsp;<code><a href="../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel</dd>
 </dl>
 </li>
 </ul>

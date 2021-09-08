@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":6,"i6":10,"i7":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -141,7 +141,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="GoodWe.html" title="interface in io.openems.edge.goodwe.common">GoodWe</a></code>, <code><a href="../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
+<dd><code><a href="../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a></code>, <code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="GoodWe.html" title="interface in io.openems.edge.goodwe.common">GoodWe</a></code>, <code><a href="../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -177,6 +177,13 @@ implements <a href="GoodWe.html" title="interface in io.openems.edge.goodwe.comm
 </a>
 <h3>Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.goodwe.common.<a href="GoodWe.html" title="interface in io.openems.edge.goodwe.common">GoodWe</a></h3>
 <code><a href="GoodWe.ChannelId.html" title="enum in io.openems.edge.goodwe.common">GoodWe.ChannelId</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="nested.classes.inherited.from.class.io.openems.edge.bridge.modbus.api.ModbusComponent">
+<!--   -->
+</a>
+<h3>Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.<a href="../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a></h3>
+<code><a href="../../bridge/modbus/api/ModbusComponent.ChannelId.html" title="enum in io.openems.edge.bridge.modbus.api">ModbusComponent.ChannelId</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="nested.classes.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
@@ -227,7 +234,8 @@ implements <a href="GoodWe.html" title="interface in io.openems.edge.goodwe.comm
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected </code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId%5B%5D,io.openems.edge.common.channel.ChannelId%5B%5D...)">AbstractGoodWe</a></span>&#8203;(<a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;activePowerChannelId,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId%5B%5D,io.openems.edge.common.channel.ChannelId%5B%5D...)">AbstractGoodWe</a></span>&#8203;(<a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;activePowerChannelId,
+              <a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;reactivePowerChannelId,
               <a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;dcDischargePowerChannelId,
               <a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;activeChargeEnergyChannelId,
               <a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;activeDischargeEnergyChannelId,
@@ -249,7 +257,7 @@ implements <a href="GoodWe.html" title="interface in io.openems.edge.goodwe.comm
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -263,32 +271,46 @@ implements <a href="GoodWe.html" title="interface in io.openems.edge.goodwe.comm
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculateMaxAcPower(int)">calculateMaxAcPower</a></span>&#8203;(int&nbsp;maxApparentPower)</code></th>
+<td class="colLast">
+<div class="block">Calculate and store Max-AC-Export and -Import channels.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculatePvProduction()">calculatePvProduction</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the PV production from chargers ACTUAL_POWER.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../bridge/modbus/api/ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#defineModbusProtocol()">defineModbusProtocol</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Defines the Modbus protocol.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected <a href="../../bridge/modbus/api/element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSocModbusElement(int)">getSocModbusElement</a></span>&#8203;(int&nbsp;address)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>abstract java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSurplusPower()">getSurplusPower</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets Surplus Power.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeCharger(io.openems.edge.goodwe.charger.AbstractGoodWeEtCharger)">removeCharger</a></span>&#8203;(<a href="../charger/AbstractGoodWeEtCharger.html" title="class in io.openems.edge.goodwe.charger">AbstractGoodWeEtCharger</a>&nbsp;charger)</code></th>
 <td class="colLast">
 <div class="block">Unregisters a GoodWe Charger.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updatePowerAndEnergyChannels()">updatePowerAndEnergyChannels</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -320,7 +342,7 @@ implements <a href="GoodWe.html" title="interface in io.openems.edge.goodwe.comm
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.goodwe.common.<a href="GoodWe.html" title="interface in io.openems.edge.goodwe.common">GoodWe</a></h3>
-<code><a href="GoodWe.html#getGoodweType()">getGoodweType</a>, <a href="GoodWe.html#getGoodweTypeChannel()">getGoodweTypeChannel</a></code></li>
+<code><a href="GoodWe.html#_setBmsChargeMaxCurrent(java.lang.Integer)">_setBmsChargeMaxCurrent</a>, <a href="GoodWe.html#_setBmsChargeMaxVoltage(java.lang.Integer)">_setBmsChargeMaxVoltage</a>, <a href="GoodWe.html#_setBmsDischargeMaxCurrent(java.lang.Integer)">_setBmsDischargeMaxCurrent</a>, <a href="GoodWe.html#_setBmsDischargeMinVoltage(java.lang.Integer)">_setBmsDischargeMinVoltage</a>, <a href="GoodWe.html#_setMaxAcExport(java.lang.Integer)">_setMaxAcExport</a>, <a href="GoodWe.html#_setMaxAcImport(java.lang.Integer)">_setMaxAcImport</a>, <a href="GoodWe.html#getBmsChargeMaxCurrent()">getBmsChargeMaxCurrent</a>, <a href="GoodWe.html#getBmsChargeMaxCurrentChannel()">getBmsChargeMaxCurrentChannel</a>, <a href="GoodWe.html#getBmsChargeMaxVoltage()">getBmsChargeMaxVoltage</a>, <a href="GoodWe.html#getBmsChargeMaxVoltageChannel()">getBmsChargeMaxVoltageChannel</a>, <a href="GoodWe.html#getBmsDischargeMaxCurrent()">getBmsDischargeMaxCurrent</a>, <a href="GoodWe.html#getBmsDischargeMaxCurrentChannel()">getBmsDischargeMaxCurrentChannel</a>, <a href="GoodWe.html#getBmsDischargeMinVoltage()">getBmsDischargeMinVoltage</a>, <a href="GoodWe.html#getBmsDischargeMinVoltageChannel()">getBmsDischargeMinVoltageChannel</a>, <a href="GoodWe.html#getGoodweType()">getGoodweType</a>, <a href="GoodWe.html#getGoodweTypeChannel()">getGoodweTypeChannel</a>, <a href="GoodWe.html#getMaxAcExport()">getMaxAcExport</a>, <a href="GoodWe.html#getMaxAcExportChannel()">getMaxAcExportChannel</a>, <a href="GoodWe.html#getMaxAcImport()">getMaxAcImport</a>, <a href="GoodWe.html#getMaxAcImportChannel()">getMaxAcImportChannel</a>, <a href="GoodWe.html#getWbmsChargeMaxCurrent()">getWbmsChargeMaxCurrent</a>, <a href="GoodWe.html#getWbmsChargeMaxCurrentChannel()">getWbmsChargeMaxCurrentChannel</a>, <a href="GoodWe.html#getWbmsDischargeMaxCurrent()">getWbmsDischargeMaxCurrent</a>, <a href="GoodWe.html#getWbmsDischargeMaxCurrentChannel()">getWbmsDischargeMaxCurrentChannel</a>, <a href="GoodWe.html#getWbmsVoltage()">getWbmsVoltage</a>, <a href="GoodWe.html#getWbmsVoltageChannel()">getWbmsVoltageChannel</a>, <a href="GoodWe.html#setBmsChargeMaxCurrent(java.lang.Integer)">setBmsChargeMaxCurrent</a>, <a href="GoodWe.html#setBmsChargeMaxVoltage(java.lang.Integer)">setBmsChargeMaxVoltage</a>, <a href="GoodWe.html#setBmsDischargeMaxCurrent(java.lang.Integer)">setBmsDischargeMaxCurrent</a>, <a href="GoodWe.html#setBmsDischargeMinVoltage(java.lang.Integer)">setBmsDischargeMinVoltage</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
@@ -371,13 +393,14 @@ implements <a href="GoodWe.html" title="interface in io.openems.edge.goodwe.comm
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId[],io.openems.edge.common.channel.ChannelId[]...)">
+<a id="&lt;init&gt;(io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId,io.openems.edge.common.channel.ChannelId[],io.openems.edge.common.channel.ChannelId[]...)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractGoodWe</h4>
 <pre>protected&nbsp;AbstractGoodWe&#8203;(<a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;activePowerChannelId,
+                         <a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;reactivePowerChannelId,
                          <a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;dcDischargePowerChannelId,
                          <a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;activeChargeEnergyChannelId,
                          <a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;activeDischargeEnergyChannelId,
@@ -488,10 +511,38 @@ implements <a href="GoodWe.html" title="interface in io.openems.edge.goodwe.comm
 <a id="updatePowerAndEnergyChannels()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>updatePowerAndEnergyChannels</h4>
 <pre class="methodSignature">protected&nbsp;void&nbsp;updatePowerAndEnergyChannels()</pre>
+</li>
+</ul>
+<a id="calculateMaxAcPower(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>calculateMaxAcPower</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;calculateMaxAcPower&#8203;(int&nbsp;maxApparentPower)</pre>
+<div class="block">Calculate and store Max-AC-Export and -Import channels.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>maxApparentPower</code> - the max apparent power</dd>
+</dl>
+</li>
+</ul>
+<a id="getSurplusPower()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getSurplusPower</h4>
+<pre class="methodSignature">public abstract&nbsp;java.lang.Integer&nbsp;getSurplusPower()</pre>
+<div class="block">Gets Surplus Power.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>Integer</code></dd>
+</dl>
 </li>
 </ul>
 </li>

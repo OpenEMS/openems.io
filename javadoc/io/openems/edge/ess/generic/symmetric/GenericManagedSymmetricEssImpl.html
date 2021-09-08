@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -323,18 +323,33 @@ implements <a href="GenericManagedSymmetricEss.html" title="interface in io.open
 </td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code>java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSurplusPower()">getSurplusPower</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the Surplus Power of the <a href="../../dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api"><code>EssDcCharger</code></a>s of this
+ <a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api"><code>HybridEss</code></a>.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleStateMachine()">handleStateMachine</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Handles the State-Machine.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isManaged()">isManaged</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets a boolean if the ess is managed or not.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStartStop(io.openems.edge.common.startstop.StartStop)">setStartStop</a></span>&#8203;(<a href="../../../common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</code></th>
 <td class="colLast">
@@ -347,7 +362,7 @@ implements <a href="GenericManagedSymmetricEss.html" title="interface in io.open
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.edge.ess.generic.common.<a href="../common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericManagedEss</a></h3>
-<code><a href="../common/AbstractGenericManagedEss.html#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">activate</a>, <a href="../common/AbstractGenericManagedEss.html#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String)">activate</a>, <a href="../common/AbstractGenericManagedEss.html#applyPower(int,int)">applyPower</a>, <a href="../common/AbstractGenericManagedEss.html#genericDebugLog()">genericDebugLog</a>, <a href="../common/AbstractGenericManagedEss.html#getModbusSlaveTable(io.openems.common.channel.AccessMode)">getModbusSlaveTable</a>, <a href="../common/AbstractGenericManagedEss.html#getPowerPrecision()">getPowerPrecision</a>, <a href="../common/AbstractGenericManagedEss.html#getStaticConstraints()">getStaticConstraints</a>, <a href="../common/AbstractGenericManagedEss.html#getSurplusPower()">getSurplusPower</a></code></li>
+<code><a href="../common/AbstractGenericManagedEss.html#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">activate</a>, <a href="../common/AbstractGenericManagedEss.html#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String)">activate</a>, <a href="../common/AbstractGenericManagedEss.html#applyPower(int,int)">applyPower</a>, <a href="../common/AbstractGenericManagedEss.html#genericDebugLog()">genericDebugLog</a>, <a href="../common/AbstractGenericManagedEss.html#getModbusSlaveTable(io.openems.common.channel.AccessMode)">getModbusSlaveTable</a>, <a href="../common/AbstractGenericManagedEss.html#getPowerPrecision()">getPowerPrecision</a>, <a href="../common/AbstractGenericManagedEss.html#getStaticConstraints()">getStaticConstraints</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.component.AbstractOpenemsComponent">
@@ -382,7 +397,7 @@ implements <a href="GenericManagedSymmetricEss.html" title="interface in io.open
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.ess.api.<a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api">HybridEss</a></h3>
-<code><a href="../../api/HybridEss.html#_setDcChargeEnergy(long)">_setDcChargeEnergy</a>, <a href="../../api/HybridEss.html#_setDcChargeEnergy(java.lang.Long)">_setDcChargeEnergy</a>, <a href="../../api/HybridEss.html#_setDcDischargeEnergy(long)">_setDcDischargeEnergy</a>, <a href="../../api/HybridEss.html#_setDcDischargeEnergy(java.lang.Long)">_setDcDischargeEnergy</a>, <a href="../../api/HybridEss.html#_setDcDischargePower(java.lang.Integer)">_setDcDischargePower</a>, <a href="../../api/HybridEss.html#getDcChargeEnergy()">getDcChargeEnergy</a>, <a href="../../api/HybridEss.html#getDcChargeEnergyChannel()">getDcChargeEnergyChannel</a>, <a href="../../api/HybridEss.html#getDcDischargeEnergy()">getDcDischargeEnergy</a>, <a href="../../api/HybridEss.html#getDcDischargeEnergyChannel()">getDcDischargeEnergyChannel</a>, <a href="../../api/HybridEss.html#getDcDischargePower()">getDcDischargePower</a>, <a href="../../api/HybridEss.html#getDcDischargePowerChannel()">getDcDischargePowerChannel</a>, <a href="../../api/HybridEss.html#getSurplusPower()">getSurplusPower</a></code></li>
+<code><a href="../../api/HybridEss.html#_setDcChargeEnergy(long)">_setDcChargeEnergy</a>, <a href="../../api/HybridEss.html#_setDcChargeEnergy(java.lang.Long)">_setDcChargeEnergy</a>, <a href="../../api/HybridEss.html#_setDcDischargeEnergy(long)">_setDcDischargeEnergy</a>, <a href="../../api/HybridEss.html#_setDcDischargeEnergy(java.lang.Long)">_setDcDischargeEnergy</a>, <a href="../../api/HybridEss.html#_setDcDischargePower(java.lang.Integer)">_setDcDischargePower</a>, <a href="../../api/HybridEss.html#getDcChargeEnergy()">getDcChargeEnergy</a>, <a href="../../api/HybridEss.html#getDcChargeEnergyChannel()">getDcChargeEnergyChannel</a>, <a href="../../api/HybridEss.html#getDcDischargeEnergy()">getDcDischargeEnergy</a>, <a href="../../api/HybridEss.html#getDcDischargeEnergyChannel()">getDcDischargeEnergyChannel</a>, <a href="../../api/HybridEss.html#getDcDischargePower()">getDcDischargePower</a>, <a href="../../api/HybridEss.html#getDcDischargePowerChannel()">getDcDischargePowerChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.ess.api.ManagedSymmetricEss">
@@ -605,16 +620,62 @@ implements <a href="GenericManagedSymmetricEss.html" title="interface in io.open
 </dl>
 </li>
 </ul>
+<a id="getSurplusPower()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSurplusPower</h4>
+<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;getSurplusPower()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../api/HybridEss.html#getSurplusPower()">HybridEss</a></code></span></div>
+<div class="block">Gets the Surplus Power of the <a href="../../dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api"><code>EssDcCharger</code></a>s of this
+ <a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api"><code>HybridEss</code></a>.
+ 
+ <p>
+ This value is usually calculated from the
+ <a href="../../dccharger/api/EssDcCharger.html#getActualPower()"><code>EssDcCharger.getActualPower()</code></a> when the battery is full. It is used by
+ the Ess.Hybrid.Surplus-Feed-To-Grid Controller to feed the surplus power to
+ grid.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../api/HybridEss.html#getSurplusPower()">getSurplusPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api">HybridEss</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../common/AbstractGenericManagedEss.html#getSurplusPower()">getSurplusPower</a></code>&nbsp;in class&nbsp;<code><a href="../common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericManagedEss</a>&lt;<a href="GenericManagedSymmetricEss.html" title="interface in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEss</a>,&#8203;<a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,&#8203;<a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the surplus power, or 'null' if there is no surplus power</dd>
+</dl>
+</li>
+</ul>
 <a id="getComponentManager()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getComponentManager</h4>
 <pre class="methodSignature">protected&nbsp;<a href="../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>&nbsp;getComponentManager()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../common/AbstractGenericManagedEss.html#getComponentManager()">getComponentManager</a></code>&nbsp;in class&nbsp;<code><a href="../common/AbstractGenericManagedEss.html" title="class in io.openems.edge.ess.generic.common">AbstractGenericManagedEss</a>&lt;<a href="GenericManagedSymmetricEss.html" title="interface in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEss</a>,&#8203;<a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,&#8203;<a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a id="isManaged()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isManaged</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isManaged()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../api/ManagedSymmetricEss.html#isManaged()">ManagedSymmetricEss</a></code></span></div>
+<div class="block">Gets a boolean if the ess is managed or not.
+ 
+ <p>
+ Returns false if the ess itself is not managed or in a read only mode.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../api/ManagedSymmetricEss.html#isManaged()">isManaged</a></code>&nbsp;in interface&nbsp;<code><a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>is managed or not</dd>
 </dl>
 </li>
 </ul>

@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -141,7 +141,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code>, <code><a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api">HybridEss</a></code>, <code><a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code>, <code><a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></code>, <code><a href="EssFeneconCommercial40.html" title="interface in io.openems.edge.ess.fenecon.commercial40">EssFeneconCommercial40</a></code>, <code><a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a></code>, <code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code>, <code><a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api">HybridEss</a></code>, <code><a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code>, <code><a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></code>, <code><a href="EssFeneconCommercial40.html" title="interface in io.openems.edge.ess.fenecon.commercial40">EssFeneconCommercial40</a></code>, <code><a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">EssFeneconCommercial40Impl</span>
@@ -187,6 +187,13 @@ implements <a href="EssFeneconCommercial40.html" title="interface in io.openems.
 </a>
 <h3>Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.ess.api.<a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></h3>
 <code><a href="../../api/ManagedSymmetricEss.ChannelId.html" title="enum in io.openems.edge.ess.api">ManagedSymmetricEss.ChannelId</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="nested.classes.inherited.from.class.io.openems.edge.bridge.modbus.api.ModbusComponent">
+<!--   -->
+</a>
+<h3>Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.<a href="../../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a></h3>
+<code><a href="../../../bridge/modbus/api/ModbusComponent.ChannelId.html" title="enum in io.openems.edge.bridge.modbus.api">ModbusComponent.ChannelId</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="nested.classes.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
@@ -378,6 +385,13 @@ implements <a href="EssFeneconCommercial40.html" title="interface in io.openems.
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isManaged()">isManaged</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets a boolean if the ess is managed or not.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -385,14 +399,14 @@ implements <a href="EssFeneconCommercial40.html" title="interface in io.openems.
 <div class="block">Log an info message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssDcChargerFeneconCommercial40)">removeCharger</a></span>&#8203;(<a href="charger/EssDcChargerFeneconCommercial40.html" title="interface in io.openems.edge.ess.fenecon.commercial40.charger">EssDcChargerFeneconCommercial40</a>&nbsp;charger)</code></th>
 <td class="colLast">
 <div class="block">Unregisters a Charger from this ESS.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)">setModbus</a></span>&#8203;(<a href="../../../bridge/modbus/api/BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a>&nbsp;modbus)</code></th>
 <td class="colLast">
@@ -689,6 +703,26 @@ implements <a href="EssFeneconCommercial40.html" title="interface in io.openems.
 <dd><code><a href="../../api/ManagedSymmetricEss.html#getPower()">getPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the Power instance</dd>
+</dl>
+</li>
+</ul>
+<a id="isManaged()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isManaged</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isManaged()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../api/ManagedSymmetricEss.html#isManaged()">ManagedSymmetricEss</a></code></span></div>
+<div class="block">Gets a boolean if the ess is managed or not.
+ 
+ <p>
+ Returns false if the ess itself is not managed or in a read only mode.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../api/ManagedSymmetricEss.html#isManaged()">isManaged</a></code>&nbsp;in interface&nbsp;<code><a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>is managed or not</dd>
 </dl>
 </li>
 </ul>
