@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":38,"i1":18,"i2":6,"i3":18,"i4":18,"i5":6,"i6":18,"i7":6,"i8":1,"i9":18,"i10":18,"i11":18,"i12":6,"i13":6,"i14":1,"i15":1,"i16":1,"i17":1,"i18":18,"i19":18,"i20":1,"i21":1};
+var data = {"i0":38,"i1":18,"i2":6,"i3":18,"i4":18,"i5":6,"i6":18,"i7":6,"i8":1,"i9":18,"i10":18,"i11":18,"i12":6,"i13":6,"i14":1,"i15":1,"i16":1,"i17":1,"i18":18,"i19":18,"i20":1,"i21":1,"i22":1};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -363,6 +363,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Sets a target filter for a Declarative Service @Reference member.</div>
 </td>
 </tr>
+<tr id="i22" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#validateSingleton(org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String)">validateSingleton</a></span>&#8203;(org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
+                 java.lang.String&nbsp;pid,
+                 java.lang.String&nbsp;expectedId)</code></th>
+<td class="colLast">
+<div class="block">Validates and possibly fixes the Component-ID of a Singleton.</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -684,6 +693,67 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the filter was updated. You may use it to abort the
          activate() method.</dd>
+</dl>
+</li>
+</ul>
+<a id="validateSingleton(org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>validateSingleton</h4>
+<pre class="methodSignature">static&nbsp;boolean&nbsp;validateSingleton&#8203;(org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
+                                 java.lang.String&nbsp;pid,
+                                 java.lang.String&nbsp;expectedId)</pre>
+<div class="block">Validates and possibly fixes the Component-ID of a Singleton.
+ 
+ <p>
+ Singleton Components are allowed to live only exactly once in an OpenEMS
+ instance. These Components are marked with an Annotation:
+ 
+ <pre>
+ &#64;Designate(factory = false)
+ </pre>
+ 
+ By design it is required for these Singleton Components to have a predefined
+ Component-ID, like '_cycle', '_sum', etc. This method makes sure the
+ Component-ID matches this predefined ID - and if not automatically adjusts
+ it.
+ 
+ <p>
+ Sidenote: ideally it would be possible to use the Component Annotation
+ 
+ <pre>
+ &#64;Component(property = { "id=_cycle" })
+ </pre>
+ 
+ for this purpose. Unfortunately this is not sufficient to have the 'id'
+ property listed in EdgeConfig, ConfigurationAdmin, etc. This is why this
+ workaround is required.
+ 
+ <p>
+ Usage:
+ 
+ <pre>
+ if (OpenemsComponent.validateSingletonComponentId(this.cm, this.serviceFactoryPid(), SINGLETON_COMPONENT_ID)) {
+        return;
+ }
+ </pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cm</code> - a ConfigurationAdmin instance. Get one using
+ 
+                   <pre>
+                   &#64;Reference
+                   ConfigurationAdmin cm;
+                   </pre></dd>
+<dd><code>pid</code> - PID of the calling component (use 'config.service_pid()' or
+                   '(String)prop.get(Constants.SERVICE_PID)'; if null,
+                   Component-ID can not be updated.</dd>
+<dd><code>expectedId</code> - The expected predefined Component-ID</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the ID was updated. You may use it to abort the activate()
+         method.</dd>
 </dl>
 </li>
 </ul>
