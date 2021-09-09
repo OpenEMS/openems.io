@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -219,16 +219,11 @@ implements <a href="BackendApi.html" title="interface in io.openems.edge.control
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected java.util.concurrent.ScheduledExecutorService</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#executor">executor</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>protected <a href="SendChannelValuesWorker.html" title="class in io.openems.edge.controller.api.backend">SendChannelValuesWorker</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendChannelValuesWorker">sendChannelValuesWorker</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="WebsocketClient.html" title="class in io.openems.edge.controller.api.backend">WebsocketClient</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#websocket">websocket</a></span></code></th>
 <td class="colLast">&nbsp;</td>
@@ -285,16 +280,23 @@ implements <a href="BackendApi.html" title="interface in io.openems.edge.control
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#execute(java.lang.Runnable)">execute</a></span>&#8203;(java.lang.Runnable&nbsp;command)</code></th>
+<td class="colLast">
+<div class="block">Execute a command using the <code>ScheduledExecutorService</code>.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isConnected()">isConnected</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -302,7 +304,7 @@ implements <a href="BackendApi.html" title="interface in io.openems.edge.control
 <div class="block">Log an info message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -310,14 +312,24 @@ implements <a href="BackendApi.html" title="interface in io.openems.edge.control
 <div class="block">Log a warn message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run()">run</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Executes the Controller logic.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>java.util.concurrent.ScheduledFuture&lt;?&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">scheduleWithFixedDelay</a></span>&#8203;(java.lang.Runnable&nbsp;command,
+                      long&nbsp;initialDelay,
+                      long&nbsp;delay,
+                      java.util.concurrent.TimeUnit&nbsp;unit)</code></th>
+<td class="colLast">
+<div class="block">Schedules a command using the <code>ScheduledExecutorService</code>.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSystemLogSubscribed(boolean)">setSystemLogSubscribed</a></span>&#8203;(boolean&nbsp;isSystemLogSubscribed)</code></th>
 <td class="colLast">
@@ -437,19 +449,10 @@ implements <a href="BackendApi.html" title="interface in io.openems.edge.control
 <a id="cycle">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>cycle</h4>
 <pre>protected&nbsp;<a href="../../../common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle">Cycle</a> cycle</pre>
-</li>
-</ul>
-<a id="executor">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>executor</h4>
-<pre>protected&nbsp;java.util.concurrent.ScheduledExecutorService executor</pre>
 </li>
 </ul>
 </li>
@@ -599,10 +602,46 @@ implements <a href="BackendApi.html" title="interface in io.openems.edge.control
 <a id="isConnected()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>isConnected</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isConnected()</pre>
+</li>
+</ul>
+<a id="execute(java.lang.Runnable)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>execute</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;execute&#8203;(java.lang.Runnable&nbsp;command)</pre>
+<div class="block">Execute a command using the <code>ScheduledExecutorService</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>command</code> - a <code>Runnable</code></dd>
+</dl>
+</li>
+</ul>
+<a id="scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>scheduleWithFixedDelay</h4>
+<pre class="methodSignature">public&nbsp;java.util.concurrent.ScheduledFuture&lt;?&gt;&nbsp;scheduleWithFixedDelay&#8203;(java.lang.Runnable&nbsp;command,
+                                                                      long&nbsp;initialDelay,
+                                                                      long&nbsp;delay,
+                                                                      java.util.concurrent.TimeUnit&nbsp;unit)</pre>
+<div class="block">Schedules a command using the <code>ScheduledExecutorService</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>command</code> - a <code>Runnable</code></dd>
+<dd><code>initialDelay</code> - the initial delay</dd>
+<dd><code>delay</code> - the delay</dd>
+<dd><code>unit</code> - the <code>TimeUnit</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <code>ScheduledFuture</code>, or null if Executor is shutting down</dd>
+</dl>
 </li>
 </ul>
 </li>
