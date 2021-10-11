@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10};
+var data = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -88,7 +88,7 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
@@ -138,32 +138,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">DisabledRampFilter</span>
 extends <a href="RampFilter.html" title="class in io.openems.edge.common.filter">RampFilter</a></pre>
 <div class="block">This implementation ignores the Ramp filter and instead just returns the
- unfiltered target value - making sure it is within the allowed minimum and
- maximum limits. It is used when the using Component is configured to disable
- Ramp filter.</div>
+ unfiltered target value. It is used when the using Component is configured to
+ disable Ramp filter.</div>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<section role="region">
-<ul class="blockList">
-<li class="blockList"><a id="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<ul class="blockList">
-<li class="blockList"><a id="fields.inherited.from.class.io.openems.edge.common.filter.RampFilter">
-<!--   -->
-</a>
-<h3>Fields inherited from class&nbsp;io.openems.edge.common.filter.<a href="RampFilter.html" title="class in io.openems.edge.common.filter">RampFilter</a></h3>
-<code><a href="RampFilter.html#DEFAULT_INCREASE_RATE">DEFAULT_INCREASE_RATE</a></code></li>
-</ul>
-</li>
-</ul>
-</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -200,22 +182,36 @@ extends <a href="RampFilter.html" title="class in io.openems.edge.common.filter"
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#applyRampFilter(int,int)">applyRampFilter</a></span>&#8203;(int&nbsp;input,
-               int&nbsp;target)</code></th>
+<td class="colFirst"><code>java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFilteredValueAsInteger(float,java.lang.Float,float)">getFilteredValueAsInteger</a></span>&#8203;(float&nbsp;lastValue,
+                         java.lang.Float&nbsp;targetValue,
+                         float&nbsp;maxChangePerCall)</code></th>
 <td class="colLast">
-<div class="block">Apply the filter using the current Channel value as input and the target
- value.</div>
+<div class="block">Get filtered value using the given lastValue, the value to reach and a fixed
+ maximum change per call.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFilteredValueAsInteger(float,java.lang.Float,float,float)">getFilteredValueAsInteger</a></span>&#8203;(float&nbsp;lastValue,
+                         java.lang.Float&nbsp;targetValue,
+                         float&nbsp;maximumLimit,
+                         float&nbsp;increasingRate)</code></th>
+<td class="colLast">
+<div class="block">Get filtered value using the given lastValue, the value to reach and a
+ calculated maximum change per call.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFilteredValueAsInteger(java.lang.Float,float)">getFilteredValueAsInteger</a></span>&#8203;(java.lang.Float&nbsp;targetValue,
+                         float&nbsp;maxChangePerCall)</code></th>
+<td class="colLast">
+<div class="block">Get filtered value using the present lastValue, the value to reach and a
+ fixed maximum change per call.</div>
 </td>
 </tr>
 </table>
-<ul class="blockList">
-<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.filter.RampFilter">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;io.openems.edge.common.filter.<a href="RampFilter.html" title="class in io.openems.edge.common.filter">RampFilter</a></h3>
-<code><a href="RampFilter.html#applyLowHighLimits(int)">applyLowHighLimits</a>, <a href="RampFilter.html#setLimits(java.lang.Integer,java.lang.Integer)">setLimits</a></code></li>
-</ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
@@ -258,25 +254,75 @@ extends <a href="RampFilter.html" title="class in io.openems.edge.common.filter"
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="applyRampFilter(int,int)">
+<a id="getFilteredValueAsInteger(java.lang.Float,float)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFilteredValueAsInteger</h4>
+<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;getFilteredValueAsInteger&#8203;(java.lang.Float&nbsp;targetValue,
+                                                   float&nbsp;maxChangePerCall)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="RampFilter.html#getFilteredValueAsInteger(java.lang.Float,float)">RampFilter</a></code></span></div>
+<div class="block">Get filtered value using the present lastValue, the value to reach and a
+ fixed maximum change per call.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="RampFilter.html#getFilteredValueAsInteger(java.lang.Float,float)">getFilteredValueAsInteger</a></code>&nbsp;in class&nbsp;<code><a href="RampFilter.html" title="class in io.openems.edge.common.filter">RampFilter</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>targetValue</code> - Value to reach</dd>
+<dd><code>maxChangePerCall</code> - Fixed change per call</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>value as Integer with applied ramp filter</dd>
+</dl>
+</li>
+</ul>
+<a id="getFilteredValueAsInteger(float,java.lang.Float,float)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFilteredValueAsInteger</h4>
+<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;getFilteredValueAsInteger&#8203;(float&nbsp;lastValue,
+                                                   java.lang.Float&nbsp;targetValue,
+                                                   float&nbsp;maxChangePerCall)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="RampFilter.html#getFilteredValueAsInteger(float,java.lang.Float,float)">RampFilter</a></code></span></div>
+<div class="block">Get filtered value using the given lastValue, the value to reach and a fixed
+ maximum change per call.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="RampFilter.html#getFilteredValueAsInteger(float,java.lang.Float,float)">getFilteredValueAsInteger</a></code>&nbsp;in class&nbsp;<code><a href="RampFilter.html" title="class in io.openems.edge.common.filter">RampFilter</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>lastValue</code> - Last or current value that needs to be adjusted</dd>
+<dd><code>targetValue</code> - Value to reach</dd>
+<dd><code>maxChangePerCall</code> - Fixed change per call</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>value as Integer with applied ramp filter</dd>
+</dl>
+</li>
+</ul>
+<a id="getFilteredValueAsInteger(float,java.lang.Float,float,float)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>applyRampFilter</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;applyRampFilter&#8203;(int&nbsp;input,
-                           int&nbsp;target)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="RampFilter.html#applyRampFilter(int,int)">RampFilter</a></code></span></div>
-<div class="block">Apply the filter using the current Channel value as input and the target
- value.</div>
+<h4>getFilteredValueAsInteger</h4>
+<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;getFilteredValueAsInteger&#8203;(float&nbsp;lastValue,
+                                                   java.lang.Float&nbsp;targetValue,
+                                                   float&nbsp;maximumLimit,
+                                                   float&nbsp;increasingRate)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="RampFilter.html#getFilteredValueAsInteger(float,java.lang.Float,float,float)">RampFilter</a></code></span></div>
+<div class="block">Get filtered value using the given lastValue, the value to reach and a
+ calculated maximum change per call.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="RampFilter.html#applyRampFilter(int,int)">applyRampFilter</a></code>&nbsp;in class&nbsp;<code><a href="RampFilter.html" title="class in io.openems.edge.common.filter">RampFilter</a></code></dd>
+<dd><code><a href="RampFilter.html#getFilteredValueAsInteger(float,java.lang.Float,float,float)">getFilteredValueAsInteger</a></code>&nbsp;in class&nbsp;<code><a href="RampFilter.html" title="class in io.openems.edge.common.filter">RampFilter</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>input</code> - the input value, e.g. the measured Channel value</dd>
-<dd><code>target</code> - the target value</dd>
+<dd><code>lastValue</code> - Last or current value that needs to be adjusted</dd>
+<dd><code>targetValue</code> - Value to reach</dd>
+<dd><code>maximumLimit</code> - Maximum limit used to calculate a fixed change per call</dd>
+<dd><code>increasingRate</code> - Increasing rate used to calculate a fixed change per call</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the filtered set-point value</dd>
+<dd>value as Integer with applied ramp filter</dd>
 </dl>
 </li>
 </ul>
@@ -332,7 +378,7 @@ extends <a href="RampFilter.html" title="class in io.openems.edge.common.filter"
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>

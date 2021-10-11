@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":18,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":18,"i4":18,"i5":18,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -217,6 +217,30 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>default int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fitValueToMaxPower(java.lang.String,io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,int)">fitValueToMaxPower</a></span>&#8203;(java.lang.String&nbsp;componentId,
+                  <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
+                  <a href="Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
+                  <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api">Pwr</a>&nbsp;pwr,
+                  int&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Adjusts the given value so that it does not break an existing
+ Max-Power-Constraint.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>default int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fitValueToMinPower(java.lang.String,io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,int)">fitValueToMinPower</a></span>&#8203;(java.lang.String&nbsp;componentId,
+                  <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
+                  <a href="Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
+                  <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api">Pwr</a>&nbsp;pwr,
+                  int&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Adjusts the given value so that it does not break an existing
+ Min-Power-Constraint.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="Coefficient.html" title="class in io.openems.edge.ess.power.api">Coefficient</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCoefficient(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr)">getCoefficient</a></span>&#8203;(<a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
               <a href="Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
@@ -226,7 +250,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  pwr</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMaxPower(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr)">getMaxPower</a></span>&#8203;(<a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
            <a href="Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
@@ -235,7 +259,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Gets the maximum possible Power under the active Constraints.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMinPower(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr)">getMinPower</a></span>&#8203;(<a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
            <a href="Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
@@ -244,21 +268,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Gets the minimum possible possible Power under the active Constraints.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../common/filter/PidFilter.html" title="class in io.openems.edge.common.filter">PidFilter</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPidFilter()">getPidFilter</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the PidFilter instance with the configured P, I and D variables.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isPidEnabled()">isPidEnabled</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Check if PidFilter is enabled.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeConstraint(io.openems.edge.ess.power.api.Constraint)">removeConstraint</a></span>&#8203;(<a href="Constraint.html" title="class in io.openems.edge.ess.power.api">Constraint</a>&nbsp;constraint)</code></th>
 <td class="colLast">
@@ -449,6 +473,50 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code>value</code> - the target value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a value that fits into Min/MaxPower</dd>
+</dl>
+</li>
+</ul>
+<a id="fitValueToMaxPower(java.lang.String,io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fitValueToMaxPower</h4>
+<pre class="methodSignature">default&nbsp;int&nbsp;fitValueToMaxPower&#8203;(java.lang.String&nbsp;componentId,
+                               <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
+                               <a href="Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
+                               <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api">Pwr</a>&nbsp;pwr,
+                               int&nbsp;value)</pre>
+<div class="block">Adjusts the given value so that it does not break an existing
+ Max-Power-Constraint.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>componentId</code> - Component-ID of the calling component for the log message</dd>
+<dd><code>value</code> - the target value</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a value that is compared to existing Max-Power</dd>
+</dl>
+</li>
+</ul>
+<a id="fitValueToMinPower(java.lang.String,io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fitValueToMinPower</h4>
+<pre class="methodSignature">default&nbsp;int&nbsp;fitValueToMinPower&#8203;(java.lang.String&nbsp;componentId,
+                               <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
+                               <a href="Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
+                               <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api">Pwr</a>&nbsp;pwr,
+                               int&nbsp;value)</pre>
+<div class="block">Adjusts the given value so that it does not break an existing
+ Min-Power-Constraint.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>componentId</code> - Component-ID of the calling component for the log message</dd>
+<dd><code>value</code> - the target value</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a value that is compared to existing Min-Power</dd>
 </dl>
 </li>
 </ul>

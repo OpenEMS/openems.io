@@ -2733,7 +2733,104 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_delay_charge"><a class="anchor" href="#_ess_delay_charge"></a>4.5.17. ESS Delay Charge</h4>
+<h4 id="_cycle_controller"><a class="anchor" href="#_cycle_controller"></a>4.5.17. Cycle Controller</h4>
+<div class="paragraph">
+<p>Developed in order to provide cycle, capacity test scenarios.</p>
+</div>
+<div class="sect4">
+<h5 id="_configuration_4"><a class="anchor" href="#_configuration_4"></a>4.5.17.1. Configuration</h5>
+<div class="paragraph">
+<p>Parameters which should be taken care of:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>ess_id</code></dt>
+<dd>
+<p>Id of the device. ex, ess0</p>
+</dd>
+<dt class="hdlist1"><code>cycleOrder</code></dt>
+<dd>
+<p>Initial step decide whether to start with charge or discharge in type of 'CycleOrder'. ex, CycleOrder.START_WITH_DISCHARGE</p>
+</dd>
+<dt class="hdlist1"><code>standbyTime</code></dt>
+<dd>
+<p>The time is to wait between charge and discharge, asked to be given in minute. ex, standby=5, means wait 5 minute before to switch from charge to discharge.</p>
+</dd>
+<dt class="hdlist1"><code>startTime</code></dt>
+<dd>
+<p>Start Time in Hour should be configured like [YYYY-MM-DD HH:MM]. Also provide an opportunity to activate the controller for required date and time.</p>
+</dd>
+<dt class="hdlist1"><code>maxSoc</code></dt>
+<dd>
+<p>The maximum Soc value that will be reached for charging when the controller is activated. If its set to 100, limit condition will be considered for allowed charge power. For value 100, when allowed charge power is 0, charge will be stopped.</p>
+</dd>
+<dt class="hdlist1"><code>minSoc</code></dt>
+<dd>
+<p>The minimum Soc value that will be reached for charging when the controller is activated. If its set to 0, limit condition will be considered for allowed discharge power. For value 0, when allowed discharge power is 0, charge will be stopped.</p>
+</dd>
+<dt class="hdlist1"><code>power</code></dt>
+<dd>
+<p>The power in Watt to charge or discharge.</p>
+</dd>
+<dt class="hdlist1"><code>totalCycleNumber</code></dt>
+<dd>
+<p>Decides for how many times cycles to apply.</p>
+</dd>
+<dt class="hdlist1"><code>finalSoc</code></dt>
+<dd>
+<p>The Soc value which will be kept in the battery after cycle test completed.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_monitoring"><a class="anchor" href="#_monitoring"></a>4.5.17.2. Monitoring</h5>
+<div class="paragraph">
+<p>Channels can be followed from Grafana or online monitoring:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>ctrlEssCycle0/AwaitingHysteresis</code></dt>
+<dd>
+<p>Active when waiting between two states (see standby-time)</p>
+</dd>
+<dt class="hdlist1"><code>ctrlEssCycle0/CompletedCycleNumber</code></dt>
+<dd>
+<p>Number of already completed cycles</p>
+</dd>
+<dt class="hdlist1"><code>ctrlEssCycle0/StateMachine</code></dt>
+<dd>
+<p>The current State of the State-Machine: UNDEFINED, FINISHED, CHARGE, DISCHARGE, STORE_SOC, etc. states.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_algorithm_logic"><a class="anchor" href="#_algorithm_logic"></a>4.5.17.3. Algorithm logic</h5>
+<div class="paragraph">
+<p>Controller starts with <code>UNDEFINED</code> state. First checks for <code>cycleOrder</code> configuration. If it is defined, according to the selection goes to <code>CHARGE or `DISCHARGE</code> state.
+If <code>cycleOrder</code> is not defined, selection is made according to the Soc value.
+If Soc is higher than 50 % starts with <code>CHARGE</code> state, otherwise starts with <code>DISCHARGE</code> state.</p>
+</div>
+<div class="paragraph">
+<p>If the second state is <code>CHARGE</code> state, controller start to charge the system until <code>maxSoc</code>. Again, if it is configured as 100 %, when allowed charge power is 0 W, charge will be stopped. Then, based on the <code>standbyTime</code> configuration will wait until hysteresis completed.
+Afterwards, will switch to <code>DISCHARGE</code> state.</p>
+</div>
+<div class="paragraph">
+<p>If the second state is <code>DISCHARGE</code> state, controller start to discharge the system until <code>minSoc</code>. Again, if it is configured as 0 %, when allowed discharge power is 0 W, discharge will be stopped. Then, based on the <code>standbyTime</code> configuration will wait until hysteresis completed.
+Afterwards, will switch to <code>CHARGE</code> state.</p>
+</div>
+<div class="paragraph">
+<p>After first <code>CHARGE</code> and <code>DISCHARGE</code> next state will be <code>FINISHED</code>. If the <code>totalCycleNumber</code> is "1", next state will be <code>FINAL_SOC</code>. And in this state, according to the <code>finalSoc</code> system will be charged or discharged last time.
+If the <code>totalCycleNumber</code> is higher than "1", next cycle will be called. This process will repeat itself until <code>totalCycleNumber</code> reaches. At the end, last state will be <code>FINAL_SOC</code> and required last Soc value will be kept in the battery.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.cycle">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ess_delay_charge"><a class="anchor" href="#_ess_delay_charge"></a>4.5.18. ESS Delay Charge</h4>
 <div class="paragraph">
 <p>This Controller delays full charing of an energy storage system (ESS) to a certain hour of the day. If for example configured to delay till 4 pm, the allowed charge power is limited in a way, that 100 % State-of-Charge is reached only at 4 pm. The Controller therefor constantly watches the remaining time and remaining capacity of the ESS.</p>
 </div>
@@ -2742,7 +2839,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_delayed_sell_to_grid"><a class="anchor" href="#_ess_delayed_sell_to_grid"></a>4.5.18. ESS Delayed Sell-To-Grid</h4>
+<h4 id="_ess_delayed_sell_to_grid"><a class="anchor" href="#_ess_delayed_sell_to_grid"></a>4.5.19. ESS Delayed Sell-To-Grid</h4>
 <div class="paragraph">
 <p>Controls an energy storage system so, that it delays the sell-to-grid power e.g. of a photovoltaics system.</p>
 </div>
@@ -2755,16 +2852,28 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>4.5.19. Symmetric Fix Active Power</h4>
+<h4 id="_ess_emergency_capacity_reserve"><a class="anchor" href="#_ess_emergency_capacity_reserve"></a>4.5.20. ESS Emergency Capacity Reserve</h4>
+<div class="paragraph">
+<p>This Controller allows setting a <code>ReserveSoc</code> as the minimum State-Of-Charge that should be reached during normal on-grid operation, i.e. a energy storage system in self-consumption optimization mode will stop discharging at this SoC.</p>
+</div>
+<div class="paragraph">
+<p>It is used to keep a certain part of the capacity as reserve for power outage situations.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.emergencycapacityreserve">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>4.5.21. Symmetric Fix Active Power</h4>
 <div class="paragraph">
 <p>Sets a fixed active power for charging/discharging of a symmetric energy storage system.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.fixactivepower">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
-<div class="paragraph">
-<p>Grid Optimized Charge</p>
 </div>
+<div class="sect3">
+<h4 id="_ess_grid_optimized_charge"><a class="anchor" href="#_ess_grid_optimized_charge"></a>4.5.22. ESS Grid Optimized Charge</h4>
 <div class="paragraph">
 <p>Combination of the PredictiveDelayCharge and the SellToGridPowerLimit controllers:</p>
 </div>
@@ -2780,7 +2889,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect3">
-<h4 id="_hybrid_ess_surplus_feed_to_grid_controller"><a class="anchor" href="#_hybrid_ess_surplus_feed_to_grid_controller"></a>4.5.20. Hybrid-Ess Surplus-Feed-To-Grid Controller</h4>
+<h4 id="_hybrid_ess_surplus_feed_to_grid_controller"><a class="anchor" href="#_hybrid_ess_surplus_feed_to_grid_controller"></a>4.5.23. Hybrid-Ess Surplus-Feed-To-Grid Controller</h4>
 <div class="paragraph">
 <p>Controls a Hybrid Battery Inverter (i.e. integrated Energy Storage System) so, that the surplus DC production of its chargers gets fed to grid.</p>
 </div>
@@ -2789,7 +2898,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_limit_total_discharge"><a class="anchor" href="#_ess_limit_total_discharge"></a>4.5.21. ESS Limit Total Discharge</h4>
+<h4 id="_ess_limit_total_discharge"><a class="anchor" href="#_ess_limit_total_discharge"></a>4.5.24. ESS Limit Total Discharge</h4>
 <div class="paragraph">
 <p>Limits the discharge power of an energy storage system according to its State-of-Charge, e.g. to keep energy for emergency power or to avoid deep discharge.</p>
 </div>
@@ -2798,7 +2907,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_linear_power_band"><a class="anchor" href="#_ess_linear_power_band"></a>4.5.22. ESS Linear Power Band</h4>
+<h4 id="_ess_linear_power_band"><a class="anchor" href="#_ess_linear_power_band"></a>4.5.25. ESS Linear Power Band</h4>
 <div class="paragraph">
 <p>Executes a test cycle for an energy storage system by increasing and decreasing the charging/discharging power in given limits.</p>
 </div>
@@ -2807,7 +2916,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_minimum_discharge_period"><a class="anchor" href="#_ess_minimum_discharge_period"></a>4.5.23. ESS Minimum Discharge Period</h4>
+<h4 id="_ess_minimum_discharge_period"><a class="anchor" href="#_ess_minimum_discharge_period"></a>4.5.26. ESS Minimum Discharge Period</h4>
 <div class="paragraph">
 <p>Provides a minimum discharge power of the storage system for a configured time period, if a certain power peak has been reached.</p>
 </div>
@@ -2819,16 +2928,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_one_full_cycle"><a class="anchor" href="#_ess_one_full_cycle"></a>4.5.24. ESS One Full Cycle</h4>
-<div class="paragraph">
-<p>Executes a full charge/discharge cycle with an energy storage system. This can be used to let the Battery Management System (BMS) reset its reference points for State-of-Charge calculation.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.onefullcycle">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_ess_predictive_delay_charge"><a class="anchor" href="#_ess_predictive_delay_charge"></a>4.5.25. ESS Predictive Delay Charge</h4>
+<h4 id="_ess_predictive_delay_charge"><a class="anchor" href="#_ess_predictive_delay_charge"></a>4.5.27. ESS Predictive Delay Charge</h4>
 <div class="paragraph">
 <p>Delays the charging of the AC or DC storage system based on predicted production and consumption.</p>
 </div>
@@ -2837,7 +2937,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_reactive_power_voltage_characteristic"><a class="anchor" href="#_ess_reactive_power_voltage_characteristic"></a>4.5.26. Ess Reactive Power Voltage Characteristic</h4>
+<h4 id="_ess_reactive_power_voltage_characteristic"><a class="anchor" href="#_ess_reactive_power_voltage_characteristic"></a>4.5.28. Ess Reactive Power Voltage Characteristic</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2888,7 +2988,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_sell_to_grid_limit"><a class="anchor" href="#_ess_sell_to_grid_limit"></a>4.5.27. ESS Sell-To-Grid Limit</h4>
+<h4 id="_ess_sell_to_grid_limit"><a class="anchor" href="#_ess_sell_to_grid_limit"></a>4.5.29. ESS Sell-To-Grid Limit</h4>
 <div class="paragraph">
 <p>Limits the maximum sell-to-grid power by actively charging the Ess.
 Can be used to apply a 70 % limit to the sell-to-grid power according to German law.</p>
@@ -2898,7 +2998,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_standby"><a class="anchor" href="#_ess_standby"></a>4.5.28. ESS Standby</h4>
+<h4 id="_ess_standby"><a class="anchor" href="#_ess_standby"></a>4.5.30. ESS Standby</h4>
 <div class="paragraph">
 <p>Regularly checks the functionality of an ESS once per week while being in Standby mode.</p>
 </div>
@@ -2919,7 +3019,47 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_evcs"><a class="anchor" href="#_evcs"></a>4.5.29. EVCS</h4>
+<h4 id="_ess_time_of_use_tariff_discharge"><a class="anchor" href="#_ess_time_of_use_tariff_discharge"></a>4.5.31. ESS Time-of-Use Tariff Discharge</h4>
+<div class="paragraph">
+<p>This Controller optimizes the behaviour of an energy storage system in combination with a Time-Of-Use (ToU) Tariff.</p>
+</div>
+<div class="paragraph">
+<p>The general estimation is, that during the day a local PV system can provide enough energy to supply the consumption. This Controller than evaluates the predicted consumed energy during the night (using production and consumption predictors) and tries to move Buy-From-Grid periods to cheap hours.</p>
+</div>
+<div class="paragraph">
+<p>This implementation works for AC, DC and Hybrid ESS. It is currently limited to the ToU tariff by aWATTar.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>At 14:00, controller collects the Hourly prices from the aWATTar API and also the predicions of production and consumption from prediction service in OpenEMS.</p>
+</li>
+<li>
+<p>It calculates the boundary hours to differentiate day and night, so that the controller can get defined set of hours to work on.</p>
+</li>
+<li>
+<p>During the start of the boundary hours, based on current State-of-Charge and hourly prices already calculated, it determines the set of cheapest hours.</p>
+</li>
+<li>
+<p>During those set of hours (Cheap Hours), the discharging is blocked. consumption is covered from the grid.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This Controller applies to the legislation of Germany.</p>
+</div>
+<div class="paragraph">
+<p>TODO</p>
+</div>
+<div class="paragraph">
+<p>Time of Use (ToU) pricing API service is currently under implementation in OpenEMS. This service will eventually act as generalised service for all the variable pricing providers.</p>
+</div>
+<div class="paragraph">
+<p>Once the ToU service is implemented, the test cases can be uncommented and tested with custom hourly prices. Currently only way to test it is by using the actual API provided by Awattar.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_evcs"><a class="anchor" href="#_evcs"></a>4.5.32. EVCS</h4>
 <div class="paragraph">
 <p>Controls an Electric Vehicle Charging Station (EVCS) in different modes, like "Force-Charge" and "Surplus Energy Charging".</p>
 </div>
@@ -2928,7 +3068,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>4.5.30. EVCS Fix Active Power</h4>
+<h4 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>4.5.33. EVCS Fix Active Power</h4>
 <div class="paragraph">
 <p>Sets a fixed maximum charge power to an Electric Vehicle Charging Station (EVCS).</p>
 </div>
@@ -2937,7 +3077,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_generic_jsonlogic"><a class="anchor" href="#_generic_jsonlogic"></a>4.5.31. Generic JsonLogic</h4>
+<h4 id="_generic_jsonlogic"><a class="anchor" href="#_generic_jsonlogic"></a>4.5.34. Generic JsonLogic</h4>
 <div class="paragraph">
 <p>The JsonLogic-Controller is a very generic Controller that allows the definition of a complex logic as a configuration at runtime, e.g. via Apache Felix Web Console.</p>
 </div>
@@ -3007,7 +3147,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>4.5.32. High-Load Timeslot</h4>
+<h4 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>4.5.35. High-Load Timeslot</h4>
 <div class="paragraph">
 <p>Controls an energy storage system for a High-Load timeslot application (German "Hochlastzeitfenster").</p>
 </div>
@@ -3016,13 +3156,13 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_io_alarm"><a class="anchor" href="#_io_alarm"></a>4.5.33. IO Alarm</h4>
+<h4 id="_io_alarm"><a class="anchor" href="#_io_alarm"></a>4.5.36. IO Alarm</h4>
 <div class="paragraph">
 <p>Switches a digital output, when one or more State-Channels are set. This controller can be used to signal alarms.
 This controller is used to check for the State-Channels which are boolean type, which typically represents the error channels. A specific configured digital output channel can be signaled based on the configured input State-Channels(one more channels).</p>
 </div>
 <div class="sect4">
-<h5 id="_configuration_4"><a class="anchor" href="#_configuration_4"></a>4.5.33.1. Configuration</h5>
+<h5 id="_configuration_5"><a class="anchor" href="#_configuration_5"></a>4.5.36.1. Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -3044,7 +3184,7 @@ This controller is used to check for the State-Channels which are boolean type, 
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>4.5.33.2. Example Configuration</h5>
+<h5 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>4.5.36.2. Example Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -3083,7 +3223,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>4.5.34. IO Channel-Single-Threshold</h4>
+<h4 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>4.5.37. IO Channel-Single-Threshold</h4>
 <div class="paragraph">
 <p>Generic Controller that sets a digital output according to the value of given Channel - e.g. turn a Relay on or off, when configured input channel/SoC is above or below a given threshold respectively.</p>
 </div>
@@ -3092,7 +3232,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>4.5.35. IO Fix Digital Output</h4>
+<h4 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>4.5.38. IO Fix Digital Output</h4>
 <div class="paragraph">
 <p>Sets a digital output statically ON or OFF.</p>
 </div>
@@ -3101,12 +3241,12 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>4.5.36. IO Heating Element</h4>
+<h4 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>4.5.39. IO Heating Element</h4>
 <div class="paragraph">
 <p>Controls a three-phase heating element via Relays, according to grid active power.</p>
 </div>
 <div class="sect4">
-<h5 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>4.5.36.1. Phase and Level</h5>
+<h5 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>4.5.39.1. Phase and Level</h5>
 <div class="paragraph">
 <p>The Controller distinguishes the definition of Phase and Level.
 <strong>Phase</strong> represents the electrical phase L1, L2 or L3.
@@ -3127,7 +3267,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect4">
-<h5 id="_channels"><a class="anchor" href="#_channels"></a>4.5.36.2. Channels</h5>
+<h5 id="_channels"><a class="anchor" href="#_channels"></a>4.5.39.2. Channels</h5>
 <div class="paragraph">
 <p>Example:
 * the power of the heating element per phase is 1000 W
@@ -3240,12 +3380,12 @@ L1|     xxxxxxxxxxxxxxxx
 </div>
 </div>
 <div class="sect3">
-<h4 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>4.5.37. IO SG-Ready Heat Pump</h4>
+<h4 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>4.5.40. IO SG-Ready Heat Pump</h4>
 <div class="paragraph">
 <p>Controls a heat pump that implements the SG-Ready standard via two Relay contacts, depending on surplus power and battery state-of-charge.</p>
 </div>
 <div class="sect4">
-<h5 id="_states"><a class="anchor" href="#_states"></a>4.5.37.1. States</h5>
+<h5 id="_states"><a class="anchor" href="#_states"></a>4.5.40.1. States</h5>
 <div class="paragraph">
 <p>The Controller distinguishes the different States, according to the SG-Ready standard.</p>
 </div>
@@ -3281,7 +3421,7 @@ L1|     xxxxxxxxxxxxxxxx
 </table>
 </div>
 <div class="sect4">
-<h5 id="_channels_2"><a class="anchor" href="#_channels_2"></a>4.5.37.2. Channels</h5>
+<h5 id="_channels_2"><a class="anchor" href="#_channels_2"></a>4.5.40.2. Channels</h5>
 <div class="paragraph">
 <p>The Controller has an ongoing time counter for every state, that is started and stopped if the corresponding state is active or not.</p>
 </div>
@@ -3295,7 +3435,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>4.5.38. PV-Inverter Fix Power Limit</h4>
+<h4 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>4.5.41. PV-Inverter Fix Power Limit</h4>
 <div class="paragraph">
 <p>Sets a fixed power limit for PV-Inverter production.</p>
 </div>
@@ -3304,7 +3444,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>4.5.39. PV-Inverter Sell-To-Grid limit</h4>
+<h4 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>4.5.42. PV-Inverter Sell-To-Grid limit</h4>
 <div class="paragraph">
 <p>Dynamically limits the Sell-To-Grid power of a PV-Inverter to a defined maximum power.</p>
 </div>
@@ -3313,7 +3453,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>4.5.40. Symmetric Balancing</h4>
+<h4 id="_symmetric_balancing"><a class="anchor" href="#_symmetric_balancing"></a>4.5.43. Symmetric Balancing</h4>
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in self-consumption optimization mode.</p>
 </div>
@@ -3322,7 +3462,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>4.5.41. Symmetric Balancing Schedule</h4>
+<h4 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>4.5.44. Symmetric Balancing Schedule</h4>
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in balancing mode. The control algorithm charges or discharges the battery in order to reach a given power target set-point at the grid connection point. If the target set-point is defined as zero, the behaviour is like with self-consumption optimization.</p>
 </div>
@@ -3330,7 +3470,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 <p>This controller allows two ways of controlling the power target set-point:</p>
 </div>
 <div class="sect4">
-<h5 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>4.5.41.1. 1. Definition of a power target set-point Schedule</h5>
+<h5 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>4.5.44.1. 1. Definition of a power target set-point Schedule</h5>
 <div class="paragraph">
 <p>The static configuration parameter "schedule" takes a Schedule of set-points as a Json-Array. An example schedule looks like this:</p>
 </div>
@@ -3378,7 +3518,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect4">
-<h5 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>4.5.41.2. 2. Immediate control of the power target set-point</h5>
+<h5 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>4.5.44.2. 2. Immediate control of the power target set-point</h5>
 <div class="paragraph">
 <p>The power target set-point may also be controlled directly via the <code>GridActivePowerSetPoint</code> channel. E.g. if the controller component has the Id <code>ctrlBalancingSchedule0</code> one can use e.g. the <a href="https://openems.github.io/openems.io/openems/latest/edge/controller.html#_rest_api_controller">REST-Api Controller</a> and write</p>
 </div>
@@ -3398,7 +3538,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>4.5.42. Symmetric Fix Reactive Power</h4>
+<h4 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>4.5.45. Symmetric Fix Reactive Power</h4>
 <div class="paragraph">
 <p>Sets a fixed reactive power for a symmetric energy storage system.</p>
 </div>
@@ -3407,7 +3547,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>4.5.43. Symmetric Limit Active Power</h4>
+<h4 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>4.5.46. Symmetric Limit Active Power</h4>
 <div class="paragraph">
 <p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
 </div>
@@ -3416,7 +3556,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>4.5.44. Symmetric Peak-Shaving</h4>
+<h4 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>4.5.47. Symmetric Peak-Shaving</h4>
 <div class="paragraph">
 <p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
 </div>
@@ -3425,7 +3565,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>4.5.45. Symmetric Random-Power</h4>
+<h4 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>4.5.48. Symmetric Random-Power</h4>
 <div class="paragraph">
 <p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
 </div>
@@ -3434,7 +3574,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect3">
-<h4 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>4.5.46. Symmetric Timeslot Peak-Shaving</h4>
+<h4 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>4.5.49. Symmetric Timeslot Peak-Shaving</h4>
 <div class="paragraph">
 <p>Applies peak-shaving within a configured timeslot at the grid using a symmetric energy storage system. Outside of the timeslot the battery recharges.</p>
 </div>
@@ -3734,7 +3874,30 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sunspec_pv_inverter"><a class="anchor" href="#_sunspec_pv_inverter"></a>4.7.6. SunSpec PV inverter</h4>
+<h4 id="_sinexcel_battery_inverter"><a class="anchor" href="#_sinexcel_battery_inverter"></a>4.7.6. Sinexcel Battery Inverter</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Implemented Natures</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>SymmetricEss</p>
+</li>
+<li>
+<p>ManagedSymmetricEss</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.ess.sinexcel">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sunspec_pv_inverter"><a class="anchor" href="#_sunspec_pv_inverter"></a>4.7.7. SunSpec PV inverter</h4>
 <div class="paragraph">
 <p>Generic implementation of SunSpec PV inverters. It is tested with
 - KACO blueplanet TL.3 series
@@ -3762,15 +3925,15 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_bosch_bpt_s_5_hybrid"><a class="anchor" href="#_bosch_bpt_s_5_hybrid"></a>4.7.7. Bosch BPT-S 5 Hybrid</h4>
+<h4 id="_bosch_bpt_s_5_hybrid"><a class="anchor" href="#_bosch_bpt_s_5_hybrid"></a>4.7.8. Bosch BPT-S 5 Hybrid</h4>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.bosch.bpts5hybrid">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_core_services_for_openems_edge"><a class="anchor" href="#_core_services_for_openems_edge"></a>4.7.8. Core services for OpenEMS Edge</h4>
+<h4 id="_core_services_for_openems_edge"><a class="anchor" href="#_core_services_for_openems_edge"></a>4.7.9. Core services for OpenEMS Edge</h4>
 <div class="sect4">
-<h5 id="_componentmanager"><a class="anchor" href="#_componentmanager"></a>4.7.8.1. ComponentManager</h5>
+<h5 id="_componentmanager"><a class="anchor" href="#_componentmanager"></a>4.7.9.1. ComponentManager</h5>
 <div class="paragraph">
 <p>A service that provides easy access to OpenEMS-Components and Channels. It also provides some sub-services:</p>
 </div>
@@ -3792,32 +3955,32 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_cycle_2"><a class="anchor" href="#_cycle_2"></a>4.7.8.2. Cycle</h5>
+<h5 id="_cycle_2"><a class="anchor" href="#_cycle_2"></a>4.7.9.2. Cycle</h5>
 <div class="paragraph">
 <p>Provides the core runtime Cycle of OpenEMS Edge</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_host"><a class="anchor" href="#_host"></a>4.7.8.3. Host</h5>
+<h5 id="_host"><a class="anchor" href="#_host"></a>4.7.9.3. Host</h5>
 <div class="paragraph">
 <p>A service that provides host and operating system specific commands like configuration of TCP/IP network.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_meta"><a class="anchor" href="#_meta"></a>4.7.8.4. Meta</h5>
+<h5 id="_meta"><a class="anchor" href="#_meta"></a>4.7.9.4. Meta</h5>
 <div class="paragraph">
 <p>A service that provides 'OpenemsConstants' as Channels so that they are available via Apis; example: _meta/Version for the current version of OpenEMS Edge.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sum"><a class="anchor" href="#_sum"></a>4.7.8.5. Sum</h5>
+<h5 id="_sum"><a class="anchor" href="#_sum"></a>4.7.9.5. Sum</h5>
 <div class="paragraph">
 <p>A service that holds summed up information on the power and energy flows, like aggregated production, consumption and energy storage charge/discharge.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ads_tec_storaxe_energy_storage_system"><a class="anchor" href="#_ads_tec_storaxe_energy_storage_system"></a>4.7.9. ADS-TEC StoraXe Energy Storage System</h4>
+<h4 id="_ads_tec_storaxe_energy_storage_system"><a class="anchor" href="#_ads_tec_storaxe_energy_storage_system"></a>4.7.10. ADS-TEC StoraXe Energy Storage System</h4>
 <div class="paragraph">
 <p>For the moment, this is a read-only implementation. Control of the ESS is not yet supported.</p>
 </div>
@@ -3846,7 +4009,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fenecon_byd_container"><a class="anchor" href="#_fenecon_byd_container"></a>4.7.10. FENECON BYD Container</h4>
+<h4 id="_fenecon_byd_container"><a class="anchor" href="#_fenecon_byd_container"></a>4.7.11. FENECON BYD Container</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3869,7 +4032,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ess_cluster"><a class="anchor" href="#_ess_cluster"></a>4.7.11. ESS Cluster</h4>
+<h4 id="_ess_cluster"><a class="anchor" href="#_ess_cluster"></a>4.7.12. ESS Cluster</h4>
 <div class="paragraph">
 <p>Combines multiple energy storage systems (ESS) to one common ESS. This way every Controller can easily work with multiple ESS in parallel. Distribution of power requests to each ESS is controlled via the <a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.ess.core/src/io/openems/edge/ess/core/power">Power-Class <span class="icon"><i class="fa fa-github"></i></span></a>.</p>
 </div>
@@ -3878,7 +4041,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fenecon_commercial_40_acdchybrid"><a class="anchor" href="#_fenecon_commercial_40_acdchybrid"></a>4.7.12. FENECON Commercial 40 AC/DC/Hybrid</h4>
+<h4 id="_fenecon_commercial_40_acdchybrid"><a class="anchor" href="#_fenecon_commercial_40_acdchybrid"></a>4.7.13. FENECON Commercial 40 AC/DC/Hybrid</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -3904,7 +4067,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_generic_energy_storage_system"><a class="anchor" href="#_generic_energy_storage_system"></a>4.7.13. Generic Energy Storage System</h4>
+<h4 id="_generic_energy_storage_system"><a class="anchor" href="#_generic_energy_storage_system"></a>4.7.14. Generic Energy Storage System</h4>
 <div class="paragraph">
 <p>Represents an Energy Storage System consisting of a Battery-Inverter and a Battery.</p>
 </div>
@@ -3913,7 +4076,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_maschinenfabrik_rheinhausen_mr_gridcon"><a class="anchor" href="#_maschinenfabrik_rheinhausen_mr_gridcon"></a>4.7.14. Maschinenfabrik Rheinhausen (MR) Gridcon</h4>
+<h4 id="_maschinenfabrik_rheinhausen_mr_gridcon"><a class="anchor" href="#_maschinenfabrik_rheinhausen_mr_gridcon"></a>4.7.15. Maschinenfabrik Rheinhausen (MR) Gridcon</h4>
 <div class="paragraph">
 <p>Implemented Natures
 - SymmetricEss
@@ -3924,29 +4087,6 @@ This library is then accessed using Java JNI.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.ess.mr.gridcon">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sinexcel_battery_inverter"><a class="anchor" href="#_sinexcel_battery_inverter"></a>4.7.15. Sinexcel Battery Inverter</h4>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Implemented Natures</dt>
-<dd>
-<div class="ulist">
-<ul>
-<li>
-<p>SymmetricEss</p>
-</li>
-<li>
-<p>ManagedSymmetricEss</p>
-</li>
-</ul>
-</div>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.ess.sinexcel">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 <div class="sect3">
@@ -4298,7 +4438,16 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_revolutionpi_digital_io_module"><a class="anchor" href="#_revolutionpi_digital_io_module"></a>4.7.31. RevolutionPi Digital IO Module</h4>
+<h4 id="_emergency_power_switch"><a class="anchor" href="#_emergency_power_switch"></a>4.7.31. Emergency Power Switch</h4>
+<div class="paragraph">
+<p>This implements a Emergency Power Switch (German: Netztrennstelle).</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.iooffgridswitch">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_revolutionpi_digital_io_module"><a class="anchor" href="#_revolutionpi_digital_io_module"></a>4.7.32. RevolutionPi Digital IO Module</h4>
 <div class="paragraph">
 <p>This bundle implements the Kunbus RevolutionPI DigitalIO enhancement board. It can be used to turn ON/OFF a data output or to read in digital data input. It provides 14 digital input and 14 digital output channels.</p>
 </div>
@@ -4308,13 +4457,13 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 - DigitalInput</p>
 </div>
 <div class="sect4">
-<h5 id="_dependencies"><a class="anchor" href="#_dependencies"></a>4.7.31.1. Dependencies</h5>
+<h5 id="_dependencies"><a class="anchor" href="#_dependencies"></a>4.7.32.1. Dependencies</h5>
 <div class="paragraph">
 <p>The RevolutionPi Digital IO OpenEms Bundle depends on the librevpi-dio-java git library project. A binary version of this library is already included in this OpenEMS Bundle. See <a href="https://github.com/clehne/librevpi-dio-java" class="bare">https://github.com/clehne/librevpi-dio-java</a>  for more information.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_notes"><a class="anchor" href="#_notes"></a>4.7.31.2. Notes</h5>
+<h5 id="_notes"><a class="anchor" href="#_notes"></a>4.7.32.2. Notes</h5>
 <div class="paragraph">
 <p><strong>Prepare Kunbus RevPi:</strong></p>
 </div>
@@ -4324,7 +4473,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_shelly_wifi_relay_switch"><a class="anchor" href="#_shelly_wifi_relay_switch"></a>4.7.32. Shelly WiFi Relay Switch</h4>
+<h4 id="_shelly_wifi_relay_switch"><a class="anchor" href="#_shelly_wifi_relay_switch"></a>4.7.33. Shelly WiFi Relay Switch</h4>
 <div class="paragraph">
 <p>This bundle implements Shelly WiFi Relay Switches.</p>
 </div>
@@ -4342,7 +4491,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_wago_fieldbus_coupler_750_352"><a class="anchor" href="#_wago_fieldbus_coupler_750_352"></a>4.7.33. WAGO Fieldbus Coupler 750-352</h4>
+<h4 id="_wago_fieldbus_coupler_750_352"><a class="anchor" href="#_wago_fieldbus_coupler_750_352"></a>4.7.34. WAGO Fieldbus Coupler 750-352</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4382,7 +4531,7 @@ For extensions 2, 3,&#8230;&#8203; just increase the number behind <code>M</code
 Channel names follow this logic:</p>
 </div>
 <div class="sect4">
-<h5 id="_wago_750_523_1_channel_relay_output"><a class="anchor" href="#_wago_750_523_1_channel_relay_output"></a>4.7.33.1. WAGO 750-523 "1-channel relay output"</h5>
+<h5 id="_wago_750_523_1_channel_relay_output"><a class="anchor" href="#_wago_750_523_1_channel_relay_output"></a>4.7.34.1. WAGO 750-523 "1-channel relay output"</h5>
 <div class="paragraph">
 <p><a href="https://www.wago.com/global/i-o-systems/1-channel-relay-output/p/750-523">wago.com <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
 </div>
@@ -4407,7 +4556,7 @@ Channel names follow this logic:</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_wago_750_501_2_channel_digital_output"><a class="anchor" href="#_wago_750_501_2_channel_digital_output"></a>4.7.33.2. WAGO 750-501 "2-channel digital output"</h5>
+<h5 id="_wago_750_501_2_channel_digital_output"><a class="anchor" href="#_wago_750_501_2_channel_digital_output"></a>4.7.34.2. WAGO 750-501 "2-channel digital output"</h5>
 <div class="paragraph">
 <p><a href="https://www.wago.com/global/i-o-systems/2-channel-digital-output/p/750-501">wago.com <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
 </div>
@@ -4432,7 +4581,7 @@ Channel names follow this logic:</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_wago_750_400_2_channel_digital_input"><a class="anchor" href="#_wago_750_400_2_channel_digital_input"></a>4.7.33.3. WAGO 750-400 "2-channel digital input"</h5>
+<h5 id="_wago_750_400_2_channel_digital_input"><a class="anchor" href="#_wago_750_400_2_channel_digital_input"></a>4.7.34.3. WAGO 750-400 "2-channel digital input"</h5>
 <div class="paragraph">
 <p><a href="https://www.wago.com/global/i-o-systems/2-channel-digital-input/p/750-400">wago.com <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
 </div>
@@ -4461,7 +4610,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kostal_piko"><a class="anchor" href="#_kostal_piko"></a>4.7.34. KOSTAL PIKO</h4>
+<h4 id="_kostal_piko"><a class="anchor" href="#_kostal_piko"></a>4.7.35. KOSTAL PIKO</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4487,7 +4636,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_abb_b23_meter"><a class="anchor" href="#_abb_b23_meter"></a>4.7.35. ABB B23 Meter</h4>
+<h4 id="_abb_b23_meter"><a class="anchor" href="#_abb_b23_meter"></a>4.7.36. ABB B23 Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4510,7 +4659,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_artemes_am_2"><a class="anchor" href="#_artemes_am_2"></a>4.7.36. Artemes AM-2</h4>
+<h4 id="_artemes_am_2"><a class="anchor" href="#_artemes_am_2"></a>4.7.37. Artemes AM-2</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4533,7 +4682,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_b_control_tq_systems_em300_meter"><a class="anchor" href="#_b_control_tq_systems_em300_meter"></a>4.7.37. B-Control | TQ-Systems EM300 Meter</h4>
+<h4 id="_b_control_tq_systems_em300_meter"><a class="anchor" href="#_b_control_tq_systems_em300_meter"></a>4.7.38. B-Control | TQ-Systems EM300 Meter</h4>
 <div class="paragraph">
 <p>Implemented Natures</p>
 </div>
@@ -4552,7 +4701,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_carlo_gavazzi_em300_meter"><a class="anchor" href="#_carlo_gavazzi_em300_meter"></a>4.7.38. Carlo Gavazzi EM300 Meter</h4>
+<h4 id="_carlo_gavazzi_em300_meter"><a class="anchor" href="#_carlo_gavazzi_em300_meter"></a>4.7.39. Carlo Gavazzi EM300 Meter</h4>
 <div class="paragraph">
 <p>Applies to
 - CARLO GAVAZZI EM330
@@ -4568,7 +4717,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_discovergy_smart_meter"><a class="anchor" href="#_discovergy_smart_meter"></a>4.7.39. Discovergy Smart-Meter</h4>
+<h4 id="_discovergy_smart_meter"><a class="anchor" href="#_discovergy_smart_meter"></a>4.7.40. Discovergy Smart-Meter</h4>
 <div class="paragraph">
 <p>Reads data of a Discovergy Smart-Meter via online REST-Api. See <a href="https://api.discovergy.com" class="bare">https://api.discovergy.com</a> for details.</p>
 </div>
@@ -4594,7 +4743,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_janitza_meters_umg_96rm_e_umg_604"><a class="anchor" href="#_janitza_meters_umg_96rm_e_umg_604"></a>4.7.40. Janitza Meters UMG 96RM-E | UMG 604</h4>
+<h4 id="_janitza_meters_umg_96rm_e_umg_604"><a class="anchor" href="#_janitza_meters_umg_96rm_e_umg_604"></a>4.7.41. Janitza Meters UMG 96RM-E | UMG 604</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4617,7 +4766,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_microcare_sdm_630_meter"><a class="anchor" href="#_microcare_sdm_630_meter"></a>4.7.41. Microcare SDM 630 Meter</h4>
+<h4 id="_microcare_sdm_630_meter"><a class="anchor" href="#_microcare_sdm_630_meter"></a>4.7.42. Microcare SDM 630 Meter</h4>
 <div class="paragraph">
 <p>This implementation is functionally compatible with a number of energy meters with the name "SDM 630".</p>
 </div>
@@ -4639,7 +4788,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pq_plus_umd_97_meter"><a class="anchor" href="#_pq_plus_umd_97_meter"></a>4.7.42. PQ Plus UMD 97 Meter</h4>
+<h4 id="_pq_plus_umd_97_meter"><a class="anchor" href="#_pq_plus_umd_97_meter"></a>4.7.43. PQ Plus UMD 97 Meter</h4>
 <div class="paragraph">
 <p>Applies also to UMD 96, UMD 97, UMD 98, UMD 807, UMD 701, UMD 704, UMD 705, UMD 706, UMD 707, UMD 709, UMD 710, UMD 913, UMC 26</p>
 </div>
@@ -4665,7 +4814,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_schneider_acti9_smartlink_meter"><a class="anchor" href="#_schneider_acti9_smartlink_meter"></a>4.7.43. Schneider Acti9 Smartlink Meter</h4>
+<h4 id="_schneider_acti9_smartlink_meter"><a class="anchor" href="#_schneider_acti9_smartlink_meter"></a>4.7.44. Schneider Acti9 Smartlink Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4691,7 +4840,7 @@ Channel names follow this logic:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sma_sunny_home_manager_2_0_integrated_meter"><a class="anchor" href="#_sma_sunny_home_manager_2_0_integrated_meter"></a>4.7.44. SMA Sunny Home Manager 2.0 Integrated Meter</h4>
+<h4 id="_sma_sunny_home_manager_2_0_integrated_meter"><a class="anchor" href="#_sma_sunny_home_manager_2_0_integrated_meter"></a>4.7.45. SMA Sunny Home Manager 2.0 Integrated Meter</h4>
 <div class="paragraph">
 <p>This implementation uses the integrated energy meter of the SMA Sunny Home Manager 2.0
 Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 does not have a local API on the device itself</p>
@@ -4714,7 +4863,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect3">
-<h4 id="_socomec_meter"><a class="anchor" href="#_socomec_meter"></a>4.7.45. SOCOMEC Meter</h4>
+<h4 id="_socomec_meter"><a class="anchor" href="#_socomec_meter"></a>4.7.46. SOCOMEC Meter</h4>
 <div class="paragraph">
 <p>Just configure <code>Meter.Socomec.Singlephase</code> or <code>Meter.Socomec.Threephase</code>. The actual type and modbus protocol of the Socomec meter is identified automatically.</p>
 </div>
@@ -4778,7 +4927,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sunspec_meter"><a class="anchor" href="#_sunspec_meter"></a>4.7.46. SunSpec Meter</h4>
+<h4 id="_sunspec_meter"><a class="anchor" href="#_sunspec_meter"></a>4.7.47. SunSpec Meter</h4>
 <div class="paragraph">
 <p>Generic implementation of SunSpec Meters.</p>
 </div>
@@ -4804,7 +4953,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect3">
-<h4 id="_virtual_symmetric_subtract"><a class="anchor" href="#_virtual_symmetric_subtract"></a>4.7.47. Virtual Symmetric Subtract</h4>
+<h4 id="_virtual_symmetric_subtract"><a class="anchor" href="#_virtual_symmetric_subtract"></a>4.7.48. Virtual Symmetric Subtract</h4>
 <div class="paragraph">
 <p>This is a virtual meter built from subtracting other meters or energy storage systems.</p>
 </div>
@@ -4819,7 +4968,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect3">
-<h4 id="_virtual_symmetric_add"><a class="anchor" href="#_virtual_symmetric_add"></a>4.7.48. Virtual Symmetric Add</h4>
+<h4 id="_virtual_symmetric_add"><a class="anchor" href="#_virtual_symmetric_add"></a>4.7.49. Virtual Symmetric Add</h4>
 <div class="paragraph">
 <p>This is a virtual meter which is used to sum up the values from multiple symmetric meters. The use case for this feature is, Usually when there are multiple meters reading values from different systems, The average values from the systems make more sense for calculation and statistics.</p>
 </div>
@@ -4828,7 +4977,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 - SymmetricMeter</p>
 </div>
 <div class="sect4">
-<h5 id="_example_configuration_3"><a class="anchor" href="#_example_configuration_3"></a>4.7.48.1. Example Configuration</h5>
+<h5 id="_example_configuration_3"><a class="anchor" href="#_example_configuration_3"></a>4.7.49.1. Example Configuration</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -4866,7 +5015,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_weidmueller_525_meter"><a class="anchor" href="#_weidmueller_525_meter"></a>4.7.49. Weidmueller 525 Meter</h4>
+<h4 id="_weidmueller_525_meter"><a class="anchor" href="#_weidmueller_525_meter"></a>4.7.50. Weidmueller 525 Meter</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4889,7 +5038,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_onewire_thermometer"><a class="anchor" href="#_onewire_thermometer"></a>4.7.50. OneWire Thermometer</h4>
+<h4 id="_onewire_thermometer"><a class="anchor" href="#_onewire_thermometer"></a>4.7.51. OneWire Thermometer</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -4909,7 +5058,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_persistence_model_predictor"><a class="anchor" href="#_persistence_model_predictor"></a>4.7.51. Persistence-Model Predictor</h4>
+<h4 id="_persistence_model_predictor"><a class="anchor" href="#_persistence_model_predictor"></a>4.7.52. Persistence-Model Predictor</h4>
 <div class="paragraph">
 <p>Predicts values using the 'same-as-last-day' approach.</p>
 </div>
@@ -4918,7 +5067,7 @@ Meter IDs is a list of the meters which needs summing of the values.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_similarday_model_predictor"><a class="anchor" href="#_similarday_model_predictor"></a>4.7.52. Similarday-Model Predictor</h4>
+<h4 id="_similarday_model_predictor"><a class="anchor" href="#_similarday_model_predictor"></a>4.7.53. Similarday-Model Predictor</h4>
 <div class="paragraph">
 <p>This predictor uses "Similar day technique" for prediction.
 This particular implmentation requires mainly two inputs, which are
@@ -4939,7 +5088,7 @@ This particular implmentation requires mainly two inputs, which are
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>4.7.53. PV-Inverter Cluster</h4>
+<h4 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>4.7.54. PV-Inverter Cluster</h4>
 <div class="paragraph">
 <p>Combines multiple PV-Inverters to one common PV-Inverter. This way every Controller can easily work with multiple PV-Inverters in parallel.</p>
 </div>
@@ -4948,7 +5097,7 @@ This particular implmentation requires mainly two inputs, which are
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>4.7.54. KACO blueplanet PV inverter</h4>
+<h4 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>4.7.55. KACO blueplanet PV inverter</h4>
 <div class="paragraph">
 <p>Implementation of the KACO blueplanet series PV inverters.</p>
 </div>
@@ -4974,7 +5123,7 @@ This particular implmentation requires mainly two inputs, which are
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sma_sunny_tripower_pv_inverter"><a class="anchor" href="#_sma_sunny_tripower_pv_inverter"></a>4.7.55. SMA Sunny Tripower PV inverter</h4>
+<h4 id="_sma_sunny_tripower_pv_inverter"><a class="anchor" href="#_sma_sunny_tripower_pv_inverter"></a>4.7.56. SMA Sunny Tripower PV inverter</h4>
 <div class="paragraph">
 <p>Implementation of the SMA Sunny Tripower PV inverters.</p>
 </div>
@@ -4993,7 +5142,7 @@ This particular implmentation requires mainly two inputs, which are
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solar_log"><a class="anchor" href="#_solar_log"></a>4.7.56. Solar-Log</h4>
+<h4 id="_solar_log"><a class="anchor" href="#_solar_log"></a>4.7.57. Solar-Log</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>
@@ -5016,7 +5165,7 @@ This particular implmentation requires mainly two inputs, which are
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sunspec_pv_inverter_2"><a class="anchor" href="#_sunspec_pv_inverter_2"></a>4.7.57. SunSpec PV inverter</h4>
+<h4 id="_sunspec_pv_inverter_2"><a class="anchor" href="#_sunspec_pv_inverter_2"></a>4.7.58. SunSpec PV inverter</h4>
 <div class="paragraph">
 <p>Generic implementation of SunSpec PV inverters. It is tested with
 - KACO blueplanet TL.3 series
@@ -5044,12 +5193,12 @@ This particular implmentation requires mainly two inputs, which are
 </div>
 </div>
 <div class="sect3">
-<h4 id="_simulated_openems_components"><a class="anchor" href="#_simulated_openems_components"></a>4.7.58. Simulated OpenEMS Components</h4>
+<h4 id="_simulated_openems_components"><a class="anchor" href="#_simulated_openems_components"></a>4.7.59. Simulated OpenEMS Components</h4>
 <div class="paragraph">
 <p>This bundle provides simulated OpenEMS Components for the Natures. They are useful for testing and demoing without real hardware.</p>
 </div>
 <div class="sect4">
-<h5 id="_simulator_app"><a class="anchor" href="#_simulator_app"></a>4.7.58.1. Simulator-App</h5>
+<h5 id="_simulator_app"><a class="anchor" href="#_simulator_app"></a>4.7.59.1. Simulator-App</h5>
 <div class="paragraph">
 <p>The Simulator-App is a very specific component that needs to be handled with care. It provides a full simulation environment to run an OpenEMS Edge instance in simulated realtime environment. After you ran a Simulation, you will receive the simulation result as a JSON. Also the simulation result can be viewed in OpenEMS UI.</p>
 </div>
@@ -5221,7 +5370,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>4.7.59. SolarEdge PV Inverter + Grid-Meter</h4>
+<h4 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>4.7.60. SolarEdge PV Inverter + Grid-Meter</h4>
 <div class="paragraph">
 <p>Implementation of the SolarEdge PV inverters.</p>
 </div>
@@ -5247,7 +5396,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>4.7.60. Tesla Powerwall 2</h4>
+<h4 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>4.7.61. Tesla Powerwall 2</h4>
 <div class="paragraph">
 <p>Implementation of the Tesla Powerwall 2 energy storage system</p>
 </div>
@@ -5270,7 +5419,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_influxdb"><a class="anchor" href="#_influxdb"></a>4.7.61. InfluxDB</h4>
+<h4 id="_influxdb"><a class="anchor" href="#_influxdb"></a>4.7.62. InfluxDB</h4>
 <div class="paragraph">
 <p>Persists all data of OpenEMS Edge Channels to an InfluxDB timeseries database.</p>
 </div>
@@ -5279,7 +5428,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>4.7.62. RRD4J</h4>
+<h4 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>4.7.63. RRD4J</h4>
 <div class="paragraph">
 <p>Persists data of OpenEMS Edge Channels to RRD4J files.</p>
 </div>
@@ -5288,7 +5437,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>4.7.63. KACO blueplanet hybrid 10.0 TL3</h4>
+<h4 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>4.7.64. KACO blueplanet hybrid 10.0 TL3</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Implemented Natures</dt>

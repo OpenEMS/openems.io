@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":18};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
+var data = {"i0":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -170,7 +170,7 @@ extends <a href="BridgeModbus.html" title="interface in io.openems.edge.bridge.m
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -183,20 +183,13 @@ extends <a href="BridgeModbus.html" title="interface in io.openems.edge.bridge.m
 <div class="block">Gets the IP address.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>default <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSlaveCommunicationFailedChannel()">getSlaveCommunicationFailedChannel</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Gets the Channel for <a href="BridgeModbusTcp.ChannelId.html#SLAVE_COMMUNICATION_FAILED"><code>BridgeModbusTcp.ChannelId.SLAVE_COMMUNICATION_FAILED</code></a>.</div>
-</td>
-</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.bridge.modbus.api.BridgeModbus">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.<a href="BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a></h3>
-<code><a href="BridgeModbus.html#_setCycleTimeIsTooShort(boolean)">_setCycleTimeIsTooShort</a>, <a href="BridgeModbus.html#_setExecutionDuration(long)">_setExecutionDuration</a>, <a href="BridgeModbus.html#_setSlaveCommunicationFailed(boolean)">_setSlaveCommunicationFailed</a>, <a href="BridgeModbus.html#addProtocol(java.lang.String,io.openems.edge.bridge.modbus.api.ModbusProtocol)">addProtocol</a>, <a href="BridgeModbus.html#getCycleTimeIsTooShort()">getCycleTimeIsTooShort</a>, <a href="BridgeModbus.html#getCycleTimeIsTooShortChannel()">getCycleTimeIsTooShortChannel</a>, <a href="BridgeModbus.html#getExecutionDuration()">getExecutionDuration</a>, <a href="BridgeModbus.html#getExecutionDurationChannel()">getExecutionDurationChannel</a>, <a href="BridgeModbus.html#getSlaveCommunicationFailed()">getSlaveCommunicationFailed</a>, <a href="BridgeModbus.html#removeProtocol(java.lang.String)">removeProtocol</a></code></li>
+<code><a href="BridgeModbus.html#_setCycleTimeIsTooShort(boolean)">_setCycleTimeIsTooShort</a>, <a href="BridgeModbus.html#_setExecutionDuration(long)">_setExecutionDuration</a>, <a href="BridgeModbus.html#addProtocol(java.lang.String,io.openems.edge.bridge.modbus.api.ModbusProtocol)">addProtocol</a>, <a href="BridgeModbus.html#getCycleTimeIsTooShort()">getCycleTimeIsTooShort</a>, <a href="BridgeModbus.html#getCycleTimeIsTooShortChannel()">getCycleTimeIsTooShortChannel</a>, <a href="BridgeModbus.html#getExecutionDuration()">getExecutionDuration</a>, <a href="BridgeModbus.html#getExecutionDurationChannel()">getExecutionDurationChannel</a>, <a href="BridgeModbus.html#removeProtocol(java.lang.String)">removeProtocol</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
@@ -224,7 +217,7 @@ extends <a href="BridgeModbus.html" title="interface in io.openems.edge.bridge.m
 <a id="getIpAddress()">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getIpAddress</h4>
 <pre class="methodSignature">java.net.InetAddress&nbsp;getIpAddress()</pre>
@@ -232,22 +225,6 @@ extends <a href="BridgeModbus.html" title="interface in io.openems.edge.bridge.m
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the IP address</dd>
-</dl>
-</li>
-</ul>
-<a id="getSlaveCommunicationFailedChannel()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getSlaveCommunicationFailedChannel</h4>
-<pre class="methodSignature">default&nbsp;<a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a>&nbsp;getSlaveCommunicationFailedChannel()</pre>
-<div class="block">Gets the Channel for <a href="BridgeModbusTcp.ChannelId.html#SLAVE_COMMUNICATION_FAILED"><code>BridgeModbusTcp.ChannelId.SLAVE_COMMUNICATION_FAILED</code></a>.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="BridgeModbus.html#getSlaveCommunicationFailedChannel()">getSlaveCommunicationFailedChannel</a></code>&nbsp;in interface&nbsp;<code><a href="BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Channel</dd>
 </dl>
 </li>
 </ul>

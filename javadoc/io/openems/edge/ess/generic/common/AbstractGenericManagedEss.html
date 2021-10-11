@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":6,"i6":6,"i7":6,"i8":6,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":6};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":6,"i6":6,"i7":6,"i8":6,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":6,"i16":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -94,7 +94,7 @@ loadScripts(document, 'script');</script>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -136,16 +136,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code>, <code><a href="../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></code>, <code><a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api">HybridEss</a></code>, <code><a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code>, <code><a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></code>, <code><a href="GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code>, <code><a href="../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></code>, <code><a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api">HybridEss</a></code>, <code><a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code>, <code><a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></code>, <code><a href="GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a></code>, <code><a href="../../offgrid/api/OffGridEss.html" title="interface in io.openems.edge.ess.offgrid.api">OffGridEss</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="../symmetric/GenericManagedSymmetricEssImpl.html" title="class in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEssImpl</a></code></dd>
+<dd><code><a href="../symmetric/GenericManagedSymmetricEssImpl.html" title="class in io.openems.edge.ess.generic.symmetric">GenericManagedSymmetricEssImpl</a></code>, <code><a href="../offgrid/GenericOffGridEssImpl.html" title="class in io.openems.edge.ess.generic.offgrid">GenericOffGridEssImpl</a></code></dd>
 </dl>
 <hr>
 <pre>public abstract class <span class="typeNameLabel">AbstractGenericManagedEss&lt;ESS extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>,&#8203;BATTERY extends <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,&#8203;BATTERY_INVERTER extends <a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&gt;</span>
 extends <a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a>, <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api">HybridEss</a>, <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler, <a href="../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></pre>
+implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a>, <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api">HybridEss</a>, <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>, <a href="../../offgrid/api/OffGridEss.html" title="interface in io.openems.edge.ess.offgrid.api">OffGridEss</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler, <a href="../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></pre>
 <div class="block">Parent class for different implementations of Managed Energy Storage Systems,
  consisting of a Battery-Inverter component and a Battery component.</div>
 </li>
@@ -213,6 +213,19 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected java.util.concurrent.atomic.AtomicReference&lt;<a href="../../../common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startStopTarget">startStopTarget</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a id="fields.inherited.from.class.io.openems.edge.ess.generic.common.GenericManagedEss">
 <!--   -->
@@ -280,13 +293,14 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String)">activate</a></span>&#8203;(org.osgi.service.component.ComponentContext&nbsp;context,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String,io.openems.edge.common.startstop.StartStopConfig)">activate</a></span>&#8203;(org.osgi.service.component.ComponentContext&nbsp;context,
         java.lang.String&nbsp;id,
         java.lang.String&nbsp;alias,
         boolean&nbsp;enabled,
         org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
         java.lang.String&nbsp;batteryInverterId,
-        java.lang.String&nbsp;batteryId)</code></th>
+        java.lang.String&nbsp;batteryId,
+        <a href="../../../common/startstop/StartStopConfig.html" title="enum in io.openems.edge.common.startstop">StartStopConfig</a>&nbsp;startStop)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
@@ -346,13 +360,20 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 </td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code><a href="../../../common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStartStopTarget()">getStartStopTarget</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the target Start/Stop mode from config or StartStop-Channel.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../power/api/Constraint.html" title="class in io.openems.edge.ess.power.api">Constraint</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStaticConstraints()">getStaticConstraints</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Retrieves StaticConstraints from <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>SymmetricBatteryInverter</code></a>.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSurplusPower()">getSurplusPower</a></span>()</code></th>
 <td class="colLast">
@@ -360,16 +381,23 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
  <a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api"><code>HybridEss</code></a>.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleStateMachine()">handleStateMachine</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Handles the State-Machine.</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOffGridPossible()">isOffGridPossible</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets a boolean if the ess is able to build a micro-grid in off-grid.</div>
 </td>
 </tr>
 </table>
@@ -392,7 +420,7 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.ess.generic.common.<a href="GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a></h3>
-<code><a href="GenericManagedEss.html#_setMaxBatteryInverterStartAttemptsFault(boolean)">_setMaxBatteryInverterStartAttemptsFault</a>, <a href="GenericManagedEss.html#_setMaxBatteryInverterStopAttemptsFault(boolean)">_setMaxBatteryInverterStopAttemptsFault</a>, <a href="GenericManagedEss.html#_setMaxBatteryStartAttemptsFault(boolean)">_setMaxBatteryStartAttemptsFault</a>, <a href="GenericManagedEss.html#_setMaxBatteryStopAttemptsFault(boolean)">_setMaxBatteryStopAttemptsFault</a>, <a href="GenericManagedEss.html#getMaxBatteryInverterStartAttemptsFault()">getMaxBatteryInverterStartAttemptsFault</a>, <a href="GenericManagedEss.html#getMaxBatteryInverterStartAttemptsFaultChannel()">getMaxBatteryInverterStartAttemptsFaultChannel</a>, <a href="GenericManagedEss.html#getMaxBatteryInverterStopAttemptsFault()">getMaxBatteryInverterStopAttemptsFault</a>, <a href="GenericManagedEss.html#getMaxBatteryInverterStopAttemptsFaultChannel()">getMaxBatteryInverterStopAttemptsFaultChannel</a>, <a href="GenericManagedEss.html#getMaxBatteryStartAttemptsFault()">getMaxBatteryStartAttemptsFault</a>, <a href="GenericManagedEss.html#getMaxBatteryStartAttemptsFaultChannel()">getMaxBatteryStartAttemptsFaultChannel</a>, <a href="GenericManagedEss.html#getMaxBatteryStopAttemptsFault()">getMaxBatteryStopAttemptsFault</a>, <a href="GenericManagedEss.html#getMaxBatteryStopAttemptsFaultChannel()">getMaxBatteryStopAttemptsFaultChannel</a>, <a href="GenericManagedEss.html#getStartStopTarget()">getStartStopTarget</a></code></li>
+<code><a href="GenericManagedEss.html#_setMaxBatteryInverterStartAttemptsFault(boolean)">_setMaxBatteryInverterStartAttemptsFault</a>, <a href="GenericManagedEss.html#_setMaxBatteryInverterStopAttemptsFault(boolean)">_setMaxBatteryInverterStopAttemptsFault</a>, <a href="GenericManagedEss.html#_setMaxBatteryStartAttemptsFault(boolean)">_setMaxBatteryStartAttemptsFault</a>, <a href="GenericManagedEss.html#_setMaxBatteryStopAttemptsFault(boolean)">_setMaxBatteryStopAttemptsFault</a>, <a href="GenericManagedEss.html#getMaxBatteryInverterStartAttemptsFault()">getMaxBatteryInverterStartAttemptsFault</a>, <a href="GenericManagedEss.html#getMaxBatteryInverterStartAttemptsFaultChannel()">getMaxBatteryInverterStartAttemptsFaultChannel</a>, <a href="GenericManagedEss.html#getMaxBatteryInverterStopAttemptsFault()">getMaxBatteryInverterStopAttemptsFault</a>, <a href="GenericManagedEss.html#getMaxBatteryInverterStopAttemptsFaultChannel()">getMaxBatteryInverterStopAttemptsFaultChannel</a>, <a href="GenericManagedEss.html#getMaxBatteryStartAttemptsFault()">getMaxBatteryStartAttemptsFault</a>, <a href="GenericManagedEss.html#getMaxBatteryStartAttemptsFaultChannel()">getMaxBatteryStartAttemptsFaultChannel</a>, <a href="GenericManagedEss.html#getMaxBatteryStopAttemptsFault()">getMaxBatteryStopAttemptsFault</a>, <a href="GenericManagedEss.html#getMaxBatteryStopAttemptsFaultChannel()">getMaxBatteryStopAttemptsFaultChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.ess.api.HybridEss">
@@ -438,6 +466,25 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="startStopTarget">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>startStopTarget</h4>
+<pre>protected final&nbsp;java.util.concurrent.atomic.AtomicReference&lt;<a href="../../../common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&gt; startStopTarget</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section role="region">
 <ul class="blockList">
@@ -530,7 +577,7 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 </dl>
 </li>
 </ul>
-<a id="activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String)">
+<a id="activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String,io.openems.edge.common.startstop.StartStopConfig)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -542,7 +589,8 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
                         boolean&nbsp;enabled,
                         org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
                         java.lang.String&nbsp;batteryInverterId,
-                        java.lang.String&nbsp;batteryId)</pre>
+                        java.lang.String&nbsp;batteryId,
+                        <a href="../../../common/startstop/StartStopConfig.html" title="enum in io.openems.edge.common.startstop">StartStopConfig</a>&nbsp;startStop)</pre>
 </li>
 </ul>
 <a id="deactivate()">
@@ -696,7 +744,7 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 <a id="getModbusSlaveTable(io.openems.common.channel.AccessMode)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getModbusSlaveTable</h4>
 <pre class="methodSignature">public&nbsp;<a href="../../../common/modbusslave/ModbusSlaveTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveTable</a>&nbsp;getModbusSlaveTable&#8203;(<a href="../../../../common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</pre>
@@ -709,6 +757,43 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 <dd><code>accessMode</code> - filters the Modbus-Records that should be shown</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the Modbus-Slave-Table</dd>
+</dl>
+</li>
+</ul>
+<a id="isOffGridPossible()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isOffGridPossible</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isOffGridPossible()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../offgrid/api/OffGridEss.html#isOffGridPossible()">OffGridEss</a></code></span></div>
+<div class="block">Gets a boolean if the ess is able to build a micro-grid in off-grid.
+ 
+ <p>
+ Returns false if the ess is not able to build a micro-grid.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../offgrid/api/OffGridEss.html#isOffGridPossible()">isOffGridPossible</a></code>&nbsp;in interface&nbsp;<code><a href="../../offgrid/api/OffGridEss.html" title="interface in io.openems.edge.ess.offgrid.api">OffGridEss</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>is managed or not</dd>
+</dl>
+</li>
+</ul>
+<a id="getStartStopTarget()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getStartStopTarget</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../../common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&nbsp;getStartStopTarget()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="GenericManagedEss.html#getStartStopTarget()">GenericManagedEss</a></code></span></div>
+<div class="block">Gets the target Start/Stop mode from config or StartStop-Channel.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="GenericManagedEss.html#getStartStopTarget()">getStartStopTarget</a></code>&nbsp;in interface&nbsp;<code><a href="GenericManagedEss.html" title="interface in io.openems.edge.ess.generic.common">GenericManagedEss</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><a href="../../../common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop"><code>StartStop</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -770,7 +855,7 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

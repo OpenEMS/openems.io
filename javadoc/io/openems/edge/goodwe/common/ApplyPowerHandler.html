@@ -175,13 +175,14 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#apply(io.openems.edge.goodwe.common.AbstractGoodWe,int,io.openems.edge.goodwe.common.enums.ControlMode,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value)">apply</a></span>&#8203;(<a href="AbstractGoodWe.html" title="class in io.openems.edge.goodwe.common">AbstractGoodWe</a>&nbsp;goodWe,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#apply(io.openems.edge.goodwe.common.AbstractGoodWe,int,io.openems.edge.goodwe.common.enums.ControlMode,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,boolean)">apply</a></span>&#8203;(<a href="AbstractGoodWe.html" title="class in io.openems.edge.goodwe.common">AbstractGoodWe</a>&nbsp;goodWe,
      int&nbsp;setActivePower,
      <a href="enums/ControlMode.html" title="enum in io.openems.edge.goodwe.common.enums">ControlMode</a>&nbsp;controlMode,
      <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;gridActivePower,
      <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;essActivePower,
      <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;maxAcImport,
-     <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;maxAcExport)</code></th>
+     <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;maxAcExport,
+     boolean&nbsp;isPidEnabled)</code></th>
 <td class="colLast">
 <div class="block">Apply the desired Active-Power Set-Point by setting the appropriate
  EMS_POWER_SET and EMS_POWER_MODE settings.</div>
@@ -230,7 +231,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="apply(io.openems.edge.goodwe.common.AbstractGoodWe,int,io.openems.edge.goodwe.common.enums.ControlMode,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value)">
+<a id="apply(io.openems.edge.goodwe.common.AbstractGoodWe,int,io.openems.edge.goodwe.common.enums.ControlMode,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,io.openems.edge.common.channel.value.Value,boolean)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -242,7 +243,8 @@ extends java.lang.Object</pre>
                   <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;gridActivePower,
                   <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;essActivePower,
                   <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;maxAcImport,
-                  <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;maxAcExport)
+                  <a href="../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;maxAcExport,
+                  boolean&nbsp;isPidEnabled)
            throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Apply the desired Active-Power Set-Point by setting the appropriate
  EMS_POWER_SET and EMS_POWER_MODE settings.</div>
@@ -256,6 +258,7 @@ extends java.lang.Object</pre>
 <dd><code>essActivePower</code> - the ESS active power</dd>
 <dd><code>maxAcImport</code> - the max AC import power</dd>
 <dd><code>maxAcExport</code> - the max AC export power</dd>
+<dd><code>isPidEnabled</code> - if PID Filter is enabled</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
