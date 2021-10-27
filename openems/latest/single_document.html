@@ -894,7 +894,19 @@ If you receive an error message that the command <code>npm</code> could not be f
 <li>
 <p>In Visual Studios integrated terminal type&#8230;&#8203;</p>
 <div class="paragraph">
-<p><code>ng serve</code></p>
+<p><code>ng serve -o -c openems-edge-dev</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you receive an error message, that you have no rights to execute "ng serve", set "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser".
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The log shows:</p>
@@ -916,21 +928,12 @@ If you receive an error message that the command <code>npm</code> could not be f
 </div>
 </li>
 <li>
-<p>Change to the Energymonitor by clicking on the arrow.</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/openems-ui-overview.png" alt="OpenEMS UI Overview screen">
-</div>
-<div class="title">Figure 16. OpenEMS UI Overview screen</div>
-</div>
-</li>
-<li>
 <p>You should see the Energymonitor showing the same data as the DebugLog output on the console.</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/openems-ui-edge-overview.png" alt="OpenEMS UI Energymonitor screen">
 </div>
-<div class="title">Figure 17. OpenEMS UI Energymonitor screen</div>
+<div class="title">Figure 16. OpenEMS UI Energymonitor screen</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -963,7 +966,7 @@ OpenEMS UI will complain that "no timedata source is available". Because of this
 <div class="content">
 <img src="_images/eclipse-io.openems.backend.application.png" alt="io.openems.backend.application project in Eclipse IDE">
 </div>
-<div class="title">Figure 18. io.openems.backend.application project in Eclipse IDE</div>
+<div class="title">Figure 17. io.openems.backend.application project in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -972,7 +975,7 @@ OpenEMS UI will complain that "no timedata source is available". Because of this
 <div class="content">
 <img src="_images/eclipse-backend-initial-log-output.png" alt="OpenEMS Backend initial log output">
 </div>
-<div class="title">Figure 19. OpenEMS Backend initial log output</div>
+<div class="title">Figure 18. OpenEMS Backend initial log output</div>
 </div>
 </li>
 <li>
@@ -1000,7 +1003,7 @@ Apache Felix Web Console for OpenEMS Backend is started on port 8079 by default.
 <div class="content">
 <img src="_images/apache-felix-console-backend-configuration.png" alt="Apache Felix Web Console Configuration for OpenEMS Backend">
 </div>
-<div class="title">Figure 20. Apache Felix Web Console Configuration for OpenEMS Backend</div>
+<div class="title">Figure 19. Apache Felix Web Console Configuration for OpenEMS Backend</div>
 </div>
 </li>
 <li>
@@ -1024,7 +1027,7 @@ The <strong>Edge.Websocket</strong> service is responsible for the communication
 <div class="content">
 <img src="_images/config-backend-edge.websocket.png" alt="Configuration of Backend Edge.Websocket">
 </div>
-<div class="title">Figure 21. Configuration of Backend Edge.Websocket</div>
+<div class="title">Figure 20. Configuration of Backend Edge.Websocket</div>
 </div>
 </li>
 <li>
@@ -1048,7 +1051,7 @@ The <strong>Ui.Websocket</strong> service is responsible for the communication b
 <div class="content">
 <img src="_images/config-backend-ui.websocket.png" alt="Configuration of Backend Ui.Websocket">
 </div>
-<div class="title">Figure 22. Configuration of Backend Ui.Websocket</div>
+<div class="title">Figure 21. Configuration of Backend Ui.Websocket</div>
 </div>
 </li>
 <li>
@@ -1072,7 +1075,7 @@ The <strong>Timedata</strong> service provider is responsible for holding the cu
 <div class="content">
 <img src="_images/config-backend-timedata.dummy.png" alt="Configuration of Backend Timedata.Dummy">
 </div>
-<div class="title">Figure 23. Configuration of Backend Timedata.Dummy</div>
+<div class="title">Figure 22. Configuration of Backend Timedata.Dummy</div>
 </div>
 </li>
 <li>
@@ -1096,7 +1099,7 @@ The <strong>Metadata</strong> service provider is responsible for authentication
 <div class="content">
 <img src="_images/config-backend-metadata.dummy.png" alt="Configuration of Backend Metadata.Dummy">
 </div>
-<div class="title">Figure 24. Configuration of Backend Metadata.Dummy</div>
+<div class="title">Figure 23. Configuration of Backend Metadata.Dummy</div>
 </div>
 </li>
 </ol>
@@ -1121,7 +1124,7 @@ The <strong>Metadata</strong> service provider is responsible for authentication
 <div class="content">
 <img src="_images/config-controller-api-backend.png" alt="Configuration of Controller Api Backend">
 </div>
-<div class="title">Figure 25. Configuration of Controller Api Backend</div>
+<div class="title">Figure 24. Configuration of Controller Api Backend</div>
 </div>
 <div class="paragraph">
 <p>Some configuration parameters are still noteworthy here:</p>
@@ -1190,19 +1193,22 @@ export const environment: Environment = {
 <li>
 <p>In Visual Studios integrated terminal type&#8230;&#8203;</p>
 <div class="paragraph">
-<p><code>ng serve</code></p>
+<p><code>ng serve -o -c openems-backend-dev</code></p>
 </div>
 </li>
 <li>
 <p>Open a browser at <a href="http://localhost:4200" class="bare">http://localhost:4200</a></p>
 </li>
 <li>
-<p>You should see again OpenEMS UI, but this time you are not asked for a login (because Metadata.Dummy does not require any) and are directly forwarded to the Energy Monitor at <code><a href="http://localhost:4200/device/edge0/index" class="bare">http://localhost:4200/device/edge0/index</a></code>. You are now seeing the data from OpenEMS Edge via OpenEMS Backend.</p>
+<p>You should see OpenEMS UI Login. Log in with any email / username and password.</p>
+</li>
+<li>
+<p>You should see again OpenEMS UI, you have to login again (because Metadata.Dummy does require a login), then you are forwarded to <code><a href="http://localhost:4200/device/edge0/live" class="bare">http://localhost:4200/device/edge0/live</a></code>. You are now seeing the data from OpenEMS Edge via OpenEMS Backend.</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/ui-via-backend.png" alt="UI via Backend">
 </div>
-<div class="title">Figure 26. UI via Backend</div>
+<div class="title">Figure 25. UI via Backend</div>
 </div>
 </li>
 </ol>
@@ -1489,7 +1495,7 @@ It also means that the EMS has to deal with multi-threading, asynchronous commun
 <div class="content">
 <img src="_images/input-process-output.png" alt="Input-Process-Output model">
 </div>
-<div class="title">Figure 27. Input-Process-Output model</div>
+<div class="title">Figure 26. Input-Process-Output model</div>
 </div>
 <div class="dlist">
 <dl>
@@ -1568,7 +1574,7 @@ Later executed Controllers are not allowed to overwrite a previously written res
 <div class="content">
 <img src="_images/input-process-scheduler-output.png" alt="IPO model with Scheduler and Controllers">
 </div>
-<div class="title">Figure 28. IPO model with Scheduler and Controllers</div>
+<div class="title">Figure 27. IPO model with Scheduler and Controllers</div>
 </div>
 <div class="paragraph">
 <p><em>Example:</em></p>
@@ -1590,7 +1596,7 @@ It is also used for optimizing distribution of setpoints in the case of multiple
 <div class="content">
 <img src="_images/scheduler-ess-priority.png" alt="Prioritization of ESS power setpoints">
 </div>
-<div class="title">Figure 29. Prioritization of ESS power setpoints</div>
+<div class="title">Figure 28. Prioritization of ESS power setpoints</div>
 </div>
 </div>
 <div class="sect3">
@@ -1602,7 +1608,7 @@ It is also used for optimizing distribution of setpoints in the case of multiple
 <div class="content">
 <img src="_images/edge-cycle.png" alt="OpenEMS Edge Cycle">
 </div>
-<div class="title">Figure 30. OpenEMS Edge Cycle</div>
+<div class="title">Figure 29. OpenEMS Edge Cycle</div>
 </div>
 </div>
 <div class="sect3">
@@ -1635,7 +1641,7 @@ This assures, that the data in the Process Image does not change during a comput
 <div class="content">
 <img src="_images/cycle-modbus.png" alt="Synchronize Cycle with Modbus read/write">
 </div>
-<div class="title">Figure 31. Synchronize Cycle with Modbus read/write</div>
+<div class="title">Figure 30. Synchronize Cycle with Modbus read/write</div>
 </div>
 </div>
 <div class="sect3">
@@ -1650,7 +1656,7 @@ This assures, that the data in the Process Image does not change during a comput
 <div class="content">
 <img src="_images/device-nature-channel-scheduler-controller.png" alt="Architecture scheme">
 </div>
-<div class="title">Figure 32. Architecture scheme</div>
+<div class="title">Figure 31. Architecture scheme</div>
 </div>
 </div>
 </div>
@@ -1692,13 +1698,13 @@ To reduce writes to local storage and avoid hardware defects, the configuration 
 <div class="content">
 <img src="_images/ui-component-install-overview.png" alt="OpenEMS UI Install Components Overview">
 </div>
-<div class="title">Figure 33. OpenEMS UI Install Components</div>
+<div class="title">Figure 32. OpenEMS UI Install Components</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="_images/ui-component-install.png" alt="OpenEMS UI Install Component">
 </div>
-<div class="title">Figure 34. OpenEMS UI Install Component</div>
+<div class="title">Figure 33. OpenEMS UI Install Component</div>
 </div>
 </div>
 <div class="sect4">
@@ -1710,7 +1716,7 @@ To reduce writes to local storage and avoid hardware defects, the configuration 
 <div class="content">
 <img src="_images/apache-felix-console-configuration.png" alt="Apache Felix Web Console Configuration">
 </div>
-<div class="title">Figure 35. Apache Felix Web Console Configuration</div>
+<div class="title">Figure 34. Apache Felix Web Console Configuration</div>
 </div>
 </div>
 <div class="sect4">
@@ -1814,7 +1820,7 @@ To reduce writes to local storage and avoid hardware defects, the configuration 
 <div class="content">
 <img src="_images/config-architecture.png" alt="OpenEMS Edge Configuration Architecture">
 </div>
-<div class="title">Figure 36. OpenEMS Edge Configuration Architecture</div>
+<div class="title">Figure 35. OpenEMS Edge Configuration Architecture</div>
 </div>
 <div class="paragraph">
 <p>The architecture of OpenEMS Edge configuration is shown in the image above. It consists of</p>
@@ -5474,7 +5480,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 <div class="content">
 <img src="_images/eclipse-file-new-other.png" alt="Creating a new project in Eclipse IDE">
 </div>
-<div class="title">Figure 37. Creating a new project in Eclipse IDE</div>
+<div class="title">Figure 36. Creating a new project in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -5483,7 +5489,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 <div class="content">
 <img src="_images/eclipse-bndtools-osgi-project.png" alt="Creating a Bnd OSGi Project in Eclipse IDE">
 </div>
-<div class="title">Figure 38. Creating a Bnd OSGi Project in Eclipse IDE</div>
+<div class="title">Figure 37. Creating a Bnd OSGi Project in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -5492,7 +5498,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 <div class="content">
 <img src="_images/eclipse-new-openems-modbus-device.png" alt="Creating an OpenEMS Modbus Devices Bundle in Eclipse IDE">
 </div>
-<div class="title">Figure 39. Creating an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
+<div class="title">Figure 38. Creating an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -5513,7 +5519,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="_images/eclipse-new-osgi-provider-simulatedmeter.png" alt="Naming an OpenEMS Modbus Devices Bundle in Eclipse IDE">
 </div>
-<div class="title">Figure 40. Naming an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
+<div class="title">Figure 39. Naming an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -5522,7 +5528,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="_images/eclipse-new-osgi-provider-simulatedmeter-final.png" alt="Java settings for an OpenEMS Modbus Devices Bundle in Eclipse IDE">
 </div>
-<div class="title">Figure 41. Java settings for an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
+<div class="title">Figure 40. Java settings for an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -5544,7 +5550,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="_images/eclipse-new-simulatedmeter-bundle.png" alt="New simulated meter OpenEMS Modbus Devices Bundle in Eclipse IDE">
 </div>
-<div class="title">Figure 42. New simulated meter OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
+<div class="title">Figure 41. New simulated meter OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -5594,7 +5600,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="_images/eclipse-bnd-file-build.png" alt="Bndtools Build configuration">
 </div>
-<div class="title">Figure 43. Bndtools Build configuration</div>
+<div class="title">Figure 42. Bndtools Build configuration</div>
 </div>
 </li>
 <li>
@@ -5603,7 +5609,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="_images/eclipse-osgi-build-path.png" alt="Bndtools Project Build Path configuration">
 </div>
-<div class="title">Figure 44. Bndtools Project Build Path configuration</div>
+<div class="title">Figure 43. Bndtools Project Build Path configuration</div>
 </div>
 </li>
 <li>
@@ -5788,7 +5794,7 @@ import io.openems.edge.meter.api.MeterType;
 <div class="content">
 <img src="_images/eclipse-rename.png" alt="Renaming a Java class in Eclipse IDE">
 </div>
-<div class="title">Figure 45. Renaming a Java class in Eclipse IDE</div>
+<div class="title">Figure 44. Renaming a Java class in Eclipse IDE</div>
 </div>
 <div class="paragraph">
 <p>Afterwards adjust the following content in the template:</p>
@@ -6218,7 +6224,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/eclipse-edgeapp-bndrun.png" alt="Eclipse IDE EdgeApp.bndrun">
 </div>
-<div class="title">Figure 46. Eclipse IDE EdgeApp.bndrun</div>
+<div class="title">Figure 45. Eclipse IDE EdgeApp.bndrun</div>
 </div>
 <div class="paragraph">
 <p>Select the <code>io.openems.edge.meter.simulated</code> bundle in the left <strong>Repositories</strong> list and drag &amp; drop it to the <strong>Run Requirements</strong> list.</p>
@@ -6230,7 +6236,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/eclipse-edgeapp-resolve.png" alt="Eclipse IDE Resolve EdgeApp.bndrun">
 </div>
-<div class="title">Figure 47. Eclipse IDE Resolve EdgeApp.bndrun</div>
+<div class="title">Figure 46. Eclipse IDE Resolve EdgeApp.bndrun</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -6386,7 +6392,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/eclipse-edgeapp-bndrun.png" alt="Eclipse IDE EdgeApp.bndrun">
 </div>
-<div class="title">Figure 48. Eclipse IDE EdgeApp.bndrun</div>
+<div class="title">Figure 47. Eclipse IDE EdgeApp.bndrun</div>
 </div>
 </li>
 <li>
@@ -6398,7 +6404,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/eclipse-bnd-file-export.png" alt="Eclipse Export Wizard Selection assistant">
 </div>
-<div class="title">Figure 49. Eclipse Export Wizard Selection assistant</div>
+<div class="title">Figure 48. Eclipse Export Wizard Selection assistant</div>
 </div>
 </li>
 <li>
@@ -6407,7 +6413,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/eclipse-bnd-file-export-destination.png" alt="Eclipse Export Destination">
 </div>
-<div class="title">Figure 50. Eclipse Export Destination</div>
+<div class="title">Figure 49. Eclipse Export Destination</div>
 </div>
 </li>
 <li>
@@ -6480,7 +6486,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/deploy-kitty.png" alt="KiTTY Configuration">
 </div>
-<div class="title">Figure 51. KiTTY Configuration</div>
+<div class="title">Figure 50. KiTTY Configuration</div>
 </div>
 </li>
 <li>
@@ -6489,7 +6495,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <div class="content">
 <img src="_images/deploy-ssh-root.png" alt="KiTTY Configuration">
 </div>
-<div class="title">Figure 52. KiTTY Configuration</div>
+<div class="title">Figure 51. KiTTY Configuration</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -6523,7 +6529,7 @@ As an example, for the FENECON Energy Management System (FEMS) it is required to
 <div class="content">
 <img src="_images/deploy-kitty-start-winscp.png" alt="Start WinSCP from KiTTY">
 </div>
-<div class="title">Figure 53. Start WinSCP from KiTTY</div>
+<div class="title">Figure 52. Start WinSCP from KiTTY</div>
 </div>
 </li>
 <li>
@@ -6532,7 +6538,7 @@ As an example, for the FENECON Energy Management System (FEMS) it is required to
 <div class="content">
 <img src="_images/deploy-winscp.png" alt="Start WinSCP from KiTTY">
 </div>
-<div class="title">Figure 54. Start WinSCP from KiTTY</div>
+<div class="title">Figure 53. Start WinSCP from KiTTY</div>
 </div>
 </li>
 </ol>
@@ -6670,7 +6676,7 @@ WantedBy=multi-user.target</pre>
 <div class="content">
 <img src="_images/deploy-winscp-copy.png" alt="WinSCP copy file">
 </div>
-<div class="title">Figure 55. WinSCP copy file</div>
+<div class="title">Figure 54. WinSCP copy file</div>
 </div>
 </li>
 <li>
@@ -6685,7 +6691,7 @@ WantedBy=multi-user.target</pre>
 <div class="content">
 <img src="_images/deploy-openems-start.png" alt="OpenEMS Edge start-up">
 </div>
-<div class="title">Figure 56. OpenEMS Edge start-up</div>
+<div class="title">Figure 55. OpenEMS Edge start-up</div>
 </div>
 </li>
 </ol>
@@ -6708,7 +6714,7 @@ WantedBy=multi-user.target</pre>
 <div class="content">
 <img src="_images/ui-live.png" alt="OpenEMS UI Live view">
 </div>
-<div class="title">Figure 57. OpenEMS UI Live view</div>
+<div class="title">Figure 56. OpenEMS UI Live view</div>
 </div>
 <div class="sect3">
 <h4 id="_adaptive_user_interface"><a class="anchor" href="#_adaptive_user_interface"></a>5.1.1. Adaptive User Interface</h4>
@@ -7649,7 +7655,7 @@ To provide data for one day, that file should have 288 lines with values.
 <div class="content">
 <img src="_images/ui-mock-csv.png" alt="The mocked data in the CSV file">
 </div>
-<div class="title">Figure 58. The mocked data in the CSV file</div>
+<div class="title">Figure 57. The mocked data in the CSV file</div>
 </div>
 </li>
 </ol>
@@ -7674,7 +7680,7 @@ To provide data for one day, that file should have 288 lines with values.
 <div class="content">
 <img src="_images/ui-mock-history.png" alt="The mocked data in the UI 'History' view">
 </div>
-<div class="title">Figure 59. The mocked data in the UI 'History' view</div>
+<div class="title">Figure 58. The mocked data in the UI 'History' view</div>
 </div>
 </div>
 </div>

@@ -657,7 +657,19 @@ If you receive an error message that the command <code>npm</code> could not be f
 <li>
 <p>In Visual Studios integrated terminal type&#8230;&#8203;</p>
 <div class="paragraph">
-<p><code>ng serve</code></p>
+<p><code>ng serve -o -c openems-edge-dev</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you receive an error message, that you have no rights to execute "ng serve", set "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser".
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The log shows:</p>
@@ -679,21 +691,12 @@ If you receive an error message that the command <code>npm</code> could not be f
 </div>
 </li>
 <li>
-<p>Change to the Energymonitor by clicking on the arrow.</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/openems-ui-overview.png" alt="OpenEMS UI Overview screen">
-</div>
-<div class="title">Figure 15. OpenEMS UI Overview screen</div>
-</div>
-</li>
-<li>
 <p>You should see the Energymonitor showing the same data as the DebugLog output on the console.</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/openems-ui-edge-overview.png" alt="OpenEMS UI Energymonitor screen">
 </div>
-<div class="title">Figure 16. OpenEMS UI Energymonitor screen</div>
+<div class="title">Figure 15. OpenEMS UI Energymonitor screen</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -728,7 +731,7 @@ OpenEMS UI will complain that "no timedata source is available". Because of this
 <div class="content">
 <img src="_images/eclipse-io.openems.backend.application.png" alt="io.openems.backend.application project in Eclipse IDE">
 </div>
-<div class="title">Figure 17. io.openems.backend.application project in Eclipse IDE</div>
+<div class="title">Figure 16. io.openems.backend.application project in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -737,7 +740,7 @@ OpenEMS UI will complain that "no timedata source is available". Because of this
 <div class="content">
 <img src="_images/eclipse-backend-initial-log-output.png" alt="OpenEMS Backend initial log output">
 </div>
-<div class="title">Figure 18. OpenEMS Backend initial log output</div>
+<div class="title">Figure 17. OpenEMS Backend initial log output</div>
 </div>
 </li>
 <li>
@@ -765,7 +768,7 @@ Apache Felix Web Console for OpenEMS Backend is started on port 8079 by default.
 <div class="content">
 <img src="_images/apache-felix-console-backend-configuration.png" alt="Apache Felix Web Console Configuration for OpenEMS Backend">
 </div>
-<div class="title">Figure 19. Apache Felix Web Console Configuration for OpenEMS Backend</div>
+<div class="title">Figure 18. Apache Felix Web Console Configuration for OpenEMS Backend</div>
 </div>
 </li>
 <li>
@@ -789,7 +792,7 @@ The <strong>Edge.Websocket</strong> service is responsible for the communication
 <div class="content">
 <img src="_images/config-backend-edge.websocket.png" alt="Configuration of Backend Edge.Websocket">
 </div>
-<div class="title">Figure 20. Configuration of Backend Edge.Websocket</div>
+<div class="title">Figure 19. Configuration of Backend Edge.Websocket</div>
 </div>
 </li>
 <li>
@@ -813,7 +816,7 @@ The <strong>Ui.Websocket</strong> service is responsible for the communication b
 <div class="content">
 <img src="_images/config-backend-ui.websocket.png" alt="Configuration of Backend Ui.Websocket">
 </div>
-<div class="title">Figure 21. Configuration of Backend Ui.Websocket</div>
+<div class="title">Figure 20. Configuration of Backend Ui.Websocket</div>
 </div>
 </li>
 <li>
@@ -837,7 +840,7 @@ The <strong>Timedata</strong> service provider is responsible for holding the cu
 <div class="content">
 <img src="_images/config-backend-timedata.dummy.png" alt="Configuration of Backend Timedata.Dummy">
 </div>
-<div class="title">Figure 22. Configuration of Backend Timedata.Dummy</div>
+<div class="title">Figure 21. Configuration of Backend Timedata.Dummy</div>
 </div>
 </li>
 <li>
@@ -861,7 +864,7 @@ The <strong>Metadata</strong> service provider is responsible for authentication
 <div class="content">
 <img src="_images/config-backend-metadata.dummy.png" alt="Configuration of Backend Metadata.Dummy">
 </div>
-<div class="title">Figure 23. Configuration of Backend Metadata.Dummy</div>
+<div class="title">Figure 22. Configuration of Backend Metadata.Dummy</div>
 </div>
 </li>
 </ol>
@@ -886,7 +889,7 @@ The <strong>Metadata</strong> service provider is responsible for authentication
 <div class="content">
 <img src="_images/config-controller-api-backend.png" alt="Configuration of Controller Api Backend">
 </div>
-<div class="title">Figure 24. Configuration of Controller Api Backend</div>
+<div class="title">Figure 23. Configuration of Controller Api Backend</div>
 </div>
 <div class="paragraph">
 <p>Some configuration parameters are still noteworthy here:</p>
@@ -955,19 +958,22 @@ export const environment: Environment = {
 <li>
 <p>In Visual Studios integrated terminal type&#8230;&#8203;</p>
 <div class="paragraph">
-<p><code>ng serve</code></p>
+<p><code>ng serve -o -c openems-backend-dev</code></p>
 </div>
 </li>
 <li>
 <p>Open a browser at <a href="http://localhost:4200" class="bare">http://localhost:4200</a></p>
 </li>
 <li>
-<p>You should see again OpenEMS UI, but this time you are not asked for a login (because Metadata.Dummy does not require any) and are directly forwarded to the Energy Monitor at <code><a href="http://localhost:4200/device/edge0/index" class="bare">http://localhost:4200/device/edge0/index</a></code>. You are now seeing the data from OpenEMS Edge via OpenEMS Backend.</p>
+<p>You should see OpenEMS UI Login. Log in with any email / username and password.</p>
+</li>
+<li>
+<p>You should see again OpenEMS UI, you have to login again (because Metadata.Dummy does require a login), then you are forwarded to <code><a href="http://localhost:4200/device/edge0/live" class="bare">http://localhost:4200/device/edge0/live</a></code>. You are now seeing the data from OpenEMS Edge via OpenEMS Backend.</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/ui-via-backend.png" alt="UI via Backend">
 </div>
-<div class="title">Figure 25. UI via Backend</div>
+<div class="title">Figure 24. UI via Backend</div>
 </div>
 </li>
 </ol>
