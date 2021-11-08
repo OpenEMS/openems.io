@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -157,7 +157,8 @@ extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" ti
    "id": "UUID",
    "result": {
      "stdout": string[],
-     "stderr": string[]
+     "stderr": string[],
+     "exitcode": number (exit code of application: 0 = successful; otherwise error)
    }
  }
  </pre></div>
@@ -198,9 +199,10 @@ extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" ti
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,java.lang.String%5B%5D,java.lang.String%5B%5D)">ExecuteSystemCommandResponse</a></span>&#8203;(java.util.UUID&nbsp;id,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,java.lang.String%5B%5D,java.lang.String%5B%5D,int)">ExecuteSystemCommandResponse</a></span>&#8203;(java.util.UUID&nbsp;id,
                             java.lang.String[]&nbsp;stdout,
-                            java.lang.String[]&nbsp;stderr)</code></th>
+                            java.lang.String[]&nbsp;stderr,
+                            int&nbsp;exitcode)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -222,8 +224,23 @@ extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" ti
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExitCode()">getExitCode</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getResult()">getResult</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>java.lang.String[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStderr()">getStderr</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.lang.String[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStdout()">getStdout</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -271,7 +288,7 @@ extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" ti
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.util.UUID,java.lang.String[],java.lang.String[])">
+<a id="&lt;init&gt;(java.util.UUID,java.lang.String[],java.lang.String[],int)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -279,7 +296,8 @@ extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" ti
 <h4>ExecuteSystemCommandResponse</h4>
 <pre>public&nbsp;ExecuteSystemCommandResponse&#8203;(java.util.UUID&nbsp;id,
                                     java.lang.String[]&nbsp;stdout,
-                                    java.lang.String[]&nbsp;stderr)</pre>
+                                    java.lang.String[]&nbsp;stderr,
+                                    int&nbsp;exitcode)</pre>
 </li>
 </ul>
 </li>
@@ -295,7 +313,7 @@ extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" ti
 <a id="getResult()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getResult</h4>
 <pre class="methodSignature">public&nbsp;com.google.gson.JsonObject&nbsp;getResult()</pre>
@@ -303,6 +321,33 @@ extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" ti
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html#getResult()">getResult</a></code>&nbsp;in class&nbsp;<code><a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a></code></dd>
 </dl>
+</li>
+</ul>
+<a id="getStdout()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getStdout</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String[]&nbsp;getStdout()</pre>
+</li>
+</ul>
+<a id="getStderr()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getStderr</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String[]&nbsp;getStderr()</pre>
+</li>
+</ul>
+<a id="getExitCode()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getExitCode</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getExitCode()</pre>
 </li>
 </ul>
 </li>

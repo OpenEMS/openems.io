@@ -170,51 +170,79 @@ implements <a href="../../../../common/channel/ChannelId.html" title="interface 
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#BUYING_FROM_GRID">BUYING_FROM_GRID</a></span></code></th>
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#DELAYED">DELAYED</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#CONSUMPTON">CONSUMPTON</a></span></code></th>
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#DELAYED_TIME">DELAYED_TIME</a></span></code></th>
+<td class="colLast">
+<div class="block">Aggregated seconds when storage is blocked for discharge.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#MIN_SOC">MIN_SOC</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PREDICTED_CONSUMPTION">PREDICTED_CONSUMPTION</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#NUMBER_OF_TARGET_HOURS">NUMBER_OF_TARGET_HOURS</a></span></code></th>
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PREDICTED_PRODUCTION">PREDICTED_PRODUCTION</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PREDICTED_SOC_WITHOUT_LOGIC">PREDICTED_SOC_WITHOUT_LOGIC</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PRO_LESS_THAN_CON">PRO_LESS_THAN_CON</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PRO_MORE_THAN_CON_ACTUAL">PRO_MORE_THAN_CON_ACTUAL</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 <tr class="rowColor">
-<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PRO_MORE_THAN_CON">PRO_MORE_THAN_CON</a></span></code></th>
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PRO_MORE_THAN_CON_SET">PRO_MORE_THAN_CON_SET</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PRODUCTION">PRODUCTION</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#QUARTERLY_PRICES">QUARTERLY_PRICES</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#QUATERLY_PRICES_TAKEN">QUATERLY_PRICES_TAKEN</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#REMAINING_CONSUMPTION">REMAINING_CONSUMPTION</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#STATE_MACHINE">STATE_MACHINE</a></span></code></th>
+<td class="colLast">
+<div class="block">Current state of the Time of use tariff discharge controller.</div>
+</td>
+</tr>
 <tr class="altColor">
-<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#TARGET_HOURS_CALCULATED">TARGET_HOURS_CALCULATED</a></span></code></th>
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#TARGET_HOURS">TARGET_HOURS</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#TARGET_HOURS_IS_EMPTY">TARGET_HOURS_IS_EMPTY</a></span></code></th>
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#TARGET_HOURS_CALCULATED">TARGET_HOURS_CALCULATED</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#TARGET_HOURS_IS_EMPTY">TARGET_HOURS_IS_EMPTY</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#TOTAL_CONSUMPTION">TOTAL_CONSUMPTION</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#USABLE_CAPACITY">USABLE_CAPACITY</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -295,13 +323,33 @@ the order they are declared.</div>
 <!--   -->
 </a>
 <h3>Enum Constant Detail</h3>
-<a id="BUYING_FROM_GRID">
+<a id="STATE_MACHINE">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>BUYING_FROM_GRID</h4>
-<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> BUYING_FROM_GRID</pre>
+<h4>STATE_MACHINE</h4>
+<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> STATE_MACHINE</pre>
+<div class="block">Current state of the Time of use tariff discharge controller.</div>
+</li>
+</ul>
+<a id="DELAYED_TIME">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DELAYED_TIME</h4>
+<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> DELAYED_TIME</pre>
+<div class="block">Aggregated seconds when storage is blocked for discharge.</div>
+</li>
+</ul>
+<a id="DELAYED">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DELAYED</h4>
+<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> DELAYED</pre>
 </li>
 </ul>
 <a id="TARGET_HOURS_IS_EMPTY">
@@ -358,13 +406,13 @@ the order they are declared.</div>
 <pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> REMAINING_CONSUMPTION</pre>
 </li>
 </ul>
-<a id="NUMBER_OF_TARGET_HOURS">
+<a id="TARGET_HOURS">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>NUMBER_OF_TARGET_HOURS</h4>
-<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> NUMBER_OF_TARGET_HOURS</pre>
+<h4>TARGET_HOURS</h4>
+<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> TARGET_HOURS</pre>
 </li>
 </ul>
 <a id="AVAILABLE_CAPACITY">
@@ -376,13 +424,31 @@ the order they are declared.</div>
 <pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> AVAILABLE_CAPACITY</pre>
 </li>
 </ul>
-<a id="PRO_MORE_THAN_CON">
+<a id="USABLE_CAPACITY">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>PRO_MORE_THAN_CON</h4>
-<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> PRO_MORE_THAN_CON</pre>
+<h4>USABLE_CAPACITY</h4>
+<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> USABLE_CAPACITY</pre>
+</li>
+</ul>
+<a id="PRO_MORE_THAN_CON_ACTUAL">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PRO_MORE_THAN_CON_ACTUAL</h4>
+<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> PRO_MORE_THAN_CON_ACTUAL</pre>
+</li>
+</ul>
+<a id="PRO_MORE_THAN_CON_SET">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PRO_MORE_THAN_CON_SET</h4>
+<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> PRO_MORE_THAN_CON_SET</pre>
 </li>
 </ul>
 <a id="PRO_LESS_THAN_CON">
@@ -394,22 +460,40 @@ the order they are declared.</div>
 <pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> PRO_LESS_THAN_CON</pre>
 </li>
 </ul>
-<a id="PRODUCTION">
+<a id="PREDICTED_PRODUCTION">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>PRODUCTION</h4>
-<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> PRODUCTION</pre>
+<h4>PREDICTED_PRODUCTION</h4>
+<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> PREDICTED_PRODUCTION</pre>
 </li>
 </ul>
-<a id="CONSUMPTON">
+<a id="PREDICTED_CONSUMPTION">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PREDICTED_CONSUMPTION</h4>
+<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> PREDICTED_CONSUMPTION</pre>
+</li>
+</ul>
+<a id="MIN_SOC">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>MIN_SOC</h4>
+<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> MIN_SOC</pre>
+</li>
+</ul>
+<a id="PREDICTED_SOC_WITHOUT_LOGIC">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>CONSUMPTON</h4>
-<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> CONSUMPTON</pre>
+<h4>PREDICTED_SOC_WITHOUT_LOGIC</h4>
+<pre>public static final&nbsp;<a href="TimeOfUseTariffDischarge.ChannelId.html" title="enum in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge.ChannelId</a> PREDICTED_SOC_WITHOUT_LOGIC</pre>
 </li>
 </ul>
 </li>

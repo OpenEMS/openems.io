@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10};
+var data = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,12 +136,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code><a href="TimeOfUseTariffDischarge.html" title="interface in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge</a></code></dd>
+<dd><code><a href="../../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code><a href="TimeOfUseTariffDischarge.html" title="interface in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge</a></code>, <code><a href="../../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">TimeOfUseTariffDischargeImpl</span>
 extends <a href="../../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="../../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="TimeOfUseTariffDischarge.html" title="interface in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge</a></pre>
+implements <a href="../../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, <a href="TimeOfUseTariffDischarge.html" title="interface in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge</a></pre>
 </li>
 </ul>
 </div>
@@ -196,10 +196,6 @@ implements <a href="../../../api/Controller.html" title="interface in io.openems
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">TimeOfUseTariffDischargeImpl</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.edge.controller.ess.timeofusetariff.discharge.tariff.TimeOfUseTariff)">TimeOfUseTariffDischargeImpl</a></span>&#8203;(<a href="tariff/TimeOfUseTariff.html" title="interface in io.openems.edge.controller.ess.timeofusetariff.discharge.tariff">TimeOfUseTariff</a>&nbsp;timeOfUseTariff)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
 </table>
 </li>
 </ul>
@@ -226,6 +222,13 @@ implements <a href="../../../api/Controller.html" title="interface in io.openems
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimedata()">getTimedata</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the <a href="../../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run()">run</a></span>()</code></th>
 <td class="colLast">
@@ -261,6 +264,13 @@ implements <a href="../../../api/Controller.html" title="interface in io.openems
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
 <code><a href="../../../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../../../common/component/OpenemsComponent.html#debugLog()">debugLog</a>, <a href="../../../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></li>
 </ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.controller.ess.timeofusetariff.discharge.TimeOfUseTariffDischarge">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.controller.ess.timeofusetariff.discharge.<a href="TimeOfUseTariffDischarge.html" title="interface in io.openems.edge.controller.ess.timeofusetariff.discharge">TimeOfUseTariffDischarge</a></h3>
+<code><a href="TimeOfUseTariffDischarge.html#_setDelayed(boolean)">_setDelayed</a>, <a href="TimeOfUseTariffDischarge.html#_setPredictedConsumption(java.lang.Integer)">_setPredictedConsumption</a>, <a href="TimeOfUseTariffDischarge.html#_setPredictedProduction(java.lang.Integer)">_setPredictedProduction</a>, <a href="TimeOfUseTariffDischarge.html#_setPredictedSocWithoutLogic(java.lang.Integer)">_setPredictedSocWithoutLogic</a>, <a href="TimeOfUseTariffDischarge.html#_setQuarterlyPrices(java.lang.Float)">_setQuarterlyPrices</a>, <a href="TimeOfUseTariffDischarge.html#_setStateMachine(io.openems.edge.controller.ess.timeofusetariff.discharge.StateMachine)">_setStateMachine</a>, <a href="TimeOfUseTariffDischarge.html#_setTargetHoursCalculated(java.lang.Boolean)">_setTargetHoursCalculated</a>, <a href="TimeOfUseTariffDischarge.html#_setTargetHoursIsEmpty(java.lang.Boolean)">_setTargetHoursIsEmpty</a>, <a href="TimeOfUseTariffDischarge.html#getDelayedChannel()">getDelayedChannel</a>, <a href="TimeOfUseTariffDischarge.html#getPredictedConsumptionChannel()">getPredictedConsumptionChannel</a>, <a href="TimeOfUseTariffDischarge.html#getPredictedProductionChannel()">getPredictedProductionChannel</a>, <a href="TimeOfUseTariffDischarge.html#getPredictedSocWithoutLogicChannel()">getPredictedSocWithoutLogicChannel</a>, <a href="TimeOfUseTariffDischarge.html#getQuarterlyPricesChannel()">getQuarterlyPricesChannel</a>, <a href="TimeOfUseTariffDischarge.html#getStateMachine()">getStateMachine</a>, <a href="TimeOfUseTariffDischarge.html#getStateMachineChannel()">getStateMachineChannel</a>, <a href="TimeOfUseTariffDischarge.html#getTargetHoursCalculatedChannel()">getTargetHoursCalculatedChannel</a>, <a href="TimeOfUseTariffDischarge.html#getTargetHoursIsEmptyChannel()">getTargetHoursIsEmptyChannel</a></code></li>
+</ul>
 </li>
 </ul>
 </section>
@@ -277,15 +287,6 @@ implements <a href="../../../api/Controller.html" title="interface in io.openems
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(io.openems.edge.controller.ess.timeofusetariff.discharge.tariff.TimeOfUseTariff)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>TimeOfUseTariffDischargeImpl</h4>
-<pre>public&nbsp;TimeOfUseTariffDischargeImpl&#8203;(<a href="tariff/TimeOfUseTariff.html" title="interface in io.openems.edge.controller.ess.timeofusetariff.discharge.tariff">TimeOfUseTariff</a>&nbsp;timeOfUseTariff)</pre>
-</li>
-</ul>
 <a id="&lt;init&gt;()">
 <!--   -->
 </a>
@@ -323,7 +324,7 @@ implements <a href="../../../api/Controller.html" title="interface in io.openems
 <a id="run()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>run</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;run()
@@ -335,6 +336,23 @@ implements <a href="../../../api/Controller.html" title="interface in io.openems
 <dd><code><a href="../../../api/Controller.html#run()">run</a></code>&nbsp;in interface&nbsp;<code><a href="../../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="getTimedata()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getTimedata</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a>&nbsp;getTimedata()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../timedata/api/TimedataProvider.html#getTimedata()">TimedataProvider</a></code></span></div>
+<div class="block">Gets the <a href="../../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../timedata/api/TimedataProvider.html#getTimedata()">getTimedata</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the service or null if it is not (yet) available.</dd>
 </dl>
 </li>
 </ul>
