@@ -233,7 +233,9 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parseNumberFromName(java.lang.String)">parseNumberFromName</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Parses the number of an Edge from its name string.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.SortedMap&lt;java.time.ZonedDateTime,&#8203;java.util.SortedMap&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&gt;</code></td>
@@ -370,7 +372,7 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <dd><code>data</code> - Table of timestamp (epoch in milliseconds), Channel-Address and
                the Channel value as JsonElement. Sorted by timestamp.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -382,9 +384,17 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <h4>parseNumberFromName</h4>
 <pre class="methodSignature">public static&nbsp;java.lang.Integer&nbsp;parseNumberFromName&#8203;(java.lang.String&nbsp;name)
                                              throws <a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<div class="block">Parses the number of an Edge from its name string.
+ 
+ <p>
+ e.g. translates "edge0" to "0".</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - the edge name</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the number</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -493,6 +503,7 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <dd><code>edgeId</code> - The unique Edge-ID</dd>
 <dd><code>address</code> - The Channel-Address</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>the value</dd>
 </dl>
 </li>
 </ul>
