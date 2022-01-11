@@ -177,7 +177,9 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#capitalizeFirstLetter(java.lang.String)">capitalizeFirstLetter</a></span>&#8203;(java.lang.String&nbsp;s)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Convert the first letter of a string to Upper-Case.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static int</code></td>
@@ -191,13 +193,17 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toShortString(com.google.gson.JsonElement,int)">toShortString</a></span>&#8203;(com.google.gson.JsonElement&nbsp;j,
              int&nbsp;length)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Shortens a <code>JsonElement</code> string representation to a given length.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toShortString(java.lang.String,int)">toShortString</a></span>&#8203;(java.lang.String&nbsp;s,
              int&nbsp;length)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Shortens a string to a given length.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -250,6 +256,17 @@ extends java.lang.Object</pre>
 <h4>toShortString</h4>
 <pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;toShortString&#8203;(java.lang.String&nbsp;s,
                                              int&nbsp;length)</pre>
+<div class="block">Shortens a string to a given length.
+ 
+ <p>
+ Example: converts a string "hello world" to "hello w..."</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>s</code> - the string</dd>
+<dd><code>length</code> - the target string length</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the shortened string</dd>
+</dl>
 </li>
 </ul>
 <a id="toShortString(com.google.gson.JsonElement,int)">
@@ -260,6 +277,17 @@ extends java.lang.Object</pre>
 <h4>toShortString</h4>
 <pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;toShortString&#8203;(com.google.gson.JsonElement&nbsp;j,
                                              int&nbsp;length)</pre>
+<div class="block">Shortens a <code>JsonElement</code> string representation to a given length.
+ 
+ <p>
+ Example: converts a "{ 'foo': 'bar' }" to "{ 'foo': '..."</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>j</code> - the <code>JsonElement</code></dd>
+<dd><code>length</code> - the target string length</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the shortened string</dd>
+</dl>
 </li>
 </ul>
 <a id="capitalizeFirstLetter(java.lang.String)">
@@ -269,6 +297,16 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>capitalizeFirstLetter</h4>
 <pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;capitalizeFirstLetter&#8203;(java.lang.String&nbsp;s)</pre>
+<div class="block">Convert the first letter of a string to Upper-Case.
+ 
+ <p>
+ Example: converts "hello world" to "Hello world"</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>s</code> - the string</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the converted string</dd>
+</dl>
 </li>
 </ul>
 <a id="matchWildcard(java.lang.String,java.lang.String)">
@@ -280,14 +318,14 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public static&nbsp;int&nbsp;matchWildcard&#8203;(java.lang.String&nbsp;source,
                                 java.lang.String&nbsp;pattern)</pre>
 <div class="block">Match two Strings, considering wildcards.
- 
+
  <ul>
  <li>if <code>Object.equals(Object)</code> is true -&gt; return 0
  <li>if 'pattern' matches 'source' -&gt; return value &gt; 1; bigger values
  represent a better match
  <li>if both Strings do not match -&gt; return -1
  </ul>
- 
+
  <p>
  Implementation note: only one wildcard is considered. Either the entire
  string is "*" or the wildcard is at the beginning or at the end of the

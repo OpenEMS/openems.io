@@ -149,7 +149,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a></pre>
 <div class="block">Represents a JSON-RPC Notification for timestamped data sent from Edge to
  Backend.
- 
+
  <pre>
  {
    "jsonrpc": "2.0",
@@ -237,18 +237,25 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(long,io.openems.common.types.ChannelAddress,com.google.gson.JsonElement)">add</a></span>&#8203;(long&nbsp;timestamp,
    <a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;address,
    com.google.gson.JsonElement&nbsp;value)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add a timestamped value.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(long,java.util.Map)">add</a></span>&#8203;(long&nbsp;timestamp,
    java.util.Map&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;data)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add timestamped data.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="TimestampedDataNotification.html" title="class in io.openems.common.jsonrpc.notification">TimestampedDataNotification</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#from(io.openems.common.jsonrpc.base.JsonrpcNotification)">from</a></span>&#8203;(<a href="../base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
-<td class="colLast">&nbsp;</td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#from(io.openems.common.jsonrpc.base.JsonrpcNotification)">from</a></span>&#8203;(<a href="../base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;n)</code></th>
+<td class="colLast">
+<div class="block">Parses a <a href="../base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcNotification</code></a> to a
+ <a href="TimestampedDataNotification.html" title="class in io.openems.common.jsonrpc.notification"><code>TimestampedDataNotification</code></a>.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>com.google.common.collect.TreeBasedTable&lt;java.lang.Long,&#8203;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;</code></td>
@@ -258,7 +265,9 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParams()">getParams</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the params <code>JsonObject</code> of the <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -346,11 +355,17 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <ul class="blockList">
 <li class="blockList">
 <h4>from</h4>
-<pre class="methodSignature">public static&nbsp;<a href="TimestampedDataNotification.html" title="class in io.openems.common.jsonrpc.notification">TimestampedDataNotification</a>&nbsp;from&#8203;(<a href="../base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)
+<pre class="methodSignature">public static&nbsp;<a href="TimestampedDataNotification.html" title="class in io.openems.common.jsonrpc.notification">TimestampedDataNotification</a>&nbsp;from&#8203;(<a href="../base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;n)
                                         throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Parses a <a href="../base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcNotification</code></a> to a
+ <a href="TimestampedDataNotification.html" title="class in io.openems.common.jsonrpc.notification"><code>TimestampedDataNotification</code></a>.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>n</code> - the <a href="../base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcNotification</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="TimestampedDataNotification.html" title="class in io.openems.common.jsonrpc.notification"><code>TimestampedDataNotification</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+<dd><code><a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -362,6 +377,12 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <h4>add</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;add&#8203;(long&nbsp;timestamp,
                 java.util.Map&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;data)</pre>
+<div class="block">Add timestamped data.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>timestamp</code> - the timestamp epoch in milliseconds</dd>
+<dd><code>data</code> - a map of <a href="../../types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a> to <code>JsonElement</code> value</dd>
+</dl>
 </li>
 </ul>
 <a id="add(long,io.openems.common.types.ChannelAddress,com.google.gson.JsonElement)">
@@ -373,6 +394,13 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <pre class="methodSignature">public&nbsp;void&nbsp;add&#8203;(long&nbsp;timestamp,
                 <a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;address,
                 com.google.gson.JsonElement&nbsp;value)</pre>
+<div class="block">Add a timestamped value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>timestamp</code> - the timestamp epoch in milliseconds</dd>
+<dd><code>address</code> - the <a href="../../types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a></dd>
+<dd><code>value</code> - the <code>JsonElement</code> value</dd>
+</dl>
 </li>
 </ul>
 <a id="getParams()">
@@ -382,9 +410,13 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <li class="blockList">
 <h4>getParams</h4>
 <pre class="methodSignature">public&nbsp;com.google.gson.JsonObject&nbsp;getParams()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../base/AbstractJsonrpcRequest.html#getParams()">AbstractJsonrpcRequest</a></code></span></div>
+<div class="block">Gets the params <code>JsonObject</code> of the <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../base/AbstractJsonrpcRequest.html#getParams()">getParams</a></code>&nbsp;in class&nbsp;<code><a href="../base/AbstractJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">AbstractJsonrpcRequest</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the params as <code>JsonObject</code></dd>
 </dl>
 </li>
 </ul>

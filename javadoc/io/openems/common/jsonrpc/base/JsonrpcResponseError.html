@@ -143,7 +143,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">JsonrpcResponseError</span>
 extends <a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponse</a></pre>
 <div class="block">Represents a JSON-RPC Response Error.
- 
+
  <pre>
  {
    "jsonrpc": "2.0",
@@ -211,7 +211,7 @@ extends <a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,java.lang.String)">JsonrpcResponseError</a></span>&#8203;(java.util.UUID&nbsp;id,
                     java.lang.String&nbsp;message)</code></th>
 <td class="colLast">
-<div class="block">Creates a GENERIC error.</div>
+<div class="block">Creates a generic JSON-RPC Error response.</div>
 </td>
 </tr>
 </table>
@@ -235,12 +235,16 @@ extends <a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="JsonrpcResponseError.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseError</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#from(com.google.gson.JsonObject)">from</a></span>&#8203;(com.google.gson.JsonObject&nbsp;j)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Parses a <code>JsonObject</code> to a <a href="JsonrpcResponseError.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponseError</code></a>.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="JsonrpcResponseError.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseError</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#from(java.lang.String)">from</a></span>&#8203;(java.lang.String&nbsp;json)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Parses a JSON String to a <a href="JsonrpcResponseError.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponseError</code></a>.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../exceptions/OpenemsError.html" title="enum in io.openems.common.exceptions">OpenemsError</a></code></td>
@@ -255,12 +259,16 @@ extends <a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.Object[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParamsAsObjectArray()">getParamsAsObjectArray</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the error message parameters as Object array.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJsonObject()">toJsonObject</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the <code>JsonObject</code> representation of this <a href="JsonrpcMessage.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcMessage</code></a>.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -319,11 +327,11 @@ extends <a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc
 <h4>JsonrpcResponseError</h4>
 <pre>public&nbsp;JsonrpcResponseError&#8203;(java.util.UUID&nbsp;id,
                             java.lang.String&nbsp;message)</pre>
-<div class="block">Creates a GENERIC error.</div>
+<div class="block">Creates a generic JSON-RPC Error response.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>id</code> - </dd>
-<dd><code>message</code> - </dd>
+<dd><code>id</code> - the request ID</dd>
+<dd><code>message</code> - the error message</dd>
 </dl>
 </li>
 </ul>
@@ -355,9 +363,14 @@ extends <a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc
 <h4>from</h4>
 <pre class="methodSignature">public static&nbsp;<a href="JsonrpcResponseError.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseError</a>&nbsp;from&#8203;(java.lang.String&nbsp;json)
                                  throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Parses a JSON String to a <a href="JsonrpcResponseError.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponseError</code></a>.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>json</code> - the JSON String</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="JsonrpcResponseError.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponseError</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+<dd><code><a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -369,9 +382,14 @@ extends <a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc
 <h4>from</h4>
 <pre class="methodSignature">public static&nbsp;<a href="JsonrpcResponseError.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseError</a>&nbsp;from&#8203;(com.google.gson.JsonObject&nbsp;j)
                                  throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Parses a <code>JsonObject</code> to a <a href="JsonrpcResponseError.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponseError</code></a>.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>j</code> - the <code>JsonObject</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="JsonrpcResponseError.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponseError</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+<dd><code><a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -382,9 +400,13 @@ extends <a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc
 <li class="blockList">
 <h4>toJsonObject</h4>
 <pre class="methodSignature">public&nbsp;com.google.gson.JsonObject&nbsp;toJsonObject()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="JsonrpcMessage.html#toJsonObject()">JsonrpcMessage</a></code></span></div>
+<div class="block">Gets the <code>JsonObject</code> representation of this <a href="JsonrpcMessage.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcMessage</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="JsonrpcResponse.html#toJsonObject()">toJsonObject</a></code>&nbsp;in class&nbsp;<code><a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponse</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <code>JsonObject</code></dd>
 </dl>
 </li>
 </ul>
@@ -413,6 +435,11 @@ extends <a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc
 <li class="blockList">
 <h4>getParamsAsObjectArray</h4>
 <pre class="methodSignature">public&nbsp;java.lang.Object[]&nbsp;getParamsAsObjectArray()</pre>
+<div class="block">Gets the error message parameters as Object array.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the array of error message parameters</dd>
+</dl>
 </li>
 </ul>
 </li>

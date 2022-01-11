@@ -147,7 +147,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public abstract class <span class="typeNameLabel">JsonrpcRequest</span>
 extends <a href="AbstractJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">AbstractJsonrpcRequest</a></pre>
 <div class="block">Represents a JSON-RPC Request.
- 
+
  <pre>
  {
    "jsonrpc": "2.0",
@@ -263,7 +263,7 @@ extends <a href="AbstractJsonrpcRequest.html" title="class in io.openems.common.
 <td class="colFirst"><code>&nbsp;</code></td>
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.UUID,java.lang.String,java.util.Optional)">JsonrpcRequest</a></span>&#8203;(java.util.UUID&nbsp;id,
               java.lang.String&nbsp;method,
-              java.util.Optional&lt;java.lang.Integer&gt;&nbsp;timeout)</code></th>
+              java.util.Optional&lt;java.lang.Integer&gt;&nbsp;timeoutOpt)</code></th>
 <td class="colLast">
 <div class="block">Creates a <a href="JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.</div>
 </td>
@@ -304,7 +304,9 @@ extends <a href="AbstractJsonrpcRequest.html" title="class in io.openems.common.
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJsonObject()">toJsonObject</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Gets the <code>JsonObject</code> representation of this <a href="JsonrpcMessage.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcMessage</code></a>.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -438,15 +440,15 @@ extends <a href="AbstractJsonrpcRequest.html" title="class in io.openems.common.
 <h4>JsonrpcRequest</h4>
 <pre>public&nbsp;JsonrpcRequest&#8203;(java.util.UUID&nbsp;id,
                       java.lang.String&nbsp;method,
-                      java.util.Optional&lt;java.lang.Integer&gt;&nbsp;timeout)</pre>
+                      java.util.Optional&lt;java.lang.Integer&gt;&nbsp;timeoutOpt)</pre>
 <div class="block">Creates a <a href="JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>id</code> - the JSON-RPC id</dd>
 <dd><code>method</code> - the JSON-RPC method</dd>
-<dd><code>timeout</code> - max time in seconds to wait for the <a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponse</code></a>,
-                negative or zero to disable timeout, empty for
-                <a href="#DEFAULT_TIMEOUT_SECONDS"><code>DEFAULT_TIMEOUT_SECONDS</code></a> timeout</dd>
+<dd><code>timeoutOpt</code> - max time in seconds to wait for the
+                   <a href="JsonrpcResponse.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcResponse</code></a>, negative or zero to disable
+                   timeout, empty for <a href="#DEFAULT_TIMEOUT_SECONDS"><code>DEFAULT_TIMEOUT_SECONDS</code></a> timeout</dd>
 </dl>
 </li>
 </ul>
@@ -460,7 +462,7 @@ extends <a href="AbstractJsonrpcRequest.html" title="class in io.openems.common.
                          java.lang.String&nbsp;method)</pre>
 <div class="block">Creates a <a href="JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a> by copying and validating header
  information.
- 
+
  <ul>
  <li>copies id and timeout
  <li>validates that the method names match
@@ -537,9 +539,13 @@ extends <a href="AbstractJsonrpcRequest.html" title="class in io.openems.common.
 <li class="blockList">
 <h4>toJsonObject</h4>
 <pre class="methodSignature">public&nbsp;com.google.gson.JsonObject&nbsp;toJsonObject()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="JsonrpcMessage.html#toJsonObject()">JsonrpcMessage</a></code></span></div>
+<div class="block">Gets the <code>JsonObject</code> representation of this <a href="JsonrpcMessage.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcMessage</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="AbstractJsonrpcRequest.html#toJsonObject()">toJsonObject</a></code>&nbsp;in class&nbsp;<code><a href="AbstractJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">AbstractJsonrpcRequest</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <code>JsonObject</code></dd>
 </dl>
 </li>
 </ul>

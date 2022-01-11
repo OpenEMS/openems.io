@@ -148,7 +148,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">AuthenticatedRpcRequest&lt;USER extends <a href="../../session/AbstractUser.html" title="class in io.openems.common.session">AbstractUser</a>&gt;</span>
 extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a></pre>
 <div class="block">Wraps a JSON-RPC Request from an authenticated User.
- 
+
  <pre>
  {
    "jsonrpc": "2.0",
@@ -260,7 +260,7 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <div class="block">This method is called in OpenEMS Backend and formats the
  <a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request"><code>AuthenticatedRpcRequest</code></a>, especially the `user` property so, that it
  contains only the required information for OpenEMS Edge and can be parsed via
- {@link #from(JsonrpcRequest, ThrowingFunction).</div>
+ <a href="#from(io.openems.common.jsonrpc.base.JsonrpcRequest,io.openems.common.function.ThrowingFunction)"><code>from(JsonrpcRequest, ThrowingFunction)</code></a>.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -379,17 +379,18 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
                                                                       throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Create <a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request"><code>AuthenticatedRpcRequest</code></a> from a template
  <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a>.
- 
+
  <p>
- 
  This method is called by OpenEMS Edge after it receives a message from
  OpenEMS Backend. As such the `edgeId` is empty here.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>USER</code> - the type of User</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>r</code> - the template <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcRequest</code></a></dd>
 <dd><code>userFactory</code> - a <a href="../../function/ThrowingFunction.html" title="interface in io.openems.common.function"><code>ThrowingFunction</code></a> that parses the following
                     <code>JsonObject</code> structure to a <a href="../../session/AbstractUser.html" title="class in io.openems.common.session"><code>AbstractUser</code></a>
- 
+
                     <pre>
  {
    "id": string,
@@ -442,10 +443,12 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <div class="block">This method is called in OpenEMS Backend and formats the
  <a href="AuthenticatedRpcRequest.html" title="class in io.openems.common.jsonrpc.request"><code>AuthenticatedRpcRequest</code></a>, especially the `user` property so, that it
  contains only the required information for OpenEMS Edge and can be parsed via
- {@link #from(JsonrpcRequest, ThrowingFunction).</div>
+ <a href="#from(io.openems.common.jsonrpc.base.JsonrpcRequest,io.openems.common.function.ThrowingFunction)"><code>from(JsonrpcRequest, ThrowingFunction)</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../base/AbstractJsonrpcRequest.html#getParams()">getParams</a></code>&nbsp;in class&nbsp;<code><a href="../base/AbstractJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">AbstractJsonrpcRequest</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the params as <code>JsonObject</code></dd>
 </dl>
 </li>
 </ul>
