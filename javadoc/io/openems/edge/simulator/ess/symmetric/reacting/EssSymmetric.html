@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,12 +136,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code>, <code><a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code>, <code><a href="../../../../ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></code>, <code><a href="../../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code>, <code><a href="../../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></code>, <code><a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code>, <code><a href="../../../../ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></code>, <code><a href="../../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">EssSymmetric</span>
 extends <a href="../../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../../../ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>, <a href="../../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, org.osgi.service.event.EventHandler, <a href="../../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></pre>
+implements <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../../../../ess/api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>, <a href="../../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, org.osgi.service.event.EventHandler, <a href="../../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></pre>
 </li>
 </ul>
 </div>
@@ -297,6 +297,13 @@ implements <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interfa
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStartStop(io.openems.edge.common.startstop.StartStop)">setStartStop</a></span>&#8203;(<a href="../../../../common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Starts or stops the device or service represented by this OpenEMS Component.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.component.AbstractOpenemsComponent">
@@ -325,6 +332,13 @@ implements <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interfa
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
 <code><a href="../../../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.startstop.StartStoppable">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.common.startstop.<a href="../../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></h3>
+<code><a href="../../../../common/startstop/StartStoppable.html#_setStartStop(io.openems.edge.common.startstop.StartStop)">_setStartStop</a>, <a href="../../../../common/startstop/StartStoppable.html#getStartStop()">getStartStop</a>, <a href="../../../../common/startstop/StartStoppable.html#getStartStopChannel()">getStartStopChannel</a>, <a href="../../../../common/startstop/StartStoppable.html#isStarted()">isStarted</a>, <a href="../../../../common/startstop/StartStoppable.html#isStopped()">isStopped</a>, <a href="../../../../common/startstop/StartStoppable.html#start()">start</a>, <a href="../../../../common/startstop/StartStoppable.html#stop()">stop</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.ess.api.SymmetricEss">
@@ -533,7 +547,7 @@ implements <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interfa
 <a id="getTimedata()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getTimedata</h4>
 <pre class="methodSignature">public&nbsp;<a href="../../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a>&nbsp;getTimedata()</pre>
@@ -544,6 +558,23 @@ implements <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interfa
 <dd><code><a href="../../../../timedata/api/TimedataProvider.html#getTimedata()">getTimedata</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the service or null if it is not (yet) available.</dd>
+</dl>
+</li>
+</ul>
+<a id="setStartStop(io.openems.edge.common.startstop.StartStop)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setStartStop</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setStartStop&#8203;(<a href="../../../../common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../common/startstop/StartStoppable.html#setStartStop(io.openems.edge.common.startstop.StartStop)">StartStoppable</a></code></span></div>
+<div class="block">Starts or stops the device or service represented by this OpenEMS Component.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../common/startstop/StartStoppable.html#setStartStop(io.openems.edge.common.startstop.StartStop)">setStartStop</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - target <a href="../../../../common/startstop/StartStop.html" title="enum in io.openems.edge.common.startstop"><code>StartStop</code></a> state</dd>
 </dl>
 </li>
 </ul>
