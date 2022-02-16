@@ -207,7 +207,7 @@
 <p>A target device running Debian Linux like a Raspberry Pi, Beaglebone Black or an IoT gateway. You need the IP address and SSH access.</p>
 </li>
 <li>
-<p>Create a JAR-file that should be deployes. See <a href="build.html" class="page">Build OpenEMS Edge</a> for details.</p>
+<p>Create a JAR-file that should be deployes. See <a href="build.html" class="page">Build OpenEMS Edge</a> for details. Alternatively you may download the latest release <code>openems-edge.jar</code> file from <a href="https://github.com/OpenEMS/openems/releases">GitHub</a> under <em>Assets</em>.</p>
 </li>
 <li>
 <p>Setup an SSH client to connect to the Linux console, e.g. <a href="http://www.9bis.net/kitty/">KiTTY</a></p>
@@ -335,7 +335,7 @@ As an example, for the FENECON Energy Management System (FEMS) it is required to
 <div class="listingblock">
 <div class="content">
 <pre>[Unit]
-Description=OpenEMS <i class="conum" data-value="1"></i><b>(1)</b>
+Description=OpenEMS Edge <i class="conum" data-value="1"></i><b>(1)</b>
 After=network.target <i class="conum" data-value="2"></i><b>(2)</b>
 
 [Service]
@@ -343,11 +343,6 @@ User=root <i class="conum" data-value="3"></i><b>(3)</b>
 Group=root
 Type=notify <i class="conum" data-value="4"></i><b>(4)</b>
 WorkingDirectory=/usr/lib/openems
-LimitCORE=infinity
-LimitRTPRIO=2
-LimitRTTIME=60000000
-CPUSchedulingPolicy=rr
-CPUSchedulingPriority=1
 ExecStart=/usr/bin/java -Dfelix.cm.dir=/etc/openems.d/ -jar /usr/lib/openems/openems.jar <i class="conum" data-value="5"></i><b>(5)</b>
 SuccessExitStatus=143 <i class="conum" data-value="6"></i><b>(6)</b>
 Restart=always <i class="conum" data-value="7"></i><b>(7)</b>
@@ -378,7 +373,7 @@ WantedBy=multi-user.target</pre>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>The start command. It uses Java 8, sets the config directory to <code>/etc/openems.d</code> and runs the jar file at <code>/usr/lib/openems/openems.jar</code></td>
+<td>The start command executes Java, sets the config directory to <code>/etc/openems.d</code> and runs the jar file at <code>/usr/lib/openems/openems.jar</code></td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
