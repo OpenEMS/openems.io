@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":10};
+var data = {"i0":9,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -89,13 +89,13 @@ loadScripts(document, 'script');</script>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -143,6 +143,28 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="constructor.summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="memberSummary">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.time.ZonedDateTime,java.lang.Float...)">DummyTimeOfUseTariffProvider</a></span>&#8203;(java.time.ZonedDateTime&nbsp;now,
+                            java.lang.Float...&nbsp;quarterlyPrices)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ========== METHOD SUMMARY =========== -->
 <section role="region">
 <ul class="blockList">
@@ -159,8 +181,8 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test">DummyTimeOfUseTariffProvider</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromHourlyPrices(java.time.ZonedDateTime,java.lang.Float%5B%5D)">fromHourlyPrices</a></span>&#8203;(java.time.ZonedDateTime&nbsp;now,
-                java.lang.Float[]&nbsp;hourlyPrices)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromHourlyPrices(java.time.ZonedDateTime,java.lang.Float...)">fromHourlyPrices</a></span>&#8203;(java.time.ZonedDateTime&nbsp;now,
+                java.lang.Float...&nbsp;hourlyPrices)</code></th>
 <td class="colLast">
 <div class="block">Builds a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a> from hourly prices.</div>
 </td>
@@ -172,6 +194,12 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <div class="block">Gives electricity prices for the next 24 h; one value per 15 minutes; 96
  values in total.</div>
 </td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPrices(java.time.ZonedDateTime,java.lang.Float...)">setPrices</a></span>&#8203;(java.time.ZonedDateTime&nbsp;now,
+         java.lang.Float...&nbsp;quarterlyPrices)</code></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -190,6 +218,26 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="constructor.detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a id="&lt;init&gt;(java.time.ZonedDateTime,java.lang.Float...)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>DummyTimeOfUseTariffProvider</h4>
+<pre>public&nbsp;DummyTimeOfUseTariffProvider&#8203;(java.time.ZonedDateTime&nbsp;now,
+                                    java.lang.Float...&nbsp;quarterlyPrices)</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ============ METHOD DETAIL ========== -->
 <section role="region">
 <ul class="blockList">
@@ -197,14 +245,14 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="fromHourlyPrices(java.time.ZonedDateTime,java.lang.Float[])">
+<a id="fromHourlyPrices(java.time.ZonedDateTime,java.lang.Float...)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>fromHourlyPrices</h4>
 <pre class="methodSignature">public static&nbsp;<a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test">DummyTimeOfUseTariffProvider</a>&nbsp;fromHourlyPrices&#8203;(java.time.ZonedDateTime&nbsp;now,
-                                                            java.lang.Float[]&nbsp;hourlyPrices)</pre>
+                                                            java.lang.Float...&nbsp;hourlyPrices)</pre>
 <div class="block">Builds a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a> from hourly prices.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -213,6 +261,16 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a>.</dd>
 </dl>
+</li>
+</ul>
+<a id="setPrices(java.time.ZonedDateTime,java.lang.Float...)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPrices</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setPrices&#8203;(java.time.ZonedDateTime&nbsp;now,
+                      java.lang.Float...&nbsp;quarterlyPrices)</pre>
 </li>
 </ul>
 <a id="getPrices()">
@@ -290,13 +348,13 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
