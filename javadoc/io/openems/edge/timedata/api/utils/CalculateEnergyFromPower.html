@@ -133,40 +133,40 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">CalculateEnergyFromPower</span>
 extends java.lang.Object</pre>
 <div class="block">Calculates the value for energy channels in [Wh] from Power values in [W].
- 
+
  <p>
  This is commonly used to calculate SymmetricEss or SymmetricMeter
  ActiveChargePower and ActiveDischargePower from ActivePower channels. To use
  it, you have to:
- 
+
  <ol>
  <li>Make your OpenemsComponent implement <a href="../TimedataProvider.html" title="interface in io.openems.edge.timedata.api"><code>TimedataProvider</code></a>:
- 
+
  <pre>
  public class ComponentImpl extends AbstractOpenemsComponent implements
  OpenemsComponent, TimedataProvider, EventHandler {
  </pre>
- 
+
  <li>Add a @Reference to <a href="../Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a>. It's a good idea to make this
  reference 'dynamic', otherwise your component will not start if there is no
  Timedata service configured.
- 
+
  <pre>
  &#64;Reference(policy = ReferencePolicy.DYNAMIC, policyOption = ReferencePolicyOption.GREEDY, cardinality = ReferenceCardinality.OPTIONAL)
  private volatile Timedata timedata = null;
  </pre>
- 
+
  <li>Add a private instance of <a href="CalculateEnergyFromPower.html" title="class in io.openems.edge.timedata.api.utils"><code>CalculateEnergyFromPower</code></a> for each
  energy channel:
- 
+
  <pre>
  private final CalculateEnergyFromPower calculateEnergy = new CalculateEnergyFromPower(this,
                 SymmetricEss.ChannelId.ACTIVE_CHARGE_ENERGY);
  </pre>
- 
+
  <li>Call the <a href="#update(java.lang.Integer)"><code>update(Integer)</code></a> method on each cycle - e.g. via an
  <code>EventHandler</code>.
- 
+
  <pre>
  this.calculateEnergy.update(power);
  </pre>

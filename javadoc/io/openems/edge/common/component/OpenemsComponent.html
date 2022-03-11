@@ -133,7 +133,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public interface <span class="typeNameLabel">OpenemsComponent</span></pre>
 <div class="block">This is the base interface for and should be implemented by every service
  component in OpenEMS Edge.
- 
+
  <p>
  Every OpenEMS service has:
  <ul>
@@ -147,7 +147,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  <li>a kind of 'toString' method which provides the most important info about
  the component. (see <a href="#debugLog()"><code>debugLog()</code></a>)
  </ul>
- 
+
  <p>
  The recommended implementation of an OpenEMS component is via
  <a href="AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component"><code>AbstractOpenemsComponent</code></a>.</div>
@@ -483,7 +483,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <a href="../channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;?&gt;&nbsp;_channel&#8203;(java.lang.String&nbsp;channelName)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Returns an undefined Channel defined by its ChannelId string representation.
- 
+
  <p>
  Note: It is preferred to use the typed channel()-method, that's why it is
  marked as @Deprecated.</div>
@@ -639,7 +639,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h4>hasFaults</h4>
 <pre class="methodSignature">default&nbsp;boolean&nbsp;hasFaults()</pre>
 <div class="block">Does this OpenEMS Component report any Faults?
- 
+
  <p>
  Evaluates all <a href="../channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a>s and returns true if any Channel with
  <a href="../../../common/channel/Level.html#FAULT"><code>Level.FAULT</code></a> is set.</div>
@@ -660,14 +660,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
                                      java.lang.String&nbsp;member,
                                      java.lang.String...&nbsp;ids)</pre>
 <div class="block">Sets a target filter for a Declarative Service @Reference member.
- 
+
  <p>
  Usage:
- 
+
  <pre>
  updateReferenceFilter(config.service_pid(), "Controllers", controllersIds);
  </pre>
- 
+
  <p>
  Generates a 'target' filter on the 'Controllers' member so, that the the
  expected service to be injected needs to fulfill:
@@ -679,7 +679,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>cm</code> - a ConfigurationAdmin instance. Get one using
- 
+
                <pre>
                &#64;Reference
                ConfigurationAdmin cm;
@@ -706,34 +706,34 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
                                  java.lang.String&nbsp;pid,
                                  java.lang.String&nbsp;expectedId)</pre>
 <div class="block">Validates and possibly fixes the Component-ID of a Singleton.
- 
+
  <p>
  Singleton Components are allowed to live only exactly once in an OpenEMS
  instance. These Components are marked with an Annotation:
- 
+
  <pre>
  &#64;Designate(factory = false)
  </pre>
- 
+
  By design it is required for these Singleton Components to have a predefined
  Component-ID, like '_cycle', '_sum', etc. This method makes sure the
  Component-ID matches this predefined ID - and if not automatically adjusts
  it.
- 
+
  <p>
  Sidenote: ideally it would be possible to use the Component Annotation
- 
+
  <pre>
  &#64;Component(property = { "id=_cycle" })
  </pre>
- 
+
  for this purpose. Unfortunately this is not sufficient to have the 'id'
  property listed in EdgeConfig, ConfigurationAdmin, etc. This is why this
  workaround is required.
- 
+
  <p>
  Usage:
- 
+
  <pre>
  if (OpenemsComponent.validateSingletonComponentId(this.cm, this.serviceFactoryPid(), SINGLETON_COMPONENT_ID)) {
         return;
@@ -742,7 +742,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>cm</code> - a ConfigurationAdmin instance. Get one using
- 
+
                    <pre>
                    &#64;Reference
                    ConfigurationAdmin cm;
@@ -768,19 +768,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
                                         java.lang.String&nbsp;property,
                                         java.lang.Object&nbsp;value)</pre>
 <div class="block">Update a configuration property.
- 
+
  <p>
  Usage:
- 
+
  <pre>
  updateConfigurationProperty(cm, servicePid, "propertyName", "propertyValue");
  </pre>
- 
+
  <p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>cm</code> - a ConfigurationAdmin instance. Get one using
- 
+
                  <pre>
                  &#64;Reference
                  ConfigurationAdmin cm;

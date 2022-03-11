@@ -154,13 +154,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  <code>Channel#onChange(Consumer)</code>, <a href="#onUpdate(java.util.function.Consumer)"><code>onUpdate(Consumer)</code></a> and
  <a href="#onSetNextValue(java.util.function.Consumer)"><code>onSetNextValue(Consumer)</code></a>)
  </ul>
- 
+
  <p>
  Channels implement a 'Process Image' pattern. They provide an 'active' value
  which should be used for any operations on the channel value. The 'next'
  value is filled by asynchronous workers in the background. At the 'Process
  Image Switch' the 'next' value is copied to the 'current' value.
- 
+
  <p>
  The recommended implementation of an OpenEMS Channel is via
  <a href="internal/AbstractReadChannel.html" title="class in io.openems.edge.common.channel.internal"><code>AbstractReadChannel</code></a>.</div>
@@ -492,7 +492,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h4>getNextValue</h4>
 <pre class="methodSignature"><a href="value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="Channel.html" title="type parameter in Channel">T</a>&gt;&nbsp;getNextValue()</pre>
 <div class="block">Gets the 'next value'.
- 
+
  <p>
  Note that usually you should prefer the value() method.</div>
 <dl>
@@ -510,7 +510,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre class="methodSignature">java.util.function.Consumer&lt;<a href="value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="Channel.html" title="type parameter in Channel">T</a>&gt;&gt;&nbsp;onSetNextValue&#8203;(java.util.function.Consumer&lt;<a href="value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="Channel.html" title="type parameter in Channel">T</a>&gt;&gt;&nbsp;callback)</pre>
 <div class="block">Add an onSetNextValue callback. It is called, after a new NextValue was set.
  Note that usually you should prefer the onUpdate() callback.
- 
+
  <p>
  Remember to remove the callback using
  <a href="#removeOnSetNextValueCallback(java.util.function.Consumer)"><code>removeOnSetNextValueCallback(Consumer)</code></a> once it is not needed

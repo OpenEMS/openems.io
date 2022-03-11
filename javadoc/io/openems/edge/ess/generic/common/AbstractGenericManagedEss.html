@@ -643,9 +643,9 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
                        int&nbsp;reactivePower)
                 throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Forwards the power request to the <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>SymmetricBatteryInverter</code></a>.
- 
+
  Apply the calculated Power.
- 
+
  <p>
  Careful: do not adjust activePower and reactivePower in this method, e.g.
  setting it to zero on error. The purpose of this method is solely to apply
@@ -671,7 +671,7 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 <h4>getPowerPrecision</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;getPowerPrecision()</pre>
 <div class="block">Retrieves PowerPrecision from <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>SymmetricBatteryInverter</code></a>.
- 
+
  Gets the smallest positive power that can be set (in W, VA or var). Example:
  <ul>
  <li>FENECON Commercial 40 allows setting of power in 100 W steps. It should
@@ -696,7 +696,7 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 <pre class="methodSignature">public&nbsp;<a href="../../power/api/Constraint.html" title="class in io.openems.edge.ess.power.api">Constraint</a>[]&nbsp;getStaticConstraints()
                                   throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Retrieves StaticConstraints from <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>SymmetricBatteryInverter</code></a>.
- 
+
  Gets static Constraints for this Ess. Override this method to provide
  specific Constraints for this Ess on every Cycle.</div>
 <dl>
@@ -720,7 +720,7 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../api/HybridEss.html#getSurplusPower()">HybridEss</a></code></span></div>
 <div class="block">Gets the Surplus Power of the <a href="../../dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api"><code>EssDcCharger</code></a>s of this
  <a href="../../api/HybridEss.html" title="interface in io.openems.edge.ess.api"><code>HybridEss</code></a>.
- 
+
  <p>
  This value is usually calculated from the
  <a href="../../dccharger/api/EssDcCharger.html#getActualPower()"><code>EssDcCharger.getActualPower()</code></a> when the battery is full. It is used by
@@ -762,7 +762,7 @@ implements <a href="GenericManagedEss.html" title="interface in io.openems.edge.
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isOffGridPossible()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../offgrid/api/OffGridEss.html#isOffGridPossible()">OffGridEss</a></code></span></div>
 <div class="block">Gets a boolean if the ess is able to build a micro-grid in off-grid.
- 
+
  <p>
  Returns false if the ess is not able to build a micro-grid.</div>
 <dl>

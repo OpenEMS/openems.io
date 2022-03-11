@@ -129,7 +129,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public interface <span class="typeNameLabel">ChannelId</span></pre>
 <div class="block">A <a href="ChannelId.html" title="interface in io.openems.edge.common.channel"><code>ChannelId</code></a> defines a Channel. It provides a unique Name and and a
  <a href="Doc.html" title="interface in io.openems.edge.common.channel"><code>Doc</code></a>.
- 
+
  <p>
  This interface is typically implemented by an <code>Enum</code> type which
  automatically provides a <a href="#name()"><code>name()</code></a> method.</div>
@@ -223,10 +223,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre class="methodSignature">static&nbsp;java.lang.String&nbsp;channelIdUpperToCamel&#8203;(java.lang.String&nbsp;name)</pre>
 <div class="block">Converts a Channel-ID in UPPER_UNDERSCORE format (like from an <code>Enum</code>)
  to the preferred UPPER_CAMEL format.
- 
+
  <p>
  Examples: converts "ACTIVE_POWER" to "ActivePower".
- 
+
  <p>
  Special reserved Channel-IDs starting with "_" have a special handling:
  "_PROPERTY_ENABLED" is converted to "_PropertyEnabled".</div>
@@ -246,7 +246,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h4>channelIdCamelToUpper</h4>
 <pre class="methodSignature">static&nbsp;java.lang.String&nbsp;channelIdCamelToUpper&#8203;(java.lang.String&nbsp;name)</pre>
 <div class="block">Converts a Channel-ID in UPPER_CAMEL format to the UPPER_UNDERSCORE format.
- 
+
  <p>
  Examples: converts "ActivePower" to "ACTIVE_POWER".</div>
 <dl>
@@ -266,7 +266,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre class="methodSignature">static&nbsp;&lt;T extends java.lang.Enum&lt;T&gt;&gt;&nbsp;void&nbsp;printChannelIdsForInfluxQuery&#8203;(<a href="ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]&nbsp;channelIds)</pre>
 <div class="block">Lists all Channel-IDs of the given Channel-ID Enum in a form that is suitable
  for a InfluxDB-Query in a Grafana Dashboard.
- 
+
  <p>
  To create a query, call this function like
  `ChannelId.printChannelIdsForInfluxQuery(FeneconMiniEss.ServiceInfoChannelId.values());`</div>
@@ -285,7 +285,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre class="methodSignature">java.lang.String&nbsp;name()</pre>
 <div class="block">Gets the name in format <code>CaseFormat.UPPER_UNDERSCORE</code>. This is
  available by default for an Enum.
- 
+
  <p>
  Names starting with underscore ("_") are reserved for internal usage.</div>
 <dl>

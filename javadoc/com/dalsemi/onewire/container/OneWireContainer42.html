@@ -173,7 +173,7 @@ implements <a href="TemperatureContainer.html" title="interface in com.dalsemi.o
  <DD>See the temperature usage example in
  <a href="TemperatureContainer.html" title="interface in com.dalsemi.onewire.container"><code>TemperatureContainer</code></a> for temperature specific operations.
  </DL>
- 
+
  <DL>
  <DD>See the switch usage example in
  <a href="SwitchContainer.html" title="interface in com.dalsemi.onewire.container"><code>SwitchContainer</code></a> for
@@ -1397,7 +1397,7 @@ implements <a href="TemperatureContainer.html" title="interface in com.dalsemi.o
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><code>OneWireContainer42</code> state information. Device state looks
          like this:
- 
+
          <pre>
    0 : temperature LSB
    1 : temperature MSB
@@ -1410,19 +1410,19 @@ implements <a href="TemperatureContainer.html" title="interface in com.dalsemi.o
    8 : an 8 bit CRC of the previous 8 bytes
    9 : PIO Status bit assignment to write (this is a "don't care" for a read)
    10: PIO Status bit assignment to read
- 
+
  PIO Status Bit Assignment from PIO Access Write [A5H]:
-   b7-b2 = all ones      
-   b1=PIOB Pin State     
-   b0=PIOA Pin State   
- 
+   b7-b2 = all ones
+   b1=PIOB Pin State
+   b0=PIOA Pin State
+
  PIO Status Bit Assignment from PIO Access Read [F5H]:
-   b7-b4 = Complement of b3 to b0     
-   b3= PIOB Output Latch State   
-   b2=PIOB Pin State     
-   b1=PIOA Output Latch State   
+   b7-b4 = Complement of b3 to b0
+   b3= PIOB Output Latch State
+   b2=PIOB Pin State
+   b1=PIOA Output Latch State
    b0= PIOA Pin State
- 
+
          </pre></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../adapter/OneWireIOException.html" title="class in com.dalsemi.onewire.adapter">OneWireIOException</a></code> - on a 1-Wire communication error such as reading an

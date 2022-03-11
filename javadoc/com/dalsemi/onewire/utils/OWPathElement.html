@@ -132,30 +132,34 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">OWPathElement</span>
 extends java.lang.Object</pre>
-<div class="block">1-Wire&reg; Network path element.  Instances of this class are
- used to represent a single branch of a complex 1-Wire network.
+<div class="block">1-Wire&reg; Network path element. Instances of this class are used to
+ represent a single branch of a complex 1-Wire network.
 
- <H3> Usage </H3> 
- 
- <DL> 
- <DD> <H4> Example</H4> 
- Enumerate through the 1-wire path elements in the 1-Wire path 'path' and print information:
- <PRE> <CODE>
+ <H3>Usage</H3>
+
+ <DL>
+ <DD>
+ <H4>Example</H4> Enumerate through the 1-wire path elements in the 1-Wire
+ path 'path' and print information:
+
+ <PRE>
+  <CODE>
    OWPathElement path_element;
 
    // enumerature through the path elements
-   for (Enumeration path_enum = path.getAllOWPathElements(); 
+   for (Enumeration path_enum = path.getAllOWPathElements();
            path_enum.hasMoreElements(); )
    {
 
       // cast the enum as a OWPathElement
       path_element = (OWPathElement)path_enum.nextElement();
-   
+
       // print info
       System.out.println("Address: " + path_element.getContainer().getAddressAsString());
-      System.out.println("Channel number: " + path_element.getChannel()); 
+      System.out.println("Channel number: " + path_element.getChannel());
    }
- </CODE> </PRE>
+ </CODE>
+ </PRE>
  </DL></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -256,7 +260,7 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>owcInstance</code> - device that is the path element. Must implement
-         SwitchContainer.</dd>
+                      SwitchContainer.</dd>
 <dd><code>channelNumber</code> - channel number of the 1-Wire path</dd>
 </dl>
 </li>

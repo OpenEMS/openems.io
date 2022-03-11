@@ -151,7 +151,7 @@ extends <a href="MemoryBank.html" title="interface in com.dalsemi.onewire.contai
  <A HREF="http://dbserv.maxim-ic.com/appnotes.cfm?appnote_number=114">
  http://dbserv.maxim-ic.com/appnotes.cfm?appnote_number=114</A>
  </P>
- 
+
  <P>
  The MemoryBank methods can be organized into the following categories:
  </P>
@@ -181,11 +181,11 @@ extends <a href="MemoryBank.html" title="interface in com.dalsemi.onewire.contai
  </UL>
 
  <H3>Usage</H3>
- 
+
  <DL>
  <DD>
  <H4>Example 1</H4> Display some features of PagedMemoryBank instance 'pmb':
- 
+
  <PRE>
   <CODE>
   System.out.print("PagedMemoryBank has: " + pmb.getNumberPages() + " pages of length ");
@@ -202,13 +202,13 @@ extends <a href="MemoryBank.html" title="interface in com.dalsemi.onewire.contai
  <DD>
  <H4>Example 2</H4> Write a packet into the first page of a PagedMemoryBank
  instance 'pmb':
- 
+
  <PRE>
   <CODE>
   byte[] write_buf = new byte[pmb.getMaxPacketDataLength()];
   for (int i = 0; i < write_buf.length; i++)
       write_buf[i] = (byte)0;
- 
+
   mb.writePagePacket(0, write_buf, 0, write_buf.length);
  </CODE>
  </PRE>
@@ -216,25 +216,25 @@ extends <a href="MemoryBank.html" title="interface in com.dalsemi.onewire.contai
  <DD>
  <H4>Example 3</H4> Read all of the pages of a PagedMemoryBank instance 'pmb'
  with device CRC verification:
- 
+
  <PRE>
   <CODE>
   byte[] read_buf = new byte[pmb.getPageLength()];
 
   if (pmb.hasAutoCRC())
   {
-     // loop to read each page with CRC 
+     // loop to read each page with CRC
      for (int pg = 0; pg < pmb.getNumberPages(); pg++)
      {
         // use 'readContinue' argument to only access device on first page
         pmb.readPageCRC(pg, (pg == 0), read_buf, 0);
 
-        // do something with data in read_buf ... 
+        // do something with data in read_buf ...
      }
   }
   else
      System.out.println("PagedMemoryBank does not support device generated CRC");
- 
+
  </CODE>
  </PRE>
  </DL></div>
@@ -878,7 +878,7 @@ extends <a href="MemoryBank.html" title="interface in com.dalsemi.onewire.contai
  being read from. For example, if pages 0 - 4 are to be read, readContinue
  would be set to false for page 0 and would be set to true for the next four
  calls.
- 
+
 
  <P>
  Note: Using readContinue = true can only be used if the new read continues

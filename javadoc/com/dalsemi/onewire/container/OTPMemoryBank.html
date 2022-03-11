@@ -159,12 +159,12 @@ extends <a href="PagedMemoryBank.html" title="interface in com.dalsemi.onewire.c
  </UL>
 
  <H3>Usage</H3>
- 
+
  <DL>
  <DD>
  <H4>Example 1</H4> Read the OTP status of page 0 in the OTPMemoryBank
  instance 'otp':
- 
+
  <PRE>
   <CODE>
   if (otp.canRedirectPage())
@@ -173,7 +173,7 @@ extends <a href="PagedMemoryBank.html" title="interface in com.dalsemi.onewire.c
      if (new_page != 0)
         System.out.println("Page 0 is redirected to " + new_page);
   }
- 
+
   if (otp.canLockPage())
   {
      if (otp.isPageLocked(0))
@@ -190,12 +190,12 @@ extends <a href="PagedMemoryBank.html" title="interface in com.dalsemi.onewire.c
 
  <DD>
  <H4>Example 1</H4> Lock all of the pages in the OTPMemoryBank instance 'otp':
- 
+
  <PRE>
   <CODE>
   if (otp.canLockPage())
   {
-     // loop to lock each page  
+     // loop to lock each page
      for (int pg = 0; pg < otp.getNumberPages(); pg++)
      {
         otp.lockPage(pg);

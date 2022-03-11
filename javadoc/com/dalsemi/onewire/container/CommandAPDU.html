@@ -138,12 +138,12 @@ extends java.lang.Object</pre>
  <BR>
 
  According to ISO 7816-4, a <code>CommandAPDU</code> has the following format:
- 
+
  <pre>
                   HEADER         |           BODY
          CLA    INS    P1    P2  |  [LC]    [DATA]    [LE]
  </pre>
- 
+
  where
  <ul>
  <li><code>CLA</code> is the class byte
@@ -159,18 +159,18 @@ extends java.lang.Object</pre>
 
  <H3>Usage</H3>
  <OL>
- 
+
  <pre>
  byte[] buffer = { (byte) 0x90, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x01, (byte) 0x02, (byte) 0x03 };
  CommandAPDU capdu = new CommandAPDU(buffer);
  </pre>
- 
+
  <pre>
  CommandAPDU capdu = new CommandAPDU((byte) 0x90, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x01, (byte) 0x02,
                 (byte) 0x03);
  </pre>
  </OL>
- 
+
  <H3>Additional information</H3>
  <DL>
  <DD><A HREF="http://www.opencard.org"> http://www.opencard.org</A>

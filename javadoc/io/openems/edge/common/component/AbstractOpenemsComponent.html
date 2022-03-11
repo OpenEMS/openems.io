@@ -142,7 +142,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 extends java.lang.Object
 implements <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></pre>
 <div class="block">This is the default implementation of the <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component"><code>OpenemsComponent</code></a> interface.
- 
+
  <code>#activate(ComponentContext, String, boolean)</code> and
  <a href="#deactivate()"><code>deactivate()</code></a> methods should be called by the corresponding methods
  in the OSGi component.</div>
@@ -378,20 +378,20 @@ implements <a href="OpenemsComponent.html" title="interface in io.openems.edge.c
 <pre>protected&nbsp;AbstractOpenemsComponent&#8203;(<a href="../channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]&nbsp;firstInitialChannelIds,
                                    <a href="../channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]...&nbsp;furtherInitialChannelIds)</pre>
 <div class="block">Default constructor for AbstractOpenemsComponent.
- 
+
  <p>
  Automatically initializes (i.e. creates <a href="../channel/Channel.html" title="interface in io.openems.edge.common.channel"><code>Channel</code></a> instances for each
  given <a href="OpenemsComponent.ChannelId.html" title="enum in io.openems.edge.common.component"><code>OpenemsComponent.ChannelId</code></a> using the Channel-<a href="../channel/Doc.html" title="interface in io.openems.edge.common.channel"><code>Doc</code></a>.
- 
+
  <p>
  It is important to list all Channel-ID enums of all inherited
  OpenEMS-Natures, i.e. for every OpenEMS Java interface you are implementing,
  you need to list the interface' ChannelID-enum here like
  Interface.ChannelId.values().
- 
+
  <p>
  Use as follows:
- 
+
  <pre>
  public YourPhantasticOpenemsComponent() {
         super(//
@@ -399,13 +399,13 @@ implements <a href="OpenemsComponent.html" title="interface in io.openems.edge.c
                         YourPhantasticOpenemsComponent.ChannelId.values());
  }
  </pre>
- 
+
  <p>
  Note: the separation in firstInitialChannelIds and furtherInitialChannelIds
  is only there to enforce that calling the constructor cannot be forgotten.
  This way it needs to be called with at least one parameter - which is always
  at least "OpenemsComponent.ChannelId.values()". Just use it as if it was:
- 
+
  <pre>
  AbstractOpenemsComponent(ChannelId[]... channelIds)
  </pre></div>
@@ -520,7 +520,7 @@ implements <a href="OpenemsComponent.html" title="interface in io.openems.edge.c
 <h4>addChannel</h4>
 <pre class="methodSignature">protected&nbsp;<a href="../channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;?&gt;&nbsp;addChannel&#8203;(<a href="../channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId)</pre>
 <div class="block">Initializes the given Channel-ID.
- 
+
  <ul>
  <li>Creates an object instance from Channel-Doc
  <li>Registers the Channel
@@ -541,7 +541,7 @@ implements <a href="OpenemsComponent.html" title="interface in io.openems.edge.c
 <h4>addChannels</h4>
 <pre class="methodSignature">protected&nbsp;void&nbsp;addChannels&#8203;(<a href="../channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]&nbsp;initialChannelIds)</pre>
 <div class="block">Initializes the given Channel-IDs.
- 
+
  <ul>
  <li>Creates object instances from Channel-Doc
  <li>Registers the Channels
@@ -560,7 +560,7 @@ implements <a href="OpenemsComponent.html" title="interface in io.openems.edge.c
 <h4>addChannels</h4>
 <pre class="methodSignature">protected&nbsp;void&nbsp;addChannels&#8203;(<a href="../channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[][]&nbsp;initialChannelIds)</pre>
 <div class="block">Initializes the given Channel-IDs.
- 
+
  <ul>
  <li>Creates object instances from Channel-Doc
  <li>Registers the Channels
@@ -616,7 +616,7 @@ public&nbsp;<a href="../channel/Channel.html" title="interface in io.openems.edg
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="OpenemsComponent.html#_channel(java.lang.String)">OpenemsComponent</a></code></span></div>
 <div class="block">Returns an undefined Channel defined by its ChannelId string representation.
- 
+
  <p>
  Note: It is preferred to use the typed channel()-method, that's why it is
  marked as @Deprecated.</div>

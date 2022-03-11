@@ -446,20 +446,20 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
 <pre>protected&nbsp;AbstractOpenemsModbusComponent&#8203;(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]&nbsp;firstInitialChannelIds,
                                          <a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]...&nbsp;furtherInitialChannelIds)</pre>
 <div class="block">Default constructor for AbstractOpenemsModbusComponent.
- 
+
  <p>
  Automatically initializes (i.e. creates <a href="../../../common/channel/Channel.html" title="interface in io.openems.edge.common.channel"><code>Channel</code></a> instances for each
  given ChannelId using the Channel-<a href="../../../common/channel/Doc.html" title="interface in io.openems.edge.common.channel"><code>Doc</code></a>.
- 
+
  <p>
  It is important to list all Channel-ID enums of all inherited
  OpenEMS-Natures, i.e. for every OpenEMS Java interface you are implementing,
  you need to list the interface' ChannelID-enum here like
  Interface.ChannelId.values().
- 
+
  <p>
  Use as follows:
- 
+
  <pre>
  public YourPhantasticOpenemsComponent() {
         super(//
@@ -467,13 +467,13 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
                         YourPhantasticOpenemsComponent.ChannelId.values());
  }
  </pre>
- 
+
  <p>
  Note: the separation in firstInitialChannelIds and furtherInitialChannelIds
  is only there to enforce that calling the constructor cannot be forgotten.
  This way it needs to be called with at least one parameter - which is always
  at least "OpenemsComponent.ChannelId.values()". Just use it as if it was:
- 
+
  <pre>
  AbstractOpenemsComponent(ChannelId[]... channelIds)
  </pre></div>

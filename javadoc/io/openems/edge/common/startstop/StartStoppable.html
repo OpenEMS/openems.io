@@ -137,21 +137,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public interface <span class="typeNameLabel">StartStoppable</span>
 extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></pre>
 <div class="block">Declares an OpenEMS Component as being able to get started and stopped.
- 
+
  <p>
  A device or service inside OpenEMS that implements this OpenEMS Nature can be
  started or stopped.
- 
+
  <p>
  Implementing this Nature also requires the Component to have a configuration
  property "startStop" of type <a href="StartStopConfig.html" title="enum in io.openems.edge.common.startstop"><code>StartStopConfig</code></a> that overrides the logic
  of the <a href="#setStartStop(io.openems.edge.common.startstop.StartStop)"><code>setStartStop(StartStop)</code></a> method:
- 
+
  <pre>
         &#64;AttributeDefinition(name = "Start/stop behaviour?", description = "Should this Component be forced to start or stop?")
         StartStopConfig startStop() default StartStopConfig.AUTO;
  </pre>
- 
+
  <ul>
  <li>if config is <a href="StartStopConfig.html#START"><code>StartStopConfig.START</code></a> -> always start
  <li>if config is <a href="StartStopConfig.html#STOP"><code>StartStopConfig.STOP</code></a> -> always stop
@@ -346,7 +346,7 @@ extends <a href="../component/OpenemsComponent.html" title="interface in io.open
 <h4>isStarted</h4>
 <pre class="methodSignature">default&nbsp;boolean&nbsp;isStarted()</pre>
 <div class="block">Is this device or service started?.
- 
+
  <ul>
  <li>true - if (and only if) <a href="StartStoppable.ChannelId.html#START_STOP"><code>StartStoppable.ChannelId.START_STOP</code></a> is
  <a href="StartStop.html#START"><code>StartStop.START</code></a>
@@ -367,7 +367,7 @@ extends <a href="../component/OpenemsComponent.html" title="interface in io.open
 <h4>isStopped</h4>
 <pre class="methodSignature">default&nbsp;boolean&nbsp;isStopped()</pre>
 <div class="block">Is this device or service stopped?.
- 
+
  <ul>
  <li>true - if (and only if) <a href="StartStoppable.ChannelId.html#START_STOP"><code>StartStoppable.ChannelId.START_STOP</code></a> is
  <a href="StartStop.html#STOP"><code>StartStop.STOP</code></a>
@@ -421,7 +421,7 @@ extends <a href="../component/OpenemsComponent.html" title="interface in io.open
 <pre class="methodSignature">default&nbsp;void&nbsp;start()
             throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Starts the device or service represented by this OpenEMS Component.
- 
+
  <p>
  This calls <a href="#setStartStop(io.openems.edge.common.startstop.StartStop)"><code>setStartStop(StartStop)</code></a> with <a href="StartStop.html#START"><code>StartStop.START</code></a>.</div>
 <dl>
@@ -439,7 +439,7 @@ extends <a href="../component/OpenemsComponent.html" title="interface in io.open
 <pre class="methodSignature">default&nbsp;void&nbsp;stop()
            throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Stops the device or service represented by this OpenEMS Component.
- 
+
  <p>
  This calls <a href="#setStartStop(io.openems.edge.common.startstop.StartStop)"><code>setStartStop(StartStop)</code></a> with <a href="StartStop.html#STOP"><code>StartStop.STOP</code></a>.</div>
 <dl>
