@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,12 +136,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code><a href="ControllerHeatingElement.html" title="interface in io.openems.edge.controller.io.heatingelement">ControllerHeatingElement</a></code></dd>
+<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code><a href="ControllerHeatingElement.html" title="interface in io.openems.edge.controller.io.heatingelement">ControllerHeatingElement</a></code>, <code><a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">ControllerHeatingElementImpl</span>
 extends <a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="ControllerHeatingElement.html" title="interface in io.openems.edge.controller.io.heatingelement">ControllerHeatingElement</a>, <a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></pre>
+implements <a href="ControllerHeatingElement.html" title="interface in io.openems.edge.controller.io.heatingelement">ControllerHeatingElement</a>, <a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></pre>
 </li>
 </ul>
 </div>
@@ -244,9 +244,9 @@ implements <a href="ControllerHeatingElement.html" title="interface in io.openem
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#applyLevel(io.openems.edge.controller.io.heatingelement.Level)">applyLevel</a></span>&#8203;(<a href="Level.html" title="enum in io.openems.edge.controller.io.heatingelement">Level</a>&nbsp;level)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#applyLevel(io.openems.edge.controller.io.heatingelement.enums.Level)">applyLevel</a></span>&#8203;(<a href="enums/Level.html" title="enum in io.openems.edge.controller.io.heatingelement.enums">Level</a>&nbsp;level)</code></th>
 <td class="colLast">
-<div class="block">Switch on Phases according to selected <a href="Level.html" title="enum in io.openems.edge.controller.io.heatingelement"><code>Level</code></a>.</div>
+<div class="block">Switch on Phases according to selected <a href="enums/Level.html" title="enum in io.openems.edge.controller.io.heatingelement.enums"><code>Level</code></a>.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -264,22 +264,29 @@ implements <a href="ControllerHeatingElement.html" title="interface in io.openem
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimedata()">getTimedata</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the <a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#modeAutomatic()">modeAutomatic</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Handle Mode "Automatic".</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run()">run</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Executes the Controller logic.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOutput(io.openems.edge.controller.io.heatingelement.Phase,boolean)">setOutput</a></span>&#8203;(<a href="Phase.html" title="enum in io.openems.edge.controller.io.heatingelement">Phase</a>&nbsp;phase,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOutput(io.openems.edge.controller.io.heatingelement.enums.Phase,boolean)">setOutput</a></span>&#8203;(<a href="enums/Phase.html" title="enum in io.openems.edge.controller.io.heatingelement.enums">Phase</a>&nbsp;phase,
          boolean&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">Helper function to switch an output if it was not switched before.</div>
@@ -432,16 +439,16 @@ implements <a href="ControllerHeatingElement.html" title="interface in io.openem
 </dl>
 </li>
 </ul>
-<a id="applyLevel(io.openems.edge.controller.io.heatingelement.Level)">
+<a id="applyLevel(io.openems.edge.controller.io.heatingelement.enums.Level)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>applyLevel</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;applyLevel&#8203;(<a href="Level.html" title="enum in io.openems.edge.controller.io.heatingelement">Level</a>&nbsp;level)
+<pre class="methodSignature">public&nbsp;void&nbsp;applyLevel&#8203;(<a href="enums/Level.html" title="enum in io.openems.edge.controller.io.heatingelement.enums">Level</a>&nbsp;level)
                 throws java.lang.IllegalArgumentException,
                        <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block">Switch on Phases according to selected <a href="Level.html" title="enum in io.openems.edge.controller.io.heatingelement"><code>Level</code></a>.</div>
+<div class="block">Switch on Phases according to selected <a href="enums/Level.html" title="enum in io.openems.edge.controller.io.heatingelement.enums"><code>Level</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>level</code> - the target Level</dd>
@@ -465,25 +472,41 @@ implements <a href="ControllerHeatingElement.html" title="interface in io.openem
 </dl>
 </li>
 </ul>
-<a id="setOutput(io.openems.edge.controller.io.heatingelement.Phase,boolean)">
+<a id="setOutput(io.openems.edge.controller.io.heatingelement.enums.Phase,boolean)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setOutput</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;setOutput&#8203;(<a href="Phase.html" title="enum in io.openems.edge.controller.io.heatingelement">Phase</a>&nbsp;phase,
+<pre class="methodSignature">protected&nbsp;void&nbsp;setOutput&#8203;(<a href="enums/Phase.html" title="enum in io.openems.edge.controller.io.heatingelement.enums">Phase</a>&nbsp;phase,
                          boolean&nbsp;value)
                   throws java.lang.IllegalArgumentException,
                          <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Helper function to switch an output if it was not switched before.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>value</code> - The boolean value which must set on the output
-                             channel address.</dd>
-<dd><code>outputChannelAddress</code> - The address of the channel.</dd>
+<dd><code>phase</code> - <a href="enums/Phase.html" title="enum in io.openems.edge.controller.io.heatingelement.enums"><code>Phase</code></a></dd>
+<dd><code>value</code> - The boolean value which must set on the output channel address.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error.</dd>
 <dd><code>java.lang.IllegalArgumentException</code> - on error.</dd>
+</dl>
+</li>
+</ul>
+<a id="getTimedata()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getTimedata</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a>&nbsp;getTimedata()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../timedata/api/TimedataProvider.html#getTimedata()">TimedataProvider</a></code></span></div>
+<div class="block">Gets the <a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../timedata/api/TimedataProvider.html#getTimedata()">getTimedata</a></code>&nbsp;in interface&nbsp;<code><a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the service or null if it is not (yet) available.</dd>
 </dl>
 </li>
 </ul>
