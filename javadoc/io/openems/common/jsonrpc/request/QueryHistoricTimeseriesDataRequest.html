@@ -155,11 +155,14 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
    "id": "UUID",
    "method": "queryHistoricTimeseriesData",
    "params": {
-     "timezone": Number,
      "fromDate": YYYY-MM-DD,
      "toDate": YYYY-MM-DD,
      "channels": ChannelAddress[],
-     "resolution"?: Number
+     "timezone": String,
+     "resolution"?: {
+       "value": Number,
+       "unit": <code>ChronoUnit</code>
+     }
    }
  }
  </pre></div>
@@ -220,9 +223,9 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.time.ZonedDateTime,java.time.ZonedDateTime,java.lang.Integer)">QueryHistoricTimeseriesDataRequest</a></span>&#8203;(java.time.ZonedDateTime&nbsp;fromDate,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Optional)">QueryHistoricTimeseriesDataRequest</a></span>&#8203;(java.time.ZonedDateTime&nbsp;fromDate,
                                   java.time.ZonedDateTime&nbsp;toDate,
-                                  java.lang.Integer&nbsp;resolution)</code></th>
+                                  java.util.Optional&lt;<a href="../../timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&gt;&nbsp;resolution)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -273,10 +276,10 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.util.Optional&lt;java.lang.Integer&gt;</code></td>
+<td class="colFirst"><code>java.util.Optional&lt;<a href="../../timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getResolution()">getResolution</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Gets the requested Resolution in [s].</div>
+<div class="block">Gets the requested Resolution.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -354,7 +357,7 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.time.ZonedDateTime,java.time.ZonedDateTime,java.lang.Integer)">
+<a id="&lt;init&gt;(java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Optional)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -362,7 +365,7 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <h4>QueryHistoricTimeseriesDataRequest</h4>
 <pre>public&nbsp;QueryHistoricTimeseriesDataRequest&#8203;(java.time.ZonedDateTime&nbsp;fromDate,
                                           java.time.ZonedDateTime&nbsp;toDate,
-                                          java.lang.Integer&nbsp;resolution)
+                                          java.util.Optional&lt;<a href="../../timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&gt;&nbsp;resolution)
                                    throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -465,8 +468,8 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getResolution</h4>
-<pre class="methodSignature">public&nbsp;java.util.Optional&lt;java.lang.Integer&gt;&nbsp;getResolution()</pre>
-<div class="block">Gets the requested Resolution in [s].</div>
+<pre class="methodSignature">public&nbsp;java.util.Optional&lt;<a href="../../timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&gt;&nbsp;getResolution()</pre>
+<div class="block">Gets the requested Resolution.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Resolution</dd>

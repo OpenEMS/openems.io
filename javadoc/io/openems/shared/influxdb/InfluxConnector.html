@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9,"i7":9,"i8":9,"i9":10};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -175,14 +175,14 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.BiConsumer)">InfluxConnector</a></span>&#8203;(java.lang.String&nbsp;ip,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.Consumer)">InfluxConnector</a></span>&#8203;(java.lang.String&nbsp;ip,
                int&nbsp;port,
                java.lang.String&nbsp;username,
                java.lang.String&nbsp;password,
                java.lang.String&nbsp;database,
                java.lang.String&nbsp;retentionPolicy,
                boolean&nbsp;isReadOnly,
-               java.util.function.BiConsumer&lt;java.lang.Iterable&lt;org.influxdb.dto.Point&gt;,&#8203;java.lang.Throwable&gt;&nbsp;onWriteError)</code></th>
+               java.util.function.Consumer&lt;java.lang.Throwable&gt;&nbsp;onWriteError)</code></th>
 <td class="colLast">
 <div class="block">The Constructor.</div>
 </td>
@@ -199,7 +199,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -208,32 +208,41 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deactivate()">deactivate</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Close current <code>InfluxDBClient</code>.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>org.influxdb.dto.QueryResult</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#executeQuery(java.lang.String)">executeQuery</a></span>&#8203;(java.lang.String&nbsp;query)</code></th>
+<td class="colFirst"><code>java.util.List&lt;com.influxdb.query.FluxTable&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#executeQuery(com.influxdb.query.dsl.Flux)">executeQuery</a></span>&#8203;(com.influxdb.query.dsl.Flux&nbsp;query)</code></th>
 <td class="colLast">
-<div class="block">Copied from backend.timedata.influx.provider.</div>
+<div class="block">Execute given <code>Flux</code> query.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.List&lt;com.influxdb.query.FluxTable&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#executeQuery(java.lang.String)">executeQuery</a></span>&#8203;(java.lang.String&nbsp;query)</code></th>
+<td class="colLast">
+<div class="block">Execute given query.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDatabase()">getDatabase</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.SortedMap&lt;java.time.ZonedDateTime,&#8203;java.util.SortedMap&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricData(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,int)">queryHistoricData</a></span>&#8203;(java.util.Optional&lt;java.lang.Integer&gt;&nbsp;influxEdgeId,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricData(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">queryHistoricData</a></span>&#8203;(java.util.Optional&lt;java.lang.Integer&gt;&nbsp;influxEdgeId,
                  java.time.ZonedDateTime&nbsp;fromDate,
                  java.time.ZonedDateTime&nbsp;toDate,
                  java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
-                 int&nbsp;resolution)</code></th>
+                 <a href="../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</code></th>
 <td class="colLast">
 <div class="block">Queries historic data.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.util.SortedMap&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricEnergy(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">queryHistoricEnergy</a></span>&#8203;(java.util.Optional&lt;java.lang.Integer&gt;&nbsp;influxEdgeId,
                    java.time.ZonedDateTime&nbsp;fromDate,
@@ -243,35 +252,20 @@ extends java.lang.Object</pre>
 <div class="block">Queries historic energy.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.SortedMap&lt;java.time.ZonedDateTime,&#8203;java.util.SortedMap&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricEnergyPerPeriod(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,int)">queryHistoricEnergyPerPeriod</a></span>&#8203;(java.util.Optional&lt;java.lang.Integer&gt;&nbsp;influxEdgeId,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricEnergyPerPeriod(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">queryHistoricEnergyPerPeriod</a></span>&#8203;(java.util.Optional&lt;java.lang.Integer&gt;&nbsp;influxEdgeId,
                             java.time.ZonedDateTime&nbsp;fromDate,
                             java.time.ZonedDateTime&nbsp;toDate,
                             java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
-                            int&nbsp;resolution)</code></th>
+                            <a href="../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</code></th>
 <td class="colLast">
 <div class="block">Queries historic energy per period.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>protected static java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toChannelAddressStringData(java.util.Set)">toChannelAddressStringData</a></span>&#8203;(java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>protected static java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toChannelAddressStringEnergy(java.util.Set)">toChannelAddressStringEnergy</a></span>&#8203;(java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>protected static java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toChannelAddressStringNonNegativeDifferenceLast(java.util.Set)">toChannelAddressStringNonNegativeDifferenceLast</a></span>&#8203;(java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#write(org.influxdb.dto.Point)">write</a></span>&#8203;(org.influxdb.dto.Point&nbsp;point)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#write(com.influxdb.client.write.Point)">write</a></span>&#8203;(com.influxdb.client.write.Point&nbsp;point)</code></th>
 <td class="colLast">
 <div class="block">Actually write the Point to InfluxDB.</div>
 </td>
@@ -323,7 +317,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.BiConsumer)">
+<a id="&lt;init&gt;(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.Consumer)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -336,7 +330,7 @@ extends java.lang.Object</pre>
                        java.lang.String&nbsp;database,
                        java.lang.String&nbsp;retentionPolicy,
                        boolean&nbsp;isReadOnly,
-                       java.util.function.BiConsumer&lt;java.lang.Iterable&lt;org.influxdb.dto.Point&gt;,&#8203;java.lang.Throwable&gt;&nbsp;onWriteError)</pre>
+                       java.util.function.Consumer&lt;java.lang.Throwable&gt;&nbsp;onWriteError)</pre>
 <div class="block">The Constructor.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -345,11 +339,12 @@ extends java.lang.Object</pre>
 <dd><code>username</code> - The username</dd>
 <dd><code>password</code> - The password</dd>
 <dd><code>database</code> - The database name. If it does not exist, it will be
-                     created</dd>
-<dd><code>isReadOnly</code> - If true, a 'Read-Only-Mode' is activated, where no data
-                     is actually written to the database</dd>
+                        created</dd>
+<dd><code>retentionPolicy</code> - For the InfluxDB database setting</dd>
+<dd><code>isReadOnly</code> - If true, a 'Read-Only-Mode' is activated, where no
+                        data is actually written to the database</dd>
 <dd><code>onWriteError</code> - A callback for write-errors, i.e. '(failedPoints,
-                     throwable) -&gt; {}'</dd>
+                        throwable) -&gt; {}'</dd>
 </dl>
 </li>
 </ul>
@@ -379,6 +374,26 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>deactivate</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;deactivate()</pre>
+<div class="block">Close current <code>InfluxDBClient</code>.</div>
+</li>
+</ul>
+<a id="executeQuery(com.influxdb.query.dsl.Flux)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>executeQuery</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;com.influxdb.query.FluxTable&gt;&nbsp;executeQuery&#8203;(com.influxdb.query.dsl.Flux&nbsp;query)
+                                                          throws <a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<div class="block">Execute given <code>Flux</code> query.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>query</code> - <code>Flux</code> to execute</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Result from database as <code>List</code> of <code>FluxTable</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+</dl>
 </li>
 </ul>
 <a id="executeQuery(java.lang.String)">
@@ -387,14 +402,14 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>executeQuery</h4>
-<pre class="methodSignature">public&nbsp;org.influxdb.dto.QueryResult&nbsp;executeQuery&#8203;(java.lang.String&nbsp;query)
-                                          throws <a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
-<div class="block">Copied from backend.timedata.influx.provider.</div>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;com.influxdb.query.FluxTable&gt;&nbsp;executeQuery&#8203;(java.lang.String&nbsp;query)
+                                                          throws <a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<div class="block">Execute given query.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>query</code> - the Query</dd>
+<dd><code>query</code> - to execute</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <code>QueryResult</code></dd>
+<dd>Result from database as <code>List</code> of <code>FluxTable</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
@@ -426,7 +441,7 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="queryHistoricEnergyPerPeriod(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,int)">
+<a id="queryHistoricEnergyPerPeriod(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -436,7 +451,7 @@ extends java.lang.Object</pre>
                                                                                                                                                              java.time.ZonedDateTime&nbsp;fromDate,
                                                                                                                                                              java.time.ZonedDateTime&nbsp;toDate,
                                                                                                                                                              java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
-                                                                                                                                                             int&nbsp;resolution)
+                                                                                                                                                             <a href="../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)
                                                                                                                                                       throws <a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Queries historic energy per period.</div>
 <dl>
@@ -454,7 +469,7 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="queryHistoricData(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,int)">
+<a id="queryHistoricData(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -464,7 +479,7 @@ extends java.lang.Object</pre>
                                                                                                                                                   java.time.ZonedDateTime&nbsp;fromDate,
                                                                                                                                                   java.time.ZonedDateTime&nbsp;toDate,
                                                                                                                                                   java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
-                                                                                                                                                  int&nbsp;resolution)
+                                                                                                                                                  <a href="../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)
                                                                                                                                            throws <a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Queries historic data.</div>
 <dl>
@@ -482,55 +497,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="toChannelAddressStringData(java.util.Set)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>toChannelAddressStringData</h4>
-<pre class="methodSignature">protected static&nbsp;java.lang.String&nbsp;toChannelAddressStringData&#8203;(java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)
-                                                      throws <a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a id="toChannelAddressStringEnergy(java.util.Set)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>toChannelAddressStringEnergy</h4>
-<pre class="methodSignature">protected static&nbsp;java.lang.String&nbsp;toChannelAddressStringEnergy&#8203;(java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)
-                                                        throws <a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a id="toChannelAddressStringNonNegativeDifferenceLast(java.util.Set)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>toChannelAddressStringNonNegativeDifferenceLast</h4>
-<pre class="methodSignature">protected static&nbsp;java.lang.String&nbsp;toChannelAddressStringNonNegativeDifferenceLast&#8203;(java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)
-                                                                           throws <a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a id="write(org.influxdb.dto.Point)">
+<a id="write(com.influxdb.client.write.Point)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>write</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;write&#8203;(org.influxdb.dto.Point&nbsp;point)
+<pre class="methodSignature">public&nbsp;void&nbsp;write&#8203;(com.influxdb.client.write.Point&nbsp;point)
            throws <a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
 <div class="block">Actually write the Point to InfluxDB.</div>
 <dl>

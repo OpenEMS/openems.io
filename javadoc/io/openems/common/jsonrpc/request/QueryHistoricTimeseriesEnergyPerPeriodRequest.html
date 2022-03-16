@@ -161,12 +161,14 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
    "id": "UUID",
    "method": "queryHistoricTimeseriesEnergyPerPeriod",
    "params": {
-     "timezone": Number,
      "fromDate": YYYY-MM-DD,
      "toDate": YYYY-MM-DD,
      "channels": ChannelAddress[],
-     "resolution": Number
-   }
+     "timezone": String,
+     "resolution": {
+       "value": Number,
+       "unit": <code>ChronoUnit</code>
+     }
  }
  </pre></div>
 </li>
@@ -226,9 +228,9 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.time.ZonedDateTime,java.time.ZonedDateTime,int)">QueryHistoricTimeseriesEnergyPerPeriodRequest</a></span>&#8203;(java.time.ZonedDateTime&nbsp;fromDate,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.time.ZonedDateTime,java.time.ZonedDateTime,io.openems.common.timedata.Resolution)">QueryHistoricTimeseriesEnergyPerPeriodRequest</a></span>&#8203;(java.time.ZonedDateTime&nbsp;fromDate,
                                              java.time.ZonedDateTime&nbsp;toDate,
-                                             int&nbsp;resolution)</code></th>
+                                             <a href="../../timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -279,7 +281,7 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>int</code></td>
+<td class="colFirst"><code><a href="../../timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getResolution()">getResolution</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the requested Resolution in [s].</div>
@@ -360,7 +362,7 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.time.ZonedDateTime,java.time.ZonedDateTime,int)">
+<a id="&lt;init&gt;(java.time.ZonedDateTime,java.time.ZonedDateTime,io.openems.common.timedata.Resolution)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -368,7 +370,7 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <h4>QueryHistoricTimeseriesEnergyPerPeriodRequest</h4>
 <pre>public&nbsp;QueryHistoricTimeseriesEnergyPerPeriodRequest&#8203;(java.time.ZonedDateTime&nbsp;fromDate,
                                                      java.time.ZonedDateTime&nbsp;toDate,
-                                                     int&nbsp;resolution)
+                                                     <a href="../../timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)
                                               throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -471,7 +473,7 @@ extends <a href="../base/JsonrpcRequest.html" title="class in io.openems.common.
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getResolution</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;getResolution()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../../timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;getResolution()</pre>
 <div class="block">Gets the requested Resolution in [s].</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

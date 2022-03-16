@@ -176,7 +176,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.util.function.BiConsumer&lt;org.influxdb.dto.Point.Builder,&#8203;com.google.gson.JsonElement&gt;</code></td>
+<td class="colFirst"><code>java.util.function.BiConsumer&lt;com.influxdb.client.write.Point,&#8203;com.google.gson.JsonElement&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHandler(java.lang.String)">getHandler</a></span>&#8203;(java.lang.String&nbsp;field)</code></th>
 <td class="colLast">
 <div class="block">Gets the handler for the given Field.</div>
@@ -184,9 +184,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleException(org.influxdb.InfluxDBException.FieldTypeConflictException)">handleException</a></span>&#8203;(org.influxdb.InfluxDBException.FieldTypeConflictException&nbsp;e)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleException(com.influxdb.exceptions.InfluxException)">handleException</a></span>&#8203;(com.influxdb.exceptions.InfluxException&nbsp;e)</code></th>
 <td class="colLast">
-<div class="block">Handles a <code>InfluxDBException.FieldTypeConflictException</code>; adds special handling for
+<div class="block">Handles a <code>FieldTypeConflictException</code>; adds special handling for
  fields that already exist in the database.</div>
 </td>
 </tr>
@@ -233,18 +233,18 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="handleException(org.influxdb.InfluxDBException.FieldTypeConflictException)">
+<a id="handleException(com.influxdb.exceptions.InfluxException)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>handleException</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;handleException&#8203;(org.influxdb.InfluxDBException.FieldTypeConflictException&nbsp;e)</pre>
-<div class="block">Handles a <code>InfluxDBException.FieldTypeConflictException</code>; adds special handling for
+<pre class="methodSignature">public&nbsp;void&nbsp;handleException&#8203;(com.influxdb.exceptions.InfluxException&nbsp;e)</pre>
+<div class="block">Handles a <code>FieldTypeConflictException</code>; adds special handling for
  fields that already exist in the database.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>e</code> - the <code>InfluxDBException.FieldTypeConflictException</code></dd>
+<dd><code>e</code> - the <code>FieldTypeConflictException</code></dd>
 </dl>
 </li>
 </ul>
@@ -254,7 +254,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getHandler</h4>
-<pre class="methodSignature">public&nbsp;java.util.function.BiConsumer&lt;org.influxdb.dto.Point.Builder,&#8203;com.google.gson.JsonElement&gt;&nbsp;getHandler&#8203;(java.lang.String&nbsp;field)</pre>
+<pre class="methodSignature">public&nbsp;java.util.function.BiConsumer&lt;com.influxdb.client.write.Point,&#8203;com.google.gson.JsonElement&gt;&nbsp;getHandler&#8203;(java.lang.String&nbsp;field)</pre>
 <div class="block">Gets the handler for the given Field.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
