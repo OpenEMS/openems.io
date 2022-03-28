@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -175,12 +175,10 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.Consumer)">InfluxConnector</a></span>&#8203;(java.lang.String&nbsp;ip,
-               int&nbsp;port,
-               java.lang.String&nbsp;username,
-               java.lang.String&nbsp;password,
-               java.lang.String&nbsp;database,
-               java.lang.String&nbsp;retentionPolicy,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.URI,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.Consumer)">InfluxConnector</a></span>&#8203;(java.net.URI&nbsp;url,
+               java.lang.String&nbsp;org,
+               java.lang.String&nbsp;apiKey,
+               java.lang.String&nbsp;bucket,
                boolean&nbsp;isReadOnly,
                java.util.function.Consumer&lt;java.lang.Throwable&gt;&nbsp;onWriteError)</code></th>
 <td class="colLast">
@@ -227,11 +225,6 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDatabase()">getDatabase</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.SortedMap&lt;java.time.ZonedDateTime,&#8203;java.util.SortedMap&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricData(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">queryHistoricData</a></span>&#8203;(java.util.Optional&lt;java.lang.Integer&gt;&nbsp;influxEdgeId,
                  java.time.ZonedDateTime&nbsp;fromDate,
@@ -242,7 +235,7 @@ extends java.lang.Object</pre>
 <div class="block">Queries historic data.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.SortedMap&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricEnergy(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">queryHistoricEnergy</a></span>&#8203;(java.util.Optional&lt;java.lang.Integer&gt;&nbsp;influxEdgeId,
                    java.time.ZonedDateTime&nbsp;fromDate,
@@ -252,7 +245,7 @@ extends java.lang.Object</pre>
 <div class="block">Queries historic energy.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.util.SortedMap&lt;java.time.ZonedDateTime,&#8203;java.util.SortedMap&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queryHistoricEnergyPerPeriod(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">queryHistoricEnergyPerPeriod</a></span>&#8203;(java.util.Optional&lt;java.lang.Integer&gt;&nbsp;influxEdgeId,
                             java.time.ZonedDateTime&nbsp;fromDate,
@@ -263,7 +256,7 @@ extends java.lang.Object</pre>
 <div class="block">Queries historic energy per period.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#write(com.influxdb.client.write.Point)">write</a></span>&#8203;(com.influxdb.client.write.Point&nbsp;point)</code></th>
 <td class="colLast">
@@ -317,34 +310,29 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.Consumer)">
+<a id="&lt;init&gt;(java.net.URI,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.Consumer)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>InfluxConnector</h4>
-<pre>public&nbsp;InfluxConnector&#8203;(java.lang.String&nbsp;ip,
-                       int&nbsp;port,
-                       java.lang.String&nbsp;username,
-                       java.lang.String&nbsp;password,
-                       java.lang.String&nbsp;database,
-                       java.lang.String&nbsp;retentionPolicy,
+<pre>public&nbsp;InfluxConnector&#8203;(java.net.URI&nbsp;url,
+                       java.lang.String&nbsp;org,
+                       java.lang.String&nbsp;apiKey,
+                       java.lang.String&nbsp;bucket,
                        boolean&nbsp;isReadOnly,
                        java.util.function.Consumer&lt;java.lang.Throwable&gt;&nbsp;onWriteError)</pre>
 <div class="block">The Constructor.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>ip</code> - IP-Address of the InfluxDB-Server</dd>
-<dd><code>port</code> - Port of the InfluxDB-Server</dd>
-<dd><code>username</code> - The username</dd>
-<dd><code>password</code> - The password</dd>
-<dd><code>database</code> - The database name. If it does not exist, it will be
-                        created</dd>
-<dd><code>retentionPolicy</code> - For the InfluxDB database setting</dd>
-<dd><code>isReadOnly</code> - If true, a 'Read-Only-Mode' is activated, where no
-                        data is actually written to the database</dd>
+<dd><code>url</code> - URL of the InfluxDB-Server (http://ip:port)</dd>
+<dd><code>org</code> - The organisation; '-' for InfluxDB v1</dd>
+<dd><code>apiKey</code> - The apiKey; 'username:password' for InfluxDB v1</dd>
+<dd><code>bucket</code> - The bucket name; 'database/retentionPolicy' for InfluxDB v1</dd>
+<dd><code>isReadOnly</code> - If true, a 'Read-Only-Mode' is activated, where no data
+                     is actually written to the database</dd>
 <dd><code>onWriteError</code> - A callback for write-errors, i.e. '(failedPoints,
-                        throwable) -&gt; {}'</dd>
+                     throwable) -&gt; {}'</dd>
 </dl>
 </li>
 </ul>
@@ -358,15 +346,6 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="getDatabase()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getDatabase</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getDatabase()</pre>
-</li>
-</ul>
 <a id="deactivate()">
 <!--   -->
 </a>
