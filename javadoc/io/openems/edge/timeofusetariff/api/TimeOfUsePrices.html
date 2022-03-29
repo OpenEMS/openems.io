@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":9,"i1":10,"i2":10,"i3":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -198,25 +198,39 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static <a href="TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#empty(java.time.ZonedDateTime)">empty</a></span>&#8203;(java.time.ZonedDateTime&nbsp;updateTime)</code></th>
+<td class="colLast">
+<div class="block">Factory method for an 'empty' <a href="TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api"><code>TimeOfUsePrices</code></a> object, i.e.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.time.ZonedDateTime</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUpdateTime()">getUpdateTime</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the time of the last update of prices.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.Float[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValues()">getValues</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gives electricity prices for the next 24 h; one value per 15 minutes; 96
  values in total.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEmpty()">isEmpty</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Is this <a href="TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api"><code>TimeOfUsePrices</code></a> empty, i.e.</div>
 </td>
 </tr>
 </table>
@@ -292,6 +306,21 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="empty(java.time.ZonedDateTime)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>empty</h4>
+<pre class="methodSignature">public static&nbsp;<a href="TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a>&nbsp;empty&#8203;(java.time.ZonedDateTime&nbsp;updateTime)</pre>
+<div class="block">Factory method for an 'empty' <a href="TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api"><code>TimeOfUsePrices</code></a> object, i.e. all values
+ are 'null'.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an 'empty' <a href="TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api"><code>TimeOfUsePrices</code></a> object</dd>
+</dl>
+</li>
+</ul>
 <a id="getValues()">
 <!--   -->
 </a>
@@ -314,7 +343,7 @@ extends java.lang.Object</pre>
 <a id="getUpdateTime()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getUpdateTime</h4>
 <pre class="methodSignature">public&nbsp;java.time.ZonedDateTime&nbsp;getUpdateTime()</pre>
@@ -322,6 +351,20 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the time</dd>
+</dl>
+</li>
+</ul>
+<a id="isEmpty()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isEmpty</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isEmpty()</pre>
+<div class="block">Is this <a href="TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api"><code>TimeOfUsePrices</code></a> empty, i.e. every value is 'null'?.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if all values are null; false otherwise</dd>
 </dl>
 </li>
 </ul>
