@@ -88,13 +88,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -142,29 +142,6 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<section role="region">
-<ul class="blockList">
-<li class="blockList"><a id="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Field</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#NOT_AVAILABLE">NOT_AVAILABLE</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
-</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -204,18 +181,20 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>protected static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addBasicInfo(org.dhatim.fastexcel.Worksheet,java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime)">addBasicInfo</a></span>&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addBasicInfo(org.dhatim.fastexcel.Worksheet,java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.ResourceBundle)">addBasicInfo</a></span>&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
             java.lang.String&nbsp;edgeId,
             java.time.ZonedDateTime&nbsp;fromDate,
-            java.time.ZonedDateTime&nbsp;toDate)</code></th>
+            java.time.ZonedDateTime&nbsp;toDate,
+            java.util.ResourceBundle&nbsp;translationBundle)</code></th>
 <td class="colLast">
 <div class="block">Adds basic information like the Edge-ID, date of creation,...</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addEnergyData(org.dhatim.fastexcel.Worksheet,java.util.SortedMap)">addEnergyData</a></span>&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
-             java.util.SortedMap&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;data)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addEnergyData(org.dhatim.fastexcel.Worksheet,java.util.SortedMap,java.util.ResourceBundle)">addEnergyData</a></span>&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
+             java.util.SortedMap&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;data,
+             java.util.ResourceBundle&nbsp;translationBundle)</code></th>
 <td class="colLast">
 <div class="block">Adds the energy data header and values.</div>
 </td>
@@ -232,18 +211,20 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addKwhValueIfnotNull(org.dhatim.fastexcel.Worksheet,int,int,com.google.gson.JsonElement)">addKwhValueIfnotNull</a></span>&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addKwhValueIfnotNull(org.dhatim.fastexcel.Worksheet,int,int,com.google.gson.JsonElement,java.util.ResourceBundle)">addKwhValueIfnotNull</a></span>&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
                     int&nbsp;row,
                     int&nbsp;col,
-                    com.google.gson.JsonElement&nbsp;jsonElement)</code></th>
+                    com.google.gson.JsonElement&nbsp;jsonElement,
+                    java.util.ResourceBundle&nbsp;translationBundle)</code></th>
 <td class="colLast">
 <div class="block">Helper method to add a energy value in unit [Wh] to the excel sheet.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>protected static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addPowerData(org.dhatim.fastexcel.Worksheet,java.util.SortedMap)">addPowerData</a></span>&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
-            java.util.SortedMap&lt;java.time.ZonedDateTime,&#8203;java.util.SortedMap&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;data)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addPowerData(org.dhatim.fastexcel.Worksheet,java.util.SortedMap,java.util.ResourceBundle)">addPowerData</a></span>&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
+            java.util.SortedMap&lt;java.time.ZonedDateTime,&#8203;java.util.SortedMap&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;data,
+            java.util.ResourceBundle&nbsp;translationBundle)</code></th>
 <td class="colLast">
 <div class="block">Adds the power data header and values.</div>
 </td>
@@ -305,29 +286,6 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<section role="region">
-<ul class="blockList">
-<li class="blockList"><a id="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a id="NOT_AVAILABLE">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>NOT_AVAILABLE</h4>
-<pre>public static final&nbsp;java.lang.String NOT_AVAILABLE</pre>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../constant-values.html#io.openems.common.jsonrpc.response.QueryHistoricTimeseriesExportXlsxResponse.XlsxUtils.NOT_AVAILABLE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
-</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section role="region">
 <ul class="blockList">
@@ -354,7 +312,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="addBasicInfo(org.dhatim.fastexcel.Worksheet,java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime)">
+<a id="addBasicInfo(org.dhatim.fastexcel.Worksheet,java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.ResourceBundle)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -363,7 +321,8 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">protected static&nbsp;void&nbsp;addBasicInfo&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
                                    java.lang.String&nbsp;edgeId,
                                    java.time.ZonedDateTime&nbsp;fromDate,
-                                   java.time.ZonedDateTime&nbsp;toDate)</pre>
+                                   java.time.ZonedDateTime&nbsp;toDate,
+                                   java.util.ResourceBundle&nbsp;translationBundle)</pre>
 <div class="block">Adds basic information like the Edge-ID, date of creation,...</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -374,14 +333,15 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="addEnergyData(org.dhatim.fastexcel.Worksheet,java.util.SortedMap)">
+<a id="addEnergyData(org.dhatim.fastexcel.Worksheet,java.util.SortedMap,java.util.ResourceBundle)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addEnergyData</h4>
 <pre class="methodSignature">protected static&nbsp;void&nbsp;addEnergyData&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
-                                    java.util.SortedMap&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;data)
+                                    java.util.SortedMap&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;data,
+                                    java.util.ResourceBundle&nbsp;translationBundle)
                              throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Adds the energy data header and values.</div>
 <dl>
@@ -393,14 +353,15 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="addPowerData(org.dhatim.fastexcel.Worksheet,java.util.SortedMap)">
+<a id="addPowerData(org.dhatim.fastexcel.Worksheet,java.util.SortedMap,java.util.ResourceBundle)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addPowerData</h4>
 <pre class="methodSignature">protected static&nbsp;void&nbsp;addPowerData&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
-                                   java.util.SortedMap&lt;java.time.ZonedDateTime,&#8203;java.util.SortedMap&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;data)
+                                   java.util.SortedMap&lt;java.time.ZonedDateTime,&#8203;java.util.SortedMap&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;data,
+                                   java.util.ResourceBundle&nbsp;translationBundle)
                             throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Adds the power data header and values.</div>
 <dl>
@@ -452,7 +413,7 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="addKwhValueIfnotNull(org.dhatim.fastexcel.Worksheet,int,int,com.google.gson.JsonElement)">
+<a id="addKwhValueIfnotNull(org.dhatim.fastexcel.Worksheet,int,int,com.google.gson.JsonElement,java.util.ResourceBundle)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -461,17 +422,19 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">protected static&nbsp;void&nbsp;addKwhValueIfnotNull&#8203;(org.dhatim.fastexcel.Worksheet&nbsp;ws,
                                            int&nbsp;row,
                                            int&nbsp;col,
-                                           com.google.gson.JsonElement&nbsp;jsonElement)
+                                           com.google.gson.JsonElement&nbsp;jsonElement,
+                                           java.util.ResourceBundle&nbsp;translationBundle)
                                     throws <a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Helper method to add a energy value in unit [Wh] to the excel sheet. The
  value is rounded to 100 Wh and formatted as [kWh]. If the value is 'null',
- <a href="#NOT_AVAILABLE">"nicht vorhanden"</a> is added instead.</div>
+  is added instead.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>ws</code> - the <code>Worksheet</code></dd>
 <dd><code>row</code> - row number</dd>
 <dd><code>col</code> - column number</dd>
 <dd><code>jsonElement</code> - the value</dd>
+<dd><code>translationBundle</code> - the <code>ResourceBundle</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
@@ -590,13 +553,13 @@ extends java.lang.Object</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
