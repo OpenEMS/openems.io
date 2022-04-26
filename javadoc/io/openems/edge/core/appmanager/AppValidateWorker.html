@@ -253,8 +253,8 @@ extends <a href="../../../common/worker/AbstractWorker.html" title="class in io.
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#validateApp(io.openems.edge.core.appmanager.OpenemsApp,com.google.gson.JsonObject)">validateApp</a></span>&#8203;(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
-           com.google.gson.JsonObject&nbsp;properties)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#validateApp(io.openems.edge.core.appmanager.OpenemsApp,io.openems.edge.core.appmanager.OpenemsAppInstance)">validateApp</a></span>&#8203;(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
+           <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&nbsp;instance)</code></th>
 <td class="colLast">
 <div class="block">Validates all Apps.</div>
 </td>
@@ -336,6 +336,34 @@ extends <a href="../../../common/worker/AbstractWorker.html" title="class in io.
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="configurationEvent(org.osgi.service.cm.ConfigurationEvent)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>configurationEvent</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;configurationEvent&#8203;(org.osgi.service.cm.ConfigurationEvent&nbsp;event)</pre>
+<div class="block">Called by <code>ConfigurationListener</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>event</code> - a <code>ConfigurationEvent</code></dd>
+</dl>
+</li>
+</ul>
+<a id="debugLog()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>debugLog</h4>
+<pre class="methodSignature">protected&nbsp;java.lang.String&nbsp;debugLog()</pre>
+<div class="block">Called by parent debugLog.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a debug log String or null</dd>
+</dl>
+</li>
+</ul>
 <a id="forever()">
 <!--   -->
 </a>
@@ -348,38 +376,6 @@ extends <a href="../../../common/worker/AbstractWorker.html" title="class in io.
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../common/worker/AbstractWorker.html#forever()">forever</a></code>&nbsp;in class&nbsp;<code><a href="../../../common/worker/AbstractWorker.html" title="class in io.openems.common.worker">AbstractWorker</a></code></dd>
-</dl>
-</li>
-</ul>
-<a id="validateApps()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateApps</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;validateApps()</pre>
-<div class="block">Validates all Apps.
-
- <p>
- 'protected' so that it can be used in a JUnit test.</div>
-</li>
-</ul>
-<a id="validateApp(io.openems.edge.core.appmanager.OpenemsApp,com.google.gson.JsonObject)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateApp</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;validateApp&#8203;(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
-                           com.google.gson.JsonObject&nbsp;properties)</pre>
-<div class="block">Validates all Apps.
-
- <p>
- 'protected' so that it can be used in a JUnit test.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>app</code> - the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a></dd>
-<dd><code>properties</code> - the App properties</dd>
 </dl>
 </li>
 </ul>
@@ -406,20 +402,6 @@ extends <a href="../../../common/worker/AbstractWorker.html" title="class in io.
 </dl>
 </li>
 </ul>
-<a id="configurationEvent(org.osgi.service.cm.ConfigurationEvent)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>configurationEvent</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;configurationEvent&#8203;(org.osgi.service.cm.ConfigurationEvent&nbsp;event)</pre>
-<div class="block">Called by <code>ConfigurationListener</code>.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>event</code> - a <code>ConfigurationEvent</code></dd>
-</dl>
-</li>
-</ul>
 <a id="triggerNextRun()">
 <!--   -->
 </a>
@@ -435,18 +417,36 @@ extends <a href="../../../common/worker/AbstractWorker.html" title="class in io.
 </dl>
 </li>
 </ul>
-<a id="debugLog()">
+<a id="validateApp(io.openems.edge.core.appmanager.OpenemsApp,io.openems.edge.core.appmanager.OpenemsAppInstance)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>validateApp</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;validateApp&#8203;(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
+                           <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&nbsp;instance)</pre>
+<div class="block">Validates all Apps.
+
+ <p>
+ 'protected' so that it can be used in a JUnit test.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>app</code> - the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a></dd>
+<dd><code>instance</code> - the App instance</dd>
+</dl>
+</li>
+</ul>
+<a id="validateApps()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>debugLog</h4>
-<pre class="methodSignature">protected&nbsp;java.lang.String&nbsp;debugLog()</pre>
-<div class="block">Called by parent debugLog.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a debug log String or null</dd>
-</dl>
+<h4>validateApps</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;validateApps()</pre>
+<div class="block">Validates all Apps.
+
+ <p>
+ 'protected' so that it can be used in a JUnit test.</div>
 </li>
 </ul>
 </li>

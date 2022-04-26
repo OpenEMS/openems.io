@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":9,"i2":10,"i3":6,"i4":10};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":6,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -87,14 +87,14 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -133,6 +133,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt>All Implemented Interfaces:</dt>
 <dd><code><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
 </dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="../../app/evcs/AbstractEvcsApp.html" title="class in io.openems.edge.app.evcs">AbstractEvcsApp</a></code>, <code><a href="../../app/meter/AbstractMeterApp.html" title="class in io.openems.edge.app.meter">AbstractMeterApp</a></code>, <code><a href="../../app/pvinverter/AbstractPvInverter.html" title="class in io.openems.edge.app.pvinverter">AbstractPvInverter</a></code>, <code><a href="../../app/timeofusetariff/AwattarHourly.html" title="class in io.openems.edge.app.timeofusetariff">AwattarHourly</a></code>, <code><a href="../../app/heat/CombinedHeatAndPower.html" title="class in io.openems.edge.app.heat">CombinedHeatAndPower</a></code>, <code><a href="../../app/evcs/EvcsCluster.html" title="class in io.openems.edge.app.evcs">EvcsCluster</a></code>, <code><a href="../../app/integratedsystem/FeneconHome.html" title="class in io.openems.edge.app.integratedsystem">FeneconHome</a></code>, <code><a href="../../app/heat/HeatingElement.html" title="class in io.openems.edge.app.heat">HeatingElement</a></code>, <code><a href="../../app/heat/HeatPump.html" title="class in io.openems.edge.app.heat">HeatPump</a></code>, <code><a href="../../app/hardware/KMtronic8Channel.html" title="class in io.openems.edge.app.hardware">KMtronic8Channel</a></code>, <code><a href="../../app/api/ModbusTcpApiReadOnly.html" title="class in io.openems.edge.app.api">ModbusTcpApiReadOnly</a></code>, <code><a href="../../app/api/ModbusTcpApiReadWrite.html" title="class in io.openems.edge.app.api">ModbusTcpApiReadWrite</a></code>, <code><a href="../../app/api/MqttApi.html" title="class in io.openems.edge.app.api">MqttApi</a></code>, <code><a href="../../app/api/RestJsonApiReadOnly.html" title="class in io.openems.edge.app.api">RestJsonApiReadOnly</a></code>, <code><a href="../../app/api/RestJsonApiReadWrite.html" title="class in io.openems.edge.app.api">RestJsonApiReadWrite</a></code>, <code><a href="../../app/timeofusetariff/StromdaoCorrently.html" title="class in io.openems.edge.app.timeofusetariff">StromdaoCorrently</a></code>, <code><a href="../../app/timeofusetariff/Tibber.html" title="class in io.openems.edge.app.timeofusetariff">Tibber</a></code></dd>
+</dl>
 <hr>
 <pre>public abstract class <span class="typeNameLabel">AbstractOpenemsApp&lt;PROPERTY extends java.lang.Enum&lt;PROPERTY&gt;&gt;</span>
 extends java.lang.Object
@@ -143,26 +147,48 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- ======== NESTED CLASS SUMMARY ======== -->
+<!-- =========== FIELD SUMMARY =========== -->
 <section role="region">
 <ul class="blockList">
-<li class="blockList"><a id="nested.class.summary">
+<li class="blockList"><a id="field.summary">
 <!--   -->
 </a>
-<h3>Nested Class Summary</h3>
+<h3>Field Summary</h3>
 <table class="memberSummary">
-<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Class</th>
+<th class="colSecond" scope="col">Field</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected static class&nbsp;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="AbstractOpenemsApp.AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AbstractOpenemsApp.AppConfiguration</a></span></code></th>
+<td class="colFirst"><code>protected org.osgi.service.cm.ConfigurationAdmin</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cm">cm</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected org.osgi.service.component.ComponentContext</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#componentContext">componentContext</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#componentManager">componentManager</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager">ComponentUtil</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#componentUtil">componentUtil</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a id="fields.inherited.from.class.io.openems.edge.core.appmanager.OpenemsApp">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;io.openems.edge.core.appmanager.<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></h3>
+<code><a href="OpenemsApp.html#FALLBACK_IMAGE">FALLBACK_IMAGE</a></code></li>
+</ul>
 </li>
 </ul>
 </section>
@@ -182,8 +208,10 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected </code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.edge.common.component.ComponentManager,org.osgi.service.component.ComponentContext)">AbstractOpenemsApp</a></span>&#8203;(<a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>&nbsp;componentManager,
-                  org.osgi.service.component.ComponentContext&nbsp;componentContext)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.edge.common.component.ComponentManager,org.osgi.service.component.ComponentContext,org.osgi.service.cm.ConfigurationAdmin,io.openems.edge.core.appmanager.ComponentUtil)">AbstractOpenemsApp</a></span>&#8203;(<a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>&nbsp;componentManager,
+                  org.osgi.service.component.ComponentContext&nbsp;componentContext,
+                  org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
+                  <a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager">ComponentUtil</a>&nbsp;componentUtil)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -198,42 +226,112 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected abstract <a href="../../../common/function/ThrowingFunction.html" title="interface in io.openems.common.function">ThrowingFunction</a>&lt;java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;,&#8203;<a href="AbstractOpenemsApp.AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AbstractOpenemsApp.AppConfiguration</a>,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</code></td>
+<td class="colFirst"><code>protected abstract <a href="../../../common/function/ThrowingBiFunction.html" title="interface in io.openems.common.function">ThrowingBiFunction</a>&lt;<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>,&#8203;java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;,&#8203;<a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AppConfiguration</a>,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#appConfigurationFactory()">appConfigurationFactory</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Provides a factory for <a href="AbstractOpenemsApp.AppConfiguration.html" title="class in io.openems.edge.core.appmanager"><code>AbstractOpenemsApp.AppConfiguration</code></a>s.</div>
+<div class="block">Provides a factory for <a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager"><code>AppConfiguration</code></a>s.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected static boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(com.google.gson.JsonElement,com.google.gson.JsonElement)">equals</a></span>&#8203;(com.google.gson.JsonElement&nbsp;expected,
-      com.google.gson.JsonElement&nbsp;actual)</code></th>
-<td class="colLast">
-<div class="block">Validates if the 'actual' matches the 'expected' value.</div>
-</td>
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#assertCheckables(io.openems.edge.core.appmanager.ConfigurationTarget,io.openems.edge.core.appmanager.validator.Checkable...)">assertCheckables</a></span>&#8203;(<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>&nbsp;t,
+                <a href="validator/Checkable.html" title="interface in io.openems.edge.core.appmanager.validator">Checkable</a>...&nbsp;checkables)</code></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AppConfiguration</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAppConfiguration(io.openems.edge.core.appmanager.ConfigurationTarget,com.google.gson.JsonObject)">getAppConfiguration</a></span>&#8203;(<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>&nbsp;target,
+                   com.google.gson.JsonObject&nbsp;config)</code></th>
+<td class="colLast">
+<div class="block">Gets the <a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager"><code>AppConfiguration</code></a> needed for the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAppId()">getAppId</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the unique App-ID of the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>protected java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">getId</a></span>&#8203;(<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>&nbsp;t,
+     java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;map,
+     <a href="DefaultEnum.html" title="interface in io.openems.edge.core.appmanager">DefaultEnum</a>&nbsp;key)</code></th>
+<td class="colLast">
+<div class="block">Gets the id of the map with the given DefaultEnum</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>protected java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,PROPERTY,java.lang.String)">getId</a></span>&#8203;(<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>&nbsp;t,
+     java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;map,
+     <a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>&nbsp;p,
+     java.lang.String&nbsp;defaultId)</code></th>
+<td class="colLast">
+<div class="block">Gets the id of the map with the given default id</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected abstract java.lang.Class&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPropertyClass()">getPropertyClass</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>protected <a href="validator/Validator.Builder.html" title="class in io.openems.edge.core.appmanager.validator">Validator.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValidateBuilder()">getValidateBuilder</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="validator/Validator.html" title="class in io.openems.edge.core.appmanager.validator">Validator</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValidator()">getValidator</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the <a href="validator/Validator.html" title="class in io.openems.edge.core.appmanager.validator"><code>Validator</code></a> of this <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>protected java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValueOrDefault(java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">getValueOrDefault</a></span>&#8203;(java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;map,
+                 <a href="DefaultEnum.html" title="interface in io.openems.edge.core.appmanager">DefaultEnum</a>&nbsp;property)</code></th>
+<td class="colLast">
+<div class="block">Gets the value of the property name in the map or the defaulValue if the
+ property was not found.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>protected java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValueOrDefault(java.util.EnumMap,PROPERTY,java.lang.String)">getValueOrDefault</a></span>&#8203;(java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;map,
+                 <a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>&nbsp;property,
+                 java.lang.String&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Gets the value of the property in the map or the defaulValue if the property
+ was not found.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasProperty(java.lang.String)">hasProperty</a></span>&#8203;(java.lang.String&nbsp;property)</code></th>
+<td class="colLast">
+<div class="block">Checks if the given property is in the Property class included.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>protected <a href="../../../common/function/ThrowingBiFunction.html" title="interface in io.openems.common.function">ThrowingBiFunction</a>&lt;<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>,&#8203;java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;,&#8203;java.util.Map&lt;java.lang.String,&#8203;java.util.Map&lt;java.lang.String,&#8203;?&gt;&gt;,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#installationValidation()">installationValidation</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The returning function gets called during app add or update.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#validate(com.google.gson.JsonObject)">validate</a></span>&#8203;(com.google.gson.JsonObject&nbsp;properties)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#validate(io.openems.edge.core.appmanager.OpenemsAppInstance)">validate</a></span>&#8203;(<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&nbsp;instance)</code></th>
 <td class="colLast">
 <div class="block">Validate the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
 </td>
@@ -251,7 +349,7 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.core.appmanager.<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></h3>
-<code><a href="OpenemsApp.html#getAppAssistant()">getAppAssistant</a>, <a href="OpenemsApp.html#getCategory()">getCategory</a>, <a href="OpenemsApp.html#getImage()">getImage</a>, <a href="OpenemsApp.html#getName()">getName</a></code></li>
+<code><a href="OpenemsApp.html#getAppAssistant()">getAppAssistant</a>, <a href="OpenemsApp.html#getAppDescriptor()">getAppDescriptor</a>, <a href="OpenemsApp.html#getCardinality()">getCardinality</a>, <a href="OpenemsApp.html#getCategorys()">getCategorys</a>, <a href="OpenemsApp.html#getImage()">getImage</a>, <a href="OpenemsApp.html#getName()">getName</a></code></li>
 </ul>
 </li>
 </ul>
@@ -262,6 +360,52 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="componentManager">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>componentManager</h4>
+<pre>protected final&nbsp;<a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a> componentManager</pre>
+</li>
+</ul>
+<a id="cm">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>cm</h4>
+<pre>protected final&nbsp;org.osgi.service.cm.ConfigurationAdmin cm</pre>
+</li>
+</ul>
+<a id="componentContext">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>componentContext</h4>
+<pre>protected final&nbsp;org.osgi.service.component.ComponentContext componentContext</pre>
+</li>
+</ul>
+<a id="componentUtil">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>componentUtil</h4>
+<pre>protected final&nbsp;<a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager">ComponentUtil</a> componentUtil</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section role="region">
 <ul class="blockList">
@@ -269,14 +413,16 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(io.openems.edge.common.component.ComponentManager,org.osgi.service.component.ComponentContext)">
+<a id="&lt;init&gt;(io.openems.edge.common.component.ComponentManager,org.osgi.service.component.ComponentContext,org.osgi.service.cm.ConfigurationAdmin,io.openems.edge.core.appmanager.ComponentUtil)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractOpenemsApp</h4>
 <pre>protected&nbsp;AbstractOpenemsApp&#8203;(<a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>&nbsp;componentManager,
-                             org.osgi.service.component.ComponentContext&nbsp;componentContext)</pre>
+                             org.osgi.service.component.ComponentContext&nbsp;componentContext,
+                             org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
+                             <a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager">ComponentUtil</a>&nbsp;componentUtil)</pre>
 </li>
 </ul>
 </li>
@@ -289,6 +435,61 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="appConfigurationFactory()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>appConfigurationFactory</h4>
+<pre class="methodSignature">protected abstract&nbsp;<a href="../../../common/function/ThrowingBiFunction.html" title="interface in io.openems.common.function">ThrowingBiFunction</a>&lt;<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>,&#8203;java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;,&#8203;<a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AppConfiguration</a>,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&nbsp;appConfigurationFactory()</pre>
+<div class="block">Provides a factory for <a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager"><code>AppConfiguration</code></a>s.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <a href="../../../common/function/ThrowingFunction.html" title="interface in io.openems.common.function"><code>ThrowingFunction</code></a> that creates a <a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager"><code>AppConfiguration</code></a>
+         from a <code>EnumMap</code> of configuration properties for a given
+         <a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager"><code>ConfigurationTarget</code></a>.</dd>
+</dl>
+</li>
+</ul>
+<a id="assertCheckables(io.openems.edge.core.appmanager.ConfigurationTarget,io.openems.edge.core.appmanager.validator.Checkable...)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>assertCheckables</h4>
+<pre class="methodSignature">protected final&nbsp;void&nbsp;assertCheckables&#8203;(<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>&nbsp;t,
+                                      <a href="validator/Checkable.html" title="interface in io.openems.edge.core.appmanager.validator">Checkable</a>...&nbsp;checkables)
+                               throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="getAppConfiguration(io.openems.edge.core.appmanager.ConfigurationTarget,com.google.gson.JsonObject)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAppConfiguration</h4>
+<pre class="methodSignature">public&nbsp;<a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AppConfiguration</a>&nbsp;getAppConfiguration&#8203;(<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>&nbsp;target,
+                                            com.google.gson.JsonObject&nbsp;config)
+                                     throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="OpenemsApp.html#getAppConfiguration(io.openems.edge.core.appmanager.ConfigurationTarget,com.google.gson.JsonObject)">OpenemsApp</a></code></span></div>
+<div class="block">Gets the <a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager"><code>AppConfiguration</code></a> needed for the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="OpenemsApp.html#getAppConfiguration(io.openems.edge.core.appmanager.ConfigurationTarget,com.google.gson.JsonObject)">getAppConfiguration</a></code>&nbsp;in interface&nbsp;<code><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>target</code> - the <a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager"><code>ConfigurationTarget</code></a></dd>
+<dd><code>config</code> - the configured app 'properties'</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the app Configuration</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</li>
+</ul>
 <a id="getAppId()">
 <!--   -->
 </a>
@@ -307,6 +508,58 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 </dl>
 </li>
 </ul>
+<a id="getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getId</h4>
+<pre class="methodSignature">protected&nbsp;java.lang.String&nbsp;getId&#8203;(<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>&nbsp;t,
+                                 java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;map,
+                                 <a href="DefaultEnum.html" title="interface in io.openems.edge.core.appmanager">DefaultEnum</a>&nbsp;key)</pre>
+<div class="block">Gets the id of the map with the given DefaultEnum
+
+ <p>
+ e. g. defaultValue: "ess0" => the next available id with the base-name "ess"
+ and the the next available number</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>t</code> - the configuration target</dd>
+<dd><code>map</code> - the configuration map</dd>
+<dd><code>key</code> - the key to be searched for</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the found id</dd>
+</dl>
+</li>
+</ul>
+<a id="getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,java.lang.Enum,java.lang.String)">
+<!--   -->
+</a><a id="getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,PROPERTY,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getId</h4>
+<pre class="methodSignature">protected&nbsp;java.lang.String&nbsp;getId&#8203;(<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>&nbsp;t,
+                                 java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;map,
+                                 <a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>&nbsp;p,
+                                 java.lang.String&nbsp;defaultId)</pre>
+<div class="block">Gets the id of the map with the given default id
+
+ <p>
+ e. g. defaultId: "ess0" => the next available id with the base-name "ess" and
+ the the next available number</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>t</code> - the configuration target</dd>
+<dd><code>map</code> - the configuration map</dd>
+<dd><code>p</code> - the Property which stores the id</dd>
+<dd><code>defaultId</code> - the defaultId to be used</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the found id</dd>
+</dl>
+</li>
+</ul>
 <a id="getPropertyClass()">
 <!--   -->
 </a>
@@ -316,56 +569,127 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <pre class="methodSignature">protected abstract&nbsp;java.lang.Class&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>&gt;&nbsp;getPropertyClass()</pre>
 </li>
 </ul>
-<a id="appConfigurationFactory()">
+<a id="getValidator()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>appConfigurationFactory</h4>
-<pre class="methodSignature">protected abstract&nbsp;<a href="../../../common/function/ThrowingFunction.html" title="interface in io.openems.common.function">ThrowingFunction</a>&lt;java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;,&#8203;<a href="AbstractOpenemsApp.AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AbstractOpenemsApp.AppConfiguration</a>,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&nbsp;appConfigurationFactory()</pre>
-<div class="block">Provides a factory for <a href="AbstractOpenemsApp.AppConfiguration.html" title="class in io.openems.edge.core.appmanager"><code>AbstractOpenemsApp.AppConfiguration</code></a>s.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a <code>Function</code> that creates a <a href="AbstractOpenemsApp.AppConfiguration.html" title="class in io.openems.edge.core.appmanager"><code>AbstractOpenemsApp.AppConfiguration</code></a> from a
-         JsonObject config.</dd>
-</dl>
-</li>
-</ul>
-<a id="validate(com.google.gson.JsonObject)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validate</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;validate&#8203;(com.google.gson.JsonObject&nbsp;properties)
-              throws <a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="OpenemsApp.html#validate(com.google.gson.JsonObject)">OpenemsApp</a></code></span></div>
-<div class="block">Validate the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
+<h4>getValidator</h4>
+<pre class="methodSignature">public final&nbsp;<a href="validator/Validator.html" title="class in io.openems.edge.core.appmanager.validator">Validator</a>&nbsp;getValidator()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="OpenemsApp.html#getValidator()">OpenemsApp</a></code></span></div>
+<div class="block">Gets the <a href="validator/Validator.html" title="class in io.openems.edge.core.appmanager.validator"><code>Validator</code></a> of this <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="OpenemsApp.html#validate(com.google.gson.JsonObject)">validate</a></code>&nbsp;in interface&nbsp;<code><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>properties</code> - the configured app 'properties'</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="OpenemsApp.html#getValidator()">getValidator</a></code>&nbsp;in interface&nbsp;<code><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Validator</dd>
 </dl>
 </li>
 </ul>
-<a id="equals(com.google.gson.JsonElement,com.google.gson.JsonElement)">
+<a id="getValidateBuilder()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getValidateBuilder</h4>
+<pre class="methodSignature">protected&nbsp;<a href="validator/Validator.Builder.html" title="class in io.openems.edge.core.appmanager.validator">Validator.Builder</a>&nbsp;getValidateBuilder()</pre>
+</li>
+</ul>
+<a id="getValueOrDefault(java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getValueOrDefault</h4>
+<pre class="methodSignature">protected&nbsp;java.lang.String&nbsp;getValueOrDefault&#8203;(java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;map,
+                                             <a href="DefaultEnum.html" title="interface in io.openems.edge.core.appmanager">DefaultEnum</a>&nbsp;property)</pre>
+<div class="block">Gets the value of the property name in the map or the defaulValue if the
+ property was not found.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>map</code> - the configuration map</dd>
+<dd><code>property</code> - the property to be searched for</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the String value</dd>
+</dl>
+</li>
+</ul>
+<a id="getValueOrDefault(java.util.EnumMap,java.lang.Enum,java.lang.String)">
+<!--   -->
+</a><a id="getValueOrDefault(java.util.EnumMap,PROPERTY,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getValueOrDefault</h4>
+<pre class="methodSignature">protected&nbsp;java.lang.String&nbsp;getValueOrDefault&#8203;(java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;map,
+                                             <a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>&nbsp;property,
+                                             java.lang.String&nbsp;defaultValue)</pre>
+<div class="block">Gets the value of the property in the map or the defaulValue if the property
+ was not found.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>map</code> - the configuration map</dd>
+<dd><code>property</code> - the property to be searched for</dd>
+<dd><code>defaultValue</code> - the default value</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the String value</dd>
+</dl>
+</li>
+</ul>
+<a id="hasProperty(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasProperty</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;hasProperty&#8203;(java.lang.String&nbsp;property)</pre>
+<div class="block">Checks if the given property is in the Property class included.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>property</code> - the enum property</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if it is included else false</dd>
+</dl>
+</li>
+</ul>
+<a id="installationValidation()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>installationValidation</h4>
+<pre class="methodSignature">protected&nbsp;<a href="../../../common/function/ThrowingBiFunction.html" title="interface in io.openems.common.function">ThrowingBiFunction</a>&lt;<a href="ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>,&#8203;java.util.EnumMap&lt;<a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>,&#8203;com.google.gson.JsonElement&gt;,&#8203;java.util.Map&lt;java.lang.String,&#8203;java.util.Map&lt;java.lang.String,&#8203;?&gt;&gt;,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&nbsp;installationValidation()</pre>
+<div class="block">The returning function gets called during app add or update. The returned
+ <a href="validator/Checkable.html" title="interface in io.openems.edge.core.appmanager.validator"><code>Checkable</code></a>s are executed after setting the network configuration.
+
+ <p>
+ e. g. the function can return a <a href="validator/Checkable.html" title="interface in io.openems.edge.core.appmanager.validator"><code>Checkable</code></a> for checking if a device is
+ reachable via network.
+ </p></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a factory function which returns <a href="validator/Checkable.html" title="interface in io.openems.edge.core.appmanager.validator"><code>Checkable</code></a>s</dd>
+</dl>
+</li>
+</ul>
+<a id="validate(io.openems.edge.core.appmanager.OpenemsAppInstance)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>equals</h4>
-<pre class="methodSignature">protected static&nbsp;boolean&nbsp;equals&#8203;(com.google.gson.JsonElement&nbsp;expected,
-                                com.google.gson.JsonElement&nbsp;actual)</pre>
-<div class="block">Validates if the 'actual' matches the 'expected' value.</div>
+<h4>validate</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;validate&#8203;(<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&nbsp;instance)
+              throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="OpenemsApp.html#validate(io.openems.edge.core.appmanager.OpenemsAppInstance)">OpenemsApp</a></code></span></div>
+<div class="block">Validate the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
 <dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="OpenemsApp.html#validate(io.openems.edge.core.appmanager.OpenemsAppInstance)">validate</a></code>&nbsp;in interface&nbsp;<code><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>expected</code> - the expected value</dd>
-<dd><code>actual</code> - the actual value</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if they match</dd>
+<dd><code>instance</code> - the app instance</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -420,14 +744,14 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

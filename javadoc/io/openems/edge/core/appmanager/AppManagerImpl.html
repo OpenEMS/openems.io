@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -197,6 +197,11 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected <a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager">ComponentUtil</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#componentUtil">componentUtil</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected java.util.List&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#instantiatedApps">instantiatedApps</a></span></code></th>
 <td class="colLast">&nbsp;</td>
@@ -248,30 +253,69 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkStatus(io.openems.edge.core.appmanager.OpenemsApp)">checkStatus</a></span>&#8203;(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;openemsApp)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#configurationEvent(org.osgi.service.cm.ConfigurationEvent)">configurationEvent</a></span>&#8203;(org.osgi.service.cm.ConfigurationEvent&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deactivate()">deactivate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Handles @Deactivate of implementations.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#debugLog()">debugLog</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets some output that is suitable for a continuous Debug log.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findAppById(java.lang.String)">findAppById</a></span>&#8203;(java.lang.String&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">finds the app with the matching id.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInstantiatedApps()">getInstantiatedApps</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets an unmodifiable list of the current instantiated apps.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReplaceableComponentIds(io.openems.edge.core.appmanager.OpenemsApp,com.google.gson.JsonObject)">getReplaceableComponentIds</a></span>&#8203;(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
+                          com.google.gson.JsonObject&nbsp;properties)</code></th>
+<td class="colLast">
+<div class="block">Gets the component id s that can be replaced.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;? extends <a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">handleJsonrpcRequest</a></span>&#8203;(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
                     <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Handles a JSON-RPC Request.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;java.lang.Void&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateAppSettings(java.util.List,io.openems.edge.common.user.User,io.openems.edge.core.appmanager.OpenemsApp,io.openems.edge.core.appmanager.OpenemsAppInstance,io.openems.edge.core.appmanager.OpenemsAppInstance)">updateAppSettings</a></span>&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;errorList,
+                 <a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+                 <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
+                 <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&nbsp;oldAppInstance,
+                 <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&nbsp;newAppInstance)</code></th>
+<td class="colLast">
+<div class="block">creates the needed components of the given app with the given config and
+ updates components with a new configuration and deletes unused components.</div>
 </td>
 </tr>
 </table>
@@ -337,13 +381,22 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <pre>protected&nbsp;<a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a> componentManager</pre>
 </li>
 </ul>
+<a id="componentUtil">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>componentUtil</h4>
+<pre>protected&nbsp;<a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager">ComponentUtil</a> componentUtil</pre>
+</li>
+</ul>
 <a id="instantiatedApps">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>instantiatedApps</h4>
-<pre>protected&nbsp;java.util.List&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt; instantiatedApps</pre>
+<pre>protected final&nbsp;java.util.List&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt; instantiatedApps</pre>
 </li>
 </ul>
 </li>
@@ -375,18 +428,31 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="deactivate()">
+<a id="getInstantiatedApps()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>deactivate</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;deactivate()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../common/component/AbstractOpenemsComponent.html#deactivate()">AbstractOpenemsComponent</a></code></span></div>
-<div class="block">Handles @Deactivate of implementations. Prints log output.</div>
+<h4>getInstantiatedApps</h4>
+<pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;&nbsp;getInstantiatedApps()</pre>
+<div class="block">Gets an unmodifiable list of the current instantiated apps.</div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../common/component/AbstractOpenemsComponent.html#deactivate()">deactivate</a></code>&nbsp;in class&nbsp;<code><a href="../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the list of instantiated apps</dd>
+</dl>
+</li>
+</ul>
+<a id="checkStatus(io.openems.edge.core.appmanager.OpenemsApp)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>checkStatus</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;checkStatus&#8203;(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;openemsApp)
+                    throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -400,6 +466,21 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>configurationEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.cm.ConfigurationListener</code></dd>
+</dl>
+</li>
+</ul>
+<a id="deactivate()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deactivate</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;deactivate()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../common/component/AbstractOpenemsComponent.html#deactivate()">AbstractOpenemsComponent</a></code></span></div>
+<div class="block">Handles @Deactivate of implementations. Prints log output.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../common/component/AbstractOpenemsComponent.html#deactivate()">deactivate</a></code>&nbsp;in class&nbsp;<code><a href="../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -421,10 +502,49 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 </dl>
 </li>
 </ul>
+<a id="findAppById(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>findAppById</h4>
+<pre class="methodSignature">public final&nbsp;<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;findAppById&#8203;(java.lang.String&nbsp;id)</pre>
+<div class="block">finds the app with the matching id.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - of the app</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the found app</dd>
+</dl>
+</li>
+</ul>
+<a id="getReplaceableComponentIds(io.openems.edge.core.appmanager.OpenemsApp,com.google.gson.JsonObject)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReplaceableComponentIds</h4>
+<pre class="methodSignature">protected final&nbsp;java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;getReplaceableComponentIds&#8203;(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
+                                                                                                  com.google.gson.JsonObject&nbsp;properties)
+                                                                                           throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Gets the component id s that can be replaced.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>app</code> - the components of which app</dd>
+<dd><code>properties</code> - the default properties to create an app instance of this
+                   app</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a map of the component id s that can be replaced mapped from id to
+         key to put the next id</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
 <a id="handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>handleJsonrpcRequest</h4>
 <pre class="methodSignature">public&nbsp;java.util.concurrent.CompletableFuture&lt;? extends <a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;&nbsp;handleJsonrpcRequest&#8203;(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
@@ -443,6 +563,34 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
          OpenemsError.JSONRPC_UNHANDLED_METHOD</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="updateAppSettings(java.util.List,io.openems.edge.common.user.User,io.openems.edge.core.appmanager.OpenemsApp,io.openems.edge.core.appmanager.OpenemsAppInstance,io.openems.edge.core.appmanager.OpenemsAppInstance)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>updateAppSettings</h4>
+<pre class="methodSignature">public&nbsp;java.util.concurrent.CompletableFuture&lt;java.lang.Void&gt;&nbsp;updateAppSettings&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;errorList,
+                                                                                <a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+                                                                                <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
+                                                                                <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&nbsp;oldAppInstance,
+                                                                                <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&nbsp;newAppInstance)
+                                                                         throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">creates the needed components of the given app with the given config and
+ updates components with a new configuration and deletes unused components.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>errorList</code> - a list for the errors that occur</dd>
+<dd><code>user</code> - the executing user</dd>
+<dd><code>app</code> - the app that should be created</dd>
+<dd><code>oldAppInstance</code> - the old app instance</dd>
+<dd><code>newAppInstance</code> - the new app instance</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the completableFuture of this task</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
 </dl>
 </li>
 </ul>

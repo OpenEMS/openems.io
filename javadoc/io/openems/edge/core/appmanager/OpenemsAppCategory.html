@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":10,"i2":9,"i3":9};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -161,9 +161,51 @@ extends java.lang.Enum&lt;<a href="OpenemsAppCategory.html" title="enum in io.op
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#API">API</a></span></code></th>
+<td class="colLast">
+<div class="block">Apis.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#EVCS">EVCS</a></span></code></th>
+<td class="colLast">
+<div class="block">Electric vehicle charging station.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#HARDWARE">HARDWARE</a></span></code></th>
+<td class="colLast">
+<div class="block">Hardware.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#HEAT">HEAT</a></span></code></th>
+<td class="colLast">
+<div class="block">Load control.</div>
+</td>
+</tr>
+<tr class="altColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#INTEGRATED_SYSTEM">INTEGRATED_SYSTEM</a></span></code></th>
 <td class="colLast">
 <div class="block">Integrated Systems.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#METER">METER</a></span></code></th>
+<td class="colLast">
+<div class="block">Meter.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PV_INVERTER">PV_INVERTER</a></span></code></th>
+<td class="colLast">
+<div class="block">PV-Inverter.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#TIME_OF_USE_TARIFF">TIME_OF_USE_TARIFF</a></span></code></th>
+<td class="colLast">
+<div class="block">Time of use energy tariff.</div>
 </td>
 </tr>
 </table>
@@ -178,20 +220,32 @@ extends java.lang.Enum&lt;<a href="OpenemsAppCategory.html" title="enum in io.op
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReadableName()">getReadableName</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>com.google.gson.JsonObject</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJsonObject()">toJsonObject</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Creates a <code>JsonObject</code> of the <a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager"><code>OpenemsAppCategory</code></a>.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#valueOf(java.lang.String)">valueOf</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
 <td class="colLast">
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#values()">values</a></span>()</code></th>
 <td class="colLast">
@@ -233,11 +287,81 @@ the order they are declared.</div>
 <a id="INTEGRATED_SYSTEM">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>INTEGRATED_SYSTEM</h4>
 <pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> INTEGRATED_SYSTEM</pre>
 <div class="block">Integrated Systems.</div>
+</li>
+</ul>
+<a id="TIME_OF_USE_TARIFF">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>TIME_OF_USE_TARIFF</h4>
+<pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> TIME_OF_USE_TARIFF</pre>
+<div class="block">Time of use energy tariff.</div>
+</li>
+</ul>
+<a id="EVCS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>EVCS</h4>
+<pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> EVCS</pre>
+<div class="block">Electric vehicle charging station.</div>
+</li>
+</ul>
+<a id="HEAT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>HEAT</h4>
+<pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> HEAT</pre>
+<div class="block">Load control.</div>
+</li>
+</ul>
+<a id="HARDWARE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>HARDWARE</h4>
+<pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> HARDWARE</pre>
+<div class="block">Hardware.</div>
+</li>
+</ul>
+<a id="PV_INVERTER">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PV_INVERTER</h4>
+<pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> PV_INVERTER</pre>
+<div class="block">PV-Inverter.</div>
+</li>
+</ul>
+<a id="METER">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>METER</h4>
+<pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> METER</pre>
+<div class="block">Meter.</div>
+</li>
+</ul>
+<a id="API">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>API</h4>
+<pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> API</pre>
+<div class="block">Apis.</div>
 </li>
 </ul>
 </li>
@@ -273,7 +397,7 @@ for (OpenemsAppCategory c : OpenemsAppCategory.values())
 <a id="valueOf(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>valueOf</h4>
 <pre class="methodSignature">public static&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a>&nbsp;valueOf&#8203;(java.lang.String&nbsp;name)</pre>
@@ -289,6 +413,29 @@ not permitted.)</div>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if this enum type has no constant with the specified name</dd>
 <dd><code>java.lang.NullPointerException</code> - if the argument is null</dd>
+</dl>
+</li>
+</ul>
+<a id="getReadableName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReadableName</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getReadableName()</pre>
+</li>
+</ul>
+<a id="toJsonObject()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>toJsonObject</h4>
+<pre class="methodSignature">public&nbsp;com.google.gson.JsonObject&nbsp;toJsonObject()</pre>
+<div class="block">Creates a <code>JsonObject</code> of the <a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager"><code>OpenemsAppCategory</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <code>JsonObject</code></dd>
 </dl>
 </li>
 </ul>
