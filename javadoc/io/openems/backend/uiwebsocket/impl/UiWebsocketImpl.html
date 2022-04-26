@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,12 +136,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/uiwebsocket/UiWebsocket.html" title="interface in io.openems.backend.common.uiwebsocket">UiWebsocket</a></code></dd>
+<dd><code><a href="../../common/uiwebsocket/UiWebsocket.html" title="interface in io.openems.backend.common.uiwebsocket">UiWebsocket</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">UiWebsocketImpl</span>
 extends <a href="../../common/component/AbstractOpenemsBackendComponent.html" title="class in io.openems.backend.common.component">AbstractOpenemsBackendComponent</a>
-implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface in io.openems.backend.common.uiwebsocket">UiWebsocket</a></pre>
+implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface in io.openems.backend.common.uiwebsocket">UiWebsocket</a>, org.osgi.service.event.EventHandler</pre>
 </li>
 </ul>
 </div>
@@ -227,6 +227,11 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -234,7 +239,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <div class="block">Log an info message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -242,7 +247,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <div class="block">Log a warn message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></span>&#8203;(java.lang.String&nbsp;token,
     <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
@@ -250,7 +255,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <div class="block">Send a JSON-RPC Notification to a UI session.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></span>&#8203;(java.lang.String&nbsp;token,
     <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></th>
@@ -259,7 +264,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
  Response.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendBroadcast(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">sendBroadcast</a></span>&#8203;(java.lang.String&nbsp;edgeId,
              <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
@@ -461,7 +466,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <a id="sendBroadcast(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>sendBroadcast</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;sendBroadcast&#8203;(java.lang.String&nbsp;edgeId,
@@ -478,6 +483,19 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <dd><code>notification</code> - the JsonrpcNotification</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="handleEvent(org.osgi.service.event.Event)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>handleEvent</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;handleEvent&#8203;(org.osgi.service.event.Event&nbsp;event)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 </li>
 </ul>

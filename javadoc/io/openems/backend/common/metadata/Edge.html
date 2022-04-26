@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -158,6 +158,13 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="Edge.Events.html" title="class in io.openems.backend.common.metadata">Edge.Events</a></span></code></th>
+<td class="colLast">
+<div class="block">Defines all Events an Edge can throw.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="Edge.State.html" title="enum in io.openems.backend.common.metadata">Edge.State</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -179,13 +186,16 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,io.openems.backend.common.metadata.Edge.State,java.lang.String,java.lang.String,io.openems.common.channel.Level,io.openems.common.types.EdgeConfig)">Edge</a></span>&#8203;(java.lang.String&nbsp;id,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.backend.common.metadata.Metadata,java.lang.String,java.lang.String,io.openems.backend.common.metadata.Edge.State,java.lang.String,java.lang.String,io.openems.common.channel.Level,io.openems.common.types.EdgeConfig,java.time.ZonedDateTime,java.time.ZonedDateTime)">Edge</a></span>&#8203;(<a href="Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a>&nbsp;parent,
+    java.lang.String&nbsp;id,
     java.lang.String&nbsp;comment,
     <a href="Edge.State.html" title="enum in io.openems.backend.common.metadata">Edge.State</a>&nbsp;state,
     java.lang.String&nbsp;version,
     java.lang.String&nbsp;producttype,
     <a href="../../../common/channel/Level.html" title="enum in io.openems.common.channel">Level</a>&nbsp;sumState,
-    <a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a>&nbsp;config)</code></th>
+    <a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a>&nbsp;config,
+    java.time.ZonedDateTime&nbsp;lastMessage,
+    java.time.ZonedDateTime&nbsp;lastUpdate)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -207,117 +217,84 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addUser(io.openems.backend.common.metadata.EdgeUser)">addUser</a></span>&#8203;(<a href="EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&nbsp;user)</code></th>
+<td class="colLast">
+<div class="block">Add User to UserList.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getComment()">getComment</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConfig()">getConfig</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId()">getId</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.time.ZonedDateTime</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastMessageTimestamp()">getLastMessageTimestamp</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns the Last-Message-Timestamp.</div>
+</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.time.ZonedDateTime</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastUpdateTimestamp()">getLastUpdateTimestamp</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProducttype()">getProducttype</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="Edge.State.html" title="enum in io.openems.backend.common.metadata">Edge.State</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getState()">getState</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../common/channel/Level.html" title="enum in io.openems.common.channel">Level</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSumState()">getSumState</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUser()">getUser</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Get list of users.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVersion()">getVersion</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOnline()">isOnline</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSetConfig(java.util.function.Consumer)">onSetConfig</a></span>&#8203;(java.util.function.Consumer&lt;<a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a>&gt;&nbsp;listener)</code></th>
-<td class="colLast">
-<div class="block">Adds a listener for reception of new EdgeConfig.</div>
-</td>
-</tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSetLastMessage(java.lang.Runnable)">onSetLastMessage</a></span>&#8203;(java.lang.Runnable&nbsp;listener)</code></th>
-<td class="colLast">
-<div class="block">Add a Listener for Set-Last-Message events.</div>
-</td>
-</tr>
 <tr id="i12" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSetLastUpdate(java.lang.Runnable)">onSetLastUpdate</a></span>&#8203;(java.lang.Runnable&nbsp;listener)</code></th>
-<td class="colLast">
-<div class="block">Add a Listener for Set-Last-Update events.</div>
-</td>
-</tr>
-<tr id="i13" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSetOnline(java.util.function.Consumer)">onSetOnline</a></span>&#8203;(java.util.function.Consumer&lt;java.lang.Boolean&gt;&nbsp;listener)</code></th>
-<td class="colLast">
-<div class="block">Add a Listener for Set-Online events.</div>
-</td>
-</tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSetProducttype(java.util.function.Consumer)">onSetProducttype</a></span>&#8203;(java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;listener)</code></th>
-<td class="colLast">
-<div class="block">Add a Listener for Set-Product-Type events.</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSetSumState(java.util.function.Consumer)">onSetSumState</a></span>&#8203;(java.util.function.Consumer&lt;<a href="../../../common/channel/Level.html" title="enum in io.openems.common.channel">Level</a>&gt;&nbsp;listener)</code></th>
-<td class="colLast">
-<div class="block">Add a Listener for Set-Sum-State events.</div>
-</td>
-</tr>
-<tr id="i16" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSetVersion(java.util.function.Consumer)">onSetVersion</a></span>&#8203;(java.util.function.Consumer&lt;<a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a>&gt;&nbsp;listener)</code></th>
-<td class="colLast">
-<div class="block">Add a Listener for Set-Version events.</div>
-</td>
-</tr>
-<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setComment(java.lang.String)">setComment</a></span>&#8203;(java.lang.String&nbsp;comment)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setConfig(io.openems.common.types.EdgeConfig)">setConfig</a></span>&#8203;(<a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a>&nbsp;config)</code></th>
 <td class="colLast">
 <div class="block">Sets the configuration for this Edge and calls the SetConfig-Listeners.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setConfig(io.openems.common.types.EdgeConfig,boolean)">setConfig</a></span>&#8203;(<a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a>&nbsp;config,
          boolean&nbsp;callListeners)</code></th>
@@ -325,49 +302,49 @@ extends java.lang.Object</pre>
 <div class="block">Sets the configuration for this Edge.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastMessageTimestamp()">setLastMessageTimestamp</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Sets the Last-Message-Timestamp and calls the SetLastMessage-Listeners.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastMessageTimestamp(boolean)">setLastMessageTimestamp</a></span>&#8203;(boolean&nbsp;callListeners)</code></th>
 <td class="colLast">
 <div class="block">Sets the Last-Message-Timestamp.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastUpdateTimestamp()">setLastUpdateTimestamp</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Sets the Last-Message-Timestamp and calls the SetLastUpdate-Listeners.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastUpdateTimestamp(boolean)">setLastUpdateTimestamp</a></span>&#8203;(boolean&nbsp;callListeners)</code></th>
 <td class="colLast">
 <div class="block">Sets the Last-Update-Timestamp.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOnline(boolean)">setOnline</a></span>&#8203;(boolean&nbsp;isOnline)</code></th>
 <td class="colLast">
 <div class="block">Marks this Edge as being online.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setProducttype(java.lang.String)">setProducttype</a></span>&#8203;(java.lang.String&nbsp;producttype)</code></th>
 <td class="colLast">
 <div class="block">Sets the Producttype and calls the SetProducttype-Listeners.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setProducttype(java.lang.String,boolean)">setProducttype</a></span>&#8203;(java.lang.String&nbsp;producttype,
               boolean&nbsp;callListeners)</code></th>
@@ -375,19 +352,19 @@ extends java.lang.Object</pre>
 <div class="block">Sets the Producttype.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setState(io.openems.backend.common.metadata.Edge.State)">setState</a></span>&#8203;(<a href="Edge.State.html" title="enum in io.openems.backend.common.metadata">Edge.State</a>&nbsp;state)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSumState(io.openems.common.channel.Level)">setSumState</a></span>&#8203;(<a href="../../../common/channel/Level.html" title="enum in io.openems.common.channel">Level</a>&nbsp;sumState)</code></th>
 <td class="colLast">
 <div class="block">Sets the sumState and calls the SetSumState-Listeners.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSumState(io.openems.common.channel.Level,boolean)">setSumState</a></span>&#8203;(<a href="../../../common/channel/Level.html" title="enum in io.openems.common.channel">Level</a>&nbsp;sumState,
            boolean&nbsp;callListeners)</code></th>
@@ -395,14 +372,14 @@ extends java.lang.Object</pre>
 <div class="block">Sets the version.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVersion(io.openems.common.types.SemanticVersion)">setVersion</a></span>&#8203;(<a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a>&nbsp;version)</code></th>
 <td class="colLast">
 <div class="block">Sets the version and calls the SetVersion-Listeners.</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVersion(io.openems.common.types.SemanticVersion,boolean)">setVersion</a></span>&#8203;(<a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a>&nbsp;version,
           boolean&nbsp;callListeners)</code></th>
@@ -410,14 +387,14 @@ extends java.lang.Object</pre>
 <div class="block">Sets the version.</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJsonObject()">toJsonObject</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets this <a href="Edge.html" title="class in io.openems.backend.common.metadata"><code>Edge</code></a> as <code>JsonObject</code>.</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -446,19 +423,22 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,java.lang.String,io.openems.backend.common.metadata.Edge.State,java.lang.String,java.lang.String,io.openems.common.channel.Level,io.openems.common.types.EdgeConfig)">
+<a id="&lt;init&gt;(io.openems.backend.common.metadata.Metadata,java.lang.String,java.lang.String,io.openems.backend.common.metadata.Edge.State,java.lang.String,java.lang.String,io.openems.common.channel.Level,io.openems.common.types.EdgeConfig,java.time.ZonedDateTime,java.time.ZonedDateTime)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Edge</h4>
-<pre>public&nbsp;Edge&#8203;(java.lang.String&nbsp;id,
+<pre>public&nbsp;Edge&#8203;(<a href="Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a>&nbsp;parent,
+            java.lang.String&nbsp;id,
             java.lang.String&nbsp;comment,
             <a href="Edge.State.html" title="enum in io.openems.backend.common.metadata">Edge.State</a>&nbsp;state,
             java.lang.String&nbsp;version,
             java.lang.String&nbsp;producttype,
             <a href="../../../common/channel/Level.html" title="enum in io.openems.common.channel">Level</a>&nbsp;sumState,
-            <a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a>&nbsp;config)</pre>
+            <a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a>&nbsp;config,
+            java.time.ZonedDateTime&nbsp;lastMessage,
+            java.time.ZonedDateTime&nbsp;lastUpdate)</pre>
 </li>
 </ul>
 </li>
@@ -534,20 +514,6 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="onSetOnline(java.util.function.Consumer)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onSetOnline</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;onSetOnline&#8203;(java.util.function.Consumer&lt;java.lang.Boolean&gt;&nbsp;listener)</pre>
-<div class="block">Add a Listener for Set-Online events.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>listener</code> - the listener</dd>
-</dl>
-</li>
-</ul>
 <a id="isOnline()">
 <!--   -->
 </a>
@@ -568,21 +534,6 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>isOnline</code> - true if the Edge is online</dd>
-</dl>
-</li>
-</ul>
-<a id="onSetConfig(java.util.function.Consumer)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onSetConfig</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;onSetConfig&#8203;(java.util.function.Consumer&lt;<a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a>&gt;&nbsp;listener)</pre>
-<div class="block">Adds a listener for reception of new EdgeConfig. The listener is called
- before the new config is applied.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>listener</code> - the Listener</dd>
 </dl>
 </li>
 </ul>
@@ -634,20 +585,6 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;<a href="Edge.State.html" title="enum in io.openems.backend.common.metadata">Edge.State</a>&nbsp;getState()</pre>
 </li>
 </ul>
-<a id="onSetLastMessage(java.lang.Runnable)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onSetLastMessage</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;onSetLastMessage&#8203;(java.lang.Runnable&nbsp;listener)</pre>
-<div class="block">Add a Listener for Set-Last-Message events.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>listener</code> - the listener</dd>
-</dl>
-</li>
-</ul>
 <a id="setLastMessageTimestamp()">
 <!--   -->
 </a>
@@ -679,19 +616,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getLastMessageTimestamp</h4>
 <pre class="methodSignature">public&nbsp;java.time.ZonedDateTime&nbsp;getLastMessageTimestamp()</pre>
-</li>
-</ul>
-<a id="onSetLastUpdate(java.lang.Runnable)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onSetLastUpdate</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;onSetLastUpdate&#8203;(java.lang.Runnable&nbsp;listener)</pre>
-<div class="block">Add a Listener for Set-Last-Update events.</div>
+<div class="block">Returns the Last-Message-Timestamp.</div>
 <dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>listener</code> - the listener</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Last-Message-Timestamp in UTC Timezone</dd>
 </dl>
 </li>
 </ul>
@@ -737,20 +665,6 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;<a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a>&nbsp;getVersion()</pre>
 </li>
 </ul>
-<a id="onSetVersion(java.util.function.Consumer)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onSetVersion</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;onSetVersion&#8203;(java.util.function.Consumer&lt;<a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a>&gt;&nbsp;listener)</pre>
-<div class="block">Add a Listener for Set-Version events.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>listener</code> - the listener</dd>
-</dl>
-</li>
-</ul>
 <a id="setVersion(io.openems.common.types.SemanticVersion)">
 <!--   -->
 </a>
@@ -788,20 +702,6 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getProducttype</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getProducttype()</pre>
-</li>
-</ul>
-<a id="onSetProducttype(java.util.function.Consumer)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onSetProducttype</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;onSetProducttype&#8203;(java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;listener)</pre>
-<div class="block">Add a Listener for Set-Product-Type events.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>listener</code> - the listener</dd>
-</dl>
 </li>
 </ul>
 <a id="setProducttype(java.lang.String)">
@@ -843,20 +743,6 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;<a href="../../../common/channel/Level.html" title="enum in io.openems.common.channel">Level</a>&nbsp;getSumState()</pre>
 </li>
 </ul>
-<a id="onSetSumState(java.util.function.Consumer)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onSetSumState</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;onSetSumState&#8203;(java.util.function.Consumer&lt;<a href="../../../common/channel/Level.html" title="enum in io.openems.common.channel">Level</a>&gt;&nbsp;listener)</pre>
-<div class="block">Add a Listener for Set-Sum-State events.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>listener</code> - the listener</dd>
-</dl>
-</li>
-</ul>
 <a id="setSumState(io.openems.common.channel.Level)">
 <!--   -->
 </a>
@@ -874,7 +760,7 @@ extends java.lang.Object</pre>
 <a id="setSumState(io.openems.common.channel.Level,boolean)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setSumState</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setSumState&#8203;(<a href="../../../common/channel/Level.html" title="enum in io.openems.common.channel">Level</a>&nbsp;sumState,
@@ -884,6 +770,34 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>sumState</code> - the sumState</dd>
 <dd><code>callListeners</code> - whether to call the SetSumState-Listeners</dd>
+</dl>
+</li>
+</ul>
+<a id="addUser(io.openems.backend.common.metadata.EdgeUser)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addUser</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;addUser&#8203;(<a href="EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&nbsp;user)</pre>
+<div class="block">Add User to UserList.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>user</code> - to add</dd>
+</dl>
+</li>
+</ul>
+<a id="getUser()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getUser</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&gt;&nbsp;getUser()</pre>
+<div class="block">Get list of users.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>user as List of EdgeUser</dd>
 </dl>
 </li>
 </ul>

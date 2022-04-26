@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,12 +136,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface in io.openems.backend.common.edgewebsocket">EdgeWebsocket</a></code></dd>
+<dd><code><a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface in io.openems.backend.common.edgewebsocket">EdgeWebsocket</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">EdgeWebsocketImpl</span>
 extends <a href="../common/component/AbstractOpenemsBackendComponent.html" title="class in io.openems.backend.common.component">AbstractOpenemsBackendComponent</a>
-implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface in io.openems.backend.common.edgewebsocket">EdgeWebsocket</a></pre>
+implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface in io.openems.backend.common.edgewebsocket">EdgeWebsocket</a>, org.osgi.service.event.EventHandler</pre>
 </li>
 </ul>
 </div>
@@ -163,16 +163,21 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected org.osgi.service.event.EventAdmin</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eventAdmin">eventAdmin</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#metadata">metadata</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#timedata">timedata</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../common/uiwebsocket/UiWebsocket.html" title="interface in io.openems.backend.common.uiwebsocket">UiWebsocket</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#uiWebsocket">uiWebsocket</a></span></code></th>
 <td class="colLast">&nbsp;</td>
@@ -217,6 +222,11 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleSubscribeSystemLogRequest(java.lang.String,io.openems.backend.common.metadata.User,java.lang.String,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">handleSubscribeSystemLogRequest</a></span>&#8203;(java.lang.String&nbsp;edgeId,
                                <a href="../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
@@ -226,7 +236,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <div class="block">Handles a <a href="../../common/jsonrpc/request/SubscribeSystemLogRequest.html" title="class in io.openems.common.jsonrpc.request"><code>SubscribeSystemLogRequest</code></a>.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleSystemLogNotification(java.lang.String,io.openems.common.jsonrpc.notification.SystemLogNotification)">handleSystemLogNotification</a></span>&#8203;(java.lang.String&nbsp;edgeId,
                            <a href="../../common/jsonrpc/notification/SystemLogNotification.html" title="class in io.openems.common.jsonrpc.notification">SystemLogNotification</a>&nbsp;notification)</code></th>
@@ -234,14 +244,14 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <div class="block">Handles a <a href="../../common/jsonrpc/notification/SystemLogNotification.html" title="class in io.openems.common.jsonrpc.notification"><code>SystemLogNotification</code></a>, i.e.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOnline(java.lang.String)">isOnline</a></span>&#8203;(java.lang.String&nbsp;edgeId)</code></th>
 <td class="colLast">
 <div class="block">Gets whether the Websocket for this Edge is connected.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -249,7 +259,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <div class="block">Log an info message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -257,7 +267,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <div class="block">Log a warn message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.backend.common.metadata.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></span>&#8203;(java.lang.String&nbsp;edgeId,
     <a href="../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
@@ -267,7 +277,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
  JSON-RPC Response.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></span>&#8203;(java.lang.String&nbsp;edgeId,
     <a href="../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
@@ -322,6 +332,15 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <li class="blockList">
 <h4>timedata</h4>
 <pre>protected volatile&nbsp;<a href="../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a> timedata</pre>
+</li>
+</ul>
+<a id="eventAdmin">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>eventAdmin</h4>
+<pre>protected volatile&nbsp;org.osgi.service.event.EventAdmin eventAdmin</pre>
 </li>
 </ul>
 <a id="uiWebsocket">
@@ -496,7 +515,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <a id="handleSystemLogNotification(java.lang.String,io.openems.common.jsonrpc.notification.SystemLogNotification)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>handleSystemLogNotification</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;handleSystemLogNotification&#8203;(java.lang.String&nbsp;edgeId,
@@ -507,6 +526,19 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>edgeId</code> - the Edge-ID</dd>
 <dd><code>notification</code> - the SystemLogNotification</dd>
+</dl>
+</li>
+</ul>
+<a id="handleEvent(org.osgi.service.event.Event)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>handleEvent</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;handleEvent&#8203;(org.osgi.service.event.Event&nbsp;event)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 </li>
 </ul>

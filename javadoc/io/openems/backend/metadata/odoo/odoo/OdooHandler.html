@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -274,6 +274,14 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i10" class="altColor">
+<td class="colFirst"><code>java.util.concurrent.Future&lt;<a href="OdooUtils.SuccessResponseAndHeaders.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooUtils.SuccessResponseAndHeaders</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendNotificationMailAsync(java.util.List,java.time.ZonedDateTime)">sendNotificationMailAsync</a></span>&#8203;(java.util.List&lt;<a href="../../../common/metadata/EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&gt;&nbsp;user,
+                         java.time.ZonedDateTime&nbsp;now)</code></th>
+<td class="colLast">
+<div class="block">Call Odoo api to send multiple notification mails via Odoo async.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUserInformation(io.openems.backend.metadata.odoo.MyUser,com.google.gson.JsonObject)">setUserInformation</a></span>&#8203;(<a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo">MyUser</a>&nbsp;user,
                   com.google.gson.JsonObject&nbsp;userJson)</code></th>
@@ -281,7 +289,7 @@ extends java.lang.Object</pre>
 <div class="block">Update the given <a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo"><code>MyUser</code></a> with information from <code>JsonObject</code>.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#submitSetupProtocol(io.openems.backend.metadata.odoo.MyUser,com.google.gson.JsonObject)">submitSetupProtocol</a></span>&#8203;(<a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo">MyUser</a>&nbsp;user,
                    com.google.gson.JsonObject&nbsp;setupProtocolJson)</code></th>
@@ -289,7 +297,7 @@ extends java.lang.Object</pre>
 <div class="block">Save the Setup Protocol to Odoo.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateUserLanguage(io.openems.backend.metadata.odoo.MyUser,io.openems.common.session.Language)">updateUserLanguage</a></span>&#8203;(<a href="../MyUser.html" title="class in io.openems.backend.metadata.odoo">MyUser</a>&nbsp;user,
                   <a href="../../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</code></th>
@@ -297,12 +305,20 @@ extends java.lang.Object</pre>
 <div class="block">Update language for the given user.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeEdge(io.openems.backend.metadata.odoo.MyEdge,io.openems.backend.metadata.odoo.odoo.FieldValue...)">writeEdge</a></span>&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge,
          <a href="FieldValue.html" title="class in io.openems.backend.metadata.odoo.odoo">FieldValue</a>&lt;?&gt;...&nbsp;fieldValues)</code></th>
 <td class="colLast">
 <div class="block">Writes one field to Odoo Edge model.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeEdgeUser(io.openems.backend.common.metadata.EdgeUser,io.openems.backend.metadata.odoo.odoo.FieldValue...)">writeEdgeUser</a></span>&#8203;(<a href="../../../common/metadata/EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&nbsp;edgeUser,
+             <a href="FieldValue.html" title="class in io.openems.backend.metadata.odoo.odoo">FieldValue</a>&lt;?&gt;...&nbsp;fieldValues)</code></th>
+<td class="colLast">
+<div class="block">Writes one field to Odoo EdgeUser model.</div>
 </td>
 </tr>
 </table>
@@ -380,6 +396,22 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>edge</code> - the Edge</dd>
+<dd><code>fieldValues</code> - the FieldValues</dd>
+</dl>
+</li>
+</ul>
+<a id="writeEdgeUser(io.openems.backend.common.metadata.EdgeUser,io.openems.backend.metadata.odoo.odoo.FieldValue...)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeEdgeUser</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;writeEdgeUser&#8203;(<a href="../../../common/metadata/EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&nbsp;edgeUser,
+                          <a href="FieldValue.html" title="class in io.openems.backend.metadata.odoo.odoo">FieldValue</a>&lt;?&gt;...&nbsp;fieldValues)</pre>
+<div class="block">Writes one field to Odoo EdgeUser model.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edgeUser</code> - the EdgeUser</dd>
 <dd><code>fieldValues</code> - the FieldValues</dd>
 </dl>
 </li>
@@ -612,6 +644,27 @@ extends java.lang.Object</pre>
 <dd><code>role</code> - <a href="OdooUserRole.html" title="enum in io.openems.backend.metadata.odoo.odoo"><code>OdooUserRole</code></a> to set for the user</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="sendNotificationMailAsync(java.util.List,java.time.ZonedDateTime)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sendNotificationMailAsync</h4>
+<pre class="methodSignature">public&nbsp;java.util.concurrent.Future&lt;<a href="OdooUtils.SuccessResponseAndHeaders.html" title="class in io.openems.backend.metadata.odoo.odoo">OdooUtils.SuccessResponseAndHeaders</a>&gt;&nbsp;sendNotificationMailAsync&#8203;(java.util.List&lt;<a href="../../../common/metadata/EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&gt;&nbsp;user,
+                                                                                                  java.time.ZonedDateTime&nbsp;now)
+                                                                                           throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Call Odoo api to send multiple notification mails via Odoo async.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>user</code> - Odoo deviceUser ids to send the mail</dd>
+<dd><code>now</code> - TimeStamp for last_notification field</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>Future</code> of <a href="OdooUtils.SuccessResponseAndHeaders.html" title="class in io.openems.backend.metadata.odoo.odoo"><code>OdooUtils.SuccessResponseAndHeaders</code></a></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - error</dd>
 </dl>
 </li>
 </ul>

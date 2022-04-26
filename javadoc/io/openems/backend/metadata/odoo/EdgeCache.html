@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -181,31 +181,46 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="MyEdgeUser.html" title="class in io.openems.backend.metadata.odoo">MyEdgeUser</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addOrUpdateUser(java.sql.ResultSet,java.lang.String)">addOrUpdateUser</a></span>&#8203;(java.sql.ResultSet&nbsp;rs,
+               java.lang.String&nbsp;edgeId)</code></th>
+<td class="colLast">
+<div class="block">Adds a EdgeUser to an existing Edge from a SQL ResultSet.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.Collection&lt;<a href="../../common/metadata/Edge.html" title="class in io.openems.backend.common.metadata">Edge</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAllEdges()">getAllEdges</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets all Edges as an unmodifiable Collection.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgeForApikey(java.lang.String)">getEdgeForApikey</a></span>&#8203;(java.lang.String&nbsp;apikey)</code></th>
 <td class="colLast">
 <div class="block">Gets an Edge from its Apikey.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgeFromEdgeId(java.lang.String)">getEdgeFromEdgeId</a></span>&#8203;(java.lang.String&nbsp;edgeId)</code></th>
 <td class="colLast">
 <div class="block">Gets an Edge from its Edge-ID.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgeFromOdooId(int)">getEdgeFromOdooId</a></span>&#8203;(int&nbsp;odooId)</code></th>
 <td class="colLast">
 <div class="block">Gets an Edge from its Odoo-ID.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="MyEdgeUser.html" title="class in io.openems.backend.metadata.odoo">MyEdgeUser</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgeUserFromOdooId(int)">getEdgeUserFromOdooId</a></span>&#8203;(int&nbsp;odooId)</code></th>
+<td class="colLast">
+<div class="block">Gets an EdgeUser from its Odoo-ID.</div>
 </td>
 </tr>
 </table>
@@ -272,6 +287,27 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a id="addOrUpdateUser(java.sql.ResultSet,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addOrUpdateUser</h4>
+<pre class="methodSignature">public&nbsp;<a href="MyEdgeUser.html" title="class in io.openems.backend.metadata.odoo">MyEdgeUser</a>&nbsp;addOrUpdateUser&#8203;(java.sql.ResultSet&nbsp;rs,
+                                  java.lang.String&nbsp;edgeId)
+                           throws java.sql.SQLException</pre>
+<div class="block">Adds a EdgeUser to an existing Edge from a SQL ResultSet.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>rs</code> - the ResultSet record</dd>
+<dd><code>edgeId</code> - of the Edge to add the User to</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the new or updated EdgeUser instance</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code> - on error</dd>
+</dl>
+</li>
+</ul>
 <a id="getEdgeFromEdgeId(java.lang.String)">
 <!--   -->
 </a>
@@ -323,7 +359,7 @@ extends java.lang.Object</pre>
 <a id="getAllEdges()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getAllEdges</h4>
 <pre class="methodSignature">public&nbsp;java.util.Collection&lt;<a href="../../common/metadata/Edge.html" title="class in io.openems.backend.common.metadata">Edge</a>&gt;&nbsp;getAllEdges()</pre>
@@ -331,6 +367,22 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a collection of Edges</dd>
+</dl>
+</li>
+</ul>
+<a id="getEdgeUserFromOdooId(int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getEdgeUserFromOdooId</h4>
+<pre class="methodSignature">public&nbsp;<a href="MyEdgeUser.html" title="class in io.openems.backend.metadata.odoo">MyEdgeUser</a>&nbsp;getEdgeUserFromOdooId&#8203;(int&nbsp;odooId)</pre>
+<div class="block">Gets an EdgeUser from its Odoo-ID.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>odooId</code> - the Odoo-ID</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the EdgeUser, or null</dd>
 </dl>
 </li>
 </ul>
