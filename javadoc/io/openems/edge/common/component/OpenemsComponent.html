@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":38,"i1":18,"i2":6,"i3":18,"i4":18,"i5":6,"i6":18,"i7":6,"i8":1,"i9":18,"i10":18,"i11":18,"i12":6,"i13":6,"i14":1,"i15":1,"i16":1,"i17":1,"i18":18,"i19":18,"i20":1,"i21":1,"i22":1};
+var data = {"i0":38,"i1":18,"i2":6,"i3":18,"i4":18,"i5":6,"i6":18,"i7":6,"i8":1,"i9":18,"i10":18,"i11":18,"i12":6,"i13":6,"i14":1,"i15":1,"i16":1,"i17":1,"i18":18,"i19":18,"i20":1,"i21":1,"i22":1,"i23":1};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -365,6 +365,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i22" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateReferenceFilterRaw(org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String,java.lang.String)">updateReferenceFilterRaw</a></span>&#8203;(org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
+                        java.lang.String&nbsp;pid,
+                        java.lang.String&nbsp;member,
+                        java.lang.String&nbsp;filter)</code></th>
+<td class="colLast">
+<div class="block">Sets a target filter for a Declarative Service @Reference member.</div>
+</td>
+</tr>
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#validateSingleton(org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String)">validateSingleton</a></span>&#8203;(org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
                  java.lang.String&nbsp;pid,
                  java.lang.String&nbsp;expectedId)</code></th>
@@ -690,6 +700,49 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code>member</code> - Name of the Method or Field with the Reference annotation, e.g.</dd>
 <dd><code>ids</code> - Component IDs to be filtered for; for empty list, no ids are
                added to the target filter</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the filter was updated. You may use it to abort the
+         activate() method.</dd>
+</dl>
+</li>
+</ul>
+<a id="updateReferenceFilterRaw(org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateReferenceFilterRaw</h4>
+<pre class="methodSignature">static&nbsp;boolean&nbsp;updateReferenceFilterRaw&#8203;(org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
+                                        java.lang.String&nbsp;pid,
+                                        java.lang.String&nbsp;member,
+                                        java.lang.String&nbsp;filter)</pre>
+<div class="block">Sets a target filter for a Declarative Service @Reference member.
+
+ <p>
+ Use this method only if you know what you are doing. Usually you will want to
+ use the
+ <a href="#updateReferenceFilter(org.osgi.service.cm.ConfigurationAdmin,java.lang.String,java.lang.String,java.lang.String...)"><code>updateReferenceFilter(ConfigurationAdmin, String, String, String...)</code></a>
+ method instead.
+
+ <p>
+ Usage:
+
+ <pre>
+ updateReferenceFilterRaw(config.service_pid(), "Controllers", "(enabled=true)");
+ </pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cm</code> - a ConfigurationAdmin instance. Get one using
+
+               <pre>
+               &#64;Reference
+               ConfigurationAdmin cm;
+               </pre></dd>
+<dd><code>pid</code> - PID of the calling component (use 'config.service_pid()' or
+               '(String)prop.get(Constants.SERVICE_PID)'; if null, PID filter
+               is not added to the resulting target filter</dd>
+<dd><code>member</code> - Name of the Method or Field with the Reference annotation, e.g.</dd>
+<dd><code>filter</code> - The filter attribute</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the filter was updated. You may use it to abort the
          activate() method.</dd>
