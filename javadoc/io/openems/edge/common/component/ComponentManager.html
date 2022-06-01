@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":6,"i5":18,"i6":6,"i7":18,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":18,"i14":6,"i15":6,"i16":6,"i17":18,"i18":18,"i19":18};
+var data = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":6,"i5":18,"i6":6,"i7":6,"i8":18,"i9":18,"i10":18,"i11":18,"i12":18,"i13":18,"i14":6,"i15":6,"i16":6,"i17":6,"i18":18,"i19":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -259,7 +259,7 @@ extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.comm
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>default &lt;T extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>T</code></td>
+<td class="colFirst"><code>&lt;T extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>T</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getComponent(java.lang.String)">getComponent</a></span>&#8203;(java.lang.String&nbsp;componentId)</code></th>
 <td class="colLast">
 <div class="block">Gets a OpenEMS-Component by its Component-ID.</div>
@@ -329,7 +329,7 @@ extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.comm
 </td>
 </tr>
 <tr id="i17" class="rowColor">
-<td class="colFirst"><code>default &lt;T extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>T</code></td>
+<td class="colFirst"><code>&lt;T extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>T</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPossiblyDisabledComponent(java.lang.String)">getPossiblyDisabledComponent</a></span>&#8203;(java.lang.String&nbsp;componentId)</code></th>
 <td class="colLast">
 <div class="block">Gets a OpenEMS-Component by its Component-ID.</div>
@@ -616,7 +616,13 @@ extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.comm
 <li class="blockList">
 <h4>getEnabledComponents</h4>
 <pre class="methodSignature">java.util.List&lt;<a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;getEnabledComponents()</pre>
-<div class="block">Gets all enabled OpenEMS-Components.</div>
+<div class="block">Gets all enabled OpenEMS-Components.
+ 
+ <p>
+ Be aware that via this method usage of the Component service is not tracked
+ by the bundle's use count (See
+ <code>BundleContext.getService(org.osgi.framework.ServiceReference)</code>). Make
+ sure to use the references as shortly as possible.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a List of OpenEMS-Components</dd>
@@ -632,7 +638,13 @@ extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.comm
 <li class="blockList">
 <h4>getEnabledComponentsOfType</h4>
 <pre class="methodSignature">&lt;T extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;java.util.List&lt;T&gt;&nbsp;getEnabledComponentsOfType&#8203;(java.lang.Class&lt;T&gt;&nbsp;clazz)</pre>
-<div class="block">Gets all enabled OpenEMS-Components of the given Type.</div>
+<div class="block">Gets all enabled OpenEMS-Components of the given Type.
+ 
+ <p>
+ Be aware that via this method usage of the Component service is not tracked
+ by the bundle's use count (See
+ <code>BundleContext.getService(org.osgi.framework.ServiceReference)</code>). Make
+ sure to use the references as shortly as possible.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>T</code> - the given Type, subclass of <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component"><code>OpenemsComponent</code></a></dd>
@@ -650,7 +662,13 @@ extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.comm
 <li class="blockList">
 <h4>getAllComponents</h4>
 <pre class="methodSignature">java.util.List&lt;<a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;getAllComponents()</pre>
-<div class="block">Gets all OpenEMS-Components.</div>
+<div class="block">Gets all OpenEMS-Components.
+ 
+ <p>
+ Be aware that via this method usage of the Component service is not tracked
+ by the bundle's use count (See
+ <code>BundleContext.getService(org.osgi.framework.ServiceReference)</code>). Make
+ sure to use the references as shortly as possible.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a List of OpenEMS-Components</dd>
@@ -665,10 +683,16 @@ extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.comm
 <ul class="blockList">
 <li class="blockList">
 <h4>getComponent</h4>
-<pre class="methodSignature">default&nbsp;&lt;T extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;T&nbsp;getComponent&#8203;(java.lang.String&nbsp;componentId)
-                                             throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<pre class="methodSignature">&lt;T extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;T&nbsp;getComponent&#8203;(java.lang.String&nbsp;componentId)
+                                     throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Gets a OpenEMS-Component by its Component-ID. The Component is guaranteed to
- be enabled.</div>
+ be enabled.
+ 
+ <p>
+ Be aware that via this method usage of the Component service is not tracked
+ by the bundle's use count (See
+ <code>BundleContext.getService(org.osgi.framework.ServiceReference)</code>). Make
+ sure to use the references as shortly as possible.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>T</code> - the typed Component</dd>
@@ -687,11 +711,17 @@ extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.comm
 <ul class="blockList">
 <li class="blockList">
 <h4>getPossiblyDisabledComponent</h4>
-<pre class="methodSignature">default&nbsp;&lt;T extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;T&nbsp;getPossiblyDisabledComponent&#8203;(java.lang.String&nbsp;componentId)
-                                                             throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<pre class="methodSignature">&lt;T extends <a href="OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;T&nbsp;getPossiblyDisabledComponent&#8203;(java.lang.String&nbsp;componentId)
+                                                     throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Gets a OpenEMS-Component by its Component-ID. Be careful, that the Component
  might not be 'enabled'. If in doubt, use <a href="#getComponent(java.lang.String)"><code>getComponent(String)</code></a>
- instead.</div>
+ instead.
+
+ <p>
+ Be aware that via this method usage of the Component service is not tracked
+ by the bundle's use count (See
+ <code>BundleContext.getService(org.osgi.framework.ServiceReference)</code>). Make
+ sure to use the references as shortly as possible.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>T</code> - the typed Component</dd>

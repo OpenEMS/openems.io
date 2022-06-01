@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":42,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var data = {"i0":42,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -261,34 +261,48 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>T</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getComponent(java.lang.String)">getComponent</a></span>&#8203;(java.lang.String&nbsp;componentId)</code></th>
+<td class="colLast">
+<div class="block">Gets a OpenEMS-Component by its Component-ID.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>org.osgi.service.component.ComponentContext</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getComponentContext()">getComponentContext</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the ComponentContext.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgeConfig()">getEdgeConfig</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the complete configuration of this OpenEMS Edge.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnabledComponents()">getEnabledComponents</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets all enabled OpenEMS-Components.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>java.util.List&lt;T&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnabledComponentsOfType(java.lang.Class)">getEnabledComponentsOfType</a></span>&#8203;(java.lang.Class&lt;T&gt;&nbsp;clazz)</code></th>
 <td class="colLast">
 <div class="block">Gets all enabled OpenEMS-Components of the given Type.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>T</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPossiblyDisabledComponent(java.lang.String)">getPossiblyDisabledComponent</a></span>&#8203;(java.lang.String&nbsp;componentId)</code></th>
+<td class="colLast">
+<div class="block">Gets a OpenEMS-Component by its Component-ID.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">handleJsonrpcRequest</a></span>&#8203;(<a href="../user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
                     <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></th>
@@ -296,21 +310,21 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 <div class="block">Handles a JSON-RPC Request.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#id()">id</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns a unique ID for this OpenEMS component.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEnabled()">isEnabled</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns whether this component is enabled.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setConfigJson(com.google.gson.JsonObject)">setConfigJson</a></span>&#8203;(com.google.gson.JsonObject&nbsp;json)</code></th>
 <td class="colLast">
@@ -330,7 +344,7 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></h3>
-<code><a href="../component/ComponentManager.html#_setConfigNotActivated(java.lang.Boolean)">_setConfigNotActivated</a>, <a href="../component/ComponentManager.html#_setDefaultConfigurationFailed(boolean)">_setDefaultConfigurationFailed</a>, <a href="../component/ComponentManager.html#_setDuplicatedComponentId(java.lang.Boolean)">_setDuplicatedComponentId</a>, <a href="../component/ComponentManager.html#_setWasOutOfMemory(boolean)">_setWasOutOfMemory</a>, <a href="../component/ComponentManager.html#getChannel(io.openems.common.types.ChannelAddress)">getChannel</a>, <a href="../component/ComponentManager.html#getComponent(java.lang.String)">getComponent</a>, <a href="../component/ComponentManager.html#getConfigNotActivated()">getConfigNotActivated</a>, <a href="../component/ComponentManager.html#getConfigNotActivatedChannel()">getConfigNotActivatedChannel</a>, <a href="../component/ComponentManager.html#getDefaultConfigurationFailed()">getDefaultConfigurationFailed</a>, <a href="../component/ComponentManager.html#getDefaultConfigurationFailedChannel()">getDefaultConfigurationFailedChannel</a>, <a href="../component/ComponentManager.html#getDuplicatedComponentId()">getDuplicatedComponentId</a>, <a href="../component/ComponentManager.html#getDuplicatedComponentIdChannel()">getDuplicatedComponentIdChannel</a>, <a href="../component/ComponentManager.html#getPossiblyDisabledComponent(java.lang.String)">getPossiblyDisabledComponent</a>, <a href="../component/ComponentManager.html#getWasOutOfMemory()">getWasOutOfMemory</a>, <a href="../component/ComponentManager.html#getWasOutOfMemoryChannel()">getWasOutOfMemoryChannel</a></code></li>
+<code><a href="../component/ComponentManager.html#_setConfigNotActivated(java.lang.Boolean)">_setConfigNotActivated</a>, <a href="../component/ComponentManager.html#_setDefaultConfigurationFailed(boolean)">_setDefaultConfigurationFailed</a>, <a href="../component/ComponentManager.html#_setDuplicatedComponentId(java.lang.Boolean)">_setDuplicatedComponentId</a>, <a href="../component/ComponentManager.html#_setWasOutOfMemory(boolean)">_setWasOutOfMemory</a>, <a href="../component/ComponentManager.html#getChannel(io.openems.common.types.ChannelAddress)">getChannel</a>, <a href="../component/ComponentManager.html#getConfigNotActivated()">getConfigNotActivated</a>, <a href="../component/ComponentManager.html#getConfigNotActivatedChannel()">getConfigNotActivatedChannel</a>, <a href="../component/ComponentManager.html#getDefaultConfigurationFailed()">getDefaultConfigurationFailed</a>, <a href="../component/ComponentManager.html#getDefaultConfigurationFailedChannel()">getDefaultConfigurationFailedChannel</a>, <a href="../component/ComponentManager.html#getDuplicatedComponentId()">getDuplicatedComponentId</a>, <a href="../component/ComponentManager.html#getDuplicatedComponentIdChannel()">getDuplicatedComponentIdChannel</a>, <a href="../component/ComponentManager.html#getWasOutOfMemory()">getWasOutOfMemory</a>, <a href="../component/ComponentManager.html#getWasOutOfMemoryChannel()">getWasOutOfMemoryChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
@@ -391,7 +405,13 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 <h4>getEnabledComponents</h4>
 <pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;getEnabledComponents()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../component/ComponentManager.html#getEnabledComponents()">ComponentManager</a></code></span></div>
-<div class="block">Gets all enabled OpenEMS-Components.</div>
+<div class="block">Gets all enabled OpenEMS-Components.
+ 
+ <p>
+ Be aware that via this method usage of the Component service is not tracked
+ by the bundle's use count (See
+ <code>BundleContext.getService(org.osgi.framework.ServiceReference)</code>). Make
+ sure to use the references as shortly as possible.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../component/ComponentManager.html#getEnabledComponents()">getEnabledComponents</a></code>&nbsp;in interface&nbsp;<code><a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
@@ -408,7 +428,13 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 <h4>getAllComponents</h4>
 <pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;getAllComponents()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../component/ComponentManager.html#getAllComponents()">ComponentManager</a></code></span></div>
-<div class="block">Gets all OpenEMS-Components.</div>
+<div class="block">Gets all OpenEMS-Components.
+ 
+ <p>
+ Be aware that via this method usage of the Component service is not tracked
+ by the bundle's use count (See
+ <code>BundleContext.getService(org.osgi.framework.ServiceReference)</code>). Make
+ sure to use the references as shortly as possible.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../component/ComponentManager.html#getAllComponents()">getAllComponents</a></code>&nbsp;in interface&nbsp;<code><a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
@@ -425,7 +451,13 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 <h4>getEnabledComponentsOfType</h4>
 <pre class="methodSignature">public&nbsp;&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;java.util.List&lt;T&gt;&nbsp;getEnabledComponentsOfType&#8203;(java.lang.Class&lt;T&gt;&nbsp;clazz)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../component/ComponentManager.html#getEnabledComponentsOfType(java.lang.Class)">ComponentManager</a></code></span></div>
-<div class="block">Gets all enabled OpenEMS-Components of the given Type.</div>
+<div class="block">Gets all enabled OpenEMS-Components of the given Type.
+ 
+ <p>
+ Be aware that via this method usage of the Component service is not tracked
+ by the bundle's use count (See
+ <code>BundleContext.getService(org.osgi.framework.ServiceReference)</code>). Make
+ sure to use the references as shortly as possible.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../component/ComponentManager.html#getEnabledComponentsOfType(java.lang.Class)">getEnabledComponentsOfType</a></code>&nbsp;in interface&nbsp;<code><a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
@@ -435,6 +467,69 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 <dd><code>clazz</code> - the given Type, subclass of <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component"><code>OpenemsComponent</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a List of OpenEMS-Components</dd>
+</dl>
+</li>
+</ul>
+<a id="getComponent(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getComponent</h4>
+<pre class="methodSignature">public&nbsp;&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;T&nbsp;getComponent&#8203;(java.lang.String&nbsp;componentId)
+                                            throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../component/ComponentManager.html#getComponent(java.lang.String)">ComponentManager</a></code></span></div>
+<div class="block">Gets a OpenEMS-Component by its Component-ID. The Component is guaranteed to
+ be enabled.
+ 
+ <p>
+ Be aware that via this method usage of the Component service is not tracked
+ by the bundle's use count (See
+ <code>BundleContext.getService(org.osgi.framework.ServiceReference)</code>). Make
+ sure to use the references as shortly as possible.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../component/ComponentManager.html#getComponent(java.lang.String)">getComponent</a></code>&nbsp;in interface&nbsp;<code><a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - the typed Component</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>componentId</code> - the Component-ID (e.g. "_sum")</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the OpenEMS-Component</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - if the Component was not found</dd>
+</dl>
+</li>
+</ul>
+<a id="getPossiblyDisabledComponent(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPossiblyDisabledComponent</h4>
+<pre class="methodSignature">public&nbsp;&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;T&nbsp;getPossiblyDisabledComponent&#8203;(java.lang.String&nbsp;componentId)
+                                                            throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../component/ComponentManager.html#getPossiblyDisabledComponent(java.lang.String)">ComponentManager</a></code></span></div>
+<div class="block">Gets a OpenEMS-Component by its Component-ID. Be careful, that the Component
+ might not be 'enabled'. If in doubt, use <a href="../component/ComponentManager.html#getComponent(java.lang.String)"><code>ComponentManager.getComponent(String)</code></a>
+ instead.
+
+ <p>
+ Be aware that via this method usage of the Component service is not tracked
+ by the bundle's use count (See
+ <code>BundleContext.getService(org.osgi.framework.ServiceReference)</code>). Make
+ sure to use the references as shortly as possible.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../component/ComponentManager.html#getPossiblyDisabledComponent(java.lang.String)">getPossiblyDisabledComponent</a></code>&nbsp;in interface&nbsp;<code><a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - the typed Component</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>componentId</code> - the Component-ID (e.g. "_sum")</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the OpenEMS-Component</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - if the Component was not found</dd>
 </dl>
 </li>
 </ul>
@@ -448,7 +543,9 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 <div class="block">Specific for this Dummy implementation.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>component</code> - </dd>
+<dd><code>component</code> - the component that should be added</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this</dd>
 </dl>
 </li>
 </ul>
@@ -462,7 +559,7 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 <div class="block">Sets a <a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types"><code>EdgeConfig</code></a> json.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>the</code> - <a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types"><code>EdgeConfig</code></a> json</dd>
+<dd><code>json</code> - the <a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types"><code>EdgeConfig</code></a> json</dd>
 </dl>
 </li>
 </ul>

@@ -166,21 +166,45 @@ implements <a href="../../../common/channel/ChannelId.html" title="interface in 
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#AVOID_LOW_CHARGING_TIME">AVOID_LOW_CHARGING_TIME</a></span></code></th>
+<td class="colLast">
+<div class="block">Cumulated seconds of the state avoid low charging.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#CONFIGURED_ESS_IS_NOT_MANAGED">CONFIGURED_ESS_IS_NOT_MANAGED</a></span></code></th>
 <td class="colLast">
 <div class="block">Configured ESS is not managed.</div>
 </td>
 </tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#DEBUG_DELAY_CHARGE_MINIMUM_POWER">DEBUG_DELAY_CHARGE_MINIMUM_POWER</a></span></code></th>
+<td class="colLast">
+<div class="block">Debug Channel for the minimum charge power for delay Charge.</div>
+</td>
+</tr>
 <tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#DELAY_CHARGE_CAPACITY_WITH_BUFFER_LEFT">DELAY_CHARGE_CAPACITY_WITH_BUFFER_LEFT</a></span></code></th>
+<td class="colLast">
+<div class="block">Capacity left used for delayed charge.</div>
+</td>
+</tr>
+<tr class="altColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#DELAY_CHARGE_MAXIMUM_CHARGE_LIMIT">DELAY_CHARGE_MAXIMUM_CHARGE_LIMIT</a></span></code></th>
 <td class="colLast">
 <div class="block">Delay-Charge power limitation.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#DELAY_CHARGE_NEGATIVE_LIMIT">DELAY_CHARGE_NEGATIVE_LIMIT</a></span></code></th>
 <td class="colLast">
 <div class="block">Info State Channel, if the delay charge limit would be negative.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#DELAY_CHARGE_PREDICTED_ENERGY_LEFT">DELAY_CHARGE_PREDICTED_ENERGY_LEFT</a></span></code></th>
+<td class="colLast">
+<div class="block">Predicted energy left used for delayed charge.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -196,15 +220,27 @@ implements <a href="../../../common/channel/ChannelId.html" title="interface in 
 </td>
 </tr>
 <tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#DELAY_CHARGE_TIME_LEFT">DELAY_CHARGE_TIME_LEFT</a></span></code></th>
+<td class="colLast">
+<div class="block">Time left used for delayed charge.</div>
+</td>
+</tr>
+<tr class="altColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#NO_LIMITATION_TIME">NO_LIMITATION_TIME</a></span></code></th>
 <td class="colLast">
 <div class="block">Cumulated seconds if no limitation is present.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#NO_VALID_MANUAL_TARGET_TIME">NO_VALID_MANUAL_TARGET_TIME</a></span></code></th>
 <td class="colLast">
 <div class="block">Configured manual target time is not valid.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PREDICTED_CHARGE_START_EPOCH_SECONDS">PREDICTED_CHARGE_START_EPOCH_SECONDS</a></span></code></th>
+<td class="colLast">
+<div class="block">Predicted charge start time as epoch seconds of the current day.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -375,6 +411,36 @@ the order they are declared.</div>
 <div class="block">Delay-Charge power limitation.</div>
 </li>
 </ul>
+<a id="DELAY_CHARGE_CAPACITY_WITH_BUFFER_LEFT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DELAY_CHARGE_CAPACITY_WITH_BUFFER_LEFT</h4>
+<pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> DELAY_CHARGE_CAPACITY_WITH_BUFFER_LEFT</pre>
+<div class="block">Capacity left used for delayed charge.</div>
+</li>
+</ul>
+<a id="DELAY_CHARGE_TIME_LEFT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DELAY_CHARGE_TIME_LEFT</h4>
+<pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> DELAY_CHARGE_TIME_LEFT</pre>
+<div class="block">Time left used for delayed charge.</div>
+</li>
+</ul>
+<a id="DELAY_CHARGE_PREDICTED_ENERGY_LEFT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DELAY_CHARGE_PREDICTED_ENERGY_LEFT</h4>
+<pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> DELAY_CHARGE_PREDICTED_ENERGY_LEFT</pre>
+<div class="block">Predicted energy left used for delayed charge.</div>
+</li>
+</ul>
 <a id="RAW_DELAY_CHARGE_MAXIMUM_CHARGE_LIMIT">
 <!--   -->
 </a>
@@ -383,7 +449,7 @@ the order they are declared.</div>
 <h4>RAW_DELAY_CHARGE_MAXIMUM_CHARGE_LIMIT</h4>
 <pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> RAW_DELAY_CHARGE_MAXIMUM_CHARGE_LIMIT</pre>
 <div class="block">Raw Delay-Charge without consideration of the last limits.
-
+ 
  <p>
  This channel is used for debugging and to calculate the average for the
  <a href="#DELAY_CHARGE_MAXIMUM_CHARGE_LIMIT"><code>DELAY_CHARGE_MAXIMUM_CHARGE_LIMIT</code></a> channel.</div>
@@ -407,7 +473,7 @@ the order they are declared.</div>
 <h4>RAW_SELL_TO_GRID_LIMIT_CHARGE_LIMIT</h4>
 <pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> RAW_SELL_TO_GRID_LIMIT_CHARGE_LIMIT</pre>
 <div class="block">Raw sell to grid limit charge power limitation.
-
+ 
  <p>
  This value is negative for DC systems. Prefer
  SELL_TO_GRID_LIMIT_MINIMUM_CHARGE_LIMIT for visualization.</div>
@@ -421,7 +487,7 @@ the order they are declared.</div>
 <h4>PREDICTED_TARGET_MINUTE</h4>
 <pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> PREDICTED_TARGET_MINUTE</pre>
 <div class="block">Predicted target minute as minute of the day.
-
+ 
  <p>
  Actual target minute calculated from prediction without buffer hours (for
  automatic mode).</div>
@@ -435,7 +501,7 @@ the order they are declared.</div>
 <h4>PREDICTED_TARGET_MINUTE_ADJUSTED</h4>
 <pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> PREDICTED_TARGET_MINUTE_ADJUSTED</pre>
 <div class="block">Predicted target minute adjusted with a buffer as minute of the day.
-
+ 
  <p>
  Adjusted target minute calculated from prediction including the buffer hours
  (for automatic mode).</div>
@@ -449,7 +515,7 @@ the order they are declared.</div>
 <h4>TARGET_EPOCH_SECONDS</h4>
 <pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> TARGET_EPOCH_SECONDS</pre>
 <div class="block">Target minute as epoch seconds.
-
+ 
  <p>
  Automatically set, when the original TARGET_MINUTE is set.</div>
 </li>
@@ -462,7 +528,7 @@ the order they are declared.</div>
 <h4>TARGET_MINUTE</h4>
 <pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> TARGET_MINUTE</pre>
 <div class="block">Target minute as minute of the day.
-
+ 
  <p>
  Target minute independent of the current mode Manual and Automatic.</div>
 </li>
@@ -475,10 +541,33 @@ the order they are declared.</div>
 <h4>START_EPOCH_SECONDS</h4>
 <pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> START_EPOCH_SECONDS</pre>
 <div class="block">Start time as epoch seconds of the current day.
-
+ 
  <p>
  Keeps the time, when the production higher than the consumption for the first
  time on the current day.</div>
+</li>
+</ul>
+<a id="PREDICTED_CHARGE_START_EPOCH_SECONDS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PREDICTED_CHARGE_START_EPOCH_SECONDS</h4>
+<pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> PREDICTED_CHARGE_START_EPOCH_SECONDS</pre>
+<div class="block">Predicted charge start time as epoch seconds of the current day.
+ 
+ <p>
+ Keeps the time, when the delayed charge will start on the current day.</div>
+</li>
+</ul>
+<a id="DEBUG_DELAY_CHARGE_MINIMUM_POWER">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEBUG_DELAY_CHARGE_MINIMUM_POWER</h4>
+<pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> DEBUG_DELAY_CHARGE_MINIMUM_POWER</pre>
+<div class="block">Debug Channel for the minimum charge power for delay Charge.</div>
 </li>
 </ul>
 <a id="DELAY_CHARGE_NEGATIVE_LIMIT">
@@ -529,6 +618,16 @@ the order they are declared.</div>
 <h4>SELL_TO_GRID_LIMIT_TIME</h4>
 <pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> SELL_TO_GRID_LIMIT_TIME</pre>
 <div class="block">Cumulated seconds of the state sell to grid limit.</div>
+</li>
+</ul>
+<a id="AVOID_LOW_CHARGING_TIME">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>AVOID_LOW_CHARGING_TIME</h4>
+<pre>public static final&nbsp;<a href="GridOptimizedCharge.ChannelId.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedCharge.ChannelId</a> AVOID_LOW_CHARGING_TIME</pre>
+<div class="block">Cumulated seconds of the state avoid low charging.</div>
 </li>
 </ul>
 <a id="NO_LIMITATION_TIME">

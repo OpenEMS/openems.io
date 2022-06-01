@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":41,"i1":10,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":10,"i8":9,"i9":10,"i10":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -88,13 +88,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -138,6 +138,29 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static java.time.LocalTime</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_TARGET_TIME">DEFAULT_TARGET_TIME</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -167,13 +190,21 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>protected static java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_getCalculatedPowerLimit(int,int)">_getCalculatedPowerLimit</a></span>&#8203;(int&nbsp;remainingCapacity,
+                        int&nbsp;remainingTime)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#applyCalculatedLimit(int,int)">applyCalculatedLimit</a></span>&#8203;(int&nbsp;rawDelayChargeMaxChargePower,
                     int&nbsp;delayChargeMaxChargePower)</code></th>
@@ -181,28 +212,81 @@ extends java.lang.Object</pre>
 <div class="block">Apply the calculated power limit as constraint.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.lang.Integer</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCalculatedPowerLimit(java.lang.Integer)">getCalculatedPowerLimit</a></span>&#8203;(java.lang.Integer&nbsp;targetMinute)</code></th>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculateAvailEnergy(java.lang.Integer%5B%5D,java.lang.Integer%5B%5D,java.time.Clock,int)">calculateAvailEnergy</a></span>&#8203;(java.lang.Integer[]&nbsp;quarterHourlyProduction,
+                    java.lang.Integer[]&nbsp;quarterHourlyConsumption,
+                    java.time.Clock&nbsp;clock,
+                    int&nbsp;targetMinute)</code></th>
 <td class="colLast">
-<div class="block">Calculates the charging power limit for the current cycle.</div>
+<div class="block">Calculate the available Energy.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculateRemainingTime(java.time.Clock,int)">calculateRemainingTime</a></span>&#8203;(java.time.Clock&nbsp;clock,
+                      int&nbsp;targetMinute)</code></th>
+<td class="colLast">
+<div class="block">Calculates the number of seconds left to the target hour.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>protected static java.util.Optional&lt;java.lang.Integer&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculateTargetMinute(java.lang.Integer%5B%5D,java.lang.Integer%5B%5D,java.time.ZonedDateTime)">calculateTargetMinute</a></span>&#8203;(java.lang.Integer[]&nbsp;quarterHourlyProduction,
+                     java.lang.Integer[]&nbsp;quarterHourlyConsumption,
+                     java.time.ZonedDateTime&nbsp;predictionStartQuarterHour)</code></th>
+<td class="colLast">
+<div class="block">Calculates the target minute from quarter-hourly production and consumption
+ predictions.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>protected static java.time.ZonedDateTime</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAsZonedDateTime(int,java.time.Clock)">getAsZonedDateTime</a></span>&#8203;(int&nbsp;minuteOfDay,
+                  java.time.Clock&nbsp;clock)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>protected static java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCalculatedPowerLimit(int,int,java.lang.Integer%5B%5D,java.lang.Integer%5B%5D,java.time.Clock,io.openems.edge.controller.ess.gridoptimizedcharge.DelayChargeRiskLevel,int,int,double,io.openems.edge.controller.ess.gridoptimizedcharge.GridOptimizedChargeImpl)">getCalculatedPowerLimit</a></span>&#8203;(int&nbsp;remainingCapacity,
+                       int&nbsp;remainingTime,
+                       java.lang.Integer[]&nbsp;quarterHourlyProduction,
+                       java.lang.Integer[]&nbsp;quarterHourlyConsumption,
+                       java.time.Clock&nbsp;clock,
+                       <a href="DelayChargeRiskLevel.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">DelayChargeRiskLevel</a>&nbsp;riskLevel,
+                       int&nbsp;maxApparentPower,
+                       int&nbsp;targetMinute,
+                       double&nbsp;minimumChargePower,
+                       <a href="GridOptimizedChargeImpl.html" title="class in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedChargeImpl</a>&nbsp;parent)</code></th>
+<td class="colLast">
+<div class="block">Calculates the charging power limit.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getManualDelayChargeMaxCharge()">getManualDelayChargeMaxCharge</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Get the maximum active power limit depending the configured target time.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>protected static java.lang.Long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPredictedChargeStart(int,int,int,java.time.Clock)">getPredictedChargeStart</a></span>&#8203;(int&nbsp;targetTime,
+                       int&nbsp;capacity,
+                       int&nbsp;soc,
+                       java.time.Clock&nbsp;clock)</code></th>
+<td class="colLast">
+<div class="block">Gets the predicted charge start time as epoch seconds.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPredictiveDelayChargeMaxCharge()">getPredictiveDelayChargeMaxCharge</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Get the maximum active power limit depending on the prediction values.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDelayChargeStateAndLimit(io.openems.edge.controller.ess.gridoptimizedcharge.DelayChargeState,java.lang.Integer)">setDelayChargeStateAndLimit</a></span>&#8203;(<a href="DelayChargeState.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">DelayChargeState</a>&nbsp;state,
                            java.lang.Integer&nbsp;limit)</code></th>
@@ -227,6 +311,25 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="DEFAULT_TARGET_TIME">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>DEFAULT_TARGET_TIME</h4>
+<pre>protected static final&nbsp;java.time.LocalTime DEFAULT_TARGET_TIME</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section role="region">
 <ul class="blockList">
@@ -262,7 +365,7 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">protected&nbsp;java.lang.Integer&nbsp;getPredictiveDelayChargeMaxCharge()
                                                        throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Get the maximum active power limit depending on the prediction values.
-
+ 
  <p>
  Calculates the target minute, when the state of charge should reach 100
  percent depending on the predicted production and consumption and limits the
@@ -285,7 +388,7 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">protected&nbsp;java.lang.Integer&nbsp;getManualDelayChargeMaxCharge()
                                                    throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Get the maximum active power limit depending the configured target time.
-
+ 
  <p>
  Limits the charge value of the ESS, to get full at the given target minute.</div>
 <dl>
@@ -316,30 +419,135 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="getCalculatedPowerLimit(java.lang.Integer)">
+<a id="getCalculatedPowerLimit(int,int,java.lang.Integer[],java.lang.Integer[],java.time.Clock,io.openems.edge.controller.ess.gridoptimizedcharge.DelayChargeRiskLevel,int,int,double,io.openems.edge.controller.ess.gridoptimizedcharge.GridOptimizedChargeImpl)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getCalculatedPowerLimit</h4>
-<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;getCalculatedPowerLimit&#8203;(java.lang.Integer&nbsp;targetMinute)
-                                          throws <a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block">Calculates the charging power limit for the current cycle.</div>
+<pre class="methodSignature">protected static&nbsp;java.lang.Integer&nbsp;getCalculatedPowerLimit&#8203;(int&nbsp;remainingCapacity,
+                                                           int&nbsp;remainingTime,
+                                                           java.lang.Integer[]&nbsp;quarterHourlyProduction,
+                                                           java.lang.Integer[]&nbsp;quarterHourlyConsumption,
+                                                           java.time.Clock&nbsp;clock,
+                                                           <a href="DelayChargeRiskLevel.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">DelayChargeRiskLevel</a>&nbsp;riskLevel,
+                                                           int&nbsp;maxApparentPower,
+                                                           int&nbsp;targetMinute,
+                                                           double&nbsp;minimumChargePower,
+                                                           <a href="GridOptimizedChargeImpl.html" title="class in io.openems.edge.controller.ess.gridoptimizedcharge">GridOptimizedChargeImpl</a>&nbsp;parent)</pre>
+<div class="block">Calculates the charging power limit.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>remainingCapacity</code> - remaining capacity of the ess</dd>
+<dd><code>remainingTime</code> - remaining time till target minute in seconds</dd>
+<dd><code>quarterHourlyProduction</code> - predicted production</dd>
+<dd><code>quarterHourlyConsumption</code> - predicted consumption</dd>
+<dd><code>clock</code> - clock</dd>
+<dd><code>riskLevel</code> - risk level</dd>
+<dd><code>maxApparentPower</code> - maximum apparent power of the ess</dd>
 <dd><code>targetMinute</code> - target as minute of the day</dd>
+<dd><code>minimumChargePower</code> - minimumChargePower configured by the user</dd>
+<dd><code>parent</code> - <a href="GridOptimizedChargeImpl.html" title="class in io.openems.edge.controller.ess.gridoptimizedcharge"><code>GridOptimizedChargeImpl</code></a> to set debug
+                                 channels</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the calculated charging power limit or null if no limit should be
          applied</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="_getCalculatedPowerLimit(int,int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_getCalculatedPowerLimit</h4>
+<pre class="methodSignature">@Deprecated
+protected static&nbsp;java.lang.Integer&nbsp;_getCalculatedPowerLimit&#8203;(int&nbsp;remainingCapacity,
+                                                            int&nbsp;remainingTime)</pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Get calculated power limit.
+ 
+ <p>
+ Deprecated method, ignoring efficient charge power and predicted energy.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>remainingCapacity</code> - remaining capacity of the ess</dd>
+<dd><code>remainingTime</code> - remaining time till target minute in seconds</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the calculated charging power limit or null if no limit should be
+         applied</dd>
+</dl>
+</li>
+</ul>
+<a id="calculateRemainingTime(java.time.Clock,int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>calculateRemainingTime</h4>
+<pre class="methodSignature">protected static&nbsp;int&nbsp;calculateRemainingTime&#8203;(java.time.Clock&nbsp;clock,
+                                            int&nbsp;targetMinute)</pre>
+<div class="block">Calculates the number of seconds left to the target hour.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>clock</code> - clock</dd>
+<dd><code>targetMinute</code> - target as minute of the day</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the remaining time</dd>
+</dl>
+</li>
+</ul>
+<a id="calculateTargetMinute(java.lang.Integer[],java.lang.Integer[],java.time.ZonedDateTime)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>calculateTargetMinute</h4>
+<pre class="methodSignature">protected static&nbsp;java.util.Optional&lt;java.lang.Integer&gt;&nbsp;calculateTargetMinute&#8203;(java.lang.Integer[]&nbsp;quarterHourlyProduction,
+                                                                             java.lang.Integer[]&nbsp;quarterHourlyConsumption,
+                                                                             java.time.ZonedDateTime&nbsp;predictionStartQuarterHour)</pre>
+<div class="block">Calculates the target minute from quarter-hourly production and consumption
+ predictions.
+ 
+ <p>
+ Returning the last valid target minute if it is present and the new
+ calculated target minute would be null.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>quarterHourlyProduction</code> - the production prediction</dd>
+<dd><code>quarterHourlyConsumption</code> - the consumption prediction</dd>
+<dd><code>predictionStartQuarterHour</code> - the prediction start quarterHour</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the target minute</dd>
+</dl>
+</li>
+</ul>
+<a id="calculateAvailEnergy(java.lang.Integer[],java.lang.Integer[],java.time.Clock,int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>calculateAvailEnergy</h4>
+<pre class="methodSignature">protected static&nbsp;int&nbsp;calculateAvailEnergy&#8203;(java.lang.Integer[]&nbsp;quarterHourlyProduction,
+                                          java.lang.Integer[]&nbsp;quarterHourlyConsumption,
+                                          java.time.Clock&nbsp;clock,
+                                          int&nbsp;targetMinute)</pre>
+<div class="block">Calculate the available Energy.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>quarterHourlyProduction</code> - predicted production</dd>
+<dd><code>quarterHourlyConsumption</code> - predicted consumption</dd>
+<dd><code>clock</code> - clock</dd>
+<dd><code>targetMinute</code> - target as minute of the day</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>available energy in Wh</dd>
 </dl>
 </li>
 </ul>
 <a id="setDelayChargeStateAndLimit(io.openems.edge.controller.ess.gridoptimizedcharge.DelayChargeState,java.lang.Integer)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setDelayChargeStateAndLimit</h4>
 <pre class="methodSignature">protected&nbsp;void&nbsp;setDelayChargeStateAndLimit&#8203;(<a href="DelayChargeState.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge">DelayChargeState</a>&nbsp;state,
@@ -349,6 +557,41 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>state</code> - the <a href="DelayChargeState.html" title="enum in io.openems.edge.controller.ess.gridoptimizedcharge"><code>DelayChargeState</code></a></dd>
 <dd><code>limit</code> - the ChargePowerLimit</dd>
+</dl>
+</li>
+</ul>
+<a id="getAsZonedDateTime(int,java.time.Clock)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAsZonedDateTime</h4>
+<pre class="methodSignature">protected static&nbsp;java.time.ZonedDateTime&nbsp;getAsZonedDateTime&#8203;(int&nbsp;minuteOfDay,
+                                                            java.time.Clock&nbsp;clock)</pre>
+</li>
+</ul>
+<a id="getPredictedChargeStart(int,int,int,java.time.Clock)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getPredictedChargeStart</h4>
+<pre class="methodSignature">protected static&nbsp;java.lang.Long&nbsp;getPredictedChargeStart&#8203;(int&nbsp;targetTime,
+                                                        int&nbsp;capacity,
+                                                        int&nbsp;soc,
+                                                        java.time.Clock&nbsp;clock)
+                                                 throws <a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<div class="block">Gets the predicted charge start time as epoch seconds.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>targetTime</code> - target time</dd>
+<dd><code>capacity</code> - capacity of the ess</dd>
+<dd><code>soc</code> - state of charge</dd>
+<dd><code>clock</code> - clock</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>start of charging the battery as epoch seconds</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -404,13 +647,13 @@ extends java.lang.Object</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
