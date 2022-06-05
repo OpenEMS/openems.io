@@ -403,6 +403,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Gets the ChannelId of this Channel.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>the ChannelId</dd>
 </dl>
 </li>
 </ul>
@@ -416,6 +417,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Gets the ChannelDoc of this Channel.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>the ChannelDoc</dd>
 </dl>
 </li>
 </ul>
@@ -429,6 +431,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Gets the OpenemsComponent this Channel belongs to.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>the OpenemsComponent</dd>
 </dl>
 </li>
 </ul>
@@ -442,6 +445,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Gets the address of this Channel.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -466,6 +470,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Gets the type of this Channel, e.g. INTEGER, BOOLEAN,..</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../../common/types/OpenemsType.html" title="enum in io.openems.common.types"><code>OpenemsType</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -569,6 +574,8 @@ void&nbsp;_setNextValue&#8203;(<a href="Channel.html" title="type parameter in C
         throws java.lang.IllegalArgumentException</pre>
 <div class="block">Gets the currently active value, wrapped in a @{link Value}.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the active value</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if value cannot be access, e.g. because the
                                   Channel is Write-Only.</dd>
@@ -598,6 +605,12 @@ void&nbsp;_setNextValue&#8203;(<a href="Channel.html" title="type parameter in C
 <pre class="methodSignature">java.util.function.Consumer&lt;<a href="value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="Channel.html" title="type parameter in Channel">T</a>&gt;&gt;&nbsp;onUpdate&#8203;(java.util.function.Consumer&lt;<a href="value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="Channel.html" title="type parameter in Channel">T</a>&gt;&gt;&nbsp;callback)</pre>
 <div class="block">Add an onUpdate callback. It is called, after the active value was updated by
  nextProcessImage().</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>callback</code> - the callback</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the same callback for fluent coding</dd>
+</dl>
 </li>
 </ul>
 <a id="removeOnUpdateCallback(java.util.function.Consumer)">
@@ -628,6 +641,8 @@ void&nbsp;_setNextValue&#8203;(<a href="Channel.html" title="type parameter in C
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>callback</code> - old value and new value</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the same callback for fluent coding</dd>
 </dl>
 </li>
 </ul>

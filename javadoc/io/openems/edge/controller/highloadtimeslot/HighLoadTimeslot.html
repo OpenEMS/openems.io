@@ -273,7 +273,7 @@ implements <a href="../api/Controller.html" title="interface in io.openems.edge.
             java.time.LocalTime&nbsp;endTime,
             java.time.LocalDateTime&nbsp;dateTime)</code></th>
 <td class="colLast">
-<div class="block">Is the time of 'dateTime' within startTime and endTime?</div>
+<div class="block">Is the time of 'dateTime' within startTime and endTime?.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -281,14 +281,14 @@ implements <a href="../api/Controller.html" title="interface in io.openems.edge.
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isActiveWeekday(io.openems.edge.controller.highloadtimeslot.WeekdayFilter,java.time.LocalDateTime)">isActiveWeekday</a></span>&#8203;(<a href="WeekdayFilter.html" title="enum in io.openems.edge.controller.highloadtimeslot">WeekdayFilter</a>&nbsp;activeDayFilter,
                java.time.LocalDateTime&nbsp;dateTime)</code></th>
 <td class="colLast">
-<div class="block">Is 'dateTime' within the ActiveWeekdayFilter?</div>
+<div class="block">Is 'dateTime' within the ActiveWeekdayFilter?.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>protected static boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isWeekend(java.time.LocalDateTime)">isWeekend</a></span>&#8203;(java.time.LocalDateTime&nbsp;dateTime)</code></th>
 <td class="colLast">
-<div class="block">Is 'dateTime' a Saturday or Sunday?</div>
+<div class="block">Is 'dateTime' a Saturday or Sunday?.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -448,12 +448,13 @@ implements <a href="../api/Controller.html" title="interface in io.openems.edge.
 <h4>isActiveWeekday</h4>
 <pre class="methodSignature">protected static&nbsp;boolean&nbsp;isActiveWeekday&#8203;(<a href="WeekdayFilter.html" title="enum in io.openems.edge.controller.highloadtimeslot">WeekdayFilter</a>&nbsp;activeDayFilter,
                                          java.time.LocalDateTime&nbsp;dateTime)</pre>
-<div class="block">Is 'dateTime' within the ActiveWeekdayFilter?</div>
+<div class="block">Is 'dateTime' within the ActiveWeekdayFilter?.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>activeDayFilter</code> - </dd>
-<dd><code>dateTime</code> - </dd>
+<dd><code>activeDayFilter</code> - the <a href="WeekdayFilter.html" title="enum in io.openems.edge.controller.highloadtimeslot"><code>WeekdayFilter</code></a></dd>
+<dd><code>dateTime</code> - the current <code>LocalDateTime</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>true on yes</dd>
 </dl>
 </li>
 </ul>
@@ -477,13 +478,14 @@ implements <a href="../api/Controller.html" title="interface in io.openems.edge.
 <pre class="methodSignature">protected static&nbsp;boolean&nbsp;isActiveTime&#8203;(java.time.LocalTime&nbsp;startTime,
                                       java.time.LocalTime&nbsp;endTime,
                                       java.time.LocalDateTime&nbsp;dateTime)</pre>
-<div class="block">Is the time of 'dateTime' within startTime and endTime?</div>
+<div class="block">Is the time of 'dateTime' within startTime and endTime?.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>startTime</code> - </dd>
-<dd><code>endTime</code> - </dd>
-<dd><code>dateTime</code> - </dd>
+<dd><code>startTime</code> - the configured start time</dd>
+<dd><code>endTime</code> - the configured end time</dd>
+<dd><code>dateTime</code> - the current <code>LocalDateTime</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>true on yes</dd>
 </dl>
 </li>
 </ul>
@@ -497,8 +499,9 @@ implements <a href="../api/Controller.html" title="interface in io.openems.edge.
 <div class="block">Converts a string to a LocalDate.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>date</code> - </dd>
+<dd><code>date</code> - the string</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <code>LocalDate</code> object</dd>
 </dl>
 </li>
 </ul>
@@ -512,8 +515,9 @@ implements <a href="../api/Controller.html" title="interface in io.openems.edge.
 <div class="block">Converts a string to a LocalTime.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>time</code> - </dd>
+<dd><code>time</code> - the string</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <code>LocalTime</code> object</dd>
 </dl>
 </li>
 </ul>
@@ -524,11 +528,12 @@ implements <a href="../api/Controller.html" title="interface in io.openems.edge.
 <li class="blockList">
 <h4>isWeekend</h4>
 <pre class="methodSignature">protected static&nbsp;boolean&nbsp;isWeekend&#8203;(java.time.LocalDateTime&nbsp;dateTime)</pre>
-<div class="block">Is 'dateTime' a Saturday or Sunday?</div>
+<div class="block">Is 'dateTime' a Saturday or Sunday?.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>dateTime</code> - </dd>
+<dd><code>dateTime</code> - the current <code>LocalDateTime</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>true on yes</dd>
 </dl>
 </li>
 </ul>

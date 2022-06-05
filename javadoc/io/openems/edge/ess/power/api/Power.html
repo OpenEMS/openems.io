@@ -202,7 +202,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
                       <a href="Relationship.html" title="enum in io.openems.edge.ess.power.api">Relationship</a>&nbsp;relationship,
                       double&nbsp;value)</code></th>
 <td class="colLast">
-<div class="block">Creates a simple constraint</div>
+<div class="block">Creates a simple constraint.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -247,7 +247,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
               <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api">Pwr</a>&nbsp;pwr)</code></th>
 <td class="colLast">
 <div class="block">Gets the Coefficient singleton for a specific combination of ess, phase and
- pwr</div>
+ pwr.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -344,7 +344,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Adds a Constraint.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>constraint</code> - </dd>
+<dd><code>constraint</code> - the <a href="Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -359,10 +361,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Adds a Constraint if the problem is still solvable afterwards.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>constraint</code> - </dd>
+<dd><code>constraint</code> - the <a href="Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="PowerException.html" title="class in io.openems.edge.ess.power.api">PowerException</a></code></dd>
-<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="PowerException.html" title="class in io.openems.edge.ess.power.api">PowerException</a></code> - on error</dd>
+<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -379,18 +383,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
                                   <a href="Relationship.html" title="enum in io.openems.edge.ess.power.api">Relationship</a>&nbsp;relationship,
                                   double&nbsp;value)
                            throws <a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
-<div class="block">Creates a simple constraint</div>
+<div class="block">Creates a simple constraint.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>description</code> - </dd>
-<dd><code>ess</code> - </dd>
-<dd><code>phase</code> - </dd>
-<dd><code>pwr</code> - </dd>
-<dd><code>relationship</code> - </dd>
-<dd><code>value</code> - </dd>
+<dd><code>description</code> - a description (for debug)</dd>
+<dd><code>ess</code> - the <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dd><code>phase</code> - the <a href="Phase.html" title="enum in io.openems.edge.ess.power.api"><code>Phase</code></a></dd>
+<dd><code>pwr</code> - the <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api"><code>Pwr</code></a></dd>
+<dd><code>relationship</code> - the <a href="Relationship.html" title="enum in io.openems.edge.ess.power.api"><code>Relationship</code></a></dd>
+<dd><code>value</code> - the value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -404,7 +409,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Removes a Constraint.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>constraint</code> - </dd>
+<dd><code>constraint</code> - the <a href="Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -418,6 +423,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
                 <a href="Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
                 <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api">Pwr</a>&nbsp;pwr)</pre>
 <div class="block">Gets the maximum possible Power under the active Constraints.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ess</code> - the <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dd><code>phase</code> - the <a href="Phase.html" title="enum in io.openems.edge.ess.power.api"><code>Phase</code></a></dd>
+<dd><code>pwr</code> - the <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api"><code>Pwr</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the maximum possible power</dd>
+</dl>
 </li>
 </ul>
 <a id="getMinPower(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr)">
@@ -430,6 +443,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
                 <a href="Phase.html" title="enum in io.openems.edge.ess.power.api">Phase</a>&nbsp;phase,
                 <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api">Pwr</a>&nbsp;pwr)</pre>
 <div class="block">Gets the minimum possible possible Power under the active Constraints.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ess</code> - the <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dd><code>phase</code> - the <a href="Phase.html" title="enum in io.openems.edge.ess.power.api"><code>Phase</code></a></dd>
+<dd><code>pwr</code> - the <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api"><code>Pwr</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the minimum possible power</dd>
+</dl>
 </li>
 </ul>
 <a id="getCoefficient(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr)">
@@ -443,15 +464,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
                            <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api">Pwr</a>&nbsp;pwr)
                     throws <a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
 <div class="block">Gets the Coefficient singleton for a specific combination of ess, phase and
- pwr</div>
+ pwr.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>ess</code> - </dd>
-<dd><code>phase</code> - </dd>
-<dd><code>pwr</code> - </dd>
+<dd><code>ess</code> - the <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dd><code>phase</code> - the <a href="Phase.html" title="enum in io.openems.edge.ess.power.api"><code>Phase</code></a></dd>
+<dd><code>pwr</code> - the <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api"><code>Pwr</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="Coefficient.html" title="class in io.openems.edge.ess.power.api"><code>Coefficient</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -470,6 +492,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>componentId</code> - Component-ID of the calling component for the log message</dd>
+<dd><code>ess</code> - the <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dd><code>phase</code> - the <a href="Phase.html" title="enum in io.openems.edge.ess.power.api"><code>Phase</code></a></dd>
+<dd><code>pwr</code> - the <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api"><code>Pwr</code></a></dd>
 <dd><code>value</code> - the target value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a value that fits into Min/MaxPower</dd>
@@ -492,6 +517,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>componentId</code> - Component-ID of the calling component for the log message</dd>
+<dd><code>ess</code> - the <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dd><code>phase</code> - the <a href="Phase.html" title="enum in io.openems.edge.ess.power.api"><code>Phase</code></a></dd>
+<dd><code>pwr</code> - the <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api"><code>Pwr</code></a></dd>
 <dd><code>value</code> - the target value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a value that is compared to existing Max-Power</dd>
@@ -514,6 +542,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>componentId</code> - Component-ID of the calling component for the log message</dd>
+<dd><code>ess</code> - the <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dd><code>phase</code> - the <a href="Phase.html" title="enum in io.openems.edge.ess.power.api"><code>Phase</code></a></dd>
+<dd><code>pwr</code> - the <a href="Pwr.html" title="enum in io.openems.edge.ess.power.api"><code>Pwr</code></a></dd>
 <dd><code>value</code> - the target value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a value that is compared to existing Min-Power</dd>

@@ -209,7 +209,7 @@ extends <a href="AsymmetricMeter.html" title="interface in io.openems.edge.meter
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializeCopyPhaseChannel(io.openems.edge.meter.api.AsymmetricMeter,io.openems.edge.meter.api.SinglePhase)">initializeCopyPhaseChannel</a></span>&#8203;(<a href="AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>&nbsp;ess,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializeCopyPhaseChannel(io.openems.edge.meter.api.AsymmetricMeter,io.openems.edge.meter.api.SinglePhase)">initializeCopyPhaseChannel</a></span>&#8203;(<a href="AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>&nbsp;meter,
                           <a href="SinglePhase.html" title="enum in io.openems.edge.meter.api">SinglePhase</a>&nbsp;phase)</code></th>
 <td class="colLast">
 <div class="block">Initializes Channel listeners.</div>
@@ -273,14 +273,14 @@ extends <a href="AsymmetricMeter.html" title="interface in io.openems.edge.meter
 <ul class="blockList">
 <li class="blockList">
 <h4>initializeCopyPhaseChannel</h4>
-<pre class="methodSignature">static&nbsp;void&nbsp;initializeCopyPhaseChannel&#8203;(<a href="AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>&nbsp;ess,
+<pre class="methodSignature">static&nbsp;void&nbsp;initializeCopyPhaseChannel&#8203;(<a href="AsymmetricMeter.html" title="interface in io.openems.edge.meter.api">AsymmetricMeter</a>&nbsp;meter,
                                        <a href="SinglePhase.html" title="enum in io.openems.edge.meter.api">SinglePhase</a>&nbsp;phase)</pre>
 <div class="block">Initializes Channel listeners. Copies the Active-Power Phase-Channel value to
  Active-Power Channel.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>meter</code> - the AsymmetricMeter</dd>
-<dd><code>phase</code> - the Phase</dd>
+<dd><code>meter</code> - the <a href="AsymmetricMeter.html" title="interface in io.openems.edge.meter.api"><code>AsymmetricMeter</code></a></dd>
+<dd><code>phase</code> - the <a href="SinglePhase.html" title="enum in io.openems.edge.meter.api"><code>SinglePhase</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -291,14 +291,13 @@ extends <a href="AsymmetricMeter.html" title="interface in io.openems.edge.meter
 <li class="blockList">
 <h4>getModbusSlaveNatureTable</h4>
 <pre class="methodSignature">static&nbsp;<a href="../../common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveNatureTable</a>&nbsp;getModbusSlaveNatureTable&#8203;(<a href="../../../common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/component/OpenemsComponent.html#getModbusSlaveNatureTable(io.openems.common.channel.AccessMode)">OpenemsComponent</a></code></span></div>
-<div class="block">Used for Modbus/TCP Api Controller. Provides a modbus table for the Channels
+<div class="block">Used for Modbus/TCP Api Controller. Provides a Modbus table for the Channels
  of this Component.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>accessMode</code> - the <a href="../../../common/channel/AccessMode.html" title="enum in io.openems.common.channel"><code>AccessMode</code></a> of the Controller</dd>
+<dd><code>accessMode</code> - filters the Modbus-Records that should be shown</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a <a href="../../common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave"><code>ModbusSlaveNatureTable</code></a></dd>
+<dd>the <a href="../../common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave"><code>ModbusSlaveNatureTable</code></a></dd>
 </dl>
 </li>
 </ul>

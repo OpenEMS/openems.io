@@ -210,14 +210,16 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resetChargeSessionStamp()">resetChargeSessionStamp</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resetChargeSessionStampIfPresent()">resetChargeSessionStampIfPresent</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Reset the Charge Session Timestamp.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -274,6 +276,11 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;ChargeSessionStamp&#8203;(java.time.Instant&nbsp;time,
                           long&nbsp;energy)</pre>
 <div class="block">Constructor of a ChargeSession with the given time and energy.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>time</code> - the <code>Instant</code> time</dd>
+<dd><code>energy</code> - the Energy</dd>
+</dl>
 </li>
 </ul>
 <a id="&lt;init&gt;(long)">
@@ -284,8 +291,13 @@ extends java.lang.Object</pre>
 <h4>ChargeSessionStamp</h4>
 <pre>public&nbsp;ChargeSessionStamp&#8203;(long&nbsp;energy)</pre>
 <div class="block">Constructor of a ChargeSession with the initial Energy.
+ 
  <p>
  The time will be initialized by Instant.now().</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>energy</code> - the Energy</dd>
+</dl>
 </li>
 </ul>
 <a id="&lt;init&gt;(java.time.Instant)">
@@ -296,8 +308,13 @@ extends java.lang.Object</pre>
 <h4>ChargeSessionStamp</h4>
 <pre>public&nbsp;ChargeSessionStamp&#8203;(java.time.Instant&nbsp;time)</pre>
 <div class="block">Constructor of a ChargeSession with the initial Time.
+ 
  <p>
  The energy will be initialized by 0.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>time</code> - the <code>Instant</code> time</dd>
+</dl>
 </li>
 </ul>
 <a id="&lt;init&gt;()">
@@ -381,7 +398,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>resetChargeSessionStamp</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;resetChargeSessionStamp()</pre>
+<pre class="methodSignature">protected&nbsp;void&nbsp;resetChargeSessionStamp()</pre>
 </li>
 </ul>
 <a id="setChargeSessionStampIfNotPresent(java.time.Instant,long)">
@@ -401,6 +418,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>resetChargeSessionStampIfPresent</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;resetChargeSessionStampIfPresent()</pre>
+<div class="block">Reset the Charge Session Timestamp.</div>
 </li>
 </ul>
 </li>

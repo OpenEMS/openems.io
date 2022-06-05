@@ -131,7 +131,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - </dd>
+<dd><code>T</code> - the type of the actual <a href="ManagedTask.html" title="interface in io.openems.edge.common.taskmanager"><code>ManagedTask</code></a></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">TasksManager&lt;T extends <a href="ManagedTask.html" title="interface in io.openems.edge.common.taskmanager">ManagedTask</a>&gt;</span>
@@ -371,6 +371,20 @@ public final&nbsp;void&nbsp;addTasks&#8203;(<a href="TasksManager.html" title="t
 <div class="block">Clears all Tasks lists.</div>
 </li>
 </ul>
+<a id="getAllTasks()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAllTasks</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="TasksManager.html" title="type parameter in TasksManager">T</a>&gt;&nbsp;getAllTasks()</pre>
+<div class="block">Gets all Tasks.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a list of all Tasks.</dd>
+</dl>
+</li>
+</ul>
 <a id="getAllTasks(io.openems.edge.common.taskmanager.Priority)">
 <!--   -->
 </a>
@@ -401,20 +415,6 @@ public final&nbsp;void&nbsp;addTasks&#8203;(<a href="TasksManager.html" title="t
 </dl>
 </li>
 </ul>
-<a id="getAllTasks()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAllTasks</h4>
-<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="TasksManager.html" title="type parameter in TasksManager">T</a>&gt;&nbsp;getAllTasks()</pre>
-<div class="block">Gets all Tasks.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a list of all Tasks.</dd>
-</dl>
-</li>
-</ul>
 <a id="getOneTask()">
 <!--   -->
 </a>
@@ -438,6 +438,8 @@ public final&nbsp;void&nbsp;addTasks&#8203;(<a href="TasksManager.html" title="t
 <pre class="methodSignature">public&nbsp;<a href="TasksManager.html" title="type parameter in TasksManager">T</a>&nbsp;getOneTask&#8203;(<a href="Priority.html" title="enum in io.openems.edge.common.taskmanager">Priority</a>&nbsp;priority)</pre>
 <div class="block">Gets one task that is lower than the given Priority sequentially.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>priority</code> - the <a href="Priority.html" title="enum in io.openems.edge.common.taskmanager"><code>Priority</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the next task; null if there are no tasks with the given Priority</dd>
 </dl>

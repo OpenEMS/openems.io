@@ -251,7 +251,8 @@ implements <a href="../../../../ess/api/ManagedSinglePhaseEss.html" title="inter
           int&nbsp;activePowerL3,
           int&nbsp;reactivePowerL3)</code></th>
 <td class="colLast">
-<div class="block">Apply the calculated Power</div>
+<div class="block">Default implementation of <a href="../../../../ess/api/ManagedAsymmetricEss.html#applyPower(int,int)"><code>ManagedAsymmetricEss.applyPower(int, int)</code></a>
+ for <a href="../../../../ess/api/ManagedSinglePhaseEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSinglePhaseEss</code></a>.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -526,15 +527,23 @@ implements <a href="../../../../ess/api/ManagedSinglePhaseEss.html" title="inter
                        int&nbsp;activePowerL3,
                        int&nbsp;reactivePowerL3)
                 throws <a href="../../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../ess/api/ManagedAsymmetricEss.html#applyPower(int,int,int,int,int,int)">ManagedAsymmetricEss</a></code></span></div>
-<div class="block">Apply the calculated Power</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../ess/api/ManagedSinglePhaseEss.html#applyPower(int,int,int,int,int,int)">ManagedSinglePhaseEss</a></code></span></div>
+<div class="block">Default implementation of <a href="../../../../ess/api/ManagedAsymmetricEss.html#applyPower(int,int)"><code>ManagedAsymmetricEss.applyPower(int, int)</code></a>
+ for <a href="../../../../ess/api/ManagedSinglePhaseEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSinglePhaseEss</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../ess/api/ManagedAsymmetricEss.html#applyPower(int,int,int,int,int,int)">applyPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../ess/api/ManagedAsymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedAsymmetricEss</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../ess/api/ManagedSinglePhaseEss.html#applyPower(int,int,int,int,int,int)">applyPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../ess/api/ManagedSinglePhaseEss.html" title="interface in io.openems.edge.ess.api">ManagedSinglePhaseEss</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>activePowerL1</code> - the active power set-point for L1</dd>
+<dd><code>reactivePowerL1</code> - the reactive power set-point for L1</dd>
+<dd><code>activePowerL2</code> - the active power set-point for L2</dd>
+<dd><code>reactivePowerL2</code> - the reactive power set-point for L2</dd>
+<dd><code>activePowerL3</code> - the active power set-point for L3</dd>
+<dd><code>reactivePowerL3</code> - the reactive power set-point for L3</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+<dd><code><a href="../../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -593,6 +602,7 @@ implements <a href="../../../../ess/api/ManagedSinglePhaseEss.html" title="inter
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../ess/api/SinglePhaseEss.html#getPhase()">getPhase</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../ess/api/SinglePhaseEss.html" title="interface in io.openems.edge.ess.api">SinglePhaseEss</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../../../ess/api/SinglePhase.html" title="enum in io.openems.edge.ess.api"><code>SinglePhase</code></a></dd>
 </dl>
 </li>
 </ul>

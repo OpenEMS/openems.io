@@ -138,11 +138,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 extends <a href="SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></pre>
 <div class="block">Represents an Asymmetric Meter.
 
- - Negative ActivePowerL1/L2/L3 and ConsumptionActivePowerL1/L2/L3 represent
+ <ul>
+ <li>Negative ActivePowerL1/L2/L3 and ConsumptionActivePowerL1/L2/L3 represent
  Consumption, i.e. power that is 'leaving the system', e.g. feed-to-grid
-
- - Positive ActivePowerL1/L2/L3 and ProductionActivePowerL1/L2/L3 represent
- Production, i.e. power that is 'entering the system', e.g. buy-from-grid</div>
+ <li>Positive ActivePowerL1/L2/L3 and ProductionActivePowerL1/L2/L3 represent
+ Production, i.e. power that is 'entering the system', e.g. buy-from-grid
+ </ul></div>
 </li>
 </ul>
 </div>
@@ -645,14 +646,13 @@ extends <a href="SymmetricMeter.html" title="interface in io.openems.edge.meter.
 <li class="blockList">
 <h4>getModbusSlaveNatureTable</h4>
 <pre class="methodSignature">static&nbsp;<a href="../../common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveNatureTable</a>&nbsp;getModbusSlaveNatureTable&#8203;(<a href="../../../common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../common/component/OpenemsComponent.html#getModbusSlaveNatureTable(io.openems.common.channel.AccessMode)">OpenemsComponent</a></code></span></div>
-<div class="block">Used for Modbus/TCP Api Controller. Provides a modbus table for the Channels
+<div class="block">Used for Modbus/TCP Api Controller. Provides a Modbus table for the Channels
  of this Component.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>accessMode</code> - the <a href="../../../common/channel/AccessMode.html" title="enum in io.openems.common.channel"><code>AccessMode</code></a> of the Controller</dd>
+<dd><code>accessMode</code> - filters the Modbus-Records that should be shown</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a <a href="../../common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave"><code>ModbusSlaveNatureTable</code></a></dd>
+<dd>the <a href="../../common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave"><code>ModbusSlaveNatureTable</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -1372,7 +1372,7 @@ extends <a href="SymmetricMeter.html" title="interface in io.openems.edge.meter.
  value as the sum of L1 + L2 + L3.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>meter</code> - </dd>
+<dd><code>meter</code> - the <a href="AsymmetricMeter.html" title="interface in io.openems.edge.meter.api"><code>AsymmetricMeter</code></a></dd>
 </dl>
 </li>
 </ul>

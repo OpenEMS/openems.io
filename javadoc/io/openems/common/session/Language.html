@@ -235,7 +235,9 @@ extends java.lang.Enum&lt;<a href="Language.html" title="enum in io.openems.comm
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="Language.html" title="enum in io.openems.common.session">Language</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#from(java.util.Optional)">from</a></span>&#8203;(java.util.Optional&lt;java.lang.String&gt;&nbsp;languageKey)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Get <a href="Language.html" title="enum in io.openems.common.session"><code>Language</code></a> for given key of the language.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.Locale</code></td>
@@ -443,9 +445,17 @@ not permitted.)</div>
 <h4>from</h4>
 <pre class="methodSignature">public static&nbsp;<a href="Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;from&#8203;(java.util.Optional&lt;java.lang.String&gt;&nbsp;languageKey)
                      throws <a href="../exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<div class="block">Get <a href="Language.html" title="enum in io.openems.common.session"><code>Language</code></a> for given key of the language. If the language key does
+ not exist, <a href="#EN"><code>EN</code></a> is returned as default. The given key is
+ removed all leading and trailing whitespaces and converts all characters to
+ upper case.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>languageKey</code> - to get the <a href="Language.html" title="enum in io.openems.common.session"><code>Language</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the founded <a href="Language.html" title="enum in io.openems.common.session"><code>Language</code></a> or throws an exception</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="../exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>

@@ -259,7 +259,7 @@ implements <a href="PowerComponent.html" title="interface in io.openems.edge.ess
                       <a href="../../power/api/Relationship.html" title="enum in io.openems.edge.ess.power.api">Relationship</a>&nbsp;relationship,
                       double&nbsp;value)</code></th>
 <td class="colLast">
-<div class="block">Creates a simple constraint</div>
+<div class="block">Creates a simple constraint.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -276,7 +276,7 @@ implements <a href="PowerComponent.html" title="interface in io.openems.edge.ess
               <a href="../../power/api/Pwr.html" title="enum in io.openems.edge.ess.power.api">Pwr</a>&nbsp;pwr)</code></th>
 <td class="colLast">
 <div class="block">Gets the Coefficient singleton for a specific combination of ess, phase and
- pwr</div>
+ pwr.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -466,6 +466,10 @@ implements <a href="PowerComponent.html" title="interface in io.openems.edge.ess
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../power/api/Power.html#addConstraint(io.openems.edge.ess.power.api.Constraint)">addConstraint</a></code>&nbsp;in interface&nbsp;<code><a href="../../power/api/Power.html" title="interface in io.openems.edge.ess.power.api">Power</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>constraint</code> - the <a href="../../power/api/Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../power/api/Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -482,9 +486,13 @@ implements <a href="PowerComponent.html" title="interface in io.openems.edge.ess
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../power/api/Power.html#addConstraintAndValidate(io.openems.edge.ess.power.api.Constraint)">addConstraintAndValidate</a></code>&nbsp;in interface&nbsp;<code><a href="../../power/api/Power.html" title="interface in io.openems.edge.ess.power.api">Power</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>constraint</code> - the <a href="../../power/api/Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../power/api/Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../power/api/PowerException.html" title="class in io.openems.edge.ess.power.api">PowerException</a></code></dd>
-<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="../../power/api/PowerException.html" title="class in io.openems.edge.ess.power.api">PowerException</a></code> - on error</dd>
+<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -500,13 +508,18 @@ implements <a href="PowerComponent.html" title="interface in io.openems.edge.ess
                            throws <a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../power/api/Power.html#getCoefficient(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr)">Power</a></code></span></div>
 <div class="block">Gets the Coefficient singleton for a specific combination of ess, phase and
- pwr</div>
+ pwr.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../power/api/Power.html#getCoefficient(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr)">getCoefficient</a></code>&nbsp;in interface&nbsp;<code><a href="../../power/api/Power.html" title="interface in io.openems.edge.ess.power.api">Power</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ess</code> - the <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dd><code>phase</code> - the <a href="../../power/api/Phase.html" title="enum in io.openems.edge.ess.power.api"><code>Phase</code></a></dd>
+<dd><code>pwr</code> - the <a href="../../power/api/Pwr.html" title="enum in io.openems.edge.ess.power.api"><code>Pwr</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../power/api/Coefficient.html" title="class in io.openems.edge.ess.power.api"><code>Coefficient</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -524,13 +537,21 @@ implements <a href="PowerComponent.html" title="interface in io.openems.edge.ess
                                          double&nbsp;value)
                                   throws <a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../power/api/Power.html#createSimpleConstraint(java.lang.String,io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,io.openems.edge.ess.power.api.Relationship,double)">Power</a></code></span></div>
-<div class="block">Creates a simple constraint</div>
+<div class="block">Creates a simple constraint.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../power/api/Power.html#createSimpleConstraint(java.lang.String,io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr,io.openems.edge.ess.power.api.Relationship,double)">createSimpleConstraint</a></code>&nbsp;in interface&nbsp;<code><a href="../../power/api/Power.html" title="interface in io.openems.edge.ess.power.api">Power</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>description</code> - a description (for debug)</dd>
+<dd><code>ess</code> - the <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dd><code>phase</code> - the <a href="../../power/api/Phase.html" title="enum in io.openems.edge.ess.power.api"><code>Phase</code></a></dd>
+<dd><code>pwr</code> - the <a href="../../power/api/Pwr.html" title="enum in io.openems.edge.ess.power.api"><code>Pwr</code></a></dd>
+<dd><code>relationship</code> - the <a href="../../power/api/Relationship.html" title="enum in io.openems.edge.ess.power.api"><code>Relationship</code></a></dd>
+<dd><code>value</code> - the value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../power/api/Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -546,6 +567,8 @@ implements <a href="PowerComponent.html" title="interface in io.openems.edge.ess
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../power/api/Power.html#removeConstraint(io.openems.edge.ess.power.api.Constraint)">removeConstraint</a></code>&nbsp;in interface&nbsp;<code><a href="../../power/api/Power.html" title="interface in io.openems.edge.ess.power.api">Power</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>constraint</code> - the <a href="../../power/api/Constraint.html" title="class in io.openems.edge.ess.power.api"><code>Constraint</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -563,6 +586,12 @@ implements <a href="PowerComponent.html" title="interface in io.openems.edge.ess
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../power/api/Power.html#getMaxPower(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr)">getMaxPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../power/api/Power.html" title="interface in io.openems.edge.ess.power.api">Power</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ess</code> - the <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dd><code>phase</code> - the <a href="../../power/api/Phase.html" title="enum in io.openems.edge.ess.power.api"><code>Phase</code></a></dd>
+<dd><code>pwr</code> - the <a href="../../power/api/Pwr.html" title="enum in io.openems.edge.ess.power.api"><code>Pwr</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the maximum possible power</dd>
 </dl>
 </li>
 </ul>
@@ -580,6 +609,12 @@ implements <a href="PowerComponent.html" title="interface in io.openems.edge.ess
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../power/api/Power.html#getMinPower(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.ess.power.api.Phase,io.openems.edge.ess.power.api.Pwr)">getMinPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../power/api/Power.html" title="interface in io.openems.edge.ess.power.api">Power</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ess</code> - the <a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dd><code>phase</code> - the <a href="../../power/api/Phase.html" title="enum in io.openems.edge.ess.power.api"><code>Phase</code></a></dd>
+<dd><code>pwr</code> - the <a href="../../power/api/Pwr.html" title="enum in io.openems.edge.ess.power.api"><code>Pwr</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the minimum possible power</dd>
 </dl>
 </li>
 </ul>
