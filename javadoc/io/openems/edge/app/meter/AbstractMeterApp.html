@@ -217,7 +217,7 @@ extends <a href="../../core/appmanager/AbstractOpenemsApp.html" title="class in 
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>protected com.google.gson.JsonArray</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildMeterOptions()">buildMeterOptions</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildMeterOptions(io.openems.common.session.Language)">buildMeterOptions</a></span>&#8203;(<a href="../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -233,7 +233,7 @@ extends <a href="../../core/appmanager/AbstractOpenemsApp.html" title="class in 
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.edge.core.appmanager.<a href="../../core/appmanager/AbstractOpenemsApp.html" title="class in io.openems.edge.core.appmanager">AbstractOpenemsApp</a></h3>
-<code><a href="../../core/appmanager/AbstractOpenemsApp.html#appConfigurationFactory()">appConfigurationFactory</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#assertCheckables(io.openems.edge.core.appmanager.ConfigurationTarget,io.openems.edge.core.appmanager.validator.Checkable...)">assertCheckables</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getAppConfiguration(io.openems.edge.core.appmanager.ConfigurationTarget,com.google.gson.JsonObject)">getAppConfiguration</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getAppId()">getAppId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">getId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,PROPERTY,java.lang.String)">getId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getPropertyClass()">getPropertyClass</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValidateBuilder()">getValidateBuilder</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValidator()">getValidator</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValueOrDefault(java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">getValueOrDefault</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValueOrDefault(java.util.EnumMap,PROPERTY,java.lang.String)">getValueOrDefault</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#hasProperty(java.lang.String)">hasProperty</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#installationValidation()">installationValidation</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#validate(io.openems.edge.core.appmanager.OpenemsAppInstance)">validate</a></code></li>
+<code><a href="../../core/appmanager/AbstractOpenemsApp.html#appConfigurationFactory()">appConfigurationFactory</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#assertCheckables(io.openems.edge.core.appmanager.ConfigurationTarget,io.openems.edge.core.appmanager.validator.Checkable...)">assertCheckables</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getAppConfiguration(io.openems.edge.core.appmanager.ConfigurationTarget,com.google.gson.JsonObject,io.openems.common.session.Language)">getAppConfiguration</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getAppId()">getAppId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getComponentWithFactoryId(java.util.List,java.lang.String)">getComponentWithFactoryId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">getId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,PROPERTY,java.lang.String)">getId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getImage()">getImage</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getName(io.openems.common.session.Language)">getName</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getPropertyClass()">getPropertyClass</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getTranslation(io.openems.common.session.Language,java.lang.String)">getTranslation</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getTranslationBundle(io.openems.common.session.Language)">getTranslationBundle</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValidateBuilder()">getValidateBuilder</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValidatorConfig()">getValidatorConfig</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValueOrDefault(java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">getValueOrDefault</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValueOrDefault(java.util.EnumMap,PROPERTY,java.lang.String)">getValueOrDefault</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#hasProperty(java.lang.String)">hasProperty</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#installationValidation()">installationValidation</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#validate(io.openems.edge.core.appmanager.OpenemsAppInstance)">validate</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -247,7 +247,7 @@ extends <a href="../../core/appmanager/AbstractOpenemsApp.html" title="class in 
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.core.appmanager.<a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></h3>
-<code><a href="../../core/appmanager/OpenemsApp.html#getAppAssistant()">getAppAssistant</a>, <a href="../../core/appmanager/OpenemsApp.html#getAppDescriptor()">getAppDescriptor</a>, <a href="../../core/appmanager/OpenemsApp.html#getCardinality()">getCardinality</a>, <a href="../../core/appmanager/OpenemsApp.html#getImage()">getImage</a>, <a href="../../core/appmanager/OpenemsApp.html#getName()">getName</a></code></li>
+<code><a href="../../core/appmanager/OpenemsApp.html#getAppAssistant(io.openems.common.session.Language)">getAppAssistant</a>, <a href="../../core/appmanager/OpenemsApp.html#getAppDescriptor()">getAppDescriptor</a>, <a href="../../core/appmanager/OpenemsApp.html#getCardinality()">getCardinality</a></code></li>
 </ul>
 </li>
 </ul>
@@ -302,13 +302,13 @@ extends <a href="../../core/appmanager/AbstractOpenemsApp.html" title="class in 
 </dl>
 </li>
 </ul>
-<a id="buildMeterOptions()">
+<a id="buildMeterOptions(io.openems.common.session.Language)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>buildMeterOptions</h4>
-<pre class="methodSignature">protected final&nbsp;com.google.gson.JsonArray&nbsp;buildMeterOptions()</pre>
+<pre class="methodSignature">protected final&nbsp;com.google.gson.JsonArray&nbsp;buildMeterOptions&#8203;(<a href="../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</pre>
 </li>
 </ul>
 </li>

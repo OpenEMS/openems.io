@@ -122,7 +122,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
+<li><a href="AbstractCheckable.html" title="class in io.openems.edge.core.appmanager.validator">io.openems.edge.core.appmanager.validator.AbstractCheckable</a></li>
+<li>
+<ul class="inheritance">
 <li>io.openems.edge.core.appmanager.validator.CheckAppsNotInstalled</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -135,7 +140,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">CheckAppsNotInstalled</span>
-extends java.lang.Object
+extends <a href="AbstractCheckable.html" title="class in io.openems.edge.core.appmanager.validator">AbstractCheckable</a>
 implements <a href="Checkable.html" title="interface in io.openems.edge.core.appmanager.validator">Checkable</a></pre>
 </li>
 </ul>
@@ -180,7 +185,8 @@ implements <a href="Checkable.html" title="interface in io.openems.edge.core.app
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.edge.core.appmanager.AppManager)">CheckAppsNotInstalled</a></span>&#8203;(<a href="../AppManager.html" title="interface in io.openems.edge.core.appmanager">AppManager</a>&nbsp;appManager)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.edge.core.appmanager.AppManager,org.osgi.service.component.ComponentContext)">CheckAppsNotInstalled</a></span>&#8203;(<a href="../AppManager.html" title="interface in io.openems.edge.core.appmanager">AppManager</a>&nbsp;appManager,
+                     org.osgi.service.component.ComponentContext&nbsp;componentContext)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -210,7 +216,7 @@ implements <a href="Checkable.html" title="interface in io.openems.edge.core.app
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getErrorMessage()">getErrorMessage</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getErrorMessage(io.openems.common.session.Language)">getErrorMessage</a></span>&#8203;(<a href="../../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</code></th>
 <td class="colLast">
 <div class="block">Gets the error message if the check was incorrect completed.</div>
 </td>
@@ -224,11 +230,25 @@ implements <a href="Checkable.html" title="interface in io.openems.edge.core.app
 </tr>
 </table>
 <ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.core.appmanager.validator.AbstractCheckable">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;io.openems.edge.core.appmanager.validator.<a href="AbstractCheckable.html" title="class in io.openems.edge.core.appmanager.validator">AbstractCheckable</a></h3>
+<code><a href="AbstractCheckable.html#getComponentName()">getComponentName</a>, <a href="AbstractCheckable.html#getTranslation(io.openems.common.session.Language,java.lang.String,java.lang.Object...)">getTranslation</a></code></li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.core.appmanager.validator.Checkable">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.core.appmanager.validator.<a href="Checkable.html" title="interface in io.openems.edge.core.appmanager.validator">Checkable</a></h3>
+<code><a href="Checkable.html#getComponentName()">getComponentName</a></code></li>
 </ul>
 </li>
 </ul>
@@ -269,13 +289,14 @@ implements <a href="Checkable.html" title="interface in io.openems.edge.core.app
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(io.openems.edge.core.appmanager.AppManager)">
+<a id="&lt;init&gt;(io.openems.edge.core.appmanager.AppManager,org.osgi.service.component.ComponentContext)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CheckAppsNotInstalled</h4>
-<pre>public&nbsp;CheckAppsNotInstalled&#8203;(<a href="../AppManager.html" title="interface in io.openems.edge.core.appmanager">AppManager</a>&nbsp;appManager)</pre>
+<pre>public&nbsp;CheckAppsNotInstalled&#8203;(<a href="../AppManager.html" title="interface in io.openems.edge.core.appmanager">AppManager</a>&nbsp;appManager,
+                             org.osgi.service.component.ComponentContext&nbsp;componentContext)</pre>
 </li>
 </ul>
 </li>
@@ -322,18 +343,20 @@ implements <a href="Checkable.html" title="interface in io.openems.edge.core.app
 </dl>
 </li>
 </ul>
-<a id="getErrorMessage()">
+<a id="getErrorMessage(io.openems.common.session.Language)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getErrorMessage</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getErrorMessage()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="Checkable.html#getErrorMessage()">Checkable</a></code></span></div>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getErrorMessage&#8203;(<a href="../../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="Checkable.html#getErrorMessage(io.openems.common.session.Language)">Checkable</a></code></span></div>
 <div class="block">Gets the error message if the check was incorrect completed.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="Checkable.html#getErrorMessage()">getErrorMessage</a></code>&nbsp;in interface&nbsp;<code><a href="Checkable.html" title="interface in io.openems.edge.core.appmanager.validator">Checkable</a></code></dd>
+<dd><code><a href="Checkable.html#getErrorMessage(io.openems.common.session.Language)">getErrorMessage</a></code>&nbsp;in interface&nbsp;<code><a href="Checkable.html" title="interface in io.openems.edge.core.appmanager.validator">Checkable</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>language</code> - the language of the message</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the message</dd>
 </dl>

@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -151,10 +151,18 @@ implements <a href="../../core/appmanager/OpenemsApp.html" title="interface in i
     "instanceId": UUID,
     "image": base64,
     "properties":{
-        "CTRL_IO_HEAT_PUMP_ID": "ctrlIoHeatPump0"
+        "CTRL_IO_HEAT_PUMP_ID": "ctrlIoHeatPump0",
+        "OUTPUT_CHANNEL_1": "io0/Relay2",
+        "OUTPUT_CHANNEL_2": "io0/Relay3"
     },
+    "dependencies": [
+        {
+                "key": "RELAY",
+                "instanceId": UUID
+        }
+    ],
     "appDescriptor": {
-        "websiteUrl": <a href="https://fenecon.de/fems-2-2/fems-app-sg-ready-waermepumpe-2/">https://fenecon.de/fems-2-2/fems-app-sg-ready-waermepumpe-2/</a>
+        "websiteUrl": URL
     }
   }
  </pre></div>
@@ -250,7 +258,7 @@ implements <a href="../../core/appmanager/OpenemsApp.html" title="interface in i
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../common/function/ThrowingBiFunction.html" title="interface in io.openems.common.function">ThrowingBiFunction</a>&lt;<a href="../../core/appmanager/ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>,&#8203;java.util.EnumMap&lt;<a href="HeatPump.Property.html" title="enum in io.openems.edge.app.heat">HeatPump.Property</a>,&#8203;com.google.gson.JsonElement&gt;,&#8203;<a href="../../core/appmanager/AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AppConfiguration</a>,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</code></td>
+<td class="colFirst"><code>protected <a href="../../../common/function/ThrowingTriFunction.html" title="interface in io.openems.common.function">ThrowingTriFunction</a>&lt;<a href="../../core/appmanager/ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>,&#8203;java.util.EnumMap&lt;<a href="HeatPump.Property.html" title="enum in io.openems.edge.app.heat">HeatPump.Property</a>,&#8203;com.google.gson.JsonElement&gt;,&#8203;<a href="../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>,&#8203;<a href="../../core/appmanager/AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AppConfiguration</a>,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#appConfigurationFactory()">appConfigurationFactory</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Provides a factory for <a href="../../core/appmanager/AppConfiguration.html" title="class in io.openems.edge.core.appmanager"><code>AppConfiguration</code></a>s.</div>
@@ -258,7 +266,7 @@ implements <a href="../../core/appmanager/OpenemsApp.html" title="interface in i
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../core/appmanager/AppAssistant.html" title="class in io.openems.edge.core.appmanager">AppAssistant</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAppAssistant()">getAppAssistant</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAppAssistant(io.openems.common.session.Language)">getAppAssistant</a></span>&#8203;(<a href="../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</code></th>
 <td class="colLast">
 <div class="block">Gets the <a href="../../core/appmanager/AppAssistant.html" title="class in io.openems.edge.core.appmanager"><code>AppAssistant</code></a> for this <a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
 </td>
@@ -285,26 +293,12 @@ implements <a href="../../core/appmanager/OpenemsApp.html" title="interface in i
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getImage()">getImage</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Gets the image of the <a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a> in Base64 encoding.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Gets the name of the <a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected java.lang.Class&lt;<a href="HeatPump.Property.html" title="enum in io.openems.edge.app.heat">HeatPump.Property</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPropertyClass()">getPropertyClass</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="../../core/appmanager/validator/Validator.Builder.html" title="class in io.openems.edge.core.appmanager.validator">Validator.Builder</a></code></td>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../core/appmanager/validator/ValidatorConfig.Builder.html" title="class in io.openems.edge.core.appmanager.validator">ValidatorConfig.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValidateBuilder()">getValidateBuilder</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -314,7 +308,7 @@ implements <a href="../../core/appmanager/OpenemsApp.html" title="interface in i
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.edge.core.appmanager.<a href="../../core/appmanager/AbstractOpenemsApp.html" title="class in io.openems.edge.core.appmanager">AbstractOpenemsApp</a></h3>
-<code><a href="../../core/appmanager/AbstractOpenemsApp.html#assertCheckables(io.openems.edge.core.appmanager.ConfigurationTarget,io.openems.edge.core.appmanager.validator.Checkable...)">assertCheckables</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getAppConfiguration(io.openems.edge.core.appmanager.ConfigurationTarget,com.google.gson.JsonObject)">getAppConfiguration</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getAppId()">getAppId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">getId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,PROPERTY,java.lang.String)">getId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValidator()">getValidator</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValueOrDefault(java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">getValueOrDefault</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValueOrDefault(java.util.EnumMap,PROPERTY,java.lang.String)">getValueOrDefault</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#hasProperty(java.lang.String)">hasProperty</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#installationValidation()">installationValidation</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#validate(io.openems.edge.core.appmanager.OpenemsAppInstance)">validate</a></code></li>
+<code><a href="../../core/appmanager/AbstractOpenemsApp.html#assertCheckables(io.openems.edge.core.appmanager.ConfigurationTarget,io.openems.edge.core.appmanager.validator.Checkable...)">assertCheckables</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getAppConfiguration(io.openems.edge.core.appmanager.ConfigurationTarget,com.google.gson.JsonObject,io.openems.common.session.Language)">getAppConfiguration</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getAppId()">getAppId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getComponentWithFactoryId(java.util.List,java.lang.String)">getComponentWithFactoryId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">getId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getId(io.openems.edge.core.appmanager.ConfigurationTarget,java.util.EnumMap,PROPERTY,java.lang.String)">getId</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getImage()">getImage</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getName(io.openems.common.session.Language)">getName</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getTranslation(io.openems.common.session.Language,java.lang.String)">getTranslation</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getTranslationBundle(io.openems.common.session.Language)">getTranslationBundle</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValidatorConfig()">getValidatorConfig</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValueOrDefault(java.util.EnumMap,io.openems.edge.core.appmanager.DefaultEnum)">getValueOrDefault</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#getValueOrDefault(java.util.EnumMap,PROPERTY,java.lang.String)">getValueOrDefault</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#hasProperty(java.lang.String)">hasProperty</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#installationValidation()">installationValidation</a>, <a href="../../core/appmanager/AbstractOpenemsApp.html#validate(io.openems.edge.core.appmanager.OpenemsAppInstance)">validate</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -328,7 +322,7 @@ implements <a href="../../core/appmanager/OpenemsApp.html" title="interface in i
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.core.appmanager.<a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></h3>
-<code><a href="../../core/appmanager/OpenemsApp.html#getAppConfiguration(io.openems.edge.core.appmanager.ConfigurationTarget,com.google.gson.JsonObject)">getAppConfiguration</a>, <a href="../../core/appmanager/OpenemsApp.html#getAppId()">getAppId</a>, <a href="../../core/appmanager/OpenemsApp.html#getValidator()">getValidator</a>, <a href="../../core/appmanager/OpenemsApp.html#validate(io.openems.edge.core.appmanager.OpenemsAppInstance)">validate</a></code></li>
+<code><a href="../../core/appmanager/OpenemsApp.html#getAppConfiguration(io.openems.edge.core.appmanager.ConfigurationTarget,com.google.gson.JsonObject,io.openems.common.session.Language)">getAppConfiguration</a>, <a href="../../core/appmanager/OpenemsApp.html#getAppId()">getAppId</a>, <a href="../../core/appmanager/OpenemsApp.html#getImage()">getImage</a>, <a href="../../core/appmanager/OpenemsApp.html#getName(io.openems.common.session.Language)">getName</a>, <a href="../../core/appmanager/OpenemsApp.html#getValidatorConfig()">getValidatorConfig</a>, <a href="../../core/appmanager/OpenemsApp.html#validate(io.openems.edge.core.appmanager.OpenemsAppInstance)">validate</a></code></li>
 </ul>
 </li>
 </ul>
@@ -374,7 +368,7 @@ implements <a href="../../core/appmanager/OpenemsApp.html" title="interface in i
 <ul class="blockList">
 <li class="blockList">
 <h4>appConfigurationFactory</h4>
-<pre class="methodSignature">protected&nbsp;<a href="../../../common/function/ThrowingBiFunction.html" title="interface in io.openems.common.function">ThrowingBiFunction</a>&lt;<a href="../../core/appmanager/ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>,&#8203;java.util.EnumMap&lt;<a href="HeatPump.Property.html" title="enum in io.openems.edge.app.heat">HeatPump.Property</a>,&#8203;com.google.gson.JsonElement&gt;,&#8203;<a href="../../core/appmanager/AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AppConfiguration</a>,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&nbsp;appConfigurationFactory()</pre>
+<pre class="methodSignature">protected&nbsp;<a href="../../../common/function/ThrowingTriFunction.html" title="interface in io.openems.common.function">ThrowingTriFunction</a>&lt;<a href="../../core/appmanager/ConfigurationTarget.html" title="enum in io.openems.edge.core.appmanager">ConfigurationTarget</a>,&#8203;java.util.EnumMap&lt;<a href="HeatPump.Property.html" title="enum in io.openems.edge.app.heat">HeatPump.Property</a>,&#8203;com.google.gson.JsonElement&gt;,&#8203;<a href="../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>,&#8203;<a href="../../core/appmanager/AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AppConfiguration</a>,&#8203;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&nbsp;appConfigurationFactory()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../core/appmanager/AbstractOpenemsApp.html#appConfigurationFactory()">AbstractOpenemsApp</a></code></span></div>
 <div class="block">Provides a factory for <a href="../../core/appmanager/AppConfiguration.html" title="class in io.openems.edge.core.appmanager"><code>AppConfiguration</code></a>s.</div>
 <dl>
@@ -387,18 +381,20 @@ implements <a href="../../core/appmanager/OpenemsApp.html" title="interface in i
 </dl>
 </li>
 </ul>
-<a id="getAppAssistant()">
+<a id="getAppAssistant(io.openems.common.session.Language)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getAppAssistant</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../core/appmanager/AppAssistant.html" title="class in io.openems.edge.core.appmanager">AppAssistant</a>&nbsp;getAppAssistant()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../core/appmanager/OpenemsApp.html#getAppAssistant()">OpenemsApp</a></code></span></div>
+<pre class="methodSignature">public&nbsp;<a href="../../core/appmanager/AppAssistant.html" title="class in io.openems.edge.core.appmanager">AppAssistant</a>&nbsp;getAppAssistant&#8203;(<a href="../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../core/appmanager/OpenemsApp.html#getAppAssistant(io.openems.common.session.Language)">OpenemsApp</a></code></span></div>
 <div class="block">Gets the <a href="../../core/appmanager/AppAssistant.html" title="class in io.openems.edge.core.appmanager"><code>AppAssistant</code></a> for this <a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../core/appmanager/OpenemsApp.html#getAppAssistant()">getAppAssistant</a></code>&nbsp;in interface&nbsp;<code><a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
+<dd><code><a href="../../core/appmanager/OpenemsApp.html#getAppAssistant(io.openems.common.session.Language)">getAppAssistant</a></code>&nbsp;in interface&nbsp;<code><a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>language</code> - the language of the <a href="../../core/appmanager/AppAssistant.html" title="class in io.openems.edge.core.appmanager"><code>AppAssistant</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the AppAssistant</dd>
 </dl>
@@ -438,50 +434,16 @@ implements <a href="../../core/appmanager/OpenemsApp.html" title="interface in i
 </dl>
 </li>
 </ul>
-<a id="getImage()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getImage</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getImage()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../core/appmanager/OpenemsApp.html#getImage()">OpenemsApp</a></code></span></div>
-<div class="block">Gets the image of the <a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a> in Base64 encoding.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../core/appmanager/OpenemsApp.html#getImage()">getImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a image representing the <a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a></dd>
-</dl>
-</li>
-</ul>
 <a id="getValidateBuilder()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getValidateBuilder</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../core/appmanager/validator/Validator.Builder.html" title="class in io.openems.edge.core.appmanager.validator">Validator.Builder</a>&nbsp;getValidateBuilder()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../../core/appmanager/validator/ValidatorConfig.Builder.html" title="class in io.openems.edge.core.appmanager.validator">ValidatorConfig.Builder</a>&nbsp;getValidateBuilder()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../core/appmanager/AbstractOpenemsApp.html#getValidateBuilder()">getValidateBuilder</a></code>&nbsp;in class&nbsp;<code><a href="../../core/appmanager/AbstractOpenemsApp.html" title="class in io.openems.edge.core.appmanager">AbstractOpenemsApp</a>&lt;<a href="HeatPump.Property.html" title="enum in io.openems.edge.app.heat">HeatPump.Property</a>&gt;</code></dd>
-</dl>
-</li>
-</ul>
-<a id="getName()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getName</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getName()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../core/appmanager/OpenemsApp.html#getName()">OpenemsApp</a></code></span></div>
-<div class="block">Gets the name of the <a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../core/appmanager/OpenemsApp.html#getName()">getName</a></code>&nbsp;in interface&nbsp;<code><a href="../../core/appmanager/OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a human readable name</dd>
 </dl>
 </li>
 </ul>

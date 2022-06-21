@@ -181,7 +181,7 @@ extends java.lang.Enum&lt;<a href="OpenemsAppCategory.html" title="enum in io.op
 <tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#HEAT">HEAT</a></span></code></th>
 <td class="colLast">
-<div class="block">Load control.</div>
+<div class="block">Heat.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -191,21 +191,39 @@ extends java.lang.Enum&lt;<a href="OpenemsAppCategory.html" title="enum in io.op
 </td>
 </tr>
 <tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#LOAD_CONTROL">LOAD_CONTROL</a></span></code></th>
+<td class="colLast">
+<div class="block">Load Control.</div>
+</td>
+</tr>
+<tr class="altColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#METER">METER</a></span></code></th>
 <td class="colLast">
 <div class="block">Meter.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PV_INVERTER">PV_INVERTER</a></span></code></th>
 <td class="colLast">
 <div class="block">PV-Inverter.</div>
 </td>
 </tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#PV_SELF_CONSUMPTION">PV_SELF_CONSUMPTION</a></span></code></th>
+<td class="colLast">
+<div class="block">PV self-consumption.</div>
+</td>
+</tr>
 <tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#TEST">TEST</a></span></code></th>
+<td class="colLast">
+<div class="block">Category for test apps.</div>
+</td>
+</tr>
+<tr class="altColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#TIME_OF_USE_TARIFF">TIME_OF_USE_TARIFF</a></span></code></th>
 <td class="colLast">
-<div class="block">Time of use energy tariff.</div>
+<div class="block">Time variable energy price.</div>
 </td>
 </tr>
 </table>
@@ -228,12 +246,14 @@ extends java.lang.Enum&lt;<a href="OpenemsAppCategory.html" title="enum in io.op
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReadableName()">getReadableName</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReadableName(io.openems.common.session.Language)">getReadableName</a></span>&#8203;(<a href="../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</code></th>
+<td class="colLast">
+<div class="block">Gets the readable name in the specific language.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJsonObject()">toJsonObject</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJsonObject(io.openems.common.session.Language)">toJsonObject</a></span>&#8203;(<a href="../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</code></th>
 <td class="colLast">
 <div class="block">Creates a <code>JsonObject</code> of the <a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager"><code>OpenemsAppCategory</code></a>.</div>
 </td>
@@ -301,7 +321,7 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>TIME_OF_USE_TARIFF</h4>
 <pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> TIME_OF_USE_TARIFF</pre>
-<div class="block">Time of use energy tariff.</div>
+<div class="block">Time variable energy price.</div>
 </li>
 </ul>
 <a id="EVCS">
@@ -321,7 +341,17 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>HEAT</h4>
 <pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> HEAT</pre>
-<div class="block">Load control.</div>
+<div class="block">Heat.</div>
+</li>
+</ul>
+<a id="LOAD_CONTROL">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>LOAD_CONTROL</h4>
+<pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> LOAD_CONTROL</pre>
+<div class="block">Load Control.</div>
 </li>
 </ul>
 <a id="HARDWARE">
@@ -344,6 +374,16 @@ the order they are declared.</div>
 <div class="block">PV-Inverter.</div>
 </li>
 </ul>
+<a id="PV_SELF_CONSUMPTION">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PV_SELF_CONSUMPTION</h4>
+<pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> PV_SELF_CONSUMPTION</pre>
+<div class="block">PV self-consumption.</div>
+</li>
+</ul>
 <a id="METER">
 <!--   -->
 </a>
@@ -357,11 +397,24 @@ the order they are declared.</div>
 <a id="API">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>API</h4>
 <pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> API</pre>
 <div class="block">Apis.</div>
+</li>
+</ul>
+<a id="TEST">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>TEST</h4>
+<pre>public static final&nbsp;<a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager">OpenemsAppCategory</a> TEST</pre>
+<div class="block">Category for test apps. 
+ 
+ <p>
+ NOTE: Do not use this category for normal apps!</div>
 </li>
 </ul>
 </li>
@@ -416,24 +469,33 @@ not permitted.)</div>
 </dl>
 </li>
 </ul>
-<a id="getReadableName()">
+<a id="getReadableName(io.openems.common.session.Language)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getReadableName</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getReadableName()</pre>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getReadableName&#8203;(<a href="../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</pre>
+<div class="block">Gets the readable name in the specific language.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>language</code> - the language of the name</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the name</dd>
+</dl>
 </li>
 </ul>
-<a id="toJsonObject()">
+<a id="toJsonObject(io.openems.common.session.Language)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>toJsonObject</h4>
-<pre class="methodSignature">public&nbsp;com.google.gson.JsonObject&nbsp;toJsonObject()</pre>
+<pre class="methodSignature">public&nbsp;com.google.gson.JsonObject&nbsp;toJsonObject&#8203;(<a href="../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</pre>
 <div class="block">Creates a <code>JsonObject</code> of the <a href="OpenemsAppCategory.html" title="enum in io.openems.edge.core.appmanager"><code>OpenemsAppCategory</code></a>.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>language</code> - the language of the readable name</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the <code>JsonObject</code></dd>
 </dl>
