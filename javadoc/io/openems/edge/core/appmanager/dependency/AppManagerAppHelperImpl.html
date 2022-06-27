@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":9,"i5":9,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":9,"i5":9,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -221,6 +221,13 @@ implements <a href="AppManagerAppHelper.html" title="interface in io.openems.edg
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="TemporaryApps.html" title="class in io.openems.edge.core.appmanager.dependency">TemporaryApps</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTemporaryApps()">getTemporaryApps</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Only available during a call of one of the other methods.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="UpdateValues.html" title="class in io.openems.edge.core.appmanager.dependency">UpdateValues</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#installApp(io.openems.edge.common.user.User,com.google.gson.JsonObject,java.lang.String,io.openems.edge.core.appmanager.OpenemsApp)">installApp</a></span>&#8203;(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
           com.google.gson.JsonObject&nbsp;properties,
@@ -230,7 +237,7 @@ implements <a href="AppManagerAppHelper.html" title="interface in io.openems.edg
 <div class="block">Installs an <a href="../OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a> with all its <a href="Dependency.html" title="class in io.openems.edge.core.appmanager.dependency"><code>Dependency</code></a>s.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="UpdateValues.html" title="class in io.openems.edge.core.appmanager.dependency">UpdateValues</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateApp(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.OpenemsAppInstance,com.google.gson.JsonObject,java.lang.String,io.openems.edge.core.appmanager.OpenemsApp)">updateApp</a></span>&#8203;(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
          <a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&nbsp;oldInstance,
@@ -417,7 +424,7 @@ implements <a href="AppManagerAppHelper.html" title="interface in io.openems.edg
 <a id="getReplaceableComponentIds(io.openems.edge.core.appmanager.OpenemsApp,com.google.gson.JsonObject)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getReplaceableComponentIds</h4>
 <pre class="methodSignature">protected final&nbsp;java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;getReplaceableComponentIds&#8203;(<a href="../OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
@@ -434,6 +441,24 @@ implements <a href="AppManagerAppHelper.html" title="interface in io.openems.edg
          key to put the next id</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="getTemporaryApps()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getTemporaryApps</h4>
+<pre class="methodSignature">public&nbsp;<a href="TemporaryApps.html" title="class in io.openems.edge.core.appmanager.dependency">TemporaryApps</a>&nbsp;getTemporaryApps()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="AppManagerAppHelper.html#getTemporaryApps()">AppManagerAppHelper</a></code></span></div>
+<div class="block">Only available during a call of one of the other methods.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="AppManagerAppHelper.html#getTemporaryApps()">getTemporaryApps</a></code>&nbsp;in interface&nbsp;<code><a href="AppManagerAppHelper.html" title="interface in io.openems.edge.core.appmanager.dependency">AppManagerAppHelper</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if none of the other mehtods is currently running else the
+         <a href="TemporaryApps.html" title="class in io.openems.edge.core.appmanager.dependency"><code>TemporaryApps</code></a></dd>
 </dl>
 </li>
 </ul>
