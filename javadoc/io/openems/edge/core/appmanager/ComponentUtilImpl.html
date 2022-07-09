@@ -311,10 +311,12 @@ implements <a href="ComponentUtil.html" title="interface in io.openems.edge.core
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextAvailableId(java.lang.String,java.util.List)">getNextAvailableId</a></span>&#8203;(java.lang.String&nbsp;baseName,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextAvailableId(java.lang.String,int,java.util.List)">getNextAvailableId</a></span>&#8203;(java.lang.String&nbsp;baseName,
+                  int&nbsp;startingNumber,
                   java.util.List&lt;<a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&gt;&nbsp;components)</code></th>
 <td class="colLast">
-<div class="block">Gets the next available id with the baseName.</div>
+<div class="block">Gets the next available id with the baseName starting with the given
+ startingNumber.</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
@@ -448,6 +450,13 @@ implements <a href="ComponentUtil.html" title="interface in io.openems.edge.core
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.core.appmanager.ComponentUtil">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.core.appmanager.<a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager">ComponentUtil</a></h3>
+<code><a href="ComponentUtil.html#getNextAvailableId(java.lang.String,java.util.List)">getNextAvailableId</a></code></li>
 </ul>
 </li>
 </ul>
@@ -850,25 +859,28 @@ implements <a href="ComponentUtil.html" title="interface in io.openems.edge.core
 </dl>
 </li>
 </ul>
-<a id="getNextAvailableId(java.lang.String,java.util.List)">
+<a id="getNextAvailableId(java.lang.String,int,java.util.List)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getNextAvailableId</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getNextAvailableId&#8203;(java.lang.String&nbsp;baseName,
+                                           int&nbsp;startingNumber,
                                            java.util.List&lt;<a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&gt;&nbsp;components)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="ComponentUtil.html#getNextAvailableId(java.lang.String,java.util.List)">ComponentUtil</a></code></span></div>
-<div class="block">Gets the next available id with the baseName.</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="ComponentUtil.html#getNextAvailableId(java.lang.String,int,java.util.List)">ComponentUtil</a></code></span></div>
+<div class="block">Gets the next available id with the baseName starting with the given
+ startingNumber.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="ComponentUtil.html#getNextAvailableId(java.lang.String,java.util.List)">getNextAvailableId</a></code>&nbsp;in interface&nbsp;<code><a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager">ComponentUtil</a></code></dd>
+<dd><code><a href="ComponentUtil.html#getNextAvailableId(java.lang.String,int,java.util.List)">getNextAvailableId</a></code>&nbsp;in interface&nbsp;<code><a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager">ComponentUtil</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>baseName</code> - like ess, meter without a number</dd>
+<dd><code>startingNumber</code> - the number at the end of the id to start from</dd>
 <dd><code>components</code> - the used components from the other apps, because if the
-                   user updates multiple instances very quickly and components
-                   of the same type are created they are not instantly added
-                   to the componentManager</dd>
+                       user updates multiple instances very quickly and
+                       components of the same type are created they are not
+                       instantly added to the componentManager</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the id</dd>
 </dl>

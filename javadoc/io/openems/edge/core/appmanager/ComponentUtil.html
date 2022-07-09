@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":18,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -141,7 +141,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -233,13 +233,23 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextAvailableId(java.lang.String,int,java.util.List)">getNextAvailableId</a></span>&#8203;(java.lang.String&nbsp;baseName,
+                  int&nbsp;startingNumber,
+                  java.util.List&lt;<a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&gt;&nbsp;components)</code></th>
+<td class="colLast">
+<div class="block">Gets the next available id with the baseName starting with the given
+ startingNumber.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>default java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextAvailableId(java.lang.String,java.util.List)">getNextAvailableId</a></span>&#8203;(java.lang.String&nbsp;baseName,
                   java.util.List&lt;<a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&gt;&nbsp;components)</code></th>
 <td class="colLast">
 <div class="block">Gets the next available id with the baseName.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPreferredRelays(java.util.List,int%5B%5D,int%5B%5D)">getPreferredRelays</a></span>&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;ignoreIds,
                   int[]&nbsp;relays4Channel,
@@ -248,21 +258,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Gets the preferred relays.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getScheduler()">getScheduler</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the scheduler Component.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSchedulerIds()">getSchedulerIds</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the current id's in the scheduler.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#insertSchedulerOrder(java.util.List,java.util.List)">insertSchedulerOrder</a></span>&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;actualOrder,
                     java.util.List&lt;java.lang.String&gt;&nbsp;insertOrder)</code></th>
@@ -270,7 +280,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Inserts the insertOrder into the actual Order.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeIdsInSchedulerIfExisting(io.openems.edge.common.user.User,java.util.List)">removeIdsInSchedulerIfExisting</a></span>&#8203;(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
                               java.util.List&lt;java.lang.String&gt;&nbsp;removedIds)</code></th>
@@ -278,7 +288,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">removes the given id s from the scheduler if they exist in the scheduler.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeIdsWhichNotExist(java.util.List,java.util.List)">removeIdsWhichNotExist</a></span>&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;ids,
                       java.util.List&lt;<a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&gt;&nbsp;components)</code></th>
@@ -287,7 +297,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  configuration or in the passed components list.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateHosts(io.openems.edge.common.user.User,java.util.List,java.util.List)">updateHosts</a></span>&#8203;(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
            java.util.List&lt;java.lang.String&gt;&nbsp;ips,
@@ -298,7 +308,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  <code>oldIps</code>.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateInterfaces(io.openems.edge.common.user.User,java.util.List)">updateInterfaces</a></span>&#8203;(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
                 java.util.List&lt;<a href="../host/NetworkInterface.html" title="class in io.openems.edge.core.host">NetworkInterface</a>&lt;?&gt;&gt;&nbsp;interfaces)</code></th>
@@ -306,7 +316,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">updates the interfaces in the Host configuration.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateScheduler(io.openems.edge.common.user.User,java.util.List,java.util.List)">updateScheduler</a></span>&#8203;(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
                java.util.List&lt;java.lang.String&gt;&nbsp;schedulerExecutionOrder,
@@ -525,8 +535,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>getNextAvailableId</h4>
-<pre class="methodSignature">java.lang.String&nbsp;getNextAvailableId&#8203;(java.lang.String&nbsp;baseName,
-                                    java.util.List&lt;<a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&gt;&nbsp;components)</pre>
+<pre class="methodSignature">default&nbsp;java.lang.String&nbsp;getNextAvailableId&#8203;(java.lang.String&nbsp;baseName,
+                                            java.util.List&lt;<a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&gt;&nbsp;components)</pre>
 <div class="block">Gets the next available id with the baseName.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -535,6 +545,30 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
                    user updates multiple instances very quickly and components
                    of the same type are created they are not instantly added
                    to the componentManager</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the id</dd>
+</dl>
+</li>
+</ul>
+<a id="getNextAvailableId(java.lang.String,int,java.util.List)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNextAvailableId</h4>
+<pre class="methodSignature">java.lang.String&nbsp;getNextAvailableId&#8203;(java.lang.String&nbsp;baseName,
+                                    int&nbsp;startingNumber,
+                                    java.util.List&lt;<a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&gt;&nbsp;components)</pre>
+<div class="block">Gets the next available id with the baseName starting with the given
+ startingNumber.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>baseName</code> - like ess, meter without a number</dd>
+<dd><code>startingNumber</code> - the number at the end of the id to start from</dd>
+<dd><code>components</code> - the used components from the other apps, because if the
+                       user updates multiple instances very quickly and
+                       components of the same type are created they are not
+                       instantly added to the componentManager</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the id</dd>
 </dl>
