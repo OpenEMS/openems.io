@@ -153,6 +153,11 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="PgEdgeHandler.html" title="class in io.openems.backend.metadata.odoo.postgres">PgEdgeHandler</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#edge">edge</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../EdgeCache.html" title="class in io.openems.backend.metadata.odoo">EdgeCache</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#edgeCache">edgeCache</a></span></code></th>
 <td class="colLast">&nbsp;</td>
@@ -207,20 +212,20 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected java.sql.Connection</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConnection()">getConnection</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.Optional&lt;<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgeForApikey(java.lang.String)">getEdgeForApikey</a></span>&#8203;(java.lang.String&nbsp;apikey)</code></th>
 <td class="colLast">
 <div class="block">Gets the Edge for an API-Key, i.e.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="PeriodicWriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres">PeriodicWriteWorker</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeriodicWriteWorker()">getPeriodicWriteWorker</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="QueueWriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres">QueueWriteWorker</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getQueueWriteWorker()">getQueueWriteWorker</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
@@ -265,6 +270,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Field Detail</h3>
+<a id="edge">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>edge</h4>
+<pre>public final&nbsp;<a href="PgEdgeHandler.html" title="class in io.openems.backend.metadata.odoo.postgres">PgEdgeHandler</a> edge</pre>
+</li>
+</ul>
 <a id="edgeCache">
 <!--   -->
 </a>
@@ -346,13 +360,18 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;<a href="PeriodicWriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres">PeriodicWriteWorker</a>&nbsp;getPeriodicWriteWorker()</pre>
 </li>
 </ul>
-<a id="getQueueWriteWorker()">
+<a id="getConnection()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getQueueWriteWorker</h4>
-<pre class="methodSignature">public&nbsp;<a href="QueueWriteWorker.html" title="class in io.openems.backend.metadata.odoo.postgres">QueueWriteWorker</a>&nbsp;getQueueWriteWorker()</pre>
+<h4>getConnection</h4>
+<pre class="methodSignature">protected&nbsp;java.sql.Connection&nbsp;getConnection()
+                                     throws java.sql.SQLException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd>
+</dl>
 </li>
 </ul>
 <a id="logInfo(org.slf4j.Logger,java.lang.String)">

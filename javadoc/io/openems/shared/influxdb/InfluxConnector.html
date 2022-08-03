@@ -175,12 +175,12 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.URI,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.Function)">InfluxConnector</a></span>&#8203;(java.net.URI&nbsp;url,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.URI,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.Consumer)">InfluxConnector</a></span>&#8203;(java.net.URI&nbsp;url,
                java.lang.String&nbsp;org,
                java.lang.String&nbsp;apiKey,
                java.lang.String&nbsp;bucket,
                boolean&nbsp;isReadOnly,
-               java.util.function.Function&lt;java.lang.Throwable,&#8203;java.lang.Boolean&gt;&nbsp;onWriteError)</code></th>
+               java.util.function.Consumer&lt;java.lang.Throwable&gt;&nbsp;onWriteError)</code></th>
 <td class="colLast">
 <div class="block">The Constructor.</div>
 </td>
@@ -310,7 +310,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.net.URI,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.Function)">
+<a id="&lt;init&gt;(java.net.URI,java.lang.String,java.lang.String,java.lang.String,boolean,java.util.function.Consumer)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -321,7 +321,7 @@ extends java.lang.Object</pre>
                        java.lang.String&nbsp;apiKey,
                        java.lang.String&nbsp;bucket,
                        boolean&nbsp;isReadOnly,
-                       java.util.function.Function&lt;java.lang.Throwable,&#8203;java.lang.Boolean&gt;&nbsp;onWriteError)</pre>
+                       java.util.function.Consumer&lt;java.lang.Throwable&gt;&nbsp;onWriteError)</pre>
 <div class="block">The Constructor.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -332,8 +332,7 @@ extends java.lang.Object</pre>
                      v1</dd>
 <dd><code>isReadOnly</code> - If true, a 'Read-Only-Mode' is activated, where no data
                      is actually written to the database</dd>
-<dd><code>onWriteError</code> - A function for write-errors; return true to retry writing
-                     the <code>Point</code>s</dd>
+<dd><code>onWriteError</code> - A consumer for write-errors</dd>
 </dl>
 </li>
 </ul>

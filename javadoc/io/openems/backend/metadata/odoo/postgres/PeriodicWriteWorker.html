@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -154,8 +154,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.backend.metadata.odoo.postgres.PostgresHandler,com.zaxxer.hikari.HikariDataSource)">PeriodicWriteWorker</a></span>&#8203;(<a href="PostgresHandler.html" title="class in io.openems.backend.metadata.odoo.postgres">PostgresHandler</a>&nbsp;parent,
-                   com.zaxxer.hikari.HikariDataSource&nbsp;dataSource)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(io.openems.backend.metadata.odoo.postgres.PostgresHandler)">PeriodicWriteWorker</a></span>&#8203;(<a href="PostgresHandler.html" title="class in io.openems.backend.metadata.odoo.postgres">PostgresHandler</a>&nbsp;parent)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -170,38 +169,41 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOffline(io.openems.backend.metadata.odoo.MyEdge)">isOffline</a></span>&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge)</code></th>
+<td class="colFirst"><code>protected static java.util.Set&lt;java.lang.Integer&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#drainToSet(java.util.concurrent.LinkedBlockingQueue)">drainToSet</a></span>&#8203;(java.util.concurrent.LinkedBlockingQueue&lt;java.lang.Integer&gt;&nbsp;queue)</code></th>
 <td class="colLast">
-<div class="block">Called on Edge isOffline event.</div>
+<div class="block">Moves all entries of a <code>LinkedBlockingQueue</code> to a Set and clears the
+ queue.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOnline(io.openems.backend.metadata.odoo.MyEdge)">isOnline</a></span>&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onLastMessage(io.openems.backend.metadata.odoo.MyEdge)">onLastMessage</a></span>&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge)</code></th>
 <td class="colLast">
-<div class="block">Called on Edge isOnline event.</div>
+<div class="block">Called on <a href="../../../common/metadata/Edge.Events.html#ON_SET_LAST_MESSAGE_TIMESTAMP"><code>Edge.Events.ON_SET_LAST_MESSAGE_TIMESTAMP</code></a> event.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onLastMessage(io.openems.backend.metadata.odoo.MyEdge)">onLastMessage</a></span>&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSetOnline(io.openems.backend.metadata.odoo.MyEdge,boolean)">onSetOnline</a></span>&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge,
+           boolean&nbsp;isOnline)</code></th>
 <td class="colLast">
-<div class="block">Called on Edge onSetLastMessage event.</div>
+<div class="block">Called on <a href="../../../common/metadata/Edge.Events.html#ON_SET_ONLINE"><code>Edge.Events.ON_SET_ONLINE</code></a> event.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onLastUpdate(io.openems.backend.metadata.odoo.MyEdge)">onLastUpdate</a></span>&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSetSumState(io.openems.backend.metadata.odoo.MyEdge,io.openems.common.channel.Level)">onSetSumState</a></span>&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge,
+             <a href="../../../../common/channel/Level.html" title="enum in io.openems.common.channel">Level</a>&nbsp;sumState)</code></th>
 <td class="colLast">
-<div class="block">Called on Edge onSetLastUpdate event.</div>
+<div class="block">Called on <a href="../../../common/metadata/Edge.Events.html#ON_SET_SUM_STATE"><code>Edge.Events.ON_SET_SUM_STATE</code></a> event.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -242,14 +244,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(io.openems.backend.metadata.odoo.postgres.PostgresHandler,com.zaxxer.hikari.HikariDataSource)">
+<a id="&lt;init&gt;(io.openems.backend.metadata.odoo.postgres.PostgresHandler)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>PeriodicWriteWorker</h4>
-<pre>public&nbsp;PeriodicWriteWorker&#8203;(<a href="PostgresHandler.html" title="class in io.openems.backend.metadata.odoo.postgres">PostgresHandler</a>&nbsp;parent,
-                           com.zaxxer.hikari.HikariDataSource&nbsp;dataSource)</pre>
+<pre>public&nbsp;PeriodicWriteWorker&#8203;(<a href="PostgresHandler.html" title="class in io.openems.backend.metadata.odoo.postgres">PostgresHandler</a>&nbsp;parent)</pre>
 </li>
 </ul>
 </li>
@@ -289,52 +290,59 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>onLastMessage</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;onLastMessage&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge)</pre>
-<div class="block">Called on Edge onSetLastMessage event.</div>
+<div class="block">Called on <a href="../../../common/metadata/Edge.Events.html#ON_SET_LAST_MESSAGE_TIMESTAMP"><code>Edge.Events.ON_SET_LAST_MESSAGE_TIMESTAMP</code></a> event.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>edge</code> - the <a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo"><code>MyEdge</code></a>.</dd>
 </dl>
 </li>
 </ul>
-<a id="onLastUpdate(io.openems.backend.metadata.odoo.MyEdge)">
+<a id="onSetOnline(io.openems.backend.metadata.odoo.MyEdge,boolean)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>onLastUpdate</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;onLastUpdate&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge)</pre>
-<div class="block">Called on Edge onSetLastUpdate event.</div>
+<h4>onSetOnline</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;onSetOnline&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge,
+                        boolean&nbsp;isOnline)</pre>
+<div class="block">Called on <a href="../../../common/metadata/Edge.Events.html#ON_SET_ONLINE"><code>Edge.Events.ON_SET_ONLINE</code></a> event.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>edge</code> - the <a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo"><code>MyEdge</code></a>.</dd>
+<dd><code>isOnline</code> - true if online, false if offline</dd>
 </dl>
 </li>
 </ul>
-<a id="isOnline(io.openems.backend.metadata.odoo.MyEdge)">
+<a id="onSetSumState(io.openems.backend.metadata.odoo.MyEdge,io.openems.common.channel.Level)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>isOnline</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;isOnline&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge)</pre>
-<div class="block">Called on Edge isOnline event.</div>
+<h4>onSetSumState</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;onSetSumState&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge,
+                          <a href="../../../../common/channel/Level.html" title="enum in io.openems.common.channel">Level</a>&nbsp;sumState)</pre>
+<div class="block">Called on <a href="../../../common/metadata/Edge.Events.html#ON_SET_SUM_STATE"><code>Edge.Events.ON_SET_SUM_STATE</code></a> event.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>edge</code> - the <a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo"><code>MyEdge</code></a>.</dd>
+<dd><code>sumState</code> - Sum-State <a href="../../../../common/channel/Level.html" title="enum in io.openems.common.channel"><code>Level</code></a></dd>
 </dl>
 </li>
 </ul>
-<a id="isOffline(io.openems.backend.metadata.odoo.MyEdge)">
+<a id="drainToSet(java.util.concurrent.LinkedBlockingQueue)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>isOffline</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;isOffline&#8203;(<a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo">MyEdge</a>&nbsp;edge)</pre>
-<div class="block">Called on Edge isOffline event.</div>
+<h4>drainToSet</h4>
+<pre class="methodSignature">protected static&nbsp;java.util.Set&lt;java.lang.Integer&gt;&nbsp;drainToSet&#8203;(java.util.concurrent.LinkedBlockingQueue&lt;java.lang.Integer&gt;&nbsp;queue)</pre>
+<div class="block">Moves all entries of a <code>LinkedBlockingQueue</code> to a Set and clears the
+ queue. This is thread-safe.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>edge</code> - the <a href="../MyEdge.html" title="class in io.openems.backend.metadata.odoo"><code>MyEdge</code></a>.</dd>
+<dd><code>queue</code> - the <code>LinkedBlockingQueue</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <code>Set</code></dd>
 </dl>
 </li>
 </ul>
