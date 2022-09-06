@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,12 +136,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../api/DigitalOutput.html" title="interface in io.openems.edge.io.api">DigitalOutput</a></code>, <code><a href="ShellyPlug.html" title="interface in io.openems.edge.io.shelly.shellyplug">ShellyPlug</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../api/DigitalOutput.html" title="interface in io.openems.edge.io.api">DigitalOutput</a></code>, <code><a href="ShellyPlug.html" title="interface in io.openems.edge.io.shelly.shellyplug">ShellyPlug</a></code>, <code><a href="../../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">ShellyPlugImpl</span>
 extends <a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="ShellyPlug.html" title="interface in io.openems.edge.io.shelly.shellyplug">ShellyPlug</a>, <a href="../../api/DigitalOutput.html" title="interface in io.openems.edge.io.api">DigitalOutput</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler</pre>
+implements <a href="ShellyPlug.html" title="interface in io.openems.edge.io.shelly.shellyplug">ShellyPlug</a>, <a href="../../api/DigitalOutput.html" title="interface in io.openems.edge.io.api">DigitalOutput</a>, <a href="../../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler</pre>
 </li>
 </ul>
 </div>
@@ -175,6 +175,13 @@ implements <a href="ShellyPlug.html" title="interface in io.openems.edge.io.shel
 </a>
 <h3>Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.io.shelly.shellyplug.<a href="ShellyPlug.html" title="interface in io.openems.edge.io.shelly.shellyplug">ShellyPlug</a></h3>
 <code><a href="ShellyPlug.ChannelId.html" title="enum in io.openems.edge.io.shelly.shellyplug">ShellyPlug.ChannelId</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="nested.classes.inherited.from.class.io.openems.edge.meter.api.SymmetricMeter">
+<!--   -->
+</a>
+<h3>Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.meter.api.<a href="../../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></h3>
+<code><a href="../../../meter/api/SymmetricMeter.ChannelId.html" title="enum in io.openems.edge.meter.api">SymmetricMeter.ChannelId</a></code></li>
 </ul>
 </li>
 </ul>
@@ -236,6 +243,13 @@ implements <a href="ShellyPlug.html" title="interface in io.openems.edge.io.shel
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../meter/api/MeterType.html" title="enum in io.openems.edge.meter.api">MeterType</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMeterType()">getMeterType</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the type of this Meter.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -267,7 +281,14 @@ implements <a href="ShellyPlug.html" title="interface in io.openems.edge.io.shel
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.io.shelly.shellyplug.<a href="ShellyPlug.html" title="interface in io.openems.edge.io.shelly.shellyplug">ShellyPlug</a></h3>
-<code><a href="ShellyPlug.html#_setActivePower(int)">_setActivePower</a>, <a href="ShellyPlug.html#_setActivePower(java.lang.Integer)">_setActivePower</a>, <a href="ShellyPlug.html#_setRelay(boolean)">_setRelay</a>, <a href="ShellyPlug.html#_setSlaveCommunicationFailed(boolean)">_setSlaveCommunicationFailed</a>, <a href="ShellyPlug.html#getActivePower()">getActivePower</a>, <a href="ShellyPlug.html#getActivePowerChannel()">getActivePowerChannel</a>, <a href="ShellyPlug.html#getRelay()">getRelay</a>, <a href="ShellyPlug.html#getRelayChannel()">getRelayChannel</a>, <a href="ShellyPlug.html#getSlaveCommunicationFailed()">getSlaveCommunicationFailed</a>, <a href="ShellyPlug.html#getSlaveCommunicationFailedChannel()">getSlaveCommunicationFailedChannel</a>, <a href="ShellyPlug.html#setRelay(boolean)">setRelay</a></code></li>
+<code><a href="ShellyPlug.html#_setRelay(boolean)">_setRelay</a>, <a href="ShellyPlug.html#_setSlaveCommunicationFailed(boolean)">_setSlaveCommunicationFailed</a>, <a href="ShellyPlug.html#getRelay()">getRelay</a>, <a href="ShellyPlug.html#getRelayChannel()">getRelayChannel</a>, <a href="ShellyPlug.html#getSlaveCommunicationFailed()">getSlaveCommunicationFailed</a>, <a href="ShellyPlug.html#getSlaveCommunicationFailedChannel()">getSlaveCommunicationFailedChannel</a>, <a href="ShellyPlug.html#setRelay(boolean)">setRelay</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.meter.api.SymmetricMeter">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.meter.api.<a href="../../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></h3>
+<code><a href="../../../meter/api/SymmetricMeter.html#_setActiveConsumptionEnergy(long)">_setActiveConsumptionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#_setActiveConsumptionEnergy(java.lang.Long)">_setActiveConsumptionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#_setActivePower(int)">_setActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setActivePower(java.lang.Integer)">_setActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setActiveProductionEnergy(long)">_setActiveProductionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#_setActiveProductionEnergy(java.lang.Long)">_setActiveProductionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#_setCurrent(int)">_setCurrent</a>, <a href="../../../meter/api/SymmetricMeter.html#_setCurrent(java.lang.Integer)">_setCurrent</a>, <a href="../../../meter/api/SymmetricMeter.html#_setFrequency(int)">_setFrequency</a>, <a href="../../../meter/api/SymmetricMeter.html#_setFrequency(java.lang.Integer)">_setFrequency</a>, <a href="../../../meter/api/SymmetricMeter.html#_setMaxActivePower(int)">_setMaxActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setMaxActivePower(java.lang.Integer)">_setMaxActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setMinActivePower(int)">_setMinActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setMinActivePower(java.lang.Integer)">_setMinActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setReactivePower(int)">_setReactivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setReactivePower(java.lang.Integer)">_setReactivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setVoltage(int)">_setVoltage</a>, <a href="../../../meter/api/SymmetricMeter.html#_setVoltage(java.lang.Integer)">_setVoltage</a>, <a href="../../../meter/api/SymmetricMeter.html#getActiveConsumptionEnergy()">getActiveConsumptionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#getActiveConsumptionEnergyChannel()">getActiveConsumptionEnergyChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getActivePower()">getActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#getActivePowerChannel()">getActivePowerChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getActiveProductionEnergy()">getActiveProductionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#getActiveProductionEnergyChannel()">getActiveProductionEnergyChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getCurrent()">getCurrent</a>, <a href="../../../meter/api/SymmetricMeter.html#getCurrentChannel()">getCurrentChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getFrequency()">getFrequency</a>, <a href="../../../meter/api/SymmetricMeter.html#getFrequencyChannel()">getFrequencyChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getMaxActivePower()">getMaxActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#getMaxActivePowerChannel()">getMaxActivePowerChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getMinActivePower()">getMinActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#getMinActivePowerChannel()">getMinActivePowerChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getReactivePower()">getReactivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#getReactivePowerChannel()">getReactivePowerChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getVoltage()">getVoltage</a>, <a href="../../../meter/api/SymmetricMeter.html#getVoltageChannel()">getVoltageChannel</a></code></li>
 </ul>
 </li>
 </ul>
@@ -357,13 +378,30 @@ implements <a href="ShellyPlug.html" title="interface in io.openems.edge.io.shel
 <a id="handleEvent(org.osgi.service.event.Event)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>handleEvent</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;handleEvent&#8203;(org.osgi.service.event.Event&nbsp;event)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
+</dl>
+</li>
+</ul>
+<a id="getMeterType()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getMeterType</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../../meter/api/MeterType.html" title="enum in io.openems.edge.meter.api">MeterType</a>&nbsp;getMeterType()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../meter/api/SymmetricMeter.html#getMeterType()">SymmetricMeter</a></code></span></div>
+<div class="block">Gets the type of this Meter.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../meter/api/SymmetricMeter.html#getMeterType()">getMeterType</a></code>&nbsp;in interface&nbsp;<code><a href="../../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the MeterType</dd>
 </dl>
 </li>
 </ul>

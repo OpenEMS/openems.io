@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18};
+var data = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -123,7 +123,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd><code><a href="../../api/DigitalOutput.html" title="interface in io.openems.edge.io.api">DigitalOutput</a></code>, <code>org.osgi.service.event.EventHandler</code>, <code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code></dd>
+<dd><code><a href="../../api/DigitalOutput.html" title="interface in io.openems.edge.io.api">DigitalOutput</a></code>, <code>org.osgi.service.event.EventHandler</code>, <code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></code></dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
@@ -131,7 +131,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">ShellyPlug</span>
-extends <a href="../../api/DigitalOutput.html" title="interface in io.openems.edge.io.api">DigitalOutput</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler</pre>
+extends <a href="../../api/DigitalOutput.html" title="interface in io.openems.edge.io.api">DigitalOutput</a>, <a href="../../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler</pre>
 </li>
 </ul>
 </div>
@@ -177,28 +177,12 @@ extends <a href="../../api/DigitalOutput.html" title="interface in io.openems.ed
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>default void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_setActivePower(int)">_setActivePower</a></span>&#8203;(int&nbsp;value)</code></th>
-<td class="colLast">
-<div class="block">Internal method to set the 'nextValue' on <a href="ShellyPlug.ChannelId.html#ACTIVE_POWER"><code>ShellyPlug.ChannelId.ACTIVE_POWER</code></a>
- Channel.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>default void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_setActivePower(java.lang.Integer)">_setActivePower</a></span>&#8203;(java.lang.Integer&nbsp;value)</code></th>
-<td class="colLast">
-<div class="block">Internal method to set the 'nextValue' on <a href="ShellyPlug.ChannelId.html#ACTIVE_POWER"><code>ShellyPlug.ChannelId.ACTIVE_POWER</code></a>
- Channel.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>default void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_setRelay(boolean)">_setRelay</a></span>&#8203;(boolean&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">Internal method to set the 'nextValue' on <a href="ShellyPlug.ChannelId.html#RELAY"><code>ShellyPlug.ChannelId.RELAY</code></a> Channel.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>default void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_setSlaveCommunicationFailed(boolean)">_setSlaveCommunicationFailed</a></span>&#8203;(boolean&nbsp;value)</code></th>
 <td class="colLast">
@@ -206,49 +190,35 @@ extends <a href="../../api/DigitalOutput.html" title="interface in io.openems.ed
  <a href="ShellyPlug.ChannelId.html#SLAVE_COMMUNICATION_FAILED"><code>ShellyPlug.ChannelId.SLAVE_COMMUNICATION_FAILED</code></a> Channel.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>default <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getActivePower()">getActivePower</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Gets the Active Power in [W].</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>default <a href="../../../common/channel/IntegerReadChannel.html" title="class in io.openems.edge.common.channel">IntegerReadChannel</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getActivePowerChannel()">getActivePowerChannel</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Gets the Channel for <a href="ShellyPlug.ChannelId.html#ACTIVE_POWER"><code>ShellyPlug.ChannelId.ACTIVE_POWER</code></a>.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>default <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRelay()">getRelay</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the Relay Output 1.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../common/channel/BooleanWriteChannel.html" title="class in io.openems.edge.common.channel">BooleanWriteChannel</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRelayChannel()">getRelayChannel</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the Channel for <a href="ShellyPlug.ChannelId.html#RELAY"><code>ShellyPlug.ChannelId.RELAY</code></a>.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>default <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Boolean&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSlaveCommunicationFailed()">getSlaveCommunicationFailed</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the Slave Communication Failed State.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSlaveCommunicationFailedChannel()">getSlaveCommunicationFailedChannel</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the Channel for <a href="ShellyPlug.ChannelId.html#SLAVE_COMMUNICATION_FAILED"><code>ShellyPlug.ChannelId.SLAVE_COMMUNICATION_FAILED</code></a>.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>default void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRelay(boolean)">setRelay</a></span>&#8203;(boolean&nbsp;value)</code></th>
 <td class="colLast">
@@ -276,6 +246,13 @@ extends <a href="../../api/DigitalOutput.html" title="interface in io.openems.ed
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
 <code><a href="../../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../../common/component/OpenemsComponent.html#debugLog()">debugLog</a>, <a href="../../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.meter.api.SymmetricMeter">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;io.openems.edge.meter.api.<a href="../../../meter/api/SymmetricMeter.html" title="interface in io.openems.edge.meter.api">SymmetricMeter</a></h3>
+<code><a href="../../../meter/api/SymmetricMeter.html#_setActiveConsumptionEnergy(long)">_setActiveConsumptionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#_setActiveConsumptionEnergy(java.lang.Long)">_setActiveConsumptionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#_setActivePower(int)">_setActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setActivePower(java.lang.Integer)">_setActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setActiveProductionEnergy(long)">_setActiveProductionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#_setActiveProductionEnergy(java.lang.Long)">_setActiveProductionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#_setCurrent(int)">_setCurrent</a>, <a href="../../../meter/api/SymmetricMeter.html#_setCurrent(java.lang.Integer)">_setCurrent</a>, <a href="../../../meter/api/SymmetricMeter.html#_setFrequency(int)">_setFrequency</a>, <a href="../../../meter/api/SymmetricMeter.html#_setFrequency(java.lang.Integer)">_setFrequency</a>, <a href="../../../meter/api/SymmetricMeter.html#_setMaxActivePower(int)">_setMaxActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setMaxActivePower(java.lang.Integer)">_setMaxActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setMinActivePower(int)">_setMinActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setMinActivePower(java.lang.Integer)">_setMinActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setReactivePower(int)">_setReactivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setReactivePower(java.lang.Integer)">_setReactivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#_setVoltage(int)">_setVoltage</a>, <a href="../../../meter/api/SymmetricMeter.html#_setVoltage(java.lang.Integer)">_setVoltage</a>, <a href="../../../meter/api/SymmetricMeter.html#getActiveConsumptionEnergy()">getActiveConsumptionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#getActiveConsumptionEnergyChannel()">getActiveConsumptionEnergyChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getActivePower()">getActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#getActivePowerChannel()">getActivePowerChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getActiveProductionEnergy()">getActiveProductionEnergy</a>, <a href="../../../meter/api/SymmetricMeter.html#getActiveProductionEnergyChannel()">getActiveProductionEnergyChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getCurrent()">getCurrent</a>, <a href="../../../meter/api/SymmetricMeter.html#getCurrentChannel()">getCurrentChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getFrequency()">getFrequency</a>, <a href="../../../meter/api/SymmetricMeter.html#getFrequencyChannel()">getFrequencyChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getMaxActivePower()">getMaxActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#getMaxActivePowerChannel()">getMaxActivePowerChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getMeterType()">getMeterType</a>, <a href="../../../meter/api/SymmetricMeter.html#getMinActivePower()">getMinActivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#getMinActivePowerChannel()">getMinActivePowerChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getReactivePower()">getReactivePower</a>, <a href="../../../meter/api/SymmetricMeter.html#getReactivePowerChannel()">getReactivePowerChannel</a>, <a href="../../../meter/api/SymmetricMeter.html#getVoltage()">getVoltage</a>, <a href="../../../meter/api/SymmetricMeter.html#getVoltageChannel()">getVoltageChannel</a></code></li>
 </ul>
 </li>
 </ul>
@@ -349,65 +326,6 @@ extends <a href="../../api/DigitalOutput.html" title="interface in io.openems.ed
 <dd><code>value</code> - the next write value</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
-</dl>
-</li>
-</ul>
-<a id="getActivePowerChannel()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getActivePowerChannel</h4>
-<pre class="methodSignature">default&nbsp;<a href="../../../common/channel/IntegerReadChannel.html" title="class in io.openems.edge.common.channel">IntegerReadChannel</a>&nbsp;getActivePowerChannel()</pre>
-<div class="block">Gets the Channel for <a href="ShellyPlug.ChannelId.html#ACTIVE_POWER"><code>ShellyPlug.ChannelId.ACTIVE_POWER</code></a>.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Channel</dd>
-</dl>
-</li>
-</ul>
-<a id="getActivePower()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getActivePower</h4>
-<pre class="methodSignature">default&nbsp;<a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;getActivePower()</pre>
-<div class="block">Gets the Active Power in [W]. Negative values for Charge; positive for
- Discharge. See <a href="ShellyPlug.ChannelId.html#ACTIVE_POWER"><code>ShellyPlug.ChannelId.ACTIVE_POWER</code></a>.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Channel <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
-</dl>
-</li>
-</ul>
-<a id="_setActivePower(java.lang.Integer)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>_setActivePower</h4>
-<pre class="methodSignature">default&nbsp;void&nbsp;_setActivePower&#8203;(java.lang.Integer&nbsp;value)</pre>
-<div class="block">Internal method to set the 'nextValue' on <a href="ShellyPlug.ChannelId.html#ACTIVE_POWER"><code>ShellyPlug.ChannelId.ACTIVE_POWER</code></a>
- Channel.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>value</code> - the next value</dd>
-</dl>
-</li>
-</ul>
-<a id="_setActivePower(int)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>_setActivePower</h4>
-<pre class="methodSignature">default&nbsp;void&nbsp;_setActivePower&#8203;(int&nbsp;value)</pre>
-<div class="block">Internal method to set the 'nextValue' on <a href="ShellyPlug.ChannelId.html#ACTIVE_POWER"><code>ShellyPlug.ChannelId.ACTIVE_POWER</code></a>
- Channel.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>value</code> - the next value</dd>
 </dl>
 </li>
 </ul>
