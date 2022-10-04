@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":9};
+var data = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -176,21 +176,45 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static short</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#generateHash(java.lang.String)">generateHash</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<td class="colLast">
+<div class="block">Generates a hash code from a string text.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLength()">getLength</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="ModbusRecord.html" title="class in io.openems.edge.common.modbusslave">ModbusRecord</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getModbusRecords()">getModbusRecords</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>java.lang.Class&lt;?&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNature()">getNature</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.lang.Class&lt;?&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNatureClass()">getNatureClass</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the Nature class.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>short</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNatureHash()">getNatureHash</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the Hash code for this Nature, built from the Nature-Name via
+ <a href="#getNatureName()"><code>getNatureName()</code></a>.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNatureName()">getNatureName</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the Nature name, i.e.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static <a href="ModbusSlaveNatureTable.Builder.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveNatureTable.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#of(java.lang.Class,io.openems.common.channel.AccessMode,int)">of</a></span>&#8203;(java.lang.Class&lt;?&gt;&nbsp;nature,
   <a href="../../../common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode,
@@ -223,6 +247,22 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="generateHash(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateHash</h4>
+<pre class="methodSignature">public static&nbsp;short&nbsp;generateHash&#8203;(java.lang.String&nbsp;text)</pre>
+<div class="block">Generates a hash code from a string text.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>text</code> - the text (e.g. "OpenemsComponent")</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the short hash value (e.g. "0xb3dc")</dd>
+</dl>
+</li>
+</ul>
 <a id="of(java.lang.Class,io.openems.common.channel.AccessMode,int)">
 <!--   -->
 </a>
@@ -243,13 +283,49 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="getNature()">
+<a id="getNatureClass()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getNature</h4>
-<pre class="methodSignature">public&nbsp;java.lang.Class&lt;?&gt;&nbsp;getNature()</pre>
+<h4>getNatureClass</h4>
+<pre class="methodSignature">public&nbsp;java.lang.Class&lt;?&gt;&nbsp;getNatureClass()</pre>
+<div class="block">Gets the Nature class.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the nature class, e.g.
+         <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component"><code>OpenemsComponent</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="getNatureName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNatureName</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getNatureName()</pre>
+<div class="block">Gets the Nature name, i.e. the SimpleName of the Nature Class.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the nature name, e.g. "OpenemsComponent" for
+         <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component"><code>OpenemsComponent</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="getNatureHash()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNatureHash</h4>
+<pre class="methodSignature">public&nbsp;short&nbsp;getNatureHash()</pre>
+<div class="block">Gets the Hash code for this Nature, built from the Nature-Name via
+ <a href="#getNatureName()"><code>getNatureName()</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Hash code, e.g. "0xb3dc" for "OpenemsComponent"</dd>
+</dl>
 </li>
 </ul>
 <a id="getLength()">
