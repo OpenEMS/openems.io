@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -162,7 +162,7 @@ extends <a href="AbstractWebsocket.html" title="class in io.openems.common.webso
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected java.util.concurrent.ScheduledThreadPoolExecutor</code></td>
+<td class="colFirst"><code>protected java.util.concurrent.ThreadPoolExecutor</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#executor">executor</a></span></code></th>
 <td class="colLast">
 <div class="block">Shared <code>ExecutorService</code>.</div>
@@ -188,10 +188,11 @@ extends <a href="AbstractWebsocket.html" title="class in io.openems.common.webso
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected </code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,int,int,boolean)">AbstractWebsocketServer</a></span>&#8203;(java.lang.String&nbsp;name,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,int,int,boolean,java.util.function.Consumer)">AbstractWebsocketServer</a></span>&#8203;(java.lang.String&nbsp;name,
                        int&nbsp;port,
                        int&nbsp;poolSize,
-                       boolean&nbsp;debugMode)</code></th>
+                       boolean&nbsp;debugMode,
+                       java.util.function.Consumer&lt;java.util.concurrent.ThreadPoolExecutor&gt;&nbsp;debugCallback)</code></th>
 <td class="colLast">
 <div class="block">Construct an <a href="AbstractWebsocketServer.html" title="class in io.openems.common.websocket"><code>AbstractWebsocketServer</code></a>.</div>
 </td>
@@ -257,17 +258,6 @@ extends <a href="AbstractWebsocket.html" title="class in io.openems.common.webso
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>protected java.util.concurrent.ScheduledFuture&lt;?&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">scheduleWithFixedDelay</a></span>&#8203;(java.lang.Runnable&nbsp;command,
-                      long&nbsp;initialDelay,
-                      long&nbsp;delay,
-                      java.util.concurrent.TimeUnit&nbsp;unit)</code></th>
-<td class="colLast">
-<div class="block">Wraps the shared <code>ScheduledThreadPoolExecutor</code> of this
- <a href="AbstractWebsocketServer.html" title="class in io.openems.common.websocket"><code>AbstractWebsocketServer</code></a>.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(org.java_websocket.WebSocket,io.openems.common.jsonrpc.base.JsonrpcMessage)">sendMessage</a></span>&#8203;(org.java_websocket.WebSocket&nbsp;ws,
            <a href="../jsonrpc/base/JsonrpcMessage.html" title="class in io.openems.common.jsonrpc.base">JsonrpcMessage</a>&nbsp;message)</code></th>
@@ -275,14 +265,14 @@ extends <a href="AbstractWebsocket.html" title="class in io.openems.common.webso
 <div class="block">Sends a message to WebSocket.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start()">start</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Starts the websocket server.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stop()">stop</a></span>()</code></th>
 <td class="colLast">
@@ -295,7 +285,7 @@ extends <a href="AbstractWebsocket.html" title="class in io.openems.common.webso
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.common.websocket.<a href="AbstractWebsocket.html" title="class in io.openems.common.websocket">AbstractWebsocket</a></h3>
-<code><a href="AbstractWebsocket.html#createWsData()">createWsData</a>, <a href="AbstractWebsocket.html#getName()">getName</a>, <a href="AbstractWebsocket.html#getOnClose()">getOnClose</a>, <a href="AbstractWebsocket.html#getOnError()">getOnError</a>, <a href="AbstractWebsocket.html#getOnNotification()">getOnNotification</a>, <a href="AbstractWebsocket.html#getOnOpen()">getOnOpen</a>, <a href="AbstractWebsocket.html#getOnRequest()">getOnRequest</a>, <a href="AbstractWebsocket.html#handleInternalErrorAsync(java.lang.Exception,java.lang.String)">handleInternalErrorAsync</a>, <a href="AbstractWebsocket.html#handleInternalErrorSync(java.lang.Exception,java.lang.String)">handleInternalErrorSync</a>, <a href="AbstractWebsocket.html#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a>, <a href="AbstractWebsocket.html#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a></code></li>
+<code><a href="AbstractWebsocket.html#createWsData()">createWsData</a>, <a href="AbstractWebsocket.html#getName()">getName</a>, <a href="AbstractWebsocket.html#getOnClose()">getOnClose</a>, <a href="AbstractWebsocket.html#getOnError()">getOnError</a>, <a href="AbstractWebsocket.html#getOnNotification()">getOnNotification</a>, <a href="AbstractWebsocket.html#getOnOpen()">getOnOpen</a>, <a href="AbstractWebsocket.html#getOnRequest()">getOnRequest</a>, <a href="AbstractWebsocket.html#handleInternalErrorAsync(java.lang.Throwable,java.lang.String)">handleInternalErrorAsync</a>, <a href="AbstractWebsocket.html#handleInternalErrorSync(java.lang.Throwable,java.lang.String)">handleInternalErrorSync</a>, <a href="AbstractWebsocket.html#logError(org.slf4j.Logger,java.lang.String)">logError</a>, <a href="AbstractWebsocket.html#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a>, <a href="AbstractWebsocket.html#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -326,9 +316,8 @@ extends <a href="AbstractWebsocket.html" title="class in io.openems.common.webso
 <ul class="blockListLast">
 <li class="blockList">
 <h4>executor</h4>
-<pre>protected final&nbsp;java.util.concurrent.ScheduledThreadPoolExecutor executor</pre>
-<div class="block">Shared <code>ExecutorService</code>. Configuration is equal to
- Executors.newCachedThreadPool(), but with DiscardOldestPolicy.</div>
+<pre>protected final&nbsp;java.util.concurrent.ThreadPoolExecutor executor</pre>
+<div class="block">Shared <code>ExecutorService</code>.</div>
 </li>
 </ul>
 </li>
@@ -341,7 +330,7 @@ extends <a href="AbstractWebsocket.html" title="class in io.openems.common.webso
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,int,int,boolean)">
+<a id="&lt;init&gt;(java.lang.String,int,int,boolean,java.util.function.Consumer)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -350,14 +339,17 @@ extends <a href="AbstractWebsocket.html" title="class in io.openems.common.webso
 <pre>protected&nbsp;AbstractWebsocketServer&#8203;(java.lang.String&nbsp;name,
                                   int&nbsp;port,
                                   int&nbsp;poolSize,
-                                  boolean&nbsp;debugMode)</pre>
+                                  boolean&nbsp;debugMode,
+                                  java.util.function.Consumer&lt;java.util.concurrent.ThreadPoolExecutor&gt;&nbsp;debugCallback)</pre>
 <div class="block">Construct an <a href="AbstractWebsocketServer.html" title="class in io.openems.common.websocket"><code>AbstractWebsocketServer</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - to identify this server</dd>
 <dd><code>port</code> - to listen on</dd>
 <dd><code>poolSize</code> - number of threads dedicated to handle the tasks</dd>
-<dd><code>debugMode</code> - activate a regular debug log about the state of the tasks</dd>
+<dd><code>debugMode</code> - activate a regular debug log about the state of the
+                      tasks</dd>
+<dd><code>debugCallback</code> - additional callback on regular debug log</dd>
 </dl>
 </li>
 </ul>
@@ -461,13 +453,16 @@ extends <a href="AbstractWebsocket.html" title="class in io.openems.common.webso
 <ul class="blockList">
 <li class="blockList">
 <h4>execute</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;execute&#8203;(java.lang.Runnable&nbsp;command)</pre>
+<pre class="methodSignature">protected&nbsp;void&nbsp;execute&#8203;(java.lang.Runnable&nbsp;command)
+                throws java.util.concurrent.RejectedExecutionException</pre>
 <div class="block">Execute a <code>Runnable</code> using the shared <code>ExecutorService</code>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="AbstractWebsocket.html#execute(java.lang.Runnable)">execute</a></code>&nbsp;in class&nbsp;<code><a href="AbstractWebsocket.html" title="class in io.openems.common.websocket">AbstractWebsocket</a>&lt;<a href="AbstractWebsocketServer.html" title="type parameter in AbstractWebsocketServer">T</a> extends <a href="WsData.html" title="class in io.openems.common.websocket">WsData</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>command</code> - the <code>Runnable</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.util.concurrent.RejectedExecutionException</code></dd>
 </dl>
 </li>
 </ul>
@@ -488,7 +483,7 @@ extends <a href="AbstractWebsocket.html" title="class in io.openems.common.webso
 <a id="handleNonJsonrpcMessage(org.java_websocket.WebSocket,java.lang.String,io.openems.common.exceptions.OpenemsError.OpenemsNamedException)">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>handleNonJsonrpcMessage</h4>
 <pre class="methodSignature">protected&nbsp;<a href="../jsonrpc/base/JsonrpcMessage.html" title="class in io.openems.common.jsonrpc.base">JsonrpcMessage</a>&nbsp;handleNonJsonrpcMessage&#8203;(org.java_websocket.WebSocket&nbsp;ws,
@@ -505,29 +500,6 @@ extends <a href="AbstractWebsocket.html" title="class in io.openems.common.webso
 <dd>message converted to <a href="../jsonrpc/base/JsonrpcMessage.html" title="class in io.openems.common.jsonrpc.base"><code>JsonrpcMessage</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - if conversion is not possible</dd>
-</dl>
-</li>
-</ul>
-<a id="scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>scheduleWithFixedDelay</h4>
-<pre class="methodSignature">protected&nbsp;java.util.concurrent.ScheduledFuture&lt;?&gt;&nbsp;scheduleWithFixedDelay&#8203;(java.lang.Runnable&nbsp;command,
-                                                                         long&nbsp;initialDelay,
-                                                                         long&nbsp;delay,
-                                                                         java.util.concurrent.TimeUnit&nbsp;unit)</pre>
-<div class="block">Wraps the shared <code>ScheduledThreadPoolExecutor</code> of this
- <a href="AbstractWebsocketServer.html" title="class in io.openems.common.websocket"><code>AbstractWebsocketServer</code></a>.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>command</code> - see <code>ScheduledThreadPoolExecutor</code></dd>
-<dd><code>initialDelay</code> - see <code>ScheduledThreadPoolExecutor</code></dd>
-<dd><code>delay</code> - see <code>ScheduledThreadPoolExecutor</code></dd>
-<dd><code>unit</code> - see <code>ScheduledThreadPoolExecutor</code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>see <code>ScheduledThreadPoolExecutor</code></dd>
 </dl>
 </li>
 </ul>

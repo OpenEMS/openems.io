@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":10,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":10,"i10":10,"i11":6,"i12":6,"i13":10,"i14":10};
+var data = {"i0":6,"i1":6,"i2":10,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":10,"i10":10,"i11":6,"i12":6,"i13":6,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -245,7 +245,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleInternalErrorAsync(java.lang.Exception,java.lang.String)">handleInternalErrorAsync</a></span>&#8203;(java.lang.Exception&nbsp;e,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleInternalErrorAsync(java.lang.Throwable,java.lang.String)">handleInternalErrorAsync</a></span>&#8203;(java.lang.Throwable&nbsp;t,
                         java.lang.String&nbsp;wsDataString)</code></th>
 <td class="colLast">
 <div class="block">Handles an internal Error asynchronously.</div>
@@ -253,7 +253,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleInternalErrorSync(java.lang.Exception,java.lang.String)">handleInternalErrorSync</a></span>&#8203;(java.lang.Exception&nbsp;e,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleInternalErrorSync(java.lang.Throwable,java.lang.String)">handleInternalErrorSync</a></span>&#8203;(java.lang.Throwable&nbsp;t,
                        java.lang.String&nbsp;wsDataString)</code></th>
 <td class="colLast">
 <div class="block">Handles an internal Error synchronously.</div>
@@ -261,13 +261,21 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected abstract void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logError(org.slf4j.Logger,java.lang.String)">logError</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
+        java.lang.String&nbsp;message)</code></th>
+<td class="colLast">
+<div class="block">Log a error message.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>protected abstract void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
 <td class="colLast">
 <div class="block">Log a info message.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -275,12 +283,12 @@ extends java.lang.Object</pre>
 <div class="block">Log a warn message.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start()">start</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stop()">stop</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -470,43 +478,46 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>execute</h4>
-<pre class="methodSignature">protected abstract&nbsp;void&nbsp;execute&#8203;(java.lang.Runnable&nbsp;command)</pre>
+<pre class="methodSignature">protected abstract&nbsp;void&nbsp;execute&#8203;(java.lang.Runnable&nbsp;command)
+                         throws java.lang.Exception</pre>
 <div class="block">Execute a <code>Runnable</code>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>command</code> - the <code>Runnable</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd>
 </dl>
 </li>
 </ul>
-<a id="handleInternalErrorAsync(java.lang.Exception,java.lang.String)">
+<a id="handleInternalErrorAsync(java.lang.Throwable,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>handleInternalErrorAsync</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;handleInternalErrorAsync&#8203;(java.lang.Exception&nbsp;e,
+<pre class="methodSignature">protected&nbsp;void&nbsp;handleInternalErrorAsync&#8203;(java.lang.Throwable&nbsp;t,
                                         java.lang.String&nbsp;wsDataString)</pre>
 <div class="block">Handles an internal Error asynchronously.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>e</code> - the <code>Exception</code> to be handled</dd>
+<dd><code>t</code> - the <code>Throwable</code> to be handled</dd>
 <dd><code>wsDataString</code> - the toString() content of the WsData attachment of the
                      WebSocket</dd>
 </dl>
 </li>
 </ul>
-<a id="handleInternalErrorSync(java.lang.Exception,java.lang.String)">
+<a id="handleInternalErrorSync(java.lang.Throwable,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>handleInternalErrorSync</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;handleInternalErrorSync&#8203;(java.lang.Exception&nbsp;e,
+<pre class="methodSignature">protected&nbsp;void&nbsp;handleInternalErrorSync&#8203;(java.lang.Throwable&nbsp;t,
                                        java.lang.String&nbsp;wsDataString)</pre>
 <div class="block">Handles an internal Error synchronously.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>e</code> - the <code>Exception</code>to be handled</dd>
+<dd><code>t</code> - the <code>Throwable</code> to be handled</dd>
 <dd><code>wsDataString</code> - the toString() content of the WsData attachment of the
                      WebSocket</dd>
 </dl>
@@ -531,12 +542,28 @@ extends java.lang.Object</pre>
 <a id="logWarn(org.slf4j.Logger,java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>logWarn</h4>
 <pre class="methodSignature">protected abstract&nbsp;void&nbsp;logWarn&#8203;(org.slf4j.Logger&nbsp;log,
                                 java.lang.String&nbsp;message)</pre>
 <div class="block">Log a warn message.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>log</code> - a Logger instance</dd>
+<dd><code>message</code> - the message</dd>
+</dl>
+</li>
+</ul>
+<a id="logError(org.slf4j.Logger,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>logError</h4>
+<pre class="methodSignature">protected abstract&nbsp;void&nbsp;logError&#8203;(org.slf4j.Logger&nbsp;log,
+                                 java.lang.String&nbsp;message)</pre>
+<div class="block">Log a error message.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>log</code> - a Logger instance</dd>

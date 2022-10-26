@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":18,"i1":18,"i2":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
+var data = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -169,7 +169,7 @@ extends <a href="../../api/Controller.html" title="interface in io.openems.edge.
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -184,17 +184,31 @@ extends <a href="../../api/Controller.html" title="interface in io.openems.edge.
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>default void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_setMinSoc(java.lang.Integer)">_setMinSoc</a></span>&#8203;(java.lang.Integer&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Internal method to set the 'nextValue' on <a href="LimitTotalDischargeController.ChannelId.html#MIN_SOC"><code>LimitTotalDischargeController.ChannelId.MIN_SOC</code></a> Channel.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>default <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAwaitingHysteresisChannel()">getAwaitingHysteresisChannel</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the Channel for <a href="LimitTotalDischargeController.ChannelId.html#AWAITING_HYSTERESIS"><code>LimitTotalDischargeController.ChannelId.AWAITING_HYSTERESIS</code></a>.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="Config.html" title="annotation in io.openems.edge.controller.ess.limittotaldischarge">Config</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConfig()">getConfig</a></span>()</code></th>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMinSoc()">getMinSoc</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Gets the <a href="Config.html" title="annotation in io.openems.edge.controller.ess.limittotaldischarge"><code>Config</code></a>.</div>
+<div class="block">Gets the minimum SoC value configured.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>default <a href="../../../common/channel/IntegerReadChannel.html" title="class in io.openems.edge.common.channel">IntegerReadChannel</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMinSocChannel()">getMinSocChannel</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the Channel for <a href="LimitTotalDischargeController.ChannelId.html#MIN_SOC"><code>LimitTotalDischargeController.ChannelId.MIN_SOC</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -228,20 +242,6 @@ extends <a href="../../api/Controller.html" title="interface in io.openems.edge.
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="getConfig()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getConfig</h4>
-<pre class="methodSignature"><a href="Config.html" title="annotation in io.openems.edge.controller.ess.limittotaldischarge">Config</a>&nbsp;getConfig()</pre>
-<div class="block">Gets the <a href="Config.html" title="annotation in io.openems.edge.controller.ess.limittotaldischarge"><code>Config</code></a>.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Config</dd>
-</dl>
-</li>
-</ul>
 <a id="getAwaitingHysteresisChannel()">
 <!--   -->
 </a>
@@ -259,7 +259,7 @@ extends <a href="../../api/Controller.html" title="interface in io.openems.edge.
 <a id="_setAwaitingHysteresisValue(boolean)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>_setAwaitingHysteresisValue</h4>
 <pre class="methodSignature">default&nbsp;void&nbsp;_setAwaitingHysteresisValue&#8203;(boolean&nbsp;value)</pre>
@@ -268,6 +268,48 @@ extends <a href="../../api/Controller.html" title="interface in io.openems.edge.
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>value</code> - the next value</dd>
+</dl>
+</li>
+</ul>
+<a id="getMinSocChannel()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMinSocChannel</h4>
+<pre class="methodSignature">default&nbsp;<a href="../../../common/channel/IntegerReadChannel.html" title="class in io.openems.edge.common.channel">IntegerReadChannel</a>&nbsp;getMinSocChannel()</pre>
+<div class="block">Gets the Channel for <a href="LimitTotalDischargeController.ChannelId.html#MIN_SOC"><code>LimitTotalDischargeController.ChannelId.MIN_SOC</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel</dd>
+</dl>
+</li>
+</ul>
+<a id="_setMinSoc(java.lang.Integer)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setMinSoc</h4>
+<pre class="methodSignature">default&nbsp;void&nbsp;_setMinSoc&#8203;(java.lang.Integer&nbsp;value)</pre>
+<div class="block">Internal method to set the 'nextValue' on <a href="LimitTotalDischargeController.ChannelId.html#MIN_SOC"><code>LimitTotalDischargeController.ChannelId.MIN_SOC</code></a> Channel.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the next value</dd>
+</dl>
+</li>
+</ul>
+<a id="getMinSoc()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getMinSoc</h4>
+<pre class="methodSignature">default&nbsp;<a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;java.lang.Integer&gt;&nbsp;getMinSoc()</pre>
+<div class="block">Gets the minimum SoC value configured. See <a href="LimitTotalDischargeController.ChannelId.html#MIN_SOC"><code>LimitTotalDischargeController.ChannelId.MIN_SOC</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Channel <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
 </dl>
 </li>
 </ul>

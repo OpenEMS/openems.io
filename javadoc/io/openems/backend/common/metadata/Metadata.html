@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":1,"i1":6,"i2":18,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":18,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6,"i22":6,"i23":6};
+var data = {"i0":1,"i1":6,"i2":18,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":18,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6,"i22":6,"i23":6,"i24":6,"i25":6,"i26":6};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -254,18 +254,17 @@ public interface <span class="typeNameLabel">Metadata</span></pre>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code>java.util.Optional&lt;<a href="EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgeUserTo(java.lang.String,java.lang.String)">getEdgeUserTo</a></span>&#8203;(java.lang.String&nbsp;edgeId,
-             java.lang.String&nbsp;userId)</code></th>
-<td class="colLast">
-<div class="block">Gets an EdgeUserRole to Edge and User.</div>
-</td>
-</tr>
-<tr id="i12" class="altColor">
 <td class="colFirst"><code>org.osgi.service.event.EventAdmin</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEventAdmin()">getEventAdmin</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns an EventAdmin, used by Edge objects.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSerialNumberForEdge(io.openems.backend.common.metadata.Edge)">getSerialNumberForEdge</a></span>&#8203;(<a href="Edge.html" title="class in io.openems.backend.common.metadata">Edge</a>&nbsp;edge)</code></th>
+<td class="colLast">
+<div class="block">Get serial number for the given <a href="Edge.html" title="class in io.openems.backend.common.metadata"><code>Edge</code></a>.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
@@ -292,34 +291,49 @@ public interface <span class="typeNameLabel">Metadata</span></pre>
 </td>
 </tr>
 <tr id="i16" class="altColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="AlertingSetting.html" title="class in io.openems.backend.common.metadata">AlertingSetting</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUserAlertingSettings(java.lang.String)">getUserAlertingSettings</a></span>&#8203;(java.lang.String&nbsp;edgeId)</code></th>
+<td class="colLast">
+<div class="block">Gets all the alerting settings for given edge id.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code><a href="AlertingSetting.html" title="class in io.openems.backend.common.metadata">AlertingSetting</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUserAlertingSettings(java.lang.String,java.lang.String)">getUserAlertingSettings</a></span>&#8203;(java.lang.String&nbsp;edgeId,
+                       java.lang.String&nbsp;userId)</code></th>
+<td class="colLast">
+<div class="block">Gets the alerting settings for given edge id and userId.</div>
+</td>
+</tr>
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,&#8203;java.lang.Object&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUserInformation(io.openems.backend.common.metadata.User)">getUserInformation</a></span>&#8203;(<a href="User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</code></th>
 <td class="colLast">
 <div class="block">Gets information about the given user <a href="User.html" title="class in io.openems.backend.common.metadata"><code>User</code></a>.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.util.Optional&lt;java.util.List&lt;<a href="EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUserToEdge(java.lang.String)">getUserToEdge</a></span>&#8203;(java.lang.String&nbsp;edgeId)</code></th>
 <td class="colLast">
 <div class="block">Get all EdgeUsers to EdgeID.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isInitialized()">isInitialized</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Was the Metadata service fully initialized?.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logout(io.openems.backend.common.metadata.User)">logout</a></span>&#8203;(<a href="User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</code></th>
 <td class="colLast">
 <div class="block">Closes a session for a User.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerUser(com.google.gson.JsonObject,io.openems.common.OpenemsOEM.Manufacturer)">registerUser</a></span>&#8203;(com.google.gson.JsonObject&nbsp;user,
             <a href="../../../common/OpenemsOEM.Manufacturer.html" title="enum in io.openems.common">OpenemsOEM.Manufacturer</a>&nbsp;oem)</code></th>
@@ -327,7 +341,16 @@ public interface <span class="typeNameLabel">Metadata</span></pre>
 <div class="block">Register a user.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUserAlertingSettings(io.openems.backend.common.metadata.User,java.lang.String,java.util.List)">setUserAlertingSettings</a></span>&#8203;(<a href="User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
+                       java.lang.String&nbsp;edgeId,
+                       java.util.List&lt;<a href="AlertingSetting.html" title="class in io.openems.backend.common.metadata">AlertingSetting</a>&gt;&nbsp;users)</code></th>
+<td class="colLast">
+<div class="block">Sets the alerting settings for the given list of users.</div>
+</td>
+</tr>
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUserInformation(io.openems.backend.common.metadata.User,com.google.gson.JsonObject)">setUserInformation</a></span>&#8203;(<a href="User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
                   com.google.gson.JsonObject&nbsp;jsonObject)</code></th>
@@ -335,7 +358,7 @@ public interface <span class="typeNameLabel">Metadata</span></pre>
 <div class="block">Update the given user <a href="User.html" title="class in io.openems.backend.common.metadata"><code>User</code></a> with new information <code>JsonObject</code>.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#submitSetupProtocol(io.openems.backend.common.metadata.User,com.google.gson.JsonObject)">submitSetupProtocol</a></span>&#8203;(<a href="User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
                    com.google.gson.JsonObject&nbsp;jsonObject)</code></th>
@@ -343,7 +366,7 @@ public interface <span class="typeNameLabel">Metadata</span></pre>
 <div class="block">Submit the installation assistant protocol.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateUserLanguage(io.openems.backend.common.metadata.User,io.openems.common.session.Language)">updateUserLanguage</a></span>&#8203;(<a href="User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
                   <a href="../../../common/session/Language.html" title="enum in io.openems.common.session">Language</a>&nbsp;language)</code></th>
@@ -448,7 +471,7 @@ public interface <span class="typeNameLabel">Metadata</span></pre>
 <h4>edge</h4>
 <pre class="methodSignature"><a href="EdgeHandler.html" title="interface in io.openems.backend.common.metadata">EdgeHandler</a>&nbsp;edge()</pre>
 <div class="block">Handles operations with Edge.
- 
+
  <p>
  To be completed. This should eventually replace Edge.</div>
 <dl>
@@ -774,28 +797,71 @@ public interface <span class="typeNameLabel">Metadata</span></pre>
 </dl>
 </li>
 </ul>
-<a id="getEdgeUserTo(java.lang.String,java.lang.String)">
+<a id="getUserAlertingSettings(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getEdgeUserTo</h4>
-<pre class="methodSignature">java.util.Optional&lt;<a href="EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&gt;&nbsp;getEdgeUserTo&#8203;(java.lang.String&nbsp;edgeId,
-                                           java.lang.String&nbsp;userId)</pre>
-<div class="block">Gets an EdgeUserRole to Edge and User.</div>
+<h4>getUserAlertingSettings</h4>
+<pre class="methodSignature">java.util.List&lt;<a href="AlertingSetting.html" title="class in io.openems.backend.common.metadata">AlertingSetting</a>&gt;&nbsp;getUserAlertingSettings&#8203;(java.lang.String&nbsp;edgeId)
+                                                 throws <a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<div class="block">Gets all the alerting settings for given edge id.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>edgeId</code> - the Edge</dd>
-<dd><code>userId</code> - the User</dd>
+<dd><code>edgeId</code> - the Edge ID</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>EdgeUser or null</dd>
+<dd>List of <a href="AlertingSetting.html" title="class in io.openems.backend.common.metadata"><code>AlertingSetting</code></a></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="getUserAlertingSettings(java.lang.String,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUserAlertingSettings</h4>
+<pre class="methodSignature"><a href="AlertingSetting.html" title="class in io.openems.backend.common.metadata">AlertingSetting</a>&nbsp;getUserAlertingSettings&#8203;(java.lang.String&nbsp;edgeId,
+                                        java.lang.String&nbsp;userId)
+                                 throws <a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<div class="block">Gets the alerting settings for given edge id and userId.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edgeId</code> - the Edge ID</dd>
+<dd><code>userId</code> - the User ID</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>List of <code>UserRoleDelayTime</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="setUserAlertingSettings(io.openems.backend.common.metadata.User,java.lang.String,java.util.List)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUserAlertingSettings</h4>
+<pre class="methodSignature">void&nbsp;setUserAlertingSettings&#8203;(<a href="User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
+                             java.lang.String&nbsp;edgeId,
+                             java.util.List&lt;<a href="AlertingSetting.html" title="class in io.openems.backend.common.metadata">AlertingSetting</a>&gt;&nbsp;users)
+                      throws <a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<div class="block">Sets the alerting settings for the given list of users.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>user</code> - <a href="User.html" title="class in io.openems.backend.common.metadata"><code>User</code></a> the current user</dd>
+<dd><code>edgeId</code> - the Edge-ID</dd>
+<dd><code>users</code> - list of users to update</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
 <a id="getEventAdmin()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getEventAdmin</h4>
 <pre class="methodSignature">org.osgi.service.event.EventAdmin&nbsp;getEventAdmin()</pre>
@@ -803,6 +869,22 @@ public interface <span class="typeNameLabel">Metadata</span></pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><code>EventAdmin</code></dd>
+</dl>
+</li>
+</ul>
+<a id="getSerialNumberForEdge(io.openems.backend.common.metadata.Edge)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getSerialNumberForEdge</h4>
+<pre class="methodSignature">java.util.Optional&lt;java.lang.String&gt;&nbsp;getSerialNumberForEdge&#8203;(<a href="Edge.html" title="class in io.openems.backend.common.metadata">Edge</a>&nbsp;edge)</pre>
+<div class="block">Get serial number for the given <a href="Edge.html" title="class in io.openems.backend.common.metadata"><code>Edge</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edge</code> - <a href="Edge.html" title="class in io.openems.backend.common.metadata"><code>Edge</code></a> to search for serial number</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Serial number or empty <code>Optional</code></dd>
 </dl>
 </li>
 </ul>

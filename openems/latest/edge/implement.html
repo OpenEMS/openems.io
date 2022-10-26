@@ -6,7 +6,7 @@
     <title>Implementing a device :: Open Energy Management System</title>
     <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/implement.html">
     <meta name="keywords" content="AsciiDoc">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="icon" href="../../../_/img/feneco.ico" type="image/x-icon">
 <link rel="stylesheet" href="../../../_/css/vendor/docsearch.min.css">  </head>
@@ -148,7 +148,7 @@
     <li class="component is-current">
       <span class="title">Open Energy Management System</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
+        <li class="version is-current">
           <a href="../introduction.html">latest</a>
         </li>
       </ul>
@@ -198,12 +198,12 @@
 <p>This chapter explains the steps required to implement an electric meter in OpenEMS Edge that is connected via Modbus/TCP. The meter itself is simulated using a small Modbus slave application, so no external hardware is required for this guide.</p>
 </div>
 <div class="paragraph">
-<p>The tutorial is based on the <a href="../gettingstarted.html" class="page">Getting Started</a> guide.</p>
+<p>The tutorial is based on the <a href="../gettingstarted.html" class="xref page">Getting Started</a> guide.</p>
 </div>
 <div class="sect2">
 <h3 id="_create_a_new_osgi_bundle"><a class="anchor" href="#_create_a_new_osgi_bundle"></a>1.1. Create a new OSGi Bundle</h3>
 <div class="paragraph">
-<p>For more information see <a href="../coreconcepts.html#_osgi_bundle" class="page">OSGi Bundle</a>.</p>
+<p>For more information see <a href="../coreconcepts.html#_osgi_bundle" class="xref page">OSGi Bundle</a>.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -325,7 +325,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 </dd>
 <dt class="hdlist1">io.openems.edge.bridge.modbus</dt>
 <dd>
-<p>the Modbus Bridge provides the <a href="#bridge.adoc" class="page unresolved">Bridge</a> services for Modbus/RTU and Modbus/TCP protocols</p>
+<p>the Modbus Bridge provides the <a href="bridge.html" class="xref page">Bridge</a> services for Modbus/RTU and Modbus/TCP protocols</p>
 </dd>
 <dt class="hdlist1">io.openems.edge.common</dt>
 <dd>
@@ -368,7 +368,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <p>It is also a good moment to configure the Bundle meta information. Still inside the <b class="button">bnd.bnd</b> file open the <b class="button">Source</b> tab. Adjust the meta information - it will help the users of your component:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>Bundle-Name: OpenEMS Edge Meter Simulated
+<pre class="highlightjs highlight"><code class="language-none hljs">Bundle-Name: OpenEMS Edge Meter Simulated
 Bundle-Vendor: OpenEMS Association e.V.
 Bundle-License: https://opensource.org/licenses/EPL-2.0
 Bundle-Version: 1.0.0.${tstamp}
@@ -403,7 +403,7 @@ The <code>;version=latest</code> declaration is not required and can be removed.
 <div class="sect2">
 <h3 id="_define_configuration_parameters"><a class="anchor" href="#_define_configuration_parameters"></a>1.3. Define configuration parameters</h3>
 <div class="paragraph">
-<p>OpenEMS Components can have several configuration parameters. They are defined as Java annotations and specific OSGi annotations are used to generate meta information that is used e.g. by Apache Felix Web Console to generate a user interface form (see <a href="../gettingstarted.html" class="page">Getting Started</a>).</p>
+<p>OpenEMS Components can have several configuration parameters. They are defined as Java annotations and specific OSGi annotations are used to generate meta information that is used e.g. by Apache Felix Web Console to generate a user interface form (see <a href="../gettingstarted.html" class="xref page">Getting Started</a>).</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -485,7 +485,7 @@ import io.openems.edge.meter.api.MeterType;
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The <strong>id</strong> configuration parameter sets the OpenEMS Component-ID (see <a href="../coreconcepts.html" class="page">Channel Address</a>). <em>Note</em>: A <strong>default</strong> ID 'meter0' is defined. It is good practice to define such an ID here, as it simplifies configuration in the UI.</td>
+<td>The <strong>id</strong> configuration parameter sets the OpenEMS Component-ID (see <a href="../coreconcepts.html" class="xref page">Channel Address</a>). <em>Note</em>: A <strong>default</strong> ID 'meter0' is defined. It is good practice to define such an ID here, as it simplifies configuration in the UI.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -773,7 +773,7 @@ If the device was using another protocol, it is advisable to use the <strong>Abs
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>The class implements <strong>OpenemsComponent</strong>. This makes it an <a href="../coreconcepts.html#<em>openems_component" class="page">OpenEMS Component</a>.
+<td>The class implements <strong>OpenemsComponent</strong>. This makes it an <a href="../coreconcepts.html#<em>openems_component" class="xref page">OpenEMS Component</a>.
 The Device that we are is a <strong>SymmetricMeter</strong>. We already defined the required Channels in the _initializeChannels()</em> method. Additionally the Component also needs to implement the Nature interface.
 <div class="admonitionblock note">
 <table>
@@ -1032,7 +1032,7 @@ The Modbus-TCP <em>Slave</em>-Server opens on the non-standard port <code>8502</
 <p>Press <b class="button">Run OSGi</b> to run OpenEMS Edge.</p>
 </div>
 <div class="paragraph">
-<p>From then you can configure your component as shown in <a href="../gettingstarted.html" class="page">Getting Started</a> guide. Add the following configurations inside Apache Felix Web Console:</p>
+<p>From then you can configure your component as shown in <a href="../gettingstarted.html" class="xref page">Getting Started</a> guide. Add the following configurations inside Apache Felix Web Console:</p>
 </div>
 <div class="dlist">
 <dl>

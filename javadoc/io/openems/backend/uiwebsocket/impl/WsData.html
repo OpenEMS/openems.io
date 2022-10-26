@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -186,82 +186,74 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dispose()">dispose</a></span>()</code></th>
-<td class="colLast">
-<div class="block">This method is called on close of the parent websocket.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="SubscribedChannelsWorker.html" title="class in io.openems.backend.uiwebsocket.impl">SubscribedChannelsWorker</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSubscribedChannelsWorker(java.lang.String)">getSubscribedChannelsWorker</a></span>&#8203;(java.lang.String&nbsp;edgeId)</code></th>
-<td class="colLast">
-<div class="block">Gets the SubscribedChannelsWorker to take care of subscribe to CurrentData.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getToken()">getToken</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the Login-Token.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.Optional&lt;<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUser(io.openems.backend.common.metadata.Metadata)">getUser</a></span>&#8203;(<a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a>&nbsp;metadata)</code></th>
 <td class="colLast">
 <div class="block">Gets the authenticated User.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUserId()">getUserId</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the authenticated User-ID.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleSubscribeChannelsRequest(java.lang.String,io.openems.common.jsonrpc.request.SubscribeChannelsRequest)">handleSubscribeChannelsRequest</a></span>&#8203;(java.lang.String&nbsp;edgeId,
+                              <a href="../../../common/jsonrpc/request/SubscribeChannelsRequest.html" title="class in io.openems.common.jsonrpc.request">SubscribeChannelsRequest</a>&nbsp;request)</code></th>
+<td class="colLast">
+<div class="block">Applies a SubscribeChannelsRequest.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logout()">logout</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Logout and invalidate Session.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>protected java.util.concurrent.ScheduledFuture&lt;?&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">scheduleWithFixedDelay</a></span>&#8203;(java.lang.Runnable&nbsp;command,
-                      long&nbsp;initialDelay,
-                      long&nbsp;delay,
-                      java.util.concurrent.TimeUnit&nbsp;unit)</code></th>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendSubscribedChannels(java.lang.String,io.openems.backend.common.edgewebsocket.EdgeCache)">sendSubscribedChannels</a></span>&#8203;(java.lang.String&nbsp;edgeId,
+                      <a href="../../common/edgewebsocket/EdgeCache.html" title="class in io.openems.backend.common.edgewebsocket">EdgeCache</a>&nbsp;edgeCache)</code></th>
 <td class="colLast">
-<div class="block">Execute a <code>Runnable</code>.</div>
+<div class="block">Sends the subscribed Channels to the UI session.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setToken(java.lang.String)">setToken</a></span>&#8203;(java.lang.String&nbsp;token)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUserId(java.lang.String)">setUserId</a></span>&#8203;(java.lang.String&nbsp;userId)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Provides a specific toString method.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unsetToken()">unsetToken</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Unsets the Login-Token.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unsetUserId()">unsetUserId</a></span>()</code></th>
 <td class="colLast">
@@ -274,7 +266,7 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.common.websocket.<a href="../../../common/websocket/WsData.html" title="class in io.openems.common.websocket">WsData</a></h3>
-<code><a href="../../../common/websocket/WsData.html#getWebsocket()">getWebsocket</a>, <a href="../../../common/websocket/WsData.html#handleJsonrpcResponse(io.openems.common.jsonrpc.base.JsonrpcResponse)">handleJsonrpcResponse</a>, <a href="../../../common/websocket/WsData.html#send(io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a>, <a href="../../../common/websocket/WsData.html#send(io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a>, <a href="../../../common/websocket/WsData.html#setWebsocket(org.java_websocket.WebSocket)">setWebsocket</a></code></li>
+<code><a href="../../../common/websocket/WsData.html#dispose()">dispose</a>, <a href="../../../common/websocket/WsData.html#getWebsocket()">getWebsocket</a>, <a href="../../../common/websocket/WsData.html#handleJsonrpcResponse(io.openems.common.jsonrpc.base.JsonrpcResponse)">handleJsonrpcResponse</a>, <a href="../../../common/websocket/WsData.html#send(io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a>, <a href="../../../common/websocket/WsData.html#send(io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a>, <a href="../../../common/websocket/WsData.html#setWebsocket(org.java_websocket.WebSocket)">setWebsocket</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -318,22 +310,6 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="dispose()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>dispose</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;dispose()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../common/websocket/WsData.html#dispose()">WsData</a></code></span></div>
-<div class="block">This method is called on close of the parent websocket. Use it to release
- blocked resources.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../common/websocket/WsData.html#dispose()">dispose</a></code>&nbsp;in class&nbsp;<code><a href="../../../common/websocket/WsData.html" title="class in io.openems.common.websocket">WsData</a></code></dd>
-</dl>
-</li>
-</ul>
 <a id="logout()">
 <!--   -->
 </a>
@@ -444,22 +420,6 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 </dl>
 </li>
 </ul>
-<a id="getSubscribedChannelsWorker(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSubscribedChannelsWorker</h4>
-<pre class="methodSignature">public&nbsp;<a href="SubscribedChannelsWorker.html" title="class in io.openems.backend.uiwebsocket.impl">SubscribedChannelsWorker</a>&nbsp;getSubscribedChannelsWorker&#8203;(java.lang.String&nbsp;edgeId)</pre>
-<div class="block">Gets the SubscribedChannelsWorker to take care of subscribe to CurrentData.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>edgeId</code> - the Edge-ID</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the SubscribedChannelsWorker</dd>
-</dl>
-</li>
-</ul>
 <a id="toString()">
 <!--   -->
 </a>
@@ -477,28 +437,35 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 </dl>
 </li>
 </ul>
-<a id="scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">
+<a id="handleSubscribeChannelsRequest(java.lang.String,io.openems.common.jsonrpc.request.SubscribeChannelsRequest)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>handleSubscribeChannelsRequest</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;handleSubscribeChannelsRequest&#8203;(java.lang.String&nbsp;edgeId,
+                                           <a href="../../../common/jsonrpc/request/SubscribeChannelsRequest.html" title="class in io.openems.common.jsonrpc.request">SubscribeChannelsRequest</a>&nbsp;request)</pre>
+<div class="block">Applies a SubscribeChannelsRequest.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edgeId</code> - the Edge-ID</dd>
+<dd><code>request</code> - the <a href="../../../common/jsonrpc/request/SubscribeChannelsRequest.html" title="class in io.openems.common.jsonrpc.request"><code>SubscribeChannelsRequest</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="sendSubscribedChannels(java.lang.String,io.openems.backend.common.edgewebsocket.EdgeCache)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>scheduleWithFixedDelay</h4>
-<pre class="methodSignature">protected&nbsp;java.util.concurrent.ScheduledFuture&lt;?&gt;&nbsp;scheduleWithFixedDelay&#8203;(java.lang.Runnable&nbsp;command,
-                                                                         long&nbsp;initialDelay,
-                                                                         long&nbsp;delay,
-                                                                         java.util.concurrent.TimeUnit&nbsp;unit)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../common/websocket/WsData.html#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">WsData</a></code></span></div>
-<div class="block">Execute a <code>Runnable</code>.</div>
+<h4>sendSubscribedChannels</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;sendSubscribedChannels&#8203;(java.lang.String&nbsp;edgeId,
+                                   <a href="../../common/edgewebsocket/EdgeCache.html" title="class in io.openems.backend.common.edgewebsocket">EdgeCache</a>&nbsp;edgeCache)</pre>
+<div class="block">Sends the subscribed Channels to the UI session.</div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../common/websocket/WsData.html#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">scheduleWithFixedDelay</a></code>&nbsp;in class&nbsp;<code><a href="../../../common/websocket/WsData.html" title="class in io.openems.common.websocket">WsData</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>command</code> - the <code>Runnable</code></dd>
-<dd><code>initialDelay</code> - the initial delay</dd>
-<dd><code>delay</code> - the delay value</dd>
-<dd><code>unit</code> - the delay <code>TimeUnit</code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <code>ScheduledFuture</code> of the <code>Runnable</code> command</dd>
+<dd><code>edgeId</code> - the Edge-ID</dd>
+<dd><code>edgeCache</code> - the <a href="../../common/edgewebsocket/EdgeCache.html" title="class in io.openems.backend.common.edgewebsocket"><code>EdgeCache</code></a> for the Edge-ID</dd>
 </dl>
 </li>
 </ul>

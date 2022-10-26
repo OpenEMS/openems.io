@@ -271,29 +271,26 @@ extends <a href="../../../common/websocket/AbstractWebsocketServer.html" title="
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logError(org.slf4j.Logger,java.lang.String)">logError</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
+        java.lang.String&nbsp;message)</code></th>
+<td class="colLast">
+<div class="block">Log a error message.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
 <td class="colLast">
 <div class="block">Log a info message.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
 <td class="colLast">
 <div class="block">Log a warn message.</div>
-</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>protected java.util.concurrent.ScheduledFuture&lt;?&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">scheduleWithFixedDelay</a></span>&#8203;(java.lang.Runnable&nbsp;command,
-                      long&nbsp;initialDelay,
-                      long&nbsp;delay,
-                      java.util.concurrent.TimeUnit&nbsp;unit)</code></th>
-<td class="colLast">
-<div class="block">Wraps the shared <code>ScheduledThreadPoolExecutor</code> of this
- <a href="../../../common/websocket/AbstractWebsocketServer.html" title="class in io.openems.common.websocket"><code>AbstractWebsocketServer</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -309,7 +306,7 @@ extends <a href="../../../common/websocket/AbstractWebsocketServer.html" title="
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.common.websocket.<a href="../../../common/websocket/AbstractWebsocket.html" title="class in io.openems.common.websocket">AbstractWebsocket</a></h3>
-<code><a href="../../../common/websocket/AbstractWebsocket.html#getName()">getName</a>, <a href="../../../common/websocket/AbstractWebsocket.html#handleInternalErrorAsync(java.lang.Exception,java.lang.String)">handleInternalErrorAsync</a>, <a href="../../../common/websocket/AbstractWebsocket.html#handleInternalErrorSync(java.lang.Exception,java.lang.String)">handleInternalErrorSync</a></code></li>
+<code><a href="../../../common/websocket/AbstractWebsocket.html#getName()">getName</a>, <a href="../../../common/websocket/AbstractWebsocket.html#handleInternalErrorAsync(java.lang.Throwable,java.lang.String)">handleInternalErrorAsync</a>, <a href="../../../common/websocket/AbstractWebsocket.html#handleInternalErrorSync(java.lang.Throwable,java.lang.String)">handleInternalErrorSync</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -543,29 +540,22 @@ extends <a href="../../../common/websocket/AbstractWebsocketServer.html" title="
 </dl>
 </li>
 </ul>
-<a id="scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">
+<a id="logError(org.slf4j.Logger,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>scheduleWithFixedDelay</h4>
-<pre class="methodSignature">protected&nbsp;java.util.concurrent.ScheduledFuture&lt;?&gt;&nbsp;scheduleWithFixedDelay&#8203;(java.lang.Runnable&nbsp;command,
-                                                                         long&nbsp;initialDelay,
-                                                                         long&nbsp;delay,
-                                                                         java.util.concurrent.TimeUnit&nbsp;unit)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../common/websocket/AbstractWebsocketServer.html#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">AbstractWebsocketServer</a></code></span></div>
-<div class="block">Wraps the shared <code>ScheduledThreadPoolExecutor</code> of this
- <a href="../../../common/websocket/AbstractWebsocketServer.html" title="class in io.openems.common.websocket"><code>AbstractWebsocketServer</code></a>.</div>
+<h4>logError</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;logError&#8203;(org.slf4j.Logger&nbsp;log,
+                        java.lang.String&nbsp;message)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../common/websocket/AbstractWebsocket.html#logError(org.slf4j.Logger,java.lang.String)">AbstractWebsocket</a></code></span></div>
+<div class="block">Log a error message.</div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../common/websocket/AbstractWebsocketServer.html#scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)">scheduleWithFixedDelay</a></code>&nbsp;in class&nbsp;<code><a href="../../../common/websocket/AbstractWebsocketServer.html" title="class in io.openems.common.websocket">AbstractWebsocketServer</a>&lt;<a href="WsData.html" title="class in io.openems.backend.uiwebsocket.impl">WsData</a>&gt;</code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../common/websocket/AbstractWebsocket.html#logError(org.slf4j.Logger,java.lang.String)">logError</a></code>&nbsp;in class&nbsp;<code><a href="../../../common/websocket/AbstractWebsocket.html" title="class in io.openems.common.websocket">AbstractWebsocket</a>&lt;<a href="WsData.html" title="class in io.openems.backend.uiwebsocket.impl">WsData</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>command</code> - see <code>ScheduledThreadPoolExecutor</code></dd>
-<dd><code>initialDelay</code> - see <code>ScheduledThreadPoolExecutor</code></dd>
-<dd><code>delay</code> - see <code>ScheduledThreadPoolExecutor</code></dd>
-<dd><code>unit</code> - see <code>ScheduledThreadPoolExecutor</code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>see <code>ScheduledThreadPoolExecutor</code></dd>
+<dd><code>log</code> - a Logger instance</dd>
+<dd><code>message</code> - the message</dd>
 </dl>
 </li>
 </ul>

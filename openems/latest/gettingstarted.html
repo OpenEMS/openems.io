@@ -6,7 +6,7 @@
     <title>Getting Started :: Open Energy Management System</title>
     <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/gettingstarted.html">
     <meta name="keywords" content="AsciiDoc">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.1">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="icon" href="../../_/img/feneco.ico" type="image/x-icon">
 <link rel="stylesheet" href="../../_/css/vendor/docsearch.min.css">  </head>
@@ -148,7 +148,7 @@
     <li class="component is-current">
       <span class="title">Open Energy Management System</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
+        <li class="version is-current">
           <a href="introduction.html">latest</a>
         </li>
       </ul>
@@ -432,7 +432,7 @@ The Scheduler is responsible for executing the control algorithms (Controllers) 
 <p>You created your first instance of an OpenEMS Component with ID "scheduler0". The log shows:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>INFO  [onent.AbstractOpenemsComponent] [scheduler0] Activate Scheduler.AllAlphabetically</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [onent.AbstractOpenemsComponent] [scheduler0] Activate Scheduler.AllAlphabetically</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -455,7 +455,7 @@ The Scheduler is responsible for executing the control algorithms (Controllers) 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>INFO  [onent.AbstractOpenemsComponent] [ctrlDebugLog0] Activate Controller.Debug.Log</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [onent.AbstractOpenemsComponent] [ctrlDebugLog0] Activate Controller.Debug.Log</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -463,7 +463,7 @@ The Scheduler is responsible for executing the control algorithms (Controllers) 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>INFO  [ntroller.debuglog.DebugLogImpl] [ctrlDebugLog0] _sum[State:Ok]</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [ntroller.debuglog.DebugLogImpl] [ctrlDebugLog0] _sum[State:Ok]</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -492,7 +492,7 @@ It is 'once per second', because the Cycle-Time is defined as "1000 ms" by defau
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>INFO  [onent.AbstractOpenemsComponent] [datasource0] Activate Simulator.Datasource.CSV.Predefined</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [onent.AbstractOpenemsComponent] [datasource0] Activate Simulator.Datasource.CSV.Predefined</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -521,7 +521,7 @@ The data source was configured with the OpenEMS Component ID <code>datasource0</
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>INFO  [onent.AbstractOpenemsComponent] [meter0] Activate Simulator.GridMeter.Acting
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [onent.AbstractOpenemsComponent] [meter0] Activate Simulator.GridMeter.Acting
 INFO  [onent.AbstractOpenemsComponent] [meter0] Deactivate Simulator.GridMeter.Acting
 INFO  [onent.AbstractOpenemsComponent] [meter0] Activate Simulator.GridMeter.Acting
 INFO  [ntroller.debuglog.DebugLogImpl] [ctrlDebugLog0] _sum[State:Ok Grid:1336 W Consumption:1336 W] meter0[1336 W]</code></pre>
@@ -565,7 +565,7 @@ This setup causes the simulated grid-meter to take the standardized load-profile
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>INFO  [onent.AbstractOpenemsComponent] [ess0] Activate Simulator.EssSymmetric.Reacting
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [onent.AbstractOpenemsComponent] [ess0] Activate Simulator.EssSymmetric.Reacting
 INFO  [ntroller.debuglog.DebugLogImpl] [ctrlDebugLog0] _sum[State:Ok Ess SoC:50 % Grid:1560 W Consumption:1560 W] ess0[SoC:50 %|L:UNDEFINED] meter0[1560 W]
 INFO  [ntroller.debuglog.DebugLogImpl] [ctrlDebugLog0] _sum[State:Ok Ess SoC:50 %|L:0 W Grid:1502 W Consumption:1502 W] ess0[SoC:50 %|L:0 W] meter0[1502 W]</code></pre>
 </div>
@@ -596,7 +596,7 @@ The debug log now shows data for the battery, but the charge/discharge power sta
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>INFO  [onent.AbstractOpenemsComponent] [ctrlBalancing0] Activate Controller.Symmetric.Balancing
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [onent.AbstractOpenemsComponent] [ctrlBalancing0] Activate Controller.Symmetric.Balancing
 ...
 INFO  [ntroller.debuglog.DebugLogImpl] [ctrlDebugLog0] _sum[State:Ok Ess SoC:50 %|L:593 W Grid:15 W Consumption:608 W] ess0[SoC:49 %|L:593 W|DebugSetActivePower:593 W] meter0[15 W]</code></pre>
 </div>
@@ -627,7 +627,7 @@ Values will differ slightly for you, but note how the Controller now tells the b
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>INFO  [onent.AbstractOpenemsComponent] [ctrlApiWebsocket0] Activate Controller.Api.Websocket
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [onent.AbstractOpenemsComponent] [ctrlApiWebsocket0] Activate Controller.Api.Websocket
 INFO  [socket.AbstractWebsocketServer] Starting [Websocket Api] websocket server [port=8085]</code></pre>
 </div>
 </div>
@@ -729,7 +729,7 @@ If you receive an error message, that you have no rights to execute "ng serve", 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>NG Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">NG Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/</code></pre>
 </div>
 </div>
 </li>
@@ -925,7 +925,7 @@ The <strong>Metadata</strong> service provider is responsible for authentication
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In the example we are configuring the <em><strong>Metadata.Dummy</strong></em> service. It takes no configuration parameters, so just press <b class="button">Save</b>. In a production system you would want to use a real implementation like <em><strong>Metadata.File</strong></em>, which uses a static JSON file as input, or <em><strong>Metadata.Odoo</strong></em>, which uses the <strong>Odoo</strong> business software for authentication and IoT device management. This will require the <a href="https://github.com/OpenEMS/odoo-openems">Odoo-OpenEMS-Addon</a> to be installed on your Odoo instance. See the <a href="https://gitpod.io/#https://github.com/OpenEMS/openems/tree/master">OpenEMS Live-Demo Gitpod workspace</a> for a full, production ready example configuration. For more information see → <a href="#backend/gitpod.adoc" class="page unresolved">Gitpod Workspace</a>
+In the example we are configuring the <em><strong>Metadata.Dummy</strong></em> service. It takes no configuration parameters, so just press <b class="button">Save</b>. In a production system you would want to use a real implementation like <em><strong>Metadata.File</strong></em>, which uses a static JSON file as input, or <em><strong>Metadata.Odoo</strong></em>, which uses the <strong>Odoo</strong> business software for authentication and IoT device management. This will require the <a href="https://github.com/OpenEMS/odoo-openems">Odoo-OpenEMS-Addon</a> to be installed on your Odoo instance. See the <a href="https://gitpod.io/#https://github.com/OpenEMS/openems/tree/master">OpenEMS Live-Demo Gitpod workspace</a> for a full, production ready example configuration. For more information see → <a href="simulation/gitpod.html" class="xref page">Gitpod Workspace</a>
 </td>
 </tr>
 </table>
@@ -970,7 +970,7 @@ In the example we are configuring the <em><strong>Metadata.Dummy</strong></em> s
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>INFO  [onent.AbstractOpenemsComponent] [ctrlBackend0] Activate Controller.Api.Backend
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [onent.AbstractOpenemsComponent] [ctrlBackend0] Activate Controller.Api.Backend
 INFO  [socket.AbstractWebsocketClient] Opening connection [Controller.Api.Backend:ctrlBackend0] to websocket server [ws://localhost:8081]
 INFO  [.controller.api.backend.OnOpen] [ctrlBackend0] Connected to OpenEMS Backend</code></pre>
 </div>
@@ -980,7 +980,7 @@ INFO  [.controller.api.backend.OnOpen] [ctrlBackend0] Connected to OpenEMS Backe
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>INFO  [s.backend.edgewebsocket.OnOpen] [Edge.Websocket] Edge [edge0] connected</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [s.backend.edgewebsocket.OnOpen] [Edge.Websocket] Edge [edge0] connected</code></pre>
 </div>
 </div>
 </li>
@@ -1058,7 +1058,7 @@ OpenEMS UI can work both for local connections to OpenEMS Edge as well as cloud 
 <p>Now that you setup a complete development environment and have a working instance of OpenEMS Edge, OpenEMS Backend an OpenEMS UI, you can continue implementing your first device driver in OpenEMS. We provide a tutorial that explains the steps to implement an electric meter in OpenEMS Edge that is connected via Modbus/TCP.</p>
 </div>
 <div class="paragraph">
-<p>The meter itself is simulated using a small Modbus slave application, so no external hardware is required for this guide. → <a href="edge/implement.html" class="page">Implementing a Device</a></p>
+<p>The meter itself is simulated using a small Modbus slave application, so no external hardware is required for this guide. → <a href="edge/implement.html" class="xref page">Implementing a Device</a></p>
 </div>
 </div>
 </div>

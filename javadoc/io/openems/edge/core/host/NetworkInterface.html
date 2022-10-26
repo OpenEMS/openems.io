@@ -87,14 +87,14 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -138,25 +138,25 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- ======== NESTED CLASS SUMMARY ======== -->
+<!-- =========== FIELD SUMMARY =========== -->
 <section role="region">
 <ul class="blockList">
-<li class="blockList"><a id="nested.class.summary">
+<li class="blockList"><a id="field.summary">
 <!--   -->
 </a>
-<h3>Nested Class Summary</h3>
+<h3>Field Summary</h3>
 <table class="memberSummary">
-<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Class</th>
+<th class="colSecond" scope="col">Field</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static class&nbsp;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="NetworkInterface.Inet4AddressWithNetmask.html" title="class in io.openems.edge.core.host">NetworkInterface.Inet4AddressWithNetmask</a></span></code></th>
+<td class="colFirst"><code>static <a href="Inet4AddressWithSubnetmask.html" title="class in io.openems.edge.core.host">Inet4AddressWithSubnetmask</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_ETH0_ADDRESS">DEFAULT_ETH0_ADDRESS</a></span></code></th>
 <td class="colLast">
-<div class="block">Helper class for wrapping an IPv4 address together with its netmask.</div>
+<div class="block">This default address is always added to eth0.</div>
 </td>
 </tr>
 </table>
@@ -182,7 +182,7 @@ extends java.lang.Object</pre>
                 <a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.lang.Boolean&gt;&nbsp;linkLocalAddressing,
                 <a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.net.Inet4Address&gt;&nbsp;gateway,
                 <a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.net.Inet4Address&gt;&nbsp;dns,
-                <a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="NetworkInterface.Inet4AddressWithNetmask.html" title="class in io.openems.edge.core.host">NetworkInterface.Inet4AddressWithNetmask</a>&gt;&gt;&nbsp;addresses,
+                <a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="Inet4AddressWithSubnetmask.html" title="class in io.openems.edge.core.host">Inet4AddressWithSubnetmask</a>&gt;&gt;&nbsp;addresses,
                 <a href="NetworkInterface.html" title="type parameter in NetworkInterface">A</a>&nbsp;attachment)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -213,14 +213,14 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="NetworkInterface.Inet4AddressWithNetmask.html" title="class in io.openems.edge.core.host">NetworkInterface.Inet4AddressWithNetmask</a>&gt;&gt;</code></td>
+<td class="colFirst"><code><a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="Inet4AddressWithSubnetmask.html" title="class in io.openems.edge.core.host">Inet4AddressWithSubnetmask</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAddresses()">getAddresses</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Gets the network interface addresses.</div>
+<div class="block">Gets the addresses configured in the network.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="NetworkInterface.Inet4AddressWithNetmask.html" title="class in io.openems.edge.core.host">NetworkInterface.Inet4AddressWithNetmask</a>&gt;&gt;</code></td>
+<td class="colFirst"><code><a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="Inet4AddressWithSubnetmask.html" title="class in io.openems.edge.core.host">Inet4AddressWithSubnetmask</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAddressesIncludingDefaults()">getAddressesIncludingDefaults</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the configured addresses including the default addresses if any.</div>
@@ -299,6 +299,26 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="DEFAULT_ETH0_ADDRESS">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>DEFAULT_ETH0_ADDRESS</h4>
+<pre>public static final&nbsp;<a href="Inet4AddressWithSubnetmask.html" title="class in io.openems.edge.core.host">Inet4AddressWithSubnetmask</a> DEFAULT_ETH0_ADDRESS</pre>
+<div class="block">This default address is always added to eth0.</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section role="region">
 <ul class="blockList">
@@ -319,7 +339,7 @@ extends java.lang.Object</pre>
                         <a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.lang.Boolean&gt;&nbsp;linkLocalAddressing,
                         <a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.net.Inet4Address&gt;&nbsp;gateway,
                         <a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.net.Inet4Address&gt;&nbsp;dns,
-                        <a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="NetworkInterface.Inet4AddressWithNetmask.html" title="class in io.openems.edge.core.host">NetworkInterface.Inet4AddressWithNetmask</a>&gt;&gt;&nbsp;addresses,
+                        <a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="Inet4AddressWithSubnetmask.html" title="class in io.openems.edge.core.host">Inet4AddressWithSubnetmask</a>&gt;&gt;&nbsp;addresses,
                         <a href="NetworkInterface.html" title="type parameter in NetworkInterface">A</a>&nbsp;attachment)
                  throws <a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
 <dl>
@@ -415,6 +435,20 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a id="getAddresses()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAddresses</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="Inet4AddressWithSubnetmask.html" title="class in io.openems.edge.core.host">Inet4AddressWithSubnetmask</a>&gt;&gt;&nbsp;getAddresses()</pre>
+<div class="block">Gets the addresses configured in the network.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the addresses mapped with label.</dd>
+</dl>
+</li>
+</ul>
 <a id="getDns()">
 <!--   -->
 </a>
@@ -426,20 +460,6 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the DNS server</dd>
-</dl>
-</li>
-</ul>
-<a id="getAddresses()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAddresses</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="NetworkInterface.Inet4AddressWithNetmask.html" title="class in io.openems.edge.core.host">NetworkInterface.Inet4AddressWithNetmask</a>&gt;&gt;&nbsp;getAddresses()</pre>
-<div class="block">Gets the network interface addresses.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the addresses</dd>
 </dl>
 </li>
 </ul>
@@ -467,7 +487,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getAddressesIncludingDefaults</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="NetworkInterface.Inet4AddressWithNetmask.html" title="class in io.openems.edge.core.host">NetworkInterface.Inet4AddressWithNetmask</a>&gt;&gt;&nbsp;getAddressesIncludingDefaults()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../../../common/types/ConfigurationProperty.html" title="class in io.openems.common.types">ConfigurationProperty</a>&lt;java.util.Set&lt;<a href="Inet4AddressWithSubnetmask.html" title="class in io.openems.edge.core.host">Inet4AddressWithSubnetmask</a>&gt;&gt;&nbsp;getAddressesIncludingDefaults()</pre>
 <div class="block">Gets the configured addresses including the default addresses if any.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -490,12 +510,18 @@ extends java.lang.Object</pre>
    "linkLocalAddressing": boolean,
    "gateway": string,
    "dns": string,
-   "addresses": string[]
+   "addresses": [{ 
+     "label": string, 
+     "address": string, 
+     "subnetmask": string 
+   }]
  }
  </pre></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>configuration as JSON</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error.</dd>
 </dl>
 </li>
 </ul>
@@ -566,14 +592,14 @@ extends java.lang.Object</pre>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

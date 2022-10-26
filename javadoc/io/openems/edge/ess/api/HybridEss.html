@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
+var data = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18,"i8":18,"i9":18,"i10":18,"i11":1,"i12":6};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -176,7 +176,7 @@ extends <a href="SymmetricEss.html" title="interface in io.openems.edge.ess.api"
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -265,6 +265,13 @@ extends <a href="SymmetricEss.html" title="interface in io.openems.edge.ess.api"
 </td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code>static <a href="../../common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveNatureTable</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getModbusSlaveNatureTable(io.openems.common.channel.AccessMode)">getModbusSlaveNatureTable</a></span>&#8203;(<a href="../../../common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</code></th>
+<td class="colLast">
+<div class="block">Used for Modbus/TCP Api Controller.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSurplusPower()">getSurplusPower</a></span>()</code></th>
 <td class="colLast">
@@ -473,7 +480,7 @@ extends <a href="SymmetricEss.html" title="interface in io.openems.edge.ess.api"
 <a id="_setDcDischargeEnergy(long)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>_setDcDischargeEnergy</h4>
 <pre class="methodSignature">default&nbsp;void&nbsp;_setDcDischargeEnergy&#8203;(long&nbsp;value)</pre>
@@ -482,6 +489,23 @@ extends <a href="SymmetricEss.html" title="interface in io.openems.edge.ess.api"
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>value</code> - the next value</dd>
+</dl>
+</li>
+</ul>
+<a id="getModbusSlaveNatureTable(io.openems.common.channel.AccessMode)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getModbusSlaveNatureTable</h4>
+<pre class="methodSignature">static&nbsp;<a href="../../common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveNatureTable</a>&nbsp;getModbusSlaveNatureTable&#8203;(<a href="../../../common/channel/AccessMode.html" title="enum in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</pre>
+<div class="block">Used for Modbus/TCP Api Controller. Provides a Modbus table for the Channels
+ of this Component.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>accessMode</code> - filters the Modbus-Records that should be shown</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave"><code>ModbusSlaveNatureTable</code></a></dd>
 </dl>
 </li>
 </ul>
