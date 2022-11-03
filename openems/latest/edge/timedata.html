@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scheduler :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/scheduler.html">
+    <title>Timedata :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/timedata.html">
     <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -57,7 +57,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="nature.html">Nature</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="scheduler.html">Scheduler</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -69,7 +69,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="device_service.html">Device &amp; Service</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="timedata.html">Timedata</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -169,105 +169,209 @@
   <ul>
     <li class="crumb"><a href="../introduction.html">Open Energy Management System</a></li>
     <li class="crumb">OpenEMS Edge</li>
-    <li class="crumb"><a href="scheduler.html">Scheduler</a></li>
+    <li class="crumb"><a href="timedata.html">Timedata</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/feature/update-timedata-docs/doc/modules/ROOT/pages/edge/scheduler.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/feature/update-timedata-docs/doc/modules/ROOT/pages/edge/timedata.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1>Scheduler</h1>
+<h1>Timedata</h1>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_all_alphabetically">1. All-Alphabetically</a></li>
-<li><a href="#_daily">2. Daily</a>
+<li><a href="#_influxdb">1. InfluxDB</a>
 <ul class="sectlevel2">
-<li><a href="#_configuration">2.1. Configuration</a></li>
+<li><a href="#_influxdb_v1">1.1. InfluxDB v1</a></li>
 </ul>
 </li>
-<li><a href="#_fixed_order">3. Fixed Order</a></li>
+<li><a href="#_rrd4j">2. RRD4J</a></li>
 </ul>
 </div>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>A OpenEMS Edge Scheduler plans the execution of Controllers. It defines&#8230;&#8203;</p>
+<p>A OpenEMS Edge Timedata service is responsible for&#8230;&#8203;</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>which Controllers are executed</p>
+<p>persisting values of Channels over time</p>
 </li>
 <li>
-<p>in which priority the Controllers are executed</p>
+<p>providing historic data e.g. for OpenEMS UI History</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_all_alphabetically"><a class="anchor" href="#_all_alphabetically"></a>1. All-Alphabetically</h2>
+<h2 id="_influxdb"><a class="anchor" href="#_influxdb"></a>1. InfluxDB</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Takes an ordered list of Component IDs. All remaining Controllers are afterwards ordered alphabetically by their ID.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.scheduler.allalphabetically">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_daily"><a class="anchor" href="#_daily"></a>2. Daily</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This scheduler can execute different Controllers at different times of the day according to the "Daily Schedule" configuration.
-Controllers that need to run regardless of the time of the day like 'ctrlBackend0' and 'ctrlDebugLog0' etc.,
-can be specified in the configuration using "Always Run Before" and "Always Run After'.</p>
+<p>Persists all data of OpenEMS Edge Channels to an InfluxDB timeseries database. The implementation is compatible with InfluxDB v1 and v2.</p>
 </div>
 <div class="sect2">
-<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>2.1. Configuration</h3>
+<h3 id="_influxdb_v1"><a class="anchor" href="#_influxdb_v1"></a>1.1. InfluxDB v1</h3>
+<div class="paragraph">
+<p>To setup the InfluxDB Timedata service with InfluxDB:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download from <a href="https://portal.influxdata.com/downloads/">InfluxDB Download portal</a> &#8594; "Are you interested in InfluxDB 1.x Open Source?"</p>
+</li>
+<li>
+<p>Extract downloaded archive</p>
+</li>
+<li>
+<p>Adjust the 'influxdb.conf' configuration file:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Directory for metadata:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[meta]
+  dir = "/opt/influxdb/meta" # on Linux
+  dir = "C:/influxdb/meta" # on Windows</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Directory for TSM and WAL files:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[data]
+  dir = "/opt/influxdb/data" # on Linux
+  dir = "C:/influxdb/data" # on Windows
+
+  wal-dir = "/opt/influxdb/wal" # on Linux
+  wal-dir = "C:/influxdb/wal" # on Windows</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable HTTP endpoint and Flux query language in InfluxDB v1:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[http]
+  enabled = true
+  flux-enabled = true</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Run InfluxDB Server</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open a new Terminal</p>
+</li>
+<li>
+<p>Run InfluxDB Server&#8230;&#8203;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">influxd.exe -config influxdb.conf</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Create database</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open a new Terminal</p>
+</li>
+<li>
+<p>Run InfluxDB Client</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">influx.exe</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create database</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Connected to http://localhost:8086 version 1.8.10
+InfluxDB shell version: 1.8.10
+&gt; CREATE DATABASE db;
+exit</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You should see a log in InfluxDB Server: <code>"[httpd] "POST /query?chunked=true&amp;db=&amp;epoch=ns&amp;q=CREATE+DATABASE+db%3B HTTP/1.1 " 200 57"</code>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Start OpenEMS Edge via <code>EdgeApp.bndrun</code></p>
+</li>
+<li>
+<p>Open Apache Felix Web Console (<a href="http://localhost:8080/system/console/configMgr" class="bare">http://localhost:8080/system/console/configMgr</a>)</p>
+</li>
+<li>
+<p>Add Configuration for <code>Timedata InfluxDB</code>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Component-ID</code> Unique ID of this Component (id), e.g. "scheduler0".</p>
+<p>URL: <code><a href="http://localhost:8086" class="bare">http://localhost:8086</a></code></p>
 </li>
 <li>
-<p><code>Alias</code> Human-readable name of this Component; defaults to Component-ID (alias)</p>
+<p>Org: <code>-</code></p>
 </li>
 <li>
-<p><code>Always Run Before</code> IDs of Controllers that should be executed <em>before</em> other Controllers in the order of the IDs.</p>
-</li>
-<li>
-<p><code>Daily Schedule</code> Execution order of Controllers per time of day.
-[{
-	"time": "08:00:00",
-	"controllers": [
-		"ctrlFixActivePower0"
-	]
-}, {
-	"time": "13:45:00"
-	"controllers": [""]"
-}]</p>
-</li>
-<li>
-<p><code>Always Run After</code> IDs of Controllers that should be executed <em>after</em> other Controllers in the order of the IDs.</p>
+<p>Bucket: <code>db/data</code></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You should see logs in InfluxDB Server: <code>"[httpd] "POST /api/v2/write?org=-&amp;bucket=db%2Fautogen&amp;precision=ms HTTP/1.1 " 204 0"</code>
+</td>
+</tr>
+</table>
+</div>
 </li>
 </ul>
 </div>
+</li>
+</ol>
+</div>
 <div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.scheduler.daily">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.timedata.influxdb">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_fixed_order"><a class="anchor" href="#_fixed_order"></a>3. Fixed Order</h2>
+<h2 id="_rrd4j"><a class="anchor" href="#_rrd4j"></a>2. RRD4J</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Takes a list of Component IDs and returns the Controllers statically sorted by this order.</p>
+<p>Persists data of OpenEMS Edge Channels to RRD4J files.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.scheduler.fixedorder">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.timedata.rrd4j">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 </div>
