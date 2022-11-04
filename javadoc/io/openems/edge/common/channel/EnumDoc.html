@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -88,13 +88,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -151,6 +151,29 @@ extends <a href="internal/AbstractDoc.html" title="class in io.openems.edge.comm
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#debounce">debounce</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -196,32 +219,45 @@ extends <a href="internal/AbstractDoc.html" title="class in io.openems.edge.comm
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="EnumDoc.html" title="class in io.openems.edge.common.channel">EnumDoc</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#debounce(int)">debounce</a></span>&#8203;(int&nbsp;debounce)</code></th>
+<td class="colLast">
+<div class="block">Debounce the Enum-Channel value: The EnumChannel is only set to the given
+ value after it had been set to the same value for at least "debounce" times.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../common/channel/ChannelCategory.html" title="enum in io.openems.common.channel">ChannelCategory</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChannelCategory()">getChannelCategory</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the <a href="../../../common/channel/ChannelCategory.html" title="enum in io.openems.common.channel"><code>ChannelCategory</code></a> of the Channel of this Doc.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDebounce()">getDebounce</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../common/types/OptionsEnum.html" title="interface in io.openems.common.types">OptionsEnum</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOption(java.lang.Integer)">getOption</a></span>&#8203;(java.lang.Integer&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">Gets the <a href="../../../common/types/OptionsEnum.html" title="interface in io.openems.common.types"><code>OptionsEnum</code></a> from the integer value.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../common/types/OptionsEnum.html" title="interface in io.openems.common.types">OptionsEnum</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptionFromString(java.lang.String)">getOptionFromString</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
 <td class="colLast">
 <div class="block">Gets the Option from a String.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../common/types/OptionsEnum.html" title="interface in io.openems.common.types">OptionsEnum</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptions()">getOptions</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptionString(java.lang.Integer)">getOptionString</a></span>&#8203;(java.lang.Integer&nbsp;value)</code></th>
 <td class="colLast">
@@ -229,35 +265,35 @@ extends <a href="internal/AbstractDoc.html" title="class in io.openems.edge.comm
  value.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptionValueFromString(java.lang.String)">getOptionValueFromString</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
 <td class="colLast">
 <div class="block">Gets the Option value from a String.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getText()">getText</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the descriptive text.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../common/types/OptionsEnum.html" title="interface in io.openems.common.types">OptionsEnum</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUndefinedOption()">getUndefinedOption</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the Undefined-Option, i.e.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="EnumDoc.html" title="class in io.openems.edge.common.channel">EnumDoc</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initialValue(io.openems.common.types.OptionsEnum)">initialValue</a></span>&#8203;(<a href="../../../common/types/OptionsEnum.html" title="interface in io.openems.common.types">OptionsEnum</a>&nbsp;initialValue)</code></th>
 <td class="colLast">
 <div class="block">Initial-Value.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected <a href="EnumDoc.html" title="class in io.openems.edge.common.channel">EnumDoc</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#self()">self</a></span>()</code></th>
 <td class="colLast">
@@ -288,6 +324,25 @@ extends <a href="internal/AbstractDoc.html" title="class in io.openems.edge.comm
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="debounce">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>debounce</h4>
+<pre>protected&nbsp;int debounce</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section role="region">
 <ul class="blockList">
@@ -483,7 +538,7 @@ extends <a href="internal/AbstractDoc.html" title="class in io.openems.edge.comm
 <a id="getText()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getText</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getText()</pre>
@@ -497,6 +552,35 @@ extends <a href="internal/AbstractDoc.html" title="class in io.openems.edge.comm
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the text</dd>
 </dl>
+</li>
+</ul>
+<a id="debounce(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>debounce</h4>
+<pre class="methodSignature">public&nbsp;<a href="EnumDoc.html" title="class in io.openems.edge.common.channel">EnumDoc</a>&nbsp;debounce&#8203;(int&nbsp;debounce)</pre>
+<div class="block">Debounce the Enum-Channel value: The EnumChannel is only set to the given
+ value after it had been set to the same value for at least "debounce" times.
+ 
+ <p>
+ Currently only working for read-only.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>debounce</code> - "debounce" times</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>EnumDoc</dd>
+</dl>
+</li>
+</ul>
+<a id="getDebounce()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getDebounce</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getDebounce()</pre>
 </li>
 </ul>
 </li>
@@ -551,13 +635,13 @@ extends <a href="internal/AbstractDoc.html" title="class in io.openems.edge.comm
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

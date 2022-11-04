@@ -196,9 +196,22 @@ implements <a href="../../common/channel/ChannelId.html" title="interface in io.
 </td>
 </tr>
 <tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#FIXED_MAXIMUM_HARDWARE_POWER">FIXED_MAXIMUM_HARDWARE_POWER</a></span></code></th>
+<td class="colLast">
+<div class="block">Fixed maximum power allowed by the hardware in W.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#FIXED_MINIMUM_HARDWARE_POWER">FIXED_MINIMUM_HARDWARE_POWER</a></span></code></th>
+<td class="colLast">
+<div class="block">Fixed minimum power allowed by the hardware in W.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#MAXIMUM_HARDWARE_POWER">MAXIMUM_HARDWARE_POWER</a></span></code></th>
 <td class="colLast">
-<div class="block">Maximum Power valid by the hardware.</div>
+<div class="block">Maximum hardware power in W calculated with the current used Phases, used for
+ the boundaries of the monitoring.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -210,7 +223,8 @@ implements <a href="../../common/channel/ChannelId.html" title="interface in io.
 <tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#MINIMUM_HARDWARE_POWER">MINIMUM_HARDWARE_POWER</a></span></code></th>
 <td class="colLast">
-<div class="block">Minimum Power valid by the hardware.</div>
+<div class="block">Minimum hardware power in W calculated with the current used Phases, used for
+ the boundaries of the monitoring.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -375,12 +389,66 @@ the order they are declared.</div>
 
  <p>
  This value is derived from the charging station or calculated during the
- charging.
-
+ charging. When this value is set, the minimum and maximum limits are set at
+ the same time if the EVCS is a <a href="ManagedEvcs.html" title="interface in io.openems.edge.evcs.api"><code>ManagedEvcs</code></a>.
+ 
  <ul>
  <li>Interface: Evcs
  <li>Readable
  <li>Type: Integer
+ </ul></div>
+</li>
+</ul>
+<a id="FIXED_MINIMUM_HARDWARE_POWER">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>FIXED_MINIMUM_HARDWARE_POWER</h4>
+<pre>public static final&nbsp;<a href="Evcs.ChannelId.html" title="enum in io.openems.edge.evcs.api">Evcs.ChannelId</a> FIXED_MINIMUM_HARDWARE_POWER</pre>
+<div class="block">Fixed minimum power allowed by the hardware in W.
+ 
+ <p>
+ Maximum of the configured minimum hardware limit and the read or given
+ minimum hardware limit - e.g. KEBA minimum requirement is 6A = 4140W and the
+ component configuration is 10A = 6900W because the customer wants to ensure
+ that his Renault ZOE is always charging with an acceptable efficiency. In
+ this case the Channel should be set to 6900W. Used power instead of current,
+ because it is easier to store it in an Integer Channel. When this value is
+ set, the minimum and maximum limits are set at the same time if the EVCS is a
+ <a href="ManagedEvcs.html" title="interface in io.openems.edge.evcs.api"><code>ManagedEvcs</code></a>.
+ 
+ <ul>
+ <li>Interface: Evcs
+ <li>Readable
+ <li>Type: Integer
+ <li>Unit: W
+ </ul></div>
+</li>
+</ul>
+<a id="FIXED_MAXIMUM_HARDWARE_POWER">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>FIXED_MAXIMUM_HARDWARE_POWER</h4>
+<pre>public static final&nbsp;<a href="Evcs.ChannelId.html" title="enum in io.openems.edge.evcs.api">Evcs.ChannelId</a> FIXED_MAXIMUM_HARDWARE_POWER</pre>
+<div class="block">Fixed maximum power allowed by the hardware in W.
+ 
+ <p>
+ Minimum of the configured maximum hardware limit and the read maximum
+ hardware limit - e.g. KEBA Dip-Switch Settings set to 32A = 22080W and
+ component configuration of 16A = 11040. In this case the Channel should be
+ set to 11040W. Used power instead of current, because it is easier to store
+ it in an Integer Channel. When this value is set, the minimum and maximum
+ limits are a Integer Channel. When this value is set, the minimum and maximum
+ limits are set at the same time if the EVCS is a <a href="ManagedEvcs.html" title="interface in io.openems.edge.evcs.api"><code>ManagedEvcs</code></a>.
+ 
+ <ul>
+ <li>Interface: Evcs
+ <li>Readable
+ <li>Type: Integer
+ <li>Unit: W
  </ul></div>
 </li>
 </ul>
@@ -391,12 +459,17 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>MINIMUM_HARDWARE_POWER</h4>
 <pre>public static final&nbsp;<a href="Evcs.ChannelId.html" title="enum in io.openems.edge.evcs.api">Evcs.ChannelId</a> MINIMUM_HARDWARE_POWER</pre>
-<div class="block">Minimum Power valid by the hardware.
-
+<div class="block">Minimum hardware power in W calculated with the current used Phases, used for
+ the boundaries of the monitoring.
+ 
  <p>
- In the cases that the EVCS can't be controlled, the Minimum will be the
- maximum too.
-
+ This minimum limit is dynamically set depending on the current used
+ <a href="#PHASES"><code>PHASES</code></a> and the <a href="#FIXED_MINIMUM_HARDWARE_POWER"><code>FIXED_MINIMUM_HARDWARE_POWER</code></a>, to be able to
+ react on different power limits if some of the Phases are not used - e.g. The
+ minimum and maximum of a charger is 6 and 32 Ampere. Because the default unit
+ of all OpenEMS calculations is power, the real minimum for charging on one
+ Phase is not 4140 Watt but 1380 Watt (Or in current 6A|0A|0A).
+ 
  <ul>
  <li>Interface: Evcs
  <li>Readable
@@ -412,8 +485,17 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>MAXIMUM_HARDWARE_POWER</h4>
 <pre>public static final&nbsp;<a href="Evcs.ChannelId.html" title="enum in io.openems.edge.evcs.api">Evcs.ChannelId</a> MAXIMUM_HARDWARE_POWER</pre>
-<div class="block">Maximum Power valid by the hardware.
-
+<div class="block">Maximum hardware power in W calculated with the current used Phases, used for
+ the boundaries of the monitoring.
+ 
+ <p>
+ This maximum limit is dynamically set depending on the current used
+ <a href="#PHASES"><code>PHASES</code></a> and the <a href="#FIXED_MINIMUM_HARDWARE_POWER"><code>FIXED_MINIMUM_HARDWARE_POWER</code></a>, to be able to
+ react on different power limits if some of the Phases are not used - e.g. The
+ minimum and maximum of a charger is 6 and 32 Ampere. Because the default unit
+ of all OpenEMS calculations is power, the real maximum for charging on one
+ Phase is not 22080 Watt but 7360 Watt (Or in current 32A|0A|0A).
+ 
  <ul>
  <li>Interface: Evcs
  <li>Readable

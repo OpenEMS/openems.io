@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -249,34 +249,53 @@ extends <a href="UnsignedWordElement.html" title="class in io.openems.edge.bridg
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bit(int,io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent.BitConverter,io.openems.edge.bridge.modbus.api.ChannelMetaInfoBit)">bit</a></span>&#8203;(int&nbsp;bitIndex,
+   <a href="../../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
+   <a href="../AbstractOpenemsModbusComponent.BitConverter.html" title="enum in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.BitConverter</a>&nbsp;converter,
+   <a href="../ChannelMetaInfoBit.html" title="class in io.openems.edge.bridge.modbus.api">ChannelMetaInfoBit</a>&nbsp;channelMetaInfoBit)</code></th>
+<td class="colLast">
+<div class="block">Adds a mapping for a given bit.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bit(int,io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.ChannelMetaInfoBit)">bit</a></span>&#8203;(int&nbsp;bitIndex,
+   <a href="../../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
+   <a href="../ChannelMetaInfoBit.html" title="class in io.openems.edge.bridge.modbus.api">ChannelMetaInfoBit</a>&nbsp;channelMetaInfoBit)</code></th>
+<td class="colLast">
+<div class="block">Adds a mapping for a given bit.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromByteBuffer(java.nio.ByteBuffer)">fromByteBuffer</a></span>&#8203;(java.nio.ByteBuffer&nbsp;buff)</code></th>
 <td class="colLast">
 <div class="block">Converts a 2-byte ByteBuffer to the the current OpenemsType.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.Optional&lt;com.ghgande.j2mod.modbus.procimg.Register[]&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextWriteValue()">getNextWriteValue</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the next write value.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.Optional&lt;com.ghgande.j2mod.modbus.procimg.Register[]&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextWriteValueAndReset()">getNextWriteValueAndReset</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the next write value from all Bits and resets them.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected <a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#self()">self</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets an instance of the correct subclass of myself.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected java.nio.ByteBuffer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toByteBuffer(java.nio.ByteBuffer,java.lang.Integer)">toByteBuffer</a></span>&#8203;(java.nio.ByteBuffer&nbsp;buff,
             java.lang.Integer&nbsp;value)</code></th>
@@ -400,6 +419,50 @@ extends <a href="UnsignedWordElement.html" title="class in io.openems.edge.bridg
 <dd><code>bitIndex</code> - the index of the bit; a number between 0 and 15</dd>
 <dd><code>channelId</code> - the Channel-ID</dd>
 <dd><code>converter</code> - the Bit-Converter</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>myself for builder pattern</dd>
+</dl>
+</li>
+</ul>
+<a id="bit(int,io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.ChannelMetaInfoBit)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bit</h4>
+<pre class="methodSignature">public&nbsp;<a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a>&nbsp;bit&#8203;(int&nbsp;bitIndex,
+                           <a href="../../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
+                           <a href="../ChannelMetaInfoBit.html" title="class in io.openems.edge.bridge.modbus.api">ChannelMetaInfoBit</a>&nbsp;channelMetaInfoBit)</pre>
+<div class="block">Adds a mapping for a given bit.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>bitIndex</code> - the index of the bit; a number between 0 and 15</dd>
+<dd><code>channelId</code> - the Channel-ID</dd>
+<dd><code>channelMetaInfoBit</code> - an object that holds meta information about the
+                           Channel</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>myself for builder pattern</dd>
+</dl>
+</li>
+</ul>
+<a id="bit(int,io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent.BitConverter,io.openems.edge.bridge.modbus.api.ChannelMetaInfoBit)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bit</h4>
+<pre class="methodSignature">public&nbsp;<a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a>&nbsp;bit&#8203;(int&nbsp;bitIndex,
+                           <a href="../../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
+                           <a href="../AbstractOpenemsModbusComponent.BitConverter.html" title="enum in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.BitConverter</a>&nbsp;converter,
+                           <a href="../ChannelMetaInfoBit.html" title="class in io.openems.edge.bridge.modbus.api">ChannelMetaInfoBit</a>&nbsp;channelMetaInfoBit)</pre>
+<div class="block">Adds a mapping for a given bit.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>bitIndex</code> - the index of the bit; a number between 0 and 15</dd>
+<dd><code>channelId</code> - the Channel-ID</dd>
+<dd><code>converter</code> - the Bit-Converter</dd>
+<dd><code>channelMetaInfoBit</code> - an object that holds meta information about the
+                           Channel</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>myself for builder pattern</dd>
 </dl>

@@ -180,7 +180,7 @@ implements <a href="../../../common/component/OpenemsComponent.html" title="inte
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected java.util.Map&lt;java.util.UUID,&#8203;java.util.List&lt;<a href="../common/AbstractOcppEvcsComponent.html" title="class in io.openems.edge.evcs.ocpp.common">AbstractOcppEvcsComponent</a>&gt;&gt;</code></td>
+<td class="colFirst"><code>protected java.util.Map&lt;java.util.UUID,&#8203;java.util.List&lt;<a href="../common/AbstractManagedOcppEvcsComponent.html" title="class in io.openems.edge.evcs.ocpp.common">AbstractManagedOcppEvcsComponent</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#activeEvcsSessions">activeEvcsSessions</a></span></code></th>
 <td class="colLast">
 <div class="block">Currently connected sessions with their related evcs components.</div>
@@ -207,7 +207,7 @@ implements <a href="../../../common/component/OpenemsComponent.html" title="inte
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,&#8203;java.util.List&lt;<a href="../common/AbstractOcppEvcsComponent.html" title="class in io.openems.edge.evcs.ocpp.common">AbstractOcppEvcsComponent</a>&gt;&gt;</code></td>
+<td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,&#8203;java.util.List&lt;<a href="../common/AbstractManagedOcppEvcsComponent.html" title="class in io.openems.edge.evcs.ocpp.common">AbstractManagedOcppEvcsComponent</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ocppEvcss">ocppEvcss</a></span></code></th>
 <td class="colLast">
 <div class="block">Currently configured ocpp evcss.</div>
@@ -325,7 +325,7 @@ implements <a href="../../../common/component/OpenemsComponent.html" title="inte
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.edge.common.component.<a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a></h3>
-<code><a href="../../../common/component/AbstractOpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">activate</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannel(io.openems.edge.common.channel.ChannelId)">addChannel</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannels(io.openems.edge.common.channel.ChannelId%5B%5D)">addChannels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannels(io.openems.edge.common.channel.ChannelId%5B%5D%5B%5D)">addChannels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#alias()">alias</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#channels()">channels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#id()">id</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#logError(org.slf4j.Logger,java.lang.String)">logError</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#modified(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">modified</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#removeChannel(io.openems.edge.common.channel.Channel)">removeChannel</a></code></li>
+<code><a href="../../../common/component/AbstractOpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#activate(java.lang.String)">activate</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">activate</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannel(io.openems.edge.common.channel.ChannelId)">addChannel</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannels(io.openems.edge.common.channel.ChannelId%5B%5D)">addChannels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannels(io.openems.edge.common.channel.ChannelId%5B%5D%5B%5D)">addChannels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#alias()">alias</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#channels()">channels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#id()">id</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#logError(org.slf4j.Logger,java.lang.String)">logError</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#modified(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">modified</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#removeChannel(io.openems.edge.common.channel.Channel)">removeChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -398,7 +398,7 @@ implements <a href="../../../common/component/OpenemsComponent.html" title="inte
 <ul class="blockList">
 <li class="blockList">
 <h4>activeEvcsSessions</h4>
-<pre>protected final&nbsp;java.util.Map&lt;java.util.UUID,&#8203;java.util.List&lt;<a href="../common/AbstractOcppEvcsComponent.html" title="class in io.openems.edge.evcs.ocpp.common">AbstractOcppEvcsComponent</a>&gt;&gt; activeEvcsSessions</pre>
+<pre>protected final&nbsp;java.util.Map&lt;java.util.UUID,&#8203;java.util.List&lt;<a href="../common/AbstractManagedOcppEvcsComponent.html" title="class in io.openems.edge.evcs.ocpp.common">AbstractManagedOcppEvcsComponent</a>&gt;&gt; activeEvcsSessions</pre>
 <div class="block">Currently connected sessions with their related evcs components.</div>
 </li>
 </ul>
@@ -408,7 +408,7 @@ implements <a href="../../../common/component/OpenemsComponent.html" title="inte
 <ul class="blockList">
 <li class="blockList">
 <h4>ocppEvcss</h4>
-<pre>protected&nbsp;java.util.Map&lt;java.lang.String,&#8203;java.util.List&lt;<a href="../common/AbstractOcppEvcsComponent.html" title="class in io.openems.edge.evcs.ocpp.common">AbstractOcppEvcsComponent</a>&gt;&gt; ocppEvcss</pre>
+<pre>protected&nbsp;java.util.Map&lt;java.lang.String,&#8203;java.util.List&lt;<a href="../common/AbstractManagedOcppEvcsComponent.html" title="class in io.openems.edge.evcs.ocpp.common">AbstractManagedOcppEvcsComponent</a>&gt;&gt; ocppEvcss</pre>
 <div class="block">Currently configured ocpp evcss.</div>
 </li>
 </ul>

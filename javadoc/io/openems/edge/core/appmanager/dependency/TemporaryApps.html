@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -88,13 +88,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -130,7 +130,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <hr>
-<pre>public final class <span class="typeNameLabel">TemporaryApps</span>
+<pre>public class <span class="typeNameLabel">TemporaryApps</span>
 extends java.lang.Object</pre>
 </li>
 </ul>
@@ -138,39 +138,6 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<section role="region">
-<ul class="blockList">
-<li class="blockList"><a id="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Field</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#currentlyCreatingApps">currentlyCreatingApps</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#currentlyDeletingApps">currentlyDeletingApps</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#currentlyModifiedApps">currentlyModifiedApps</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
-</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -181,11 +148,20 @@ extends java.lang.Object</pre>
 <table class="memberSummary">
 <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colFirst" scope="col">Constructor</th>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colSecond" scope="col">Constructor</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>&nbsp;</code></td>
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">TemporaryApps</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected </code></td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.List,java.util.List,java.util.List)">TemporaryApps</a></span>&#8203;(java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;&nbsp;currentlyCreatingApps,
+             java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;&nbsp;currentlyModifiedApps,
+             java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;&nbsp;currentlyDeletingApps)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -200,7 +176,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -208,9 +184,37 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#currentlyCreatingApps()">currentlyCreatingApps</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the instances which are currently being created.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#currentlyCreatingModifiedApps()">currentlyCreatingModifiedApps</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets a unmodifiable list of the apps that are currently creating or modified.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#currentlyDeletingApps()">currentlyDeletingApps</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the instances which are going to be deleted.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#currentlyModifiedApps()">currentlyModifiedApps</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the instances which are currently being modified.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>static <a href="TemporaryApps.html" title="class in io.openems.edge.core.appmanager.dependency">TemporaryApps</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unmodifiableApps(io.openems.edge.core.appmanager.dependency.TemporaryApps)">unmodifiableApps</a></span>&#8203;(<a href="TemporaryApps.html" title="class in io.openems.edge.core.appmanager.dependency">TemporaryApps</a>&nbsp;temporaryApps)</code></th>
+<td class="colLast">
+<div class="block">Creates a unmodifiable instance of the given <a href="TemporaryApps.html" title="class in io.openems.edge.core.appmanager.dependency"><code>TemporaryApps</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -230,43 +234,6 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<section role="region">
-<ul class="blockList">
-<li class="blockList"><a id="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a id="currentlyCreatingApps">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>currentlyCreatingApps</h4>
-<pre>public final&nbsp;java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt; currentlyCreatingApps</pre>
-</li>
-</ul>
-<a id="currentlyModifiedApps">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>currentlyModifiedApps</h4>
-<pre>public final&nbsp;java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt; currentlyModifiedApps</pre>
-</li>
-</ul>
-<a id="currentlyDeletingApps">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>currentlyDeletingApps</h4>
-<pre>public final&nbsp;java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt; currentlyDeletingApps</pre>
-</li>
-</ul>
-</li>
-</ul>
-</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section role="region">
 <ul class="blockList">
@@ -277,10 +244,21 @@ extends java.lang.Object</pre>
 <a id="&lt;init&gt;()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>TemporaryApps</h4>
 <pre>public&nbsp;TemporaryApps()</pre>
+</li>
+</ul>
+<a id="&lt;init&gt;(java.util.List,java.util.List,java.util.List)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>TemporaryApps</h4>
+<pre>protected&nbsp;TemporaryApps&#8203;(java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;&nbsp;currentlyCreatingApps,
+                        java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;&nbsp;currentlyModifiedApps,
+                        java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;&nbsp;currentlyDeletingApps)</pre>
 </li>
 </ul>
 </li>
@@ -296,7 +274,7 @@ extends java.lang.Object</pre>
 <a id="currentlyCreatingModifiedApps()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>currentlyCreatingModifiedApps</h4>
 <pre class="methodSignature">public final&nbsp;java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;&nbsp;currentlyCreatingModifiedApps()</pre>
@@ -304,6 +282,65 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the apps</dd>
+</dl>
+</li>
+</ul>
+<a id="currentlyCreatingApps()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>currentlyCreatingApps</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;&nbsp;currentlyCreatingApps()</pre>
+<div class="block">Gets the instances which are currently being created.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppInstance</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="currentlyDeletingApps()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>currentlyDeletingApps</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;&nbsp;currentlyDeletingApps()</pre>
+<div class="block">Gets the instances which are going to be deleted.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppInstance</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="currentlyModifiedApps()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>currentlyModifiedApps</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;&nbsp;currentlyModifiedApps()</pre>
+<div class="block">Gets the instances which are currently being modified.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppInstance</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="unmodifiableApps(io.openems.edge.core.appmanager.dependency.TemporaryApps)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>unmodifiableApps</h4>
+<pre class="methodSignature">public static&nbsp;<a href="TemporaryApps.html" title="class in io.openems.edge.core.appmanager.dependency">TemporaryApps</a>&nbsp;unmodifiableApps&#8203;(<a href="TemporaryApps.html" title="class in io.openems.edge.core.appmanager.dependency">TemporaryApps</a>&nbsp;temporaryApps)</pre>
+<div class="block">Creates a unmodifiable instance of the given <a href="TemporaryApps.html" title="class in io.openems.edge.core.appmanager.dependency"><code>TemporaryApps</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>temporaryApps</code> - the <a href="TemporaryApps.html" title="class in io.openems.edge.core.appmanager.dependency"><code>TemporaryApps</code></a> to get a unmodifiable version
+                      of</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a unmodifiable instance of <a href="TemporaryApps.html" title="class in io.openems.edge.core.appmanager.dependency"><code>TemporaryApps</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -359,13 +396,13 @@ extends java.lang.Object</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

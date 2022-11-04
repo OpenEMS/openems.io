@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9};
+var data = {"i0":9,"i1":9,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -190,6 +190,15 @@ extends java.lang.Object</pre>
 <div class="block">Reads given Element once from Modbus.</div>
 </td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;java.util.concurrent.CompletableFuture&lt;java.util.List&lt;T&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readELementsOnce(io.openems.edge.bridge.modbus.api.ModbusProtocol,io.openems.edge.bridge.modbus.api.element.AbstractModbusElement%5B%5D,boolean)">readELementsOnce</a></span>&#8203;(<a href="ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a>&nbsp;modbusProtocol,
+                <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;T&gt;[]&nbsp;elements,
+                boolean&nbsp;tryAgainOnError)</code></th>
+<td class="colLast">
+<div class="block">Reads given Elements once from Modbus.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -255,6 +264,36 @@ extends java.lang.Object</pre>
                         false, stops after first try and possibly return null</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a future value, e.g. a Integer or null (if tryAgainOnError is false)</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error with the <a href="ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api"><code>ModbusProtocol</code></a> object</dd>
+</dl>
+</li>
+</ul>
+<a id="readELementsOnce(io.openems.edge.bridge.modbus.api.ModbusProtocol,io.openems.edge.bridge.modbus.api.element.AbstractModbusElement[],boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>readELementsOnce</h4>
+<pre class="methodSignature">public static&nbsp;&lt;T&gt;&nbsp;java.util.concurrent.CompletableFuture&lt;java.util.List&lt;T&gt;&gt;&nbsp;readELementsOnce&#8203;(<a href="ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a>&nbsp;modbusProtocol,
+                                                                                             <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;T&gt;[]&nbsp;elements,
+                                                                                             boolean&nbsp;tryAgainOnError)
+                                                                                      throws <a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
+<div class="block">Reads given Elements once from Modbus.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - the Type of the elements</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>modbusProtocol</code> - the <a href="ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api"><code>ModbusProtocol</code></a>, that is linked with a
+                        <a href="BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api"><code>BridgeModbus</code></a></dd>
+<dd><code>elements</code> - the <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>AbstractModbusElement</code></a>s</dd>
+<dd><code>tryAgainOnError</code> - if true, tries to read till it receives a value on
+                        first register; if false, stops after first try and
+                        possibly return null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a future array of values, e.g. Integer[] or null (if tryAgainOnError
+         is false). If an array is returned, it is guaranteed to have the same
+         length as `elements`</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error with the <a href="ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api"><code>ModbusProtocol</code></a> object</dd>
 </dl>

@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":6,"i3":10,"i4":6,"i5":10,"i6":6,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":6,"i4":10,"i5":6,"i6":10,"i7":6,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -140,7 +140,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="../BridgeModbusSerialImpl.html" title="class in io.openems.edge.bridge.modbus">BridgeModbusSerialImpl</a></code>, <code><a href="../BridgeModbusTcpImpl.html" title="class in io.openems.edge.bridge.modbus">BridgeModbusTcpImpl</a></code></dd>
+<dd><code><a href="../BridgeModbusSerialImpl.html" title="class in io.openems.edge.bridge.modbus">BridgeModbusSerialImpl</a></code>, <code><a href="../BridgeModbusTcpImpl.html" title="class in io.openems.edge.bridge.modbus">BridgeModbusTcpImpl</a></code>, <code><a href="../test/DummyModbusBridge.html" title="class in io.openems.edge.bridge.modbus.test">DummyModbusBridge</a></code></dd>
 </dl>
 <hr>
 <pre>public abstract class <span class="typeNameLabel">AbstractModbusBridge</span>
@@ -205,6 +205,11 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
 <div class="block">Default Modbus timeout in [ms].</div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="worker/ModbusWorker.html" title="class in io.openems.edge.bridge.modbus.api.worker">ModbusWorker</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#worker">worker</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -249,6 +254,16 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">activate</a></span>&#8203;(org.osgi.service.component.ComponentContext&nbsp;context,
+        java.lang.String&nbsp;id,
+        java.lang.String&nbsp;alias,
+        boolean&nbsp;enabled)</code></th>
+<td class="colLast">
+<div class="block">Handles @Activate of implementations.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,io.openems.edge.bridge.modbus.api.LogVerbosity,int)">activate</a></span>&#8203;(org.osgi.service.component.ComponentContext&nbsp;context,
         java.lang.String&nbsp;id,
         java.lang.String&nbsp;alias,
@@ -257,7 +272,7 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
         int&nbsp;invalidateElementsAfterReadErrors)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addProtocol(java.lang.String,io.openems.edge.bridge.modbus.api.ModbusProtocol)">addProtocol</a></span>&#8203;(java.lang.String&nbsp;sourceId,
            <a href="ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a>&nbsp;protocol)</code></th>
@@ -265,50 +280,52 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
 <div class="block">Adds the protocol.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>abstract void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#closeModbusConnection()">closeModbusConnection</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Closes the Modbus connection.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deactivate()">deactivate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Handles @Deactivate of implementations.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>protected abstract <a href="../../../common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle">Cycle</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCycle()">getCycle</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>abstract <a href="../../../common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle">Cycle</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCycle()">getCycle</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the <a href="../../../common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle"><code>Cycle</code></a>.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="LogVerbosity.html" title="enum in io.openems.edge.bridge.modbus.api">LogVerbosity</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLogVerbosity()">getLogVerbosity</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>abstract com.ghgande.j2mod.modbus.io.ModbusTransaction</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNewModbusTransaction()">getNewModbusTransaction</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Creates a new Modbus Transaction on an open Modbus connection.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#invalidateElementsAfterReadErrors()">invalidateElementsAfterReadErrors</a></span>()</code></th>
 <td class="colLast">
 <div class="block">After how many errors should a element be invalidated?.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logError(org.slf4j.Logger,java.lang.String)">logError</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
         java.lang.String&nbsp;message)</code></th>
@@ -316,7 +333,7 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
 <div class="block">Log an error message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -324,7 +341,7 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
 <div class="block">Log an info message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -332,7 +349,7 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
 <div class="block">Log a warn message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeProtocol(java.lang.String)">removeProtocol</a></span>&#8203;(java.lang.String&nbsp;sourceId)</code></th>
 <td class="colLast">
@@ -345,7 +362,7 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.edge.common.component.<a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a></h3>
-<code><a href="../../../common/component/AbstractOpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">activate</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannel(io.openems.edge.common.channel.ChannelId)">addChannel</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannels(io.openems.edge.common.channel.ChannelId%5B%5D)">addChannels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannels(io.openems.edge.common.channel.ChannelId%5B%5D%5B%5D)">addChannels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#alias()">alias</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#channels()">channels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#id()">id</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#logDebug(org.slf4j.Logger,java.lang.String)">logDebug</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#modified(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">modified</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#removeChannel(io.openems.edge.common.channel.Channel)">removeChannel</a></code></li>
+<code><a href="../../../common/component/AbstractOpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#activate(java.lang.String)">activate</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannel(io.openems.edge.common.channel.ChannelId)">addChannel</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannels(io.openems.edge.common.channel.ChannelId%5B%5D)">addChannels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#addChannels(io.openems.edge.common.channel.ChannelId%5B%5D%5B%5D)">addChannels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#alias()">alias</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#channels()">channels</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#id()">id</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#logDebug(org.slf4j.Logger,java.lang.String)">logDebug</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#modified(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">modified</a>, <a href="../../../common/component/AbstractOpenemsComponent.html#removeChannel(io.openems.edge.common.channel.Channel)">removeChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -404,7 +421,7 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
 <a id="DEFAULT_RETRIES">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>DEFAULT_RETRIES</h4>
 <pre>protected static final&nbsp;int DEFAULT_RETRIES</pre>
@@ -416,6 +433,15 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../../constant-values.html#io.openems.edge.bridge.modbus.api.AbstractModbusBridge.DEFAULT_RETRIES">Constant Field Values</a></dd>
 </dl>
+</li>
+</ul>
+<a id="worker">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>worker</h4>
+<pre>protected final&nbsp;<a href="worker/ModbusWorker.html" title="class in io.openems.edge.bridge.modbus.api.worker">ModbusWorker</a> worker</pre>
 </li>
 </ul>
 </li>
@@ -448,6 +474,30 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>activate</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;activate&#8203;(org.osgi.service.component.ComponentContext&nbsp;context,
+                        java.lang.String&nbsp;id,
+                        java.lang.String&nbsp;alias,
+                        boolean&nbsp;enabled)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../common/component/AbstractOpenemsComponent.html#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">AbstractOpenemsComponent</a></code></span></div>
+<div class="block">Handles @Activate of implementations. Prints log output.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../common/component/AbstractOpenemsComponent.html#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">activate</a></code>&nbsp;in class&nbsp;<code><a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>context</code> - the OSGi ComponentContext</dd>
+<dd><code>id</code> - the unique OpenEMS Component ID</dd>
+<dd><code>alias</code> - Human-readable name of this Component. Typically
+                'config.alias()'. Defaults to 'id' if empty</dd>
+<dd><code>enabled</code> - is the Component enabled?</dd>
+</dl>
+</li>
+</ul>
 <a id="activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,io.openems.edge.bridge.modbus.api.LogVerbosity,int)">
 <!--   -->
 </a>
@@ -483,7 +533,12 @@ implements <a href="BridgeModbus.html" title="interface in io.openems.edge.bridg
 <ul class="blockList">
 <li class="blockList">
 <h4>getCycle</h4>
-<pre class="methodSignature">protected abstract&nbsp;<a href="../../../common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle">Cycle</a>&nbsp;getCycle()</pre>
+<pre class="methodSignature">public abstract&nbsp;<a href="../../../common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle">Cycle</a>&nbsp;getCycle()</pre>
+<div class="block">Gets the <a href="../../../common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle"><code>Cycle</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Cycle</dd>
+</dl>
 </li>
 </ul>
 <a id="addProtocol(java.lang.String,io.openems.edge.bridge.modbus.api.ModbusProtocol)">

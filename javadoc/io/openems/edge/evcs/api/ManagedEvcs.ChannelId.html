@@ -166,6 +166,18 @@ implements <a href="../../common/channel/ChannelId.html" title="interface in io.
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#CHARGE_MODE">CHARGE_MODE</a></span></code></th>
+<td class="colLast">
+<div class="block">Which mode is used to set a charge power.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#CHARGE_STATE">CHARGE_STATE</a></span></code></th>
+<td class="colLast">
+<div class="block">Charge Status.</div>
+</td>
+</tr>
+<tr class="altColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#IS_CLUSTERED">IS_CLUSTERED</a></span></code></th>
 <td class="colLast">
 <div class="block">Is true if the EVCS is in a EVCS-Cluster.</div>
@@ -356,7 +368,10 @@ the order they are declared.</div>
 <pre>public static final&nbsp;<a href="ManagedEvcs.ChannelId.html" title="enum in io.openems.edge.evcs.api">ManagedEvcs.ChannelId</a> SET_CHARGE_POWER_LIMIT_WITH_FILTER</pre>
 <div class="block">Applies the configured filter in <code>EvcsPowerComponent</code> and sets a the
  charge power limit.
-
+ 
+ <p>
+ The Filter is not used, when the limit is lower or equals the last limit.
+ 
  <ul>
  <li>Interface: ManagedEvcs
  <li>Writable
@@ -378,6 +393,25 @@ the order they are declared.</div>
  <li>Interface: ManagedEvcs
  <li>Readable
  <li>Type: Boolean
+ </ul></div>
+</li>
+</ul>
+<a id="CHARGE_MODE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CHARGE_MODE</h4>
+<pre>public static final&nbsp;<a href="ManagedEvcs.ChannelId.html" title="enum in io.openems.edge.evcs.api">ManagedEvcs.ChannelId</a> CHARGE_MODE</pre>
+<div class="block">Which mode is used to set a charge power.
+ 
+ <p>
+ Set internally by a controller. Used to prioritize between several evcs.
+
+ <ul>
+ <li>Interface: ManagedEvcs
+ <li>Readable
+ <li>Type: ChargeMode
  </ul></div>
 </li>
 </ul>
@@ -422,7 +456,7 @@ the order they are declared.</div>
 <a id="SET_ENERGY_LIMIT">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>SET_ENERGY_LIMIT</h4>
 <pre>public static final&nbsp;<a href="ManagedEvcs.ChannelId.html" title="enum in io.openems.edge.evcs.api">ManagedEvcs.ChannelId</a> SET_ENERGY_LIMIT</pre>
@@ -433,6 +467,26 @@ the order they are declared.</div>
  <li>Writable
  <li>Type: Integer
  <li>Unit: Wh
+ </ul></div>
+</li>
+</ul>
+<a id="CHARGE_STATE">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>CHARGE_STATE</h4>
+<pre>public static final&nbsp;<a href="ManagedEvcs.ChannelId.html" title="enum in io.openems.edge.evcs.api">ManagedEvcs.ChannelId</a> CHARGE_STATE</pre>
+<div class="block">Charge Status.
+ 
+ <p>
+ The Charge Status of the EVCS charging station. This is set by the
+ ManagedEvcs.
+ 
+ <ul>
+ <li>Interface: Evcs
+ <li>Readable
+ <li>Type: <a href="ChargeState.html" title="enum in io.openems.edge.evcs.api"><code>ChargeState</code></a>
  </ul></div>
 </li>
 </ul>

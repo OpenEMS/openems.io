@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6};
+var data = {"i0":6,"i1":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -151,6 +151,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  value.</div>
 </td>
 </tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>eu.chargetime.ocpp.model.Request</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDisplayText(java.lang.String)">setDisplayText</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<td class="colLast">
+<div class="block">Should return an OCPP request that would set the display text to the given
+ text.</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -171,7 +179,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <a id="setChargePowerLimit(int)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setChargePowerLimit</h4>
 <pre class="methodSignature">eu.chargetime.ocpp.model.Request&nbsp;setChargePowerLimit&#8203;(int&nbsp;chargePower)</pre>
@@ -184,6 +192,28 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>chargePower</code> - power that should be charged in watt.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Valid request that can be sent to the EVCS.</dd>
+</dl>
+</li>
+</ul>
+<a id="setDisplayText(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setDisplayText</h4>
+<pre class="methodSignature">eu.chargetime.ocpp.model.Request&nbsp;setDisplayText&#8203;(java.lang.String&nbsp;text)</pre>
+<div class="block">Should return an OCPP request that would set the display text to the given
+ text.
+ 
+ <p>
+ Attention: The given text could be to long or include characters that are not
+ supported by each EVCS. Return null if this feature is not supported by the
+ charger</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>text</code> - Text to be displayed</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Valid request that can be sent to the EVCS.</dd>
 </dl>
