@@ -235,8 +235,8 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(long,io.openems.common.types.ChannelAddress,com.google.gson.JsonElement)">add</a></span>&#8203;(long&nbsp;timestamp,
-   <a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;address,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(long,java.lang.String,com.google.gson.JsonElement)">add</a></span>&#8203;(long&nbsp;timestamp,
+   java.lang.String&nbsp;address,
    com.google.gson.JsonElement&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">Add a timestamped value.</div>
@@ -245,7 +245,7 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(long,java.util.Map)">add</a></span>&#8203;(long&nbsp;timestamp,
-   java.util.Map&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;data)</code></th>
+   java.util.Map&lt;java.lang.String,&#8203;com.google.gson.JsonElement&gt;&nbsp;data)</code></th>
 <td class="colLast">
 <div class="block">Add timestamped data.</div>
 </td>
@@ -259,7 +259,7 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>com.google.common.collect.TreeBasedTable&lt;java.lang.Long,&#8203;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;</code></td>
+<td class="colFirst"><code>com.google.common.collect.TreeBasedTable&lt;java.lang.Long,&#8203;java.lang.String,&#8203;com.google.gson.JsonElement&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getData()">getData</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -276,7 +276,7 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;io.openems.common.jsonrpc.base.<a href="../base/AbstractJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">AbstractJsonrpcRequest</a></h3>
-<code><a href="../base/AbstractJsonrpcRequest.html#getMethod()">getMethod</a>, <a href="../base/AbstractJsonrpcRequest.html#toJsonObject()">toJsonObject</a></code></li>
+<code><a href="../base/AbstractJsonrpcRequest.html#getFullyQualifiedMethod()">getFullyQualifiedMethod</a>, <a href="../base/AbstractJsonrpcRequest.html#getMethod()">getMethod</a>, <a href="../base/AbstractJsonrpcRequest.html#toJsonObject()">toJsonObject</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.common.jsonrpc.base.JsonrpcMessage">
@@ -377,29 +377,29 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <li class="blockList">
 <h4>add</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;add&#8203;(long&nbsp;timestamp,
-                java.util.Map&lt;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;data)</pre>
+                java.util.Map&lt;java.lang.String,&#8203;com.google.gson.JsonElement&gt;&nbsp;data)</pre>
 <div class="block">Add timestamped data.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>timestamp</code> - the timestamp epoch in milliseconds</dd>
-<dd><code>data</code> - a map of <a href="../../types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a> to <code>JsonElement</code> value</dd>
+<dd><code>data</code> - a map of Channel-Address to <code>JsonElement</code> value</dd>
 </dl>
 </li>
 </ul>
-<a id="add(long,io.openems.common.types.ChannelAddress,com.google.gson.JsonElement)">
+<a id="add(long,java.lang.String,com.google.gson.JsonElement)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>add</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;add&#8203;(long&nbsp;timestamp,
-                <a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;address,
+                java.lang.String&nbsp;address,
                 com.google.gson.JsonElement&nbsp;value)</pre>
 <div class="block">Add a timestamped value.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>timestamp</code> - the timestamp epoch in milliseconds</dd>
-<dd><code>address</code> - the <a href="../../types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a></dd>
+<dd><code>address</code> - the Channel-Address</dd>
 <dd><code>value</code> - the <code>JsonElement</code> value</dd>
 </dl>
 </li>
@@ -427,7 +427,7 @@ extends <a href="../base/JsonrpcNotification.html" title="class in io.openems.co
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getData</h4>
-<pre class="methodSignature">public&nbsp;com.google.common.collect.TreeBasedTable&lt;java.lang.Long,&#8203;<a href="../../types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;getData()</pre>
+<pre class="methodSignature">public&nbsp;com.google.common.collect.TreeBasedTable&lt;java.lang.Long,&#8203;java.lang.String,&#8203;com.google.gson.JsonElement&gt;&nbsp;getData()</pre>
 </li>
 </ul>
 </li>

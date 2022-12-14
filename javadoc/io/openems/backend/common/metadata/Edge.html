@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -187,7 +187,7 @@ extends java.lang.Object</pre>
     java.lang.String&nbsp;comment,
     java.lang.String&nbsp;version,
     java.lang.String&nbsp;producttype,
-    java.time.ZonedDateTime&nbsp;lastMessage)</code></th>
+    java.time.ZonedDateTime&nbsp;lastmessage)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -227,7 +227,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.time.ZonedDateTime</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastMessageTimestamp()">getLastMessageTimestamp</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastmessage()">getLastmessage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the Last-Message-Timestamp.</div>
 </td>
@@ -251,43 +251,57 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOnline()">isOnline</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOffline()">isOffline</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setComment(java.lang.String)">setComment</a></span>&#8203;(java.lang.String&nbsp;comment)</code></th>
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOnline()">isOnline</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastMessageTimestamp()">setLastMessageTimestamp</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Sets the Last-Message-Timestamp and calls the SetLastMessage-Listeners.</div>
-</td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setComment(java.lang.String)">setComment</a></span>&#8203;(java.lang.String&nbsp;comment)</code></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastMessageTimestamp(boolean)">setLastMessageTimestamp</a></span>&#8203;(boolean&nbsp;callListeners)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastmessage()">setLastmessage</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Sets the Last-Message-Timestamp to now() and calls the
+ setLastmessage-Listeners.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastmessage(java.time.ZonedDateTime)">setLastmessage</a></span>&#8203;(java.time.ZonedDateTime&nbsp;timestamp)</code></th>
+<td class="colLast">
+<div class="block">Sets the Last-Message-Timestamp and calls the setLastmessage-Listeners.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastmessage(java.time.ZonedDateTime,boolean)">setLastmessage</a></span>&#8203;(java.time.ZonedDateTime&nbsp;timestamp,
+              boolean&nbsp;callListeners)</code></th>
 <td class="colLast">
 <div class="block">Sets the Last-Message-Timestamp.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOnline(boolean)">setOnline</a></span>&#8203;(boolean&nbsp;isOnline)</code></th>
 <td class="colLast">
 <div class="block">Marks this Edge as being online.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setProducttype(java.lang.String)">setProducttype</a></span>&#8203;(java.lang.String&nbsp;producttype)</code></th>
 <td class="colLast">
 <div class="block">Sets the Producttype and calls the SetProducttype-Listeners.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setProducttype(java.lang.String,boolean)">setProducttype</a></span>&#8203;(java.lang.String&nbsp;producttype,
               boolean&nbsp;callListeners)</code></th>
@@ -295,14 +309,14 @@ extends java.lang.Object</pre>
 <div class="block">Sets the Producttype.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVersion(io.openems.common.types.SemanticVersion)">setVersion</a></span>&#8203;(<a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a>&nbsp;version)</code></th>
 <td class="colLast">
 <div class="block">Sets the version and calls the SetVersion-Listeners.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVersion(io.openems.common.types.SemanticVersion,boolean)">setVersion</a></span>&#8203;(<a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a>&nbsp;version,
           boolean&nbsp;callListeners)</code></th>
@@ -310,14 +324,14 @@ extends java.lang.Object</pre>
 <div class="block">Sets the version.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>com.google.gson.JsonObject</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJsonObject()">toJsonObject</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets this <a href="Edge.html" title="class in io.openems.backend.common.metadata"><code>Edge</code></a> as <code>JsonObject</code>.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -357,7 +371,7 @@ extends java.lang.Object</pre>
             java.lang.String&nbsp;comment,
             java.lang.String&nbsp;version,
             java.lang.String&nbsp;producttype,
-            java.time.ZonedDateTime&nbsp;lastMessage)</pre>
+            java.time.ZonedDateTime&nbsp;lastmessage)</pre>
 </li>
 </ul>
 </li>
@@ -433,6 +447,15 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isOnline()</pre>
 </li>
 </ul>
+<a id="isOffline()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isOffline</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isOffline()</pre>
+</li>
+</ul>
 <a id="setOnline(boolean)">
 <!--   -->
 </a>
@@ -447,37 +470,54 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="setLastMessageTimestamp()">
+<a id="setLastmessage()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setLastMessageTimestamp</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setLastMessageTimestamp()</pre>
-<div class="block">Sets the Last-Message-Timestamp and calls the SetLastMessage-Listeners.</div>
+<h4>setLastmessage</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setLastmessage()</pre>
+<div class="block">Sets the Last-Message-Timestamp to now() and calls the
+ setLastmessage-Listeners.</div>
 </li>
 </ul>
-<a id="setLastMessageTimestamp(boolean)">
+<a id="setLastmessage(java.time.ZonedDateTime)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setLastMessageTimestamp</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setLastMessageTimestamp&#8203;(boolean&nbsp;callListeners)</pre>
-<div class="block">Sets the Last-Message-Timestamp.</div>
+<h4>setLastmessage</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setLastmessage&#8203;(java.time.ZonedDateTime&nbsp;timestamp)</pre>
+<div class="block">Sets the Last-Message-Timestamp and calls the setLastmessage-Listeners.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>callListeners</code> - whether to call the SetLastMessage-Listeners</dd>
+<dd><code>timestamp</code> - the Last-Message-Timestamp</dd>
 </dl>
 </li>
 </ul>
-<a id="getLastMessageTimestamp()">
+<a id="setLastmessage(java.time.ZonedDateTime,boolean)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getLastMessageTimestamp</h4>
-<pre class="methodSignature">public&nbsp;java.time.ZonedDateTime&nbsp;getLastMessageTimestamp()</pre>
+<h4>setLastmessage</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setLastmessage&#8203;(java.time.ZonedDateTime&nbsp;timestamp,
+                           boolean&nbsp;callListeners)</pre>
+<div class="block">Sets the Last-Message-Timestamp.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>timestamp</code> - the Last-Message-Timestamp</dd>
+<dd><code>callListeners</code> - whether to call the setLastmessage-Listeners</dd>
+</dl>
+</li>
+</ul>
+<a id="getLastmessage()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLastmessage</h4>
+<pre class="methodSignature">public&nbsp;java.time.ZonedDateTime&nbsp;getLastmessage()</pre>
 <div class="block">Returns the Last-Message-Timestamp.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

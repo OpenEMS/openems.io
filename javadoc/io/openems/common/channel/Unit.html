@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":9};
+var data = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9,"i7":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -266,7 +266,7 @@ extends java.lang.Enum&lt;<a href="Unit.html" title="enum in io.openems.common.c
 <tr class="rowColor">
 <th class="colFirst" scope="row"><code><span class="memberNameLink"><a href="#MICROVOLT">MICROVOLT</a></span></code></th>
 <td class="colLast">
-<div class="block">Unit of Voltage [uA].</div>
+<div class="block">Unit of Voltage [uV].</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -428,35 +428,43 @@ extends java.lang.Enum&lt;<a href="Unit.html" title="enum in io.openems.common.c
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>static <a href="Unit.html" title="enum in io.openems.common.channel">Unit</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromSymbolOrElse(java.lang.String,io.openems.common.channel.Unit)">fromSymbolOrElse</a></span>&#8203;(java.lang.String&nbsp;symbol,
+                <a href="Unit.html" title="enum in io.openems.common.channel">Unit</a>&nbsp;defaultUnit)</code></th>
+<td class="colLast">
+<div class="block">Finds a Unit by its Symbol.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAsBaseUnit(int)">getAsBaseUnit</a></span>&#8203;(int&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">Gets the value in its base unit, e.g.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="Unit.html" title="enum in io.openems.common.channel">Unit</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBaseUnit()">getBaseUnit</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSymbol()">getSymbol</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static <a href="Unit.html" title="enum in io.openems.common.channel">Unit</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#valueOf(java.lang.String)">valueOf</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
 <td class="colLast">
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static <a href="Unit.html" title="enum in io.openems.common.channel">Unit</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#values()">values</a></span>()</code></th>
 <td class="colLast">
@@ -632,7 +640,7 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>MICROVOLT</h4>
 <pre>public static final&nbsp;<a href="Unit.html" title="enum in io.openems.common.channel">Unit</a> MICROVOLT</pre>
-<div class="block">Unit of Voltage [uA].</div>
+<div class="block">Unit of Voltage [uV].</div>
 </li>
 </ul>
 <a id="AMPERE">
@@ -1006,13 +1014,32 @@ not permitted.)</div>
 <a id="toString()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Enum&lt;<a href="Unit.html" title="enum in io.openems.common.channel">Unit</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a id="fromSymbolOrElse(java.lang.String,io.openems.common.channel.Unit)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>fromSymbolOrElse</h4>
+<pre class="methodSignature">public static&nbsp;<a href="Unit.html" title="enum in io.openems.common.channel">Unit</a>&nbsp;fromSymbolOrElse&#8203;(java.lang.String&nbsp;symbol,
+                                    <a href="Unit.html" title="enum in io.openems.common.channel">Unit</a>&nbsp;defaultUnit)</pre>
+<div class="block">Finds a Unit by its Symbol.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>symbol</code> - the Symbol</dd>
+<dd><code>defaultUnit</code> - the defaultUnit; this value is returned if no Unit with
+                    the given Symbol exists</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Unit; or the defaultUnit if it was not found</dd>
 </dl>
 </li>
 </ul>

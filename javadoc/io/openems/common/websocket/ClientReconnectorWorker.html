@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":10,"i2":9};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -190,7 +190,7 @@ extends <a href="../worker/AbstractWorker.html" title="class in io.openems.commo
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -208,6 +208,14 @@ extends <a href="../worker/AbstractWorker.html" title="class in io.openems.commo
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCycleTime()">getCycleTime</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the cycleTime of this worker in [ms].</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>protected static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resetWebSocketClient(org.java_websocket.client.WebSocketClient)">resetWebSocketClient</a></span>&#8203;(org.java_websocket.client.WebSocketClient&nbsp;ws)</code></th>
+<td class="colLast">
+<div class="block">This method is a copy of <code>WebSocketClient</code> reset()-method, because the
+ original one may block at the call of 'closeBlocking()' method.</div>
 </td>
 </tr>
 </table>
@@ -275,6 +283,28 @@ extends <a href="../worker/AbstractWorker.html" title="class in io.openems.commo
 <dd><code><a href="../worker/AbstractWorker.html#forever()">forever</a></code>&nbsp;in class&nbsp;<code><a href="../worker/AbstractWorker.html" title="class in io.openems.common.worker">AbstractWorker</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.Exception</code></dd>
+</dl>
+</li>
+</ul>
+<a id="resetWebSocketClient(org.java_websocket.client.WebSocketClient)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resetWebSocketClient</h4>
+<pre class="methodSignature">protected static&nbsp;void&nbsp;resetWebSocketClient&#8203;(org.java_websocket.client.WebSocketClient&nbsp;ws)
+                                    throws java.lang.Exception</pre>
+<div class="block">This method is a copy of <code>WebSocketClient</code> reset()-method, because the
+ original one may block at the call of 'closeBlocking()' method.
+ 
+ <p>
+ Waiting for https://github.com/TooTallNate/Java-WebSocket/pull/1251 to be
+ merged.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ws</code> - the <code>WebSocketClient</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.Exception</code> - on error</dd>
 </dl>
 </li>
 </ul>

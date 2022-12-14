@@ -176,7 +176,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#complementDataFromCache(java.util.SortedMap,java.util.function.BiConsumer)">complementDataFromCache</a></span>&#8203;(java.util.SortedMap&lt;java.lang.Long,&#8203;java.util.Map&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;incomingDatas,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#complementDataFromCache(java.util.SortedMap,java.util.function.BiConsumer)">complementDataFromCache</a></span>&#8203;(java.util.SortedMap&lt;java.lang.Long,&#8203;java.util.Map&lt;java.lang.String,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;incomingDatas,
                        java.util.function.BiConsumer&lt;java.time.Instant,&#8203;java.time.Instant&gt;&nbsp;onInvalidCache)</code></th>
 <td class="colLast">
 <div class="block">Updates the 'incoming data' with the data from the cache.</div>
@@ -184,7 +184,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>com.google.gson.JsonElement</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChannelValue(io.openems.common.types.ChannelAddress)">getChannelValue</a></span>&#8203;(<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;address)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChannelValue(java.lang.String)">getChannelValue</a></span>&#8203;(java.lang.String&nbsp;address)</code></th>
 <td class="colLast">
 <div class="block">Gets the channel value from cache.</div>
 </td>
@@ -232,17 +232,17 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="getChannelValue(io.openems.common.types.ChannelAddress)">
+<a id="getChannelValue(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getChannelValue</h4>
-<pre class="methodSignature">public final&nbsp;com.google.gson.JsonElement&nbsp;getChannelValue&#8203;(<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;address)</pre>
+<pre class="methodSignature">public final&nbsp;com.google.gson.JsonElement&nbsp;getChannelValue&#8203;(java.lang.String&nbsp;address)</pre>
 <div class="block">Gets the channel value from cache.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>address</code> - the <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a> of the channel</dd>
+<dd><code>address</code> - the Channel-Address of the channel</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the value; empty if it is not in cache</dd>
 </dl>
@@ -254,7 +254,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>complementDataFromCache</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;complementDataFromCache&#8203;(java.util.SortedMap&lt;java.lang.Long,&#8203;java.util.Map&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;incomingDatas,
+<pre class="methodSignature">public&nbsp;void&nbsp;complementDataFromCache&#8203;(java.util.SortedMap&lt;java.lang.Long,&#8203;java.util.Map&lt;java.lang.String,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;incomingDatas,
                                     java.util.function.BiConsumer&lt;java.time.Instant,&#8203;java.time.Instant&gt;&nbsp;onInvalidCache)</pre>
 <div class="block">Updates the 'incoming data' with the data from the cache.</div>
 <dl>

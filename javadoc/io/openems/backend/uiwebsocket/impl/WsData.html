@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -217,12 +217,26 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleSubscribeEdgesRequest(java.util.Set)">handleSubscribeEdgesRequest</a></span>&#8203;(java.util.Set&lt;java.lang.String&gt;&nbsp;edgeIds)</code></th>
+<td class="colLast">
+<div class="block">Applies a SubscribeEdgesRequest.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEdgeSubscribed(java.lang.String)">isEdgeSubscribed</a></span>&#8203;(java.lang.String&nbsp;edgeId)</code></th>
+<td class="colLast">
+<div class="block">Is the given Edge subscribed by this UI session?.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logout()">logout</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Logout and invalidate Session.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendSubscribedChannels(java.lang.String,io.openems.backend.common.edgewebsocket.EdgeCache)">sendSubscribedChannels</a></span>&#8203;(java.lang.String&nbsp;edgeId,
                       <a href="../../common/edgewebsocket/EdgeCache.html" title="class in io.openems.backend.common.edgewebsocket">EdgeCache</a>&nbsp;edgeCache)</code></th>
@@ -230,31 +244,31 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <div class="block">Sends the subscribed Channels to the UI session.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setToken(java.lang.String)">setToken</a></span>&#8203;(java.lang.String&nbsp;token)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUserId(java.lang.String)">setUserId</a></span>&#8203;(java.lang.String&nbsp;userId)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Provides a specific toString method.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unsetToken()">unsetToken</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Unsets the Login-Token.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unsetUserId()">unsetUserId</a></span>()</code></th>
 <td class="colLast">
@@ -454,10 +468,24 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 </dl>
 </li>
 </ul>
+<a id="handleSubscribeEdgesRequest(java.util.Set)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>handleSubscribeEdgesRequest</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;handleSubscribeEdgesRequest&#8203;(java.util.Set&lt;java.lang.String&gt;&nbsp;edgeIds)</pre>
+<div class="block">Applies a SubscribeEdgesRequest.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edgeIds</code> - the edges to subscribe</dd>
+</dl>
+</li>
+</ul>
 <a id="sendSubscribedChannels(java.lang.String,io.openems.backend.common.edgewebsocket.EdgeCache)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>sendSubscribedChannels</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;sendSubscribedChannels&#8203;(java.lang.String&nbsp;edgeId,
@@ -467,6 +495,22 @@ extends <a href="../../../common/websocket/WsData.html" title="class in io.opene
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>edgeId</code> - the Edge-ID</dd>
 <dd><code>edgeCache</code> - the <a href="../../common/edgewebsocket/EdgeCache.html" title="class in io.openems.backend.common.edgewebsocket"><code>EdgeCache</code></a> for the Edge-ID</dd>
+</dl>
+</li>
+</ul>
+<a id="isEdgeSubscribed(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isEdgeSubscribed</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isEdgeSubscribed&#8203;(java.lang.String&nbsp;edgeId)</pre>
+<div class="block">Is the given Edge subscribed by this UI session?.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edgeId</code> - the Edge-ID</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if subscribed</dd>
 </dl>
 </li>
 </ul>

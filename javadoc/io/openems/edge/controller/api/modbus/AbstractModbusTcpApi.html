@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":6,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":6,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -160,6 +160,19 @@ implements <a href="ModbusTcpApi.html" title="interface in io.openems.edge.contr
 <!--   -->
 </a>
 <h3>Nested Class Summary</h3>
+<table class="memberSummary">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="AbstractModbusTcpApi.ConfigRecord.html" title="class in io.openems.edge.controller.api.modbus">AbstractModbusTcpApi.ConfigRecord</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a id="nested.classes.inherited.from.class.io.openems.edge.controller.api.Controller">
 <!--   -->
@@ -268,21 +281,17 @@ implements <a href="ModbusTcpApi.html" title="interface in io.openems.edge.contr
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,org.osgi.service.cm.ConfigurationAdmin,io.openems.edge.common.meta.Meta,java.lang.String%5B%5D,int,int,int)">activate</a></span>&#8203;(org.osgi.service.component.ComponentContext&nbsp;context,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,org.osgi.service.cm.ConfigurationAdmin,io.openems.edge.controller.api.modbus.AbstractModbusTcpApi.ConfigRecord)">activate</a></span>&#8203;(org.osgi.service.component.ComponentContext&nbsp;context,
         java.lang.String&nbsp;id,
         java.lang.String&nbsp;alias,
         boolean&nbsp;enabled,
         org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
-        <a href="../../../common/meta/Meta.html" title="interface in io.openems.edge.common.meta">Meta</a>&nbsp;metaComponent,
-        java.lang.String[]&nbsp;componentIds,
-        int&nbsp;apiTimeout,
-        int&nbsp;port,
-        int&nbsp;maxConcurrentConnections)</code></th>
+        <a href="AbstractModbusTcpApi.ConfigRecord.html" title="class in io.openems.edge.controller.api.modbus">AbstractModbusTcpApi.ConfigRecord</a>&nbsp;config)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addComponent(io.openems.edge.common.modbusslave.ModbusSlave)">addComponent</a></span>&#8203;(<a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>&nbsp;component)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addComponent(io.openems.edge.common.component.OpenemsComponent)">addComponent</a></span>&#8203;(<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&nbsp;component)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
@@ -301,7 +310,7 @@ implements <a href="ModbusTcpApi.html" title="interface in io.openems.edge.contr
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getComponent(java.lang.String)">getComponent</a></span>&#8203;(java.lang.String&nbsp;componentId)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPossiblyDisabledComponent(java.lang.String)">getPossiblyDisabledComponent</a></span>&#8203;(java.lang.String&nbsp;componentId)</code></th>
 <td class="colLast">
 <div class="block">Gets the Component.</div>
 </td>
@@ -339,6 +348,11 @@ implements <a href="ModbusTcpApi.html" title="interface in io.openems.edge.contr
 </td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeComponent(io.openems.edge.common.component.OpenemsComponent)">removeComponent</a></span>&#8203;(<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&nbsp;component)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run()">run</a></span>()</code></th>
 <td class="colLast">
@@ -372,7 +386,7 @@ implements <a href="ModbusTcpApi.html" title="interface in io.openems.edge.contr
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;io.openems.edge.controller.api.modbus.<a href="ModbusTcpApi.html" title="interface in io.openems.edge.controller.api.modbus">ModbusTcpApi</a></h3>
-<code><a href="ModbusTcpApi.html#_setProcessImageFault(boolean)">_setProcessImageFault</a>, <a href="ModbusTcpApi.html#_setUnableToStart(boolean)">_setUnableToStart</a>, <a href="ModbusTcpApi.html#getProcessImageFault()">getProcessImageFault</a>, <a href="ModbusTcpApi.html#getProcessImageFaultChannel()">getProcessImageFaultChannel</a>, <a href="ModbusTcpApi.html#getUnableToStart()">getUnableToStart</a>, <a href="ModbusTcpApi.html#getUnableToStartChannel()">getUnableToStartChannel</a></code></li>
+<code><a href="ModbusTcpApi.html#_setComponentMissingFault(boolean)">_setComponentMissingFault</a>, <a href="ModbusTcpApi.html#_setComponentNoModbusApiFault(boolean)">_setComponentNoModbusApiFault</a>, <a href="ModbusTcpApi.html#_setProcessImageFault(boolean)">_setProcessImageFault</a>, <a href="ModbusTcpApi.html#_setUnableToStart(boolean)">_setUnableToStart</a>, <a href="ModbusTcpApi.html#getComponentMissingFault()">getComponentMissingFault</a>, <a href="ModbusTcpApi.html#getComponentMissingFaultChannel()">getComponentMissingFaultChannel</a>, <a href="ModbusTcpApi.html#getComponentNoModbusApiFault()">getComponentNoModbusApiFault</a>, <a href="ModbusTcpApi.html#getComponentNoModbusApiFaultChannel()">getComponentNoModbusApiFaultChannel</a>, <a href="ModbusTcpApi.html#getProcessImageFault()">getProcessImageFault</a>, <a href="ModbusTcpApi.html#getProcessImageFaultChannel()">getProcessImageFaultChannel</a>, <a href="ModbusTcpApi.html#getUnableToStart()">getUnableToStart</a>, <a href="ModbusTcpApi.html#getUnableToStartChannel()">getUnableToStartChannel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.io.openems.edge.common.component.OpenemsComponent">
@@ -486,16 +500,25 @@ implements <a href="ModbusTcpApi.html" title="interface in io.openems.edge.contr
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="addComponent(io.openems.edge.common.modbusslave.ModbusSlave)">
+<a id="addComponent(io.openems.edge.common.component.OpenemsComponent)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addComponent</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;addComponent&#8203;(<a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>&nbsp;component)</pre>
+<pre class="methodSignature">protected&nbsp;void&nbsp;addComponent&#8203;(<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&nbsp;component)</pre>
 </li>
 </ul>
-<a id="activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,org.osgi.service.cm.ConfigurationAdmin,io.openems.edge.common.meta.Meta,java.lang.String[],int,int,int)">
+<a id="removeComponent(io.openems.edge.common.component.OpenemsComponent)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeComponent</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;removeComponent&#8203;(<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&nbsp;component)</pre>
+</li>
+</ul>
+<a id="activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean,org.osgi.service.cm.ConfigurationAdmin,io.openems.edge.controller.api.modbus.AbstractModbusTcpApi.ConfigRecord)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -506,11 +529,7 @@ implements <a href="ModbusTcpApi.html" title="interface in io.openems.edge.contr
                         java.lang.String&nbsp;alias,
                         boolean&nbsp;enabled,
                         org.osgi.service.cm.ConfigurationAdmin&nbsp;cm,
-                        <a href="../../../common/meta/Meta.html" title="interface in io.openems.edge.common.meta">Meta</a>&nbsp;metaComponent,
-                        java.lang.String[]&nbsp;componentIds,
-                        int&nbsp;apiTimeout,
-                        int&nbsp;port,
-                        int&nbsp;maxConcurrentConnections)
+                        <a href="AbstractModbusTcpApi.ConfigRecord.html" title="class in io.openems.edge.controller.api.modbus">AbstractModbusTcpApi.ConfigRecord</a>&nbsp;config)
                  throws <a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -647,19 +666,19 @@ implements <a href="ModbusTcpApi.html" title="interface in io.openems.edge.contr
 </dl>
 </li>
 </ul>
-<a id="getComponent(java.lang.String)">
+<a id="getPossiblyDisabledComponent(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getComponent</h4>
-<pre class="methodSignature">protected&nbsp;<a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>&nbsp;getComponent&#8203;(java.lang.String&nbsp;componentId)</pre>
-<div class="block">Gets the Component.</div>
+<h4>getPossiblyDisabledComponent</h4>
+<pre class="methodSignature">protected&nbsp;<a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a>&nbsp;getPossiblyDisabledComponent&#8203;(java.lang.String&nbsp;componentId)</pre>
+<div class="block">Gets the Component. Be aware, that it might be 'disabled'.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>componentId</code> - the Component-ID</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave"><code>ModbusSlave</code></a> Component</dd>
+<dd>the <a href="../../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave"><code>ModbusSlave</code></a> Component; possibly null</dd>
 </dl>
 </li>
 </ul>

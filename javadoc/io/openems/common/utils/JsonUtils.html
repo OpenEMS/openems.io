@@ -241,7 +241,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;com.google.gson.JsonArray</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#generateJsonArray(java.util.List,com.google.common.base.Function)">generateJsonArray</a></span>&#8203;(java.util.List&lt;T&gt;&nbsp;list,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#generateJsonArray(java.util.Collection,com.google.common.base.Function)">generateJsonArray</a></span>&#8203;(java.util.Collection&lt;T&gt;&nbsp;list,
                  com.google.common.base.Function&lt;T,&#8203;com.google.gson.JsonElement&gt;&nbsp;convert)</code></th>
 <td class="colLast">
 <div class="block">Provide a easy way to generate a JsonArray from a list using the given
@@ -692,9 +692,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i62" class="altColor">
 <td class="colFirst"><code>static java.time.ZonedDateTime</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAsZonedDateTime(com.google.gson.JsonElement,java.lang.String,java.time.ZoneId)">getAsZonedDateTime</a></span>&#8203;(com.google.gson.JsonElement&nbsp;element,
-                  java.lang.String&nbsp;memberName,
-                  java.time.ZoneId&nbsp;timezone)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAsZonedDateWithZeroTime(com.google.gson.JsonElement,java.lang.String,java.time.ZoneId)">getAsZonedDateWithZeroTime</a></span>&#8203;(com.google.gson.JsonElement&nbsp;element,
+                          java.lang.String&nbsp;memberName,
+                          java.time.ZoneId&nbsp;timezone)</code></th>
 <td class="colLast">
 <div class="block">Takes a JSON in the form 'YYYY-MM-DD' and converts it to a
  <code>ZonedDateTime</code> with hour, minute and second set to zero.</div>
@@ -824,13 +824,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="generateJsonArray(java.util.List,com.google.common.base.Function)">
+<a id="generateJsonArray(java.util.Collection,com.google.common.base.Function)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>generateJsonArray</h4>
-<pre class="methodSignature">public static&nbsp;&lt;T&gt;&nbsp;com.google.gson.JsonArray&nbsp;generateJsonArray&#8203;(java.util.List&lt;T&gt;&nbsp;list,
+<pre class="methodSignature">public static&nbsp;&lt;T&gt;&nbsp;com.google.gson.JsonArray&nbsp;generateJsonArray&#8203;(java.util.Collection&lt;T&gt;&nbsp;list,
                                                               com.google.common.base.Function&lt;T,&#8203;com.google.gson.JsonElement&gt;&nbsp;convert)</pre>
 <div class="block">Provide a easy way to generate a JsonArray from a list using the given
  convert function to add each element.</div>
@@ -1963,7 +1963,7 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>jElement</code> - the <code>JsonElement</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <code>Optional</code> <code>Inet4Address</code> value</dd>
+<dd>the <code>Optional</code> <code>UUID</code> value</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
@@ -2092,16 +2092,16 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="getAsZonedDateTime(com.google.gson.JsonElement,java.lang.String,java.time.ZoneId)">
+<a id="getAsZonedDateWithZeroTime(com.google.gson.JsonElement,java.lang.String,java.time.ZoneId)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getAsZonedDateTime</h4>
-<pre class="methodSignature">public static&nbsp;java.time.ZonedDateTime&nbsp;getAsZonedDateTime&#8203;(com.google.gson.JsonElement&nbsp;element,
-                                                         java.lang.String&nbsp;memberName,
-                                                         java.time.ZoneId&nbsp;timezone)
-                                                  throws <a href="../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<h4>getAsZonedDateWithZeroTime</h4>
+<pre class="methodSignature">public static&nbsp;java.time.ZonedDateTime&nbsp;getAsZonedDateWithZeroTime&#8203;(com.google.gson.JsonElement&nbsp;element,
+                                                                 java.lang.String&nbsp;memberName,
+                                                                 java.time.ZoneId&nbsp;timezone)
+                                                          throws <a href="../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
 <div class="block">Takes a JSON in the form 'YYYY-MM-DD' and converts it to a
  <code>ZonedDateTime</code> with hour, minute and second set to zero.</div>
 <dl>

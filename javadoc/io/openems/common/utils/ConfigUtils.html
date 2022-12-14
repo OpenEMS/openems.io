@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9};
+var data = {"i0":9,"i1":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -155,6 +155,15 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#generateReferenceTargetFilter(java.lang.String,boolean,java.lang.String...)">generateReferenceTargetFilter</a></span>&#8203;(java.lang.String&nbsp;pid,
+                             boolean&nbsp;forceEnabled,
+                             java.lang.String...&nbsp;ids)</code></th>
+<td class="colLast">
+<div class="block">Generates a target filter for a Declarative Service @Reference member.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#generateReferenceTargetFilter(java.lang.String,java.lang.String...)">generateReferenceTargetFilter</a></span>&#8203;(java.lang.String&nbsp;pid,
                              java.lang.String...&nbsp;ids)</code></th>
 <td class="colLast">
@@ -188,7 +197,7 @@ extends java.lang.Object</pre>
 <a id="generateReferenceTargetFilter(java.lang.String,java.lang.String...)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>generateReferenceTargetFilter</h4>
 <pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;generateReferenceTargetFilter&#8203;(java.lang.String&nbsp;pid,
@@ -217,6 +226,45 @@ extends java.lang.Object</pre>
             not added to the resulting target filter</dd>
 <dd><code>ids</code> - Component IDs to be filtered for; for empty list, no ids are added
             to the target filter</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the target filter</dd>
+</dl>
+</li>
+</ul>
+<a id="generateReferenceTargetFilter(java.lang.String,boolean,java.lang.String...)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>generateReferenceTargetFilter</h4>
+<pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;generateReferenceTargetFilter&#8203;(java.lang.String&nbsp;pid,
+                                                             boolean&nbsp;forceEnabled,
+                                                             java.lang.String...&nbsp;ids)</pre>
+<div class="block">Generates a target filter for a Declarative Service @Reference member.
+
+ <p>
+ Usage:
+
+ <pre>
+ generateReferenceTargetFilter(config.service_pid(), "Controllers", controllersIds);
+ </pre>
+
+ <p>
+ Generates a 'target' filter on the 'Controllers' member so, that the the
+ expected service to be injected needs to fulfill:
+ <ul>
+ <li>the service must be enabled (if 'forceEnabled' is true)
+ <li>the service must not have the same PID as the calling component
+ <li>the service "id" must be one of the provided "ids"
+ </ul></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>pid</code> - PID of the calling component (use 'config.service_pid()'
+                     or '(String)prop.get(Constants.SERVICE_PID)'; if null,
+                     PID filter is not added to the resulting target filter</dd>
+<dd><code>forceEnabled</code> - Allow only target Components that are `enabled=true`</dd>
+<dd><code>ids</code> - Component IDs to be filtered for; for empty list, no ids
+                     are added to the target filter</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the target filter</dd>
 </dl>

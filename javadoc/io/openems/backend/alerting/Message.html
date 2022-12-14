@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":10,"i2":10,"i3":6,"i4":6,"i5":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -134,8 +134,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt>All Implemented Interfaces:</dt>
 <dd><code>java.lang.Comparable&lt;<a href="Message.html" title="class in io.openems.backend.alerting">Message</a>&gt;</code></dd>
 </dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="message/OfflineEdgeMessage.html" title="class in io.openems.backend.alerting.message">OfflineEdgeMessage</a></code></dd>
+</dl>
 <hr>
-<pre>public class <span class="typeNameLabel">Message</span>
+<pre>public abstract class <span class="typeNameLabel">Message</span>
 extends java.lang.Object
 implements java.lang.Comparable&lt;<a href="Message.html" title="class in io.openems.backend.alerting">Message</a>&gt;</pre>
 <div class="block">Properties for one notification.</div>
@@ -159,9 +163,7 @@ implements java.lang.Comparable&lt;<a href="Message.html" title="class in io.ope
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.time.ZonedDateTime,java.util.List,java.lang.String)">Message</a></span>&#8203;(java.time.ZonedDateTime&nbsp;notifyStamp,
-       java.util.List&lt;<a href="../common/metadata/EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&gt;&nbsp;users,
-       java.lang.String&nbsp;edgeId)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String)">Message</a></span>&#8203;(java.lang.String&nbsp;messageId)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -176,50 +178,42 @@ implements java.lang.Comparable&lt;<a href="Message.html" title="class in io.ope
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addUser(io.openems.backend.common.metadata.EdgeUser)">addUser</a></span>&#8203;(<a href="../common/metadata/EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&nbsp;user)</code></th>
-<td class="colLast">
-<div class="block">Add User to UserList.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#compareTo(io.openems.backend.alerting.Message)">compareTo</a></span>&#8203;(<a href="Message.html" title="class in io.openems.backend.alerting">Message</a>&nbsp;o)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(java.lang.Object&nbsp;obj)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgeId()">getEdgeId</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId()">getId</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>abstract java.time.ZonedDateTime</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNotifyStamp()">getNotifyStamp</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the time stamp at which this message is supposed to be sent.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.time.ZonedDateTime</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNotifyStamp()">getNotifyStamp</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colFirst"><code>abstract com.google.gson.JsonObject</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParams()">getParams</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Get attributes as JsonObject for Mailer.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.time.ZonedDateTime</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeStamp()">getTimeStamp</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../common/metadata/EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUser()">getUser</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -248,15 +242,13 @@ implements java.lang.Comparable&lt;<a href="Message.html" title="class in io.ope
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.time.ZonedDateTime,java.util.List,java.lang.String)">
+<a id="&lt;init&gt;(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Message</h4>
-<pre>public&nbsp;Message&#8203;(java.time.ZonedDateTime&nbsp;notifyStamp,
-               java.util.List&lt;<a href="../common/metadata/EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&gt;&nbsp;users,
-               java.lang.String&nbsp;edgeId)</pre>
+<pre>public&nbsp;Message&#8203;(java.lang.String&nbsp;messageId)</pre>
 </li>
 </ul>
 </li>
@@ -269,25 +261,40 @@ implements java.lang.Comparable&lt;<a href="Message.html" title="class in io.ope
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="getTimeStamp()">
+<a id="getId()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getTimeStamp</h4>
-<pre class="methodSignature">public&nbsp;java.time.ZonedDateTime&nbsp;getTimeStamp()</pre>
+<h4>getId</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getId()</pre>
 </li>
 </ul>
-<a id="compareTo(io.openems.backend.alerting.Message)">
+<a id="getNotifyStamp()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>compareTo</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;compareTo&#8203;(<a href="Message.html" title="class in io.openems.backend.alerting">Message</a>&nbsp;o)</pre>
+<h4>getNotifyStamp</h4>
+<pre class="methodSignature">public abstract&nbsp;java.time.ZonedDateTime&nbsp;getNotifyStamp()</pre>
+<div class="block">Returns the time stamp at which this message is supposed to be sent.</div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>compareTo</code>&nbsp;in interface&nbsp;<code>java.lang.Comparable&lt;<a href="Message.html" title="class in io.openems.backend.alerting">Message</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>ZonedDateTime</code> at which to send this message</dd>
+</dl>
+</li>
+</ul>
+<a id="getParams()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParams</h4>
+<pre class="methodSignature">public abstract&nbsp;com.google.gson.JsonObject&nbsp;getParams()</pre>
+<div class="block">Get attributes as JsonObject for Mailer.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>JsonObject</dd>
 </dl>
 </li>
 </ul>
@@ -317,45 +324,17 @@ implements java.lang.Comparable&lt;<a href="Message.html" title="class in io.ope
 </dl>
 </li>
 </ul>
-<a id="addUser(io.openems.backend.common.metadata.EdgeUser)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addUser</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;addUser&#8203;(<a href="../common/metadata/EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&nbsp;user)</pre>
-<div class="block">Add User to UserList.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>user</code> - to add</dd>
-</dl>
-</li>
-</ul>
-<a id="getUser()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getUser</h4>
-<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="../common/metadata/EdgeUser.html" title="class in io.openems.backend.common.metadata">EdgeUser</a>&gt;&nbsp;getUser()</pre>
-</li>
-</ul>
-<a id="getNotifyStamp()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getNotifyStamp</h4>
-<pre class="methodSignature">public&nbsp;java.time.ZonedDateTime&nbsp;getNotifyStamp()</pre>
-</li>
-</ul>
-<a id="getEdgeId()">
+<a id="compareTo(io.openems.backend.alerting.Message)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getEdgeId</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getEdgeId()</pre>
+<h4>compareTo</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;compareTo&#8203;(<a href="Message.html" title="class in io.openems.backend.alerting">Message</a>&nbsp;o)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>compareTo</code>&nbsp;in interface&nbsp;<code>java.lang.Comparable&lt;<a href="Message.html" title="class in io.openems.backend.alerting">Message</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 </li>
