@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":9,"i1":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -256,13 +256,22 @@ extends org.eclipse.jetty.server.handler.AbstractHandler</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>protected static java.util.List&lt;<a href="../../../common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;?&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChannels(java.util.List,io.openems.common.types.ChannelAddress)">getChannels</a></span>&#8203;(java.util.List&lt;<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;components,
+           <a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channelAddress)</code></th>
+<td class="colLast">
+<div class="block">Gets a list of Channels that match the <a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>; regular
+ expressions are allowed.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handle(java.lang.String,org.eclipse.jetty.server.Request,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)">handle</a></span>&#8203;(java.lang.String&nbsp;target,
       org.eclipse.jetty.server.Request&nbsp;baseRequest,
@@ -358,7 +367,7 @@ extends org.eclipse.jetty.server.handler.AbstractHandler</pre>
 <a id="handle(java.lang.String,org.eclipse.jetty.server.Request,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>handle</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;handle&#8203;(java.lang.String&nbsp;target,
@@ -375,6 +384,28 @@ extends org.eclipse.jetty.server.handler.AbstractHandler</pre>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code></dd>
 <dd><code>javax.servlet.ServletException</code></dd>
+</dl>
+</li>
+</ul>
+<a id="getChannels(java.util.List,io.openems.common.types.ChannelAddress)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getChannels</h4>
+<pre class="methodSignature">protected static&nbsp;java.util.List&lt;<a href="../../../common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;?&gt;&gt;&nbsp;getChannels&#8203;(java.util.List&lt;<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;&nbsp;components,
+                                                        <a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channelAddress)
+                                                 throws java.util.regex.PatternSyntaxException</pre>
+<div class="block">Gets a list of Channels that match the <a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>; regular
+ expressions are allowed.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>components</code> - a list of <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component"><code>OpenemsComponent</code></a>s</dd>
+<dd><code>channelAddress</code> - the <a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a> of the GET request</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a list of matching <a href="../../../common/channel/Channel.html" title="interface in io.openems.edge.common.channel"><code>Channel</code></a>s</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.util.regex.PatternSyntaxException</code> - on regular expression error</dd>
 </dl>
 </li>
 </ul>
