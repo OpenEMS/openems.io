@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":9};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -89,13 +89,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -173,6 +173,29 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 </li>
 </ul>
 </section>
+<!-- =========== FIELD SUMMARY =========== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected java.lang.Runnable</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#task">task</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section>
 <ul class="blockList">
@@ -202,7 +225,7 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -221,13 +244,6 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <td class="colLast">
 <div class="block">Gives electricity prices for the next 24 h; one value per 15 minutes; 96
  values in total.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>static com.google.common.collect.ImmutableSortedMap&lt;java.time.ZonedDateTime,&#8203;java.lang.Float&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parsePrices(java.lang.String)">parsePrices</a></span>&#8203;(java.lang.String&nbsp;jsonData)</code></th>
-<td class="colLast">
-<div class="block">Parse the Tibber JSON to the Price Map.</div>
 </td>
 </tr>
 </table>
@@ -261,6 +277,25 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="task">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>task</h4>
+<pre>protected final&nbsp;java.lang.Runnable task</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section>
 <ul class="blockList">
@@ -305,7 +340,7 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <a id="getPrices()">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getPrices</h4>
 <pre class="methodSignature">public&nbsp;<a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a>&nbsp;getPrices()</pre>
@@ -322,25 +357,6 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the prices; <a href="../api/TimeOfUsePrices.html#empty(java.time.ZonedDateTime)"><code>TimeOfUsePrices.empty(java.time.ZonedDateTime)</code></a> if
          no prices are known</dd>
-</dl>
-</li>
-</ul>
-<a id="parsePrices(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>parsePrices</h4>
-<pre class="methodSignature">public static&nbsp;com.google.common.collect.ImmutableSortedMap&lt;java.time.ZonedDateTime,&#8203;java.lang.Float&gt;&nbsp;parsePrices&#8203;(java.lang.String&nbsp;jsonData)
-                                                                                                               throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
-<div class="block">Parse the Tibber JSON to the Price Map.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>jsonData</code> - the Tibber JSON</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the Price Map</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </li>
 </ul>
@@ -396,13 +412,13 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
