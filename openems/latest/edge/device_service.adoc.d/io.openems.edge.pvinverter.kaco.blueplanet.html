@@ -183,28 +183,93 @@
 </div>
 <article class="doc">
 <h1>KACO blueplanet PV inverter</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the KACO blueplanet series PV inverters.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Implemented Natures</dt>
-<dd>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compatibility"><a class="anchor" href="#_compatibility"></a>Compatibility</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>ManagedSymmetricPvInverter</p>
-</li>
+<p>NX3 M2 Series</p>
+<div class="ulist">
+<ul>
 <li>
-<p>SymmetricMeter</p>
+<p><a href="https://kaco-newenergy.com/de/produkte/blueplanet-3.0-20.0-NX3-M2/">KACO Blueplanet NX3 M2</a></p>
 </li>
 </ul>
 </div>
-</dd>
-</dl>
+</li>
+<li>
+<p>TL3 Series</p>
+<div class="ulist">
+<ul>
+<li>
+<p>KACO blueplanet 3.0 TL3 - 10.0 TL3</p>
+</li>
+<li>
+<p>KACO blueplanet 15.0 TL3 + 20.0 TL3</p>
+</li>
+<li>
+<p>KACO blueplanet 29.0 TL3 LV</p>
+</li>
+<li>
+<p>KACO blueplanet 50.0 TL3</p>
+</li>
+<li>
+<p>KACO blueplanet 60.0 TL3</p>
+</li>
+<li>
+<p>KACO blueplanet 87.0 TL3 - 125 TL3</p>
+</li>
+<li>
+<p>KACO blueplanet 125 TL3 - 165 TL3</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_application_notes"><a class="anchor" href="#_additional_application_notes"></a>Additional application notes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Experiences from testing this plugin with a KACO Blueplanet NX3 M2:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Modbus Unit-ID was 3, for both Modbus TCP and RTU. Modbus TCP also worked with Unit-ID 1, but RTU only worked with 3.</p>
+</li>
+<li>
+<p>When using the Wlan module to connect via Modbus TCP, make sure no cable is plugged into the RJ45 socket used for Modbus RTU.
+If there is a cable plugged in, it will still work, but you will get a lot of connection errors.</p>
+</li>
+<li>
+<p>Similar situation when using Modbus RTU - unplug the Wlan module. Modbus RTU still works with the Wlan module plugged in,
+but you will get a lot of connection errors.</p>
+</li>
+<li>
+<p>The Wlan module that handles the Modbus TCP connection does not automatically reconnect to the configured Wlan router if it
+looses the connection (for example, when the router is restarted), or if the router is not reachable when the inverter starts up.</p>
+</li>
+<li>
+<p>To reconnect, the inverter needs to restart. Since the NX3 usually shuts down over night and restarts in the morning, this is not
+too much of a problem.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.pvinverter.kaco.blueplanet">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
 </div>
 </article>
   </main>
