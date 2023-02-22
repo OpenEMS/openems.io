@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -123,16 +123,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <dl>
-<dt>All Superinterfaces:</dt>
-<dd><code>org.osgi.service.event.EventHandler</code></dd>
-</dl>
-<dl>
 <dt>All Known Implementing Classes:</dt>
 <dd><code><a href="handler/OfflineEdgeHandler.html" title="class in io.openems.backend.alerting.handler">OfflineEdgeHandler</a></code></dd>
 </dl>
 <hr>
-<pre>public interface <span class="typeNameLabel">Handler&lt;T extends <a href="Message.html" title="class in io.openems.backend.alerting">Message</a>&gt;</span>
-extends org.osgi.service.event.EventHandler</pre>
+<pre>public interface <span class="typeNameLabel">Handler&lt;T extends <a href="Message.html" title="class in io.openems.backend.alerting">Message</a>&gt;</span></pre>
 </li>
 </ul>
 </div>
@@ -154,13 +149,20 @@ extends org.osgi.service.event.EventHandler</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>java.lang.Runnable</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEventHandler(io.openems.common.event.EventReader)">getEventHandler</a></span>&#8203;(<a href="../../common/event/EventReader.html" title="class in io.openems.common.event">EventReader</a>&nbsp;event)</code></th>
+<td class="colLast">
+<div class="block">Handle given event.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.Class&lt;<a href="Handler.html" title="type parameter in Handler">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGeneric()">getGeneric</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Return generic type of handler as Class object.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.time.ZonedDateTime,java.util.List)">send</a></span>&#8203;(java.time.ZonedDateTime&nbsp;sentAt,
     java.util.List&lt;<a href="Handler.html" title="type parameter in Handler">T</a>&gt;&nbsp;messages)</code></th>
@@ -168,7 +170,7 @@ extends org.osgi.service.event.EventHandler</pre>
 <div class="block">Send the messages.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stop()">stop</a></span>()</code></th>
 <td class="colLast">
@@ -176,13 +178,6 @@ extends org.osgi.service.event.EventHandler</pre>
 </td>
 </tr>
 </table>
-<ul class="blockList">
-<li class="blockList"><a id="methods.inherited.from.class.org.osgi.service.event.EventHandler">
-<!--   -->
-</a>
-<h3>Methods inherited from interface&nbsp;org.osgi.service.event.EventHandler</h3>
-<code>handleEvent</code></li>
-</ul>
 </li>
 </ul>
 </section>
@@ -228,7 +223,7 @@ extends org.osgi.service.event.EventHandler</pre>
 <a id="getGeneric()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getGeneric</h4>
 <pre class="methodSignature">java.lang.Class&lt;<a href="Handler.html" title="type parameter in Handler">T</a>&gt;&nbsp;getGeneric()</pre>
@@ -236,6 +231,22 @@ extends org.osgi.service.event.EventHandler</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>GenericType of handler</dd>
+</dl>
+</li>
+</ul>
+<a id="getEventHandler(io.openems.common.event.EventReader)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getEventHandler</h4>
+<pre class="methodSignature">java.lang.Runnable&nbsp;getEventHandler&#8203;(<a href="../../common/event/EventReader.html" title="class in io.openems.common.event">EventReader</a>&nbsp;event)</pre>
+<div class="block">Handle given event.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>event</code> - to handle</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Runnable to be scheduled in executor</dd>
 </dl>
 </li>
 </ul>
