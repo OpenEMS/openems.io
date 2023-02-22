@@ -127,10 +127,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code></dd>
 </dl>
 <dl>
-<dt>All Known Subinterfaces:</dt>
-<dd><code><a href="../../timedata/influx/Influx.html" title="interface in io.openems.backend.timedata.influx">Influx</a></code></dd>
-</dl>
-<dl>
 <dt>All Known Implementing Classes:</dt>
 <dd><code><a href="../../timedata/influx/InfluxImpl.html" title="class in io.openems.backend.timedata.influx">InfluxImpl</a></code>, <code><a href="../../timedata/dummy/TimedataDummy.html" title="class in io.openems.backend.timedata.dummy">TimedataDummy</a></code>, <code><a href="../../timedata/timescaledb/TimescaledbImpl.html" title="class in io.openems.backend.timedata.timescaledb">TimescaledbImpl</a></code></dd>
 </dl>
@@ -159,11 +155,10 @@ extends <a href="../../../common/timedata/CommonTimedataService.html" title="int
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.util.Map&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChannelValues(java.lang.String,java.util.Set)">getChannelValues</a></span>&#8203;(java.lang.String&nbsp;edgeId,
-                java.util.Set&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channelAddresses)</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#id()">id</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Gets the latest values for the given ChannelAddresses.</div>
+<div class="block">Returns a unique ID for this OpenEMS component.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -198,10 +193,24 @@ extends <a href="../../../common/timedata/CommonTimedataService.html" title="int
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="write(java.lang.String,com.google.common.collect.TreeBasedTable)">
+<a id="id()">
 <!--   -->
 </a>
 <ul class="blockList">
+<li class="blockList">
+<h4>id</h4>
+<pre class="methodSignature">java.lang.String&nbsp;id()</pre>
+<div class="block">Returns a unique ID for this OpenEMS component.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the unique ID</dd>
+</dl>
+</li>
+</ul>
+<a id="write(java.lang.String,com.google.common.collect.TreeBasedTable)">
+<!--   -->
+</a>
+<ul class="blockListLast">
 <li class="blockList">
 <h4>write</h4>
 <pre class="methodSignature">void&nbsp;write&#8203;(java.lang.String&nbsp;edgeId,
@@ -215,24 +224,6 @@ extends <a href="../../../common/timedata/CommonTimedataService.html" title="int
                the Channel value as JsonElement. Sorted by timestamp.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
-</dl>
-</li>
-</ul>
-<a id="getChannelValues(java.lang.String,java.util.Set)">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getChannelValues</h4>
-<pre class="methodSignature">java.util.Map&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;getChannelValues&#8203;(java.lang.String&nbsp;edgeId,
-                                                                                 java.util.Set&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channelAddresses)</pre>
-<div class="block">Gets the latest values for the given ChannelAddresses.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>edgeId</code> - The unique Edge-ID</dd>
-<dd><code>channelAddresses</code> - The <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>es</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the values</dd>
 </dl>
 </li>
 </ul>

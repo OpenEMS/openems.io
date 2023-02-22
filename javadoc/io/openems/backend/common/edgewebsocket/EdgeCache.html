@@ -175,18 +175,17 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#complementDataFromCache(java.util.SortedMap,java.util.function.BiConsumer)">complementDataFromCache</a></span>&#8203;(java.util.SortedMap&lt;java.lang.Long,&#8203;java.util.Map&lt;java.lang.String,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;incomingDatas,
-                       java.util.function.BiConsumer&lt;java.time.Instant,&#8203;java.time.Instant&gt;&nbsp;onInvalidCache)</code></th>
-<td class="colLast">
-<div class="block">Updates the 'incoming data' with the data from the cache.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code>com.google.gson.JsonElement</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChannelValue(java.lang.String)">getChannelValue</a></span>&#8203;(java.lang.String&nbsp;address)</code></th>
 <td class="colLast">
 <div class="block">Gets the channel value from cache.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#update(java.util.SortedMap)">update</a></span>&#8203;(java.util.SortedMap&lt;java.lang.Long,&#8203;java.util.Map&lt;java.lang.String,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;incomingDatas)</code></th>
+<td class="colLast">
+<div class="block">Updates the Cache.</div>
 </td>
 </tr>
 </table>
@@ -244,24 +243,21 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>address</code> - the Channel-Address of the channel</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the value; empty if it is not in cache</dd>
+<dd>the value; <code>JsonNull</code> if it is not in cache</dd>
 </dl>
 </li>
 </ul>
-<a id="complementDataFromCache(java.util.SortedMap,java.util.function.BiConsumer)">
+<a id="update(java.util.SortedMap)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>complementDataFromCache</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;complementDataFromCache&#8203;(java.util.SortedMap&lt;java.lang.Long,&#8203;java.util.Map&lt;java.lang.String,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;incomingDatas,
-                                    java.util.function.BiConsumer&lt;java.time.Instant,&#8203;java.time.Instant&gt;&nbsp;onInvalidCache)</pre>
-<div class="block">Updates the 'incoming data' with the data from the cache.</div>
+<h4>update</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;update&#8203;(java.util.SortedMap&lt;java.lang.Long,&#8203;java.util.Map&lt;java.lang.String,&#8203;com.google.gson.JsonElement&gt;&gt;&nbsp;incomingDatas)</pre>
+<div class="block">Updates the Cache.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>incomingDatas</code> - the incoming data</dd>
-<dd><code>onInvalidCache</code> - callback on invalid cache. Can be used for a log
-                       message.</dd>
 </dl>
 </li>
 </ul>

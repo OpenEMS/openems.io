@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -150,6 +150,14 @@ public interface <span class="typeNameLabel">EdgeWebsocket</span></pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>java.util.Map&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChannelValues(java.lang.String,java.util.Set)">getChannelValues</a></span>&#8203;(java.lang.String&nbsp;edgeId,
+                java.util.Set&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channelAddresses)</code></th>
+<td class="colLast">
+<div class="block">Gets the latest values for the given ChannelAddresses.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleSubscribeSystemLogRequest(java.lang.String,io.openems.backend.common.metadata.User,java.lang.String,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">handleSubscribeSystemLogRequest</a></span>&#8203;(java.lang.String&nbsp;edgeId,
                                <a href="../metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
@@ -159,7 +167,7 @@ public interface <span class="typeNameLabel">EdgeWebsocket</span></pre>
 <div class="block">Handles a <a href="../../../common/jsonrpc/request/SubscribeSystemLogRequest.html" title="class in io.openems.common.jsonrpc.request"><code>SubscribeSystemLogRequest</code></a>.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.backend.common.metadata.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></span>&#8203;(java.lang.String&nbsp;edgeId,
     <a href="../metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
@@ -169,7 +177,7 @@ public interface <span class="typeNameLabel">EdgeWebsocket</span></pre>
  JSON-RPC Response.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></span>&#8203;(java.lang.String&nbsp;edgeId,
     <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
@@ -240,7 +248,7 @@ public interface <span class="typeNameLabel">EdgeWebsocket</span></pre>
 <a id="handleSubscribeSystemLogRequest(java.lang.String,io.openems.backend.common.metadata.User,java.lang.String,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>handleSubscribeSystemLogRequest</h4>
 <pre class="methodSignature">java.util.concurrent.CompletableFuture&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;&nbsp;handleSubscribeSystemLogRequest&#8203;(java.lang.String&nbsp;edgeId,
@@ -259,6 +267,24 @@ public interface <span class="typeNameLabel">EdgeWebsocket</span></pre>
 <dd>a reply</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="getChannelValues(java.lang.String,java.util.Set)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getChannelValues</h4>
+<pre class="methodSignature">java.util.Map&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;getChannelValues&#8203;(java.lang.String&nbsp;edgeId,
+                                                                                 java.util.Set&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channelAddresses)</pre>
+<div class="block">Gets the latest values for the given ChannelAddresses.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edgeId</code> - The unique Edge-ID</dd>
+<dd><code>channelAddresses</code> - The <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>es</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the values; possibly <code>JsonNull</code></dd>
 </dl>
 </li>
 </ul>

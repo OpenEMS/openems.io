@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -174,8 +174,8 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#timedata">timedata</a></span></code></th>
+<td class="colFirst"><code>protected <a href="../common/timedata/TimedataManager.html" title="interface in io.openems.backend.common.timedata">TimedataManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#timedataManager">timedataManager</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
@@ -223,11 +223,19 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>java.util.Map&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChannelValues(java.lang.String,java.util.Set)">getChannelValues</a></span>&#8203;(java.lang.String&nbsp;edgeId,
+                java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channelAddresses)</code></th>
+<td class="colLast">
+<div class="block">Gets the latest values for the given ChannelAddresses.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleSubscribeSystemLogRequest(java.lang.String,io.openems.backend.common.metadata.User,java.lang.String,io.openems.common.jsonrpc.request.SubscribeSystemLogRequest)">handleSubscribeSystemLogRequest</a></span>&#8203;(java.lang.String&nbsp;edgeId,
                                <a href="../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
@@ -237,7 +245,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <div class="block">Handles a <a href="../../common/jsonrpc/request/SubscribeSystemLogRequest.html" title="class in io.openems.common.jsonrpc.request"><code>SubscribeSystemLogRequest</code></a>.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleSystemLogNotification(java.lang.String,io.openems.common.jsonrpc.notification.SystemLogNotification)">handleSystemLogNotification</a></span>&#8203;(java.lang.String&nbsp;edgeId,
                            <a href="../../common/jsonrpc/notification/SystemLogNotification.html" title="class in io.openems.common.jsonrpc.notification">SystemLogNotification</a>&nbsp;notification)</code></th>
@@ -245,14 +253,14 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <div class="block">Handles a <a href="../../common/jsonrpc/notification/SystemLogNotification.html" title="class in io.openems.common.jsonrpc.notification"><code>SystemLogNotification</code></a>, i.e.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOnline(java.lang.String)">isOnline</a></span>&#8203;(java.lang.String&nbsp;edgeId)</code></th>
 <td class="colLast">
 <div class="block">Gets whether the Websocket for this Edge is connected.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logError(org.slf4j.Logger,java.lang.String)">logError</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
         java.lang.String&nbsp;message)</code></th>
@@ -260,7 +268,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <div class="block">Log an error message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -268,7 +276,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <div class="block">Log an info message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logInfo(org.slf4j.Logger,java.lang.String,java.lang.String)">logInfo</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;edgeId,
@@ -277,7 +285,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <div class="block">Logs a info message with Edge-ID.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -285,7 +293,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <div class="block">Log a warn message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logWarn(org.slf4j.Logger,java.lang.String,java.lang.String)">logWarn</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;edgeId,
@@ -294,7 +302,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <div class="block">Logs a warning message with Edge-ID.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.backend.common.metadata.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></span>&#8203;(java.lang.String&nbsp;edgeId,
     <a href="../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
@@ -304,7 +312,7 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
  JSON-RPC Response.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></span>&#8203;(java.lang.String&nbsp;edgeId,
     <a href="../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
@@ -352,13 +360,13 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <pre>protected volatile&nbsp;<a href="../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a> metadata</pre>
 </li>
 </ul>
-<a id="timedata">
+<a id="timedataManager">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>timedata</h4>
-<pre>protected volatile&nbsp;<a href="../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a> timedata</pre>
+<h4>timedataManager</h4>
+<pre>protected volatile&nbsp;<a href="../common/timedata/TimedataManager.html" title="interface in io.openems.backend.common.timedata">TimedataManager</a> timedataManager</pre>
 </li>
 </ul>
 <a id="eventAdmin">
@@ -614,13 +622,34 @@ implements <a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface
 <a id="handleEvent(org.osgi.service.event.Event)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>handleEvent</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;handleEvent&#8203;(org.osgi.service.event.Event&nbsp;event)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
+</dl>
+</li>
+</ul>
+<a id="getChannelValues(java.lang.String,java.util.Set)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getChannelValues</h4>
+<pre class="methodSignature">public&nbsp;java.util.Map&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,&#8203;com.google.gson.JsonElement&gt;&nbsp;getChannelValues&#8203;(java.lang.String&nbsp;edgeId,
+                                                                                        java.util.Set&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channelAddresses)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../common/edgewebsocket/EdgeWebsocket.html#getChannelValues(java.lang.String,java.util.Set)">EdgeWebsocket</a></code></span></div>
+<div class="block">Gets the latest values for the given ChannelAddresses.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../common/edgewebsocket/EdgeWebsocket.html#getChannelValues(java.lang.String,java.util.Set)">getChannelValues</a></code>&nbsp;in interface&nbsp;<code><a href="../common/edgewebsocket/EdgeWebsocket.html" title="interface in io.openems.backend.common.edgewebsocket">EdgeWebsocket</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edgeId</code> - The unique Edge-ID</dd>
+<dd><code>channelAddresses</code> - The <a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>es</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the values; possibly <code>JsonNull</code></dd>
 </dl>
 </li>
 </ul>
