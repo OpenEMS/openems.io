@@ -88,6 +88,9 @@
     <span class="nav-text">OpenEMS UI</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ui/setup-ide.html">Setup IDE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="ui/architecture.html">Architecture</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -190,17 +193,16 @@
 <li><a href="#_download_the_source_code">1. Download the source code</a></li>
 <li><a href="#_setup_eclipse_ide_for_openems_edge_and_backend">2. Setup Eclipse IDE for OpenEMS Edge and Backend</a></li>
 <li><a href="#_run_openems_edge_and_start_simulator">3. Run OpenEMS Edge and start Simulator</a></li>
-<li><a href="#_setup_visual_studio_code_for_openems_ui">4. Setup Visual Studio Code for OpenEMS UI</a></li>
-<li><a href="#_run_openems_ui">5. Run OpenEMS UI</a></li>
-<li><a href="#_integrate_openems_backend">6. Integrate OpenEMS Backend</a>
+<li><a href="#_run_openems_ui">4. Run OpenEMS UI</a></li>
+<li><a href="#_integrate_openems_backend">5. Integrate OpenEMS Backend</a>
 <ul class="sectlevel2">
-<li><a href="#_run_and_configure_openems_backend">6.1. Run and configure OpenEMS Backend</a></li>
-<li><a href="#_configure_openems_edge">6.2. Configure OpenEMS Edge</a></li>
-<li><a href="#_connect_openems_ui_with_backend">6.3. Connect OpenEMS UI with Backend</a></li>
+<li><a href="#_run_and_configure_openems_backend">5.1. Run and configure OpenEMS Backend</a></li>
+<li><a href="#_configure_openems_edge">5.2. Configure OpenEMS Edge</a></li>
+<li><a href="#_connect_openems_ui_with_backend">5.3. Connect OpenEMS UI with Backend</a></li>
 </ul>
 </li>
-<li><a href="#_next_steps">7. Next steps</a></li>
-<li><a href="#_help">8. Help</a></li>
+<li><a href="#_next_steps">6. Next steps</a></li>
+<li><a href="#_help">7. Help</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -676,33 +678,8 @@ The Controller Api Websocket is required so that OpenEMS UI can connect to OpenE
 </div>
 </div>
 <div class="sect1">
-<h2 id="_setup_visual_studio_code_for_openems_ui"><a class="anchor" href="#_setup_visual_studio_code_for_openems_ui"></a>4. Setup Visual Studio Code for OpenEMS UI</h2>
+<h2 id="_run_openems_ui"><a class="anchor" href="#_run_openems_ui"></a>4. Run OpenEMS UI</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Download <a href="https://nodejs.org">node.js LTS <span class="icon"><i class="fa fa-external-link"></i></span></a> and install it.</p>
-</li>
-<li>
-<p>Download <a href="https://code.visualstudio.com/">Visual Studio Code <span class="icon"><i class="fa fa-external-link"></i></span></a>, install and start it.</p>
-</li>
-<li>
-<p>Open OpenEMS UI source code in Visual Studio Code:</p>
-<div class="paragraph">
-<p>Menu: <b class="button">File</b> → <b class="button">Open Folder&#8230;&#8203;</b> → Select the <code>ui</code> directory inside the downloaded source code (for example <code>C:\Users\your.user\git\openems\ui</code>) → <b class="button">Select directory</b></p>
-</div>
-</li>
-<li>
-<p>Open the integrated terminal:</p>
-<div class="paragraph">
-<p>Menu: <b class="button">Terminal</b> → <b class="button">New Terminal</b></p>
-</div>
-</li>
-<li>
-<p>Install <a href="https://cli.angular.io/">Angular CLI <span class="icon"><i class="fa fa-external-link"></i></span></a>:</p>
-<div class="paragraph">
-<p><code>npm install -g @angular/cli</code></p>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -710,55 +687,18 @@ The Controller Api Websocket is required so that OpenEMS UI can connect to OpenE
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you receive an error message that the command <code>npm</code> could not be found, make sure that node.js is installed and restart Visual Studio Code.
+If you plan to actively develop on OpenEMS UI, you can now also setup a development environment for it using <a href="ui/setup-ide.html" class="xref page">this guide</a>. Otherwise just go ahead with the hosted version:
 </td>
 </tr>
 </table>
 </div>
-</li>
-<li>
-<p>Resolve and download dependencies:</p>
-<div class="paragraph">
-<p><code>npm install</code></p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_run_openems_ui"><a class="anchor" href="#_run_openems_ui"></a>5. Run OpenEMS UI</h2>
-<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In Visual Studios integrated terminal type&#8230;&#8203;</p>
-<div class="paragraph">
-<p><code>ng serve -c openems-edge-dev</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you receive an error message, that you have no rights to execute "ng serve", set <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The log shows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">NG Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/</code></pre>
-</div>
-</div>
+<p>Make sure OpenEMS Edge is running locally and the websocket is running on port <code>8085</code>.</p>
 </li>
 <li>
-<p>Open a browser at <a href="http://localhost:4200" class="bare">http://localhost:4200</a></p>
+<p>Open <a href="https://openemsuilocal.consolinno.de">https://openemsuilocal.consolinno.de <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
 </li>
 <li>
 <p>You should see OpenEMS UI. Log in as user "guest" by leaving the standard password and clicking the login button. Alternatively type "admin" in the password field to log in with extended permissions.</p>
@@ -783,13 +723,13 @@ If you receive an error message, that you have no rights to execute "ng serve", 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_integrate_openems_backend"><a class="anchor" href="#_integrate_openems_backend"></a>6. Integrate OpenEMS Backend</h2>
+<h2 id="_integrate_openems_backend"><a class="anchor" href="#_integrate_openems_backend"></a>5. Integrate OpenEMS Backend</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Instead of having Edge and UI talk to each other directly, the communication can also be proxied via Backend.</p>
 </div>
 <div class="sect2">
-<h3 id="_run_and_configure_openems_backend"><a class="anchor" href="#_run_and_configure_openems_backend"></a>6.1. Run and configure OpenEMS Backend</h3>
+<h3 id="_run_and_configure_openems_backend"><a class="anchor" href="#_run_and_configure_openems_backend"></a>5.1. Run and configure OpenEMS Backend</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -962,7 +902,7 @@ In the example we are configuring the <em><strong>Metadata.Dummy</strong></em> s
 </div>
 </div>
 <div class="sect2">
-<h3 id="_configure_openems_edge"><a class="anchor" href="#_configure_openems_edge"></a>6.2. Configure OpenEMS Edge</h3>
+<h3 id="_configure_openems_edge"><a class="anchor" href="#_configure_openems_edge"></a>5.2. Configure OpenEMS Edge</h3>
 <div class="paragraph">
 <p>Next we will configure OpenEMS Edge to connect to the OpenEMS Backend <em><strong>Edge.Websocket</strong></em> service.</p>
 </div>
@@ -1015,7 +955,7 @@ INFO  [.controller.api.backend.OnOpen] [ctrlBackend0] Connected to OpenEMS Backe
 </div>
 </div>
 <div class="sect2">
-<h3 id="_connect_openems_ui_with_backend"><a class="anchor" href="#_connect_openems_ui_with_backend"></a>6.3. Connect OpenEMS UI with Backend</h3>
+<h3 id="_connect_openems_ui_with_backend"><a class="anchor" href="#_connect_openems_ui_with_backend"></a>5.3. Connect OpenEMS UI with Backend</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1076,7 +1016,7 @@ OpenEMS UI can work both for local connections to OpenEMS Edge as well as cloud 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>7. Next steps</h2>
+<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>6. Next steps</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Now that you setup a complete development environment and have a working instance of OpenEMS Edge, OpenEMS Backend an OpenEMS UI, you can continue implementing your first device driver in OpenEMS. We provide a tutorial that explains the steps to implement an electric meter in OpenEMS Edge that is connected via Modbus/TCP.</p>
@@ -1087,7 +1027,7 @@ OpenEMS UI can work both for local connections to OpenEMS Edge as well as cloud 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_help"><a class="anchor" href="#_help"></a>8. Help</h2>
+<h2 id="_help"><a class="anchor" href="#_help"></a>7. Help</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you experienced any problems or doubts, please get in touch with us on the <a href="https://community.openems.io/">OpenEMS Community</a> forum.</p>

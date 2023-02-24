@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Backend Architecture :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/backend/architecture.html">
+    <title>Setup IDE for OpenEMS UI :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/ui/setup-ide.html">
+    <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="icon" href="../../../_/img/feneco.ico" type="image/x-icon">
@@ -86,14 +87,14 @@
     <button class="nav-toggle"></button>
     <span class="nav-text">OpenEMS UI</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../ui/setup-ide.html">Setup IDE</a>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="setup-ide.html">Setup IDE</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../ui/architecture.html">Architecture</a>
+    <a class="nav-link" href="architecture.html">Architecture</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../ui/build.html">Build OpenEMS UI</a>
+    <a class="nav-link" href="build.html">Build OpenEMS UI</a>
   </li>
 </ul>
   </li>
@@ -101,17 +102,17 @@
     <button class="nav-toggle"></button>
     <span class="nav-text">OpenEMS Backend</span>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="architecture.html">Architecture</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../backend/architecture.html">Architecture</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="backend-to-backend.html">Backend-to-Backend</a>
+    <a class="nav-link" href="../backend/backend-to-backend.html">Backend-to-Backend</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="build.html">Build OpenEMS Backend</a>
+    <a class="nav-link" href="../backend/build.html">Build OpenEMS Backend</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="deploy.html">Deploy OpenEMS Backend</a>
+    <a class="nav-link" href="../backend/deploy.html">Deploy OpenEMS Backend</a>
   </li>
 </ul>
   </li>
@@ -179,15 +180,126 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../introduction.html">Open Energy Management System</a></li>
-    <li class="crumb">OpenEMS Backend</li>
-    <li class="crumb"><a href="architecture.html">Architecture</a></li>
+    <li class="crumb">OpenEMS UI</li>
+    <li class="crumb"><a href="setup-ide.html">Setup IDE</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/backend/architecture.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/ui/setup-ide.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1>Backend Architecture</h1>
-
+<h1>Setup IDE for OpenEMS UI</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_setup_visual_studio_code">1. Setup Visual Studio Code</a></li>
+<li><a href="#_run_openems_ui">2. Run OpenEMS UI</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Visual Studio Code is the recommended development environment for OpenEMS UI. If you do not plan to actively develop on OpenEMS UI, you can simply use the hosted version we provide at <a href="https://openemsuilocal.consolinno.de">https://openemsuilocal.consolinno.de <span class="icon"><i class="fa fa-external-link"></i></span></a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setup_visual_studio_code"><a class="anchor" href="#_setup_visual_studio_code"></a>1. Setup Visual Studio Code</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download <a href="https://nodejs.org">node.js LTS <span class="icon"><i class="fa fa-external-link"></i></span></a> and install it.</p>
+</li>
+<li>
+<p>Download <a href="https://code.visualstudio.com/">Visual Studio Code <span class="icon"><i class="fa fa-external-link"></i></span></a>, install and start it.</p>
+</li>
+<li>
+<p>Open OpenEMS UI source code in Visual Studio Code:</p>
+<div class="paragraph">
+<p>Menu: <b class="button">File</b> → <b class="button">Open Folder&#8230;&#8203;</b> → Select the <code>ui</code> directory inside the downloaded source code (for example <code>C:\Users\your.user\git\openems\ui</code>) → <b class="button">Select directory</b></p>
+</div>
+</li>
+<li>
+<p>Open the integrated terminal:</p>
+<div class="paragraph">
+<p>Menu: <b class="button">Terminal</b> → <b class="button">New Terminal</b></p>
+</div>
+</li>
+<li>
+<p>Install <a href="https://cli.angular.io/">Angular CLI <span class="icon"><i class="fa fa-external-link"></i></span></a>:</p>
+<div class="paragraph">
+<p><code>npm install -g @angular/cli</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you receive an error message that the command <code>npm</code> could not be found, make sure that node.js is installed and restart Visual Studio Code.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Resolve and download dependencies:</p>
+<div class="paragraph">
+<p><code>npm install</code></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_run_openems_ui"><a class="anchor" href="#_run_openems_ui"></a>2. Run OpenEMS UI</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In Visual Studios integrated terminal type&#8230;&#8203;</p>
+<div class="paragraph">
+<p><code>ng serve -c openems-edge-dev</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you receive an error message, that you have no rights to execute "ng serve", set <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The log shows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">NG Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Open a browser at <a href="http://localhost:4200" class="bare">http://localhost:4200</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
 </article>
   </main>
 </div>
