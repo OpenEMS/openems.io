@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":9,"i2":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -209,7 +209,7 @@ implements <a href="EssFixActivePower.html" title="interface in io.openems.edge.
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -223,6 +223,15 @@ implements <a href="EssFixActivePower.html" title="interface in io.openems.edge.
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected static java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAcPower(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.controller.ess.fixactivepower.HybridEssMode,int)">getAcPower</a></span>&#8203;(<a href="../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
+          <a href="HybridEssMode.html" title="enum in io.openems.edge.controller.ess.fixactivepower">HybridEssMode</a>&nbsp;hybridEssMode,
+          int&nbsp;power)</code></th>
+<td class="colLast">
+<div class="block">Gets the required AC power set-point for AC- or Hybrid-ESS.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run()">run</a></span>()</code></th>
 <td class="colLast">
@@ -311,7 +320,7 @@ implements <a href="EssFixActivePower.html" title="interface in io.openems.edge.
 <a id="run()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>run</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;run()
@@ -323,6 +332,27 @@ implements <a href="EssFixActivePower.html" title="interface in io.openems.edge.
 <dd><code><a href="../../api/Controller.html#run()">run</a></code>&nbsp;in interface&nbsp;<code><a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</li>
+</ul>
+<a id="getAcPower(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.controller.ess.fixactivepower.HybridEssMode,int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getAcPower</h4>
+<pre class="methodSignature">protected static&nbsp;java.lang.Integer&nbsp;getAcPower&#8203;(<a href="../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
+                                              <a href="HybridEssMode.html" title="enum in io.openems.edge.controller.ess.fixactivepower">HybridEssMode</a>&nbsp;hybridEssMode,
+                                              int&nbsp;power)</pre>
+<div class="block">Gets the required AC power set-point for AC- or Hybrid-ESS.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ess</code> - the <a href="../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a>; checked for
+                      <a href="../../../ess/api/HybridEss.html" title="interface in io.openems.edge.ess.api"><code>HybridEss</code></a></dd>
+<dd><code>hybridEssMode</code> - the <a href="HybridEssMode.html" title="enum in io.openems.edge.controller.ess.fixactivepower"><code>HybridEssMode</code></a></dd>
+<dd><code>power</code> - the configured target power</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the AC power set-point</dd>
 </dl>
 </li>
 </ul>
