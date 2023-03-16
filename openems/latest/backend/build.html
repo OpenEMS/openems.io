@@ -192,13 +192,17 @@
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_build_using_eclipse_ide">1. Build using Eclipse IDE</a></li>
-<li><a href="#_build_using_gradle_from_command_line">2. Build using Gradle from command line</a></li>
+<li><a href="#_build_using_gradle_from_command_line">2. Build using Gradle from command line</a>
+<ul class="sectlevel2">
+<li><a href="#_building_only_a_specific_project">2.1. Building only a specific project</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This chapter explains, how OpenEMS Edge can be compiled to a JAR file that can be executed outside of an IDE.</p>
+<p>This chapter explains, how the OpenEMS Backend can be compiled to a JAR file that can be executed outside of an IDE.</p>
 </div>
 </div>
 </div>
@@ -244,6 +248,12 @@
 <p>Execute <code>gradlew buildBackend</code></p>
 </li>
 </ol>
+</div>
+<div class="sect2">
+<h3 id="_building_only_a_specific_project"><a class="anchor" href="#_building_only_a_specific_project"></a>2.1. Building only a specific project</h3>
+<div class="paragraph">
+<p>If developing a component for the backend, it might make sense to only build the component in isolation instead of the entire backend (same applies to the Edge). This can be achieved by executing <code>gradlew :io.openems.backend.metadata.mymetadata:build</code>, which produces a JAR file.</p>
+</div>
 </div>
 </div>
 </div>
