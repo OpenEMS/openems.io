@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -184,8 +184,8 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#timeData">timeData</a></span></code></th>
+<td class="colFirst"><code>protected <a href="../../common/timedata/TimedataManager.html" title="interface in io.openems.backend.common.timedata">TimedataManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#timedataManager">timedataManager</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -228,11 +228,20 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#assertUser(io.openems.backend.uiwebsocket.impl.WsData,io.openems.common.jsonrpc.base.AbstractJsonrpcRequest)">assertUser</a></span>&#8203;(<a href="WsData.html" title="class in io.openems.backend.uiwebsocket.impl">WsData</a>&nbsp;wsData,
+          <a href="../../../common/jsonrpc/base/AbstractJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">AbstractJsonrpcRequest</a>&nbsp;request)</code></th>
+<td class="colLast">
+<div class="block">Gets the authenticated User or throws an Exception if User is not
+ authenticated.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#handleEvent(org.osgi.service.event.Event)">handleEvent</a></span>&#8203;(org.osgi.service.event.Event&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logError(org.slf4j.Logger,java.lang.String)">logError</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
         java.lang.String&nbsp;message)</code></th>
@@ -240,7 +249,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <div class="block">Log an error message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -248,7 +257,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <div class="block">Log an info message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a></span>&#8203;(org.slf4j.Logger&nbsp;log,
        java.lang.String&nbsp;message)</code></th>
@@ -256,7 +265,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <div class="block">Log a warn message including the Component ID.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">send</a></span>&#8203;(java.lang.String&nbsp;token,
     <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
@@ -264,7 +273,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <div class="block">Send a JSON-RPC Notification to a UI session.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcRequest)">send</a></span>&#8203;(java.lang.String&nbsp;token,
     <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></th>
@@ -273,7 +282,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
  Response.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendBroadcast(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">sendBroadcast</a></span>&#8203;(java.lang.String&nbsp;edgeId,
              <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></th>
@@ -282,7 +291,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
  Edge-ID.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendSubscribedChannels(java.lang.String,io.openems.backend.common.edgewebsocket.EdgeCache)">sendSubscribedChannels</a></span>&#8203;(java.lang.String&nbsp;edgeId,
                       <a href="../../common/edgewebsocket/EdgeCache.html" title="class in io.openems.backend.common.edgewebsocket">EdgeCache</a>&nbsp;edgeCache)</code></th>
@@ -357,13 +366,13 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <pre>protected volatile&nbsp;<a href="../../common/edgewebsocket/EdgeWebsocket.html" title="interface in io.openems.backend.common.edgewebsocket">EdgeWebsocket</a> edgeWebsocket</pre>
 </li>
 </ul>
-<a id="timeData">
+<a id="timedataManager">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>timeData</h4>
-<pre>protected volatile&nbsp;<a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a> timeData</pre>
+<h4>timedataManager</h4>
+<pre>protected volatile&nbsp;<a href="../../common/timedata/TimedataManager.html" title="interface in io.openems.backend.common.timedata">TimedataManager</a> timedataManager</pre>
 </li>
 </ul>
 </li>
@@ -538,7 +547,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <a id="sendSubscribedChannels(java.lang.String,io.openems.backend.common.edgewebsocket.EdgeCache)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>sendSubscribedChannels</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;sendSubscribedChannels&#8203;(java.lang.String&nbsp;edgeId,
@@ -551,6 +560,28 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>edgeId</code> - the Edge-ID</dd>
 <dd><code>edgeCache</code> - the <a href="../../common/edgewebsocket/EdgeCache.html" title="class in io.openems.backend.common.edgewebsocket"><code>EdgeCache</code></a> for the Edge-ID</dd>
+</dl>
+</li>
+</ul>
+<a id="assertUser(io.openems.backend.uiwebsocket.impl.WsData,io.openems.common.jsonrpc.base.AbstractJsonrpcRequest)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>assertUser</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;assertUser&#8203;(<a href="WsData.html" title="class in io.openems.backend.uiwebsocket.impl">WsData</a>&nbsp;wsData,
+                       <a href="../../../common/jsonrpc/base/AbstractJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">AbstractJsonrpcRequest</a>&nbsp;request)
+                throws <a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></pre>
+<div class="block">Gets the authenticated User or throws an Exception if User is not
+ authenticated.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>wsData</code> - the WebSocket attachment</dd>
+<dd><code>request</code> - the <a href="../../../common/jsonrpc/base/AbstractJsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base"><code>AbstractJsonrpcRequest</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata"><code>User</code></a></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - if User is not authenticated</dd>
 </dl>
 </li>
 </ul>

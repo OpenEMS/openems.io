@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -184,19 +184,28 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#containsWithNullCheck(java.lang.String,java.lang.String)">containsWithNullCheck</a></span>&#8203;(java.lang.String&nbsp;string,
+                     java.lang.String&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">If the given string is null return false, otherwise result of
+ <code>String.contains(CharSequence)</code> is returned.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#matchesFloatPattern(java.lang.String)">matchesFloatPattern</a></span>&#8203;(java.lang.String&nbsp;string)</code></th>
 <td class="colLast">
 <div class="block">Checks if the given string matches an Float pattern, i.e.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#matchesIntegerPattern(java.lang.String)">matchesIntegerPattern</a></span>&#8203;(java.lang.String&nbsp;string)</code></th>
 <td class="colLast">
 <div class="block">Checks if the given string matches an Integer pattern, i.e.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#matchWildcard(java.lang.String,java.lang.String)">matchWildcard</a></span>&#8203;(java.lang.String&nbsp;source,
              java.lang.String&nbsp;pattern)</code></th>
@@ -204,7 +213,14 @@ extends java.lang.Object</pre>
 <div class="block">Match two Strings, considering wildcards.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reverse(java.lang.String)">reverse</a></span>&#8203;(java.lang.String&nbsp;string)</code></th>
+<td class="colLast">
+<div class="block">Causes this character sequence to be replaced by the reverse of the sequence.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toShortString(com.google.gson.JsonElement,int)">toShortString</a></span>&#8203;(com.google.gson.JsonElement&nbsp;j,
              int&nbsp;length)</code></th>
@@ -212,7 +228,7 @@ extends java.lang.Object</pre>
 <div class="block">Shortens a <code>JsonElement</code> string representation to a given length.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toShortString(java.lang.String,int)">toShortString</a></span>&#8203;(java.lang.String&nbsp;s,
              int&nbsp;length)</code></th>
@@ -374,7 +390,7 @@ extends java.lang.Object</pre>
 <a id="matchesFloatPattern(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>matchesFloatPattern</h4>
 <pre class="methodSignature">public static&nbsp;boolean&nbsp;matchesFloatPattern&#8203;(java.lang.String&nbsp;string)</pre>
@@ -385,6 +401,41 @@ extends java.lang.Object</pre>
 <dd><code>string</code> - a string</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if it matches Float</dd>
+</dl>
+</li>
+</ul>
+<a id="reverse(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>reverse</h4>
+<pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;reverse&#8203;(java.lang.String&nbsp;string)</pre>
+<div class="block">Causes this character sequence to be replaced by the reverse of the sequence.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>string</code> - to be reversed.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>reversed String.</dd>
+</dl>
+</li>
+</ul>
+<a id="containsWithNullCheck(java.lang.String,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>containsWithNullCheck</h4>
+<pre class="methodSignature">public static&nbsp;boolean&nbsp;containsWithNullCheck&#8203;(java.lang.String&nbsp;string,
+                                            java.lang.String&nbsp;value)</pre>
+<div class="block">If the given string is null return false, otherwise result of
+ <code>String.contains(CharSequence)</code> is returned.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>string</code> - the string to check</dd>
+<dd><code>value</code> - the sequence to search for</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if string is not null and string contains value, otherwise false</dd>
 </dl>
 </li>
 </ul>
