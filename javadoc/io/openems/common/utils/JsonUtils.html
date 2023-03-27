@@ -552,6 +552,13 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns a Collector that accumulates the input elements into a new JsonArray.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Collector.html" title="class or interface in java.util.stream" class="external-link">Collector</a>&lt;T,<wbr>?,<wbr>com.google.gson.JsonObject&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toJsonObject(com.google.common.base.Function,com.google.common.base.Function)" class="member-name-link">toJsonObject</a><wbr>(com.google.common.base.Function&lt;T,<wbr>? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;keyMapper,
+ com.google.common.base.Function&lt;T,<wbr>? extends com.google.gson.JsonElement&gt;&nbsp;valueMapper)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns a <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Collector.html" title="class or interface in java.util.stream" class="external-link"><code>Collector</code></a> that accumulates the input elements into a new
+ <code>JsonObject</code>.</div>
+</div>
 </div>
 </div>
 </div>
@@ -1790,6 +1797,25 @@ loadScripts(document, 'script');</script>
 <dd><code>jsonArray</code> - The <code>JsonArray</code>, assumed to be unmodified during use</dd>
 <dt>Returns:</dt>
 <dd>a Stream of the elements</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="toJsonObject(com.google.common.base.Function,com.google.common.base.Function)">
+<h3>toJsonObject</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>
+<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Collector.html" title="class or interface in java.util.stream" class="external-link">Collector</a>&lt;T,<wbr>?,<wbr>com.google.gson.JsonObject&gt;</span>&nbsp;<span class="element-name">toJsonObject</span><wbr><span class="parameters">(com.google.common.base.Function&lt;T,<wbr>? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;keyMapper,
+ com.google.common.base.Function&lt;T,<wbr>? extends com.google.gson.JsonElement&gt;&nbsp;valueMapper)</span></div>
+<div class="block">Returns a <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Collector.html" title="class or interface in java.util.stream" class="external-link"><code>Collector</code></a> that accumulates the input elements into a new
+ <code>JsonObject</code>.</div>
+<dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>T</code> - the type of the input</dd>
+<dt>Parameters:</dt>
+<dd><code>keyMapper</code> - the key mapper</dd>
+<dd><code>valueMapper</code> - the value mapper</dd>
+<dt>Returns:</dt>
+<dd>the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Collector.html" title="class or interface in java.util.stream" class="external-link"><code>Collector</code></a></dd>
 </dl>
 </section>
 </li>
