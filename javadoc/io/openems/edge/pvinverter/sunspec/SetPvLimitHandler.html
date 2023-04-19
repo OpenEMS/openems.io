@@ -77,12 +77,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../common/function/ThrowingRunnable.html" title="interface in io.openems.common.function">ThrowingRunnable</a>&lt;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</code></dd>
+<dd><code><a href="../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;,<wbr><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">SetPvLimitHandler</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="../../../common/function/ThrowingRunnable.html" title="interface in io.openems.common.function">ThrowingRunnable</a>&lt;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</span></div>
+implements <a href="../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;,<wbr><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -111,11 +111,9 @@ implements <a href="../../../common/function/ThrowingRunnable.html" title="inter
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run()" class="member-name-link">run</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#accept(java.util.Optional)" class="member-name-link">accept</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;activePowerLimitOpt)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">When an object implementing interface <code>Runnable</code> is used to create
- a thread, starting the thread causes the object's <code>run</code> method to
- be called in that separately executing thread.</div>
+<div class="block">Handles a PV-Inverter power limitation request.</div>
 </div>
 </div>
 </div>
@@ -149,29 +147,19 @@ implements <a href="../../../common/function/ThrowingRunnable.html" title="inter
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="run()">
-<h3>run</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">run</span>()
-         throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../common/function/ThrowingRunnable.html#run()">ThrowingRunnable</a></code></span></div>
-<div class="block">When an object implementing interface <code>Runnable</code> is used to create
- a thread, starting the thread causes the object's <code>run</code> method to
- be called in that separately executing thread.
-
- <p>
- The general contract of the method <code>run</code> is that it may take any
- action whatsoever.</div>
+<section class="detail" id="accept(java.util.Optional)">
+<h3>accept</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">accept</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;activePowerLimitOpt)</span>
+            throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block">Handles a PV-Inverter power limitation request.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../../common/function/ThrowingRunnable.html#run()">run</a></code>&nbsp;in interface&nbsp;<code><a href="../../../common/function/ThrowingRunnable.html" title="interface in io.openems.common.function">ThrowingRunnable</a>&lt;<a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</code></dd>
+<dd><code><a href="../../../common/function/ThrowingConsumer.html#accept(T)">accept</a></code>&nbsp;in interface&nbsp;<code><a href="../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;,<wbr><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>activePowerLimitOpt</code> - an Optional power limit; empty value sets the
+                            allowed inverter power to 100 %, i.e. no limit</dd>
 <dt>Throws:</dt>
-<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
-<dt>See Also:</dt>
-<dd>
-<ul class="see-list">
-<li><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#run()" title="class or interface in java.lang" class="external-link"><code>Thread.run()</code></a></li>
-</ul>
-</dd>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </section>
 </li>
