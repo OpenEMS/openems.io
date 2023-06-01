@@ -392,7 +392,12 @@ implements <a href="../Channel.html" title="interface in io.openems.edge.common.
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
 </span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setNextValue</span><wbr><span class="parameters">(<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&nbsp;value)</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Sets the next value. Internal method. Do not call directly.</div>
+<div class="block">Sets the next value. Internal method. Do not call directly.
+ 
+ <p>
+ If the <a href="../../../../common/channel/Unit.html" title="enum class in io.openems.common.channel"><code>Unit</code></a> of the Channel is cumulated and 'value' is null, it is
+ silently ignored. Cumulated values must be steadily increasing and should
+ never get reset to null. See <a href="../../../../common/channel/Unit.html" title="enum class in io.openems.common.channel"><code>Unit</code></a>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../Channel.html#_setNextValue(T)">_setNextValue</a></code>&nbsp;in interface&nbsp;<code><a href="../Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">D</a> extends <a href="AbstractDoc.html" title="class in io.openems.edge.common.channel.internal">AbstractDoc</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</code></dd>
@@ -414,7 +419,7 @@ implements <a href="../Channel.html" title="interface in io.openems.edge.common.
 <dt>Specified by:</dt>
 <dd><code><a href="../Channel.html#getNextValue()">getNextValue</a></code>&nbsp;in interface&nbsp;<code><a href="../Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">D</a> extends <a href="AbstractDoc.html" title="class in io.openems.edge.common.channel.internal">AbstractDoc</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</code></dd>
 <dt>Returns:</dt>
-<dd>the 'next value'</dd>
+<dd>the 'next value', never null</dd>
 </dl>
 </section>
 </li>
@@ -429,10 +434,10 @@ implements <a href="../Channel.html" title="interface in io.openems.edge.common.
 <dt>Specified by:</dt>
 <dd><code><a href="../Channel.html#value()">value</a></code>&nbsp;in interface&nbsp;<code><a href="../Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">D</a> extends <a href="AbstractDoc.html" title="class in io.openems.edge.common.channel.internal">AbstractDoc</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</code></dd>
 <dt>Returns:</dt>
-<dd>the active value</dd>
+<dd>the active value, never null</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if value cannot be access, e.g. because the
-                                  Channel is Write-Only.</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if value cannot be accessed, e.g. because
+                                  the Channel is Write-Only.</dd>
 </dl>
 </section>
 </li>

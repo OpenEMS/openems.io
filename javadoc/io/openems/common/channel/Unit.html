@@ -46,13 +46,13 @@ loadScripts(document, 'script');</script>
 <li>Summary:&nbsp;</li>
 <li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#enum-constant-summary">Enum Constants</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
 <li><a href="#enum-constant-detail">Enum Constants</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
 </div>
@@ -84,6 +84,13 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public enum </span><span class="element-name type-name-label">Unit</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html" title="class or interface in java.lang" class="external-link">Enum</a>&lt;<a href="Unit.html" title="enum class in io.openems.common.channel">Unit</a>&gt;</span></div>
+<div class="block">Units of measurement used in OpenEMS.
+ 
+ <p>
+ Units marked as 'cumulated' are per definition steadily increasing, i.e.
+ <code>Value(t + 1) &gt;= Value(t)</code>. This applies e.g. to consumed energy in
+ [Wh_Σ]. To calculate the 'discrete' consumed energy in [Wh] for a certain
+ period, subtract first cumulated value from last cumulated value.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -116,154 +123,182 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Unit of cumulated time [s].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#DEGREE_CELSIUS" class="member-name-link">DEGREE_CELSIUS</a></code></div>
+<div class="col-first odd-row-color"><code><a href="#CUMULATED_WATT_HOURS" class="member-name-link">CUMULATED_WATT_HOURS</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block">Unit of cumulated Energy [Wh_Σ].</div>
+</div>
+<div class="col-first even-row-color"><code><a href="#DEGREE_CELSIUS" class="member-name-link">DEGREE_CELSIUS</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Temperature [C].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#DEZIDEGREE_CELSIUS" class="member-name-link">DEZIDEGREE_CELSIUS</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#DEZIDEGREE_CELSIUS" class="member-name-link">DEZIDEGREE_CELSIUS</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Temperature [dC].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#EUROS_PER_MEGAWATT_HOUR" class="member-name-link">EUROS_PER_MEGAWATT_HOUR</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#EUROS_PER_MEGAWATT_HOUR" class="member-name-link">EUROS_PER_MEGAWATT_HOUR</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Energy Price [€/MWh].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#HERTZ" class="member-name-link">HERTZ</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#HERTZ" class="member-name-link">HERTZ</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Frequency [Hz].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#HOUR" class="member-name-link">HOUR</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#HOUR" class="member-name-link">HOUR</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Time.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#KILOAMPERE_HOURS" class="member-name-link">KILOAMPERE_HOURS</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#KILOAMPERE_HOURS" class="member-name-link">KILOAMPERE_HOURS</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Electric Charge.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#KILOOHM" class="member-name-link">KILOOHM</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#KILOOHM" class="member-name-link">KILOOHM</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Resistance [kOhm].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#KILOVOLT_AMPERE" class="member-name-link">KILOVOLT_AMPERE</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#KILOVOLT_AMPERE" class="member-name-link">KILOVOLT_AMPERE</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Apparent Power [kVA].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#KILOVOLT_AMPERE_REACTIVE" class="member-name-link">KILOVOLT_AMPERE_REACTIVE</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#KILOVOLT_AMPERE_REACTIVE" class="member-name-link">KILOVOLT_AMPERE_REACTIVE</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Reactive Power [kvar].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#KILOVOLT_AMPERE_REACTIVE_HOURS" class="member-name-link">KILOVOLT_AMPERE_REACTIVE_HOURS</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#KILOVOLT_AMPERE_REACTIVE_HOURS" class="member-name-link">KILOVOLT_AMPERE_REACTIVE_HOURS</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Reactive Energy [kVArh].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#KILOWATT" class="member-name-link">KILOWATT</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#KILOWATT" class="member-name-link">KILOWATT</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Active Power [kW].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#KILOWATT_HOURS" class="member-name-link">KILOWATT_HOURS</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#KILOWATT_HOURS" class="member-name-link">KILOWATT_HOURS</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Energy [kWh].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#MICROAMPERE" class="member-name-link">MICROAMPERE</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#MICROAMPERE" class="member-name-link">MICROAMPERE</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Current [uA].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#MICROOHM" class="member-name-link">MICROOHM</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#MICROOHM" class="member-name-link">MICROOHM</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Resistance [uOhm].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#MICROVOLT" class="member-name-link">MICROVOLT</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#MICROVOLT" class="member-name-link">MICROVOLT</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Voltage [uV].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#MILLIAMPERE" class="member-name-link">MILLIAMPERE</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#MILLIAMPERE" class="member-name-link">MILLIAMPERE</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Current [mA].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#MILLIAMPERE_HOURS" class="member-name-link">MILLIAMPERE_HOURS</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#MILLIAMPERE_HOURS" class="member-name-link">MILLIAMPERE_HOURS</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Electric Charge.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#MILLIHERTZ" class="member-name-link">MILLIHERTZ</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#MILLIHERTZ" class="member-name-link">MILLIHERTZ</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Frequency [mHz].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#MILLIOHM" class="member-name-link">MILLIOHM</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#MILLIOHM" class="member-name-link">MILLIOHM</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Resistance [mOhm].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#MILLISECONDS" class="member-name-link">MILLISECONDS</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#MILLISECONDS" class="member-name-link">MILLISECONDS</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Time [ms].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#MILLIVOLT" class="member-name-link">MILLIVOLT</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#MILLIVOLT" class="member-name-link">MILLIVOLT</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Voltage [mV].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#MILLIWATT" class="member-name-link">MILLIWATT</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#MILLIWATT" class="member-name-link">MILLIWATT</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Active Power [mW].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#MINUTE" class="member-name-link">MINUTE</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#MINUTE" class="member-name-link">MINUTE</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Time.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#NONE" class="member-name-link">NONE</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#NONE" class="member-name-link">NONE</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">No Unit.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#OHM" class="member-name-link">OHM</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#OHM" class="member-name-link">OHM</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Resistance [Ohm].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#ON_OFF" class="member-name-link">ON_OFF</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#ON_OFF" class="member-name-link">ON_OFF</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">On or Off.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#PERCENT" class="member-name-link">PERCENT</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#PERCENT" class="member-name-link">PERCENT</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Percentage [%], 0-100.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#SECONDS" class="member-name-link">SECONDS</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#SECONDS" class="member-name-link">SECONDS</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Time [s].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#THOUSANDTH" class="member-name-link">THOUSANDTH</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#THOUSANDTH" class="member-name-link">THOUSANDTH</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Thousandth [‰], 0-1000.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#VOLT" class="member-name-link">VOLT</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#VOLT" class="member-name-link">VOLT</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Voltage [V].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#VOLT_AMPERE" class="member-name-link">VOLT_AMPERE</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#VOLT_AMPERE" class="member-name-link">VOLT_AMPERE</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Apparent Power [VA].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#VOLT_AMPERE_HOURS" class="member-name-link">VOLT_AMPERE_HOURS</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#VOLT_AMPERE_HOURS" class="member-name-link">VOLT_AMPERE_HOURS</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Apparent Energy [VAh].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#VOLT_AMPERE_REACTIVE" class="member-name-link">VOLT_AMPERE_REACTIVE</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#VOLT_AMPERE_REACTIVE" class="member-name-link">VOLT_AMPERE_REACTIVE</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Reactive Power [var].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#VOLT_AMPERE_REACTIVE_HOURS" class="member-name-link">VOLT_AMPERE_REACTIVE_HOURS</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#VOLT_AMPERE_REACTIVE_HOURS" class="member-name-link">VOLT_AMPERE_REACTIVE_HOURS</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Reactive Energy [varh].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#WATT" class="member-name-link">WATT</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#WATT" class="member-name-link">WATT</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Active Power [W].</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#WATT_HOURS" class="member-name-link">WATT_HOURS</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#WATT_HOURS" class="member-name-link">WATT_HOURS</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Unit of Energy [Wh].</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#WATT_HOURS_BY_WATT_PEAK" class="member-name-link">WATT_HOURS_BY_WATT_PEAK</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#WATT_HOURS_BY_WATT_PEAK" class="member-name-link">WATT_HOURS_BY_WATT_PEAK</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Unit of Energy [Wh/Wp].</div>
 </div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>final <a href="Unit.html" title="enum class in io.openems.common.channel">Unit</a></code></div>
+<div class="col-second even-row-color"><code><a href="#baseUnit" class="member-name-link">baseUnit</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>final <a href="Unit.html" title="enum class in io.openems.common.channel">Unit</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#discreteUnit" class="member-name-link">discreteUnit</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>final int</code></div>
+<div class="col-second even-row-color"><code><a href="#scaleFactor" class="member-name-link">scaleFactor</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#symbol" class="member-name-link">symbol</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -295,12 +330,16 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the value in its base unit, e.g.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Unit.html" title="enum class in io.openems.common.channel">Unit</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBaseUnit()" class="member-name-link">getBaseUnit</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSymbol()" class="member-name-link">getSymbol</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/DoubleStream.html" title="class or interface in java.util.stream" class="external-link">DoubleStream</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalDouble.html" title="class or interface in java.util" class="external-link">OptionalDouble</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChannelAggregateFunction()" class="member-name-link">getChannelAggregateFunction</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get the corresponding aggregate function of current <a href="Unit.html" title="enum class in io.openems.common.channel"><code>Unit</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isCumulated()" class="member-name-link">isCumulated</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns true if this is a cumulated unit.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -518,6 +557,13 @@ the order they are declared.</div>
 </section>
 </li>
 <li>
+<section class="detail" id="CUMULATED_WATT_HOURS">
+<h3>CUMULATED_WATT_HOURS</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="Unit.html" title="enum class in io.openems.common.channel">Unit</a></span>&nbsp;<span class="element-name">CUMULATED_WATT_HOURS</span></div>
+<div class="block">Unit of cumulated Energy [Wh_Σ].</div>
+</section>
+</li>
+<li>
 <section class="detail" id="EUROS_PER_MEGAWATT_HOUR">
 <h3>EUROS_PER_MEGAWATT_HOUR</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="Unit.html" title="enum class in io.openems.common.channel">Unit</a></span>&nbsp;<span class="element-name">EUROS_PER_MEGAWATT_HOUR</span></div>
@@ -618,6 +664,38 @@ the order they are declared.</div>
 </ul>
 </section>
 </li>
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="symbol">
+<h3>symbol</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">symbol</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="baseUnit">
+<h3>baseUnit</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="Unit.html" title="enum class in io.openems.common.channel">Unit</a></span>&nbsp;<span class="element-name">baseUnit</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="scaleFactor">
+<h3>scaleFactor</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">scaleFactor</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="discreteUnit">
+<h3>discreteUnit</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="Unit.html" title="enum class in io.openems.common.channel">Unit</a></span>&nbsp;<span class="element-name">discreteUnit</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
 <!-- ============ METHOD DETAIL ========== -->
 <li>
 <section class="method-details" id="method-detail">
@@ -655,12 +733,6 @@ not permitted.)</div>
 </section>
 </li>
 <li>
-<section class="detail" id="getBaseUnit()">
-<h3>getBaseUnit</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Unit.html" title="enum class in io.openems.common.channel">Unit</a></span>&nbsp;<span class="element-name">getBaseUnit</span>()</div>
-</section>
-</li>
-<li>
 <section class="detail" id="getAsBaseUnit(int)">
 <h3>getAsBaseUnit</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getAsBaseUnit</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
@@ -671,12 +743,6 @@ not permitted.)</div>
 <dt>Returns:</dt>
 <dd>the converted value</dd>
 </dl>
-</section>
-</li>
-<li>
-<section class="detail" id="getSymbol()">
-<h3>getSymbol</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getSymbol</span>()</div>
 </section>
 </li>
 <li>
@@ -721,6 +787,28 @@ not permitted.)</div>
                     the given Symbol exists</dd>
 <dt>Returns:</dt>
 <dd>the Unit; or the defaultUnit if it was not found</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getChannelAggregateFunction()">
+<h3>getChannelAggregateFunction</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/DoubleStream.html" title="class or interface in java.util.stream" class="external-link">DoubleStream</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/OptionalDouble.html" title="class or interface in java.util" class="external-link">OptionalDouble</a>&gt;</span>&nbsp;<span class="element-name">getChannelAggregateFunction</span>()</div>
+<div class="block">Get the corresponding aggregate function of current <a href="Unit.html" title="enum class in io.openems.common.channel"><code>Unit</code></a>.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>corresponding aggregate function</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isCumulated()">
+<h3>isCumulated</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isCumulated</span>()</div>
+<div class="block">Returns true if this is a cumulated unit.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if this <a href="Unit.html" title="enum class in io.openems.common.channel"><code>Unit</code></a> is cumulated, otherwise false</dd>
 </dl>
 </section>
 </li>
