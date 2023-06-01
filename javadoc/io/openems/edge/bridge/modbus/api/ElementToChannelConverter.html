@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="ElementToChannelConverterChain.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverterChain</a></code>, <code><a href="ElementToChannelOffsetConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelOffsetConverter</a></code>, <code><a href="ElementToChannelScaleFactorConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelScaleFactorConverter</a></code>, <code><a href="../../../battery/fenecon/commercial/IgnoreZeroConverter.html" title="class in io.openems.edge.battery.fenecon.commercial">IgnoreZeroConverter</a></code></dd>
+<dd><code><a href="ElementToChannelScaleFactorConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelScaleFactorConverter</a></code>, <code><a href="../../../battery/fenecon/commercial/IgnoreZeroConverter.html" title="class in io.openems.edge.battery.fenecon.commercial">IgnoreZeroConverter</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ElementToChannelConverter</span>
@@ -217,20 +217,40 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static final <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#ADD(double)" class="member-name-link">ADD</a><wbr>(double&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Add the given value to the Channel value.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#chain(io.openems.edge.bridge.modbus.api.ElementToChannelConverter...)" class="member-name-link">chain</a><wbr>(<a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a>...&nbsp;converters)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Sets the chain with given <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverters</code></a>.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#channelToElement(java.lang.Object)" class="member-name-link">channelToElement</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Convert a Channel value to an Element value.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#elementToChannel(java.lang.Object)" class="member-name-link">elementToChannel</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static final <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#DIVIDE(double)" class="member-name-link">DIVIDE</a><wbr>(double&nbsp;scale)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Divide the channel value with the given scale.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#elementToChannel(java.lang.Object)" class="member-name-link">elementToChannel</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Convert an Element value to a Channel value.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#INVERT_IF_TRUE(boolean)" class="member-name-link">INVERT_IF_TRUE</a><wbr>(boolean&nbsp;invert)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#INVERT_IF_TRUE(boolean)" class="member-name-link">INVERT_IF_TRUE</a><wbr>(boolean&nbsp;invert)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Converts depending on the given parameter.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static final <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#MULTIPLY(double)" class="member-name-link">MULTIPLY</a><wbr>(double&nbsp;factor)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Multiply the given factor with the channel value.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static final <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#SCALE_FACTOR_1_AND_INVERT_IF_TRUE(boolean)" class="member-name-link">SCALE_FACTOR_1_AND_INVERT_IF_TRUE</a><wbr>(boolean&nbsp;invert)</code></div>
@@ -258,6 +278,11 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Sets the value to 'zero' if parameter is true; otherwise
  <a href="#DIRECT_1_TO_1"><code>DIRECT_1_TO_1</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static final <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#SUBTRACT(double)" class="member-name-link">SUBTRACT</a><wbr>(double&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Subtract the given value to the Channel value.</div>
 </div>
 </div>
 </div>
@@ -485,6 +510,87 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="SCALE_FACTOR_1_AND_INVERT_IF_TRUE(boolean)">
+<h3>SCALE_FACTOR_1_AND_INVERT_IF_TRUE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">SCALE_FACTOR_1_AND_INVERT_IF_TRUE</span><wbr><span class="parameters">(boolean&nbsp;invert)</span></div>
+<div class="block">Applies <a href="#SCALE_FACTOR_1"><code>SCALE_FACTOR_1</code></a> and INVERT_IF_TRUE.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>invert</code> - input value for <a href="#INVERT_IF_TRUE(boolean)"><code>INVERT_IF_TRUE(boolean)</code></a></dd>
+<dt>Returns:</dt>
+<dd>the <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverter</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="SCALE_FACTOR_2_AND_INVERT_IF_TRUE(boolean)">
+<h3>SCALE_FACTOR_2_AND_INVERT_IF_TRUE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">SCALE_FACTOR_2_AND_INVERT_IF_TRUE</span><wbr><span class="parameters">(boolean&nbsp;invert)</span></div>
+<div class="block">Applies <a href="#SCALE_FACTOR_2"><code>SCALE_FACTOR_2</code></a> and INVERT_IF_TRUE.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>invert</code> - input value for <a href="#INVERT_IF_TRUE(boolean)"><code>INVERT_IF_TRUE(boolean)</code></a></dd>
+<dt>Returns:</dt>
+<dd>the <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverter</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="SCALE_FACTOR_3_AND_INVERT_IF_TRUE(boolean)">
+<h3>SCALE_FACTOR_3_AND_INVERT_IF_TRUE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">SCALE_FACTOR_3_AND_INVERT_IF_TRUE</span><wbr><span class="parameters">(boolean&nbsp;invert)</span></div>
+<div class="block">Applies <a href="#SCALE_FACTOR_3"><code>SCALE_FACTOR_3</code></a> and INVERT_IF_TRUE.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>invert</code> - input value for <a href="#INVERT_IF_TRUE(boolean)"><code>INVERT_IF_TRUE(boolean)</code></a></dd>
+<dt>Returns:</dt>
+<dd>the <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverter</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="SCALE_FACTOR_MINUS_1_AND_INVERT_IF_TRUE(boolean)">
+<h3>SCALE_FACTOR_MINUS_1_AND_INVERT_IF_TRUE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">SCALE_FACTOR_MINUS_1_AND_INVERT_IF_TRUE</span><wbr><span class="parameters">(boolean&nbsp;invert)</span></div>
+<div class="block">Applies <a href="#SCALE_FACTOR_MINUS_1"><code>SCALE_FACTOR_MINUS_1</code></a> and
+ INVERT_IF_TRUE.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>invert</code> - input value for <a href="#INVERT_IF_TRUE(boolean)"><code>INVERT_IF_TRUE(boolean)</code></a></dd>
+<dt>Returns:</dt>
+<dd>the <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverter</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="elementToChannel(java.lang.Object)">
+<h3>elementToChannel</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span>&nbsp;<span class="element-name">elementToChannel</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;value)</span></div>
+<div class="block">Convert an Element value to a Channel value. If the value can or should not
+ be converted, this method returns null.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>value</code> - the Element value</dd>
+<dt>Returns:</dt>
+<dd>the converted value or null</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="channelToElement(java.lang.Object)">
+<h3>channelToElement</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span>&nbsp;<span class="element-name">channelToElement</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;value)</span></div>
+<div class="block">Convert a Channel value to an Element value. If the value can or should not
+ be converted, this method returns null.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>value</code> - the Channel value</dd>
+<dt>Returns:</dt>
+<dd>the converted value or null</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="SET_ZERO_IF_TRUE(boolean)">
 <h3>SET_ZERO_IF_TRUE</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">SET_ZERO_IF_TRUE</span><wbr><span class="parameters">(boolean&nbsp;setZero)</span></div>
@@ -522,83 +628,67 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="SCALE_FACTOR_1_AND_INVERT_IF_TRUE(boolean)">
-<h3>SCALE_FACTOR_1_AND_INVERT_IF_TRUE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">SCALE_FACTOR_1_AND_INVERT_IF_TRUE</span><wbr><span class="parameters">(boolean&nbsp;invert)</span></div>
-<div class="block">Applies <a href="#SCALE_FACTOR_1"><code>SCALE_FACTOR_1</code></a> and INVERT_IF_TRUE.</div>
+<section class="detail" id="chain(io.openems.edge.bridge.modbus.api.ElementToChannelConverter...)">
+<h3>chain</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">chain</span><wbr><span class="parameters">(<a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a>...&nbsp;converters)</span></div>
+<div class="block">Sets the chain with given <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverters</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>invert</code> - input value for <a href="#INVERT_IF_TRUE(boolean)"><code>INVERT_IF_TRUE(boolean)</code></a></dd>
+<dd><code>converters</code> - to be applied as chain one after the other.</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ElementToChannelConverterChain.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverterChain</code></a></dd>
+<dd><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverter</code></a> after applied all converters.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="SCALE_FACTOR_2_AND_INVERT_IF_TRUE(boolean)">
-<h3>SCALE_FACTOR_2_AND_INVERT_IF_TRUE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">SCALE_FACTOR_2_AND_INVERT_IF_TRUE</span><wbr><span class="parameters">(boolean&nbsp;invert)</span></div>
-<div class="block">Applies <a href="#SCALE_FACTOR_2"><code>SCALE_FACTOR_2</code></a> and INVERT_IF_TRUE.</div>
+<section class="detail" id="MULTIPLY(double)">
+<h3>MULTIPLY</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">MULTIPLY</span><wbr><span class="parameters">(double&nbsp;factor)</span></div>
+<div class="block">Multiply the given factor with the channel value.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>invert</code> - input value for <a href="#INVERT_IF_TRUE(boolean)"><code>INVERT_IF_TRUE(boolean)</code></a></dd>
+<dd><code>factor</code> - the value to be applied to the Channel value.</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ElementToChannelConverterChain.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverterChain</code></a></dd>
+<dd><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverter</code></a></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="SCALE_FACTOR_3_AND_INVERT_IF_TRUE(boolean)">
-<h3>SCALE_FACTOR_3_AND_INVERT_IF_TRUE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">SCALE_FACTOR_3_AND_INVERT_IF_TRUE</span><wbr><span class="parameters">(boolean&nbsp;invert)</span></div>
-<div class="block">Applies <a href="#SCALE_FACTOR_3"><code>SCALE_FACTOR_3</code></a> and INVERT_IF_TRUE.</div>
+<section class="detail" id="DIVIDE(double)">
+<h3>DIVIDE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">DIVIDE</span><wbr><span class="parameters">(double&nbsp;scale)</span></div>
+<div class="block">Divide the channel value with the given scale.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>invert</code> - input value for <a href="#INVERT_IF_TRUE(boolean)"><code>INVERT_IF_TRUE(boolean)</code></a></dd>
+<dd><code>scale</code> - the value to be applied to the Channel value.</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ElementToChannelConverterChain.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverterChain</code></a></dd>
+<dd><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverter</code></a></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="SCALE_FACTOR_MINUS_1_AND_INVERT_IF_TRUE(boolean)">
-<h3>SCALE_FACTOR_MINUS_1_AND_INVERT_IF_TRUE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">SCALE_FACTOR_MINUS_1_AND_INVERT_IF_TRUE</span><wbr><span class="parameters">(boolean&nbsp;invert)</span></div>
-<div class="block">Applies <a href="#SCALE_FACTOR_MINUS_1"><code>SCALE_FACTOR_MINUS_1</code></a> and
- INVERT_IF_TRUE.</div>
+<section class="detail" id="ADD(double)">
+<h3>ADD</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">ADD</span><wbr><span class="parameters">(double&nbsp;value)</span></div>
+<div class="block">Add the given value to the Channel value.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>invert</code> - input value for <a href="#INVERT_IF_TRUE(boolean)"><code>INVERT_IF_TRUE(boolean)</code></a></dd>
+<dd><code>value</code> - to add to the Channel value.</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ElementToChannelConverterChain.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverterChain</code></a></dd>
+<dd><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverter</code></a></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="elementToChannel(java.lang.Object)">
-<h3>elementToChannel</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span>&nbsp;<span class="element-name">elementToChannel</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;value)</span></div>
-<div class="block">Convert an Element value to a Channel value. If the value can or should not
- be converted, this method returns null.</div>
+<section class="detail" id="SUBTRACT(double)">
+<h3>SUBTRACT</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">SUBTRACT</span><wbr><span class="parameters">(double&nbsp;value)</span></div>
+<div class="block">Subtract the given value to the Channel value.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>value</code> - the Element value</dd>
+<dd><code>value</code> - to subtract to the Channel value.</dd>
 <dt>Returns:</dt>
-<dd>the converted value or null</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="channelToElement(java.lang.Object)">
-<h3>channelToElement</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span>&nbsp;<span class="element-name">channelToElement</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;value)</span></div>
-<div class="block">Convert a Channel value to an Element value. If the value can or should not
- be converted, this method returns null.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>value</code> - the Channel value</dd>
-<dt>Returns:</dt>
-<dd>the converted value or null</dd>
+<dd><a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api"><code>ElementToChannelConverter</code></a></dd>
 </dl>
 </section>
 </li>
