@@ -126,12 +126,6 @@ implements <a href="EssFeneconCommercial40.html" title="interface in io.openems.
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>protected org.osgi.service.cm.ConfigurationAdmin</code></div>
-<div class="col-second even-row-color"><code><a href="#cm" class="member-name-link">cm</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#componentManager" class="member-name-link">componentManager</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#MAX_APPARENT_POWER" class="member-name-link">MAX_APPARENT_POWER</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -166,7 +160,7 @@ implements <a href="EssFeneconCommercial40.html" title="interface in io.openems.
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssDcChargerFeneconCommercial40)" class="member-name-link">addCharger</a><wbr>(<a href="charger/EssDcChargerFeneconCommercial40.html" title="interface in io.openems.edge.ess.fenecon.commercial40.charger">EssDcChargerFeneconCommercial40</a>&nbsp;charger)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssFeneconCommercial40Pv)" class="member-name-link">addCharger</a><wbr>(<a href="charger/EssFeneconCommercial40Pv.html" title="interface in io.openems.edge.ess.fenecon.commercial40.charger">EssFeneconCommercial40Pv</a>&nbsp;charger)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Registers a Charger with this ESS.</div>
 </div>
@@ -243,7 +237,7 @@ implements <a href="EssFeneconCommercial40.html" title="interface in io.openems.
 <div class="block">Log an info message including the Component ID.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssDcChargerFeneconCommercial40)" class="member-name-link">removeCharger</a><wbr>(<a href="charger/EssDcChargerFeneconCommercial40.html" title="interface in io.openems.edge.ess.fenecon.commercial40.charger">EssDcChargerFeneconCommercial40</a>&nbsp;charger)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssFeneconCommercial40Pv)" class="member-name-link">removeCharger</a><wbr>(<a href="charger/EssFeneconCommercial40Pv.html" title="interface in io.openems.edge.ess.fenecon.commercial40.charger">EssFeneconCommercial40Pv</a>&nbsp;charger)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Unregisters a Charger from this ESS.</div>
 </div>
@@ -321,18 +315,6 @@ implements <a href="EssFeneconCommercial40.html" title="interface in io.openems.
 </dl>
 </section>
 </li>
-<li>
-<section class="detail" id="componentManager">
-<h3>componentManager</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></span>&nbsp;<span class="element-name">componentManager</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="cm">
-<h3>cm</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">org.osgi.service.cm.ConfigurationAdmin</span>&nbsp;<span class="element-name">cm</span></div>
-</section>
-</li>
 </ul>
 </section>
 </li>
@@ -356,32 +338,6 @@ implements <a href="EssFeneconCommercial40.html" title="interface in io.openems.
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="applyPower(int,int)">
-<h3>applyPower</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">applyPower</span><wbr><span class="parameters">(int&nbsp;activePower,
- int&nbsp;reactivePower)</span>
-                throws <span class="exceptions"><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../api/ManagedSymmetricEss.html#applyPower(int,int)">ManagedSymmetricEss</a></code></span></div>
-<div class="block">Apply the calculated Power.
-
- <p>
- Careful: do not adjust activePower and reactivePower in this method, e.g.
- setting it to zero on error. The purpose of this method is solely to apply
- the calculated power to the ESS. If you need to constrain the allowed power,
- add Constraints using the <a href="../../api/ManagedSymmetricEss.html#getStaticConstraints()"><code>ManagedSymmetricEss.getStaticConstraints()</code></a> method.</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="../../api/ManagedSymmetricEss.html#applyPower(int,int)">applyPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></dd>
-<dt>Parameters:</dt>
-<dd><code>activePower</code> - the active power in [W]</dd>
-<dd><code>reactivePower</code> - the reactive power in [var]</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error; causes activation of
-                               APPLY_POWER_FAILED StateChannel</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)">
 <h3>setModbus</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setModbus</span><wbr><span class="parameters">(<a href="../../../bridge/modbus/api/BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a>&nbsp;modbus)</span></div>
@@ -404,6 +360,32 @@ implements <a href="EssFeneconCommercial40.html" title="interface in io.openems.
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html#deactivate()">deactivate</a></code>&nbsp;in class&nbsp;<code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="applyPower(int,int)">
+<h3>applyPower</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">applyPower</span><wbr><span class="parameters">(int&nbsp;activePower,
+ int&nbsp;reactivePower)</span>
+                throws <span class="exceptions"><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../api/ManagedSymmetricEss.html#applyPower(int,int)">ManagedSymmetricEss</a></code></span></div>
+<div class="block">Apply the calculated Power.
+
+ <p>
+ Careful: do not adjust activePower and reactivePower in this method, e.g.
+ setting it to zero on error. The purpose of this method is solely to apply
+ the calculated power to the ESS. If you need to constrain the allowed power,
+ add Constraints using the <a href="../../api/ManagedSymmetricEss.html#getStaticConstraints()"><code>ManagedSymmetricEss.getStaticConstraints()</code></a> method.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../api/ManagedSymmetricEss.html#applyPower(int,int)">applyPower</a></code>&nbsp;in interface&nbsp;<code><a href="../../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>activePower</code> - the active power in [W]</dd>
+<dd><code>reactivePower</code> - the reactive power in [var]</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error; causes activation of
+                               APPLY_POWER_FAILED StateChannel</dd>
 </dl>
 </section>
 </li>
@@ -551,28 +533,28 @@ implements <a href="EssFeneconCommercial40.html" title="interface in io.openems.
 </section>
 </li>
 <li>
-<section class="detail" id="addCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssDcChargerFeneconCommercial40)">
+<section class="detail" id="addCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssFeneconCommercial40Pv)">
 <h3>addCharger</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addCharger</span><wbr><span class="parameters">(<a href="charger/EssDcChargerFeneconCommercial40.html" title="interface in io.openems.edge.ess.fenecon.commercial40.charger">EssDcChargerFeneconCommercial40</a>&nbsp;charger)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="EssFeneconCommercial40.html#addCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssDcChargerFeneconCommercial40)">EssFeneconCommercial40</a></code></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addCharger</span><wbr><span class="parameters">(<a href="charger/EssFeneconCommercial40Pv.html" title="interface in io.openems.edge.ess.fenecon.commercial40.charger">EssFeneconCommercial40Pv</a>&nbsp;charger)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="EssFeneconCommercial40.html#addCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssFeneconCommercial40Pv)">EssFeneconCommercial40</a></code></span></div>
 <div class="block">Registers a Charger with this ESS.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="EssFeneconCommercial40.html#addCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssDcChargerFeneconCommercial40)">addCharger</a></code>&nbsp;in interface&nbsp;<code><a href="EssFeneconCommercial40.html" title="interface in io.openems.edge.ess.fenecon.commercial40">EssFeneconCommercial40</a></code></dd>
+<dd><code><a href="EssFeneconCommercial40.html#addCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssFeneconCommercial40Pv)">addCharger</a></code>&nbsp;in interface&nbsp;<code><a href="EssFeneconCommercial40.html" title="interface in io.openems.edge.ess.fenecon.commercial40">EssFeneconCommercial40</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>charger</code> - the Charger</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="removeCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssDcChargerFeneconCommercial40)">
+<section class="detail" id="removeCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssFeneconCommercial40Pv)">
 <h3>removeCharger</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeCharger</span><wbr><span class="parameters">(<a href="charger/EssDcChargerFeneconCommercial40.html" title="interface in io.openems.edge.ess.fenecon.commercial40.charger">EssDcChargerFeneconCommercial40</a>&nbsp;charger)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="EssFeneconCommercial40.html#removeCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssDcChargerFeneconCommercial40)">EssFeneconCommercial40</a></code></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeCharger</span><wbr><span class="parameters">(<a href="charger/EssFeneconCommercial40Pv.html" title="interface in io.openems.edge.ess.fenecon.commercial40.charger">EssFeneconCommercial40Pv</a>&nbsp;charger)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="EssFeneconCommercial40.html#removeCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssFeneconCommercial40Pv)">EssFeneconCommercial40</a></code></span></div>
 <div class="block">Unregisters a Charger from this ESS.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="EssFeneconCommercial40.html#removeCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssDcChargerFeneconCommercial40)">removeCharger</a></code>&nbsp;in interface&nbsp;<code><a href="EssFeneconCommercial40.html" title="interface in io.openems.edge.ess.fenecon.commercial40">EssFeneconCommercial40</a></code></dd>
+<dd><code><a href="EssFeneconCommercial40.html#removeCharger(io.openems.edge.ess.fenecon.commercial40.charger.EssFeneconCommercial40Pv)">removeCharger</a></code>&nbsp;in interface&nbsp;<code><a href="EssFeneconCommercial40.html" title="interface in io.openems.edge.ess.fenecon.commercial40">EssFeneconCommercial40</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>charger</code> - the Charger</dd>
 </dl>

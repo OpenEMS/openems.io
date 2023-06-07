@@ -85,7 +85,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="../abl/Abl.html" title="class in io.openems.edge.evcs.ocpp.abl">Abl</a></code>, <code><a href="../ies/keywatt/singleccs/IesKeywattSingleCcs.html" title="class in io.openems.edge.evcs.ocpp.ies.keywatt.singleccs">IesKeywattSingleCcs</a></code></dd>
+<dd><code><a href="../abl/EvcsOcppAblImpl.html" title="class in io.openems.edge.evcs.ocpp.abl">EvcsOcppAblImpl</a></code>, <code><a href="../ies/keywatt/singleccs/EvcsOcppIesKeywattSingleImpl.html" title="class in io.openems.edge.evcs.ocpp.ies.keywatt.singleccs">EvcsOcppIesKeywattSingleImpl</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">AbstractManagedOcppEvcsComponent</span>
@@ -99,13 +99,14 @@ implements <a href="../../api/Evcs.html" title="interface in io.openems.edge.evc
  SET_CHARGE_POWER_LIMIT or SET_CHARGE_POWER_LIMIT_WITH_FILTER Channel are
  usually set by the evcs Controller.
  
- <pre>
+ <p>
  Please ensure to add the event topics at in the properties of the subclass:
  
- property = { //
-                        EventConstants.EVENT_TOPIC + "=" + EdgeEventConstants.TOPIC_CYCLE_EXECUTE_WRITE, //
-                        EventConstants.EVENT_TOPIC + "=" + EdgeEventConstants.TOPIC_CYCLE_AFTER_PROCESS_IMAGE //
-        })
+ <pre><code>
+ &amp;#64;EventTopics({ //
+ 	EdgeEventConstants.TOPIC_CYCLE_AFTER_PROCESS_IMAGE, //
+ 	EdgeEventConstants.TOPIC_CYCLE_EXECUTE_WRITE //
+ })</code>
  </pre>
  
  <pre>

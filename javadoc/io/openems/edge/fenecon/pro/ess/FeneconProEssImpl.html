@@ -129,12 +129,9 @@ implements <a href="FeneconProEss.html" title="interface in io.openems.edge.fene
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>protected org.osgi.service.cm.ConfigurationAdmin</code></div>
-<div class="col-second even-row-color"><code><a href="#cm" class="member-name-link">cm</a></code></div>
+<div class="col-first even-row-color"><code>protected static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#MAX_APPARENT_POWER" class="member-name-link">MAX_APPARENT_POWER</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected static final int</code></div>
-<div class="col-second odd-row-color"><code><a href="#MAX_APPARENT_POWER" class="member-name-link">MAX_APPARENT_POWER</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -275,12 +272,6 @@ implements <a href="FeneconProEss.html" title="interface in io.openems.edge.fene
 </dl>
 </section>
 </li>
-<li>
-<section class="detail" id="cm">
-<h3>cm</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">org.osgi.service.cm.ConfigurationAdmin</span>&nbsp;<span class="element-name">cm</span></div>
-</section>
-</li>
 </ul>
 </section>
 </li>
@@ -303,6 +294,32 @@ implements <a href="FeneconProEss.html" title="interface in io.openems.edge.fene
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)">
+<h3>setModbus</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setModbus</span><wbr><span class="parameters">(<a href="../../../bridge/modbus/api/BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a>&nbsp;modbus)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html#setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)">AbstractOpenemsModbusComponent</a></code></span></div>
+<div class="block">Set the Modbus bridge. Should be called by @Reference</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html#setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)">setModbus</a></code>&nbsp;in class&nbsp;<code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>modbus</code> - the BridgeModbus Reference</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="deactivate()">
+<h3>deactivate</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deactivate</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="../../../common/component/AbstractOpenemsComponent.html#deactivate()">AbstractOpenemsComponent</a></code></span></div>
+<div class="block">Handles @Deactivate of implementations. Prints log output.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html#deactivate()">deactivate</a></code>&nbsp;in class&nbsp;<code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></code></dd>
+</dl>
+</section>
+</li>
 <li>
 <section class="detail" id="applyPower(int,int,int,int,int,int)">
 <h3>applyPower</h3>
@@ -327,32 +344,6 @@ implements <a href="FeneconProEss.html" title="interface in io.openems.edge.fene
 <dd><code>reactivePowerL3</code> - the reactive power set-point for L3</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)">
-<h3>setModbus</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setModbus</span><wbr><span class="parameters">(<a href="../../../bridge/modbus/api/BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a>&nbsp;modbus)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html#setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)">AbstractOpenemsModbusComponent</a></code></span></div>
-<div class="block">Set the Modbus bridge. Should be called by @Reference</div>
-<dl class="notes">
-<dt>Overrides:</dt>
-<dd><code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html#setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)">setModbus</a></code>&nbsp;in class&nbsp;<code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></code></dd>
-<dt>Parameters:</dt>
-<dd><code>modbus</code> - the BridgeModbus Reference</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="deactivate()">
-<h3>deactivate</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deactivate</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="../../../common/component/AbstractOpenemsComponent.html#deactivate()">AbstractOpenemsComponent</a></code></span></div>
-<div class="block">Handles @Deactivate of implementations. Prints log output.</div>
-<dl class="notes">
-<dt>Overrides:</dt>
-<dd><code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html#deactivate()">deactivate</a></code>&nbsp;in class&nbsp;<code><a href="../../../bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></code></dd>
 </dl>
 </section>
 </li>
