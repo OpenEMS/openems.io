@@ -573,15 +573,15 @@ import io.openems.edge.meter.api.MeterType;
 </div>
 </li>
 <li>
-<p>Make the class implement the <code>SymmetricMeter</code> nature:</p>
+<p>Make the class implement the <code>ElectricityMeter</code> nature:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MeterSimulatedImpl extends AbstractOpenemsModbusComponent implements MeterSimulated, SymmetricMeter, OpenemsComponent, ModbusComponent {</code></pre>
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MeterSimulatedImpl extends AbstractOpenemsModbusComponent implements MeterSimulated, ElectricityMeter, OpenemsComponent, ModbusComponent {</code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>Eclipse will underline <code>SymmetricMeter</code> and show you the error <strong>SymmetricMeter cannot be resolved to a type</strong>. Resolve it by importing adding an <code>import io.openems.edge.meter.api.SymmetricMeter;</code>.</p>
+<p>Eclipse will underline <code>ElectricityMeter</code> and show the error <strong>ElectricityMeter cannot be resolved to a type</strong>. Resolve it by adding the line <code>import io.openems.edge.meter.api.ElectricityMeter;</code> to the import section of the file.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -589,14 +589,14 @@ import io.openems.edge.meter.api.MeterType;
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The easiest way to fix these kind of import errors is to to selecto <b class="button">Source</b> → <b class="button">Organize Imports</b> in the menu or simply press <b class="button">Ctrl</b> + <b class="button">Shift</b> + <b class="button">o</b>. Alternatively click the 'error light bulb' next to the line with the error and select <b class="button">Import 'SymmetricMeter' (io.openems.edge.meter.api)</b>.
+The easiest way to fix these kind of import errors is to select <b class="button">Source</b> → <b class="button">Organize Imports</b> in the menu or simply press <b class="button">Ctrl</b> + <b class="button">Shift</b> + <b class="button">o</b>. Alternatively click the 'light bulb' next to the line with the error and select <b class="button">Import 'ElectricityMeter' (io.openems.edge.meter.api)</b>.
 </td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p>Eclipse still complains and now underlines the class name <code>MeterSimulated</code> with the error <strong>The type MeterSimulated must implement the inherited abstract method SymmetricMeter.getMeterType()</strong>. Resolve it by adding an implementation of the <code>getMeterType()</code> method:</p>
+<p>Eclipse still complains and now underlines the class name <code>MeterSimulated</code> with the error <strong>The type MeterSimulated must implement the inherited abstract method ElectricityMeter.getMeterType()</strong>. Resolve it by adding an implementation of the <code>getMeterType()</code> method:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
@@ -607,13 +607,13 @@ public MeterType getMeterType() {
 </div>
 </li>
 <li>
-<p>Tell the OpenEMS framework that <code>MeterSimulated</code> provides the SymmetricMeter <strong>Channels</strong>, by adjusting the constructor:</p>
+<p>Tell the OpenEMS framework that <code>MeterSimulated</code> provides the ElectricityMeter <strong>Channels</strong>, by adjusting the constructor:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public MeterSimulatedImpl() {
 	super(//
 			OpenemsComponent.ChannelId.values(), //
-			SymmetricMeter.ChannelId.values(), //
+			ElectricityMeter.ChannelId.values(), //
 			ModbusComponent.ChannelId.values(), //
 			MeterSimulated.ChannelId.values() //
 	);
@@ -641,7 +641,7 @@ protected ModbusProtocol defineModbusProtocol() throws OpenemsException {
 protected ModbusProtocol defineModbusProtocol() throws OpenemsException {
 	return new ModbusProtocol(this, //
 			new FC3ReadRegistersTask(1000, Priority.HIGH,
-					m(SymmetricMeter.ChannelId.ACTIVE_POWER, new SignedWordElement(1000))));
+					m(ElectricityMeter.ChannelId.ACTIVE_POWER, new SignedWordElement(1000))));
 }</code></pre>
 </div>
 </div>
@@ -689,8 +689,8 @@ import io.openems.edge.bridge.modbus.api.task.FC3ReadRegistersTask;
 import io.openems.edge.common.channel.Doc;
 import io.openems.edge.common.component.OpenemsComponent;
 import io.openems.edge.common.taskmanager.Priority;
+import io.openems.edge.meter.api.ElectricityMeter;
 import io.openems.edge.meter.api.MeterType;
-import io.openems.edge.meter.api.SymmetricMeter;
 
 @Designate(ocd = Config.class, factory = true) <i class="conum" data-value="1"></i><b>(1)</b>
 @Component(<i class="conum" data-value="2"></i><b>(2)</b>
@@ -699,14 +699,14 @@ import io.openems.edge.meter.api.SymmetricMeter;
 		configurationPolicy = ConfigurationPolicy.REQUIRE <i class="conum" data-value="5"></i><b>(5)</b>
 )
 public class MeterSimulatedImpl extends AbstractOpenemsModbusComponent <i class="conum" data-value="6"></i><b>(6)</b>
-	implements MeterSimulated, SymmetricMeter, OpenemsComponent, ModbusComponent { <i class="conum" data-value="7"></i><b>(7)</b>
+	implements MeterSimulated, ElectricityMeter, OpenemsComponent, ModbusComponent { <i class="conum" data-value="7"></i><b>(7)</b>
 
 	private Config config = null;
 
 	public MeterSimulatedImpl() {
 		super(<i class="conum" data-value="8"></i><b>(8)</b>
 				OpenemsComponent.ChannelId.values(), //
-				SymmetricMeter.ChannelId.values(), //
+				ElectricityMeter.ChannelId.values(), //
 				ModbusComponent.ChannelId.values(), //
 				MeterSimulated.ChannelId.values() //
 		);
@@ -737,7 +737,7 @@ public class MeterSimulatedImpl extends AbstractOpenemsModbusComponent <i class=
 	protected ModbusProtocol defineModbusProtocol() throws OpenemsException { <i class="conum" data-value="13"></i><b>(13)</b>
 		return new ModbusProtocol(this, <i class="conum" data-value="14"></i><b>(14)</b>
 				new FC3ReadRegistersTask(1000, Priority.HIGH, <i class="conum" data-value="15"></i><b>(15)</b>
-						m(SymmetricMeter.ChannelId.ACTIVE_POWER, new SignedWordElement(1000)))); <i class="conum" data-value="16"></i><b>(16)</b>
+						m(ElectricityMeter.ChannelId.ACTIVE_POWER, new SignedWordElement(1000)))); <i class="conum" data-value="16"></i><b>(16)</b>
 	}
 
 	@Override
@@ -793,7 +793,7 @@ If the device was using another protocol, it is advisable to use the <strong>Abs
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
 <td>The class implements <strong>OpenemsComponent</strong>. This makes it an <a href="../coreconcepts.html#<em>openems_component" class="xref page">OpenEMS Component</a>.
-The Device that we are is a <strong>SymmetricMeter</strong>. We already defined the required Channels in the _initializeChannels()</em> method. Additionally the Component also needs to implement the Nature interface.
+The Device that we are implementing is an <strong>ElectricityMeter</strong>. We already defined the required Channels in the _initializeChannels()</em> method. Additionally the Component also needs to implement the Nature interface.
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -833,7 +833,7 @@ In plain Java it is not required to add <code>implements OpenemsComponent</code>
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
-<td>We call the constructor of the super class (<code>AbstractOpenemsModbusComponent</code>/<code>AbstractOpenemsComponent</code>) to initialize the Channels of the Component. It is important to list all ChannelId-Enums of all implemented Natures. The call takes the <strong>ChannelId</strong> declarations and creates a Channel instance for each of them; e.g. for the <code>SymmetricMeter.ACTIVE_POWER</code> ChannelId, an object instance of <code>IntegerReadChannel</code> is created that represents the Channel.</td>
+<td>We call the constructor of the super class (<code>AbstractOpenemsModbusComponent</code>/<code>AbstractOpenemsComponent</code>) to initialize the Channels of the Component. It is important to list all ChannelId-Enums of all implemented Natures. The call takes the <strong>ChannelId</strong> declarations and creates a Channel instance for each of them; e.g. for the <code>ElectricityMeter.ACTIVE_POWER</code> ChannelId, an object instance of <code>IntegerReadChannel</code> is created that represents the Channel.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="9"></i><b>9</b></td>
@@ -877,7 +877,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 </tr>
 <tr>
 <td><i class="conum" data-value="16"></i><b>16</b></td>
-<td>Here the internal <strong>m()</strong> method is used to make a simple 1-to-1 mapping between the Modbus element at address <code>1000</code> and the Channel <em>SymmetricMeter.ChannelId.ACTIVE_POWER</em>. The Modbus element is defined as a 16 bit word element with an signed integer value.
+<td>Here the internal <strong>m()</strong> method is used to make a simple 1-to-1 mapping between the Modbus element at address <code>1000</code> and the Channel <em>ElectricityMeter.ChannelId.ACTIVE_POWER</em>. The Modbus element is defined as a 16 bit word element with an signed integer value.
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -897,7 +897,7 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <p>For more advanced channel-to-element mapping functionalities the internal <strong>cm()</strong> method can be used - e.g. to map one Modbus element to multiple Channels.</p>
 <div class="paragraph">
 <p>Using this principle a complete Modbus table consisting of multiple register blocks that need to be read or written with different Modbus function codes can be defined. For details have a look at the existing implementation classes inside the Modbus Bridge source code.
-&lt;17&gt; The SymmetricMeter Nature requires us to provide a <strong>MeterType</strong> via a <code>MeterType getMeterType()</code> method. The MeterType is provided by the Config.
+&lt;17&gt; The ElectricityMeter Nature requires us to provide a <strong>MeterType</strong> via a <code>MeterType getMeterType()</code> method. The MeterType is provided by the Config.
 &lt;18&gt; Finally it is always a good idea to define a <strong>debugLog()</strong> method. This method is called in each cycle by the <strong>Controller.Debug.Log</strong> and very helpful for continuous debugging.</p>
 </div>
 </li>
