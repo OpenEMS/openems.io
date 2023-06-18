@@ -120,16 +120,22 @@ extends <a href="ElectricityMeter.html" title="interface in io.openems.edge.mete
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#calculateSinglePhaseFromActivePower(io.openems.edge.meter.api.SinglePhaseMeter)" class="member-name-link">calculateSinglePhaseFromActivePower</a><wbr>(<a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api">SinglePhaseMeter</a>&nbsp;meter)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1">
-<div class="block">Initializes Channel listeners for a Symmetric <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api"><code>ElectricityMeter</code></a>.</div>
+<div class="block">Initializes Channel listeners for a <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="../../common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveNatureTable</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#getModbusSlaveNatureTable(io.openems.common.channel.AccessMode)" class="member-name-link">getModbusSlaveNatureTable</a><wbr>(<a href="../../../common/channel/AccessMode.html" title="enum class in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;METER extends <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api">ElectricityMeter</a>&gt;<br>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#calculateSinglePhaseFromActivePower(METER,java.util.function.Function)" class="member-name-link">calculateSinglePhaseFromActivePower</a><wbr>(METER&nbsp;meter,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;METER,<wbr><a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api">SinglePhase</a>&gt;&nbsp;phaseProvider)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
+<div class="block">Initializes Channel listeners for a <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="../../common/modbusslave/ModbusSlaveNatureTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveNatureTable</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#getModbusSlaveNatureTable(io.openems.common.channel.AccessMode)" class="member-name-link">getModbusSlaveNatureTable</a><wbr>(<a href="../../../common/channel/AccessMode.html" title="enum class in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Used for Modbus/TCP Api Controller.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api">SinglePhase</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getPhase()" class="member-name-link">getPhase</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api">SinglePhase</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getPhase()" class="member-name-link">getPhase</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Gets the Phase this Meter is connected to.</div>
 </div>
 </div>
@@ -167,16 +173,42 @@ extends <a href="ElectricityMeter.html" title="interface in io.openems.edge.mete
 <section class="detail" id="calculateSinglePhaseFromActivePower(io.openems.edge.meter.api.SinglePhaseMeter)">
 <h3>calculateSinglePhaseFromActivePower</h3>
 <div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">calculateSinglePhaseFromActivePower</span><wbr><span class="parameters">(<a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api">SinglePhaseMeter</a>&nbsp;meter)</span></div>
-<div class="block">Initializes Channel listeners for a Symmetric <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api"><code>ElectricityMeter</code></a>.
+<div class="block">Initializes Channel listeners for a <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>.
  
  <p>
  Sets the correct value for <code>ChannelId#ACTIVE_POWER_L1</code>,
  <code>ChannelId#ACTIVE_POWER_L2</code> or <code>ChannelId#ACTIVE_POWER_L3</code> from
  <code>ChannelId#ACTIVE_POWER</code> by evaluating the configured
- <a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api"><code>SinglePhase</code></a>.</div>
+ <a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api"><code>SinglePhase</code></a> via <a href="#getPhase()"><code>getPhase()</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>meter</code> - the <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api"><code>ElectricityMeter</code></a></dd>
+<dd><code>meter</code> - the <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="calculateSinglePhaseFromActivePower(METER,java.util.function.Function)">
+<h3 id="calculateSinglePhaseFromActivePower(io.openems.edge.meter.api.ElectricityMeter,java.util.function.Function)">calculateSinglePhaseFromActivePower</h3>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;METER extends <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api">ElectricityMeter</a>&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">calculateSinglePhaseFromActivePower</span><wbr><span class="parameters">(METER&nbsp;meter,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;METER,<wbr><a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api">SinglePhase</a>&gt;&nbsp;phaseProvider)</span></div>
+<div class="block">Initializes Channel listeners for a <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>.
+ 
+ <p>
+ Use this method if it is not known at compile time, that the
+ <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api"><code>ElectricityMeter</code></a> is a <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>, i.e. it is not
+ implementing <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>.
+ 
+ <p>
+ Sets the correct value for <code>ChannelId#ACTIVE_POWER_L1</code>,
+ <code>ChannelId#ACTIVE_POWER_L2</code> or <code>ChannelId#ACTIVE_POWER_L3</code> from
+ <code>ChannelId#ACTIVE_POWER</code> by evaluating the provided
+ <a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api"><code>SinglePhase</code></a>.</div>
+<dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>METER</code> - type that extends <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api"><code>ElectricityMeter</code></a></dd>
+<dt>Parameters:</dt>
+<dd><code>meter</code> - a <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api"><code>ElectricityMeter</code></a></dd>
+<dd><code>phaseProvider</code> - a provider for <a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api"><code>SinglePhase</code></a></dd>
 </dl>
 </section>
 </li>
