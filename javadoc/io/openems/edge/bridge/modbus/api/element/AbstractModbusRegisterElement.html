@@ -69,18 +69,18 @@ loadScripts(document, 'script');</script>
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">io.openems.edge.bridge.modbus.api.element</a></div>
-<h1 title="Class AbstractModbusRegisterElement" class="title">Class AbstractModbusRegisterElement&lt;E,<wbr>T&gt;</h1>
+<h1 title="Class AbstractModbusRegisterElement" class="title">Class AbstractModbusRegisterElement&lt;SELF,<wbr>T&gt;</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance"><a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.AbstractModbusElement</a>&lt;T&gt;
-<div class="inheritance">io.openems.edge.bridge.modbus.api.element.AbstractModbusRegisterElement&lt;E,<wbr>T&gt;</div>
+<div class="inheritance"><a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.AbstractModbusElement</a>&lt;SELF,<wbr>T&gt;
+<div class="inheritance">io.openems.edge.bridge.modbus.api.element.AbstractModbusRegisterElement&lt;SELF,<wbr>T&gt;</div>
 </div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>Type Parameters:</dt>
-<dd><code>E</code> - the subclass of myself</dd>
-<dd><code>T</code> - the target OpenemsType</dd>
+<dd><code>SELF</code> - the subclass of myself</dd>
+<dd><code>T</code> - the target type</dd>
 </dl>
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
@@ -88,11 +88,11 @@ loadScripts(document, 'script');</script>
 </dl>
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="AbstractDoubleWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractDoubleWordElement</a></code>, <code><a href="AbstractQuadrupleWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractQuadrupleWordElement</a></code>, <code><a href="AbstractWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractWordElement</a></code>, <code><a href="StringWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">StringWordElement</a></code></dd>
+<dd><code><a href="AbstractDoubleWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractDoubleWordElement</a></code>, <code><a href="AbstractQuadrupleWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractQuadrupleWordElement</a></code>, <code><a href="AbstractWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractWordElement</a></code>, <code><a href="DummyRegisterElement.html" title="class in io.openems.edge.bridge.modbus.api.element">DummyRegisterElement</a></code>, <code><a href="StringWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">StringWordElement</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">AbstractModbusRegisterElement&lt;E,<wbr>T&gt;</span>
-<span class="extends-implements">extends <a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;T&gt;
+<div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">AbstractModbusRegisterElement&lt;SELF,<wbr>T&gt;</span>
+<span class="extends-implements">extends <a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;SELF,<wbr>T&gt;
 implements <a href="ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>&lt;T&gt;</span></div>
 <div class="block">A ModbusRegisterElement represents one or more Modbus Registers.</div>
 </section>
@@ -104,7 +104,7 @@ implements <a href="ModbusRegisterElement.html" title="interface in io.openems.e
 <h2>Field Summary</h2>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.edge.bridge.modbus.api.element.AbstractModbusElement">Fields inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a></h3>
-<code><a href="AbstractModbusElement.html#abstractTask">abstractTask</a>, <a href="AbstractModbusElement.html#onSetNextWriteCallbacks">onSetNextWriteCallbacks</a></code></div>
+<code><a href="AbstractModbusElement.html#onSetNextWriteCallbacks">onSetNextWriteCallbacks</a>, <a href="AbstractModbusElement.html#task">task</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -135,7 +135,7 @@ implements <a href="ModbusRegisterElement.html" title="interface in io.openems.e
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#_setInputRegisters(com.ghgande.j2mod.modbus.procimg.InputRegister...)" class="member-name-link">_setInputRegisters</a><wbr>(com.ghgande.j2mod.modbus.procimg.InputRegister...&nbsp;registers)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AbstractModbusRegisterElement.html" title="type parameter in AbstractModbusRegisterElement">E</a></code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AbstractModbusRegisterElement.html" title="type parameter in AbstractModbusRegisterElement">SELF</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#byteOrder(java.nio.ByteOrder)" class="member-name-link">byteOrder</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteOrder.html" title="class or interface in java.nio" class="external-link">ByteOrder</a>&nbsp;byteOrder)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the Byte-Order.</div>
@@ -148,31 +148,26 @@ implements <a href="ModbusRegisterElement.html" title="interface in io.openems.e
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the next write value.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="AbstractModbusRegisterElement.html" title="type parameter in AbstractModbusRegisterElement">E</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#self()" class="member-name-link">self</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Gets an instance of the correct subclass of myself.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setInputRegisters(com.ghgande.j2mod.modbus.procimg.InputRegister...)" class="member-name-link">setInputRegisters</a><wbr>(com.ghgande.j2mod.modbus.procimg.InputRegister...&nbsp;registers)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setInputRegisters(com.ghgande.j2mod.modbus.procimg.InputRegister...)" class="member-name-link">setInputRegisters</a><wbr>(com.ghgande.j2mod.modbus.procimg.InputRegister...&nbsp;registers)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the value of this Element from InputRegisters.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNextWriteValueRegisters(java.util.Optional)" class="member-name-link">setNextWriteValueRegisters</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.ghgande.j2mod.modbus.procimg.Register[]&gt;&nbsp;writeValueOpt)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNextWriteValueRegisters(java.util.Optional)" class="member-name-link">setNextWriteValueRegisters</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.ghgande.j2mod.modbus.procimg.Register[]&gt;&nbsp;writeValueOpt)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.AbstractModbusElement">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a></h3>
-<code><a href="AbstractModbusElement.html#deactivate()">deactivate</a>, <a href="AbstractModbusElement.html#debug()">debug</a>, <a href="AbstractModbusElement.html#getModbusTask()">getModbusTask</a>, <a href="AbstractModbusElement.html#getStartAddress()">getStartAddress</a>, <a href="AbstractModbusElement.html#getType()">getType</a>, <a href="AbstractModbusElement.html#invalidate(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">invalidate</a>, <a href="AbstractModbusElement.html#isDebug()">isDebug</a>, <a href="AbstractModbusElement.html#isIgnored()">isIgnored</a>, <a href="AbstractModbusElement.html#onSetNextWrite(java.util.function.Consumer)">onSetNextWrite</a>, <a href="AbstractModbusElement.html#onUpdateCallback(java.util.function.Consumer)">onUpdateCallback</a>, <a href="AbstractModbusElement.html#setModbusTask(io.openems.edge.bridge.modbus.api.task.AbstractTask)">setModbusTask</a>, <a href="AbstractModbusElement.html#setValue(T)">setValue</a>, <a href="AbstractModbusElement.html#toString()">toString</a></code></div>
+<code><a href="AbstractModbusElement.html#deactivate()">deactivate</a>, <a href="AbstractModbusElement.html#debug()">debug</a>, <a href="AbstractModbusElement.html#getModbusTask()">getModbusTask</a>, <a href="AbstractModbusElement.html#getStartAddress()">getStartAddress</a>, <a href="AbstractModbusElement.html#getType()">getType</a>, <a href="AbstractModbusElement.html#invalidate(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">invalidate</a>, <a href="AbstractModbusElement.html#isDebug()">isDebug</a>, <a href="AbstractModbusElement.html#onSetNextWrite(java.util.function.Consumer)">onSetNextWrite</a>, <a href="AbstractModbusElement.html#onUpdateCallback(java.util.function.Consumer)">onUpdateCallback</a>, <a href="AbstractModbusElement.html#self()">self</a>, <a href="AbstractModbusElement.html#setModbusTask(io.openems.edge.bridge.modbus.api.task.Task)">setModbusTask</a>, <a href="AbstractModbusElement.html#setValue(T)">setValue</a>, <a href="AbstractModbusElement.html#toString()">toString</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.ModbusElement">Methods inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a></h3>
-<code><a href="ModbusElement.html#_setNextWriteValue(java.util.Optional)">_setNextWriteValue</a>, <a href="ModbusElement.html#deactivate()">deactivate</a>, <a href="ModbusElement.html#getLength()">getLength</a>, <a href="ModbusElement.html#getStartAddress()">getStartAddress</a>, <a href="ModbusElement.html#getType()">getType</a>, <a href="ModbusElement.html#invalidate(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">invalidate</a>, <a href="ModbusElement.html#isIgnored()">isIgnored</a>, <a href="ModbusElement.html#onSetNextWrite(java.util.function.Consumer)">onSetNextWrite</a>, <a href="ModbusElement.html#setModbusTask(io.openems.edge.bridge.modbus.api.task.AbstractTask)">setModbusTask</a></code></div>
+<code><a href="ModbusElement.html#_setNextWriteValue(java.util.Optional)">_setNextWriteValue</a>, <a href="ModbusElement.html#deactivate()">deactivate</a>, <a href="ModbusElement.html#getLength()">getLength</a>, <a href="ModbusElement.html#getStartAddress()">getStartAddress</a>, <a href="ModbusElement.html#getType()">getType</a>, <a href="ModbusElement.html#invalidate(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">invalidate</a>, <a href="ModbusElement.html#onSetNextWrite(java.util.function.Consumer)">onSetNextWrite</a>, <a href="ModbusElement.html#setModbusTask(io.openems.edge.bridge.modbus.api.task.Task)">setModbusTask</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.ModbusRegisterElement">Methods inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a></h3>
 <code><a href="ModbusRegisterElement.html#getNextWriteValueAndReset()">getNextWriteValueAndReset</a>, <a href="ModbusRegisterElement.html#setNextWriteValue(java.util.Optional)">setNextWriteValue</a></code></div>
@@ -203,17 +198,6 @@ implements <a href="ModbusRegisterElement.html" title="interface in io.openems.e
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="self()">
-<h3>self</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="AbstractModbusRegisterElement.html" title="type parameter in AbstractModbusRegisterElement">E</a></span>&nbsp;<span class="element-name">self</span>()</div>
-<div class="block">Gets an instance of the correct subclass of myself.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>myself</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="setNextWriteValueRegisters(java.util.Optional)">
 <h3>setNextWriteValueRegisters</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setNextWriteValueRegisters</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.ghgande.j2mod.modbus.procimg.Register[]&gt;&nbsp;writeValueOpt)</span>
@@ -232,7 +216,7 @@ implements <a href="ModbusRegisterElement.html" title="interface in io.openems.e
 <div class="block">Gets the next write value.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="ModbusRegisterElement.html#getNextWriteValue()">getNextWriteValue</a></code>&nbsp;in interface&nbsp;<code><a href="ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>&lt;<a href="AbstractModbusRegisterElement.html" title="type parameter in AbstractModbusRegisterElement">E</a>&gt;</code></dd>
+<dd><code><a href="ModbusRegisterElement.html#getNextWriteValue()">getNextWriteValue</a></code>&nbsp;in interface&nbsp;<code><a href="ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>&lt;<a href="AbstractModbusRegisterElement.html" title="type parameter in AbstractModbusRegisterElement">SELF</a>&gt;</code></dd>
 <dt>Returns:</dt>
 <dd>the next value as an Optional array of Registers</dd>
 </dl>
@@ -241,7 +225,7 @@ implements <a href="ModbusRegisterElement.html" title="interface in io.openems.e
 <li>
 <section class="detail" id="byteOrder(java.nio.ByteOrder)">
 <h3>byteOrder</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AbstractModbusRegisterElement.html" title="type parameter in AbstractModbusRegisterElement">E</a></span>&nbsp;<span class="element-name">byteOrder</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteOrder.html" title="class or interface in java.nio" class="external-link">ByteOrder</a>&nbsp;byteOrder)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AbstractModbusRegisterElement.html" title="type parameter in AbstractModbusRegisterElement">SELF</a></span>&nbsp;<span class="element-name">byteOrder</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteOrder.html" title="class or interface in java.nio" class="external-link">ByteOrder</a>&nbsp;byteOrder)</span></div>
 <div class="block">Sets the Byte-Order. Default is "BIG_ENDIAN". See
  http://www.simplymodbus.ca/FAQ.htm#Order.</div>
 <dl class="notes">
@@ -267,7 +251,7 @@ implements <a href="ModbusRegisterElement.html" title="interface in io.openems.e
 <div class="block">Sets the value of this Element from InputRegisters.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="ModbusRegisterElement.html#setInputRegisters(com.ghgande.j2mod.modbus.procimg.InputRegister...)">setInputRegisters</a></code>&nbsp;in interface&nbsp;<code><a href="ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>&lt;<a href="AbstractModbusRegisterElement.html" title="type parameter in AbstractModbusRegisterElement">E</a>&gt;</code></dd>
+<dd><code><a href="ModbusRegisterElement.html#setInputRegisters(com.ghgande.j2mod.modbus.procimg.InputRegister...)">setInputRegisters</a></code>&nbsp;in interface&nbsp;<code><a href="ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>&lt;<a href="AbstractModbusRegisterElement.html" title="type parameter in AbstractModbusRegisterElement">SELF</a>&gt;</code></dd>
 <dt>Parameters:</dt>
 <dd><code>registers</code> - the InputRegisters</dd>
 <dt>Throws:</dt>

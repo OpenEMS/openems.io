@@ -118,22 +118,32 @@ extends <a href="../../../common/component/OpenemsComponent.html" title="interfa
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setCycleTimeIsTooShort(boolean)" class="member-name-link">_setCycleTimeIsTooShort</a><wbr>(boolean&nbsp;value)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setCycleDelay(long)" class="member-name-link">_setCycleDelay</a><wbr>(long&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Internal method to set the 'nextValue' on
- <a href="BridgeModbus.ChannelId.html#CYCLE_TIME_IS_TOO_SHORT"><code>BridgeModbus.ChannelId.CYCLE_TIME_IS_TOO_SHORT</code></a> Channel.</div>
+<div class="block">Internal method to set the 'nextValue' on <a href="BridgeModbus.ChannelId.html#CYCLE_DELAY"><code>BridgeModbus.ChannelId.CYCLE_DELAY</code></a>
+ Channel.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setExecutionDuration(long)" class="member-name-link">_setExecutionDuration</a><wbr>(long&nbsp;value)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setCycleTimeIsTooShort(boolean)" class="member-name-link">_setCycleTimeIsTooShort</a><wbr>(boolean&nbsp;value)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Internal method to set the 'nextValue' on
- <a href="BridgeModbus.ChannelId.html#EXECUTION_DURATION"><code>BridgeModbus.ChannelId.EXECUTION_DURATION</code></a> Channel.</div>
+ <a href="BridgeModbus.ChannelId.html#CYCLE_TIME_IS_TOO_SHORT"><code>BridgeModbus.ChannelId.CYCLE_TIME_IS_TOO_SHORT</code></a> Channel.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#addProtocol(java.lang.String,io.openems.edge.bridge.modbus.api.ModbusProtocol)" class="member-name-link">addProtocol</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;sourceId,
  <a href="ModbusProtocol.html" title="class in io.openems.edge.bridge.modbus.api">ModbusProtocol</a>&nbsp;protocol)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Adds a Protocol with a source identifier to this Modbus Bridge.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getCycleDelay()" class="member-name-link">getCycleDelay</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Gets the Cycle Delay in [ms], see <a href="BridgeModbus.ChannelId.html#CYCLE_DELAY"><code>BridgeModbus.ChannelId.CYCLE_DELAY</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/LongReadChannel.html" title="class in io.openems.edge.common.channel">LongReadChannel</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getCycleDelayChannel()" class="member-name-link">getCycleDelayChannel</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Gets the Channel for <a href="BridgeModbus.ChannelId.html#CYCLE_DELAY"><code>BridgeModbus.ChannelId.CYCLE_DELAY</code></a>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getCycleTimeIsTooShort()" class="member-name-link">getCycleTimeIsTooShort</a>()</code></div>
@@ -145,21 +155,15 @@ extends <a href="../../../common/component/OpenemsComponent.html" title="interfa
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Gets the Channel for <a href="BridgeModbus.ChannelId.html#CYCLE_TIME_IS_TOO_SHORT"><code>BridgeModbus.ChannelId.CYCLE_TIME_IS_TOO_SHORT</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getExecutionDuration()" class="member-name-link">getExecutionDuration</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Gets the Execution Duration in [ms], see
- <a href="BridgeModbus.ChannelId.html#EXECUTION_DURATION"><code>BridgeModbus.ChannelId.EXECUTION_DURATION</code></a>.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/LongReadChannel.html" title="class in io.openems.edge.common.channel">LongReadChannel</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getExecutionDurationChannel()" class="member-name-link">getExecutionDurationChannel</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Gets the Channel for <a href="BridgeModbus.ChannelId.html#EXECUTION_DURATION"><code>BridgeModbus.ChannelId.EXECUTION_DURATION</code></a>.</div>
-</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#removeProtocol(java.lang.String)" class="member-name-link">removeProtocol</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;sourceId)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Removes a Protocol from this Modbus Bridge.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#retryModbusCommunication(java.lang.String)" class="member-name-link">retryModbusCommunication</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;sourceId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">The Modbus Bridge marks defective Components, e.g.</div>
 </div>
 </div>
 </div>
@@ -214,10 +218,10 @@ extends <a href="../../../common/component/OpenemsComponent.html" title="interfa
 </section>
 </li>
 <li>
-<section class="detail" id="getExecutionDurationChannel()">
-<h3>getExecutionDurationChannel</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/LongReadChannel.html" title="class in io.openems.edge.common.channel">LongReadChannel</a></span>&nbsp;<span class="element-name">getExecutionDurationChannel</span>()</div>
-<div class="block">Gets the Channel for <a href="BridgeModbus.ChannelId.html#EXECUTION_DURATION"><code>BridgeModbus.ChannelId.EXECUTION_DURATION</code></a>.</div>
+<section class="detail" id="getCycleDelayChannel()">
+<h3>getCycleDelayChannel</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/LongReadChannel.html" title="class in io.openems.edge.common.channel">LongReadChannel</a></span>&nbsp;<span class="element-name">getCycleDelayChannel</span>()</div>
+<div class="block">Gets the Channel for <a href="BridgeModbus.ChannelId.html#CYCLE_DELAY"><code>BridgeModbus.ChannelId.CYCLE_DELAY</code></a>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the Channel</dd>
@@ -225,11 +229,10 @@ extends <a href="../../../common/component/OpenemsComponent.html" title="interfa
 </section>
 </li>
 <li>
-<section class="detail" id="getExecutionDuration()">
-<h3>getExecutionDuration</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span>&nbsp;<span class="element-name">getExecutionDuration</span>()</div>
-<div class="block">Gets the Execution Duration in [ms], see
- <a href="BridgeModbus.ChannelId.html#EXECUTION_DURATION"><code>BridgeModbus.ChannelId.EXECUTION_DURATION</code></a>.</div>
+<section class="detail" id="getCycleDelay()">
+<h3>getCycleDelay</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span>&nbsp;<span class="element-name">getCycleDelay</span>()</div>
+<div class="block">Gets the Cycle Delay in [ms], see <a href="BridgeModbus.ChannelId.html#CYCLE_DELAY"><code>BridgeModbus.ChannelId.CYCLE_DELAY</code></a>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the Channel <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
@@ -237,11 +240,11 @@ extends <a href="../../../common/component/OpenemsComponent.html" title="interfa
 </section>
 </li>
 <li>
-<section class="detail" id="_setExecutionDuration(long)">
-<h3>_setExecutionDuration</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setExecutionDuration</span><wbr><span class="parameters">(long&nbsp;value)</span></div>
-<div class="block">Internal method to set the 'nextValue' on
- <a href="BridgeModbus.ChannelId.html#EXECUTION_DURATION"><code>BridgeModbus.ChannelId.EXECUTION_DURATION</code></a> Channel.</div>
+<section class="detail" id="_setCycleDelay(long)">
+<h3>_setCycleDelay</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setCycleDelay</span><wbr><span class="parameters">(long&nbsp;value)</span></div>
+<div class="block">Internal method to set the 'nextValue' on <a href="BridgeModbus.ChannelId.html#CYCLE_DELAY"><code>BridgeModbus.ChannelId.CYCLE_DELAY</code></a>
+ Channel.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>value</code> - the next value</dd>
@@ -266,6 +269,24 @@ extends <a href="../../../common/component/OpenemsComponent.html" title="interfa
 <h3>removeProtocol</h3>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">removeProtocol</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;sourceId)</span></div>
 <div class="block">Removes a Protocol from this Modbus Bridge.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sourceId</code> - the unique source identifier</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="retryModbusCommunication(java.lang.String)">
+<h3>retryModbusCommunication</h3>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">retryModbusCommunication</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;sourceId)</span></div>
+<div class="block">The Modbus Bridge marks defective Components, e.g. if there are communication
+ failures. If a component is marked as defective, reads and writes are paused
+ for an increasing waiting time. This method resets the waiting time, causing
+ the Modbus Bridge to retry if a Component is not anymore defective.
+ 
+ <p>
+ Use this method if there is good reason that a Modbus Component should be
+ available again 'now', e.g. because it was turned on manually.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>sourceId</code> - the unique source identifier</dd>

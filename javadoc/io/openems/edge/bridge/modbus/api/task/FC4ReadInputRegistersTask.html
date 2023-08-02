@@ -44,8 +44,8 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
@@ -72,9 +72,9 @@ loadScripts(document, 'script');</script>
 <h1 title="Class FC4ReadInputRegistersTask" class="title">Class FC4ReadInputRegistersTask</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance"><a href="AbstractTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractTask</a>
-<div class="inheritance"><a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractReadTask</a>&lt;com.ghgande.j2mod.modbus.procimg.InputRegister&gt;
-<div class="inheritance"><a href="AbstractReadInputRegistersTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractReadInputRegistersTask</a>
+<div class="inheritance"><a href="AbstractTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractTask</a>&lt;REQUEST,<wbr>RESPONSE&gt;
+<div class="inheritance"><a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractReadTask</a>&lt;REQUEST,<wbr>RESPONSE,<wbr><a href="../element/ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>,<wbr>com.ghgande.j2mod.modbus.procimg.InputRegister&gt;
+<div class="inheritance"><a href="AbstractReadInputRegistersTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractReadInputRegistersTask</a>&lt;com.ghgande.j2mod.modbus.msg.ReadInputRegistersRequest,<wbr>com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse&gt;
 <div class="inheritance">io.openems.edge.bridge.modbus.api.task.FC4ReadInputRegistersTask</div>
 </div>
 </div>
@@ -87,13 +87,30 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">FC4ReadInputRegistersTask</span>
-<span class="extends-implements">extends <a href="AbstractReadInputRegistersTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadInputRegistersTask</a>
-implements <a href="ReadTask.html" title="interface in io.openems.edge.bridge.modbus.api.task">ReadTask</a></span></div>
+<span class="extends-implements">extends <a href="AbstractReadInputRegistersTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadInputRegistersTask</a>&lt;com.ghgande.j2mod.modbus.msg.ReadInputRegistersRequest,<wbr>com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse&gt;</span></div>
 <div class="block">Implements a Read Input Register Task, implementing Modbus function code 4
  (http://www.simplymodbus.ca/FC04.htm).</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="inherited-list">
+<h2 id="nested-classes-inherited-from-class-io.openems.edge.bridge.modbus.api.task.Task">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></h2>
+<code><a href="Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-io.openems.edge.bridge.modbus.api.task.AbstractTask">Fields inherited from class&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="AbstractTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractTask</a></h3>
+<code><a href="AbstractTask.html#elements">elements</a>, <a href="AbstractTask.html#length">length</a>, <a href="AbstractTask.html#name">name</a>, <a href="AbstractTask.html#responseClazz">responseClazz</a>, <a href="AbstractTask.html#startAddress">startAddress</a></code></div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -102,9 +119,9 @@ implements <a href="ReadTask.html" title="interface in io.openems.edge.bridge.mo
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.AbstractModbusElement...)" class="member-name-link">FC4ReadInputRegistersTask</a><wbr>(int&nbsp;startAddress,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.ModbusElement...)" class="member-name-link">FC4ReadInputRegistersTask</a><wbr>(int&nbsp;startAddress,
  <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a>&nbsp;priority,
- <a href="../element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;...&nbsp;elements)</code></div>
+ <a href="../element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;?&gt;...&nbsp;elements)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -120,36 +137,41 @@ implements <a href="ReadTask.html" title="interface in io.openems.edge.bridge.mo
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected com.ghgande.j2mod.modbus.msg.ReadInputRegistersRequest</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createModbusRequest()" class="member-name-link">createModbusRequest</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Factory for a <code>ModbusRequest</code>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected com.ghgande.j2mod.modbus.procimg.InputRegister[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parseResponse(com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse)" class="member-name-link">parseResponse</a><wbr>(com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse&nbsp;response)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Parses a <code>ModbusResponse</code> to an array of values.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getActiondescription()" class="member-name-link">getActiondescription</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected com.ghgande.j2mod.modbus.msg.ModbusRequest</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRequest()" class="member-name-link">getRequest</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected com.ghgande.j2mod.modbus.procimg.InputRegister[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleResponse(com.ghgande.j2mod.modbus.msg.ModbusResponse)" class="member-name-link">handleResponse</a><wbr>(com.ghgande.j2mod.modbus.msg.ModbusResponse&nbsp;response)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#payloadToString(com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse)" class="member-name-link">payloadToString</a><wbr>(com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse&nbsp;response)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Converts the actual payload of the RESPONSE to a human readable format
+ suitable for logs; without header data (like Unit-ID, function code,
+ checksum, etc).</div>
+</div>
 </div>
 </div>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.task.AbstractReadInputRegistersTask">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="AbstractReadInputRegistersTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadInputRegistersTask</a></h3>
-<code><a href="AbstractReadInputRegistersTask.html#doElementSetInput(io.openems.edge.bridge.modbus.api.element.ModbusElement,int,com.ghgande.j2mod.modbus.procimg.InputRegister%5B%5D)">doElementSetInput</a>, <a href="AbstractReadInputRegistersTask.html#getRequiredElementName()">getRequiredElementName</a>, <a href="AbstractReadInputRegistersTask.html#increasePosition(int,io.openems.edge.bridge.modbus.api.element.ModbusElement)">increasePosition</a>, <a href="AbstractReadInputRegistersTask.html#isCorrectElementInstance(io.openems.edge.bridge.modbus.api.element.ModbusElement)">isCorrectElementInstance</a></code></div>
+<code><a href="AbstractReadInputRegistersTask.html#calculateNextPosition(io.openems.edge.bridge.modbus.api.element.ModbusElement,int)">calculateNextPosition</a>, <a href="AbstractReadInputRegistersTask.html#handleResponse(io.openems.edge.bridge.modbus.api.element.ModbusRegisterElement,int,com.ghgande.j2mod.modbus.procimg.InputRegister%5B%5D)">handleResponse</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.task.AbstractReadTask">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadTask</a></h3>
-<code><a href="AbstractReadTask.html#_execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">_execute</a>, <a href="AbstractReadTask.html#fillElements(T%5B%5D)">fillElements</a>, <a href="AbstractReadTask.html#getPriority()">getPriority</a>, <a href="AbstractReadTask.html#readElements(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">readElements</a></code></div>
+<code><a href="AbstractReadTask.html#execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">execute</a>, <a href="AbstractReadTask.html#getPriority()">getPriority</a>, <a href="AbstractReadTask.html#payloadToString(REQUEST)">payloadToString</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.task.AbstractTask">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="AbstractTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractTask</a></h3>
-<code><a href="AbstractTask.html#deactivate()">deactivate</a>, <a href="AbstractTask.html#debug()">debug</a>, <a href="AbstractTask.html#execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">execute</a>, <a href="AbstractTask.html#getElements()">getElements</a>, <a href="AbstractTask.html#getExecuteDuration()">getExecuteDuration</a>, <a href="AbstractTask.html#getLength()">getLength</a>, <a href="AbstractTask.html#getLogVerbosity(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">getLogVerbosity</a>, <a href="AbstractTask.html#getParent()">getParent</a>, <a href="AbstractTask.html#getStartAddress()">getStartAddress</a>, <a href="AbstractTask.html#hasBeenExecuted()">hasBeenExecuted</a>, <a href="AbstractTask.html#isDebug()">isDebug</a>, <a href="AbstractTask.html#setParent(io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent)">setParent</a>, <a href="AbstractTask.html#toString()">toString</a></code></div>
+<code><a href="AbstractTask.html#deactivate()">deactivate</a>, <a href="AbstractTask.html#debug()">debug</a>, <a href="AbstractTask.html#executeRequest(io.openems.edge.bridge.modbus.api.AbstractModbusBridge,REQUEST)">executeRequest</a>, <a href="AbstractTask.html#getElements()">getElements</a>, <a href="AbstractTask.html#getLength()">getLength</a>, <a href="AbstractTask.html#getLogVerbosity(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">getLogVerbosity</a>, <a href="AbstractTask.html#getParent()">getParent</a>, <a href="AbstractTask.html#getStartAddress()">getStartAddress</a>, <a href="AbstractTask.html#logError(org.slf4j.Logger,java.lang.Exception,java.lang.String...)">logError</a>, <a href="AbstractTask.html#logInfo(org.slf4j.Logger,java.lang.String...)">logInfo</a>, <a href="AbstractTask.html#logRequest(io.openems.edge.bridge.modbus.api.BridgeModbus,io.openems.edge.bridge.modbus.api.LogVerbosity,REQUEST,io.openems.common.function.ThrowingSupplier)">logRequest</a>, <a href="AbstractTask.html#setParent(io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent)">setParent</a>, <a href="AbstractTask.html#toLogMessage(io.openems.edge.bridge.modbus.api.LogVerbosity,int,int,REQUEST,RESPONSE,java.lang.Exception)">toLogMessage</a>, <a href="AbstractTask.html#toLogMessage(io.openems.edge.bridge.modbus.api.LogVerbosity,REQUEST,java.lang.Exception)">toLogMessage</a>, <a href="AbstractTask.html#toLogMessage(io.openems.edge.bridge.modbus.api.LogVerbosity,REQUEST,RESPONSE)">toLogMessage</a>, <a href="AbstractTask.html#toLogMessage(io.openems.edge.bridge.modbus.api.LogVerbosity,REQUEST,RESPONSE,java.lang.Exception)">toLogMessage</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
-<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
-<div class="inherited-list">
-<h3 id="methods-inherited-from-class-io.openems.edge.common.taskmanager.ManagedTask">Methods inherited from interface&nbsp;io.openems.edge.common.taskmanager.<a href="../../../../common/taskmanager/ManagedTask.html" title="interface in io.openems.edge.common.taskmanager">ManagedTask</a></h3>
-<code><a href="../../../../common/taskmanager/ManagedTask.html#getPriority()">getPriority</a></code></div>
+<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.task.Task">Methods inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></h3>
-<code><a href="Task.html#deactivate()">deactivate</a>, <a href="Task.html#execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">execute</a>, <a href="Task.html#getElements()">getElements</a>, <a href="Task.html#getExecuteDuration()">getExecuteDuration</a>, <a href="Task.html#getLength()">getLength</a>, <a href="Task.html#getParent()">getParent</a>, <a href="Task.html#getStartAddress()">getStartAddress</a>, <a href="Task.html#hasBeenExecuted()">hasBeenExecuted</a>, <a href="Task.html#setParent(io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent)">setParent</a></code></div>
+<code><a href="Task.html#deactivate()">deactivate</a>, <a href="Task.html#getElements()">getElements</a>, <a href="Task.html#getLength()">getLength</a>, <a href="Task.html#getParent()">getParent</a>, <a href="Task.html#getStartAddress()">getStartAddress</a>, <a href="Task.html#setParent(io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent)">setParent</a></code></div>
 </section>
 </li>
 </ul>
@@ -162,11 +184,11 @@ implements <a href="ReadTask.html" title="interface in io.openems.edge.bridge.mo
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.AbstractModbusElement...)">
+<section class="detail" id="&lt;init&gt;(int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.ModbusElement...)">
 <h3>FC4ReadInputRegistersTask</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FC4ReadInputRegistersTask</span><wbr><span class="parameters">(int&nbsp;startAddress,
  <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a>&nbsp;priority,
- <a href="../element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?&gt;...&nbsp;elements)</span></div>
+ <a href="../element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;?&gt;...&nbsp;elements)</span></div>
 </section>
 </li>
 </ul>
@@ -178,35 +200,53 @@ implements <a href="ReadTask.html" title="interface in io.openems.edge.bridge.mo
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="getActiondescription()">
-<h3>getActiondescription</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getActiondescription</span>()</div>
+<section class="detail" id="createModbusRequest()">
+<h3>createModbusRequest</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">com.ghgande.j2mod.modbus.msg.ReadInputRegistersRequest</span>&nbsp;<span class="element-name">createModbusRequest</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="AbstractReadTask.html#createModbusRequest()">AbstractReadTask</a></code></span></div>
+<div class="block">Factory for a <code>ModbusRequest</code>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="AbstractTask.html#getActiondescription()">getActiondescription</a></code>&nbsp;in class&nbsp;<code><a href="AbstractTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractTask</a></code></dd>
+<dd><code><a href="AbstractReadTask.html#createModbusRequest()">createModbusRequest</a></code>&nbsp;in class&nbsp;<code><a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadTask</a>&lt;com.ghgande.j2mod.modbus.msg.ReadInputRegistersRequest,<wbr>com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse,<wbr><a href="../element/ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>,<wbr>com.ghgande.j2mod.modbus.procimg.InputRegister&gt;</code></dd>
+<dt>Returns:</dt>
+<dd>a new <code>ModbusRequest</code></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="getRequest()">
-<h3>getRequest</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">com.ghgande.j2mod.modbus.msg.ModbusRequest</span>&nbsp;<span class="element-name">getRequest</span>()</div>
+<section class="detail" id="parseResponse(com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse)">
+<h3>parseResponse</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">com.ghgande.j2mod.modbus.procimg.InputRegister[]</span>&nbsp;<span class="element-name">parseResponse</span><wbr><span class="parameters">(com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse&nbsp;response)</span>
+                                                                  throws <span class="exceptions"><a href="../../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="AbstractReadTask.html#parseResponse(RESPONSE)">AbstractReadTask</a></code></span></div>
+<div class="block">Parses a <code>ModbusResponse</code> to an array of values.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="AbstractReadTask.html#getRequest()">getRequest</a></code>&nbsp;in class&nbsp;<code><a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadTask</a>&lt;com.ghgande.j2mod.modbus.procimg.InputRegister&gt;</code></dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="handleResponse(com.ghgande.j2mod.modbus.msg.ModbusResponse)">
-<h3>handleResponse</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">com.ghgande.j2mod.modbus.procimg.InputRegister[]</span>&nbsp;<span class="element-name">handleResponse</span><wbr><span class="parameters">(com.ghgande.j2mod.modbus.msg.ModbusResponse&nbsp;response)</span>
-                                                                   throws <span class="exceptions"><a href="../../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="AbstractReadTask.html#handleResponse(com.ghgande.j2mod.modbus.msg.ModbusResponse)">handleResponse</a></code>&nbsp;in class&nbsp;<code><a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadTask</a>&lt;com.ghgande.j2mod.modbus.procimg.InputRegister&gt;</code></dd>
+<dd><code><a href="AbstractReadTask.html#parseResponse(RESPONSE)">parseResponse</a></code>&nbsp;in class&nbsp;<code><a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadTask</a>&lt;com.ghgande.j2mod.modbus.msg.ReadInputRegistersRequest,<wbr>com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse,<wbr><a href="../element/ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>,<wbr>com.ghgande.j2mod.modbus.procimg.InputRegister&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>response</code> - the <code>ModbusResponse</code></dd>
+<dt>Returns:</dt>
+<dd>array of results</dd>
 <dt>Throws:</dt>
-<dd><code><a href="../../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+<dd><code><a href="../../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="payloadToString(com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse)">
+<h3>payloadToString</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">payloadToString</span><wbr><span class="parameters">(com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse&nbsp;response)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="AbstractTask.html#payloadToString(RESPONSE)">AbstractTask</a></code></span></div>
+<div class="block">Converts the actual payload of the RESPONSE to a human readable format
+ suitable for logs; without header data (like Unit-ID, function code,
+ checksum, etc).</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="AbstractTask.html#payloadToString(RESPONSE)">payloadToString</a></code>&nbsp;in class&nbsp;<code><a href="AbstractTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractTask</a>&lt;com.ghgande.j2mod.modbus.msg.ReadInputRegistersRequest,<wbr>com.ghgande.j2mod.modbus.msg.ReadInputRegistersResponse&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>response</code> - the response</dd>
+<dt>Returns:</dt>
+<dd>a string</dd>
 </dl>
 </section>
 </li>

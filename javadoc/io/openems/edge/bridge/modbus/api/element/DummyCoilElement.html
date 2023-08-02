@@ -72,7 +72,7 @@ loadScripts(document, 'script');</script>
 <h1 title="Class DummyCoilElement" class="title">Class DummyCoilElement</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance"><a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.AbstractModbusElement</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;
+<div class="inheritance"><a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.AbstractModbusElement</a>&lt;<a href="DummyCoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">DummyCoilElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;
 <div class="inheritance">io.openems.edge.bridge.modbus.api.element.DummyCoilElement</div>
 </div>
 </div>
@@ -83,7 +83,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">DummyCoilElement</span>
-<span class="extends-implements">extends <a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;
+<span class="extends-implements">extends <a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;<a href="DummyCoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">DummyCoilElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;
 implements <a href="ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>, <a href="DummyElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">DummyElement</a></span></div>
 <div class="block">A DummyCoilElement is a placeholder for an empty <a href="ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element"><code>ModbusCoilElement</code></a>.</div>
 </section>
@@ -95,7 +95,7 @@ implements <a href="ModbusCoilElement.html" title="interface in io.openems.edge.
 <h2>Field Summary</h2>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.edge.bridge.modbus.api.element.AbstractModbusElement">Fields inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a></h3>
-<code><a href="AbstractModbusElement.html#abstractTask">abstractTask</a>, <a href="AbstractModbusElement.html#onSetNextWriteCallbacks">onSetNextWriteCallbacks</a></code></div>
+<code><a href="AbstractModbusElement.html#onSetNextWriteCallbacks">onSetNextWriteCallbacks</a>, <a href="AbstractModbusElement.html#task">task</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -137,9 +137,14 @@ implements <a href="ModbusCoilElement.html" title="interface in io.openems.edge.
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the next write value.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setInputCoil(java.lang.Boolean)" class="member-name-link">setInputCoil</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;coil)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="DummyCoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">DummyCoilElement</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#self()" class="member-name-link">self</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets an instance of the correct subclass of myself.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setInputCoil(java.lang.Boolean)" class="member-name-link">setInputCoil</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;coil)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">We are not setting a value for a DummyElement.</div>
 </div>
 </div>
@@ -147,7 +152,7 @@ implements <a href="ModbusCoilElement.html" title="interface in io.openems.edge.
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.AbstractModbusElement">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a></h3>
-<code><a href="AbstractModbusElement.html#deactivate()">deactivate</a>, <a href="AbstractModbusElement.html#debug()">debug</a>, <a href="AbstractModbusElement.html#getModbusTask()">getModbusTask</a>, <a href="AbstractModbusElement.html#getStartAddress()">getStartAddress</a>, <a href="AbstractModbusElement.html#getType()">getType</a>, <a href="AbstractModbusElement.html#invalidate(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">invalidate</a>, <a href="AbstractModbusElement.html#isDebug()">isDebug</a>, <a href="AbstractModbusElement.html#isIgnored()">isIgnored</a>, <a href="AbstractModbusElement.html#onSetNextWrite(java.util.function.Consumer)">onSetNextWrite</a>, <a href="AbstractModbusElement.html#onUpdateCallback(java.util.function.Consumer)">onUpdateCallback</a>, <a href="AbstractModbusElement.html#setModbusTask(io.openems.edge.bridge.modbus.api.task.AbstractTask)">setModbusTask</a>, <a href="AbstractModbusElement.html#setValue(T)">setValue</a>, <a href="AbstractModbusElement.html#toString()">toString</a></code></div>
+<code><a href="AbstractModbusElement.html#deactivate()">deactivate</a>, <a href="AbstractModbusElement.html#debug()">debug</a>, <a href="AbstractModbusElement.html#getModbusTask()">getModbusTask</a>, <a href="AbstractModbusElement.html#getStartAddress()">getStartAddress</a>, <a href="AbstractModbusElement.html#getType()">getType</a>, <a href="AbstractModbusElement.html#invalidate(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">invalidate</a>, <a href="AbstractModbusElement.html#isDebug()">isDebug</a>, <a href="AbstractModbusElement.html#onSetNextWrite(java.util.function.Consumer)">onSetNextWrite</a>, <a href="AbstractModbusElement.html#onUpdateCallback(java.util.function.Consumer)">onUpdateCallback</a>, <a href="AbstractModbusElement.html#setModbusTask(io.openems.edge.bridge.modbus.api.task.Task)">setModbusTask</a>, <a href="AbstractModbusElement.html#setValue(T)">setValue</a>, <a href="AbstractModbusElement.html#toString()">toString</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -156,7 +161,7 @@ implements <a href="ModbusCoilElement.html" title="interface in io.openems.edge.
 <code><a href="ModbusCoilElement.html#getNextWriteValueAndReset()">getNextWriteValueAndReset</a>, <a href="ModbusCoilElement.html#setNextWriteValue(java.util.Optional)">setNextWriteValue</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.ModbusElement">Methods inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a></h3>
-<code><a href="ModbusElement.html#deactivate()">deactivate</a>, <a href="ModbusElement.html#getStartAddress()">getStartAddress</a>, <a href="ModbusElement.html#getType()">getType</a>, <a href="ModbusElement.html#invalidate(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">invalidate</a>, <a href="ModbusElement.html#isIgnored()">isIgnored</a>, <a href="ModbusElement.html#onSetNextWrite(java.util.function.Consumer)">onSetNextWrite</a>, <a href="ModbusElement.html#setModbusTask(io.openems.edge.bridge.modbus.api.task.AbstractTask)">setModbusTask</a></code></div>
+<code><a href="ModbusElement.html#deactivate()">deactivate</a>, <a href="ModbusElement.html#getStartAddress()">getStartAddress</a>, <a href="ModbusElement.html#getType()">getType</a>, <a href="ModbusElement.html#invalidate(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">invalidate</a>, <a href="ModbusElement.html#onSetNextWrite(java.util.function.Consumer)">onSetNextWrite</a>, <a href="ModbusElement.html#setModbusTask(io.openems.edge.bridge.modbus.api.task.Task)">setModbusTask</a></code></div>
 </section>
 </li>
 </ul>
@@ -234,6 +239,20 @@ implements <a href="ModbusCoilElement.html" title="interface in io.openems.edge.
 <dd><code><a href="ModbusCoilElement.html#getNextWriteValue()">getNextWriteValue</a></code>&nbsp;in interface&nbsp;<code><a href="ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a></code></dd>
 <dt>Returns:</dt>
 <dd>the Optional next write value</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="self()">
+<h3>self</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="DummyCoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">DummyCoilElement</a></span>&nbsp;<span class="element-name">self</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="AbstractModbusElement.html#self()">AbstractModbusElement</a></code></span></div>
+<div class="block">Gets an instance of the correct subclass of myself.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="AbstractModbusElement.html#self()">self</a></code>&nbsp;in class&nbsp;<code><a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;<a href="DummyCoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">DummyCoilElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></dd>
+<dt>Returns:</dt>
+<dd>myself</dd>
 </dl>
 </section>
 </li>

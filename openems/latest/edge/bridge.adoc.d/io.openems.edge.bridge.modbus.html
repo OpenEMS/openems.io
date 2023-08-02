@@ -192,33 +192,88 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Modbus is a widely used standard for fieldbus connections. It is used by all kinds of hardware devices like photovoltaics inverters, electric meters, and so on.</p>
+<p>Modbus is a widely used standard for fieldbus communications. It is used by all kinds of hardware devices like photovoltaics inverters, electric meters, and so on.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_modbustcp"><a class="anchor" href="#_modbustcp"></a>Modbus/TCP</h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusTcpImpl.java">Modbus/TCP <span class="icon"><i class="fa fa-code"></i></span></a></dt>
-<dd>
-<p><a href="https://en.wikipedia.org/wiki/Modbus">Modbus/TCP <span class="icon"><i class="fa fa-external-link"></i></span></a> for fieldbus connections via TCP/IP network.</p>
-</dd>
-</dl>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusTcpImpl.java">Bridge Modbus/RTU Serial</a> for fieldbus communication via TCP/IP network.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_modbusrtu"><a class="anchor" href="#_modbusrtu"></a>Modbus/RTU</h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusSerialImpl.java">Modbus/Serial <span class="icon"><i class="fa fa-code"></i></span></a></dt>
-<dd>
-<p><a href="https://en.wikipedia.org/wiki/Modbus">Modbus/RTU <span class="icon"><i class="fa fa-external-link"></i></span></a> for fieldbus connections via RS485 serial bus.</p>
-</dd>
-</dl>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusSerialImpl.java">Bridge Modbus/TCP</a> for fieldbus communication via RS485 serial bus.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementation_details"><a class="anchor" href="#_implementation_details"></a>Implementation details</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenEMS Components that use Modbus communication, must implement the <code>ModbusComponent</code> interface and provide a <code>ModbusProtocol</code>. A protocol uses the notion of a <code>Task</code> to define an individual Modbus Read or Write request that can cover multiple Modbus Registers or Coils depending on the Modbus function code. It is possible to add or remove tasks to/from a protocol at runtime or to change the execution <code>Priority</code>. The Modbus Bridge (<code>Bridge Modbus/RTU Serial</code> or <code>Bridge Modbus/TCP</code>) collects all protocols and manages the execution of Tasks.</p>
+</div>
+<div class="sect2">
+<h3 id="_execution_of_modbus_tasks"><a class="anchor" href="#_execution_of_modbus_tasks"></a>Execution of Modbus Tasks</h3>
+<div class="paragraph">
+<p>Execution of Modbus Tasks is managed by the <code>ModbusWorker</code>. It&#8230;&#8203;
+- executes Write-Tasks as early as possible (directly after the EXECUTE_WRITE event)
+- executes Read-Tasks as late as possible to have values available exactly when they are needed (i.e. just before the BEFORE_PROCESS_IMAGE event). To achieve this, the ModbusWorker evaluates all execution times and 'learns' an ideal delay time, that is applied on every Cycle - the 'CycleDelay'
+- handles defective ModbusComponents (i.e. ones where tasks have repeatedly failed) and delays reading from/writing to those components in order to avoid having defective components block the entire communication bus. Maximum delay is 5 minutes for read from defective components. ModbusComponents can trigger a retry from a defective Component by calling the <code>retryModbusCommunication()</code> method.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_priority"><a class="anchor" href="#_priority"></a>Priority</h3>
+<div class="paragraph">
+<p>Read-Tasks can have two different priorities, that are defined in the ModbusProtocol definition:
+- <code>HIGH</code>: the task is executed once every Cycle
+- <code>LOW</code>: only one task of all defined LOW priority tasks of all components registered on the same bridge is executed per Cycle
+Write-Tasks always have <code>HIGH</code> priority, i.e. a set-point is always executed as-soon-as-possible - as long as the Component is not marked as defective</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_channels"><a class="anchor" href="#_channels"></a>Channels</h3>
+<div class="paragraph">
+<p>Each Modbus Bridge provides Channels for more detailed information:
+- <code>CycleTimeIsTooShort</code>: the configured global Cycle-Time is too short to execute all planned tasks in one Cycle
+- <code>CycleDelay</code>: see 'CycleDelay' in the 'ModbusWorker' description above</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logging"><a class="anchor" href="#_logging"></a>Logging</h3>
+<div class="paragraph">
+<p>Often it is useful to print detailed logging information on the Console for debugging purposes. Logging can be enabled on Task level in the definition of the ModbusProtocol by adding <code>.debug()</code> or globally per Modbus Bridge via the <code>LogVerbosity</code> configuration parameter:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NONE</code>: Show no logs</p>
+</li>
+<li>
+<p><code>DEBUG_LOG</code>: Shows basic logging information via the Controller.Debug.Log</p>
+</li>
+<li>
+<p><code>READS_AND_WRITES</code>: Show logs for all read and write requests</p>
+</li>
+<li>
+<p><code>READS_AND_WRITES_VERBOSE</code>: Show logs for all read and write requests, including actual hex or binary values of request and response</p>
+</li>
+<li>
+<p><code>READS_AND_WRITES_DURATION</code>: Show logs for all read and write requests, including actual duration time per request</p>
+</li>
+<li>
+<p><code>READS_AND_WRITES_DURATION_TRACE_EVENTS</code>: Show logs for all read and write requests, including actual duration time per request &amp; trace the internal Event-based State-Machine</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The log level via configuration parameter may be changed at any time during runtime without side-effects on the communication.</p>
+</div>
 </div>
 </div>
 </div>

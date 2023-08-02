@@ -44,7 +44,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -79,13 +79,38 @@ loadScripts(document, 'script');</script>
 <dt>All Implemented Interfaces:</dt>
 <dd><code><a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></code>, <code><a href="../../../../common/taskmanager/ManagedTask.html" title="interface in io.openems.edge.common.taskmanager">ManagedTask</a></code></dd>
 </dl>
+<dl class="notes">
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="WaitTask.Delay.html" title="class in io.openems.edge.bridge.modbus.api.task">WaitTask.Delay</a></code>, <code><a href="WaitTask.Mutex.html" title="class in io.openems.edge.bridge.modbus.api.task">WaitTask.Mutex</a></code></dd>
+</dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">WaitTask</span>
+<div class="type-signature"><span class="modifiers">public abstract non-sealed class </span><span class="element-name type-name-label">WaitTask</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="WaitTask.Delay.html" class="type-name-link" title="class in io.openems.edge.bridge.modbus.api.task">WaitTask.Delay</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="WaitTask.Mutex.html" class="type-name-link" title="class in io.openems.edge.bridge.modbus.api.task">WaitTask.Mutex</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h2 id="nested-classes-inherited-from-class-io.openems.edge.bridge.modbus.api.task.Task">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></h2>
+<code><a href="Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></code></div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -94,7 +119,7 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(long)" class="member-name-link">WaitTask</a><wbr>(long&nbsp;delay)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">WaitTask</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -104,61 +129,53 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel">
 <div class="summary-table three-column-summary" aria-labelledby="method-summary-table-tab0">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#_execute()" class="member-name-link">_execute</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">This is called on deactivate of the Modbus-Bridge.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)" class="member-name-link">execute</a><wbr>(<a href="../AbstractModbusBridge.html" title="class in io.openems.edge.bridge.modbus.api">AbstractModbusBridge</a>&nbsp;bridge)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)" class="member-name-link">execute</a><wbr>(<a href="../AbstractModbusBridge.html" title="class in io.openems.edge.bridge.modbus.api">AbstractModbusBridge</a>&nbsp;bridge)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Executes the tasks - i.e.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;?&gt;[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getElements()" class="member-name-link">getElements</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="../element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;?&gt;[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getElements()" class="member-name-link">getElements</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the ModbusElements.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getExecuteDuration()" class="member-name-link">getExecuteDuration</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Gets the execution duration of the last execution (successful or not not
- successful) in [ms].</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLength()" class="member-name-link">getLength</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the length from first to last Modbus register address.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="../AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParent()" class="member-name-link">getParent</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the parent.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a></code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPriority()" class="member-name-link">getPriority</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager"><code>Priority</code></a> of this <a href="../../../../common/taskmanager/ManagedTask.html" title="interface in io.openems.edge.common.taskmanager"><code>ManagedTask</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStartAddress()" class="member-name-link">getStartAddress</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the start Modbus register address.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasBeenExecuted()" class="member-name-link">hasBeenExecuted</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParent(io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent)" class="member-name-link">setParent</a><wbr>(<a href="../AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a>&nbsp;parent)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Gets whether this ReadTask has been successfully executed before.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParent(io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent)" class="member-name-link">setParent</a><wbr>(<a href="../AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a>&nbsp;parent)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the parent.</div>
 </div>
 </div>
@@ -179,9 +196,9 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(long)">
+<section class="detail" id="&lt;init&gt;()">
 <h3>WaitTask</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">WaitTask</span><wbr><span class="parameters">(long&nbsp;delay)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">WaitTask</span>()</div>
 </section>
 </li>
 </ul>
@@ -193,65 +210,9 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="getPriority()">
-<h3>getPriority</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a></span>&nbsp;<span class="element-name">getPriority</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../../common/taskmanager/ManagedTask.html#getPriority()">ManagedTask</a></code></span></div>
-<div class="block">Gets the <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager"><code>Priority</code></a> of this <a href="../../../../common/taskmanager/ManagedTask.html" title="interface in io.openems.edge.common.taskmanager"><code>ManagedTask</code></a>.</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="../../../../common/taskmanager/ManagedTask.html#getPriority()">getPriority</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../common/taskmanager/ManagedTask.html" title="interface in io.openems.edge.common.taskmanager">ManagedTask</a></code></dd>
-<dt>Returns:</dt>
-<dd>the <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager"><code>Priority</code></a></dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="getElements()">
-<h3>getElements</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;?&gt;[]</span>&nbsp;<span class="element-name">getElements</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#getElements()">Task</a></code></span></div>
-<div class="block">Gets the ModbusElements.</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Task.html#getElements()">getElements</a></code>&nbsp;in interface&nbsp;<code><a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></code></dd>
-<dt>Returns:</dt>
-<dd>an array of ModbusElements</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="getStartAddress()">
-<h3>getStartAddress</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getStartAddress</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#getStartAddress()">Task</a></code></span></div>
-<div class="block">Gets the start Modbus register address.</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Task.html#getStartAddress()">getStartAddress</a></code>&nbsp;in interface&nbsp;<code><a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></code></dd>
-<dt>Returns:</dt>
-<dd>the address</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="getLength()">
-<h3>getLength</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getLength</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#getLength()">Task</a></code></span></div>
-<div class="block">Gets the length from first to last Modbus register address.</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Task.html#getLength()">getLength</a></code>&nbsp;in interface&nbsp;<code><a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></code></dd>
-<dt>Returns:</dt>
-<dd>the address</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="setParent(io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent)">
 <h3>setParent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setParent</span><wbr><span class="parameters">(<a href="../AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a>&nbsp;parent)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setParent</span><wbr><span class="parameters">(<a href="../AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a>&nbsp;parent)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#setParent(io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent)">Task</a></code></span></div>
 <div class="block">Sets the parent.</div>
 <dl class="notes">
@@ -265,7 +226,7 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <li>
 <section class="detail" id="getParent()">
 <h3>getParent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></span>&nbsp;<span class="element-name">getParent</span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="../AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a></span>&nbsp;<span class="element-name">getParent</span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#getParent()">Task</a></code></span></div>
 <div class="block">Gets the parent.</div>
 <dl class="notes">
@@ -277,9 +238,65 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 </section>
 </li>
 <li>
+<section class="detail" id="getPriority()">
+<h3>getPriority</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a></span>&nbsp;<span class="element-name">getPriority</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../../common/taskmanager/ManagedTask.html#getPriority()">ManagedTask</a></code></span></div>
+<div class="block">Gets the <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager"><code>Priority</code></a> of this <a href="../../../../common/taskmanager/ManagedTask.html" title="interface in io.openems.edge.common.taskmanager"><code>ManagedTask</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../../../common/taskmanager/ManagedTask.html#getPriority()">getPriority</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../common/taskmanager/ManagedTask.html" title="interface in io.openems.edge.common.taskmanager">ManagedTask</a></code></dd>
+<dt>Returns:</dt>
+<dd>the <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager"><code>Priority</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getElements()">
+<h3>getElements</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="../element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;?&gt;[]</span>&nbsp;<span class="element-name">getElements</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#getElements()">Task</a></code></span></div>
+<div class="block">Gets the ModbusElements.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Task.html#getElements()">getElements</a></code>&nbsp;in interface&nbsp;<code><a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></code></dd>
+<dt>Returns:</dt>
+<dd>an array of ModbusElements</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getStartAddress()">
+<h3>getStartAddress</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getStartAddress</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#getStartAddress()">Task</a></code></span></div>
+<div class="block">Gets the start Modbus register address.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Task.html#getStartAddress()">getStartAddress</a></code>&nbsp;in interface&nbsp;<code><a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></code></dd>
+<dt>Returns:</dt>
+<dd>the address</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getLength()">
+<h3>getLength</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getLength</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#getLength()">Task</a></code></span></div>
+<div class="block">Gets the length from first to last Modbus register address.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Task.html#getLength()">getLength</a></code>&nbsp;in interface&nbsp;<code><a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></code></dd>
+<dt>Returns:</dt>
+<dd>the address</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="deactivate()">
 <h3>deactivate</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deactivate</span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deactivate</span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#deactivate()">Task</a></code></span></div>
 <div class="block">This is called on deactivate of the Modbus-Bridge. It can be used to clear
  any references like listeners.</div>
@@ -292,51 +309,28 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <li>
 <section class="detail" id="execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">
 <h3>execute</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">execute</span><wbr><span class="parameters">(<a href="../AbstractModbusBridge.html" title="class in io.openems.edge.bridge.modbus.api">AbstractModbusBridge</a>&nbsp;bridge)</span>
-                throws <span class="exceptions"><a href="../../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></span>&nbsp;<span class="element-name">execute</span><wbr><span class="parameters">(<a href="../AbstractModbusBridge.html" title="class in io.openems.edge.bridge.modbus.api">AbstractModbusBridge</a>&nbsp;bridge)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">Task</a></code></span></div>
 <div class="block">Executes the tasks - i.e. sends the query of a ReadTask or writes a
  WriteTask.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Task.html#execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">execute</a></code>&nbsp;in interface&nbsp;<code><a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></code></dd>
-<dt>Type Parameters:</dt>
-<dd><code>T</code> - the Modbus-Element</dd>
 <dt>Parameters:</dt>
 <dd><code>bridge</code> - the Modbus-Bridge</dd>
 <dt>Returns:</dt>
-<dd>the number of executed Sub-Tasks</dd>
+<dd><a href="Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task"><code>Task.ExecuteState</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="_execute()">
+<h3>_execute</h3>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_execute</span>()
+                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
+<dl class="notes">
 <dt>Throws:</dt>
-<dd><code><a href="../../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="hasBeenExecuted()">
-<h3>hasBeenExecuted</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasBeenExecuted</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#hasBeenExecuted()">Task</a></code></span></div>
-<div class="block">Gets whether this ReadTask has been successfully executed before.</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Task.html#hasBeenExecuted()">hasBeenExecuted</a></code>&nbsp;in interface&nbsp;<code><a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></code></dd>
-<dt>Returns:</dt>
-<dd>true if this Task has been executed successfully at least once</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="getExecuteDuration()">
-<h3>getExecuteDuration</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">getExecuteDuration</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Task.html#getExecuteDuration()">Task</a></code></span></div>
-<div class="block">Gets the execution duration of the last execution (successful or not not
- successful) in [ms].</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="Task.html#getExecuteDuration()">getExecuteDuration</a></code>&nbsp;in interface&nbsp;<code><a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></code></dd>
-<dt>Returns:</dt>
-<dd>the duration in [ms]</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></code></dd>
 </dl>
 </section>
 </li>

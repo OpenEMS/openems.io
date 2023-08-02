@@ -88,8 +88,10 @@ loadScripts(document, 'script');</script>
  <p>
  It tries to execute all Write-Tasks as early as possible (directly after the
  TOPIC_CYCLE_EXECUTE_WRITE event) and all Read-Tasks as late as possible to
- have correct values available exactly when they are needed (i.e. at the
- TOPIC_CYCLE_BEFORE_PROCESS_IMAGE event).</div>
+ have values available exactly when they are needed (i.e. at the
+ TOPIC_CYCLE_BEFORE_PROCESS_IMAGE event). For this it uses a
+ <a href="internal/CycleTasksManager.html" title="class in io.openems.edge.bridge.modbus.api.worker.internal"><code>CycleTasksManager</code></a> that internally uses a <a href="internal/TasksSupplierImpl.html" title="class in io.openems.edge.bridge.modbus.api.worker.internal"><code>TasksSupplierImpl</code></a>
+ that supplies the tasks for one Cycle (<a href="internal/CycleTasks.html" title="class in io.openems.edge.bridge.modbus.api.worker.internal"><code>CycleTasks</code></a>).</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -110,8 +112,14 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)" class="member-name-link">ModbusWorker</a><wbr>(<a href="../AbstractModbusBridge.html" title="class in io.openems.edge.bridge.modbus.api">AbstractModbusBridge</a>&nbsp;parent)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.function.Function,java.util.function.Consumer,java.util.function.Consumer,java.util.function.Consumer,java.util.concurrent.atomic.AtomicReference)" class="member-name-link">ModbusWorker</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../task/Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a>,<wbr><a href="../task/Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a>&gt;&nbsp;execute,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;?&gt;[]&gt;&nbsp;invalidate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;&nbsp;cycleTimeIsTooShortChannel,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&nbsp;cycleDelayChannel,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicReference.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicReference</a>&lt;<a href="../LogVerbosity.html" title="enum class in io.openems.edge.bridge.modbus.api">LogVerbosity</a>&gt;&nbsp;logVerbosity)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Constructor for <a href="ModbusWorker.html" title="class in io.openems.edge.bridge.modbus.api.worker"><code>ModbusWorker</code></a>.</div>
+</div>
 </div>
 </section>
 </li>
@@ -140,17 +148,22 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onBeforeProcessImage()" class="member-name-link">onBeforeProcessImage</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">This is called on TOPIC_CYCLE_BEFORE_PROCESS_IMAGE cycle event.</div>
+<div class="block">Called on BEFORE_PROCESS_IMAGE event.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onExecuteWrite()" class="member-name-link">onExecuteWrite</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">This is called on TOPIC_CYCLE_EXECUTE_WRITE cycle event.</div>
+<div class="block">Called on EXECUTE_WRITE event.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeProtocol(java.lang.String)" class="member-name-link">removeProtocol</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;sourceId)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Removes the protocol.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#retryModbusCommunication(java.lang.String)" class="member-name-link">retryModbusCommunication</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;sourceId)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Retry Modbus communication to given Component-ID.</div>
 </div>
 </div>
 </div>
@@ -176,9 +189,28 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">
+<section class="detail" id="&lt;init&gt;(java.util.function.Function,java.util.function.Consumer,java.util.function.Consumer,java.util.function.Consumer,java.util.concurrent.atomic.AtomicReference)">
 <h3>ModbusWorker</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ModbusWorker</span><wbr><span class="parameters">(<a href="../AbstractModbusBridge.html" title="class in io.openems.edge.bridge.modbus.api">AbstractModbusBridge</a>&nbsp;parent)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ModbusWorker</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../task/Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a>,<wbr><a href="../task/Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a>&gt;&nbsp;execute,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;?&gt;[]&gt;&nbsp;invalidate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;&nbsp;cycleTimeIsTooShortChannel,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&nbsp;cycleDelayChannel,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicReference.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicReference</a>&lt;<a href="../LogVerbosity.html" title="enum class in io.openems.edge.bridge.modbus.api">LogVerbosity</a>&gt;&nbsp;logVerbosity)</span></div>
+<div class="block">Constructor for <a href="ModbusWorker.html" title="class in io.openems.edge.bridge.modbus.api.worker"><code>ModbusWorker</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>execute</code> - executes a <a href="../task/Task.html" title="interface in io.openems.edge.bridge.modbus.api.task"><code>Task</code></a>; returns number of
+                                   actually executed subtasks</dd>
+<dd><code>invalidate</code> - invalidates the given
+                                   <a href="../element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element"><code>ModbusElement</code></a>s after read errors</dd>
+<dd><code>cycleTimeIsTooShortChannel</code> - sets the
+                                   <a href="../BridgeModbus.ChannelId.html#CYCLE_TIME_IS_TOO_SHORT"><code>BridgeModbus.ChannelId.CYCLE_TIME_IS_TOO_SHORT</code></a>
+                                   channel</dd>
+<dd><code>cycleDelayChannel</code> - sets the
+                                   <a href="../BridgeModbus.ChannelId.html#CYCLE_DELAY"><code>BridgeModbus.ChannelId.CYCLE_DELAY</code></a>
+                                   channel</dd>
+<dd><code>logVerbosity</code> - the configured <a href="../LogVerbosity.html" title="enum class in io.openems.edge.bridge.modbus.api"><code>LogVerbosity</code></a></dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -189,20 +221,6 @@ loadScripts(document, 'script');</script>
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
-<li>
-<section class="detail" id="onBeforeProcessImage()">
-<h3>onBeforeProcessImage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onBeforeProcessImage</span>()</div>
-<div class="block">This is called on TOPIC_CYCLE_BEFORE_PROCESS_IMAGE cycle event.</div>
-</section>
-</li>
-<li>
-<section class="detail" id="onExecuteWrite()">
-<h3>onExecuteWrite</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onExecuteWrite</span>()</div>
-<div class="block">This is called on TOPIC_CYCLE_EXECUTE_WRITE cycle event.</div>
-</section>
-</li>
 <li>
 <section class="detail" id="forever()">
 <h3>forever</h3>
@@ -240,6 +258,34 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>sourceId</code> - Component-ID of the source</dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="retryModbusCommunication(java.lang.String)">
+<h3>retryModbusCommunication</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">retryModbusCommunication</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;sourceId)</span></div>
+<div class="block">Retry Modbus communication to given Component-ID.
+ 
+ <p>
+ See <a href="../BridgeModbus.html#retryModbusCommunication(java.lang.String)"><code>BridgeModbus.retryModbusCommunication(String)</code></a></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sourceId</code> - Component-ID of the source</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="onExecuteWrite()">
+<h3>onExecuteWrite</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onExecuteWrite</span>()</div>
+<div class="block">Called on EXECUTE_WRITE event.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onBeforeProcessImage()">
+<h3>onBeforeProcessImage</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onBeforeProcessImage</span>()</div>
+<div class="block">Called on BEFORE_PROCESS_IMAGE event.</div>
 </section>
 </li>
 </ul>
