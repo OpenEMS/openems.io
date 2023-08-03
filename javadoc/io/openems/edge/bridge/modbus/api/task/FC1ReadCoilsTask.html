@@ -73,7 +73,7 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
 <div class="inheritance"><a href="AbstractTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractTask</a>&lt;REQUEST,<wbr>RESPONSE&gt;
-<div class="inheritance"><a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractReadTask</a>&lt;REQUEST,<wbr>RESPONSE,<wbr><a href="../element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;
+<div class="inheritance"><a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractReadTask</a>&lt;REQUEST,<wbr>RESPONSE,<wbr><a href="../element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">CoilElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;
 <div class="inheritance"><a href="AbstractReadDigitalInputsTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractReadDigitalInputsTask</a>&lt;com.ghgande.j2mod.modbus.msg.ReadCoilsRequest,<wbr>com.ghgande.j2mod.modbus.msg.ReadCoilsResponse&gt;
 <div class="inheritance">io.openems.edge.bridge.modbus.api.task.FC1ReadCoilsTask</div>
 </div>
@@ -119,9 +119,9 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.ModbusCoilElement...)" class="member-name-link">FC1ReadCoilsTask</a><wbr>(int&nbsp;startAddress,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.CoilElement...)" class="member-name-link">FC1ReadCoilsTask</a><wbr>(int&nbsp;startAddress,
  <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a>&nbsp;priority,
- <a href="../element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>...&nbsp;elements)</code></div>
+ <a href="../element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">CoilElement</a>...&nbsp;elements)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -150,7 +150,7 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.task.AbstractReadDigitalInputsTask">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="AbstractReadDigitalInputsTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadDigitalInputsTask</a></h3>
-<code><a href="AbstractReadDigitalInputsTask.html#calculateNextPosition(io.openems.edge.bridge.modbus.api.element.ModbusElement,int)">calculateNextPosition</a>, <a href="AbstractReadDigitalInputsTask.html#handleResponse(io.openems.edge.bridge.modbus.api.element.ModbusCoilElement,int,java.lang.Boolean%5B%5D)">handleResponse</a>, <a href="AbstractReadDigitalInputsTask.html#parseResponse(RESPONSE)">parseResponse</a>, <a href="AbstractReadDigitalInputsTask.html#payloadToString(RESPONSE)">payloadToString</a>, <a href="AbstractReadDigitalInputsTask.html#toBooleanArray(com.ghgande.j2mod.modbus.util.BitVector)">toBooleanArray</a></code></div>
+<code><a href="AbstractReadDigitalInputsTask.html#calculateNextPosition(io.openems.edge.bridge.modbus.api.element.ModbusElement,int)">calculateNextPosition</a>, <a href="AbstractReadDigitalInputsTask.html#handleResponse(io.openems.edge.bridge.modbus.api.element.CoilElement,int,java.lang.Boolean%5B%5D)">handleResponse</a>, <a href="AbstractReadDigitalInputsTask.html#parseResponse(RESPONSE)">parseResponse</a>, <a href="AbstractReadDigitalInputsTask.html#payloadToString(RESPONSE)">payloadToString</a>, <a href="AbstractReadDigitalInputsTask.html#toBooleanArray(com.ghgande.j2mod.modbus.util.BitVector)">toBooleanArray</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.task.AbstractReadTask">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadTask</a></h3>
 <code><a href="AbstractReadTask.html#execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">execute</a>, <a href="AbstractReadTask.html#getPriority()">getPriority</a>, <a href="AbstractReadTask.html#payloadToString(REQUEST)">payloadToString</a></code></div>
@@ -175,11 +175,11 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.ModbusCoilElement...)">
+<section class="detail" id="&lt;init&gt;(int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.CoilElement...)">
 <h3>FC1ReadCoilsTask</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FC1ReadCoilsTask</span><wbr><span class="parameters">(int&nbsp;startAddress,
  <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a>&nbsp;priority,
- <a href="../element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>...&nbsp;elements)</span></div>
+ <a href="../element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">CoilElement</a>...&nbsp;elements)</span></div>
 </section>
 </li>
 </ul>
@@ -198,7 +198,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Factory for a <code>ModbusRequest</code>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="AbstractReadTask.html#createModbusRequest()">createModbusRequest</a></code>&nbsp;in class&nbsp;<code><a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadTask</a>&lt;com.ghgande.j2mod.modbus.msg.ReadCoilsRequest,<wbr>com.ghgande.j2mod.modbus.msg.ReadCoilsResponse,<wbr><a href="../element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></dd>
+<dd><code><a href="AbstractReadTask.html#createModbusRequest()">createModbusRequest</a></code>&nbsp;in class&nbsp;<code><a href="AbstractReadTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractReadTask</a>&lt;com.ghgande.j2mod.modbus.msg.ReadCoilsRequest,<wbr>com.ghgande.j2mod.modbus.msg.ReadCoilsResponse,<wbr><a href="../element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">CoilElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></dd>
 <dt>Returns:</dt>
 <dd>a new <code>ModbusRequest</code></dd>
 </dl>

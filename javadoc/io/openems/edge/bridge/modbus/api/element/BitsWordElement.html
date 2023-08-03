@@ -72,10 +72,10 @@ loadScripts(document, 'script');</script>
 <h1 title="Class BitsWordElement" class="title">Class BitsWordElement</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance"><a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.AbstractModbusElement</a>&lt;SELF,<wbr>T&gt;
-<div class="inheritance"><a href="AbstractModbusRegisterElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.AbstractModbusRegisterElement</a>&lt;SELF,<wbr>T&gt;
-<div class="inheritance"><a href="AbstractWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.AbstractWordElement</a>&lt;<a href="UnsignedWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">UnsignedWordElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;
-<div class="inheritance"><a href="UnsignedWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.UnsignedWordElement</a>
+<div class="inheritance"><a href="ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.ModbusElement</a>
+<div class="inheritance"><a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.AbstractModbusElement</a>&lt;SELF,<wbr>com.ghgande.j2mod.modbus.procimg.Register[],<wbr>T&gt;
+<div class="inheritance"><a href="ModbusRegisterElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.ModbusRegisterElement</a>&lt;SELF,<wbr>T&gt;
+<div class="inheritance"><a href="AbstractSingleWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">io.openems.edge.bridge.modbus.api.element.AbstractSingleWordElement</a>&lt;<a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&gt;
 <div class="inheritance">io.openems.edge.bridge.modbus.api.element.BitsWordElement</div>
 </div>
 </div>
@@ -83,13 +83,9 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
-<dl class="notes">
-<dt>All Implemented Interfaces:</dt>
-<dd><code><a href="ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code>, <code><a href="ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></dd>
-</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">BitsWordElement</span>
-<span class="extends-implements">extends <a href="UnsignedWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">UnsignedWordElement</a></span></div>
+<span class="extends-implements">extends <a href="AbstractSingleWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractSingleWordElement</a>&lt;<a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&gt;</span></div>
 <div class="block">A BitsWordElement is an <a href="UnsignedWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>UnsignedWordElement</code></a> where every bit
  represents a Boolean value.</div>
 </section>
@@ -101,7 +97,10 @@ loadScripts(document, 'script');</script>
 <h2>Field Summary</h2>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.edge.bridge.modbus.api.element.AbstractModbusElement">Fields inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a></h3>
-<code><a href="AbstractModbusElement.html#onSetNextWriteCallbacks">onSetNextWriteCallbacks</a>, <a href="AbstractModbusElement.html#task">task</a></code></div>
+<code><a href="AbstractModbusElement.html#nextWriteValue">nextWriteValue</a>, <a href="AbstractModbusElement.html#type">type</a></code></div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-io.openems.edge.bridge.modbus.api.element.ModbusElement">Fields inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a></h3>
+<code><a href="ModbusElement.html#length">length</a>, <a href="ModbusElement.html#startAddress">startAddress</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -129,16 +128,6 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#_setInputRegisters(com.ghgande.j2mod.modbus.procimg.InputRegister...)" class="member-name-link">_setInputRegisters</a><wbr>(com.ghgande.j2mod.modbus.procimg.InputRegister...&nbsp;registers)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets the individual BooleanChannel-Values from an InputRegister.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#_setNextWriteValue(java.util.Optional)" class="member-name-link">_setNextWriteValue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;valueOpt)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets a value that should be written to the Modbus device.</div>
-</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#bit(int,io.openems.edge.common.channel.ChannelId)" class="member-name-link">bit</a><wbr>(int&nbsp;bitIndex,
  <a href="../../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId)</code></div>
@@ -167,54 +156,44 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Adds a mapping for a given bit.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fromByteBuffer(java.nio.ByteBuffer)" class="member-name-link">fromByteBuffer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;buff)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#byteBufferToValue(java.nio.ByteBuffer)" class="member-name-link">byteBufferToValue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;buff)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onNextWriteValueReset()" class="member-name-link">onNextWriteValueReset</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#registersToValue(com.ghgande.j2mod.modbus.procimg.Register%5B%5D)" class="member-name-link">registersToValue</a><wbr>(com.ghgande.j2mod.modbus.procimg.Register[]&nbsp;registers)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Converts a 2-byte ByteBuffer to the the current OpenemsType.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.ghgande.j2mod.modbus.procimg.Register[]&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNextWriteValue()" class="member-name-link">getNextWriteValue</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Gets the next write value.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.ghgande.j2mod.modbus.procimg.Register[]&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNextWriteValueAndReset()" class="member-name-link">getNextWriteValueAndReset</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Gets the next write value from all Bits and resets them.</div>
+<div class="block">Length of registers array is guaranteed to be 1 here.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#self()" class="member-name-link">self</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets an instance of the correct subclass of myself.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toByteBuffer(java.nio.ByteBuffer,java.lang.Integer)" class="member-name-link">toByteBuffer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;buff,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;value)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#valueToByteBuffer(java.nio.ByteBuffer,java.lang.Boolean%5B%5D)" class="member-name-link">valueToByteBuffer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;buff,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected com.ghgande.j2mod.modbus.procimg.Register[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#valueToRaw(java.lang.Boolean%5B%5D)" class="member-name-link">valueToRaw</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&nbsp;values)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
 <div class="inherited-list">
-<h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.UnsignedWordElement">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="UnsignedWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">UnsignedWordElement</a></h3>
-<code><a href="UnsignedWordElement.html#toByteBuffer(java.nio.ByteBuffer,java.lang.Object)">toByteBuffer</a></code></div>
-<div class="inherited-list">
-<h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.AbstractWordElement">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="AbstractWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractWordElement</a></h3>
-<code><a href="AbstractWordElement.html#getLength()">getLength</a></code></div>
-<div class="inherited-list">
-<h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.AbstractModbusRegisterElement">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="AbstractModbusRegisterElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusRegisterElement</a></h3>
-<code><a href="AbstractModbusRegisterElement.html#byteOrder(java.nio.ByteOrder)">byteOrder</a>, <a href="AbstractModbusRegisterElement.html#getByteOrder()">getByteOrder</a>, <a href="AbstractModbusRegisterElement.html#setInputRegisters(com.ghgande.j2mod.modbus.procimg.InputRegister...)">setInputRegisters</a>, <a href="AbstractModbusRegisterElement.html#setNextWriteValueRegisters(java.util.Optional)">setNextWriteValueRegisters</a></code></div>
+<h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.ModbusRegisterElement">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="ModbusRegisterElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a></h3>
+<code><a href="ModbusRegisterElement.html#byteOrder(java.nio.ByteOrder)">byteOrder</a>, <a href="ModbusRegisterElement.html#commonRegistersToValue(com.ghgande.j2mod.modbus.procimg.Register%5B%5D,io.openems.edge.bridge.modbus.api.element.WordOrder)">commonRegistersToValue</a>, <a href="ModbusRegisterElement.html#getByteOrder()">getByteOrder</a>, <a href="ModbusRegisterElement.html#rawToValue(com.ghgande.j2mod.modbus.procimg.Register%5B%5D)">rawToValue</a>, <a href="ModbusRegisterElement.html#valueToRaw(T,io.openems.edge.bridge.modbus.api.element.WordOrder)">valueToRaw</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.AbstractModbusElement">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a></h3>
-<code><a href="AbstractModbusElement.html#deactivate()">deactivate</a>, <a href="AbstractModbusElement.html#debug()">debug</a>, <a href="AbstractModbusElement.html#getModbusTask()">getModbusTask</a>, <a href="AbstractModbusElement.html#getStartAddress()">getStartAddress</a>, <a href="AbstractModbusElement.html#getType()">getType</a>, <a href="AbstractModbusElement.html#invalidate(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">invalidate</a>, <a href="AbstractModbusElement.html#isDebug()">isDebug</a>, <a href="AbstractModbusElement.html#onSetNextWrite(java.util.function.Consumer)">onSetNextWrite</a>, <a href="AbstractModbusElement.html#onUpdateCallback(java.util.function.Consumer)">onUpdateCallback</a>, <a href="AbstractModbusElement.html#setModbusTask(io.openems.edge.bridge.modbus.api.task.Task)">setModbusTask</a>, <a href="AbstractModbusElement.html#setValue(T)">setValue</a>, <a href="AbstractModbusElement.html#toString()">toString</a></code></div>
+<code><a href="AbstractModbusElement.html#deactivate()">deactivate</a>, <a href="AbstractModbusElement.html#debug()">debug</a>, <a href="AbstractModbusElement.html#getNextWriteValueAndReset()">getNextWriteValueAndReset</a>, <a href="AbstractModbusElement.html#invalidate(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">invalidate</a>, <a href="AbstractModbusElement.html#isDebug()">isDebug</a>, <a href="AbstractModbusElement.html#onSetNextWrite(java.util.function.Consumer)">onSetNextWrite</a>, <a href="AbstractModbusElement.html#onUpdateCallback(java.util.function.Consumer)">onUpdateCallback</a>, <a href="AbstractModbusElement.html#setInputValue(RAW)">setInputValue</a>, <a href="AbstractModbusElement.html#setNextWriteValue(T)">setNextWriteValue</a>, <a href="AbstractModbusElement.html#setNextWriteValueFromObject(java.lang.Object)">setNextWriteValueFromObject</a>, <a href="AbstractModbusElement.html#toString()">toString</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.ModbusElement">Methods inherited from class&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a></h3>
+<code><a href="ModbusElement.html#getModbusTask()">getModbusTask</a>, <a href="ModbusElement.html#setModbusTask(io.openems.edge.bridge.modbus.api.task.Task)">setModbusTask</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
-<div class="inherited-list">
-<h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.ModbusElement">Methods inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a></h3>
-<code><a href="ModbusElement.html#deactivate()">deactivate</a>, <a href="ModbusElement.html#getStartAddress()">getStartAddress</a>, <a href="ModbusElement.html#getType()">getType</a>, <a href="ModbusElement.html#invalidate(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">invalidate</a>, <a href="ModbusElement.html#onSetNextWrite(java.util.function.Consumer)">onSetNextWrite</a>, <a href="ModbusElement.html#setModbusTask(io.openems.edge.bridge.modbus.api.task.Task)">setModbusTask</a></code></div>
-<div class="inherited-list">
-<h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.element.ModbusRegisterElement">Methods inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.element.<a href="ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a></h3>
-<code><a href="ModbusRegisterElement.html#setNextWriteValue(java.util.Optional)">setNextWriteValue</a></code></div>
 </section>
 </li>
 </ul>
@@ -248,8 +227,8 @@ loadScripts(document, 'script');</script>
 <div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="AbstractModbusElement.html#self()">AbstractModbusElement</a></code></span></div>
 <div class="block">Gets an instance of the correct subclass of myself.</div>
 <dl class="notes">
-<dt>Overrides:</dt>
-<dd><code><a href="UnsignedWordElement.html#self()">self</a></code>&nbsp;in class&nbsp;<code><a href="UnsignedWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">UnsignedWordElement</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="AbstractModbusElement.html#self()">self</a></code>&nbsp;in class&nbsp;<code><a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;<a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a>,<wbr>com.ghgande.j2mod.modbus.procimg.Register[],<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&gt;</code></dd>
 <dt>Returns:</dt>
 <dd>myself</dd>
 </dl>
@@ -326,91 +305,59 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="_setInputRegisters(com.ghgande.j2mod.modbus.procimg.InputRegister...)">
-<h3>_setInputRegisters</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setInputRegisters</span><wbr><span class="parameters">(com.ghgande.j2mod.modbus.procimg.InputRegister...&nbsp;registers)</span></div>
-<div class="block">Sets the individual BooleanChannel-Values from an InputRegister.</div>
+<section class="detail" id="valueToRaw(java.lang.Boolean[])">
+<h3>valueToRaw</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">com.ghgande.j2mod.modbus.procimg.Register[]</span>&nbsp;<span class="element-name">valueToRaw</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&nbsp;values)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
-<dd><code><a href="AbstractWordElement.html#_setInputRegisters(com.ghgande.j2mod.modbus.procimg.InputRegister...)">_setInputRegisters</a></code>&nbsp;in class&nbsp;<code><a href="AbstractWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractWordElement</a>&lt;<a href="UnsignedWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">UnsignedWordElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></dd>
-<dt>Parameters:</dt>
-<dd><code>registers</code> - the InputRegisters</dd>
+<dd><code><a href="AbstractSingleWordElement.html#valueToRaw(T)">valueToRaw</a></code>&nbsp;in class&nbsp;<code><a href="AbstractSingleWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractSingleWordElement</a>&lt;<a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&gt;</code></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="getNextWriteValueAndReset()">
-<h3>getNextWriteValueAndReset</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.ghgande.j2mod.modbus.procimg.Register[]&gt;</span>&nbsp;<span class="element-name">getNextWriteValueAndReset</span>()</div>
-<div class="block">Gets the next write value from all Bits and resets them.
-
- <p>
- This method should be called once in every cycle on the
- TOPIC_CYCLE_EXECUTE_WRITE event. It makes sure, that the nextWriteValue gets
- initialized in every Cycle. If registers need to be written again in every
- cycle, next setNextWriteValue()-method needs to called on every Cycle.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>the next value as an Optional array of Registers</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="fromByteBuffer(java.nio.ByteBuffer)">
-<h3>fromByteBuffer</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">fromByteBuffer</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;buff)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="AbstractWordElement.html#fromByteBuffer(java.nio.ByteBuffer)">AbstractWordElement</a></code></span></div>
-<div class="block">Converts a 2-byte ByteBuffer to the the current OpenemsType.</div>
+<section class="detail" id="registersToValue(com.ghgande.j2mod.modbus.procimg.Register[])">
+<h3>registersToValue</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]</span>&nbsp;<span class="element-name">registersToValue</span><wbr><span class="parameters">(com.ghgande.j2mod.modbus.procimg.Register[]&nbsp;registers)</span></div>
+<div class="block">Length of registers array is guaranteed to be 1 here.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
-<dd><code><a href="UnsignedWordElement.html#fromByteBuffer(java.nio.ByteBuffer)">fromByteBuffer</a></code>&nbsp;in class&nbsp;<code><a href="UnsignedWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">UnsignedWordElement</a></code></dd>
+<dd><code><a href="AbstractSingleWordElement.html#registersToValue(com.ghgande.j2mod.modbus.procimg.Register%5B%5D)">registersToValue</a></code>&nbsp;in class&nbsp;<code><a href="AbstractSingleWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractSingleWordElement</a>&lt;<a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&gt;</code></dd>
 <dt>Parameters:</dt>
-<dd><code>buff</code> - the ByteBuffer</dd>
+<dd><code>registers</code> - the Registers</dd>
 <dt>Returns:</dt>
-<dd>an instance of the current OpenemsType</dd>
+<dd>the typed/converted value</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="getNextWriteValue()">
-<h3>getNextWriteValue</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.ghgande.j2mod.modbus.procimg.Register[]&gt;</span>&nbsp;<span class="element-name">getNextWriteValue</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="ModbusRegisterElement.html#getNextWriteValue()">ModbusRegisterElement</a></code></span></div>
-<div class="block">Gets the next write value.</div>
+<section class="detail" id="onNextWriteValueReset()">
+<h3>onNextWriteValueReset</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onNextWriteValueReset</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="AbstractModbusElement.html#onNextWriteValueReset()">onNextWriteValueReset</a></code>&nbsp;in class&nbsp;<code><a href="AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;<a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a>,<wbr>com.ghgande.j2mod.modbus.procimg.Register[],<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&gt;</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="byteBufferToValue(java.nio.ByteBuffer)">
+<h3>byteBufferToValue</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]</span>&nbsp;<span class="element-name">byteBufferToValue</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;buff)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="ModbusRegisterElement.html#getNextWriteValue()">getNextWriteValue</a></code>&nbsp;in interface&nbsp;<code><a href="ModbusRegisterElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></dd>
-<dt>Overrides:</dt>
-<dd><code><a href="AbstractModbusRegisterElement.html#getNextWriteValue()">getNextWriteValue</a></code>&nbsp;in class&nbsp;<code><a href="AbstractModbusRegisterElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusRegisterElement</a>&lt;<a href="UnsignedWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">UnsignedWordElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></dd>
-<dt>Returns:</dt>
-<dd>the next value as an Optional array of Registers</dd>
+<dd><code><a href="ModbusRegisterElement.html#byteBufferToValue(java.nio.ByteBuffer)">byteBufferToValue</a></code>&nbsp;in class&nbsp;<code><a href="ModbusRegisterElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>&lt;<a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&gt;</code></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="_setNextWriteValue(java.util.Optional)">
-<h3>_setNextWriteValue</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setNextWriteValue</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;valueOpt)</span>
-                        throws <span class="exceptions"><a href="../../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="ModbusElement.html#_setNextWriteValue(java.util.Optional)">ModbusElement</a></code></span></div>
-<div class="block">Sets a value that should be written to the Modbus device.</div>
+<section class="detail" id="valueToByteBuffer(java.nio.ByteBuffer,java.lang.Boolean[])">
+<h3>valueToByteBuffer</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">valueToByteBuffer</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;buff,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&nbsp;value)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="ModbusElement.html#_setNextWriteValue(java.util.Optional)">_setNextWriteValue</a></code>&nbsp;in interface&nbsp;<code><a href="ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></dd>
-<dt>Overrides:</dt>
-<dd><code><a href="AbstractWordElement.html#_setNextWriteValue(java.util.Optional)">_setNextWriteValue</a></code>&nbsp;in class&nbsp;<code><a href="AbstractWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractWordElement</a>&lt;<a href="UnsignedWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">UnsignedWordElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></dd>
-<dt>Parameters:</dt>
-<dd><code>valueOpt</code> - the Optional value</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+<dd><code><a href="ModbusRegisterElement.html#valueToByteBuffer(java.nio.ByteBuffer,T)">valueToByteBuffer</a></code>&nbsp;in class&nbsp;<code><a href="ModbusRegisterElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusRegisterElement</a>&lt;<a href="BitsWordElement.html" title="class in io.openems.edge.bridge.modbus.api.element">BitsWordElement</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>[]&gt;</code></dd>
 </dl>
-</section>
-</li>
-<li>
-<section class="detail" id="toByteBuffer(java.nio.ByteBuffer,java.lang.Integer)">
-<h3>toByteBuffer</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></span>&nbsp;<span class="element-name">toByteBuffer</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;buff,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;value)</span></div>
 </section>
 </li>
 </ul>

@@ -105,7 +105,7 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
 <div class="col-second even-row-color"><code><a href="AbstractOpenemsModbusComponent.BitConverter.html" class="type-name-link" title="enum class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.BitConverter</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>class&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="AbstractOpenemsModbusComponent.ChannelMapper.html" class="type-name-link" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.ChannelMapper</a>&lt;<a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="type parameter in AbstractOpenemsModbusComponent.ChannelMapper">ELEMENT</a> extends <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?,<wbr>?&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="AbstractOpenemsModbusComponent.ChannelMapper.html" class="type-name-link" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.ChannelMapper</a>&lt;<a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="type parameter in AbstractOpenemsModbusComponent.ChannelMapper">ELEMENT</a> extends <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Maps an Element to one or more ModbusChannels using converters, that convert
  the value forward and backwards.</div>
@@ -201,23 +201,20 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Maps the given BitsWordElement.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final &lt;T extends <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?,<wbr>
-?&gt;&gt;<br>T</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final &lt;T extends <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;<br>T</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#m(io.openems.edge.common.channel.ChannelId,T)" class="member-name-link">m</a><wbr>(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
  T&nbsp;element)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Maps the given element 1-to-1 to the Channel identified by channelId.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final &lt;T extends <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?,<wbr>
-?&gt;&gt;<br>T</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final &lt;T extends <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;<br>T</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#m(io.openems.edge.common.channel.ChannelId,T,io.openems.edge.bridge.modbus.api.ChannelMetaInfo)" class="member-name-link">m</a><wbr>(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
  T&nbsp;element,
  <a href="ChannelMetaInfo.html" title="class in io.openems.edge.bridge.modbus.api">ChannelMetaInfo</a>&nbsp;channelMetaInfo)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Maps the given element 1-to-1 to the Channel identified by channelId.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final &lt;T extends <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?,<wbr>
-?&gt;&gt;<br>T</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final &lt;T extends <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;<br>T</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#m(io.openems.edge.common.channel.ChannelId,T,io.openems.edge.bridge.modbus.api.ElementToChannelConverter)" class="member-name-link">m</a><wbr>(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
  T&nbsp;element,
  <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a>&nbsp;converter)</code></div>
@@ -225,8 +222,7 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
 <div class="block">Maps the given element to the Channel identified by channelId, applying the
  given @link{ElementToChannelConverter}.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final &lt;T extends <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?,<wbr>
-?&gt;&gt;<br>T</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final &lt;T extends <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;<br>T</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#m(io.openems.edge.common.channel.ChannelId,T,io.openems.edge.bridge.modbus.api.ElementToChannelConverter,io.openems.edge.bridge.modbus.api.ChannelMetaInfo)" class="member-name-link">m</a><wbr>(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
  T&nbsp;element,
  <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a>&nbsp;converter,
@@ -235,8 +231,7 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
 <div class="block">Maps the given element to the Channel identified by channelId, applying the
  given @link{ElementToChannelConverter}.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final &lt;T extends <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?,<wbr>
-?&gt;&gt;<br><a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.ChannelMapper</a>&lt;T&gt;</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final &lt;T extends <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;<br><a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.ChannelMapper</a>&lt;T&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#m(T)" class="member-name-link">m</a><wbr>(T&nbsp;element)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Creates a ChannelMapper that can be used with builder pattern inside the
@@ -590,15 +585,14 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
 </li>
 <li>
 <section class="detail" id="m(T)">
-<h3 id="m(io.openems.edge.bridge.modbus.api.element.AbstractModbusElement)">m</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?,<wbr>
-?&gt;&gt;</span>
+<h3 id="m(io.openems.edge.bridge.modbus.api.element.ModbusElement)">m</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;</span>
 <span class="return-type"><a href="AbstractOpenemsModbusComponent.ChannelMapper.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent.ChannelMapper</a>&lt;T&gt;</span>&nbsp;<span class="element-name">m</span><wbr><span class="parameters">(T&nbsp;element)</span></div>
 <div class="block">Creates a ChannelMapper that can be used with builder pattern inside the
  protocol definition.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
-<dd><code>T</code> - the type of the <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>AbstractModbusElement</code></a>d</dd>
+<dd><code>T</code> - the type of the <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>ModbusElement</code></a></dd>
 <dt>Parameters:</dt>
 <dd><code>element</code> - the ModbusElement</dd>
 <dt>Returns:</dt>
@@ -621,15 +615,13 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
 </li>
 <li>
 <section class="detail" id="m(io.openems.edge.common.channel.ChannelId,T)">
-<h3 id="m(io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.element.AbstractModbusElement)">m</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?,<wbr>
-?&gt;&gt;</span>
-<span class="return-type">T</span>&nbsp;<span class="element-name">m</span><wbr><span class="parameters">(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
+<h3 id="m(io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.element.ModbusElement)">m</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">m</span><wbr><span class="parameters">(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
  T&nbsp;element)</span></div>
 <div class="block">Maps the given element 1-to-1 to the Channel identified by channelId.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
-<dd><code>T</code> - the type of the <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>AbstractModbusElement</code></a>d</dd>
+<dd><code>T</code> - the type of the <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>ModbusElement</code></a></dd>
 <dt>Parameters:</dt>
 <dd><code>channelId</code> - the Channel-ID</dd>
 <dd><code>element</code> - the ModbusElement</dd>
@@ -640,16 +632,14 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
 </li>
 <li>
 <section class="detail" id="m(io.openems.edge.common.channel.ChannelId,T,io.openems.edge.bridge.modbus.api.ChannelMetaInfo)">
-<h3 id="m(io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.element.AbstractModbusElement,io.openems.edge.bridge.modbus.api.ChannelMetaInfo)">m</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?,<wbr>
-?&gt;&gt;</span>
-<span class="return-type">T</span>&nbsp;<span class="element-name">m</span><wbr><span class="parameters">(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
+<h3 id="m(io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.element.ModbusElement,io.openems.edge.bridge.modbus.api.ChannelMetaInfo)">m</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">m</span><wbr><span class="parameters">(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
  T&nbsp;element,
  <a href="ChannelMetaInfo.html" title="class in io.openems.edge.bridge.modbus.api">ChannelMetaInfo</a>&nbsp;channelMetaInfo)</span></div>
 <div class="block">Maps the given element 1-to-1 to the Channel identified by channelId.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
-<dd><code>T</code> - the type of the <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>AbstractModbusElement</code></a>d</dd>
+<dd><code>T</code> - the type of the <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>ModbusElement</code></a></dd>
 <dt>Parameters:</dt>
 <dd><code>channelId</code> - the Channel-ID</dd>
 <dd><code>element</code> - the ModbusElement</dd>
@@ -662,17 +652,15 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
 </li>
 <li>
 <section class="detail" id="m(io.openems.edge.common.channel.ChannelId,T,io.openems.edge.bridge.modbus.api.ElementToChannelConverter)">
-<h3 id="m(io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.element.AbstractModbusElement,io.openems.edge.bridge.modbus.api.ElementToChannelConverter)">m</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?,<wbr>
-?&gt;&gt;</span>
-<span class="return-type">T</span>&nbsp;<span class="element-name">m</span><wbr><span class="parameters">(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
+<h3 id="m(io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.element.ModbusElement,io.openems.edge.bridge.modbus.api.ElementToChannelConverter)">m</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">m</span><wbr><span class="parameters">(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
  T&nbsp;element,
  <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a>&nbsp;converter)</span></div>
 <div class="block">Maps the given element to the Channel identified by channelId, applying the
  given @link{ElementToChannelConverter}.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
-<dd><code>T</code> - the type of the <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>AbstractModbusElement</code></a>d</dd>
+<dd><code>T</code> - the type of the <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>ModbusElement</code></a></dd>
 <dt>Parameters:</dt>
 <dd><code>channelId</code> - the Channel-ID</dd>
 <dd><code>element</code> - the ModbusElement</dd>
@@ -684,10 +672,8 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
 </li>
 <li>
 <section class="detail" id="m(io.openems.edge.common.channel.ChannelId,T,io.openems.edge.bridge.modbus.api.ElementToChannelConverter,io.openems.edge.bridge.modbus.api.ChannelMetaInfo)">
-<h3 id="m(io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.element.AbstractModbusElement,io.openems.edge.bridge.modbus.api.ElementToChannelConverter,io.openems.edge.bridge.modbus.api.ChannelMetaInfo)">m</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">AbstractModbusElement</a>&lt;?,<wbr>
-?&gt;&gt;</span>
-<span class="return-type">T</span>&nbsp;<span class="element-name">m</span><wbr><span class="parameters">(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
+<h3 id="m(io.openems.edge.common.channel.ChannelId,io.openems.edge.bridge.modbus.api.element.ModbusElement,io.openems.edge.bridge.modbus.api.ElementToChannelConverter,io.openems.edge.bridge.modbus.api.ChannelMetaInfo)">m</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">m</span><wbr><span class="parameters">(<a href="../../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>&nbsp;channelId,
  T&nbsp;element,
  <a href="ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a>&nbsp;converter,
  <a href="ChannelMetaInfo.html" title="class in io.openems.edge.bridge.modbus.api">ChannelMetaInfo</a>&nbsp;channelMetaInfo)</span></div>
@@ -695,7 +681,7 @@ implements <a href="ModbusComponent.html" title="interface in io.openems.edge.br
  given @link{ElementToChannelConverter}.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
-<dd><code>T</code> - the type of the <a href="element/AbstractModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>AbstractModbusElement</code></a>d</dd>
+<dd><code>T</code> - the type of the <a href="element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element"><code>ModbusElement</code></a></dd>
 <dt>Parameters:</dt>
 <dd><code>channelId</code> - the Channel-ID</dd>
 <dd><code>element</code> - the ModbusElement</dd>

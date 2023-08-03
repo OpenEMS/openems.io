@@ -74,7 +74,7 @@ loadScripts(document, 'script');</script>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
 <div class="inheritance"><a href="AbstractTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractTask</a>&lt;REQUEST,<wbr>RESPONSE&gt;
 <div class="inheritance"><a href="AbstractWriteTask.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractWriteTask</a>&lt;REQUEST,<wbr>RESPONSE&gt;
-<div class="inheritance"><a href="AbstractWriteTask.Single.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractWriteTask.Single</a>&lt;com.ghgande.j2mod.modbus.msg.WriteCoilRequest,<wbr>com.ghgande.j2mod.modbus.msg.WriteCoilResponse,<wbr><a href="../element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>&gt;
+<div class="inheritance"><a href="AbstractWriteTask.Single.html" title="class in io.openems.edge.bridge.modbus.api.task">io.openems.edge.bridge.modbus.api.task.AbstractWriteTask.Single</a>&lt;com.ghgande.j2mod.modbus.msg.WriteCoilRequest,<wbr>com.ghgande.j2mod.modbus.msg.WriteCoilResponse,<wbr><a href="../element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">CoilElement</a>&gt;
 <div class="inheritance">io.openems.edge.bridge.modbus.api.task.FC5WriteCoilTask</div>
 </div>
 </div>
@@ -87,7 +87,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">FC5WriteCoilTask</span>
-<span class="extends-implements">extends <a href="AbstractWriteTask.Single.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractWriteTask.Single</a>&lt;com.ghgande.j2mod.modbus.msg.WriteCoilRequest,<wbr>com.ghgande.j2mod.modbus.msg.WriteCoilResponse,<wbr><a href="../element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>&gt;</span></div>
+<span class="extends-implements">extends <a href="AbstractWriteTask.Single.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractWriteTask.Single</a>&lt;com.ghgande.j2mod.modbus.msg.WriteCoilRequest,<wbr>com.ghgande.j2mod.modbus.msg.WriteCoilResponse,<wbr><a href="../element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">CoilElement</a>&gt;</span></div>
 <div class="block">Implements a Write Single Coil Task, using Modbus function code 5
  (http://www.simplymodbus.ca/FC05.htm).</div>
 </section>
@@ -99,7 +99,7 @@ loadScripts(document, 'script');</script>
 <h2>Nested Class Summary</h2>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-io.openems.edge.bridge.modbus.api.task.AbstractWriteTask">Nested classes/interfaces inherited from class&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="AbstractWriteTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractWriteTask</a></h2>
-<code><a href="AbstractWriteTask.Single.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractWriteTask.Single</a>&lt;<a href="AbstractWriteTask.Single.html" title="type parameter in AbstractWriteTask.Single">REQUEST</a> extends com.ghgande.j2mod.modbus.msg.ModbusRequest,<wbr><a href="AbstractWriteTask.Single.html" title="type parameter in AbstractWriteTask.Single">RESPONSE</a> extends com.ghgande.j2mod.modbus.msg.ModbusResponse,<wbr><a href="AbstractWriteTask.Single.html" title="type parameter in AbstractWriteTask.Single">ELEMENT</a> extends <a href="../element/ModbusElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&lt;?&gt;&gt;</code></div>
+<code><a href="AbstractWriteTask.Single.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractWriteTask.Single</a>&lt;<a href="AbstractWriteTask.Single.html" title="type parameter in AbstractWriteTask.Single">REQUEST</a> extends com.ghgande.j2mod.modbus.msg.ModbusRequest,<wbr><a href="AbstractWriteTask.Single.html" title="type parameter in AbstractWriteTask.Single">RESPONSE</a> extends com.ghgande.j2mod.modbus.msg.ModbusResponse,<wbr><a href="AbstractWriteTask.Single.html" title="type parameter in AbstractWriteTask.Single">ELEMENT</a> extends <a href="../element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>&gt;</code></div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-io.openems.edge.bridge.modbus.api.task.Task">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></h2>
 <code><a href="Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></code></div>
@@ -125,8 +125,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,io.openems.edge.bridge.modbus.api.element.ModbusCoilElement)" class="member-name-link">FC5WriteCoilTask</a><wbr>(int&nbsp;startAddress,
- <a href="../element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>&nbsp;element)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,io.openems.edge.bridge.modbus.api.element.CoilElement)" class="member-name-link">FC5WriteCoilTask</a><wbr>(int&nbsp;startAddress,
+ <a href="../element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">CoilElement</a>&nbsp;element)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -184,10 +184,10 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(int,io.openems.edge.bridge.modbus.api.element.ModbusCoilElement)">
+<section class="detail" id="&lt;init&gt;(int,io.openems.edge.bridge.modbus.api.element.CoilElement)">
 <h3>FC5WriteCoilTask</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FC5WriteCoilTask</span><wbr><span class="parameters">(int&nbsp;startAddress,
- <a href="../element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>&nbsp;element)</span></div>
+ <a href="../element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">CoilElement</a>&nbsp;element)</span></div>
 </section>
 </li>
 </ul>
@@ -207,7 +207,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Factory for a <code>ModbusRequest</code>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="AbstractWriteTask.Single.html#createModbusRequest()">createModbusRequest</a></code>&nbsp;in class&nbsp;<code><a href="AbstractWriteTask.Single.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractWriteTask.Single</a>&lt;com.ghgande.j2mod.modbus.msg.WriteCoilRequest,<wbr>com.ghgande.j2mod.modbus.msg.WriteCoilResponse,<wbr><a href="../element/ModbusCoilElement.html" title="interface in io.openems.edge.bridge.modbus.api.element">ModbusCoilElement</a>&gt;</code></dd>
+<dd><code><a href="AbstractWriteTask.Single.html#createModbusRequest()">createModbusRequest</a></code>&nbsp;in class&nbsp;<code><a href="AbstractWriteTask.Single.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractWriteTask.Single</a>&lt;com.ghgande.j2mod.modbus.msg.WriteCoilRequest,<wbr>com.ghgande.j2mod.modbus.msg.WriteCoilResponse,<wbr><a href="../element/CoilElement.html" title="class in io.openems.edge.bridge.modbus.api.element">CoilElement</a>&gt;</code></dd>
 <dt>Returns:</dt>
 <dd>a new <code>ModbusRequest</code></dd>
 <dt>Throws:</dt>
