@@ -84,6 +84,31 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public enum </span><span class="element-name type-name-label">PersistencePriority</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html" title="class or interface in java.lang" class="external-link">Enum</a>&lt;<a href="PersistencePriority.html" title="enum class in io.openems.common.channel">PersistencePriority</a>&gt;</span></div>
+<div class="block">The <a href="PersistencePriority.html" title="enum class in io.openems.common.channel"><code>PersistencePriority</code></a> is used by...
+ 
+ <ul>
+ <li>Timedata.Rrd4j: persist Channel values locally
+ <li>Controller.Api.MQTT: transmit Channel values via MQTT
+ <li>Controller.Api.Backend: transmit Channel values to OpenEMS Backend
+ </ul>
+ 
+ <p>
+ These services use the <a href="PersistencePriority.html" title="enum class in io.openems.common.channel"><code>PersistencePriority</code></a> to distinguish whether a
+ value of a Channel should be:
+ <ul>
+ <li>persisted/transmitted in high resolution (e.g. once per second)
+ <li>persisted/transmitted in low resolution (e.g. aggregated to 5 minutes
+ values)
+ <li>not persisted
+ </ul>
+ 
+ <p>
+ The <a href="PersistencePriority.html" title="enum class in io.openems.common.channel"><code>PersistencePriority</code></a> of a Channel may be set via
+ AbstractDoc::persistencePriority(). Defaults are:
+ <ul>
+ <li><a href="#HIGH"><code>HIGH</code></a> for StateChannels
+ <li><a href="#LOW"><code>LOW</code></a> for everything else
+ </ul></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -105,15 +130,30 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Enum Constant</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code><a href="#HIGH" class="member-name-link">HIGH</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Channels with at least this priority are by default (if not configured
+ differently)...</div>
+</div>
 <div class="col-first odd-row-color"><code><a href="#LOW" class="member-name-link">LOW</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Channels with at least this priority are by default (if not configured
+ differently)...</div>
+</div>
 <div class="col-first even-row-color"><code><a href="#MEDIUM" class="member-name-link">MEDIUM</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Channels with at least this priority are by default (if not configured
+ differently)...</div>
+</div>
 <div class="col-first odd-row-color"><code><a href="#VERY_HIGH" class="member-name-link">VERY_HIGH</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block"><a href="#VERY_HIGH"><code>VERY_HIGH</code></a> is reserved for Channels of the
+ `Core.Sum` Component.</div>
+</div>
 <div class="col-first even-row-color"><code><a href="#VERY_LOW" class="member-name-link">VERY_LOW</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Channels with at least this priority are by default (if not configured
+ differently)...</div>
+</div>
 </div>
 </section>
 </li>
@@ -175,30 +215,61 @@ the order they are declared.</div>
 <section class="detail" id="VERY_LOW">
 <h3>VERY_LOW</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="PersistencePriority.html" title="enum class in io.openems.common.channel">PersistencePriority</a></span>&nbsp;<span class="element-name">VERY_LOW</span></div>
+<div class="block">Channels with at least this priority are by default (if not configured
+ differently)...
+ 
+ <ul>
+ <li>Timedata.Rrd4j: not persisted
+ <li>Controller.Api.MQTT: transmitted in high resolution
+ <li>Controller.Api.Backend: not transmitted
+ </ul></div>
 </section>
 </li>
 <li>
 <section class="detail" id="LOW">
 <h3>LOW</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="PersistencePriority.html" title="enum class in io.openems.common.channel">PersistencePriority</a></span>&nbsp;<span class="element-name">LOW</span></div>
+<div class="block">Channels with at least this priority are by default (if not configured
+ differently)...
+ 
+ <ul>
+ <li>Controller.Api.Backend: transmitted as aggregated values (via
+ <a href="../jsonrpc/notification/AggregatedDataNotification.html" title="class in io.openems.common.jsonrpc.notification"><code>AggregatedDataNotification</code></a>)
+ </ul></div>
 </section>
 </li>
 <li>
 <section class="detail" id="MEDIUM">
 <h3>MEDIUM</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="PersistencePriority.html" title="enum class in io.openems.common.channel">PersistencePriority</a></span>&nbsp;<span class="element-name">MEDIUM</span></div>
+<div class="block">Channels with at least this priority are by default (if not configured
+ differently)...
+ 
+ <ul>
+ <li>Timedata.Rrd4j: persisted as aggregated values
+ </ul></div>
 </section>
 </li>
 <li>
 <section class="detail" id="HIGH">
 <h3>HIGH</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="PersistencePriority.html" title="enum class in io.openems.common.channel">PersistencePriority</a></span>&nbsp;<span class="element-name">HIGH</span></div>
+<div class="block">Channels with at least this priority are by default (if not configured
+ differently)...
+ 
+ <ul>
+ <li>Controller.Api.Backend: transmitted in high resolution (via
+ <a href="../jsonrpc/notification/TimestampedDataNotification.html" title="class in io.openems.common.jsonrpc.notification"><code>TimestampedDataNotification</code></a>), i.e. on every change or at least once
+ every 5 minutes
+ </ul></div>
 </section>
 </li>
 <li>
 <section class="detail" id="VERY_HIGH">
 <h3>VERY_HIGH</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="PersistencePriority.html" title="enum class in io.openems.common.channel">PersistencePriority</a></span>&nbsp;<span class="element-name">VERY_HIGH</span></div>
+<div class="block"><a href="#VERY_HIGH"><code>VERY_HIGH</code></a> is reserved for Channels of the
+ `Core.Sum` Component.</div>
 </section>
 </li>
 </ul>
