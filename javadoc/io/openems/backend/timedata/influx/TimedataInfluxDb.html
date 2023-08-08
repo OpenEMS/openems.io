@@ -79,12 +79,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a></code>, <code><a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code></dd>
+<dd><code><a href="../../common/timedata/BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></code>, <code><a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a></code>, <code><a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">TimedataInfluxDb</span>
 <span class="extends-implements">extends <a href="../../common/component/AbstractOpenemsBackendComponent.html" title="class in io.openems.backend.common.component">AbstractOpenemsBackendComponent</a>
-implements <a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a></span></div>
+implements <a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a>, org.osgi.service.event.EventHandler</span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -121,33 +121,31 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel">
 <div class="summary-table three-column-summary" aria-labelledby="method-summary-table-tab0">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#id()" class="member-name-link">id</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEvent(org.osgi.service.event.Event)" class="member-name-link">handleEvent</a><wbr>(org.osgi.service.event.Event&nbsp;event)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#id()" class="member-name-link">id</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a unique ID for this OpenEMS component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logInfo(org.slf4j.Logger,java.lang.String)" class="member-name-link">logInfo</a><wbr>(org.slf4j.Logger&nbsp;log,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Log an info message including the Component ID.</div>
-</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logWarn(org.slf4j.Logger,java.lang.String)" class="member-name-link">logWarn</a><wbr>(org.slf4j.Logger&nbsp;log,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logInfo(org.slf4j.Logger,java.lang.String)" class="member-name-link">logInfo</a><wbr>(org.slf4j.Logger&nbsp;log,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Log a warn message including the Component ID.</div>
+<div class="block">Log an info message including the Component ID.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseNumberFromName(java.lang.String)" class="member-name-link">parseNumberFromName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Parses the number of an Edge from its name string.</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logWarn(org.slf4j.Logger,java.lang.String)" class="member-name-link">logWarn</a><wbr>(org.slf4j.Logger&nbsp;log,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Log a warn message including the Component ID.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricData(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">queryHistoricData</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
@@ -176,8 +174,20 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <div class="block">Queries historic energy per period.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(java.lang.String,com.google.common.collect.TreeBasedTable)" class="member-name-link">write</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
- com.google.common.collect.TreeBasedTable&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>com.google.gson.JsonElement&gt;&nbsp;data)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(java.lang.String,io.openems.common.jsonrpc.notification.AggregatedDataNotification)" class="member-name-link">write</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="../../../common/jsonrpc/notification/AggregatedDataNotification.html" title="class in io.openems.common.jsonrpc.notification">AggregatedDataNotification</a>&nbsp;notification)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends the data points to the Timedata service.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(java.lang.String,io.openems.common.jsonrpc.notification.ResendDataNotification)" class="member-name-link">write</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="../../../common/jsonrpc/notification/ResendDataNotification.html" title="class in io.openems.common.jsonrpc.notification">ResendDataNotification</a>&nbsp;data)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends the data points to the Timedata service.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(java.lang.String,io.openems.common.jsonrpc.notification.TimestampedDataNotification)" class="member-name-link">write</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="../../../common/jsonrpc/notification/TimestampedDataNotification.html" title="class in io.openems.common.jsonrpc.notification">TimestampedDataNotification</a>&nbsp;notification)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sends the data points to the Timedata service.</div>
 </div>
@@ -190,6 +200,9 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.backend.common.timedata.BackendTimedata">Methods inherited from interface&nbsp;io.openems.backend.common.timedata.<a href="../../common/timedata/BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></h3>
+<code><a href="../../common/timedata/BackendTimedata.html#queryFirstValueBefore(java.lang.String,java.time.ZonedDateTime,java.util.Set)">queryFirstValueBefore</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.common.timedata.CommonTimedataService">Methods inherited from interface&nbsp;io.openems.common.timedata.<a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></h3>
 <code><a href="../../../common/timedata/CommonTimedataService.html#handleQueryHistoricTimeseriesExportXlxsRequest(java.lang.String,io.openems.common.jsonrpc.request.QueryHistoricTimeseriesExportXlxsRequest,io.openems.common.session.Language)">handleQueryHistoricTimeseriesExportXlxsRequest</a>, <a href="../../../common/timedata/CommonTimedataService.html#queryHistoricData(java.lang.String,io.openems.common.jsonrpc.request.QueryHistoricTimeseriesDataRequest)">queryHistoricData</a></code></div>
@@ -233,41 +246,63 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="write(java.lang.String,com.google.common.collect.TreeBasedTable)">
-<h3>write</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
- com.google.common.collect.TreeBasedTable&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>com.google.gson.JsonElement&gt;&nbsp;data)</span>
-           throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/timedata/Timedata.html#write(java.lang.String,com.google.common.collect.TreeBasedTable)">Timedata</a></code></span></div>
-<div class="block">Sends the data points to the Timedata service.</div>
+<section class="detail" id="handleEvent(org.osgi.service.event.Event)">
+<h3>handleEvent</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleEvent</span><wbr><span class="parameters">(org.osgi.service.event.Event&nbsp;event)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../common/timedata/Timedata.html#write(java.lang.String,com.google.common.collect.TreeBasedTable)">write</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a></code></dd>
-<dt>Parameters:</dt>
-<dd><code>edgeId</code> - The unique Edge-ID</dd>
-<dd><code>data</code> - Table of timestamp (epoch in milliseconds), Channel-Address and
-               the Channel value as JsonElement. Sorted by timestamp.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+<dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="parseNumberFromName(java.lang.String)">
-<h3>parseNumberFromName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">parseNumberFromName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span>
-                                   throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
-<div class="block">Parses the number of an Edge from its name string.
-
- <p>
- e.g. translates "edge0" to "0".</div>
+<section class="detail" id="write(java.lang.String,io.openems.common.jsonrpc.notification.TimestampedDataNotification)">
+<h3>write</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="../../../common/jsonrpc/notification/TimestampedDataNotification.html" title="class in io.openems.common.jsonrpc.notification">TimestampedDataNotification</a>&nbsp;notification)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/timedata/BackendTimedata.html#write(java.lang.String,io.openems.common.jsonrpc.notification.TimestampedDataNotification)">BackendTimedata</a></code></span></div>
+<div class="block">Sends the data points to the Timedata service.</div>
 <dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/timedata/BackendTimedata.html#write(java.lang.String,io.openems.common.jsonrpc.notification.TimestampedDataNotification)">write</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/timedata/BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>name</code> - the edge name</dd>
-<dt>Returns:</dt>
-<dd>the number</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+<dd><code>edgeId</code> - The unique Edge-ID</dd>
+<dd><code>notification</code> - Table of timestamp (epoch in milliseconds), Channel-Address and
+               the Channel value as JsonElement. Sorted by timestamp.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="write(java.lang.String,io.openems.common.jsonrpc.notification.AggregatedDataNotification)">
+<h3>write</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="../../../common/jsonrpc/notification/AggregatedDataNotification.html" title="class in io.openems.common.jsonrpc.notification">AggregatedDataNotification</a>&nbsp;notification)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/timedata/BackendTimedata.html#write(java.lang.String,io.openems.common.jsonrpc.notification.AggregatedDataNotification)">BackendTimedata</a></code></span></div>
+<div class="block">Sends the data points to the Timedata service.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/timedata/BackendTimedata.html#write(java.lang.String,io.openems.common.jsonrpc.notification.AggregatedDataNotification)">write</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/timedata/BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>edgeId</code> - The unique Edge-ID</dd>
+<dd><code>notification</code> - Table of timestamp (epoch in milliseconds), Channel-Address and
+               the Channel value as AggregatedData. Sorted by timestamp.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="write(java.lang.String,io.openems.common.jsonrpc.notification.ResendDataNotification)">
+<h3>write</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="../../../common/jsonrpc/notification/ResendDataNotification.html" title="class in io.openems.common.jsonrpc.notification">ResendDataNotification</a>&nbsp;data)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/timedata/BackendTimedata.html#write(java.lang.String,io.openems.common.jsonrpc.notification.ResendDataNotification)">BackendTimedata</a></code></span></div>
+<div class="block">Sends the data points to the Timedata service.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/timedata/BackendTimedata.html#write(java.lang.String,io.openems.common.jsonrpc.notification.ResendDataNotification)">write</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/timedata/BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>edgeId</code> - The unique Edge-ID</dd>
+<dd><code>data</code> - Table of timestamp (epoch in milliseconds), Channel-Address and
+               the Channel value as ResendData. Sorted by timestamp.</dd>
 </dl>
 </section>
 </li>

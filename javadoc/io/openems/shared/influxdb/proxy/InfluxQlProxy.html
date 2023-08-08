@@ -89,6 +89,15 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="nested-class-summary" id="nested-class-summary">
 <h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="InfluxQlProxy.Pair.html" class="type-name-link" title="class in io.openems.shared.influxdb.proxy">InfluxQlProxy.Pair</a>&lt;<a href="InfluxQlProxy.Pair.html" title="type parameter in InfluxQlProxy.Pair">A</a>,<wbr><a href="InfluxQlProxy.Pair.html" title="type parameter in InfluxQlProxy.Pair">B</a>&gt;</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-io.openems.shared.influxdb.proxy.QueryProxy">Nested classes/interfaces inherited from class&nbsp;io.openems.shared.influxdb.proxy.<a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></h2>
 <code><a href="QueryProxy.RandomLimit.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy.RandomLimit</a></code></div>
@@ -100,7 +109,7 @@ loadScripts(document, 'script');</script>
 <h2>Field Summary</h2>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.shared.influxdb.proxy.QueryProxy">Fields inherited from class&nbsp;io.openems.shared.influxdb.proxy.<a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></h3>
-<code><a href="QueryProxy.html#queryLimit">queryLimit</a></code></div>
+<code><a href="QueryProxy.html#AVAILABLE_SINCE_COLUMN_NAME">AVAILABLE_SINCE_COLUMN_NAME</a>, <a href="QueryProxy.html#AVAILABLE_SINCE_MEASUREMENT">AVAILABLE_SINCE_MEASUREMENT</a>, <a href="QueryProxy.html#CHANNEL_TAG">CHANNEL_TAG</a>, <a href="QueryProxy.html#queryLimit">queryLimit</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -128,7 +137,18 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildHistoricDataQuery(java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">buildHistoricDataQuery</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildFetchAvailableSinceQuery(java.lang.String)" class="member-name-link">buildFetchAvailableSinceQuery</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildFetchFirstValueBefore(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">buildFetchFirstValueBefore</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;date,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildHistoricDataQuery(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">buildHistoricDataQuery</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
@@ -136,23 +156,59 @@ loadScripts(document, 'script');</script>
  <a href="../../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildHistoricEnergyPerPeriodQuery(java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">buildHistoricEnergyPerPeriodQuery</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildHistoricEnergyPerPeriodQuery(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">buildHistoricEnergyPerPeriodQuery</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
  <a href="../../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildHistoricEnergyQuery(java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">buildHistoricEnergyQuery</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildHistoricEnergyPerPeriodQuerySingleValueInDay(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">buildHistoricEnergyPerPeriodQuerySingleValueInDay</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
+ <a href="../../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildHistoricEnergyQuery(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">buildHistoricEnergyQuery</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildHistoricEnergyQuerySingleValueInDay(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">buildHistoricEnergyQuerySingleValueInDay</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryAvailableSince(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String)" class="member-name-link">queryAvailableSince</a><wbr>(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Queries the available since fields from the database.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryFirstValueBefore(java.lang.String,io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">queryFirstValueBefore</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;date,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Queries the first values before the given date.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricData(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">queryHistoricData</a><wbr>(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricData(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">queryHistoricData</a><wbr>(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
@@ -162,8 +218,9 @@ loadScripts(document, 'script');</script>
 <div class="block"><a href="../../../common/timedata/CommonTimedataService.html#queryHistoricData(java.lang.String,io.openems.common.jsonrpc.request.QueryHistoricTimeseriesDataRequest)"><code>CommonTimedataService.queryHistoricData(String, io.openems.common.jsonrpc.request.QueryHistoricTimeseriesDataRequest)</code></a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricEnergy(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">queryHistoricEnergy</a><wbr>(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricEnergy(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">queryHistoricEnergy</a><wbr>(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
@@ -172,8 +229,9 @@ loadScripts(document, 'script');</script>
 <div class="block"><a href="../../../common/timedata/CommonTimedataService.html#queryHistoricEnergy(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)"><code>CommonTimedataService.queryHistoricEnergy(String, ZonedDateTime, ZonedDateTime, Set)</code></a>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricEnergyPerPeriod(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">queryHistoricEnergyPerPeriod</a><wbr>(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricEnergyPerPeriod(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">queryHistoricEnergyPerPeriod</a><wbr>(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
@@ -182,12 +240,38 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block"><a href="../../../common/timedata/CommonTimedataService.html#queryHistoricEnergyPerPeriod(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)"><code>CommonTimedataService.queryHistoricEnergyPerPeriod(String, ZonedDateTime, ZonedDateTime, Set, Resolution)</code></a>.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricEnergySingleValueInDay(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">queryHistoricEnergySingleValueInDay</a><wbr>(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Queries the historic energy values with a measurement which only has one
+ value saved per day.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryRawHistoricEnergyPerPeriodSingleValueInDay(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">queryRawHistoricEnergyPerPeriodSingleValueInDay</a><wbr>(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
+ <a href="../../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Queries the raw historic values without calculating the difference between
+ two values also includes the first value before the time range to help
+ calculating the differences.</div>
+</div>
 </div>
 </div>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.shared.influxdb.proxy.QueryProxy">Methods inherited from class&nbsp;io.openems.shared.influxdb.proxy.<a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></h3>
-<code><a href="QueryProxy.html#assertQueryLimit()">assertQueryLimit</a>, <a href="QueryProxy.html#flux()">flux</a>, <a href="QueryProxy.html#from(io.openems.shared.influxdb.QueryLanguageConfig)">from</a>, <a href="QueryProxy.html#influxQl()">influxQl</a></code></div>
+<code><a href="QueryProxy.html#assertQueryLimit()">assertQueryLimit</a>, <a href="QueryProxy.html#flux()">flux</a>, <a href="QueryProxy.html#from(io.openems.shared.influxdb.QueryLanguageConfig)">from</a>, <a href="QueryProxy.html#influxQl()">influxQl</a>, <a href="QueryProxy.html#isLimitReached()">isLimitReached</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -217,24 +301,26 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="queryHistoricEnergy(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">
+<section class="detail" id="queryHistoricEnergy(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">
 <h3>queryHistoricEnergy</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</span>&nbsp;<span class="element-name">queryHistoricEnergy</span><wbr><span class="parameters">(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</span>
                                                                           throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="QueryProxy.html#queryHistoricEnergy(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">QueryProxy</a></code></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="QueryProxy.html#queryHistoricEnergy(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">QueryProxy</a></code></span></div>
 <div class="block"><a href="../../../common/timedata/CommonTimedataService.html#queryHistoricEnergy(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)"><code>CommonTimedataService.queryHistoricEnergy(String, ZonedDateTime, ZonedDateTime, Set)</code></a>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="QueryProxy.html#queryHistoricEnergy(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">queryHistoricEnergy</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dd><code><a href="QueryProxy.html#queryHistoricEnergy(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">queryHistoricEnergy</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>influxConnection</code> - a Influx-Connection</dd>
 <dd><code>bucket</code> - the bucket name; 'database/retentionPolicy' for
                          InfluxDB v1</dd>
+<dd><code>measurement</code> - the influx measurement</dd>
 <dd><code>influxEdgeId</code> - the Edge-ID</dd>
 <dd><code>fromDate</code> - the From-Date</dd>
 <dd><code>toDate</code> - the To-Date</dd>
@@ -247,25 +333,60 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="queryHistoricData(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
+<section class="detail" id="queryHistoricEnergySingleValueInDay(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">
+<h3>queryHistoricEnergySingleValueInDay</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</span>&nbsp;<span class="element-name">queryHistoricEnergySingleValueInDay</span><wbr><span class="parameters">(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</span>
+                                                                                          throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="QueryProxy.html#queryHistoricEnergySingleValueInDay(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">QueryProxy</a></code></span></div>
+<div class="block">Queries the historic energy values with a measurement which only has one
+ value saved per day.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="QueryProxy.html#queryHistoricEnergySingleValueInDay(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">queryHistoricEnergySingleValueInDay</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>influxConnection</code> - a Influx-Connection</dd>
+<dd><code>bucket</code> - the bucket name; 'database/retentionPolicy' for
+                         InfluxDB v1</dd>
+<dd><code>measurement</code> - the influx measurement</dd>
+<dd><code>influxEdgeId</code> - the Edge-ID</dd>
+<dd><code>fromDate</code> - the From-Date</dd>
+<dd><code>toDate</code> - the To-Date</dd>
+<dd><code>channels</code> - the <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddresses</code></a></dd>
+<dt>Returns:</dt>
+<dd>the query result</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="queryHistoricData(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
 <h3>queryHistoricData</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</span>&nbsp;<span class="element-name">queryHistoricData</span><wbr><span class="parameters">(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
  <a href="../../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</span>
                                                                                                  throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="QueryProxy.html#queryHistoricData(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">QueryProxy</a></code></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="QueryProxy.html#queryHistoricData(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">QueryProxy</a></code></span></div>
 <div class="block"><a href="../../../common/timedata/CommonTimedataService.html#queryHistoricData(java.lang.String,io.openems.common.jsonrpc.request.QueryHistoricTimeseriesDataRequest)"><code>CommonTimedataService.queryHistoricData(String, io.openems.common.jsonrpc.request.QueryHistoricTimeseriesDataRequest)</code></a>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="QueryProxy.html#queryHistoricData(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">queryHistoricData</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dd><code><a href="QueryProxy.html#queryHistoricData(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">queryHistoricData</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>influxConnection</code> - a Influx-Connection</dd>
 <dd><code>bucket</code> - the bucket name; 'database/retentionPolicy' for
                          InfluxDB v1</dd>
+<dd><code>measurement</code> - the influx measurement</dd>
 <dd><code>influxEdgeId</code> - the Edge-ID</dd>
 <dd><code>fromDate</code> - the From-Date</dd>
 <dd><code>toDate</code> - the To-Date</dd>
@@ -279,25 +400,27 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="queryHistoricEnergyPerPeriod(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
+<section class="detail" id="queryHistoricEnergyPerPeriod(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
 <h3>queryHistoricEnergyPerPeriod</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</span>&nbsp;<span class="element-name">queryHistoricEnergyPerPeriod</span><wbr><span class="parameters">(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
  <a href="../../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</span>
                                                                                                             throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="QueryProxy.html#queryHistoricEnergyPerPeriod(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">QueryProxy</a></code></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="QueryProxy.html#queryHistoricEnergyPerPeriod(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">QueryProxy</a></code></span></div>
 <div class="block"><a href="../../../common/timedata/CommonTimedataService.html#queryHistoricEnergyPerPeriod(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)"><code>CommonTimedataService.queryHistoricEnergyPerPeriod(String, ZonedDateTime, ZonedDateTime, Set, Resolution)</code></a>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="QueryProxy.html#queryHistoricEnergyPerPeriod(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">queryHistoricEnergyPerPeriod</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dd><code><a href="QueryProxy.html#queryHistoricEnergyPerPeriod(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">queryHistoricEnergyPerPeriod</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>influxConnection</code> - a Influx-Connection</dd>
 <dd><code>bucket</code> - the bucket name; 'database/retentionPolicy' for
                          InfluxDB v1</dd>
+<dd><code>measurement</code> - the influx measurement</dd>
 <dd><code>influxEdgeId</code> - the Edge-ID</dd>
 <dd><code>fromDate</code> - the From-Date</dd>
 <dd><code>toDate</code> - the To-Date</dd>
@@ -311,9 +434,99 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="buildHistoricDataQuery(java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
+<section class="detail" id="queryRawHistoricEnergyPerPeriodSingleValueInDay(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
+<h3>queryRawHistoricEnergyPerPeriodSingleValueInDay</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</span>&nbsp;<span class="element-name">queryRawHistoricEnergyPerPeriodSingleValueInDay</span><wbr><span class="parameters">(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
+ <a href="../../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</span>
+                                                                                                                               throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="QueryProxy.html#queryRawHistoricEnergyPerPeriodSingleValueInDay(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">QueryProxy</a></code></span></div>
+<div class="block">Queries the raw historic values without calculating the difference between
+ two values also includes the first value before the time range to help
+ calculating the differences.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="QueryProxy.html#queryRawHistoricEnergyPerPeriodSingleValueInDay(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">queryRawHistoricEnergyPerPeriodSingleValueInDay</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>influxConnection</code> - a Influx-Connection</dd>
+<dd><code>bucket</code> - the bucket name; 'database/retentionPolicy' for
+                         InfluxDB v1</dd>
+<dd><code>measurement</code> - the influx measurement</dd>
+<dd><code>influxEdgeId</code> - the Edge-ID</dd>
+<dd><code>fromDate</code> - the From-Date</dd>
+<dd><code>toDate</code> - the To-Date</dd>
+<dd><code>channels</code> - the <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>es</dd>
+<dd><code>resolution</code> - the <a href="../../../common/timedata/Resolution.html" title="class in io.openems.common.timedata"><code>Resolution</code></a></dd>
+<dt>Returns:</dt>
+<dd>the query result</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="queryAvailableSince(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String)">
+<h3>queryAvailableSince</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;&gt;</span>&nbsp;<span class="element-name">queryAvailableSince</span><wbr><span class="parameters">(<a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket)</span>
+                                                  throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="QueryProxy.html#queryAvailableSince(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String)">QueryProxy</a></code></span></div>
+<div class="block">Queries the available since fields from the database.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="QueryProxy.html#queryAvailableSince(io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String)">queryAvailableSince</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>influxConnection</code> - a Influx-Connection</dd>
+<dd><code>bucket</code> - the bucket name; 'database/retentionPolicy' for
+                         InfluxDB v1</dd>
+<dt>Returns:</dt>
+<dd>the map where the key is the edgeId and the value the timestamp of
+         available since</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="queryFirstValueBefore(java.lang.String,io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.util.Set)">
+<h3>queryFirstValueBefore</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</span>&nbsp;<span class="element-name">queryFirstValueBefore</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="../InfluxConnector.InfluxConnection.html" title="class in io.openems.shared.influxdb">InfluxConnector.InfluxConnection</a>&nbsp;influxConnection,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;date,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</span>
+                                                                            throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="QueryProxy.html#queryFirstValueBefore(java.lang.String,io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.util.Set)">QueryProxy</a></code></span></div>
+<div class="block">Queries the first values before the given date.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="QueryProxy.html#queryFirstValueBefore(java.lang.String,io.openems.shared.influxdb.InfluxConnector.InfluxConnection,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.util.Set)">queryFirstValueBefore</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>bucket</code> - the bucket name; 'database/retentionPolicy' for
+                         InfluxDB v1</dd>
+<dd><code>influxConnection</code> - a Influx-Connection</dd>
+<dd><code>measurement</code> - the influx measurement</dd>
+<dd><code>influxEdgeId</code> - the Edge-ID</dd>
+<dd><code>date</code> - the bounding date exclusive</dd>
+<dd><code>channels</code> - the <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddresses</code></a></dd>
+<dt>Returns:</dt>
+<dd>the values</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="buildHistoricDataQuery(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
 <h3>buildHistoricDataQuery</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">buildHistoricDataQuery</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
@@ -322,16 +535,17 @@ loadScripts(document, 'script');</script>
                                  throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="QueryProxy.html#buildHistoricDataQuery(java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">buildHistoricDataQuery</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dd><code><a href="QueryProxy.html#buildHistoricDataQuery(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">buildHistoricDataQuery</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="buildHistoricEnergyQuery(java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">
+<section class="detail" id="buildHistoricEnergyQuery(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">
 <h3>buildHistoricEnergyQuery</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">buildHistoricEnergyQuery</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
@@ -339,16 +553,35 @@ loadScripts(document, 'script');</script>
                                 throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="QueryProxy.html#buildHistoricEnergyQuery(java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">buildHistoricEnergyQuery</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dd><code><a href="QueryProxy.html#buildHistoricEnergyQuery(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">buildHistoricEnergyQuery</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="buildHistoricEnergyPerPeriodQuery(java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
+<section class="detail" id="buildHistoricEnergyQuerySingleValueInDay(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">
+<h3>buildHistoricEnergyQuerySingleValueInDay</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">buildHistoricEnergyQuerySingleValueInDay</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</span>
+                                                   throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="QueryProxy.html#buildHistoricEnergyQuerySingleValueInDay(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">buildHistoricEnergyQuerySingleValueInDay</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="buildHistoricEnergyPerPeriodQuery(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
 <h3>buildHistoricEnergyPerPeriodQuery</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">buildHistoricEnergyPerPeriodQuery</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
@@ -357,9 +590,52 @@ loadScripts(document, 'script');</script>
                                          throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="QueryProxy.html#buildHistoricEnergyPerPeriodQuery(java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">buildHistoricEnergyPerPeriodQuery</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dd><code><a href="QueryProxy.html#buildHistoricEnergyPerPeriodQuery(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">buildHistoricEnergyPerPeriodQuery</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="buildHistoricEnergyPerPeriodQuerySingleValueInDay(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
+<h3>buildHistoricEnergyPerPeriodQuerySingleValueInDay</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">buildHistoricEnergyPerPeriodQuerySingleValueInDay</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
+ <a href="../../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</span>
+                                                            throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="QueryProxy.html#buildHistoricEnergyPerPeriodQuerySingleValueInDay(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">buildHistoricEnergyPerPeriodQuerySingleValueInDay</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="buildFetchAvailableSinceQuery(java.lang.String)">
+<h3>buildFetchAvailableSinceQuery</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">buildFetchAvailableSinceQuery</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="QueryProxy.html#buildFetchAvailableSinceQuery(java.lang.String)">buildFetchAvailableSinceQuery</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="buildFetchFirstValueBefore(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.util.Set)">
+<h3>buildFetchFirstValueBefore</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">buildFetchFirstValueBefore</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;bucket,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;date,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="QueryProxy.html#buildFetchFirstValueBefore(java.lang.String,java.lang.String,java.util.Optional,java.time.ZonedDateTime,java.util.Set)">buildFetchFirstValueBefore</a></code>&nbsp;in class&nbsp;<code><a href="QueryProxy.html" title="class in io.openems.shared.influxdb.proxy">QueryProxy</a></code></dd>
 </dl>
 </section>
 </li>

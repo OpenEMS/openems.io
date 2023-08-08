@@ -74,7 +74,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Superinterfaces:</dt>
-<dd><code><a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code></dd>
+<dd><code><a href="BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></code>, <code><a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code></dd>
 </dl>
 <dl class="notes">
 <dt>All Known Implementing Classes:</dt>
@@ -83,7 +83,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations">@ProviderType
 </span><span class="modifiers">public interface </span><span class="element-name type-name-label">Timedata</span><span class="extends-implements">
-extends <a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></span></div>
+extends <a href="BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -103,15 +103,12 @@ extends <a href="../../../common/timedata/CommonTimedataService.html" title="int
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns a unique ID for this OpenEMS component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#write(java.lang.String,com.google.common.collect.TreeBasedTable)" class="member-name-link">write</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
- com.google.common.collect.TreeBasedTable&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>com.google.gson.JsonElement&gt;&nbsp;data)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Sends the data points to the Timedata service.</div>
 </div>
 </div>
 </div>
-</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.backend.common.timedata.BackendTimedata">Methods inherited from interface&nbsp;io.openems.backend.common.timedata.<a href="BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></h3>
+<code><a href="BackendTimedata.html#queryFirstValueBefore(java.lang.String,java.time.ZonedDateTime,java.util.Set)">queryFirstValueBefore</a>, <a href="BackendTimedata.html#write(java.lang.String,io.openems.common.jsonrpc.notification.AggregatedDataNotification)">write</a>, <a href="BackendTimedata.html#write(java.lang.String,io.openems.common.jsonrpc.notification.ResendDataNotification)">write</a>, <a href="BackendTimedata.html#write(java.lang.String,io.openems.common.jsonrpc.notification.TimestampedDataNotification)">write</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.common.timedata.CommonTimedataService">Methods inherited from interface&nbsp;io.openems.common.timedata.<a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></h3>
 <code><a href="../../../common/timedata/CommonTimedataService.html#handleQueryHistoricTimeseriesExportXlxsRequest(java.lang.String,io.openems.common.jsonrpc.request.QueryHistoricTimeseriesExportXlxsRequest,io.openems.common.session.Language)">handleQueryHistoricTimeseriesExportXlxsRequest</a>, <a href="../../../common/timedata/CommonTimedataService.html#queryHistoricData(java.lang.String,io.openems.common.jsonrpc.request.QueryHistoricTimeseriesDataRequest)">queryHistoricData</a>, <a href="../../../common/timedata/CommonTimedataService.html#queryHistoricData(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">queryHistoricData</a>, <a href="../../../common/timedata/CommonTimedataService.html#queryHistoricEnergy(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)">queryHistoricEnergy</a>, <a href="../../../common/timedata/CommonTimedataService.html#queryHistoricEnergyPerPeriod(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">queryHistoricEnergyPerPeriod</a></code></div>
@@ -134,23 +131,6 @@ extends <a href="../../../common/timedata/CommonTimedataService.html" title="int
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the unique ID</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="write(java.lang.String,com.google.common.collect.TreeBasedTable)">
-<h3>write</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
- com.google.common.collect.TreeBasedTable&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>com.google.gson.JsonElement&gt;&nbsp;data)</span>
-    throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
-<div class="block">Sends the data points to the Timedata service.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>edgeId</code> - The unique Edge-ID</dd>
-<dd><code>data</code> - Table of timestamp (epoch in milliseconds), Channel-Address and
-               the Channel value as JsonElement. Sorted by timestamp.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 </dl>
 </section>
 </li>
