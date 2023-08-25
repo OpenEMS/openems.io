@@ -214,10 +214,10 @@
 <h2 id="_step_by_step_guide"><a class="anchor" href="#_step_by_step_guide"></a>1. Step-by-step guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This chapter explains the steps required to implement an electric meter in OpenEMS Edge that is connected via Modbus/TCP. The meter itself is simulated using a small Modbus slave application, so no external hardware is required for this guide.</p>
+<p>This guide explains the steps required to implement an electric meter in OpenEMS Edge that is connected via Modbus/TCP. The meter itself is simulated using a small Modbus slave application, so no external hardware is required for this guide.</p>
 </div>
 <div class="paragraph">
-<p>The tutorial is based on the <a href="../gettingstarted.html" class="xref page">Getting Started</a> guide.</p>
+<p>The tutorial is based on the <a href="../gettingstarted.html" class="xref page">Getting Started</a> guide. If you are coming directly from there, make sure to stop OpenEMS Edge and OpenEMS Backend first in the Eclipse IDE via the red <strong>Terminate</strong> button in the console view.</p>
 </div>
 <div class="sect2">
 <h3 id="_create_a_new_osgi_bundle"><a class="anchor" href="#_create_a_new_osgi_bundle"></a>1.1. Create a new OSGi Bundle</h3>
@@ -245,7 +245,7 @@
 </div>
 </li>
 <li>
-<p>Select <b class="button">OpenEMS Templates</b> &#8594; <b class="button">OpenEMS Modbus Devices</b> and press <b class="button">Next &gt;</b></p>
+<p>Select <b class="button">OpenEMS Templates</b> &#8594; <b class="button">OpenEMS Modbus Device</b> and press <b class="button">Next &gt;</b></p>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -283,16 +283,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="../_images/eclipse-new-osgi-provider-simulatedmeter.png" alt="Naming an OpenEMS Modbus Devices Bundle in Eclipse IDE">
 </div>
-<div class="title">Figure 4. Naming an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
-</div>
-</li>
-<li>
-<p>Don&#8217;t Create a <code>module-info.java</code> and press <b class="button">Don&#8217;t Create</b></p>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/eclipse-new-osgi-provider-simulatedmeter-final.png" alt="Java settings for an OpenEMS Modbus Devices Bundle in Eclipse IDE">
-</div>
-<div class="title">Figure 5. Java settings for an OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
+<div class="title">Figure 4. Naming an OpenEMS Modbus Device Bundle in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -312,9 +303,9 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <p>Select the component directory <b class="button">src</b> &#8594; <b class="button">io.openems.edge.meter.simulated</b></p>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/eclipse-new-simulatedmeter-bundle.png" alt="New simulated meter OpenEMS Modbus Devices Bundle in Eclipse IDE">
+<img src="../_images/eclipse-new-simulatedmeter-bundle.png" alt="New simulated meter OpenEMS Modbus Device Bundle in Eclipse IDE">
 </div>
-<div class="title">Figure 6. New simulated meter OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
+<div class="title">Figure 5. New simulated meter OpenEMS Modbus Devices Bundle in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -360,7 +351,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="../_images/eclipse-bnd-file-build.png" alt="Bndtools Build configuration">
 </div>
-<div class="title">Figure 7. Bndtools Build configuration</div>
+<div class="title">Figure 6. Bndtools Build configuration</div>
 </div>
 </li>
 <li>
@@ -369,7 +360,7 @@ The project name is used as the folder name in OpenEMS source directory. The nam
 <div class="content">
 <img src="../_images/eclipse-osgi-build-path.png" alt="Bndtools Project Build Path configuration">
 </div>
-<div class="title">Figure 8. Bndtools Project Build Path configuration</div>
+<div class="title">Figure 7. Bndtools Project Build Path configuration</div>
 </div>
 </li>
 <li>
@@ -394,6 +385,7 @@ Bundle-Version: 1.0.0.${tstamp}
 
 -buildpath: \
 	${buildpath},\
+	com.ghgande.j2mod,\
 	io.openems.common,\
 	io.openems.edge.bridge.modbus,\
 	io.openems.edge.common,\
@@ -446,6 +438,18 @@ The <code>;version=latest</code> declaration is not required and can be removed.
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@AttributeDefinition(name = "Meter-Type", description = "Grid, Production (=default), Consumption")
 MeterType type() default MeterType.PRODUCTION;</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Eclipse will complain, that <code>MeterType</code> is unknown. Press <b class="button">Ctrl</b> + <b class="button">Shift</b> + <b class="button">o</b> to update the Java imports.
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
@@ -553,7 +557,7 @@ import io.openems.edge.meter.api.MeterType;
 <div class="content">
 <img src="../_images/eclipse-rename.png" alt="Renaming a Java class in Eclipse IDE">
 </div>
-<div class="title">Figure 9. Renaming a Java class in Eclipse IDE</div>
+<div class="title">Figure 8. Renaming a Java class in Eclipse IDE</div>
 </div>
 <div class="paragraph">
 <p>Afterwards adjust the following content in the template <code>MeterSimulatedImpl.Java</code>:</p>
@@ -571,17 +575,6 @@ import io.openems.edge.meter.api.MeterType;
 )</code></pre>
 </div>
 </div>
-</li>
-<li>
-<p>Make the class implement the <code>ElectricityMeter</code> nature:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MeterSimulatedImpl extends AbstractOpenemsModbusComponent implements MeterSimulated, ElectricityMeter, OpenemsComponent, ModbusComponent {</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Eclipse will underline <code>ElectricityMeter</code> and show the error <strong>ElectricityMeter cannot be resolved to a type</strong>. Resolve it by adding the line <code>import io.openems.edge.meter.api.ElectricityMeter;</code> to the import section of the file.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -589,14 +582,22 @@ import io.openems.edge.meter.api.MeterType;
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The easiest way to fix these kind of import errors is to select <b class="button">Source</b> → <b class="button">Organize Imports</b> in the menu or simply press <b class="button">Ctrl</b> + <b class="button">Shift</b> + <b class="button">o</b>. Alternatively click the 'light bulb' next to the line with the error and select <b class="button">Import 'ElectricityMeter' (io.openems.edge.meter.api)</b>.
+This <em>name</em> is the Factory-ID of your Component. It is used in various places as a unique identification.
 </td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p>Eclipse still complains and now underlines the class name <code>MeterSimulated</code> with the error <strong>The type MeterSimulated must implement the inherited abstract method ElectricityMeter.getMeterType()</strong>. Resolve it by adding an implementation of the <code>getMeterType()</code> method:</p>
+<p>Make the class implement the <code>ElectricityMeter</code> nature (and fix the import error again with <b class="button">Ctrl</b> + <b class="button">Shift</b> + <b class="button">o</b>)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MeterSimulatedImpl extends AbstractOpenemsModbusComponent implements MeterSimulated, ElectricityMeter, OpenemsComponent, ModbusComponent {</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Eclipse still complains and now underlines the class name <code>MeterSimulatedImpl</code> with the error <strong>The type MeterSimulatedImpl must implement the inherited abstract method ElectricityMeter.getMeterType()</strong>. Resolve it by adding an implementation of the <code>getMeterType()</code> method:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
@@ -650,7 +651,18 @@ protected ModbusProtocol defineModbusProtocol() throws OpenemsException {
 </div>
 </li>
 <li>
-<p>Additionally it is advisable to implement a <code>debugLog()</code> method. This method provides information for the continuous log output of OpenEMS, provided by the <strong>DebugLogController</strong>. Adjust the method to return the ActivePower value of the meter:</p>
+<p>Additionally it is advisable to implement a <code>debugLog()</code> method. This method provides information for the continuous log output of OpenEMS, provided by the <strong>DebugLogController</strong>. We use it to print the current ActivePower value of the meter. Replace the existing method</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public String debugLog() {
+	return "Hello World";
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>with</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
@@ -681,12 +693,13 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.component.annotations.ReferencePolicyOption;
 import org.osgi.service.metatype.annotations.Designate;
 
+import io.openems.common.exceptions.OpenemsException;
 import io.openems.edge.bridge.modbus.api.AbstractOpenemsModbusComponent;
 import io.openems.edge.bridge.modbus.api.BridgeModbus;
+import io.openems.edge.bridge.modbus.api.ModbusComponent;
 import io.openems.edge.bridge.modbus.api.ModbusProtocol;
 import io.openems.edge.bridge.modbus.api.element.SignedWordElement;
 import io.openems.edge.bridge.modbus.api.task.FC3ReadRegistersTask;
-import io.openems.edge.common.channel.Doc;
 import io.openems.edge.common.component.OpenemsComponent;
 import io.openems.edge.common.taskmanager.Priority;
 import io.openems.edge.meter.api.ElectricityMeter;
@@ -699,12 +712,20 @@ import io.openems.edge.meter.api.MeterType;
 		configurationPolicy = ConfigurationPolicy.REQUIRE <i class="conum" data-value="5"></i><b>(5)</b>
 )
 public class MeterSimulatedImpl extends AbstractOpenemsModbusComponent <i class="conum" data-value="6"></i><b>(6)</b>
-	implements MeterSimulated, ElectricityMeter, OpenemsComponent, ModbusComponent { <i class="conum" data-value="7"></i><b>(7)</b>
+		implements MeterSimulated, ElectricityMeter, OpenemsComponent, ModbusComponent { <i class="conum" data-value="7"></i><b>(7)</b>
+
+	@Reference
+	private ConfigurationAdmin cm; <i class="conum" data-value="8"></i><b>(8)</b>
+
+	@Reference(policy = ReferencePolicy.STATIC, policyOption = ReferencePolicyOption.GREEDY, cardinality = ReferenceCardinality.MANDATORY)
+	protected void setModbus(BridgeModbus modbus) {
+		super.setModbus(modbus); <i class="conum" data-value="9"></i><b>(9)</b>
+	}
 
 	private Config config = null;
 
 	public MeterSimulatedImpl() {
-		super(<i class="conum" data-value="8"></i><b>(8)</b>
+		super(<i class="conum" data-value="10"></i><b>(10)</b>
 				OpenemsComponent.ChannelId.values(), //
 				ElectricityMeter.ChannelId.values(), //
 				ModbusComponent.ChannelId.values(), //
@@ -712,22 +733,16 @@ public class MeterSimulatedImpl extends AbstractOpenemsModbusComponent <i class=
 		);
 	}
 
-	@Reference
-	protected ConfigurationAdmin cm; <i class="conum" data-value="9"></i><b>(9)</b>
-
-	@Reference(policy = ReferencePolicy.STATIC, policyOption = ReferencePolicyOption.GREEDY, cardinality = ReferenceCardinality.MANDATORY)
-	protected void setModbus(BridgeModbus modbus) {
-		super.setModbus(modbus); <i class="conum" data-value="10"></i><b>(10)</b>
-	}
-
 	@Activate
-	void activate(ComponentContext context, Config config) throws OpenemsException { <i class="conum" data-value="11"></i><b>(11)</b>
-		if(super.activate(context, config.id(), config.alias(), config.enabled(), config.modbusUnitId(), this.cm, "Modbus", config.modbus_id())) {
+	private void activate(ComponentContext context, Config config) throws OpenemsException { <i class="conum" data-value="11"></i><b>(11)</b>
+		if (super.activate(context, config.id(), config.alias(), config.enabled(), config.modbusUnitId(), this.cm,
+				"Modbus", config.modbus_id())) {
 			return;
 		}
 		this.config = config;
 	}
 
+	@Override
 	@Deactivate
 	protected void deactivate() { <i class="conum" data-value="12"></i><b>(12)</b>
 		super.deactivate();
@@ -833,15 +848,15 @@ In plain Java it is not required to add <code>implements OpenemsComponent</code>
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
-<td>We call the constructor of the super class (<code>AbstractOpenemsModbusComponent</code>/<code>AbstractOpenemsComponent</code>) to initialize the Channels of the Component. It is important to list all ChannelId-Enums of all implemented Natures. The call takes the <strong>ChannelId</strong> declarations and creates a Channel instance for each of them; e.g. for the <code>ElectricityMeter.ACTIVE_POWER</code> ChannelId, an object instance of <code>IntegerReadChannel</code> is created that represents the Channel.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="9"></i><b>9</b></td>
 <td>The <code>super.activate()</code> method requires an instance of <strong>ConfigurationAdmin</strong> as a parameter. Using the <strong>@Reference</strong> annotation the OSGi framework is going to provide the ConfigurationAdmin service via dependency injection.</td>
 </tr>
 <tr>
-<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
 <td>The Component utilizes an external Modbus Component (the <em>Modbus Bridge</em>) for the actual Modbus communication. We receive an instance of this service via dependency injection (like we did already for the <em>ConfigurationAdmin</em> service). Most of the magic is handled by the <em>AbstractOpenemsModbusComponent</em> implementation, but the way the OSGi framework works, we need to define the <em>@Reference</em> explicitly here in the actual implementation of the component and call the parent <code>setModbus()</code> method.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td>We call the constructor of the super class (<code>AbstractOpenemsModbusComponent</code>/<code>AbstractOpenemsComponent</code>) to initialize the Channels of the Component. It is important to list all ChannelId-Enums of all implemented Natures. The call takes the <strong>ChannelId</strong> declarations and creates a Channel instance for each of them; e.g. for the <code>ElectricityMeter.ACTIVE_POWER</code> ChannelId, an object instance of <code>IntegerReadChannel</code> is created that represents the Channel.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="11"></i><b>11</b></td>
@@ -917,7 +932,70 @@ Most Modbus function codes are available by their respective <em>FC*</em> implem
 <p>OpenEMS comes with an advanced test framework based on JUnit. The test scenarios are defined inside the <code>test</code> folder. The template we used before provides example implementations for <code>MyConfig.java</code> and <code>MyModbusDeviceTest.java</code>. We highly recommend implementing JUnit tests, because down the line it simplifies 'dry' coding (i.e. without using physical hardware) and assures high quality of the code you write. There are plenty of simple and advanced examples for JUnit tests throughout the OpenEMS project.</p>
 </div>
 <div class="paragraph">
-<p>For now, to keep this tutorial simple, you can just delete the <code>io.openems.edge.meter.simulated</code> folder inside the <code>test</code> folder, to get rid of the compile errors in Eclipse IDE and be able to continue.</p>
+<p>Update the <code>MyConfig.java</code> file with the following lines to simulate the <code>type</code> configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">...
+@SuppressWarnings("all")
+public class MyConfig extends AbstractComponentConfig implements Config {
+
+	protected static class Builder {
+		...
+		private MeterType type;
+		...
+		public Builder setType(MeterType type) {
+			this.type = type;
+			return this;
+		}
+		...
+	}
+	...
+	@Override
+	public MeterType type() {
+		return this.builder.type;
+	}
+	...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Add the <code>type</code> configuration also to the <code>MyModbusDeviceTest.java</code> file to get a fully functional first JUnit test:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.openems.edge.meter.simulated;
+
+import org.junit.Test;
+
+import io.openems.edge.bridge.modbus.test.DummyModbusBridge;
+import io.openems.edge.common.test.AbstractComponentTest.TestCase;
+import io.openems.edge.common.test.ComponentTest;
+import io.openems.edge.meter.api.MeterType;
+
+public class MyModbusDeviceTest {
+
+	private static final String COMPONENT_ID = "component0";
+	private static final String MODBUS_ID = "modbus0";
+
+	@Test
+	public void test() throws Exception {
+		new ComponentTest(new MeterSimulatedImpl()) //
+				.addReference("cm", new DummyConfigurationAdmin()) //
+				.addReference("setModbus", new DummyModbusBridge(MODBUS_ID)) //
+				.activate(MyConfig.create() //
+						.setId(COMPONENT_ID) //
+						.setModbusId(MODBUS_ID) //
+						.setType(MeterType.GRID) //
+						.build())
+				.next(new TestCase());
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Right click on the <code>MyModbusDeviceTest.java</code> file in Eclipse and select <b class="button">Run As</b> &#8594; <b class="button">JUnit Test</b> to execute the test. Or select <b class="button">Coverage As</b> &#8594; <b class="button">JUnit Test</b> to see which code is already covered by your current JUnit test.</p>
 </div>
 </div>
 <div class="sect2">
@@ -988,7 +1066,7 @@ The Modbus-TCP <em>Slave</em>-Server opens on the non-standard port <code>8502</
 <div class="content">
 <img src="../_images/eclipse-edgeapp-bndrun.png" alt="Eclipse IDE EdgeApp.bndrun">
 </div>
-<div class="title">Figure 10. Eclipse IDE EdgeApp.bndrun</div>
+<div class="title">Figure 9. Eclipse IDE EdgeApp.bndrun</div>
 </div>
 <div class="paragraph">
 <p>Select the <code>io.openems.edge.meter.simulated</code> bundle in the left <strong>Repositories</strong> list and drag &amp; drop it to the <strong>Run Requirements</strong> list.</p>
@@ -1003,7 +1081,7 @@ The Modbus-TCP <em>Slave</em>-Server opens on the non-standard port <code>8502</
 <div class="content">
 <img src="../_images/eclipse-edgeapp-resolve.png" alt="Eclipse IDE Resolve EdgeApp.bndrun">
 </div>
-<div class="title">Figure 11. Eclipse IDE Resolve EdgeApp.bndrun</div>
+<div class="title">Figure 10. Eclipse IDE Resolve EdgeApp.bndrun</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1051,7 +1129,7 @@ The Modbus-TCP <em>Slave</em>-Server opens on the non-standard port <code>8502</
 <p>Press <b class="button">Run OSGi</b> to run OpenEMS Edge.</p>
 </div>
 <div class="paragraph">
-<p>From then you can configure your component as shown in <a href="../gettingstarted.html" class="xref page">Getting Started</a> guide. Add the following configurations inside Apache Felix Web Console:</p>
+<p>From then you can configure your component as shown in <a href="../gettingstarted.html" class="xref page">Getting Started</a> guide. To avoid misconfiguration, remove all the Components you configured during Getting Started. Then add the following configurations inside Apache Felix Web Console:</p>
 </div>
 <div class="dlist">
 <dl>
@@ -1133,7 +1211,7 @@ The Modbus-TCP <em>Slave</em>-Server opens on the non-standard port <code>8502</
 </div>
 </div>
 <div class="paragraph">
-<p>It shows a Production of <code>500 W</code> which is what is provided by the simulated meter device. Congrats!</p>
+<p>It shows a Production of <code>500 W</code> which is the value provided by the simulated meter device. Congrats!</p>
 </div>
 </div>
 <div class="sect2">

@@ -315,7 +315,7 @@ Eclipse IDE is the recommended development environment for newcomers to OpenEMS.
 <p>Download Java Development Kit (JDK) 17 and install it. We recommend the <a href="https://adoptium.net/de/temurin/releases/?version=17">OpenJDK Temurin builds by the Adoptium project</a></p>
 </li>
 <li>
-<p>Download <a href="https://www.eclipse.org">Eclipse for Java <span class="icon"><i class="fa fa-external-link"></i></span></a>, install and start it</p>
+<p>Download <a href="https://www.eclipse.org/downloads/">Eclipse for Java <span class="icon"><i class="fa fa-external-link"></i></span></a>, install and start it</p>
 </li>
 <li>
 <p>On first start you will get asked to create a workspace.
@@ -350,7 +350,7 @@ Select your source code directory (<code>C:\Users\your.user\git\openems</code> i
 <p>Keep <b class="button">Standard VM</b> selected and press <b class="button">Next &gt;</b></p>
 </li>
 <li>
-<p>Press the <b class="button">Directory&#8230;&#8203;</b> button and select the folder of the installed JDK (e.g. <code>C:\Program Files\Eclipse Adoptium\jdk-17.0.6.10-hotspot</code>)</p>
+<p>Press the <b class="button">Directory&#8230;&#8203;</b> button and select the folder of the installed JDK (e.g. <code>C:\Program Files\Eclipse Adoptium\jdk-17.0.7.7-hotspot</code>)</p>
 </li>
 <li>
 <p>Press the <b class="button">Finish</b> button</p>
@@ -400,6 +400,34 @@ Select your source code directory (<code>C:\Users\your.user\git\openems</code> i
 </div>
 <div class="title">Figure 4. io.openems.edge.application project in Eclipse IDE</div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Instead of navigating through the projects tree, you can simply use the keyboard shortcut <b class="button">Ctrl</b> + <b class="button">Shift</b> + <b class="button">R</b> to start the "Open Resource" dialog. Enter "EdgeApp.bndrun" there and press <b class="button">Enter</b> to open the file.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>EdgeApp.bndrun</code> file declares all the bundles and runtime properties. For now it should not be necessary to edit it, but it hides some useful settings unter the <b class="button">Source</b> tab:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>org.osgi.service.http.port=8080</code>: start the Apache Felix Web Console on port <code>8080</code></p>
+</li>
+<li>
+<p><code>felix.cm.dir=c:/openems/config</code>: persist configurations in the folder <code>c:/openems/config</code>. Adjust this if you are working on Linux to keep your configurations after restart</p>
+</li>
+<li>
+<p><code>openems.data.dir=c:/openems/data</code>: this is where bundles are allowed to persist data. It is used e.g. by the RRD4j timedata storage</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Click on <b class="button">Run OSGi</b> to run OpenEMS Edge. You should see log outputs in the <strong>Console</strong> tab inside Eclipse IDE.</p>
@@ -438,7 +466,7 @@ Select your source code directory (<code>C:\Users\your.user\git\openems</code> i
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The Scheduler is responsible for executing the control algorithms (Controllers) and defines the OpenEMS Edge application cycle
+The Scheduler is responsible for executing the control algorithms (Controllers) in order and defines the OpenEMS Edge application cycle
 </td>
 </tr>
 </table>
@@ -465,7 +493,19 @@ The Scheduler is responsible for executing the control algorithms (Controllers) 
 </div>
 </div>
 <div class="paragraph">
-<p>Add any other OpenEMS Components in the same way:</p>
+<p>Add any other OpenEMS Components in the same way.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Once everything is setup you can configure Components more easily via OpenEMS UI using the "Install components" feature in the Settings.
+</td>
+</tr>
+</table>
 </div>
 </li>
 </ol>
@@ -546,7 +586,7 @@ The data source was configured with the OpenEMS Component ID <code>datasource0</
 <div class="title">Figure 10. Configuration of Simulator GridMeter Acting</div>
 </div>
 <div class="paragraph">
-<p>This time some more logs will show up. Most importantly they show, that the Grid meter now shows a power value and the Consumption is derived directly from this value, because no PV system or energy storage system is configured yet.</p>
+<p>This time some more logs will appear. Most importantly they show, that the Grid meter now measures (simulates) a power value and the Consumption is derived directly from this value, because no PV system or energy storage system is configured yet.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -582,7 +622,7 @@ This setup causes the simulated grid-meter to take the standardized load-profile
 </div>
 </li>
 <li>
-<p>Configure a simulated reacting energy storage system: <em><strong>Simulator EssSymmetric Reacting</strong></em>. The default values can be accepted without changes. (If you choose an other setup as the one described here you may have to create a new Datasource-Component and provide its ID here. The actual data is ignored, but the Datasource&#8217;s Time-Delta value is required to calculate values with time-dependant units.)</p>
+<p>Configure a simulated reacting energy storage system: <em><strong>Simulator EssSymmetric Reacting</strong></em>. The default values can be accepted without changes.</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/config-simulator-esssymmetric-reacting.png" alt="Configuration of Simulator EssSymmetric Reacting">
@@ -613,12 +653,12 @@ The debug log now shows data for the battery, but the charge/discharge power sta
 </div>
 </li>
 <li>
-<p>Configure the self-consumption optimization algorithm: <em><strong>Controller Balancing Symmetric</strong></em>. Configure the <code>Ess-ID</code> <code>'ess0'</code> and <code>Grid-Meter-ID</code> <code>'meter0'</code> to refer to the components configured above.</p>
+<p>Configure the self-consumption optimization algorithm: <em><strong>Controller Ess Balancing</strong></em>. Configure the <code>Ess-ID</code> <code>'ess0'</code> and <code>Grid-Meter-ID</code> <code>'meter0'</code> to refer to the components configured above.</p>
 <div class="imageblock">
 <div class="content">
-<img src="_images/config-controller-balancing-symmetric.png" alt="Configuration of Symmetric Balancing Controller">
+<img src="_images/config-controller-ess-balancing.png" alt="Configuration of Controller Ess Balancing">
 </div>
-<div class="title">Figure 12. Configuration of Symmetric Balancing Controller</div>
+<div class="title">Figure 12. Configuration of Controller Ess Balancing</div>
 </div>
 <div class="paragraph">
 <p>The log shows:</p>
@@ -723,6 +763,15 @@ If you plan to actively develop on OpenEMS UI, you can now also setup a developm
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p><em>Unfortunately the hosted version of OpenEMS UI is currently slightly outdated and incompatble with latest OpenEMS Edge. Follow the <a href="ui/setup-ide.html" class="xref page">OpenEMS UI guide</a> to produce the following visualization. The language can be changed in the "burger menu" on top left &#8594; <b class="button">admin</b> &#8594; <b class="button">Allgemeine Einstellungen</b>.</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openems-ui-edge-overview2.png" alt="OpenEMS UI Energymonitor screen">
+</div>
+<div class="title">Figure 16. OpenEMS UI Energymonitor screen</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -741,7 +790,7 @@ If you plan to actively develop on OpenEMS UI, you can now also setup a developm
 <div class="content">
 <img src="_images/eclipse-io.openems.backend.application.png" alt="io.openems.backend.application project in Eclipse IDE">
 </div>
-<div class="title">Figure 16. io.openems.backend.application project in Eclipse IDE</div>
+<div class="title">Figure 17. io.openems.backend.application project in Eclipse IDE</div>
 </div>
 </li>
 <li>
@@ -750,7 +799,7 @@ If you plan to actively develop on OpenEMS UI, you can now also setup a developm
 <div class="content">
 <img src="_images/eclipse-backend-initial-log-output.png" alt="OpenEMS Backend initial log output">
 </div>
-<div class="title">Figure 17. OpenEMS Backend initial log output</div>
+<div class="title">Figure 18. OpenEMS Backend initial log output</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -786,12 +835,6 @@ Apache Felix Web Console for OpenEMS Backend is started on port 8079 by default.
 <div class="paragraph">
 <p>Login with username <strong>admin</strong> and password <strong>admin</strong>.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/apache-felix-console-backend-configuration.png" alt="Apache Felix Web Console Configuration for OpenEMS Backend">
-</div>
-<div class="title">Figure 18. Apache Felix Web Console Configuration for OpenEMS Backend</div>
-</div>
 </li>
 <li>
 <p>Configure Edge.Websocket</p>
@@ -808,7 +851,7 @@ The <em><strong>Edge.Websocket</strong></em> service is responsible for the comm
 </table>
 </div>
 <div class="paragraph">
-<p>In the example we are configuring the <code>Port '8081'</code>. This port needs to match with what we configure later in OpenEMS Edge.</p>
+<p>In the example we are configuring the <code>Port '8081'</code>. This port needs to match with what we configure later in OpenEMS Edge. The <code>Debug Mode 'DETAILED'</code> setting helps us to get some more details on the internal behaviour.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -832,7 +875,7 @@ The <em><strong>Ui.Websocket</strong></em> service is responsible for the commun
 </table>
 </div>
 <div class="paragraph">
-<p>In the example we are configuring the <code>Port '8082'</code>. This port needs to match with what we configure later in the OpenEMS UI environment file.</p>
+<p>In the example we are configuring the <code>Port '8082'</code>. This port needs to match with what we configure later in the OpenEMS UI environment file. We are again setting <code>Debug Mode 'DETAILED'</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -856,7 +899,7 @@ The <strong>Timedata</strong> service provider is responsible for holding the cu
 </table>
 </div>
 <div class="paragraph">
-<p>In the example we are configuring the <em><strong>Timedata.Dummy</strong></em> service. It takes no configuration parameters, so just press <b class="button">Save</b>. In a production system you would want to use a real implementation like <strong>Timedata.InfluxDB</strong>.</p>
+<p>In the example we are configuring the <em><strong>Timedata.Dummy</strong></em> service. The default value for _Component-ID` can be accepted without changes, so just press <b class="button">Save</b>. In a production system you would want to use a real implementation like <strong>Timedata.InfluxDB</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -898,10 +941,24 @@ In the example we are configuring the <em><strong>Metadata.Dummy</strong></em> s
 </table>
 </div>
 </li>
+<li>
+<p>Backend is ready</p>
+<div class="paragraph">
+<p>You should have seen some important log messages by now, that indicate that the OpenEMS Backend is ready to accept connections:</p>
+</div>
+</li>
 </ol>
 </div>
 </li>
 </ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [d.timedata.dummy.TimedataDummy] [Timedata.Dummy] Activate
+INFO  [d.metadata.dummy.MetadataDummy] [Metadata.Dummy] Activate
+INFO  [socket.AbstractWebsocketServer] [Ui.Websocket] Starting websocket server [port=8082]
+INFO  [socket.AbstractWebsocketServer] [Edge.Websocket] Starting websocket server [port=8081]</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -938,7 +995,9 @@ In the example we are configuring the <em><strong>Metadata.Dummy</strong></em> s
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-none hljs">INFO  [onent.AbstractOpenemsComponent] [ctrlBackend0] Activate Controller.Api.Backend
-INFO  [socket.AbstractWebsocketClient] Opening connection [Controller.Api.Backend:ctrlBackend0] to websocket server [ws://localhost:8081]
+INFO  [socket.AbstractWebsocketClient] [ctrlBackend0] Opening connection to websocket server [ws://localhost:8081]
+INFO  [socket.ClientReconnectorWorker] [ctrlBackend0] Connecting WebSocket... [NOT_YET_CONNECTED]
+INFO  [socket.ClientReconnectorWorker] [ctrlBackend0] Connected WebSocket successfully [0s]
 INFO  [.controller.api.backend.OnOpen] [ctrlBackend0] Connected to OpenEMS Backend</code></pre>
 </div>
 </div>
@@ -947,7 +1006,9 @@ INFO  [.controller.api.backend.OnOpen] [ctrlBackend0] Connected to OpenEMS Backe
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [s.backend.edgewebsocket.OnOpen] [Edge.Websocket] Edge [edge0] connected</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">INFO  [s.backend.common.metadata.Edge] Edge [edge0]: Update version from [0.0.0] to [...]
+INFO  [mon.metadata.SimpleEdgeHandler] Edge [edge0]. Update config: ...
+INFO  [dgewebsocket.EdgeWebsocketImpl] [monitor] Edge-Connections: 1</code></pre>
 </div>
 </div>
 </li>
@@ -959,6 +1020,9 @@ INFO  [.controller.api.backend.OnOpen] [ctrlBackend0] Connected to OpenEMS Backe
 </div>
 <div class="sect2">
 <h3 id="_connect_openems_ui_with_backend"><a class="anchor" href="#_connect_openems_ui_with_backend"></a>5.3. Connect OpenEMS UI with Backend</h3>
+<div class="paragraph">
+<p><em>(You need to have completed the <a href="ui/setup-ide.html" class="xref page">OpenEMS UI guide</a> for the following steps)</em></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1005,12 +1069,27 @@ OpenEMS UI can work both for local connections to OpenEMS Edge as well as cloud 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/ui-via-backend.png" alt="UI via Backend">
+<img src="_images/openems-ui-backend-login.png" alt="OpenEMS UI Login screen">
 </div>
-<div class="title">Figure 24. UI via Backend</div>
+<div class="title">Figure 24. OpenEMS UI Login screen</div>
 </div>
-<div class="paragraph">
+</li>
+<li>
+<p>You will be presented an overview list of all connected OpenEMS Edge devices you have permissions for:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openems-ui-backend-overview.png" alt="OpenEMS UI Overview screen">
+</div>
+<div class="title">Figure 25. OpenEMS UI Overview screen</div>
+</div>
+</li>
+<li>
 <p>Click on <strong>OpenEMS Edge #0</strong> to see the same live-view as before on the local connection.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openems-ui-backend-live.png" alt="OpenEMS UI Live screen">
+</div>
+<div class="title">Figure 26. OpenEMS UI Live screen</div>
 </div>
 </li>
 </ol>
