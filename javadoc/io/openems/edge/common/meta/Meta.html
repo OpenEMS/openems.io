@@ -78,7 +78,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <dl class="notes">
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="../../core/meta/MetaImpl.html" title="class in io.openems.edge.core.meta">MetaImpl</a></code></dd>
+<dd><code><a href="../test/DummyMeta.html" title="class in io.openems.edge.common.test">DummyMeta</a></code>, <code><a href="../../core/meta/MetaImpl.html" title="class in io.openems.edge.core.meta">MetaImpl</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">Meta</span><span class="extends-implements">
@@ -130,9 +130,24 @@ extends <a href="../modbusslave/ModbusSlave.html" title="interface in io.openems
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../modbusslave/ModbusSlaveTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveTable</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getModbusSlaveTable(io.openems.common.channel.AccessMode)" class="member-name-link">getModbusSlaveTable</a><wbr>(<a href="../../../common/channel/AccessMode.html" title="enum class in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setCurrency(io.openems.edge.common.currency.Currency)" class="member-name-link">_setCurrency</a><wbr>(<a href="../currency/Currency.html" title="enum class in io.openems.edge.common.currency">Currency</a>&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Internal method to set the 'nextValue' on <a href="Meta.ChannelId.html#CURRENCY"><code>Meta.ChannelId.CURRENCY</code></a> Channel.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../currency/Currency.html" title="enum class in io.openems.edge.common.currency">Currency</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getCurrency()" class="member-name-link">getCurrency</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Gets the Capacity in [Wh].</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../channel/EnumReadChannel.html" title="class in io.openems.edge.common.channel">EnumReadChannel</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getCurrencyChannel()" class="member-name-link">getCurrencyChannel</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Gets the Channel for <a href="Meta.ChannelId.html#CURRENCY"><code>Meta.ChannelId.CURRENCY</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../modbusslave/ModbusSlaveTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveTable</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getModbusSlaveTable(io.openems.common.channel.AccessMode)" class="member-name-link">getModbusSlaveTable</a><wbr>(<a href="../../../common/channel/AccessMode.html" title="enum class in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Gets the Modbus-Slave-Table for this OpenEMS-Component.</div>
 </div>
 </div>
@@ -201,6 +216,39 @@ extends <a href="../modbusslave/ModbusSlave.html" title="interface in io.openems
 <dd><code>accessMode</code> - filters the Modbus-Records that should be shown</dd>
 <dt>Returns:</dt>
 <dd>the Modbus-Slave-Table</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getCurrencyChannel()">
+<h3>getCurrencyChannel</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../channel/EnumReadChannel.html" title="class in io.openems.edge.common.channel">EnumReadChannel</a></span>&nbsp;<span class="element-name">getCurrencyChannel</span>()</div>
+<div class="block">Gets the Channel for <a href="Meta.ChannelId.html#CURRENCY"><code>Meta.ChannelId.CURRENCY</code></a>.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the Channel</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getCurrency()">
+<h3>getCurrency</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../currency/Currency.html" title="enum class in io.openems.edge.common.currency">Currency</a></span>&nbsp;<span class="element-name">getCurrency</span>()</div>
+<div class="block">Gets the Capacity in [Wh]. See <a href="Meta.ChannelId.html#CURRENCY"><code>Meta.ChannelId.CURRENCY</code></a>.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the Channel <a href="../channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="_setCurrency(io.openems.edge.common.currency.Currency)">
+<h3>_setCurrency</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setCurrency</span><wbr><span class="parameters">(<a href="../currency/Currency.html" title="enum class in io.openems.edge.common.currency">Currency</a>&nbsp;value)</span></div>
+<div class="block">Internal method to set the 'nextValue' on <a href="Meta.ChannelId.html#CURRENCY"><code>Meta.ChannelId.CURRENCY</code></a> Channel.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>value</code> - the next value</dd>
 </dl>
 </section>
 </li>

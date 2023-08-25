@@ -365,8 +365,9 @@
 <li><a href="#_tesla_powerwall_2">77. Tesla Powerwall 2</a></li>
 <li><a href="#_time_of_use_tariff_awattar">78. Time-Of-Use Tariff Awattar</a></li>
 <li><a href="#_time_of_use_tariff_corrently_by_stromdao">79. Time-Of-Use Tariff Corrently by STROMDAO</a></li>
-<li><a href="#_time_of_use_tariff_tibber">80. Time-Of-Use Tariff Tibber</a></li>
-<li><a href="#_kaco_blueplanet_hybrid_10_0_tl3">81. KACO blueplanet hybrid 10.0 TL3</a></li>
+<li><a href="#_time_of_use_tariff_entso_e">80. Time-Of-Use Tariff ENTSO-E</a></li>
+<li><a href="#_time_of_use_tariff_tibber">81. Time-Of-Use Tariff Tibber</a></li>
+<li><a href="#_kaco_blueplanet_hybrid_10_0_tl3">82. KACO blueplanet hybrid 10.0 TL3</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -2927,7 +2928,27 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_of_use_tariff_tibber"><a class="anchor" href="#_time_of_use_tariff_tibber"></a>80. Time-Of-Use Tariff Tibber</h2>
+<h2 id="_time_of_use_tariff_entso_e"><a class="anchor" href="#_time_of_use_tariff_entso_e"></a>80. Time-Of-Use Tariff ENTSO-E</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This implementation uses the ENTSO-E transparency platform to receive day-ahead prices in European power grids.</p>
+</div>
+<div class="paragraph">
+<p>To request a (free) authentication token, please see chapter "2. Authentication and Authorisation" in the official API documentation: <a href="https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation" class="bare">https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation</a></p>
+</div>
+<div class="paragraph">
+<p>Prices retrieved from ENTSO-E are subsequently converted to the user&#8217;s currency (defined in Core.Meta Component) using the Exchange Rates API.</p>
+</div>
+<div class="paragraph">
+<p>For detailed information about the Exchange Rates API, please refer to: <a href="https://exchangerate.host/#/docs" class="bare">https://exchangerate.host/#/docs</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.timeofusetariff.entsoe">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_time_of_use_tariff_tibber"><a class="anchor" href="#_time_of_use_tariff_tibber"></a>81. Time-Of-Use Tariff Tibber</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Retrieves the hourly prices from the Tibber API and converts them into quarterly prices. Prices are updated every day at 14:00 and stored locally.</p>
@@ -2938,7 +2959,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect1">
-<h2 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>81. KACO blueplanet hybrid 10.0 TL3</h2>
+<h2 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>82. KACO blueplanet hybrid 10.0 TL3</h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
