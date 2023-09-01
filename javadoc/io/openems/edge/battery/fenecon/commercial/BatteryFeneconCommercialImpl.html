@@ -126,7 +126,13 @@ implements <a href="BatteryFeneconCommercial.html" title="interface in io.openem
 <div class="col-first even-row-color"><code>protected static final <a href="../../../bridge/modbus/api/ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></code></div>
 <div class="col-second even-row-color"><code><a href="#SERIAL_NUMBER_CONVERTER" class="member-name-link">SERIAL_NUMBER_CONVERTER</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Generates serial number based on specific bitwise operation.</div>
+<div class="block">Generates serial number converter helper to read master and battery module
+ serial numbers.</div>
+</div>
+<div class="col-first odd-row-color"><code>protected static final <a href="../../../bridge/modbus/api/ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#VERSION_CONVERTER" class="member-name-link">VERSION_CONVERTER</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Converts master and sub master versions.</div>
 </div>
 </div>
 </section>
@@ -243,11 +249,20 @@ implements <a href="BatteryFeneconCommercial.html" title="interface in io.openem
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="VERSION_CONVERTER">
+<h3>VERSION_CONVERTER</h3>
+<div class="member-signature"><span class="modifiers">protected static final</span>&nbsp;<span class="return-type"><a href="../../../bridge/modbus/api/ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">VERSION_CONVERTER</span></div>
+<div class="block">Converts master and sub master versions. e.g.input: "012001SM05" -->
+ MASTER_MCU_HARDWARE_VERSION, "100201MS50"</div>
+</section>
+</li>
+<li>
 <section class="detail" id="SERIAL_NUMBER_CONVERTER">
 <h3>SERIAL_NUMBER_CONVERTER</h3>
 <div class="member-signature"><span class="modifiers">protected static final</span>&nbsp;<span class="return-type"><a href="../../../bridge/modbus/api/ElementToChannelConverter.html" title="class in io.openems.edge.bridge.modbus.api">ElementToChannelConverter</a></span>&nbsp;<span class="element-name">SERIAL_NUMBER_CONVERTER</span></div>
-<div class="block">Generates serial number based on specific bitwise operation. Helps to build
- Master, Sub-master and Modules Serial Numbers.</div>
+<div class="block">Generates serial number converter helper to read master and battery module
+ serial numbers. e.g. input: "17005740232238EMSD0W0000" -->
+ MASTER_SERIAL_NUMBER, "00000WSDEM38222340570017"</div>
 </section>
 </li>
 </ul>

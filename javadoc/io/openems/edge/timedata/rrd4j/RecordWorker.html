@@ -44,14 +44,14 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
-<li><a href="#field-detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor-detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
@@ -85,19 +85,25 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="RecordWorker.Config.html" class="type-name-link" title="class in io.openems.edge.timedata.rrd4j">RecordWorker.Config</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
 <!-- =========== FIELD SUMMARY =========== -->
 <li>
 <section class="field-summary" id="field-summary">
 <h2>Field Summary</h2>
-<div class="caption"><span>Fields</span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier and Type</div>
-<div class="table-header col-second">Field</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>protected static final int</code></div>
-<div class="col-second even-row-color"><code><a href="#DEFAULT_NO_OF_CYCLES" class="member-name-link">DEFAULT_NO_OF_CYCLES</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-</div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.common.worker.AbstractWorker">Fields inherited from class&nbsp;io.openems.common.worker.<a href="../../../common/worker/AbstractWorker.html" title="class in io.openems.common.worker">AbstractWorker</a></h3>
 <code><a href="../../../common/worker/AbstractWorker.html#ALWAYS_WAIT_FOR_TRIGGER_NEXT_RUN">ALWAYS_WAIT_FOR_TRIGGER_NEXT_RUN</a>, <a href="../../../common/worker/AbstractWorker.html#DO_NOT_WAIT">DO_NOT_WAIT</a>, <a href="../../../common/worker/AbstractWorker.html#thread">thread</a></code></div>
@@ -111,7 +117,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(io.openems.edge.timedata.rrd4j.TimedataRrd4jImpl)" class="member-name-link">RecordWorker</a><wbr>(<a href="TimedataRrd4jImpl.html" title="class in io.openems.edge.timedata.rrd4j">TimedataRrd4jImpl</a>&nbsp;parent)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">RecordWorker</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -132,20 +138,28 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Collects the data from Channels.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forever()" class="member-name-link">forever</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Stops the worker thread.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forever()" class="member-name-link">forever</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">This method is called in a loop forever until the Thread gets interrupted.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfig(io.openems.edge.timedata.rrd4j.RecordWorker.Config)" class="member-name-link">setConfig</a><wbr>(<a href="RecordWorker.Config.html" title="class in io.openems.edge.timedata.rrd4j">RecordWorker.Config</a>&nbsp;config)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.common.worker.AbstractImmediateWorker">Methods inherited from class&nbsp;io.openems.common.worker.<a href="../../../common/worker/AbstractImmediateWorker.html" title="class in io.openems.common.worker">AbstractImmediateWorker</a></h3>
-<code><a href="../../../common/worker/AbstractImmediateWorker.html#activate(java.lang.String)">activate</a>, <a href="../../../common/worker/AbstractImmediateWorker.html#deactivate()">deactivate</a>, <a href="../../../common/worker/AbstractImmediateWorker.html#getCycleTime()">getCycleTime</a></code></div>
+<code><a href="../../../common/worker/AbstractImmediateWorker.html#activate(java.lang.String)">activate</a>, <a href="../../../common/worker/AbstractImmediateWorker.html#getCycleTime()">getCycleTime</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.common.worker.AbstractWorker">Methods inherited from class&nbsp;io.openems.common.worker.<a href="../../../common/worker/AbstractWorker.html" title="class in io.openems.common.worker">AbstractWorker</a></h3>
-<code><a href="../../../common/worker/AbstractWorker.html#modified(java.lang.String)">modified</a>, <a href="../../../common/worker/AbstractWorker.html#triggerNextRun()">triggerNextRun</a></code></div>
+<code><a href="../../../common/worker/AbstractWorker.html#activate(java.lang.String,boolean)">activate</a>, <a href="../../../common/worker/AbstractWorker.html#modified(java.lang.String)">modified</a>, <a href="../../../common/worker/AbstractWorker.html#modified(java.lang.String,boolean)">modified</a>, <a href="../../../common/worker/AbstractWorker.html#triggerNextRun()">triggerNextRun</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -155,37 +169,15 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="details">
 <ul class="details-list">
-<!-- ============ FIELD DETAIL =========== -->
-<li>
-<section class="field-details" id="field-detail">
-<h2>Field Details</h2>
-<ul class="member-list">
-<li>
-<section class="detail" id="DEFAULT_NO_OF_CYCLES">
-<h3>DEFAULT_NO_OF_CYCLES</h3>
-<div class="member-signature"><span class="modifiers">protected static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">DEFAULT_NO_OF_CYCLES</span></div>
-<dl class="notes">
-<dt>See Also:</dt>
-<dd>
-<ul class="see-list">
-<li><a href="../../../../../constant-values.html#io.openems.edge.timedata.rrd4j.RecordWorker.DEFAULT_NO_OF_CYCLES">Constant Field Values</a></li>
-</ul>
-</dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <li>
 <section class="constructor-details" id="constructor-detail">
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(io.openems.edge.timedata.rrd4j.TimedataRrd4jImpl)">
+<section class="detail" id="&lt;init&gt;()">
 <h3>RecordWorker</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RecordWorker</span><wbr><span class="parameters">(<a href="TimedataRrd4jImpl.html" title="class in io.openems.edge.timedata.rrd4j">TimedataRrd4jImpl</a>&nbsp;parent)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RecordWorker</span>()</div>
 </section>
 </li>
 </ul>
@@ -197,12 +189,41 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="setConfig(io.openems.edge.timedata.rrd4j.RecordWorker.Config)">
+<h3>setConfig</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setConfig</span><wbr><span class="parameters">(<a href="RecordWorker.Config.html" title="class in io.openems.edge.timedata.rrd4j">RecordWorker.Config</a>&nbsp;config)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="deactivate()">
+<h3>deactivate</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deactivate</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="../../../common/worker/AbstractWorker.html#deactivate()">AbstractWorker</a></code></span></div>
+<div class="block">Stops the worker thread.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../../../common/worker/AbstractImmediateWorker.html#deactivate()">deactivate</a></code>&nbsp;in class&nbsp;<code><a href="../../../common/worker/AbstractImmediateWorker.html" title="class in io.openems.common.worker">AbstractImmediateWorker</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="collectData()">
 <h3>collectData</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">collectData</span>()</div>
 <div class="block">Collects the data from Channels. This is called synchronously by the main
  OpenEMS cycle. On finish it triggers a next async task to write the data to
- RRD4J.</div>
+ RRD4J.
+ 
+ <p>
+ Cumulated Channels are collected with a timestamp rounded to the current
+ hour. e.g.
+ 
+ <pre>
+ 08:00     08:35 09:00
+   |---------|-----|
+ 08:00 -> timestamp of the data
+ 08:35 -> timestamp the data gets collected
+ </pre></div>
 </section>
 </li>
 <li>

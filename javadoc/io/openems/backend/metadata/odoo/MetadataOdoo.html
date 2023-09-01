@@ -81,12 +81,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/metadata/Mailer.html" title="interface in io.openems.backend.common.metadata">Mailer</a></code>, <code><a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../../common/metadata/AppCenterMetadata.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata</a></code>, <code><a href="../../common/metadata/AppCenterMetadata.EdgeData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.EdgeData</a></code>, <code><a href="../../common/metadata/AppCenterMetadata.UiData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.UiData</a></code>, <code><a href="../../common/metadata/Mailer.html" title="interface in io.openems.backend.common.metadata">Mailer</a></code>, <code><a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">MetadataOdoo</span>
 <span class="extends-implements">extends <a href="../../common/metadata/AbstractMetadata.html" title="class in io.openems.backend.common.metadata">AbstractMetadata</a>
-implements <a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a>, <a href="../../common/metadata/Mailer.html" title="interface in io.openems.backend.common.metadata">Mailer</a>, org.osgi.service.event.EventHandler</span></div>
+implements <a href="../../common/metadata/AppCenterMetadata.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata</a>, <a href="../../common/metadata/AppCenterMetadata.EdgeData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.EdgeData</a>, <a href="../../common/metadata/AppCenterMetadata.UiData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.UiData</a>, <a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a>, <a href="../../common/metadata/Mailer.html" title="interface in io.openems.backend.common.metadata">Mailer</a>, org.osgi.service.event.EventHandler</span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -94,6 +94,9 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 <li>
 <section class="nested-class-summary" id="nested-class-summary">
 <h2>Nested Class Summary</h2>
+<div class="inherited-list">
+<h2 id="nested-classes-inherited-from-class-io.openems.backend.common.metadata.AppCenterMetadata">Nested classes/interfaces inherited from interface&nbsp;io.openems.backend.common.metadata.<a href="../../common/metadata/AppCenterMetadata.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata</a></h2>
+<code><a href="../../common/metadata/AppCenterMetadata.EdgeData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.EdgeData</a>, <a href="../../common/metadata/AppCenterMetadata.UiData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.UiData</a></code></div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-io.openems.backend.common.metadata.Metadata">Nested classes/interfaces inherited from interface&nbsp;io.openems.backend.common.metadata.<a href="../../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a></h2>
 <code><a href="../../common/metadata/Metadata.Events.html" title="class in io.openems.backend.common.metadata">Metadata.Events</a></code></div>
@@ -227,30 +230,43 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Return the Setup Protocol data as a JsonObject.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUser(java.lang.String)" class="member-name-link">getUser</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userId)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSuppliableKey(io.openems.backend.common.metadata.User,java.lang.String,java.lang.String)" class="member-name-link">getSuppliableKey</a><wbr>(<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets a key that can be supplied to the installation of the given app.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUser(java.lang.String)" class="member-name-link">getUser</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userId)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the User for the given User-ID.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../common/metadata/AlertingSetting.html" title="class in io.openems.backend.common.metadata">AlertingSetting</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUserAlertingSettings(java.lang.String)" class="member-name-link">getUserAlertingSettings</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../common/metadata/AlertingSetting.html" title="class in io.openems.backend.common.metadata">AlertingSetting</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUserAlertingSettings(java.lang.String)" class="member-name-link">getUserAlertingSettings</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets all the alerting settings for given edge id.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../common/metadata/AlertingSetting.html" title="class in io.openems.backend.common.metadata">AlertingSetting</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUserAlertingSettings(java.lang.String,java.lang.String)" class="member-name-link">getUserAlertingSettings</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../common/metadata/AlertingSetting.html" title="class in io.openems.backend.common.metadata">AlertingSetting</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUserAlertingSettings(java.lang.String,java.lang.String)" class="member-name-link">getUserAlertingSettings</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userId)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the alerting settings for given edge id and userId.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUserInformation(io.openems.backend.common.metadata.User)" class="member-name-link">getUserInformation</a><wbr>(<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUserInformation(io.openems.backend.common.metadata.User)" class="member-name-link">getUserInformation</a><wbr>(<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets information about the given user <a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata"><code>User</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEvent(org.osgi.service.event.Event)" class="member-name-link">handleEvent</a><wbr>(org.osgi.service.event.Event&nbsp;event)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEvent(org.osgi.service.event.Event)" class="member-name-link">handleEvent</a><wbr>(org.osgi.service.event.Event&nbsp;event)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isAppFree(io.openems.backend.common.metadata.User,java.lang.String)" class="member-name-link">isAppFree</a><wbr>(<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets if the given app is free.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logError(org.slf4j.Logger,java.lang.String)" class="member-name-link">logError</a><wbr>(org.slf4j.Logger&nbsp;log,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
@@ -279,6 +295,64 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
  <a href="../../../common/OpenemsOEM.Manufacturer.html" title="enum class in io.openems.common">OpenemsOEM.Manufacturer</a>&nbsp;oem)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Register a user.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendAddDeinstallAppInstanceHistory(java.lang.String,java.lang.String,java.util.UUID,java.lang.String)" class="member-name-link">sendAddDeinstallAppInstanceHistory</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;instanceId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends a request to add a deinstall history entry.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendAddInstallAppInstanceHistory(java.lang.String,java.lang.String,java.lang.String,java.util.UUID,java.lang.String)" class="member-name-link">sendAddInstallAppInstanceHistory</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;instanceId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userId)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends a request to add a install app history entry.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendAddRegisterKeyHistory(java.lang.String,java.lang.String,java.lang.String,io.openems.backend.common.metadata.User)" class="member-name-link">sendAddRegisterKeyHistory</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends a request to register a key.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendAddUnregisterKeyHistory(java.lang.String,java.lang.String,java.lang.String,io.openems.backend.common.metadata.User)" class="member-name-link">sendAddUnregisterKeyHistory</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends a request to unregister a key.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.google.gson.JsonObject</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendGetInstalledApps(java.lang.String)" class="member-name-link">sendGetInstalledApps</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends a request to get all installed apps on the edge that are logged in the
+ backend these apps may not be actually on the edge.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.google.gson.JsonArray</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendGetPossibleApps(java.lang.String,java.lang.String)" class="member-name-link">sendGetPossibleApps</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends a request to get all apps that can be installed with the given key.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.google.gson.JsonArray</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendGetRegisteredKeys(java.lang.String,java.lang.String)" class="member-name-link">sendGetRegisteredKeys</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends a request to get all registered keys to the given edge and app.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.google.gson.JsonObject</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendIsKeyApplicable(java.lang.String,java.lang.String,java.lang.String)" class="member-name-link">sendIsKeyApplicable</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends a request if the key can be applied to the given edge and app id.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendMail(java.time.ZonedDateTime,java.lang.String,com.google.gson.JsonElement)" class="member-name-link">sendMail</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;sendAt,
@@ -807,6 +881,229 @@ implements <a href="../../common/metadata/Metadata.html" title="interface in io.
 <dd><code>sendAt</code> - is dateTime at which to send</dd>
 <dd><code>template</code> - mail template to use</dd>
 <dd><code>params</code> - mail data</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="sendIsKeyApplicable(java.lang.String,java.lang.String,java.lang.String)">
+<h3>sendIsKeyApplicable</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.google.gson.JsonObject</span>&nbsp;<span class="element-name">sendIsKeyApplicable</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId)</span>
+                                               throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.html#sendIsKeyApplicable(java.lang.String,java.lang.String,java.lang.String)">AppCenterMetadata</a></code></span></div>
+<div class="block">Sends a request if the key can be applied to the given edge and app id.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/metadata/AppCenterMetadata.html#sendIsKeyApplicable(java.lang.String,java.lang.String,java.lang.String)">sendIsKeyApplicable</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>key</code> - the key to be validated</dd>
+<dd><code>edgeId</code> - the edge the app gets installed</dd>
+<dd><code>appId</code> - the app that gets installed</dd>
+<dt>Returns:</dt>
+<dd>the result as a <code>JsonObject</code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="sendAddInstallAppInstanceHistory(java.lang.String,java.lang.String,java.lang.String,java.util.UUID,java.lang.String)">
+<h3>sendAddInstallAppInstanceHistory</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendAddInstallAppInstanceHistory</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;instanceId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userId)</span>
+                                      throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.EdgeData.html#sendAddInstallAppInstanceHistory(java.lang.String,java.lang.String,java.lang.String,java.util.UUID,java.lang.String)">AppCenterMetadata.EdgeData</a></code></span></div>
+<div class="block">Sends a request to add a install app history entry.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/metadata/AppCenterMetadata.EdgeData.html#sendAddInstallAppInstanceHistory(java.lang.String,java.lang.String,java.lang.String,java.util.UUID,java.lang.String)">sendAddInstallAppInstanceHistory</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.EdgeData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.EdgeData</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>key</code> - the key that the app gets installed with</dd>
+<dd><code>edgeId</code> - the edge the app gets installed on</dd>
+<dd><code>appId</code> - the app that gets installed</dd>
+<dd><code>instanceId</code> - the instanceId of the installed app</dd>
+<dd><code>userId</code> - the user who added the instance</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="sendAddDeinstallAppInstanceHistory(java.lang.String,java.lang.String,java.util.UUID,java.lang.String)">
+<h3>sendAddDeinstallAppInstanceHistory</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendAddDeinstallAppInstanceHistory</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;instanceId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userId)</span>
+                                        throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.EdgeData.html#sendAddDeinstallAppInstanceHistory(java.lang.String,java.lang.String,java.util.UUID,java.lang.String)">AppCenterMetadata.EdgeData</a></code></span></div>
+<div class="block">Sends a request to add a deinstall history entry.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/metadata/AppCenterMetadata.EdgeData.html#sendAddDeinstallAppInstanceHistory(java.lang.String,java.lang.String,java.util.UUID,java.lang.String)">sendAddDeinstallAppInstanceHistory</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.EdgeData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.EdgeData</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>edgeId</code> - the edge the instance gets removed</dd>
+<dd><code>appId</code> - the id of the app</dd>
+<dd><code>instanceId</code> - the instanceId of the removed instance</dd>
+<dd><code>userId</code> - the user who removed the instance</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="sendAddRegisterKeyHistory(java.lang.String,java.lang.String,java.lang.String,io.openems.backend.common.metadata.User)">
+<h3>sendAddRegisterKeyHistory</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendAddRegisterKeyHistory</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</span>
+                               throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.UiData.html#sendAddRegisterKeyHistory(java.lang.String,java.lang.String,java.lang.String,io.openems.backend.common.metadata.User)">AppCenterMetadata.UiData</a></code></span></div>
+<div class="block">Sends a request to register a key.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/metadata/AppCenterMetadata.UiData.html#sendAddRegisterKeyHistory(java.lang.String,java.lang.String,java.lang.String,io.openems.backend.common.metadata.User)">sendAddRegisterKeyHistory</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.UiData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.UiData</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>edgeId</code> - the edge the key gets registered to</dd>
+<dd><code>appId</code> - the appId that gets registered</dd>
+<dd><code>key</code> - the key to register to the app</dd>
+<dd><code>user</code> - the user who added the registration</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="sendAddUnregisterKeyHistory(java.lang.String,java.lang.String,java.lang.String,io.openems.backend.common.metadata.User)">
+<h3>sendAddUnregisterKeyHistory</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendAddUnregisterKeyHistory</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user)</span>
+                                 throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.UiData.html#sendAddUnregisterKeyHistory(java.lang.String,java.lang.String,java.lang.String,io.openems.backend.common.metadata.User)">AppCenterMetadata.UiData</a></code></span></div>
+<div class="block">Sends a request to unregister a key.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/metadata/AppCenterMetadata.UiData.html#sendAddUnregisterKeyHistory(java.lang.String,java.lang.String,java.lang.String,io.openems.backend.common.metadata.User)">sendAddUnregisterKeyHistory</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.UiData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.UiData</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>edgeId</code> - the edge</dd>
+<dd><code>appId</code> - the id of the app</dd>
+<dd><code>key</code> - the key</dd>
+<dd><code>user</code> - the user who removed the registration</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="sendGetRegisteredKeys(java.lang.String,java.lang.String)">
+<h3>sendGetRegisteredKeys</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.google.gson.JsonArray</span>&nbsp;<span class="element-name">sendGetRegisteredKeys</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId)</span>
+                                                throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.UiData.html#sendGetRegisteredKeys(java.lang.String,java.lang.String)">AppCenterMetadata.UiData</a></code></span></div>
+<div class="block">Sends a request to get all registered keys to the given edge and app.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/metadata/AppCenterMetadata.UiData.html#sendGetRegisteredKeys(java.lang.String,java.lang.String)">sendGetRegisteredKeys</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.UiData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.UiData</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>edgeId</code> - the edge the registered key can be applied on</dd>
+<dd><code>appId</code> - the app of the registed key</dd>
+<dt>Returns:</dt>
+<dd>the result as a <code>JsonObject</code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="sendGetPossibleApps(java.lang.String,java.lang.String)">
+<h3>sendGetPossibleApps</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.google.gson.JsonArray</span>&nbsp;<span class="element-name">sendGetPossibleApps</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId)</span>
+                                              throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.html#sendGetPossibleApps(java.lang.String,java.lang.String)">AppCenterMetadata</a></code></span></div>
+<div class="block">Sends a request to get all apps that can be installed with the given key.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/metadata/AppCenterMetadata.html#sendGetPossibleApps(java.lang.String,java.lang.String)">sendGetPossibleApps</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>key</code> - the apps of the key</dd>
+<dd><code>edgeId</code> - the apps on which edge</dd>
+<dt>Returns:</dt>
+<dd>the bundles and their apps</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="sendGetInstalledApps(java.lang.String)">
+<h3>sendGetInstalledApps</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.google.gson.JsonObject</span>&nbsp;<span class="element-name">sendGetInstalledApps</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId)</span>
+                                                throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.EdgeData.html#sendGetInstalledApps(java.lang.String)">AppCenterMetadata.EdgeData</a></code></span></div>
+<div class="block">Sends a request to get all installed apps on the edge that are logged in the
+ backend these apps may not be actually on the edge.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/metadata/AppCenterMetadata.EdgeData.html#sendGetInstalledApps(java.lang.String)">sendGetInstalledApps</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.EdgeData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.EdgeData</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>edgeId</code> - the apps on which edge</dd>
+<dt>Returns:</dt>
+<dd>the installed apps</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getSuppliableKey(io.openems.backend.common.metadata.User,java.lang.String,java.lang.String)">
+<h3>getSuppliableKey</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getSuppliableKey</span><wbr><span class="parameters">(<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId)</span>
+                        throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.UiData.html#getSuppliableKey(io.openems.backend.common.metadata.User,java.lang.String,java.lang.String)">AppCenterMetadata.UiData</a></code></span></div>
+<div class="block">Gets a key that can be supplied to the installation of the given app.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/metadata/AppCenterMetadata.UiData.html#getSuppliableKey(io.openems.backend.common.metadata.User,java.lang.String,java.lang.String)">getSuppliableKey</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.UiData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.UiData</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>user</code> - the requested user</dd>
+<dd><code>edgeId</code> - the edge to install the app on</dd>
+<dd><code>appId</code> - the app to install</dd>
+<dt>Returns:</dt>
+<dd>the key or null if none can be supplied</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isAppFree(io.openems.backend.common.metadata.User,java.lang.String)">
+<h3>isAppFree</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAppFree</span><wbr><span class="parameters">(<a href="../../common/metadata/User.html" title="class in io.openems.backend.common.metadata">User</a>&nbsp;user,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;appId)</span>
+                  throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.UiData.html#isAppFree(io.openems.backend.common.metadata.User,java.lang.String)">AppCenterMetadata.UiData</a></code></span></div>
+<div class="block">Gets if the given app is free.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/metadata/AppCenterMetadata.UiData.html#isAppFree(io.openems.backend.common.metadata.User,java.lang.String)">isAppFree</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/metadata/AppCenterMetadata.UiData.html" title="interface in io.openems.backend.common.metadata">AppCenterMetadata.UiData</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>user</code> - the requested user</dd>
+<dd><code>appId</code> - the id of the app</dd>
+<dt>Returns:</dt>
+<dd>true if the app is free</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </section>
 </li>

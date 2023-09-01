@@ -127,12 +127,15 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 <div class="col-first even-row-color"><code>protected <a href="../../../common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle">Cycle</a></code></div>
 <div class="col-second even-row-color"><code><a href="#cycle" class="member-name-link">cycle</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected final <a href="SendChannelValuesWorker.html" title="class in io.openems.edge.controller.api.backend">SendChannelValuesWorker</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#sendChannelValuesWorker" class="member-name-link">sendChannelValuesWorker</a></code></div>
+<div class="col-first odd-row-color"><code>protected <a href="ResendHistoricDataWorker.html" title="class in io.openems.edge.controller.api.backend">ResendHistoricDataWorker</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#resendHistoricDataWorker" class="member-name-link">resendHistoricDataWorker</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected <a href="WebsocketClient.html" title="class in io.openems.edge.controller.api.backend">WebsocketClient</a></code></div>
-<div class="col-second even-row-color"><code><a href="#websocket" class="member-name-link">websocket</a></code></div>
+<div class="col-first even-row-color"><code>protected final <a href="SendChannelValuesWorker.html" title="class in io.openems.edge.controller.api.backend">SendChannelValuesWorker</a></code></div>
+<div class="col-second even-row-color"><code><a href="#sendChannelValuesWorker" class="member-name-link">sendChannelValuesWorker</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected <a href="WebsocketClient.html" title="class in io.openems.edge.controller.api.backend">WebsocketClient</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#websocket" class="member-name-link">websocket</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -237,7 +240,7 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 <code><a href="../Controller.html#_setRunFailed(boolean)">_setRunFailed</a>, <a href="../Controller.html#getRunFailed()">getRunFailed</a>, <a href="../Controller.html#getRunFailedChannel()">getRunFailedChannel</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.controller.api.backend.ControllerApiBackend">Methods inherited from interface&nbsp;io.openems.edge.controller.api.backend.<a href="ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend">ControllerApiBackend</a></h3>
-<code><a href="ControllerApiBackend.html#getApiWorkerLogChannel()">getApiWorkerLogChannel</a>, <a href="ControllerApiBackend.html#getUnableToSendChannel()">getUnableToSendChannel</a></code></div>
+<code><a href="ControllerApiBackend.html#getApiWorkerLogChannel()">getApiWorkerLogChannel</a>, <a href="ControllerApiBackend.html#getLastSuccessFulResendChannel()">getLastSuccessFulResendChannel</a>, <a href="ControllerApiBackend.html#getUnableToSendChannel()">getUnableToSendChannel</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.common.component.OpenemsComponent">Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
 <code><a href="../../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../../common/component/OpenemsComponent.html#debugLog()">debugLog</a>, <a href="../../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></div>
@@ -276,6 +279,12 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 <section class="detail" id="apiWorker">
 <h3>apiWorker</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="../common/ApiWorker.html" title="class in io.openems.edge.controller.api.common">ApiWorker</a></span>&nbsp;<span class="element-name">apiWorker</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="resendHistoricDataWorker">
+<h3>resendHistoricDataWorker</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="ResendHistoricDataWorker.html" title="class in io.openems.edge.controller.api.backend">ResendHistoricDataWorker</a></span>&nbsp;<span class="element-name">resendHistoricDataWorker</span></div>
 </section>
 </li>
 <li>

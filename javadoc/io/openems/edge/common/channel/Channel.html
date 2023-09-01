@@ -127,11 +127,11 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static final int</code></div>
-<div class="col-second even-row-color"><code><a href="#NO_OF_PAST_VALUES" class="member-name-link">NO_OF_PAST_VALUES</a></code></div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/temporal/TemporalAmount.html" title="class or interface in java.time.temporal" class="external-link">TemporalAmount</a></code></div>
+<div class="col-second even-row-color"><code><a href="#MAX_AGE_OF_PAST_VALUES" class="member-name-link">MAX_AGE_OF_PAST_VALUES</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Holds the number of past values for this Channel that are kept in the
- 'pastValues' variable.</div>
+<div class="block">Holds the maximum allowed age of past values based on the latest value for
+ this Channel that are kept in the 'pastValues' variable.</div>
 </div>
 </div>
 </section>
@@ -188,7 +188,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Gets the 'next value'.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../type/CircularTreeMap.html" title="class in io.openems.edge.common.type">CircularTreeMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>,<wbr><a href="value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="Channel.html" title="type parameter in Channel">T</a>&gt;&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/TreeMap.html" title="class or interface in java.util" class="external-link">TreeMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>,<wbr><a href="value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="Channel.html" title="type parameter in Channel">T</a>&gt;&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getPastValues()" class="member-name-link">getPastValues</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Gets the past values for this Channel.</div>
@@ -263,19 +263,11 @@ loadScripts(document, 'script');</script>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="NO_OF_PAST_VALUES">
-<h3>NO_OF_PAST_VALUES</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">NO_OF_PAST_VALUES</span></div>
-<div class="block">Holds the number of past values for this Channel that are kept in the
- 'pastValues' variable.</div>
-<dl class="notes">
-<dt>See Also:</dt>
-<dd>
-<ul class="see-list">
-<li><a href="../../../../../constant-values.html#io.openems.edge.common.channel.Channel.NO_OF_PAST_VALUES">Constant Field Values</a></li>
-</ul>
-</dd>
-</dl>
+<section class="detail" id="MAX_AGE_OF_PAST_VALUES">
+<h3>MAX_AGE_OF_PAST_VALUES</h3>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/temporal/TemporalAmount.html" title="class or interface in java.time.temporal" class="external-link">TemporalAmount</a></span>&nbsp;<span class="element-name">MAX_AGE_OF_PAST_VALUES</span></div>
+<div class="block">Holds the maximum allowed age of past values based on the latest value for
+ this Channel that are kept in the 'pastValues' variable.</div>
 </section>
 </li>
 </ul>
@@ -448,7 +440,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getPastValues()">
 <h3>getPastValues</h3>
-<div class="member-signature"><span class="return-type"><a href="../type/CircularTreeMap.html" title="class in io.openems.edge.common.type">CircularTreeMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>,<wbr><a href="value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="Channel.html" title="type parameter in Channel">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">getPastValues</span>()</div>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/TreeMap.html" title="class or interface in java.util" class="external-link">TreeMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>,<wbr><a href="value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="Channel.html" title="type parameter in Channel">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">getPastValues</span>()</div>
 <div class="block">Gets the past values for this Channel.</div>
 <dl class="notes">
 <dt>Returns:</dt>

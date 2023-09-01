@@ -124,9 +124,18 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <div class="col-first even-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></div>
 <div class="col-second even-row-color"><code><a href="#instantiatedApps" class="member-name-link">instantiatedApps</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="validator/Validator.html" title="interface in io.openems.edge.core.appmanager.validator">Validator</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#validator" class="member-name-link">validator</a></code></div>
+<div class="col-first odd-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Lock.html" title="class or interface in java.util.concurrent.locks" class="external-link">Lock</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#lockModifyingApps" class="member-name-link">lockModifyingApps</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected <a href="validator/Validator.html" title="interface in io.openems.edge.core.appmanager.validator">Validator</a></code></div>
+<div class="col-second even-row-color"><code><a href="#validator" class="member-name-link">validator</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#waitingForModified" class="member-name-link">waitingForModified</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Condition.html" title="class or interface in java.util.concurrent.locks" class="external-link">Condition</a></code></div>
+<div class="col-second even-row-color"><code><a href="#waitingForModifiedCondition" class="member-name-link">waitingForModifiedCondition</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.edge.core.appmanager.AppManager">Fields inherited from interface&nbsp;io.openems.edge.core.appmanager.<a href="AppManager.html" title="interface in io.openems.edge.core.appmanager">AppManager</a></h3>
@@ -204,15 +213,25 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets a filter for excluding instances.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findAppById(java.lang.String)" class="member-name-link">findAppById</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">finds the app with the matching id.</div>
+<div class="block">Finds the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a> with the given id.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findAppByIdOrError(java.lang.String)" class="member-name-link">findAppByIdOrError</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Finds the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a> with the given id.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findInstanceById(java.util.UUID)" class="member-name-link">findInstanceById</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;id)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Finds the <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppInstance</code></a> with the given <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link"><code>UUID</code></a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findInstanceById(java.util.UUID)" class="member-name-link">findInstanceById</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;uuid)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findInstanceByIdOrError(java.util.UUID)" class="member-name-link">findInstanceByIdOrError</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;id)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Finds the app instance with the matching id.</div>
+<div class="block">Finds the <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppInstance</code></a> with the given <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link"><code>UUID</code></a>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInstantiatedApps()" class="member-name-link">getInstantiatedApps</a>()</code></div>
@@ -320,6 +339,24 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <section class="detail" id="instantiatedApps">
 <h3>instantiatedApps</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</span>&nbsp;<span class="element-name">instantiatedApps</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="lockModifyingApps">
+<h3>lockModifyingApps</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Lock.html" title="class or interface in java.util.concurrent.locks" class="external-link">Lock</a></span>&nbsp;<span class="element-name">lockModifyingApps</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="waitingForModifiedCondition">
+<h3>waitingForModifiedCondition</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/locks/Condition.html" title="class or interface in java.util.concurrent.locks" class="external-link">Condition</a></span>&nbsp;<span class="element-name">waitingForModifiedCondition</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="waitingForModified">
+<h3>waitingForModified</h3>
+<div class="member-signature"><span class="modifiers">protected volatile</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">waitingForModified</span></div>
 </section>
 </li>
 </ul>
@@ -484,32 +521,58 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <li>
 <section class="detail" id="findAppById(java.lang.String)">
 <h3>findAppById</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></span>&nbsp;<span class="element-name">findAppById</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</span>
-                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></span></div>
-<div class="block">finds the app with the matching id.</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&gt;</span>&nbsp;<span class="element-name">findAppById</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</span></div>
+<div class="block">Finds the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a> with the given id.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>id</code> - of the app</dd>
+<dd><code>id</code> - the <a href="OpenemsApp.html#getAppId()"><code>OpenemsApp.getAppId()</code></a> of the app.</dd>
 <dt>Returns:</dt>
-<dd>the found app</dd>
+<dd>a <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link"><code>Optional</code></a> of the app</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="findAppByIdOrError(java.lang.String)">
+<h3>findAppByIdOrError</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></span>&nbsp;<span class="element-name">findAppByIdOrError</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</span>
+                                    throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block">Finds the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a> with the given id.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>id</code> - the <a href="OpenemsApp.html#getAppId()"><code>OpenemsApp.getAppId()</code></a> of the app.</dd>
+<dt>Returns:</dt>
+<dd>the app</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code></dd>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - if the app was not found</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="findInstanceById(java.util.UUID)">
 <h3>findInstanceById</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a></span>&nbsp;<span class="element-name">findInstanceById</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;uuid)</span>
-                                             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></span></div>
-<div class="block">Finds the app instance with the matching id.</div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</span>&nbsp;<span class="element-name">findInstanceById</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;id)</span></div>
+<div class="block">Finds the <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppInstance</code></a> with the given <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link"><code>UUID</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>uuid</code> - the id of the instance</dd>
+<dd><code>id</code> - the id of the instance</dd>
 <dt>Returns:</dt>
-<dd>s the instance</dd>
+<dd>a <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link"><code>Optional</code></a> of the instance</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="findInstanceByIdOrError(java.util.UUID)">
+<h3>findInstanceByIdOrError</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a></span>&nbsp;<span class="element-name">findInstanceByIdOrError</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;id)</span>
+                                                    throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block">Finds the <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppInstance</code></a> with the given <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link"><code>UUID</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>id</code> - the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link"><code>UUID</code></a> of the instance</dd>
+<dt>Returns:</dt>
+<dd>the instance</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if no instance is present</dd>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - if not found</dd>
 </dl>
 </section>
 </li>

@@ -105,7 +105,7 @@ implements <a href="../Channel.html" title="interface in io.openems.edge.common.
 </div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.edge.common.channel.Channel">Fields inherited from interface&nbsp;io.openems.edge.common.channel.<a href="../Channel.html" title="interface in io.openems.edge.common.channel">Channel</a></h3>
-<code><a href="../Channel.html#NO_OF_PAST_VALUES">NO_OF_PAST_VALUES</a></code></div>
+<code><a href="../Channel.html#MAX_AGE_OF_PAST_VALUES">MAX_AGE_OF_PAST_VALUES</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -181,7 +181,7 @@ implements <a href="../Channel.html" title="interface in io.openems.edge.common.
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>,<wbr><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOnSetNextWrites()" class="member-name-link">getOnSetNextWrites</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../type/CircularTreeMap.html" title="class in io.openems.edge.common.type">CircularTreeMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>,<wbr><a href="../value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/TreeMap.html" title="class or interface in java.util" class="external-link">TreeMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>,<wbr><a href="../value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPastValues()" class="member-name-link">getPastValues</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the past values for this Channel.</div>
@@ -582,7 +582,7 @@ implements <a href="../Channel.html" title="interface in io.openems.edge.common.
 <li>
 <section class="detail" id="getPastValues()">
 <h3>getPastValues</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../type/CircularTreeMap.html" title="class in io.openems.edge.common.type">CircularTreeMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>,<wbr><a href="../value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">getPastValues</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/TreeMap.html" title="class or interface in java.util" class="external-link">TreeMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>,<wbr><a href="../value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="AbstractReadChannel.html" title="type parameter in AbstractReadChannel">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">getPastValues</span>()</div>
 <div class="block">Gets the past values for this Channel.</div>
 <dl class="notes">
 <dt>Specified by:</dt>

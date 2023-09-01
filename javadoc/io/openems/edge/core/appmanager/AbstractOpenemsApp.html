@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
+<dd><code><a href="ComponentManagerSupplier.html" title="interface in io.openems.edge.core.appmanager">ComponentManagerSupplier</a></code>, <code><a href="ComponentUtilSupplier.html" title="interface in io.openems.edge.core.appmanager">ComponentUtilSupplier</a></code>, <code><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
 </dl>
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
@@ -86,7 +86,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">AbstractOpenemsApp&lt;PROPERTY extends <a href="Nameable.html" title="interface in io.openems.edge.core.appmanager">Nameable</a>&gt;</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></span></div>
+implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>, <a href="ComponentUtilSupplier.html" title="interface in io.openems.edge.core.appmanager">ComponentUtilSupplier</a>, <a href="ComponentManagerSupplier.html" title="interface in io.openems.edge.core.appmanager">ComponentManagerSupplier</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -158,6 +158,26 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#base64OfImage(java.net.URL)" class="member-name-link">base64OfImage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link">URL</a>&nbsp;url)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ResourceBundle.html" title="class or interface in java.util" class="external-link">ResourceBundle</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createResourceBundle(io.openems.common.session.Language)" class="member-name-link">createResourceBundle</a><wbr>(<a href="../../../common/session/Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;l)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Gets the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ResourceBundle.html" title="class or interface in java.util" class="external-link"><code>ResourceBundle</code></a> based on the given <a href="../../../common/session/Language.html" title="enum class in io.openems.common.session"><code>Language</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static com.google.gson.JsonObject</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fillUpProperties(io.openems.edge.core.appmanager.OpenemsApp,com.google.gson.JsonObject)" class="member-name-link">fillUpProperties</a><wbr>(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
+ com.google.gson.JsonObject&nbsp;original)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Creates a copy of the original configuration and fills up properties which
+ are binded bidirectional.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="AppAssistant.html" title="class in io.openems.edge.core.appmanager">AppAssistant</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAppAssistant(io.openems.common.session.Language)" class="member-name-link">getAppAssistant</a><wbr>(<a href="../../../common/session/Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;l)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="AppAssistant.html" title="class in io.openems.edge.core.appmanager">AppAssistant</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAppAssistant(io.openems.edge.common.user.User)" class="member-name-link">getAppAssistant</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the <a href="AppAssistant.html" title="class in io.openems.edge.core.appmanager"><code>AppAssistant</code></a> for this <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AppConfiguration</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAppConfiguration(io.openems.edge.core.appmanager.ConfigurationTarget,com.google.gson.JsonObject,io.openems.common.session.Language)" class="member-name-link">getAppConfiguration</a><wbr>(<a href="ConfigurationTarget.html" title="enum class in io.openems.edge.core.appmanager">ConfigurationTarget</a>&nbsp;target,
  com.google.gson.JsonObject&nbsp;config,
@@ -174,6 +194,16 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAppPermissions()" class="member-name-link">getAppPermissions</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the <a href="OpenemsAppPermissions.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppPermissions</code></a> of this <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getComponentManager()" class="member-name-link">getComponentManager</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets a <a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component"><code>ComponentManager</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager">ComponentUtil</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getComponentUtil()" class="member-name-link">getComponentUtil</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets a <a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager"><code>ComponentUtil</code></a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static final <a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getComponentWithFactoryId(java.util.List,java.lang.String)" class="member-name-link">getComponentWithFactoryId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&gt;&nbsp;components,
@@ -197,14 +227,23 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the name of the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="OpenemsAppPropertyDefinition.html" title="class in io.openems.edge.core.appmanager">OpenemsAppPropertyDefinition</a>[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getProperties()" class="member-name-link">getProperties</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getNullableTranslation(io.openems.common.session.Language,java.lang.String)" class="member-name-link">getNullableTranslation</a><wbr>(<a href="../../../common/session/Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;language,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="OpenemsAppPropertyDefinition.html" title="class in io.openems.edge.core.appmanager">OpenemsAppPropertyDefinition</a>[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getProperties()" class="member-name-link">getProperties</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets all <a href="OpenemsAppPropertyDefinition.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppPropertyDefinition</code></a> of the app.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPropertyByName(java.lang.String)" class="member-name-link">getPropertyByName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPropertyByName(java.lang.String)" class="member-name-link">getPropertyByName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getShortName(io.openems.common.session.Language)" class="member-name-link">getShortName</a><wbr>(<a href="../../../common/session/Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;language)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the short name of the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTranslation(io.openems.common.session.Language,java.lang.String)" class="member-name-link">getTranslation</a><wbr>(<a href="../../../common/session/Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;language,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key)</code></div>
@@ -262,7 +301,7 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.core.appmanager.OpenemsApp">Methods inherited from interface&nbsp;io.openems.edge.core.appmanager.<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></h3>
-<code><a href="OpenemsApp.html#getAppAssistant(io.openems.common.session.Language)">getAppAssistant</a>, <a href="OpenemsApp.html#getAppDescriptor()">getAppDescriptor</a>, <a href="OpenemsApp.html#getCardinality()">getCardinality</a>, <a href="OpenemsApp.html#getCategories()">getCategories</a></code></div>
+<code><a href="OpenemsApp.html#flags()">flags</a>, <a href="OpenemsApp.html#getAppDescriptor()">getAppDescriptor</a>, <a href="OpenemsApp.html#getCardinality()">getCardinality</a>, <a href="OpenemsApp.html#getCategories()">getCategories</a></code></div>
 </section>
 </li>
 </ul>
@@ -510,6 +549,27 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 </section>
 </li>
 <li>
+<section class="detail" id="fillUpProperties(io.openems.edge.core.appmanager.OpenemsApp,com.google.gson.JsonObject)">
+<h3>fillUpProperties</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">com.google.gson.JsonObject</span>&nbsp;<span class="element-name">fillUpProperties</span><wbr><span class="parameters">(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
+ com.google.gson.JsonObject&nbsp;original)</span></div>
+<div class="block">Creates a copy of the original configuration and fills up properties which
+ are binded bidirectional.
+ 
+ <p>
+ e. g. a property in a component is the same as one configured in the app so
+ it directly gets stored in the component configuration and not twice to avoid
+ miss matching errors.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>original</code> - the original configuration</dd>
+<dd><code>app</code> - the app to get the properties from</dd>
+<dt>Returns:</dt>
+<dd>a copy of the original one with the filled up properties</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="getAppPermissions()">
 <h3>getAppPermissions</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="OpenemsAppPermissions.html" title="class in io.openems.edge.core.appmanager">OpenemsAppPermissions</a></span>&nbsp;<span class="element-name">getAppPermissions</span>()</div>
@@ -536,6 +596,22 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <dd><code>language</code> - the language of the name</dd>
 <dt>Returns:</dt>
 <dd>a human readable name</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getShortName(io.openems.common.session.Language)">
+<h3>getShortName</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getShortName</span><wbr><span class="parameters">(<a href="../../../common/session/Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;language)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="OpenemsApp.html#getShortName(io.openems.common.session.Language)">OpenemsApp</a></code></span></div>
+<div class="block">Gets the short name of the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="OpenemsApp.html#getShortName(io.openems.common.session.Language)">getShortName</a></code>&nbsp;in interface&nbsp;<code><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>language</code> - the language of the name</dd>
+<dt>Returns:</dt>
+<dd>a human readable short name; can be null</dd>
 </dl>
 </section>
 </li>
@@ -568,6 +644,28 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 </section>
 </li>
 <li>
+<section class="detail" id="getAppAssistant(io.openems.edge.common.user.User)">
+<h3>getAppAssistant</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="AppAssistant.html" title="class in io.openems.edge.core.appmanager">AppAssistant</a></span>&nbsp;<span class="element-name">getAppAssistant</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="OpenemsApp.html#getAppAssistant(io.openems.edge.common.user.User)">OpenemsApp</a></code></span></div>
+<div class="block">Gets the <a href="AppAssistant.html" title="class in io.openems.edge.core.appmanager"><code>AppAssistant</code></a> for this <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="OpenemsApp.html#getAppAssistant(io.openems.edge.common.user.User)">getAppAssistant</a></code>&nbsp;in interface&nbsp;<code><a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>user</code> - the <a href="../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a></dd>
+<dt>Returns:</dt>
+<dd>the AppAssistant</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getAppAssistant(io.openems.common.session.Language)">
+<h3>getAppAssistant</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="AppAssistant.html" title="class in io.openems.edge.core.appmanager">AppAssistant</a></span>&nbsp;<span class="element-name">getAppAssistant</span><wbr><span class="parameters">(<a href="../../../common/session/Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;l)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="propertyValues()">
 <h3>propertyValues</h3>
 <div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="AbstractOpenemsApp.html" title="type parameter in AbstractOpenemsApp">PROPERTY</a>[]</span>&nbsp;<span class="element-name">propertyValues</span>()</div>
@@ -587,6 +685,13 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 </section>
 </li>
 <li>
+<section class="detail" id="getNullableTranslation(io.openems.common.session.Language,java.lang.String)">
+<h3>getNullableTranslation</h3>
+<div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getNullableTranslation</span><wbr><span class="parameters">(<a href="../../../common/session/Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;language,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="getTranslationBundle(io.openems.common.session.Language)">
 <h3>getTranslationBundle</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ResourceBundle.html" title="class or interface in java.util" class="external-link">ResourceBundle</a></span>&nbsp;<span class="element-name">getTranslationBundle</span><wbr><span class="parameters">(<a href="../../../common/session/Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;language)</span></div>
@@ -594,6 +699,22 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>language</code> - the <a href="../../../common/session/Language.html" title="enum class in io.openems.common.session"><code>Language</code></a> of the translations</dd>
+<dt>Returns:</dt>
+<dd>the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ResourceBundle.html" title="class or interface in java.util" class="external-link"><code>ResourceBundle</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="createResourceBundle(io.openems.common.session.Language)">
+<h3>createResourceBundle</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ResourceBundle.html" title="class or interface in java.util" class="external-link">ResourceBundle</a></span>&nbsp;<span class="element-name">createResourceBundle</span><wbr><span class="parameters">(<a href="../../../common/session/Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;l)</span></div>
+<div class="block">Gets the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ResourceBundle.html" title="class or interface in java.util" class="external-link"><code>ResourceBundle</code></a> based on the given <a href="../../../common/session/Language.html" title="enum class in io.openems.common.session"><code>Language</code></a>.
+ 
+ <p>
+ Used in <code>OpenemsApps</code> to create their <a href="Type.html#getParamter()"><code>Type.getParamter()</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>l</code> - the <a href="../../../common/session/Language.html" title="enum class in io.openems.common.session"><code>Language</code></a> of the translations</dd>
 <dt>Returns:</dt>
 <dd>the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ResourceBundle.html" title="class or interface in java.util" class="external-link"><code>ResourceBundle</code></a></dd>
 </dl>
@@ -610,6 +731,34 @@ implements <a href="OpenemsApp.html" title="interface in io.openems.edge.core.ap
 <h3>getComponentWithFactoryId</h3>
 <div class="member-signature"><span class="modifiers">protected static final</span>&nbsp;<span class="return-type"><a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></span>&nbsp;<span class="element-name">getComponentWithFactoryId</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a>&gt;&nbsp;components,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;factoryId)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getComponentManager()">
+<h3>getComponentManager</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></span>&nbsp;<span class="element-name">getComponentManager</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="ComponentManagerSupplier.html#getComponentManager()">ComponentManagerSupplier</a></code></span></div>
+<div class="block">Gets a <a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component"><code>ComponentManager</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ComponentManagerSupplier.html#getComponentManager()">getComponentManager</a></code>&nbsp;in interface&nbsp;<code><a href="ComponentManagerSupplier.html" title="interface in io.openems.edge.core.appmanager">ComponentManagerSupplier</a></code></dd>
+<dt>Returns:</dt>
+<dd>the <a href="../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component"><code>ComponentManager</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getComponentUtil()">
+<h3>getComponentUtil</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager">ComponentUtil</a></span>&nbsp;<span class="element-name">getComponentUtil</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="ComponentUtilSupplier.html#getComponentUtil()">ComponentUtilSupplier</a></code></span></div>
+<div class="block">Gets a <a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager"><code>ComponentUtil</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ComponentUtilSupplier.html#getComponentUtil()">getComponentUtil</a></code>&nbsp;in interface&nbsp;<code><a href="ComponentUtilSupplier.html" title="interface in io.openems.edge.core.appmanager">ComponentUtilSupplier</a></code></dd>
+<dt>Returns:</dt>
+<dd>the <a href="ComponentUtil.html" title="interface in io.openems.edge.core.appmanager"><code>ComponentUtil</code></a></dd>
+</dl>
 </section>
 </li>
 </ul>

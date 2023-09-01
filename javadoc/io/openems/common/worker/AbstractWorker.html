@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="AbstractCycleWorker.html" title="class in io.openems.common.worker">AbstractCycleWorker</a></code>, <code><a href="AbstractImmediateWorker.html" title="class in io.openems.common.worker">AbstractImmediateWorker</a></code>, <code><a href="../../edge/core/appmanager/AppInstallWorker.html" title="class in io.openems.edge.core.appmanager">AppInstallWorker</a></code>, <code><a href="../../edge/core/appmanager/AppSynchronizeWorker.html" title="class in io.openems.edge.core.appmanager">AppSynchronizeWorker</a></code>, <code><a href="../../edge/core/appmanager/AppValidateWorker.html" title="class in io.openems.edge.core.appmanager">AppValidateWorker</a></code>, <code><a href="../websocket/ClientReconnectorWorker.html" title="class in io.openems.common.websocket">ClientReconnectorWorker</a></code>, <code><a href="../../edge/core/componentmanager/ComponentManagerWorker.html" title="class in io.openems.edge.core.componentmanager">ComponentManagerWorker</a></code>, <code><a href="../../edge/core/cycle/CycleWorker.html" title="class in io.openems.edge.core.cycle">CycleWorker</a></code>, <code><a href="../../edge/core/host/DiskSpaceWorker.html" title="class in io.openems.edge.core.host">DiskSpaceWorker</a></code>, <code><a href="../../edge/core/host/NetworkConfigurationWorker.html" title="class in io.openems.edge.core.host">NetworkConfigurationWorker</a></code>, <code><a href="../../edge/evcs/keba/kecontact/ReadWorker.html" title="class in io.openems.edge.evcs.keba.kecontact">ReadWorker</a></code>, <code><a href="../../edge/core/host/UsbConfigurationWorker.html" title="class in io.openems.edge.core.host">UsbConfigurationWorker</a></code></dd>
+<dd><code><a href="AbstractCycleWorker.html" title="class in io.openems.common.worker">AbstractCycleWorker</a></code>, <code><a href="AbstractImmediateWorker.html" title="class in io.openems.common.worker">AbstractImmediateWorker</a></code>, <code><a href="../../edge/core/appmanager/AppInstallWorker.html" title="class in io.openems.edge.core.appmanager">AppInstallWorker</a></code>, <code><a href="../../edge/core/appmanager/AppSynchronizeWorker.html" title="class in io.openems.edge.core.appmanager">AppSynchronizeWorker</a></code>, <code><a href="../../edge/core/appmanager/AppValidateWorker.html" title="class in io.openems.edge.core.appmanager">AppValidateWorker</a></code>, <code><a href="../websocket/ClientReconnectorWorker.html" title="class in io.openems.common.websocket">ClientReconnectorWorker</a></code>, <code><a href="../../edge/core/componentmanager/ComponentManagerWorker.html" title="class in io.openems.edge.core.componentmanager">ComponentManagerWorker</a></code>, <code><a href="../../edge/core/cycle/CycleWorker.html" title="class in io.openems.edge.core.cycle">CycleWorker</a></code>, <code><a href="../../edge/core/host/DiskSpaceWorker.html" title="class in io.openems.edge.core.host">DiskSpaceWorker</a></code>, <code><a href="../../edge/core/host/NetworkConfigurationWorker.html" title="class in io.openems.edge.core.host">NetworkConfigurationWorker</a></code>, <code><a href="../../edge/evcs/keba/kecontact/ReadWorker.html" title="class in io.openems.edge.evcs.keba.kecontact">ReadWorker</a></code>, <code><a href="../../edge/controller/api/backend/ResendHistoricDataWorker.html" title="class in io.openems.edge.controller.api.backend">ResendHistoricDataWorker</a></code>, <code><a href="../../edge/core/host/UsbConfigurationWorker.html" title="class in io.openems.edge.core.host">UsbConfigurationWorker</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">AbstractWorker</span>
@@ -151,22 +151,34 @@ loadScripts(document, 'script');</script>
 <div class="block">Initializes the worker and starts the worker thread.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#activate(java.lang.String,boolean)" class="member-name-link">activate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ boolean&nbsp;initiallyTriggerNextRun)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Stops the worker thread.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#forever()" class="member-name-link">forever</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">This method is called in a loop forever until the Thread gets interrupted.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getCycleTime()" class="member-name-link">getCycleTime</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Gets the cycleTime of this worker in [ms].</div>
+<div class="block">Initializes the worker and starts the worker thread.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#modified(java.lang.String)" class="member-name-link">modified</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Stops the worker thread.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#forever()" class="member-name-link">forever</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">This method is called in a loop forever until the Thread gets interrupted.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getCycleTime()" class="member-name-link">getCycleTime</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Gets the cycleTime of this worker in [ms].</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#modified(java.lang.String)" class="member-name-link">modified</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Modifies the worker thread.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#modified(java.lang.String,boolean)" class="member-name-link">modified</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ boolean&nbsp;initiallyTriggerNextRun)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Modifies the worker thread.</div>
 </div>
@@ -249,6 +261,20 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="activate(java.lang.String,boolean)">
+<h3>activate</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">activate</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ boolean&nbsp;initiallyTriggerNextRun)</span></div>
+<div class="block">Initializes the worker and starts the worker thread.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - the name of the worker thread</dd>
+<dd><code>initiallyTriggerNextRun</code> - true if the <a href="#forever()"><code>forever()</code></a> method
+                           should get called immediately; if not false</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="activate(java.lang.String)">
 <h3>activate</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">activate</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
@@ -256,6 +282,20 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>name</code> - the name of the worker thread</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="modified(java.lang.String,boolean)">
+<h3>modified</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">modified</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ boolean&nbsp;initiallyTriggerNextRun)</span></div>
+<div class="block">Modifies the worker thread.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - the name of the worker thread</dd>
+<dd><code>initiallyTriggerNextRun</code> - true if the <a href="#forever()"><code>forever()</code></a> method
+                           should get called immediately; if not false</dd>
 </dl>
 </section>
 </li>
