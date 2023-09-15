@@ -72,14 +72,14 @@ loadScripts(document, 'script');</script>
 <h1 title="Class Context" class="title">Class Context</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance"><a href="../../../../common/statemachine/AbstractContext.html" title="class in io.openems.edge.common.statemachine">io.openems.edge.common.statemachine.AbstractContext</a>&lt;<a href="../ControllerEssCycle.html" title="interface in io.openems.edge.controller.ess.cycle">ControllerEssCycle</a>&gt;
+<div class="inheritance"><a href="../../../../common/statemachine/AbstractContext.html" title="class in io.openems.edge.common.statemachine">io.openems.edge.common.statemachine.AbstractContext</a>&lt;<a href="../ControllerEssCycleImpl.html" title="class in io.openems.edge.controller.ess.cycle">ControllerEssCycleImpl</a>&gt;
 <div class="inheritance">io.openems.edge.controller.ess.cycle.statemachine.Context</div>
 </div>
 </div>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Context</span>
-<span class="extends-implements">extends <a href="../../../../common/statemachine/AbstractContext.html" title="class in io.openems.edge.common.statemachine">AbstractContext</a>&lt;<a href="../ControllerEssCycle.html" title="interface in io.openems.edge.controller.ess.cycle">ControllerEssCycle</a>&gt;</span></div>
+<span class="extends-implements">extends <a href="../../../../common/statemachine/AbstractContext.html" title="class in io.openems.edge.common.statemachine">AbstractContext</a>&lt;<a href="../ControllerEssCycleImpl.html" title="class in io.openems.edge.controller.ess.cycle">ControllerEssCycleImpl</a>&gt;</span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -92,8 +92,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>protected final <a href="../../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></div>
-<div class="col-second even-row-color"><code><a href="#componentManager" class="member-name-link">componentManager</a></code></div>
+<div class="col-first even-row-color"><code>protected final int</code></div>
+<div class="col-second even-row-color"><code><a href="#allowedChargePower" class="member-name-link">allowedChargePower</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#allowedDischargePower" class="member-name-link">allowedDischargePower</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a></code></div>
+<div class="col-second even-row-color"><code><a href="#clock" class="member-name-link">clock</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected final <a href="../Config.html" title="annotation interface in io.openems.edge.controller.ess.cycle">Config</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#config" class="member-name-link">config</a></code></div>
@@ -101,14 +107,8 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>protected final <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code></div>
 <div class="col-second even-row-color"><code><a href="#ess" class="member-name-link">ess</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected final int</code></div>
-<div class="col-second odd-row-color"><code><a href="#maxChargePower" class="member-name-link">maxChargePower</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected final int</code></div>
-<div class="col-second even-row-color"><code><a href="#maxDischargePower" class="member-name-link">maxDischargePower</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected final <a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#previousState" class="member-name-link">previousState</a></code></div>
+<div class="col-first odd-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#startTime" class="member-name-link">startTime</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -121,14 +121,11 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(io.openems.edge.controller.ess.cycle.ControllerEssCycle,io.openems.edge.controller.ess.cycle.Config,io.openems.edge.common.component.ComponentManager,io.openems.edge.ess.api.ManagedSymmetricEss,int,int,io.openems.edge.controller.ess.cycle.statemachine.StateMachine.State,java.time.LocalDateTime)" class="member-name-link">Context</a><wbr>(<a href="../ControllerEssCycle.html" title="interface in io.openems.edge.controller.ess.cycle">ControllerEssCycle</a>&nbsp;parent,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(io.openems.edge.controller.ess.cycle.ControllerEssCycleImpl,io.openems.edge.controller.ess.cycle.Config,java.time.Clock,io.openems.edge.ess.api.ManagedSymmetricEss,java.time.LocalDateTime)" class="member-name-link">Context</a><wbr>(<a href="../ControllerEssCycleImpl.html" title="class in io.openems.edge.controller.ess.cycle">ControllerEssCycleImpl</a>&nbsp;parent,
  <a href="../Config.html" title="annotation interface in io.openems.edge.controller.ess.cycle">Config</a>&nbsp;config,
- <a href="../../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>&nbsp;componentManager,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a>&nbsp;clock,
  <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
- int&nbsp;maxChargePower,
- int&nbsp;maxDischargePower,
- <a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a>&nbsp;previousState,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>&nbsp;lastStateChange)</code></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>&nbsp;startTime)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -145,15 +142,26 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChargePower()" class="member-name-link">getChargePower</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDischargePower()" class="member-name-link">getDischargePower</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForChangeState(io.openems.edge.controller.ess.cycle.statemachine.StateMachine.State,io.openems.edge.controller.ess.cycle.statemachine.StateMachine.State)" class="member-name-link">waitForChangeState</a><wbr>(<a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a>&nbsp;currentState,
- <a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a>&nbsp;nextState)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAcPower(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.controller.ess.cycle.HybridEssMode,int)" class="member-name-link">getAcPower</a><wbr>(<a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
+ <a href="../HybridEssMode.html" title="enum class in io.openems.edge.controller.ess.cycle">HybridEssMode</a>&nbsp;hybridEssMode,
+ int&nbsp;power)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the required AC power set-point for AC- or Hybrid-ESS.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isStartTimeInitialized()" class="member-name-link">isStartTimeInitialized</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Is Start Time Initialized?.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateLastStateChangeTime()" class="member-name-link">updateLastStateChangeTime</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Updates the time when <a href="StateMachine.html" title="class in io.openems.edge.controller.ess.cycle.statemachine"><code>StateMachine</code></a> <a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine"><code>StateMachine.State</code></a> changed.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForChangeState(io.openems.edge.controller.ess.cycle.statemachine.StateMachine.State,io.openems.edge.controller.ess.cycle.statemachine.StateMachine.State)" class="member-name-link">waitForChangeState</a><wbr>(<a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a>&nbsp;currentState,
+ <a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a>&nbsp;nextState)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Helper for a state change.</div>
 </div>
 </div>
@@ -189,27 +197,27 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="maxChargePower">
-<h3>maxChargePower</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">maxChargePower</span></div>
+<section class="detail" id="allowedChargePower">
+<h3>allowedChargePower</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">allowedChargePower</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="maxDischargePower">
-<h3>maxDischargePower</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">maxDischargePower</span></div>
+<section class="detail" id="allowedDischargePower">
+<h3>allowedDischargePower</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">allowedDischargePower</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="componentManager">
-<h3>componentManager</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="../../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></span>&nbsp;<span class="element-name">componentManager</span></div>
+<section class="detail" id="clock">
+<h3>clock</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a></span>&nbsp;<span class="element-name">clock</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="previousState">
-<h3>previousState</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a></span>&nbsp;<span class="element-name">previousState</span></div>
+<section class="detail" id="startTime">
+<h3>startTime</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a></span>&nbsp;<span class="element-name">startTime</span></div>
 </section>
 </li>
 </ul>
@@ -221,16 +229,13 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(io.openems.edge.controller.ess.cycle.ControllerEssCycle,io.openems.edge.controller.ess.cycle.Config,io.openems.edge.common.component.ComponentManager,io.openems.edge.ess.api.ManagedSymmetricEss,int,int,io.openems.edge.controller.ess.cycle.statemachine.StateMachine.State,java.time.LocalDateTime)">
+<section class="detail" id="&lt;init&gt;(io.openems.edge.controller.ess.cycle.ControllerEssCycleImpl,io.openems.edge.controller.ess.cycle.Config,java.time.Clock,io.openems.edge.ess.api.ManagedSymmetricEss,java.time.LocalDateTime)">
 <h3>Context</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Context</span><wbr><span class="parameters">(<a href="../ControllerEssCycle.html" title="interface in io.openems.edge.controller.ess.cycle">ControllerEssCycle</a>&nbsp;parent,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Context</span><wbr><span class="parameters">(<a href="../ControllerEssCycleImpl.html" title="class in io.openems.edge.controller.ess.cycle">ControllerEssCycleImpl</a>&nbsp;parent,
  <a href="../Config.html" title="annotation interface in io.openems.edge.controller.ess.cycle">Config</a>&nbsp;config,
- <a href="../../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>&nbsp;componentManager,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a>&nbsp;clock,
  <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
- int&nbsp;maxChargePower,
- int&nbsp;maxDischargePower,
- <a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a>&nbsp;previousState,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>&nbsp;lastStateChange)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a>&nbsp;startTime)</span></div>
 </section>
 </li>
 </ul>
@@ -242,9 +247,38 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="getAcPower(io.openems.edge.ess.api.ManagedSymmetricEss,io.openems.edge.controller.ess.cycle.HybridEssMode,int)">
+<h3>getAcPower</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getAcPower</span><wbr><span class="parameters">(<a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess,
+ <a href="../HybridEssMode.html" title="enum class in io.openems.edge.controller.ess.cycle">HybridEssMode</a>&nbsp;hybridEssMode,
+ int&nbsp;power)</span></div>
+<div class="block">Gets the required AC power set-point for AC- or Hybrid-ESS.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>ess</code> - the <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a>; checked for
+                      <a href="../../../../ess/api/HybridEss.html" title="interface in io.openems.edge.ess.api"><code>HybridEss</code></a></dd>
+<dd><code>hybridEssMode</code> - the <a href="../HybridEssMode.html" title="enum class in io.openems.edge.controller.ess.cycle"><code>HybridEssMode</code></a></dd>
+<dd><code>power</code> - the configured target power</dd>
+<dt>Returns:</dt>
+<dd>the AC power set-point</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isStartTimeInitialized()">
+<h3>isStartTimeInitialized</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isStartTimeInitialized</span>()</div>
+<div class="block">Is Start Time Initialized?.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if the Controller should be executed now</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="waitForChangeState(io.openems.edge.controller.ess.cycle.statemachine.StateMachine.State,io.openems.edge.controller.ess.cycle.statemachine.StateMachine.State)">
 <h3>waitForChangeState</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">waitForChangeState</span><wbr><span class="parameters">(<a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a>&nbsp;currentState,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a></span>&nbsp;<span class="element-name">waitForChangeState</span><wbr><span class="parameters">(<a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a>&nbsp;currentState,
  <a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine">StateMachine.State</a>&nbsp;nextState)</span></div>
 <div class="block">Helper for a state change. If awaiting hysteresis time exceeded switches from
  currentState to NextState.</div>
@@ -253,20 +287,15 @@ loadScripts(document, 'script');</script>
 <dd><code>currentState</code> - Used to output better log.</dd>
 <dd><code>nextState</code> - state which will be switched to.</dd>
 <dt>Returns:</dt>
-<dd>boolean true if change state is allowed</dd>
+<dd><a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine"><code>StateMachine.State</code></a> state.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="getChargePower()">
-<h3>getChargePower</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getChargePower</span>()</div>
-</section>
-</li>
-<li>
-<section class="detail" id="getDischargePower()">
-<h3>getDischargePower</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getDischargePower</span>()</div>
+<section class="detail" id="updateLastStateChangeTime()">
+<h3>updateLastStateChangeTime</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateLastStateChangeTime</span>()</div>
+<div class="block">Updates the time when <a href="StateMachine.html" title="class in io.openems.edge.controller.ess.cycle.statemachine"><code>StateMachine</code></a> <a href="StateMachine.State.html" title="enum class in io.openems.edge.controller.ess.cycle.statemachine"><code>StateMachine.State</code></a> changed.</div>
 </section>
 </li>
 </ul>
