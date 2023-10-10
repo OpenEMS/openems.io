@@ -269,7 +269,11 @@
 <li><a href="#_ess_reactive_power_voltage_characteristic">28. Ess Reactive Power Voltage Characteristic</a></li>
 <li><a href="#_ess_sell_to_grid_limit">29. ESS Sell-To-Grid Limit</a></li>
 <li><a href="#_ess_standby">30. ESS Standby</a></li>
-<li><a href="#_ess_time_of_use_tariff_discharge">31. ESS Time-of-Use Tariff Discharge</a></li>
+<li><a href="#_ess_time_of_use_tariff">31. ESS Time-of-Use Tariff</a>
+<ul class="sectlevel2">
+<li><a href="#_schedule_calculation_modes">31.1. Schedule Calculation Modes</a></li>
+</ul>
+</li>
 <li><a href="#_evcs">32. EVCS</a></li>
 <li><a href="#_evcs_fix_active_power">33. EVCS Fix Active Power</a></li>
 <li><a href="#_generic_jsonlogic">34. Generic JsonLogic</a></li>
@@ -1313,44 +1317,40 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_time_of_use_tariff_discharge"><a class="anchor" href="#_ess_time_of_use_tariff_discharge"></a>31. ESS Time-of-Use Tariff Discharge</h2>
+<h2 id="_ess_time_of_use_tariff"><a class="anchor" href="#_ess_time_of_use_tariff"></a>31. ESS Time-of-Use Tariff</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This Controller optimizes the behaviour of an energy storage system in combination with a Time-Of-Use (ToU) Tariff.</p>
+<p>This Controller optimizes the performance of an energy storage system (ESS) in conjunction with a Time-Of-Use (ToU) Tariff provider.</p>
 </div>
 <div class="paragraph">
-<p>The general estimation is, that during the day a local PV system can provide enough energy to supply the consumption. This Controller than evaluates the predicted consumed energy during the night (using production and consumption predictors) and tries to move Buy-From-Grid periods to cheap hours.</p>
+<p>The primary aim of the controller is to optimize the economic utilization of energy stored within the battery, primarily for self-consumption. To achieve this goal, the controller employs a rolling approach, where it continuously fetches predictions from the prediction service. It takes into account the current state of the battery&#8217;s capacity, recalculates its operations, and generates a detailed schedule for the Energy Storage System (ESS) for the upcoming 24-hour period, in 15-minute intervals.</p>
 </div>
 <div class="paragraph">
-<p>This implementation works for AC, DC and Hybrid ESS. It is currently limited to the ToU tariff by aWATTar.</p>
+<p>This iterative and dynamic approach ensures that the ESS operates efficiently by staying synchronized with real-time forecasts and the evolving state of the battery, thereby maximizing cost-effectiveness and self-consumption of stored energy.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>At 14:00, controller collects the Hourly prices from the aWATTar API and also the predicions of production and consumption from prediction service in OpenEMS.</p>
-</li>
-<li>
-<p>It calculates the boundary hours to differentiate day and night, so that the controller can get defined set of hours to work on.</p>
-</li>
-<li>
-<p>During the start of the boundary hours, based on current State-of-Charge and hourly prices already calculated, it determines the set of cheapest hours.</p>
-</li>
-<li>
-<p>During those set of hours (Cheap Hours), the discharging is blocked. consumption is covered from the grid.</p>
-</li>
-</ol>
+<div class="sect2">
+<h3 id="_schedule_calculation_modes"><a class="anchor" href="#_schedule_calculation_modes"></a>31.1. Schedule Calculation Modes</h3>
+<div class="paragraph">
+<p>The schedule calculation process varies depending on the local market conditions. To accommodate this variability, two distinct modes have been introduced to facilitate flexible operation:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">CHARGE_CONSUMPTION</dt>
+<dd>
+<p>This mode is well-suited for markets that permit charging the battery from the grid. In this mode, the controller utilizes production and consumption forecasts along with day-ahead electricity prices to calculate the optimal time periods for charging the battery from the grid. This approach ensures efficient utilization of resources while taking advantage of cost-effective grid charging opportunities.</p>
+</dd>
+<dt class="hdlist1">DELAY_DISCHARGE</dt>
+<dd>
+<p>This mode is tailored for markets where grid charging is restricted or discouraged. In such scenarios, optimal time periods are determined based on forecasts and day-ahead pricing information. The controller then schedules the Energy Storage System (ESS) to limit or delay discharging during these specific periods. This strategic approach aims to optimize economic performance by avoiding costly grid interactions when grid charging is not feasible or economical.</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
-<p>This Controller applies to the legislation of Germany.</p>
+<p>These two operation modes provide the necessary flexibility to adapt to varying market conditions, allowing for efficient energy management and cost savings based on the specific requirements of your local energy market.</p>
 </div>
 <div class="paragraph">
-<p>TODO</p>
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.timeofusetariff">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
-<div class="paragraph">
-<p>Time of Use (ToU) pricing API service is currently under implementation in OpenEMS. This service will eventually act as generalised service for all the variable pricing providers.</p>
-</div>
-<div class="paragraph">
-<p>Once the ToU service is implemented, the test cases can be uncommented and tested with custom hourly prices. Currently only way to test it is by using the actual API provided by Awattar.</p>
 </div>
 </div>
 </div>
