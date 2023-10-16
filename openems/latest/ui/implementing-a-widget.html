@@ -207,6 +207,11 @@
 <ul class="sectlevel2">
 <li><a href="#_create_a_new_module_live_view">1.1. Create a new module [Live-View]</a></li>
 <li><a href="#_creating_a_flatwidget">1.2. Creating a FlatWidget</a></li>
+<li><a href="#_creating_a_modal">1.3. Creating a modal</a>
+<ul class="sectlevel3">
+<li><a href="#_creating_a_line">1.3.1. Creating a Line</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -405,6 +410,69 @@ component.id + '/Soc'"&gt;
 <p>@Input() value: subscribe in the ts-file and pass the subscribed value.</p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_modal"><a class="anchor" href="#_creating_a_modal"></a>1.3. Creating a modal</h3>
+<div class="paragraph">
+<p>Creating a <code>modal-widget</code> is pretty similar to creating a <code>flat-widget</code>.
+The model should act as the detailed view of a <code>flat-widget</code> and can also fit the purpose of user interaction.</p>
+</div>
+<div class="paragraph">
+<p>There are multiple implementations of <code>modals</code> at the creation time of this page, but the one thats considered best practice is the unit-testable version.</p>
+</div>
+<div class="sect3">
+<h4 id="_creating_a_line"><a class="anchor" href="#_creating_a_line"></a>1.3.1. Creating a Line</h4>
+<div class="paragraph">
+<p>Lets take a look at one <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/edge/live/common/consumption/modal/modal.ts">example</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">public static generateView(
+    config: EdgeConfig, role: Role, translate: TranslateService)
+    :OeFormlyView {
+
+    // Total
+    lines.push({
+      type: 'channel-line',
+      name: translate.instant('General.TOTAL'),
+      channel: '_sum/ConsumptionActivePower',
+      converter: Converter.ONLY_POSITIVE_POWER_AND_NEGATIVE_AS_ZERO
+    });
+
+    return {
+      title: translate.instant('General.grid'),
+      lines: lines
+    };
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Predefined fields in <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/shared/genericComponents/shared/oe-formly-component.ts">OeFormlyField</a> can be used here.</p>
+</div>
+<div class="paragraph">
+<p>For this line we use the type 'channel-line'. This represents a line, where a channel has to be subscribed. You also need to specify the <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/shared/genericComponents/shared/converter.ts">converter</a>, that uses the data coming from this channel and mutates it. A <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/shared/genericComponents/shared/filter.ts">filter</a>, which has to return a boolean, decides if the line will be shown or not.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Lines should always present one line of data visualisation. It could be consisting of a identifier and a value or just a value. The value or channel will be shown at the end of the line, the name, if provided, at the start.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This line will be looking like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/modal-line-example-consumption.png" alt="modal line example consumption">
+</div>
+</div>
 </div>
 </div>
 </div>
