@@ -284,33 +284,34 @@
 <li><a href="#_example_configuration_2">36.2. Example Configuration</a></li>
 </ul>
 </li>
-<li><a href="#_io_channel_single_threshold">37. IO Channel-Single-Threshold</a></li>
-<li><a href="#_io_fix_digital_output">38. IO Fix Digital Output</a></li>
-<li><a href="#_io_heating_element">39. IO Heating Element</a>
+<li><a href="#_io_analog_controller">37. IO Analog Controller</a></li>
+<li><a href="#_io_channel_single_threshold">38. IO Channel-Single-Threshold</a></li>
+<li><a href="#_io_fix_digital_output">39. IO Fix Digital Output</a></li>
+<li><a href="#_io_heating_element">40. IO Heating Element</a>
 <ul class="sectlevel2">
-<li><a href="#_phase_and_level">39.1. Phase and Level</a></li>
-<li><a href="#_channels">39.2. Channels</a></li>
+<li><a href="#_phase_and_level">40.1. Phase and Level</a></li>
+<li><a href="#_channels">40.2. Channels</a></li>
 </ul>
 </li>
-<li><a href="#_io_sg_ready_heat_pump">40. IO SG-Ready Heat Pump</a>
+<li><a href="#_io_sg_ready_heat_pump">41. IO SG-Ready Heat Pump</a>
 <ul class="sectlevel2">
-<li><a href="#_states">40.1. States</a></li>
-<li><a href="#_channels_2">40.2. Channels</a></li>
+<li><a href="#_states">41.1. States</a></li>
+<li><a href="#_channels_2">41.2. Channels</a></li>
 </ul>
 </li>
-<li><a href="#_pv_inverter_fix_power_limit">41. PV-Inverter Fix Power Limit</a></li>
-<li><a href="#_pv_inverter_sell_to_grid_limit">42. PV-Inverter Sell-To-Grid limit</a></li>
-<li><a href="#_symmetric_balancing_schedule">43. Symmetric Balancing Schedule</a>
+<li><a href="#_pv_inverter_fix_power_limit">42. PV-Inverter Fix Power Limit</a></li>
+<li><a href="#_pv_inverter_sell_to_grid_limit">43. PV-Inverter Sell-To-Grid limit</a></li>
+<li><a href="#_symmetric_balancing_schedule">44. Symmetric Balancing Schedule</a>
 <ul class="sectlevel2">
-<li><a href="#_1_definition_of_a_power_target_set_point_schedule">43.1. 1. Definition of a power target set-point Schedule</a></li>
-<li><a href="#_2_immediate_control_of_the_power_target_set_point">43.2. 2. Immediate control of the power target set-point</a></li>
+<li><a href="#_1_definition_of_a_power_target_set_point_schedule">44.1. 1. Definition of a power target set-point Schedule</a></li>
+<li><a href="#_2_immediate_control_of_the_power_target_set_point">44.2. 2. Immediate control of the power target set-point</a></li>
 </ul>
 </li>
-<li><a href="#_symmetric_fix_reactive_power">44. Symmetric Fix Reactive Power</a></li>
-<li><a href="#_symmetric_limit_active_power">45. Symmetric Limit Active Power</a></li>
-<li><a href="#_symmetric_peak_shaving">46. Symmetric Peak-Shaving</a></li>
-<li><a href="#_symmetric_random_power">47. Symmetric Random-Power</a></li>
-<li><a href="#_symmetric_timeslot_peak_shaving">48. Symmetric Timeslot Peak-Shaving</a></li>
+<li><a href="#_symmetric_fix_reactive_power">45. Symmetric Fix Reactive Power</a></li>
+<li><a href="#_symmetric_limit_active_power">46. Symmetric Limit Active Power</a></li>
+<li><a href="#_symmetric_peak_shaving">47. Symmetric Peak-Shaving</a></li>
+<li><a href="#_symmetric_random_power">48. Symmetric Random-Power</a></li>
+<li><a href="#_symmetric_timeslot_peak_shaving">49. Symmetric Timeslot Peak-Shaving</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -1529,7 +1530,21 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>37. IO Channel-Single-Threshold</h2>
+<h2 id="_io_analog_controller"><a class="anchor" href="#_io_analog_controller"></a>37. IO Analog Controller</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controller that sets a analog output according to the configured inputs to OFF|AUTOMATIC|ON.</p>
+</div>
+<div class="paragraph">
+<p>In AUTOMATIC mode the output is set dynamically depending on the current surplus power.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.io.analog">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>38. IO Channel-Single-Threshold</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Generic Controller that sets a digital output according to the value of given Channel - e.g. turn a Relay on or off, when configured input channel/SoC is above or below a given threshold respectively.</p>
@@ -1540,7 +1555,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>38. IO Fix Digital Output</h2>
+<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>39. IO Fix Digital Output</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a digital output statically ON or OFF.</p>
@@ -1551,13 +1566,13 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>39. IO Heating Element</h2>
+<h2 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>40. IO Heating Element</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a three-phase heating element via Relays, according to grid active power.</p>
 </div>
 <div class="sect2">
-<h3 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>39.1. Phase and Level</h3>
+<h3 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>40.1. Phase and Level</h3>
 <div class="paragraph">
 <p>The Controller distinguishes the definition of Phase and Level.
 <strong>Phase</strong> represents the electrical phase L1, L2 or L3.
@@ -1578,7 +1593,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_channels"><a class="anchor" href="#_channels"></a>39.2. Channels</h3>
+<h3 id="_channels"><a class="anchor" href="#_channels"></a>40.2. Channels</h3>
 <div class="paragraph">
 <p>Example:
 * the power of the heating element per phase is 1000 W
@@ -1692,13 +1707,13 @@ L1|     xxxxxxxxxxxxxxxx
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>40. IO SG-Ready Heat Pump</h2>
+<h2 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>41. IO SG-Ready Heat Pump</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a heat pump that implements the SG-Ready standard via two Relay contacts, depending on surplus power and battery state-of-charge.</p>
 </div>
 <div class="sect2">
-<h3 id="_states"><a class="anchor" href="#_states"></a>40.1. States</h3>
+<h3 id="_states"><a class="anchor" href="#_states"></a>41.1. States</h3>
 <div class="paragraph">
 <p>The Controller distinguishes the different States, according to the SG-Ready standard.</p>
 </div>
@@ -1734,7 +1749,7 @@ L1|     xxxxxxxxxxxxxxxx
 </table>
 </div>
 <div class="sect2">
-<h3 id="_channels_2"><a class="anchor" href="#_channels_2"></a>40.2. Channels</h3>
+<h3 id="_channels_2"><a class="anchor" href="#_channels_2"></a>41.2. Channels</h3>
 <div class="paragraph">
 <p>The Controller has an ongoing time counter for every state, that is started and stopped if the corresponding state is active or not.</p>
 </div>
@@ -1749,7 +1764,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>41. PV-Inverter Fix Power Limit</h2>
+<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>42. PV-Inverter Fix Power Limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed power limit for PV-Inverter production.</p>
@@ -1760,7 +1775,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>42. PV-Inverter Sell-To-Grid limit</h2>
+<h2 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>43. PV-Inverter Sell-To-Grid limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Dynamically limits the Sell-To-Grid power of a PV-Inverter to a defined maximum power.</p>
@@ -1775,7 +1790,7 @@ The main purpose of the asymmetric mode is, to prevent the grid fuse from overcu
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>43. Symmetric Balancing Schedule</h2>
+<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>44. Symmetric Balancing Schedule</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in balancing mode. The control algorithm charges or discharges the battery in order to reach a given power target set-point at the grid connection point. If the target set-point is defined as zero, the behaviour is like with self-consumption optimization.</p>
@@ -1784,7 +1799,7 @@ The main purpose of the asymmetric mode is, to prevent the grid fuse from overcu
 <p>This controller allows two ways of controlling the power target set-point:</p>
 </div>
 <div class="sect2">
-<h3 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>43.1. 1. Definition of a power target set-point Schedule</h3>
+<h3 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>44.1. 1. Definition of a power target set-point Schedule</h3>
 <div class="paragraph">
 <p>The static configuration parameter "schedule" takes a Schedule of set-points as a Json-Array. An example schedule looks like this:</p>
 </div>
@@ -1832,7 +1847,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>43.2. 2. Immediate control of the power target set-point</h3>
+<h3 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>44.2. 2. Immediate control of the power target set-point</h3>
 <div class="paragraph">
 <p>The power target set-point may also be controlled directly via the <code>GridActivePowerSetPoint</code> channel. E.g. if the controller component has the Id <code>ctrlBalancingSchedule0</code> one can use e.g. the <a href="https://openems.github.io/openems.io/openems/latest/edge/controller.html#_rest_api_controller">REST-Api Controller</a> and write</p>
 </div>
@@ -1853,7 +1868,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>44. Symmetric Fix Reactive Power</h2>
+<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>45. Symmetric Fix Reactive Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed reactive power for a symmetric energy storage system.</p>
@@ -1864,7 +1879,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>45. Symmetric Limit Active Power</h2>
+<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>46. Symmetric Limit Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
@@ -1875,7 +1890,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>46. Symmetric Peak-Shaving</h2>
+<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>47. Symmetric Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
@@ -1886,7 +1901,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>47. Symmetric Random-Power</h2>
+<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>48. Symmetric Random-Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
@@ -1897,7 +1912,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>48. Symmetric Timeslot Peak-Shaving</h2>
+<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>49. Symmetric Timeslot Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving within a configured timeslot at the grid using a symmetric energy storage system. Outside of the timeslot the battery recharges.</p>

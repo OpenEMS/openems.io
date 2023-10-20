@@ -81,12 +81,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a></code>, <code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../api/ElectricityMeter.html" title="interface in io.openems.edge.meter.api">ElectricityMeter</a></code>, <code><a href="PhoenixContactMeter.html" title="interface in io.openems.edge.meter.phoenixcontact">PhoenixContactMeter</a></code></dd>
+<dd><code><a href="../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a></code>, <code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code>, <code><a href="../api/ElectricityMeter.html" title="interface in io.openems.edge.meter.api">ElectricityMeter</a></code>, <code><a href="PhoenixContactMeter.html" title="interface in io.openems.edge.meter.phoenixcontact">PhoenixContactMeter</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">PhoenixContactMeterImpl</span>
 <span class="extends-implements">extends <a href="../../bridge/modbus/api/AbstractOpenemsModbusComponent.html" title="class in io.openems.edge.bridge.modbus.api">AbstractOpenemsModbusComponent</a>
-implements <a href="../api/ElectricityMeter.html" title="interface in io.openems.edge.meter.api">ElectricityMeter</a>, <a href="PhoenixContactMeter.html" title="interface in io.openems.edge.meter.phoenixcontact">PhoenixContactMeter</a>, <a href="../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></span></div>
+implements <a href="../api/ElectricityMeter.html" title="interface in io.openems.edge.meter.api">ElectricityMeter</a>, <a href="PhoenixContactMeter.html" title="interface in io.openems.edge.meter.phoenixcontact">PhoenixContactMeter</a>, <a href="../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -155,9 +155,14 @@ implements <a href="../api/ElectricityMeter.html" title="interface in io.openems
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the type of this Meter.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)" class="member-name-link">setModbus</a><wbr>(<a href="../../bridge/modbus/api/BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a>&nbsp;modbus)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../common/modbusslave/ModbusSlaveTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveTable</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getModbusSlaveTable(io.openems.common.channel.AccessMode)" class="member-name-link">getModbusSlaveTable</a><wbr>(<a href="../../../common/channel/AccessMode.html" title="enum class in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the Modbus-Slave-Table for this OpenEMS-Component.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)" class="member-name-link">setModbus</a><wbr>(<a href="../../bridge/modbus/api/BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a>&nbsp;modbus)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the Modbus bridge.</div>
 </div>
 </div>
@@ -275,6 +280,22 @@ implements <a href="../api/ElectricityMeter.html" title="interface in io.openems
 <dd><code><a href="../api/ElectricityMeter.html#getMeterType()">getMeterType</a></code>&nbsp;in interface&nbsp;<code><a href="../api/ElectricityMeter.html" title="interface in io.openems.edge.meter.api">ElectricityMeter</a></code></dd>
 <dt>Returns:</dt>
 <dd>the <a href="../api/MeterType.html" title="enum class in io.openems.edge.meter.api"><code>MeterType</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getModbusSlaveTable(io.openems.common.channel.AccessMode)">
+<h3>getModbusSlaveTable</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../common/modbusslave/ModbusSlaveTable.html" title="class in io.openems.edge.common.modbusslave">ModbusSlaveTable</a></span>&nbsp;<span class="element-name">getModbusSlaveTable</span><wbr><span class="parameters">(<a href="../../../common/channel/AccessMode.html" title="enum class in io.openems.common.channel">AccessMode</a>&nbsp;accessMode)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/modbusslave/ModbusSlave.html#getModbusSlaveTable(io.openems.common.channel.AccessMode)">ModbusSlave</a></code></span></div>
+<div class="block">Gets the Modbus-Slave-Table for this OpenEMS-Component.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/modbusslave/ModbusSlave.html#getModbusSlaveTable(io.openems.common.channel.AccessMode)">getModbusSlaveTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/modbusslave/ModbusSlave.html" title="interface in io.openems.edge.common.modbusslave">ModbusSlave</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>accessMode</code> - filters the Modbus-Records that should be shown</dd>
+<dt>Returns:</dt>
+<dd>the Modbus-Slave-Table</dd>
 </dl>
 </section>
 </li>

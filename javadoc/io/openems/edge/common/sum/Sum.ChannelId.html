@@ -277,6 +277,10 @@ implements <a href="../channel/ChannelId.html" title="interface in io.openems.ed
 <div class="col-last even-row-color">
 <div class="block">Production: Maximum Ever DC Actual Power.</div>
 </div>
+<div class="col-first odd-row-color"><code><a href="#UNMANAGED_CONSUMPTION_ACTIVE_POWER" class="member-name-link">UNMANAGED_CONSUMPTION_ACTIVE_POWER</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Unmanaged Consumption: Active Power.</div>
+</div>
 </div>
 </section>
 </li>
@@ -739,6 +743,25 @@ the order they are declared.</div>
  <li>Type: Integer
  <li>Unit: W
  <li>Range: positive values or '0'
+ </ul></div>
+</section>
+</li>
+<li>
+<section class="detail" id="UNMANAGED_CONSUMPTION_ACTIVE_POWER">
+<h3>UNMANAGED_CONSUMPTION_ACTIVE_POWER</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="Sum.ChannelId.html" title="enum class in io.openems.edge.common.sum">Sum.ChannelId</a></span>&nbsp;<span class="element-name">UNMANAGED_CONSUMPTION_ACTIVE_POWER</span></div>
+<div class="block">Unmanaged Consumption: Active Power.
+
+ <ul>
+ <li>Interface: Sum
+ <li>Type: Integer
+ <li>Unit: W
+ <li>Range: should be only positive
+ <li>Note: this value represents the part of the Consumption that is not
+ actively managed by OpenEMS, i.e. it is calculated as
+ (<a href="#CONSUMPTION_ACTIVE_POWER"><code>CONSUMPTION_ACTIVE_POWER</code></a>) minus charge power for an electric
+ vehicle charging station, etc. This value is used for forecasting of
+ consumption.
  </ul></div>
 </section>
 </li>

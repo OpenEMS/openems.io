@@ -79,7 +79,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code>, <code><a href="../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></code></dd>
+<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></code>, <code><a href="../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a></code>, <code><a href="../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></code></dd>
 </dl>
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
@@ -88,7 +88,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">DummyManagedSymmetricEss</span>
 <span class="extends-implements">extends <a href="../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></span></div>
+implements <a href="../api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>, <a href="../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>, <a href="../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></span></div>
 <div class="block">Provides a simple, simulated ManagedSymmetricEss component that can be used
  together with the OpenEMS Component test framework.</div>
 </section>
@@ -113,6 +113,9 @@ implements <a href="../api/ManagedSymmetricEss.html" title="interface in io.open
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-io.openems.edge.common.component.OpenemsComponent">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h2>
 <code><a href="../../common/component/OpenemsComponent.ChannelId.html" title="enum class in io.openems.edge.common.component">OpenemsComponent.ChannelId</a></code></div>
+<div class="inherited-list">
+<h2 id="nested-classes-inherited-from-class-io.openems.edge.common.startstop.StartStoppable">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.common.startstop.<a href="../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></h2>
+<code><a href="../../common/startstop/StartStoppable.ChannelId.html" title="enum class in io.openems.edge.common.startstop">StartStoppable.ChannelId</a></code></div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-io.openems.edge.ess.api.SymmetricEss">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.ess.api.<a href="../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></h2>
 <code><a href="../api/SymmetricEss.ChannelId.html" title="enum class in io.openems.edge.ess.api">SymmetricEss.ChannelId</a></code></div>
@@ -199,50 +202,55 @@ implements <a href="../api/ManagedSymmetricEss.html" title="interface in io.open
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSoc(int)" class="member-name-link">setSoc</a><wbr>(int&nbsp;soc)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withAllowedChargePower(int)" class="member-name-link">withAllowedChargePower</a><wbr>(int&nbsp;value)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setStartStop(io.openems.edge.common.startstop.StartStop)" class="member-name-link">setStartStop</a><wbr>(<a href="../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Starts or stops the device or service represented by this OpenEMS Component.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withAllowedChargePower(int)" class="member-name-link">withAllowedChargePower</a><wbr>(int&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set <a href="../api/ManagedSymmetricEss.ChannelId.html#ALLOWED_CHARGE_POWER"><code>ManagedSymmetricEss.ChannelId.ALLOWED_CHARGE_POWER</code></a> of this
  <a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test"><code>DummyManagedSymmetricEss</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withAllowedDischargePower(int)" class="member-name-link">withAllowedDischargePower</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withAllowedDischargePower(int)" class="member-name-link">withAllowedDischargePower</a><wbr>(int&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set <a href="../api/ManagedSymmetricEss.ChannelId.html#ALLOWED_DISCHARGE_POWER"><code>ManagedSymmetricEss.ChannelId.ALLOWED_DISCHARGE_POWER</code></a> of this
  <a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test"><code>DummyManagedSymmetricEss</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withCapacity(int)" class="member-name-link">withCapacity</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withCapacity(int)" class="member-name-link">withCapacity</a><wbr>(int&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set <a href="../api/SymmetricEss.ChannelId.html#CAPACITY"><code>SymmetricEss.ChannelId.CAPACITY</code></a> of this
  <a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test"><code>DummyManagedSymmetricEss</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withGridMode(io.openems.edge.common.sum.GridMode)" class="member-name-link">withGridMode</a><wbr>(<a href="../../common/sum/GridMode.html" title="enum class in io.openems.edge.common.sum">GridMode</a>&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withGridMode(io.openems.edge.common.sum.GridMode)" class="member-name-link">withGridMode</a><wbr>(<a href="../../common/sum/GridMode.html" title="enum class in io.openems.edge.common.sum">GridMode</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set <a href="../api/SymmetricEss.ChannelId.html#GRID_MODE"><code>SymmetricEss.ChannelId.GRID_MODE</code></a> of this
  <a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test"><code>DummyManagedSymmetricEss</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withMaxApparentPower(int)" class="member-name-link">withMaxApparentPower</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withMaxApparentPower(int)" class="member-name-link">withMaxApparentPower</a><wbr>(int&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set <a href="../api/SymmetricEss.ChannelId.html#MAX_APPARENT_POWER"><code>SymmetricEss.ChannelId.MAX_APPARENT_POWER</code></a> of this
  <a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test"><code>DummyManagedSymmetricEss</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withPowerPrecision(int)" class="member-name-link">withPowerPrecision</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withPowerPrecision(int)" class="member-name-link">withPowerPrecision</a><wbr>(int&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set Power Precision of this <a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test"><code>DummyManagedSymmetricEss</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withSoc(int)" class="member-name-link">withSoc</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withSoc(int)" class="member-name-link">withSoc</a><wbr>(int&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set <a href="../api/SymmetricEss.ChannelId.html#SOC"><code>SymmetricEss.ChannelId.SOC</code></a> of this
  <a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test"><code>DummyManagedSymmetricEss</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withSymmetricApplyPowerCallback(java.util.function.Consumer)" class="member-name-link">withSymmetricApplyPowerCallback</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="DummyManagedSymmetricEss.SymmetricApplyPowerRecord.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss.SymmetricApplyPowerRecord</a>&gt;&nbsp;callback)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withSymmetricApplyPowerCallback(java.util.function.Consumer)" class="member-name-link">withSymmetricApplyPowerCallback</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="DummyManagedSymmetricEss.SymmetricApplyPowerRecord.html" title="class in io.openems.edge.ess.test">DummyManagedSymmetricEss.SymmetricApplyPowerRecord</a>&gt;&nbsp;callback)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set callback for applyPower() of this <a href="DummyManagedSymmetricEss.html" title="class in io.openems.edge.ess.test"><code>DummyManagedSymmetricEss</code></a>.</div>
 </div>
 </div>
@@ -260,6 +268,9 @@ implements <a href="../api/ManagedSymmetricEss.html" title="interface in io.open
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.common.component.OpenemsComponent">Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
 <code><a href="../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../common/component/OpenemsComponent.html#debugLog()">debugLog</a>, <a href="../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.edge.common.startstop.StartStoppable">Methods inherited from interface&nbsp;io.openems.edge.common.startstop.<a href="../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></h3>
+<code><a href="../../common/startstop/StartStoppable.html#_setStartStop(io.openems.edge.common.startstop.StartStop)">_setStartStop</a>, <a href="../../common/startstop/StartStoppable.html#getStartStop()">getStartStop</a>, <a href="../../common/startstop/StartStoppable.html#getStartStopChannel()">getStartStopChannel</a>, <a href="../../common/startstop/StartStoppable.html#isStarted()">isStarted</a>, <a href="../../common/startstop/StartStoppable.html#isStopped()">isStopped</a>, <a href="../../common/startstop/StartStoppable.html#start()">start</a>, <a href="../../common/startstop/StartStoppable.html#stop()">stop</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.ess.api.SymmetricEss">Methods inherited from interface&nbsp;io.openems.edge.ess.api.<a href="../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></h3>
 <code><a href="../api/SymmetricEss.html#_setActiveChargeEnergy(long)">_setActiveChargeEnergy</a>, <a href="../api/SymmetricEss.html#_setActiveChargeEnergy(java.lang.Long)">_setActiveChargeEnergy</a>, <a href="../api/SymmetricEss.html#_setActiveDischargeEnergy(long)">_setActiveDischargeEnergy</a>, <a href="../api/SymmetricEss.html#_setActiveDischargeEnergy(java.lang.Long)">_setActiveDischargeEnergy</a>, <a href="../api/SymmetricEss.html#_setActivePower(int)">_setActivePower</a>, <a href="../api/SymmetricEss.html#_setActivePower(java.lang.Integer)">_setActivePower</a>, <a href="../api/SymmetricEss.html#_setCapacity(int)">_setCapacity</a>, <a href="../api/SymmetricEss.html#_setCapacity(java.lang.Integer)">_setCapacity</a>, <a href="../api/SymmetricEss.html#_setGridMode(io.openems.edge.common.sum.GridMode)">_setGridMode</a>, <a href="../api/SymmetricEss.html#_setMaxApparentPower(int)">_setMaxApparentPower</a>, <a href="../api/SymmetricEss.html#_setMaxApparentPower(java.lang.Integer)">_setMaxApparentPower</a>, <a href="../api/SymmetricEss.html#_setMaxCellTemperature(int)">_setMaxCellTemperature</a>, <a href="../api/SymmetricEss.html#_setMaxCellTemperature(java.lang.Integer)">_setMaxCellTemperature</a>, <a href="../api/SymmetricEss.html#_setMaxCellVoltage(int)">_setMaxCellVoltage</a>, <a href="../api/SymmetricEss.html#_setMaxCellVoltage(java.lang.Integer)">_setMaxCellVoltage</a>, <a href="../api/SymmetricEss.html#_setMinCellTemperature(int)">_setMinCellTemperature</a>, <a href="../api/SymmetricEss.html#_setMinCellTemperature(java.lang.Integer)">_setMinCellTemperature</a>, <a href="../api/SymmetricEss.html#_setMinCellVoltage(int)">_setMinCellVoltage</a>, <a href="../api/SymmetricEss.html#_setMinCellVoltage(java.lang.Integer)">_setMinCellVoltage</a>, <a href="../api/SymmetricEss.html#_setReactivePower(int)">_setReactivePower</a>, <a href="../api/SymmetricEss.html#_setReactivePower(java.lang.Integer)">_setReactivePower</a>, <a href="../api/SymmetricEss.html#_setSoc(int)">_setSoc</a>, <a href="../api/SymmetricEss.html#_setSoc(java.lang.Integer)">_setSoc</a>, <a href="../api/SymmetricEss.html#getActiveChargeEnergy()">getActiveChargeEnergy</a>, <a href="../api/SymmetricEss.html#getActiveChargeEnergyChannel()">getActiveChargeEnergyChannel</a>, <a href="../api/SymmetricEss.html#getActiveDischargeEnergy()">getActiveDischargeEnergy</a>, <a href="../api/SymmetricEss.html#getActiveDischargeEnergyChannel()">getActiveDischargeEnergyChannel</a>, <a href="../api/SymmetricEss.html#getActivePower()">getActivePower</a>, <a href="../api/SymmetricEss.html#getActivePowerChannel()">getActivePowerChannel</a>, <a href="../api/SymmetricEss.html#getCapacity()">getCapacity</a>, <a href="../api/SymmetricEss.html#getCapacityChannel()">getCapacityChannel</a>, <a href="../api/SymmetricEss.html#getGridMode()">getGridMode</a>, <a href="../api/SymmetricEss.html#getGridModeChannel()">getGridModeChannel</a>, <a href="../api/SymmetricEss.html#getMaxApparentPower()">getMaxApparentPower</a>, <a href="../api/SymmetricEss.html#getMaxApparentPowerChannel()">getMaxApparentPowerChannel</a>, <a href="../api/SymmetricEss.html#getMaxCellTemperature()">getMaxCellTemperature</a>, <a href="../api/SymmetricEss.html#getMaxCellTemperatureChannel()">getMaxCellTemperatureChannel</a>, <a href="../api/SymmetricEss.html#getMaxCellVoltage()">getMaxCellVoltage</a>, <a href="../api/SymmetricEss.html#getMaxCellVoltageChannel()">getMaxCellVoltageChannel</a>, <a href="../api/SymmetricEss.html#getMinCellTemperature()">getMinCellTemperature</a>, <a href="../api/SymmetricEss.html#getMinCellTemperatureChannel()">getMinCellTemperatureChannel</a>, <a href="../api/SymmetricEss.html#getMinCellVoltage()">getMinCellVoltage</a>, <a href="../api/SymmetricEss.html#getMinCellVoltageChannel()">getMinCellVoltageChannel</a>, <a href="../api/SymmetricEss.html#getReactivePower()">getReactivePower</a>, <a href="../api/SymmetricEss.html#getReactivePowerChannel()">getReactivePowerChannel</a>, <a href="../api/SymmetricEss.html#getSoc()">getSoc</a>, <a href="../api/SymmetricEss.html#getSocChannel()">getSocChannel</a></code></div>
@@ -515,6 +526,23 @@ implements <a href="../api/ManagedSymmetricEss.html" title="interface in io.open
 <dt>Parameters:</dt>
 <dd><code>activePower</code> - the active power in [W]</dd>
 <dd><code>reactivePower</code> - the reactive power in [var]</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setStartStop(io.openems.edge.common.startstop.StartStop)">
+<h3>setStartStop</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setStartStop</span><wbr><span class="parameters">(<a href="../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</span>
+                  throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/startstop/StartStoppable.html#setStartStop(io.openems.edge.common.startstop.StartStop)">StartStoppable</a></code></span></div>
+<div class="block">Starts or stops the device or service represented by this OpenEMS Component.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/startstop/StartStoppable.html#setStartStop(io.openems.edge.common.startstop.StartStop)">setStartStop</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>value</code> - target <a href="../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop"><code>StartStop</code></a> state</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </section>
 </li>
