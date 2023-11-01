@@ -44,7 +44,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -77,9 +77,14 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code>org.osgi.service.cm.ConfigurationListener</code></dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">AppValidateWorker</span>
-<span class="extends-implements">extends <a href="../../../common/worker/AbstractWorker.html" title="class in io.openems.common.worker">AbstractWorker</a></span></div>
+<span class="extends-implements">extends <a href="../../../common/worker/AbstractWorker.html" title="class in io.openems.common.worker">AbstractWorker</a>
+implements org.osgi.service.cm.ConfigurationListener</span></div>
 <div class="block">This Worker constantly validates:.
 
  <ul>
@@ -89,6 +94,21 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="AppValidateWorker.Config.html" class="type-name-link" title="class in io.openems.edge.core.appmanager">AppValidateWorker.Config</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
 <!-- =========== FIELD SUMMARY =========== -->
 <li>
 <section class="field-summary" id="field-summary">
@@ -117,7 +137,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(io.openems.edge.core.appmanager.AppManagerImpl)" class="member-name-link">AppValidateWorker</a><wbr>(<a href="AppManagerImpl.html" title="class in io.openems.edge.core.appmanager">AppManagerImpl</a>&nbsp;parent)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">AppValidateWorker</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -133,40 +153,40 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#configurationEvent(org.osgi.service.cm.ConfigurationEvent)" class="member-name-link">configurationEvent</a><wbr>(org.osgi.service.cm.ConfigurationEvent&nbsp;event)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Called by <code>ConfigurationListener</code>.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#debugLog()" class="member-name-link">debugLog</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Stops the worker thread.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#debugLog()" class="member-name-link">debugLog</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Called by parent debugLog.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forever()" class="member-name-link">forever</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forever()" class="member-name-link">forever</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">This method is called in a loop forever until the Thread gets interrupted.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCycleTime()" class="member-name-link">getCycleTime</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCycleTime()" class="member-name-link">getCycleTime</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the cycleTime of this worker in [ms].</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfig(io.openems.edge.core.appmanager.AppValidateWorker.Config)" class="member-name-link">setConfig</a><wbr>(<a href="AppValidateWorker.Config.html" title="class in io.openems.edge.core.appmanager">AppValidateWorker.Config</a>&nbsp;config)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#triggerNextRun()" class="member-name-link">triggerNextRun</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Allows the next execution of the forever() method.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validateApp(io.openems.edge.core.appmanager.OpenemsApp,io.openems.edge.core.appmanager.OpenemsAppInstance)" class="member-name-link">validateApp</a><wbr>(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
- <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&nbsp;instance)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validateApps()" class="member-name-link">validateApps</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Validates all Apps.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validateApps()" class="member-name-link">validateApps</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Validates all Apps.</div>
 </div>
 </div>
@@ -174,7 +194,7 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.common.worker.AbstractWorker">Methods inherited from class&nbsp;io.openems.common.worker.<a href="../../../common/worker/AbstractWorker.html" title="class in io.openems.common.worker">AbstractWorker</a></h3>
-<code><a href="../../../common/worker/AbstractWorker.html#activate(java.lang.String)">activate</a>, <a href="../../../common/worker/AbstractWorker.html#activate(java.lang.String,boolean)">activate</a>, <a href="../../../common/worker/AbstractWorker.html#deactivate()">deactivate</a>, <a href="../../../common/worker/AbstractWorker.html#modified(java.lang.String)">modified</a>, <a href="../../../common/worker/AbstractWorker.html#modified(java.lang.String,boolean)">modified</a></code></div>
+<code><a href="../../../common/worker/AbstractWorker.html#activate(java.lang.String)">activate</a>, <a href="../../../common/worker/AbstractWorker.html#activate(java.lang.String,boolean)">activate</a>, <a href="../../../common/worker/AbstractWorker.html#modified(java.lang.String)">modified</a>, <a href="../../../common/worker/AbstractWorker.html#modified(java.lang.String,boolean)">modified</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -205,9 +225,9 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(io.openems.edge.core.appmanager.AppManagerImpl)">
+<section class="detail" id="&lt;init&gt;()">
 <h3>AppValidateWorker</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">AppValidateWorker</span><wbr><span class="parameters">(<a href="AppManagerImpl.html" title="class in io.openems.edge.core.appmanager">AppManagerImpl</a>&nbsp;parent)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">AppValidateWorker</span>()</div>
 </section>
 </li>
 </ul>
@@ -219,24 +239,24 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="configurationEvent(org.osgi.service.cm.ConfigurationEvent)">
-<h3>configurationEvent</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">configurationEvent</span><wbr><span class="parameters">(org.osgi.service.cm.ConfigurationEvent&nbsp;event)</span></div>
-<div class="block">Called by <code>ConfigurationListener</code>.</div>
+<section class="detail" id="deactivate()">
+<h3>deactivate</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deactivate</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="../../../common/worker/AbstractWorker.html#deactivate()">AbstractWorker</a></code></span></div>
+<div class="block">Stops the worker thread.</div>
 <dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>event</code> - a <code>ConfigurationEvent</code></dd>
+<dt>Overrides:</dt>
+<dd><code><a href="../../../common/worker/AbstractWorker.html#deactivate()">deactivate</a></code>&nbsp;in class&nbsp;<code><a href="../../../common/worker/AbstractWorker.html" title="class in io.openems.common.worker">AbstractWorker</a></code></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="debugLog()">
-<h3>debugLog</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">debugLog</span>()</div>
-<div class="block">Called by parent debugLog.</div>
+<section class="detail" id="configurationEvent(org.osgi.service.cm.ConfigurationEvent)">
+<h3>configurationEvent</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">configurationEvent</span><wbr><span class="parameters">(org.osgi.service.cm.ConfigurationEvent&nbsp;event)</span></div>
 <dl class="notes">
-<dt>Returns:</dt>
-<dd>a debug log String or null</dd>
+<dt>Specified by:</dt>
+<dd><code>configurationEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.cm.ConfigurationListener</code></dd>
 </dl>
 </section>
 </li>
@@ -285,18 +305,19 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="validateApp(io.openems.edge.core.appmanager.OpenemsApp,io.openems.edge.core.appmanager.OpenemsAppInstance)">
-<h3>validateApp</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">validateApp</span><wbr><span class="parameters">(<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&nbsp;app,
- <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&nbsp;instance)</span></div>
-<div class="block">Validates all Apps.
-
- <p>
- 'protected' so that it can be used in a JUnit test.</div>
+<section class="detail" id="setConfig(io.openems.edge.core.appmanager.AppValidateWorker.Config)">
+<h3>setConfig</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setConfig</span><wbr><span class="parameters">(<a href="AppValidateWorker.Config.html" title="class in io.openems.edge.core.appmanager">AppValidateWorker.Config</a>&nbsp;config)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="debugLog()">
+<h3>debugLog</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">debugLog</span>()</div>
+<div class="block">Called by parent debugLog.</div>
 <dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>app</code> - the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a></dd>
-<dd><code>instance</code> - the App instance</dd>
+<dt>Returns:</dt>
+<dd>a debug log String or null</dd>
 </dl>
 </section>
 </li>

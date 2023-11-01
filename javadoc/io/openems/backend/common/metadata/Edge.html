@@ -170,55 +170,38 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLastmessage()" class="member-name-link">setLastmessage</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets the Last-Message-Timestamp to now() and calls the
- setLastmessage-Listeners.</div>
+<div class="block">Sets the Last-Message-Timestamp to now() (truncated to Minutes) and emits a
+ ON_SET_LASTMESSAGE event; but only max one event per Minute.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLastmessage(java.time.ZonedDateTime)" class="member-name-link">setLastmessage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;timestamp)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets the Last-Message-Timestamp and calls the setLastmessage-Listeners.</div>
+<div class="block">Sets the Last-Message-Timestamp (truncated to Minutes) and emits a
+ ON_SET_LASTMESSAGE event; but only max one event per Minute.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLastmessage(java.time.ZonedDateTime,boolean)" class="member-name-link">setLastmessage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;timestamp,
- boolean&nbsp;callListeners)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnline(boolean)" class="member-name-link">setOnline</a><wbr>(boolean&nbsp;isOnline)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets the Last-Message-Timestamp.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnline(boolean)" class="member-name-link">setOnline</a><wbr>(boolean&nbsp;isOnline)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Marks this Edge as being online.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setProducttype(java.lang.String)" class="member-name-link">setProducttype</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;producttype)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets the Producttype and calls the SetProducttype-Listeners.</div>
-</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setProducttype(java.lang.String,boolean)" class="member-name-link">setProducttype</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;producttype,
- boolean&nbsp;callListeners)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setProducttype(java.lang.String)" class="member-name-link">setProducttype</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;producttype)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets the Producttype.</div>
+<div class="block">Sets the Producttype and emits a ON_SET_PRODUCTTYPE event.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setVersion(io.openems.common.types.SemanticVersion)" class="member-name-link">setVersion</a><wbr>(<a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a>&nbsp;version)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets the version and calls the SetVersion-Listeners.</div>
+<div class="block">Sets the version and emits a ON_SET_VERSION event.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setVersion(io.openems.common.types.SemanticVersion,boolean)" class="member-name-link">setVersion</a><wbr>(<a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a>&nbsp;version,
- boolean&nbsp;callListeners)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.google.gson.JsonObject</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toJsonObject()" class="member-name-link">toJsonObject</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets the version.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.google.gson.JsonObject</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toJsonObject()" class="member-name-link">toJsonObject</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets this <a href="Edge.html" title="class in io.openems.backend.common.metadata"><code>Edge</code></a> as <code>JsonObject</code>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -321,31 +304,19 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="setLastmessage()">
 <h3>setLastmessage</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLastmessage</span>()</div>
-<div class="block">Sets the Last-Message-Timestamp to now() and calls the
- setLastmessage-Listeners.</div>
+<div class="block">Sets the Last-Message-Timestamp to now() (truncated to Minutes) and emits a
+ ON_SET_LASTMESSAGE event; but only max one event per Minute.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setLastmessage(java.time.ZonedDateTime)">
 <h3>setLastmessage</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLastmessage</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;timestamp)</span></div>
-<div class="block">Sets the Last-Message-Timestamp and calls the setLastmessage-Listeners.</div>
+<div class="block">Sets the Last-Message-Timestamp (truncated to Minutes) and emits a
+ ON_SET_LASTMESSAGE event; but only max one event per Minute.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>timestamp</code> - the Last-Message-Timestamp</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="setLastmessage(java.time.ZonedDateTime,boolean)">
-<h3>setLastmessage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLastmessage</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;timestamp,
- boolean&nbsp;callListeners)</span></div>
-<div class="block">Sets the Last-Message-Timestamp.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>timestamp</code> - the Last-Message-Timestamp</dd>
-<dd><code>callListeners</code> - whether to call the setLastmessage-Listeners</dd>
 </dl>
 </section>
 </li>
@@ -370,23 +341,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="setVersion(io.openems.common.types.SemanticVersion)">
 <h3>setVersion</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setVersion</span><wbr><span class="parameters">(<a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a>&nbsp;version)</span></div>
-<div class="block">Sets the version and calls the SetVersion-Listeners.</div>
+<div class="block">Sets the version and emits a ON_SET_VERSION event.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>version</code> - the version</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="setVersion(io.openems.common.types.SemanticVersion,boolean)">
-<h3>setVersion</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setVersion</span><wbr><span class="parameters">(<a href="../../../common/types/SemanticVersion.html" title="class in io.openems.common.types">SemanticVersion</a>&nbsp;version,
- boolean&nbsp;callListeners)</span></div>
-<div class="block">Sets the version.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>version</code> - the version</dd>
-<dd><code>callListeners</code> - whether to call the SetVersion-Listeners</dd>
 </dl>
 </section>
 </li>
@@ -400,23 +358,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="setProducttype(java.lang.String)">
 <h3>setProducttype</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setProducttype</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;producttype)</span></div>
-<div class="block">Sets the Producttype and calls the SetProducttype-Listeners.</div>
+<div class="block">Sets the Producttype and emits a ON_SET_PRODUCTTYPE event.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>producttype</code> - the Producttype</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="setProducttype(java.lang.String,boolean)">
-<h3>setProducttype</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setProducttype</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;producttype,
- boolean&nbsp;callListeners)</span></div>
-<div class="block">Sets the Producttype.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>producttype</code> - the Producttype</dd>
-<dd><code>callListeners</code> - whether to call the SetProducttype-Listeners</dd>
 </dl>
 </section>
 </li>

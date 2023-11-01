@@ -74,7 +74,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Superinterfaces:</dt>
-<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code></dd>
+<dd><code><a href="../../../ess/dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api">EssDcCharger</a></code>, <code><a href="../GoodWeCharger.html" title="interface in io.openems.edge.goodwe.charger">GoodWeCharger</a></code>, <code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code></dd>
 </dl>
 <dl class="notes">
 <dt>All Known Implementing Classes:</dt>
@@ -82,7 +82,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">GoodWeChargerTwoString</span><span class="extends-implements">
-extends <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></span></div>
+extends <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api">EssDcCharger</a>, <a href="../GoodWeCharger.html" title="interface in io.openems.edge.goodwe.charger">GoodWeCharger</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -106,25 +106,33 @@ extends <a href="../../../common/component/OpenemsComponent.html" title="interfa
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel">
 <div class="summary-table three-column-summary" aria-labelledby="method-summary-table-tab0">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/IntegerReadChannel.html" title="class in io.openems.edge.common.channel">IntegerReadChannel</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getTotalMpptCurrentChannel()" class="member-name-link">getTotalMpptCurrentChannel</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Gets the Channel for <a href="GoodWeChargerTwoString.ChannelId.html#TOTAL_MPPT_CURRENT"><code>GoodWeChargerTwoString.ChannelId.TOTAL_MPPT_CURRENT</code></a>.</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#calculateByRuleOfThree(java.util.Optional,java.util.Optional,java.util.Optional)" class="member-name-link">calculateByRuleOfThree</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;total,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;divisor,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;related)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
+<div class="block">Calculate a value by rule of three.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/IntegerReadChannel.html" title="class in io.openems.edge.common.channel">IntegerReadChannel</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getTotalMpptPowerChannel()" class="member-name-link">getTotalMpptPowerChannel</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Gets the Channel for <a href="GoodWeChargerTwoString.ChannelId.html#TOTAL_MPPT_POWER"><code>GoodWeChargerTwoString.ChannelId.TOTAL_MPPT_POWER</code></a>.</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="PvPort.html" title="enum class in io.openems.edge.goodwe.charger.twostring">PvPort</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#pvPort()" class="member-name-link">pvPort</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Used PV port of the GoodWe inverter.</div>
 </div>
 </div>
 </div>
 </div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.edge.ess.dccharger.api.EssDcCharger">Methods inherited from interface&nbsp;io.openems.edge.ess.dccharger.api.<a href="../../../ess/dccharger/api/EssDcCharger.html" title="interface in io.openems.edge.ess.dccharger.api">EssDcCharger</a></h3>
+<code><a href="../../../ess/dccharger/api/EssDcCharger.html#_setActualEnergy(long)">_setActualEnergy</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#_setActualEnergy(java.lang.Long)">_setActualEnergy</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#_setActualPower(int)">_setActualPower</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#_setActualPower(java.lang.Integer)">_setActualPower</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#_setCurrent(int)">_setCurrent</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#_setCurrent(java.lang.Integer)">_setCurrent</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#_setMaxActualPower(int)">_setMaxActualPower</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#_setMaxActualPower(java.lang.Integer)">_setMaxActualPower</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#_setVoltage(int)">_setVoltage</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#_setVoltage(java.lang.Integer)">_setVoltage</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#getActualEnergy()">getActualEnergy</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#getActualEnergyChannel()">getActualEnergyChannel</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#getActualPower()">getActualPower</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#getActualPowerChannel()">getActualPowerChannel</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#getCurrent()">getCurrent</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#getCurrentChannel()">getCurrentChannel</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#getMaxActualPower()">getMaxActualPower</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#getMaxActualPowerChannel()">getMaxActualPowerChannel</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#getVoltage()">getVoltage</a>, <a href="../../../ess/dccharger/api/EssDcCharger.html#getVoltageChannel()">getVoltageChannel</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.edge.goodwe.charger.GoodWeCharger">Methods inherited from interface&nbsp;io.openems.edge.goodwe.charger.<a href="../GoodWeCharger.html" title="interface in io.openems.edge.goodwe.charger">GoodWeCharger</a></h3>
+<code><a href="../GoodWeCharger.html#_setHasNoDcPv(java.lang.Boolean)">_setHasNoDcPv</a>, <a href="../GoodWeCharger.html#getHasNoDcPv()">getHasNoDcPv</a>, <a href="../GoodWeCharger.html#getHasNoDcPvChannel()">getHasNoDcPvChannel</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.common.component.OpenemsComponent">Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
 <code><a href="../../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../../common/component/OpenemsComponent.html#debugLog()">debugLog</a>, <a href="../../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></div>
@@ -140,24 +148,37 @@ extends <a href="../../../common/component/OpenemsComponent.html" title="interfa
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="getTotalMpptPowerChannel()">
-<h3>getTotalMpptPowerChannel</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/IntegerReadChannel.html" title="class in io.openems.edge.common.channel">IntegerReadChannel</a></span>&nbsp;<span class="element-name">getTotalMpptPowerChannel</span>()</div>
-<div class="block">Gets the Channel for <a href="GoodWeChargerTwoString.ChannelId.html#TOTAL_MPPT_POWER"><code>GoodWeChargerTwoString.ChannelId.TOTAL_MPPT_POWER</code></a>.</div>
+<section class="detail" id="pvPort()">
+<h3>pvPort</h3>
+<div class="member-signature"><span class="return-type"><a href="PvPort.html" title="enum class in io.openems.edge.goodwe.charger.twostring">PvPort</a></span>&nbsp;<span class="element-name">pvPort</span>()</div>
+<div class="block">Used PV port of the GoodWe inverter.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the Channel</dd>
+<dd>Used PV port</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="getTotalMpptCurrentChannel()">
-<h3>getTotalMpptCurrentChannel</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/IntegerReadChannel.html" title="class in io.openems.edge.common.channel">IntegerReadChannel</a></span>&nbsp;<span class="element-name">getTotalMpptCurrentChannel</span>()</div>
-<div class="block">Gets the Channel for <a href="GoodWeChargerTwoString.ChannelId.html#TOTAL_MPPT_CURRENT"><code>GoodWeChargerTwoString.ChannelId.TOTAL_MPPT_CURRENT</code></a>.</div>
+<section class="detail" id="calculateByRuleOfThree(java.util.Optional,java.util.Optional,java.util.Optional)">
+<h3>calculateByRuleOfThree</h3>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">calculateByRuleOfThree</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;total,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;divisor,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;related)</span></div>
+<div class="block">Calculate a value by rule of three.
+ 
+ <p>
+ Solves proportions and calculate the unknown value.
+ 
+ <p>
+ Assure that the unit of the divisor and relatedValue are the same.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>total</code> - total optional of the required unit</dd>
+<dd><code>divisor</code> - divisor of the known unit</dd>
+<dd><code>related</code> - related optional with the known unit</dd>
 <dt>Returns:</dt>
-<dd>the Channel</dd>
+<dd>the calculated result. Return null for empty parameters or zero
+         divisor</dd>
 </dl>
 </section>
 </li>
