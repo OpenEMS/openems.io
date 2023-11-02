@@ -73,7 +73,11 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
 <div class="inheritance"><a href="../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">io.openems.edge.common.component.AbstractOpenemsComponent</a>
+<div class="inheritance"><a href="../../common/test/AbstractDummyOpenemsComponent.html" title="class in io.openems.edge.common.test">io.openems.edge.common.test.AbstractDummyOpenemsComponent</a>&lt;SELF&gt;
+<div class="inheritance"><a href="AbstractDummyBattery.html" title="class in io.openems.edge.battery.test">io.openems.edge.battery.test.AbstractDummyBattery</a>&lt;<a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a>&gt;
 <div class="inheritance">io.openems.edge.battery.test.DummyBattery</div>
+</div>
+</div>
 </div>
 </div>
 <section class="class-description" id="class-description">
@@ -83,7 +87,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">DummyBattery</span>
-<span class="extends-implements">extends <a href="../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
+<span class="extends-implements">extends <a href="AbstractDummyBattery.html" title="class in io.openems.edge.battery.test">AbstractDummyBattery</a>&lt;<a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a>&gt;
 implements <a href="../api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></span></div>
 <div class="block">Provides a simple, simulated <a href="../api/Battery.html" title="interface in io.openems.edge.battery.api"><code>Battery</code></a> component that can be used
  together with the OpenEMS Component test framework.</div>
@@ -115,9 +119,6 @@ implements <a href="../api/Battery.html" title="interface in io.openems.edge.bat
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String)" class="member-name-link">DummyBattery</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String,io.openems.edge.common.channel.ChannelId%5B%5D)" class="member-name-link">DummyBattery</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id,
- <a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]&nbsp;additionalChannelIds)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -132,64 +133,15 @@ implements <a href="../api/Battery.html" title="interface in io.openems.edge.bat
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setStartStop(io.openems.edge.common.startstop.StartStop)" class="member-name-link">setStartStop</a><wbr>(<a href="../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Starts or stops the device or service represented by this OpenEMS Component.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withCapacity(int)" class="member-name-link">withCapacity</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#CAPACITY"><code>Battery.ChannelId.CAPACITY</code></a>.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withChargeMaxCurrent(int)" class="member-name-link">withChargeMaxCurrent</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#CHARGE_MAX_CURRENT"><code>Battery.ChannelId.CHARGE_MAX_CURRENT</code></a>.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withDischargeMaxCurrent(int)" class="member-name-link">withDischargeMaxCurrent</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#DISCHARGE_MAX_CURRENT"><code>Battery.ChannelId.DISCHARGE_MAX_CURRENT</code></a>.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withMaxCellTemperature(int)" class="member-name-link">withMaxCellTemperature</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#MAX_CELL_TEMPERATURE"><code>Battery.ChannelId.MAX_CELL_TEMPERATURE</code></a>.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withMaxCellVoltage(int)" class="member-name-link">withMaxCellVoltage</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#MAX_CELL_VOLTAGE"><code>Battery.ChannelId.MAX_CELL_VOLTAGE</code></a>.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withMinCellTemperature(int)" class="member-name-link">withMinCellTemperature</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#MIN_CELL_TEMPERATURE"><code>Battery.ChannelId.MIN_CELL_TEMPERATURE</code></a>.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withMinCellVoltage(int)" class="member-name-link">withMinCellVoltage</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#MIN_CELL_VOLTAGE"><code>Battery.ChannelId.MIN_CELL_VOLTAGE</code></a>.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withSoc(int)" class="member-name-link">withSoc</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#SOC"><code>Battery.ChannelId.SOC</code></a>.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withStartStop(io.openems.edge.common.startstop.StartStop)" class="member-name-link">withStartStop</a><wbr>(<a href="../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets and applies the <code>StartStop.ChannelId#START_STOP</code>.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withVoltage(int)" class="member-name-link">withVoltage</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#VOLTAGE"><code>Battery.ChannelId.VOLTAGE</code></a>.</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#self()" class="member-name-link">self</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
-</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.edge.battery.test.AbstractDummyBattery">Methods inherited from class&nbsp;io.openems.edge.battery.test.<a href="AbstractDummyBattery.html" title="class in io.openems.edge.battery.test">AbstractDummyBattery</a></h3>
+<code><a href="AbstractDummyBattery.html#setStartStop(io.openems.edge.common.startstop.StartStop)">setStartStop</a>, <a href="AbstractDummyBattery.html#withCapacity(int)">withCapacity</a>, <a href="AbstractDummyBattery.html#withChargeMaxCurrent(int)">withChargeMaxCurrent</a>, <a href="AbstractDummyBattery.html#withChargeMaxVoltage(int)">withChargeMaxVoltage</a>, <a href="AbstractDummyBattery.html#withCurrent(int)">withCurrent</a>, <a href="AbstractDummyBattery.html#withDischargeMaxCurrent(int)">withDischargeMaxCurrent</a>, <a href="AbstractDummyBattery.html#withDischargeMinVoltage(int)">withDischargeMinVoltage</a>, <a href="AbstractDummyBattery.html#withMaxCellTemperature(int)">withMaxCellTemperature</a>, <a href="AbstractDummyBattery.html#withMaxCellVoltage(int)">withMaxCellVoltage</a>, <a href="AbstractDummyBattery.html#withMinCellTemperature(int)">withMinCellTemperature</a>, <a href="AbstractDummyBattery.html#withMinCellVoltage(int)">withMinCellVoltage</a>, <a href="AbstractDummyBattery.html#withSoc(int)">withSoc</a>, <a href="AbstractDummyBattery.html#withSoh(int)">withSoh</a>, <a href="AbstractDummyBattery.html#withStartStop(io.openems.edge.common.startstop.StartStop)">withStartStop</a>, <a href="AbstractDummyBattery.html#withVoltage(int)">withVoltage</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.common.component.AbstractOpenemsComponent">Methods inherited from class&nbsp;io.openems.edge.common.component.<a href="../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a></h3>
 <code><a href="../../common/component/AbstractOpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../common/component/AbstractOpenemsComponent.html#activate(java.lang.String)">activate</a>, <a href="../../common/component/AbstractOpenemsComponent.html#activate(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">activate</a>, <a href="../../common/component/AbstractOpenemsComponent.html#addChannel(io.openems.edge.common.channel.ChannelId)">addChannel</a>, <a href="../../common/component/AbstractOpenemsComponent.html#addChannels(io.openems.edge.common.channel.ChannelId%5B%5D)">addChannels</a>, <a href="../../common/component/AbstractOpenemsComponent.html#addChannels(io.openems.edge.common.channel.ChannelId%5B%5D%5B%5D)">addChannels</a>, <a href="../../common/component/AbstractOpenemsComponent.html#alias()">alias</a>, <a href="../../common/component/AbstractOpenemsComponent.html#channels()">channels</a>, <a href="../../common/component/AbstractOpenemsComponent.html#deactivate()">deactivate</a>, <a href="../../common/component/AbstractOpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../common/component/AbstractOpenemsComponent.html#id()">id</a>, <a href="../../common/component/AbstractOpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../common/component/AbstractOpenemsComponent.html#logDebug(org.slf4j.Logger,java.lang.String)">logDebug</a>, <a href="../../common/component/AbstractOpenemsComponent.html#logError(org.slf4j.Logger,java.lang.String)">logError</a>, <a href="../../common/component/AbstractOpenemsComponent.html#logInfo(org.slf4j.Logger,java.lang.String)">logInfo</a>, <a href="../../common/component/AbstractOpenemsComponent.html#logWarn(org.slf4j.Logger,java.lang.String)">logWarn</a>, <a href="../../common/component/AbstractOpenemsComponent.html#modified(org.osgi.service.component.ComponentContext,java.lang.String,java.lang.String,boolean)">modified</a>, <a href="../../common/component/AbstractOpenemsComponent.html#removeChannel(io.openems.edge.common.channel.Channel)">removeChannel</a></code></div>
@@ -204,7 +156,7 @@ implements <a href="../api/Battery.html" title="interface in io.openems.edge.bat
 <code><a href="../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../common/component/OpenemsComponent.html#debugLog()">debugLog</a>, <a href="../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.common.startstop.StartStoppable">Methods inherited from interface&nbsp;io.openems.edge.common.startstop.<a href="../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></h3>
-<code><a href="../../common/startstop/StartStoppable.html#_setStartStop(io.openems.edge.common.startstop.StartStop)">_setStartStop</a>, <a href="../../common/startstop/StartStoppable.html#getStartStop()">getStartStop</a>, <a href="../../common/startstop/StartStoppable.html#getStartStopChannel()">getStartStopChannel</a>, <a href="../../common/startstop/StartStoppable.html#isStarted()">isStarted</a>, <a href="../../common/startstop/StartStoppable.html#isStopped()">isStopped</a>, <a href="../../common/startstop/StartStoppable.html#start()">start</a>, <a href="../../common/startstop/StartStoppable.html#stop()">stop</a></code></div>
+<code><a href="../../common/startstop/StartStoppable.html#_setStartStop(io.openems.edge.common.startstop.StartStop)">_setStartStop</a>, <a href="../../common/startstop/StartStoppable.html#getStartStop()">getStartStop</a>, <a href="../../common/startstop/StartStoppable.html#getStartStopChannel()">getStartStopChannel</a>, <a href="../../common/startstop/StartStoppable.html#isStarted()">isStarted</a>, <a href="../../common/startstop/StartStoppable.html#isStopped()">isStopped</a>, <a href="../../common/startstop/StartStoppable.html#setStartStop(io.openems.edge.common.startstop.StartStop)">setStartStop</a>, <a href="../../common/startstop/StartStoppable.html#start()">start</a>, <a href="../../common/startstop/StartStoppable.html#stop()">stop</a></code></div>
 </section>
 </li>
 </ul>
@@ -222,13 +174,6 @@ implements <a href="../api/Battery.html" title="interface in io.openems.edge.bat
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DummyBattery</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</span></div>
 </section>
 </li>
-<li>
-<section class="detail" id="&lt;init&gt;(java.lang.String,io.openems.edge.common.channel.ChannelId[])">
-<h3>DummyBattery</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DummyBattery</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id,
- <a href="../../common/channel/ChannelId.html" title="interface in io.openems.edge.common.channel">ChannelId</a>[]&nbsp;additionalChannelIds)</span></div>
-</section>
-</li>
 </ul>
 </section>
 </li>
@@ -238,149 +183,12 @@ implements <a href="../api/Battery.html" title="interface in io.openems.edge.bat
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="setStartStop(io.openems.edge.common.startstop.StartStop)">
-<h3>setStartStop</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setStartStop</span><wbr><span class="parameters">(<a href="../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</span>
-                  throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/startstop/StartStoppable.html#setStartStop(io.openems.edge.common.startstop.StartStop)">StartStoppable</a></code></span></div>
-<div class="block">Starts or stops the device or service represented by this OpenEMS Component.</div>
+<section class="detail" id="self()">
+<h3>self</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></span>&nbsp;<span class="element-name">self</span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../common/startstop/StartStoppable.html#setStartStop(io.openems.edge.common.startstop.StartStop)">setStartStop</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></code></dd>
-<dt>Parameters:</dt>
-<dd><code>value</code> - target <a href="../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop"><code>StartStop</code></a> state</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="withStartStop(io.openems.edge.common.startstop.StartStop)">
-<h3>withStartStop</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></span>&nbsp;<span class="element-name">withStartStop</span><wbr><span class="parameters">(<a href="../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</span></div>
-<div class="block">Sets and applies the <code>StartStop.ChannelId#START_STOP</code>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>value</code> - the <a href="../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop"><code>StartStop</code></a> state</dd>
-<dt>Returns:</dt>
-<dd>myself</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="withSoc(int)">
-<h3>withSoc</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></span>&nbsp;<span class="element-name">withSoc</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#SOC"><code>Battery.ChannelId.SOC</code></a>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>value</code> - the Soc in [%]</dd>
-<dt>Returns:</dt>
-<dd>myself</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="withCapacity(int)">
-<h3>withCapacity</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></span>&nbsp;<span class="element-name">withCapacity</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#CAPACITY"><code>Battery.ChannelId.CAPACITY</code></a>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>value</code> - the Capacity in [Wh]</dd>
-<dt>Returns:</dt>
-<dd>myself</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="withVoltage(int)">
-<h3>withVoltage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></span>&nbsp;<span class="element-name">withVoltage</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#VOLTAGE"><code>Battery.ChannelId.VOLTAGE</code></a>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>value</code> - the Capacity in [V]</dd>
-<dt>Returns:</dt>
-<dd>myself</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="withDischargeMaxCurrent(int)">
-<h3>withDischargeMaxCurrent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></span>&nbsp;<span class="element-name">withDischargeMaxCurrent</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#DISCHARGE_MAX_CURRENT"><code>Battery.ChannelId.DISCHARGE_MAX_CURRENT</code></a>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>value</code> - the Discharge Max Current in [A]</dd>
-<dt>Returns:</dt>
-<dd>myself</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="withChargeMaxCurrent(int)">
-<h3>withChargeMaxCurrent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></span>&nbsp;<span class="element-name">withChargeMaxCurrent</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#CHARGE_MAX_CURRENT"><code>Battery.ChannelId.CHARGE_MAX_CURRENT</code></a>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>value</code> - the Charge Max Current in [A]</dd>
-<dt>Returns:</dt>
-<dd>myself</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="withMinCellVoltage(int)">
-<h3>withMinCellVoltage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></span>&nbsp;<span class="element-name">withMinCellVoltage</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#MIN_CELL_VOLTAGE"><code>Battery.ChannelId.MIN_CELL_VOLTAGE</code></a>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>value</code> - the Min-Cell-Voltage in [mV]</dd>
-<dt>Returns:</dt>
-<dd>myself</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="withMaxCellVoltage(int)">
-<h3>withMaxCellVoltage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></span>&nbsp;<span class="element-name">withMaxCellVoltage</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#MAX_CELL_VOLTAGE"><code>Battery.ChannelId.MAX_CELL_VOLTAGE</code></a>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>value</code> - the Max-Cell-Voltage in [mV]</dd>
-<dt>Returns:</dt>
-<dd>myself</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="withMinCellTemperature(int)">
-<h3>withMinCellTemperature</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></span>&nbsp;<span class="element-name">withMinCellTemperature</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#MIN_CELL_TEMPERATURE"><code>Battery.ChannelId.MIN_CELL_TEMPERATURE</code></a>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>value</code> - the Min-Cell-Temperature in [degC]</dd>
-<dt>Returns:</dt>
-<dd>myself</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="withMaxCellTemperature(int)">
-<h3>withMaxCellTemperature</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a></span>&nbsp;<span class="element-name">withMaxCellTemperature</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
-<div class="block">Sets and applies the <a href="../api/Battery.ChannelId.html#MAX_CELL_TEMPERATURE"><code>Battery.ChannelId.MAX_CELL_TEMPERATURE</code></a>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>value</code> - the Max-Cell-Temperature in [degC]</dd>
-<dt>Returns:</dt>
-<dd>myself</dd>
+<dd><code><a href="../../common/test/AbstractDummyOpenemsComponent.html#self()">self</a></code>&nbsp;in class&nbsp;<code><a href="../../common/test/AbstractDummyOpenemsComponent.html" title="class in io.openems.edge.common.test">AbstractDummyOpenemsComponent</a>&lt;<a href="DummyBattery.html" title="class in io.openems.edge.battery.test">DummyBattery</a>&gt;</code></dd>
 </dl>
 </section>
 </li>
