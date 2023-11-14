@@ -113,10 +113,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates a default battery inverter component for a FENECON Home.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#charger(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int)" class="member-name-link">charger</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;chargerId,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#charger(java.lang.String,java.lang.String,java.lang.String,int)" class="member-name-link">charger</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;chargerId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;chargerAlias,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;batteryInverterId,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;modbusIdExternal,
  int&nbsp;i)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Creates a default charger component for a FENECON Home.</div>
@@ -190,7 +189,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates a default power component for a FENECON Home.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#predictor(java.util.ResourceBundle)" class="member-name-link">predictor</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ResourceBundle.html" title="class or interface in java.util" class="external-link">ResourceBundle</a>&nbsp;bundle)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#predictor(java.util.ResourceBundle,io.openems.edge.core.appmanager.ConfigurationTarget)" class="member-name-link">predictor</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ResourceBundle.html" title="class or interface in java.util" class="external-link">ResourceBundle</a>&nbsp;bundle,
+ <a href="../../core/appmanager/ConfigurationTarget.html" title="enum class in io.openems.edge.core.appmanager">ConfigurationTarget</a>&nbsp;t)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Creates a default predictor component for a FENECON Home.</div>
 </div>
@@ -355,13 +355,15 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="predictor(java.util.ResourceBundle)">
+<section class="detail" id="predictor(java.util.ResourceBundle,io.openems.edge.core.appmanager.ConfigurationTarget)">
 <h3>predictor</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></span>&nbsp;<span class="element-name">predictor</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ResourceBundle.html" title="class or interface in java.util" class="external-link">ResourceBundle</a>&nbsp;bundle)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></span>&nbsp;<span class="element-name">predictor</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ResourceBundle.html" title="class or interface in java.util" class="external-link">ResourceBundle</a>&nbsp;bundle,
+ <a href="../../core/appmanager/ConfigurationTarget.html" title="enum class in io.openems.edge.core.appmanager">ConfigurationTarget</a>&nbsp;t)</span></div>
 <div class="block">Creates a default predictor component for a FENECON Home.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>bundle</code> - the translation bundle</dd>
+<dd><code>t</code> - the current <a href="../../core/appmanager/ConfigurationTarget.html" title="enum class in io.openems.edge.core.appmanager"><code>ConfigurationTarget</code></a></dd>
 <dt>Returns:</dt>
 <dd>the <a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types"><code>EdgeConfig.Component</code></a></dd>
 </dl>
@@ -430,12 +432,11 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="charger(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int)">
+<section class="detail" id="charger(java.lang.String,java.lang.String,java.lang.String,int)">
 <h3>charger</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types">EdgeConfig.Component</a></span>&nbsp;<span class="element-name">charger</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;chargerId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;chargerAlias,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;batteryInverterId,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;modbusIdExternal,
  int&nbsp;i)</span></div>
 <div class="block">Creates a default charger component for a FENECON Home.</div>
 <dl class="notes">
@@ -443,7 +444,6 @@ loadScripts(document, 'script');</script>
 <dd><code>chargerId</code> - the id of the charger</dd>
 <dd><code>chargerAlias</code> - the alias of the charger</dd>
 <dd><code>batteryInverterId</code> - the id of the battery inverter</dd>
-<dd><code>modbusIdExternal</code> - the id of the external modbus bridge</dd>
 <dd><code>i</code> - the index of the pv-port</dd>
 <dt>Returns:</dt>
 <dd>the <a href="../../../common/types/EdgeConfig.Component.html" title="class in io.openems.common.types"><code>EdgeConfig.Component</code></a></dd>

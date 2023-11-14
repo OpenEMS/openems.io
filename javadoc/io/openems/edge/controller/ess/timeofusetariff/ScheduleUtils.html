@@ -113,18 +113,6 @@ loadScripts(document, 'script');</script>
 <div class="block">Generates a 24-hour schedule as a <code>JsonArray</code> based on input data for
  prices and states.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="jsonrpc/GetScheduleResponse.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleResponse</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#handleGetScheduleRequest(io.openems.edge.controller.ess.timeofusetariff.Schedule,io.openems.edge.controller.ess.timeofusetariff.ControlMode,java.util.UUID,java.util.SortedMap,io.openems.common.types.ChannelAddress,io.openems.common.types.ChannelAddress)" class="member-name-link">handleGetScheduleRequest</a><wbr>(<a href="Schedule.html" title="class in io.openems.edge.controller.ess.timeofusetariff">Schedule</a>&nbsp;schedule,
- <a href="ControlMode.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">ControlMode</a>&nbsp;controlMode,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;requestId,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;&nbsp;queryResult,
- <a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channeladdressPrices,
- <a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channeladdressStateMachine)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Utilizes the previous three hours' data and computes the next 21 hours data
- from the <a href="Schedule.html" title="class in io.openems.edge.controller.ess.timeofusetariff"><code>Schedule</code></a> provided, then concatenates them to generate a
- 24-hour <a href="Schedule.html" title="class in io.openems.edge.controller.ess.timeofusetariff"><code>Schedule</code></a>.</div>
-</div>
 </div>
 </div>
 </div>
@@ -173,33 +161,6 @@ loadScripts(document, 'script');</script>
 <dd><code>timeStamp</code> - The time stamp of the first entry in the schedule.</dd>
 <dt>Returns:</dt>
 <dd>The schedule data as a <code>JsonArray</code>.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="handleGetScheduleRequest(io.openems.edge.controller.ess.timeofusetariff.Schedule,io.openems.edge.controller.ess.timeofusetariff.ControlMode,java.util.UUID,java.util.SortedMap,io.openems.common.types.ChannelAddress,io.openems.common.types.ChannelAddress)">
-<h3>handleGetScheduleRequest</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="jsonrpc/GetScheduleResponse.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleResponse</a></span>&nbsp;<span class="element-name">handleGetScheduleRequest</span><wbr><span class="parameters">(<a href="Schedule.html" title="class in io.openems.edge.controller.ess.timeofusetariff">Schedule</a>&nbsp;schedule,
- <a href="ControlMode.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">ControlMode</a>&nbsp;controlMode,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;requestId,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;&nbsp;queryResult,
- <a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channeladdressPrices,
- <a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channeladdressStateMachine)</span></div>
-<div class="block">Utilizes the previous three hours' data and computes the next 21 hours data
- from the <a href="Schedule.html" title="class in io.openems.edge.controller.ess.timeofusetariff"><code>Schedule</code></a> provided, then concatenates them to generate a
- 24-hour <a href="Schedule.html" title="class in io.openems.edge.controller.ess.timeofusetariff"><code>Schedule</code></a>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>schedule</code> - The <a href="Schedule.html" title="class in io.openems.edge.controller.ess.timeofusetariff"><code>Schedule</code></a>.</dd>
-<dd><code>controlMode</code> - The <a href="ControlMode.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff"><code>ControlMode</code></a>.</dd>
-<dd><code>requestId</code> - The JSON-RPC id.</dd>
-<dd><code>queryResult</code> - The historic data.</dd>
-<dd><code>channeladdressPrices</code> - The <a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a> for Quarterly
-                                   prices.</dd>
-<dd><code>channeladdressStateMachine</code> - The <a href="../../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a> for the state
-                                   machine.</dd>
-<dt>Returns:</dt>
-<dd>The <a href="jsonrpc/GetScheduleResponse.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc"><code>GetScheduleResponse</code></a>.</dd>
 </dl>
 </section>
 </li>
