@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/ui/implementing-a-widget/components/chart.html">
+    <meta name="generator" content="Antora 3.1.5">
+    <link rel="stylesheet" href="../../../../../_/css/site.css">
+<link rel="icon" href="../../../../../_/img/feneco.ico" type="image/x-icon">
+<link rel="stylesheet" href="../../../../../_/css/vendor/docsearch.min.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar" color="#2d8fab">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://github.com/OpenEMS/openems">OpenEMS // Docs</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+          <span class="gitlink">
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header><div class="main-wrapper">
+<div class="navigation-container" data-component="openems" data-version="latest">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../edge/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../edge/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../edge/nature.html">Nature</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../edge/scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../edge/controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../edge/bridge.html">Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../edge/device_service.html">Device &amp; Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../edge/timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../edge/implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../edge/build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../edge/deploy.html">Deploy OpenEMS Edge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../setup-ide.html">Setup IDE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="../../build.html">Build OpenEMS UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="../introduction.html">Implementing a UI Widget</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="flat.html">Flat-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="modal.html">Modal-Widget</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="4">
+    <a class="nav-link" href="chart.html">Chart</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../backend/backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../backend/metadata.html">Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../backend/timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../backend/service.html">Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../backend/build.html">Build OpenEMS Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../backend/deploy.html">Deploy OpenEMS Backend</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Simulation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../simulation/gitpod.html">Live-Demo on Gitpod</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../simulation/realtime.html">Real-Time Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../simulation/ui-history.html">UI History Simulation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Contribute</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../contribute/coding-guidelines.html">Coding Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../contribute/documentation.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Open Energy Management System</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../../../introduction.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../../../introduction.html">Open Energy Management System</a></li>
+    <li class="crumb">OpenEMS UI</li>
+    <li class="crumb"><a href="../../build.html">Build OpenEMS UI</a></li>
+    <li class="crumb"><a href="../introduction.html">Implementing a UI Widget</a></li>
+    <li class="crumb"><a href="chart.html">Chart</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/ui/implementing-a-widget/components/chart.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<div class="sect2">
+<h3 id="_creating_a_chart"><a class="anchor" href="#_creating_a_chart"></a>Creating a Chart</h3>
+<div class="paragraph">
+<p>This chapter assumes that you already completed <a href="../introduction.html#_create_a_new_module_history_view">this</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../../_images/ui-history-energy-monitor.png" alt="Energy Monitor">
+</div>
+</div>
+<div class="paragraph">
+<p>Charts are mainly used in the History-View and should be acting like the <code>modal</code> in the live-view. This means they shouldn&#8217;t be apparent in the history-view directly, but should open when clicking on a <code>flat-widget</code>.</p>
+</div>
+<div class="paragraph">
+<p>Creating or updating charts has been very difficult, but if you use the recommended and new way of creating them, its much easier and can be done fast. Furthermore they are unittestable now.</p>
+</div>
+<div class="paragraph">
+<p>If we take a look at a <a href="src\app\edge\history\common\autarchy\chart\chart.ts">Working Example</a>, we will see, that the chart directory includes not only the chart.ts but also the corresponding .spec-file. If you are not familiar with angulars unit testing, check it out <a href="https://angular.io/guide/testing#test-file-name-and-location">here</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is recommended to have the <code>component.ts</code> and <code>component.spec.ts</code> files in the same folder.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_general"><a class="anchor" href="#_general"></a>General</h4>
+<div class="paragraph">
+<p>To understand how data is queried from the timeseries database, you need to know that there are some predefined time ranges <a href="https://github.com/OpenEMS/openems/blob/d6291452f01c2a370d722a50c884706c3121c529/ui/src/app/shared/service/defaulttypes.ts#L94">modes</a> for the chart.</p>
+</div>
+<div class="paragraph">
+<p>If you used the charts from time to time, you will notice that there are two visualisations. Bar and line chart. Line charts are used for day and week periods while bar charts are used for months and year. The custom period shows both, dependent on the selected period <a href="https://github.com/OpenEMS/openems/blob/d6291452f01c2a370d722a50c884706c3121c529/ui/src/app/edge/history/shared.ts#L290">(view resolution)</a>. The resolution, returned from this method is also used in the corresponding <code>Timeseries-Request</code>.</p>
+</div>
+<div class="paragraph">
+<p>When using the <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/shared/jsonrpc/request/queryHistoricTimeseriesDataRequest.ts">QueryHistoricTimeseriesDataRequest</a>, you should use the power-channels and for the <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/shared/jsonrpc/request/queryHistoricTimeseriesEnergyPerPeriodRequest.ts">QueryHistoricTimeseriesEnergyPerPeriodRequest</a> the energy-channels. You can read more about that <a href="https://openems.github.io/openems.io/openems/latest/backend/service.html#_timedata_aggregated_influxdb">here</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you take a look <a href="ui\src\app\edge\history\common\autarchy\chart\chart.ts">here</a> you will notice that creating charts can be broken down to 2 main parts. The <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/shared/service/utils.ts#L646">input</a> and <a href="https://github.com/OpenEMS/openems/blob/d6291452f01c2a370d722a50c884706c3121c529/ui/src/app/shared/service/utils.ts#L648">output</a>.</p>
+</div>
+<div class="paragraph">
+<p>The input consists of this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">export type InputChannel = {
+
+    /** Must be unique, is used as identifier in {@link ChartData.input} */
+    name: string,
+    powerChannel: ChannelAddress,
+    energyChannel?: ChannelAddress
+
+    /** Choose between predefined converters */
+    converter?: (value: number) =&gt; number | null,
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here you define the channels that should be subscribed, it is mandatory to use a power channel, if no energy channel provided, you won&#8217;t see the energy-value next to the legend-label. If no valid datapoint in the resulting data or no response exists, the <a href="https://openems.github.io/openems.io/openems/latest/backend/service.html#_timedata_aggregated_influxdb">dataset</a> won&#8217;t be shown. You can also pass a converter. This enables mutating the data right away. For this you should either use one of the predefined <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/shared/genericComponents/shared/converter.ts">converters</a> or create your own.</p>
+</div>
+<div class="paragraph">
+<p>The output callback gets this data and with it, you can define the <a href="https://github.com/OpenEMS/openems/blob/d6291452f01c2a370d722a50c884706c3121c529/ui/src/app/shared/service/utils.ts#L604">datasets</a>:</p>
+</div>
+<div class="paragraph">
+<p>Lets get back to the <a href="src\app\edge\history\common\autarchy\chart\chart.ts">example</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+When looking at the example when reading the following, it will be easier to follow.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For the <code>input</code> there are two channel-pairs used, additionally to the second, the data gets filter through a <code>converter</code> which filters in this case all null or negative values.
+The <code>name</code> property is used to have a ID for using the data later.</p>
+</div>
+<div class="paragraph">
+<p>The <code>output</code> is then defining the dataset, with the <code>nameSuffix</code> callback having the data of the <code>QueryHistoricTimeseriesEnergyRequest</code>, that has been called for the whole period, this means only one datapoint for the chosen period. If month or year are used as periods, there are always two of these requests. One for the <code>legend label</code> and the other for being displayed in the chart.</p>
+</div>
+<div class="paragraph">
+<p>The second one is passed with the output callback, and has to be used for the converter callback-function.</p>
+</div>
+<div class="paragraph">
+<p>Additionally we define the formatting of the data in the tooltip and the yAxes.</p>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<script src="../../../../../_/js/site.js"></script>
+<script src="../../../../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>
