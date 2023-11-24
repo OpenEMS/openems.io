@@ -79,12 +79,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/timedata/BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></code>, <code><a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a></code>, <code><a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a></code>, <code><a href="../../common/timedata/BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></code>, <code><a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a></code>, <code><a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">TimedataInfluxDb</span>
 <span class="extends-implements">extends <a href="../../common/component/AbstractOpenemsBackendComponent.html" title="class in io.openems.backend.common.component">AbstractOpenemsBackendComponent</a>
-implements <a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a>, org.osgi.service.event.EventHandler</span></div>
+implements <a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a>, org.osgi.service.event.EventHandler, <a href="../../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -127,6 +127,17 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#debugLog()" class="member-name-link">debugLog</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets some output that is suitable for a continuous Debug log.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#debugMetrics()" class="member-name-link">debugMetrics</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets some output that is suitable for a debug metrics to write down as
+ <a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata"><code>Timedata</code></a>.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEvent(org.osgi.service.event.Event)" class="member-name-link">handleEvent</a><wbr>(org.osgi.service.event.Event&nbsp;event)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -444,6 +455,35 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <section class="detail" id="isAllowed(java.lang.String)">
 <h3>isAllowed</h3>
 <div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAllowed</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;channelAddress)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="debugLog()">
+<h3>debugLog</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">debugLog</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/debugcycle/DebugLoggable.html#debugLog()">DebugLoggable</a></code></span></div>
+<div class="block">Gets some output that is suitable for a continuous Debug log.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/debugcycle/DebugLoggable.html#debugLog()">debugLog</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a></code></dd>
+<dt>Returns:</dt>
+<dd>the debug log output; null for no log</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="debugMetrics()">
+<h3>debugMetrics</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>com.google.gson.JsonElement&gt;</span>&nbsp;<span class="element-name">debugMetrics</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/debugcycle/DebugLoggable.html#debugMetrics()">DebugLoggable</a></code></span></div>
+<div class="block">Gets some output that is suitable for a debug metrics to write down as
+ <a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata"><code>Timedata</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/debugcycle/DebugLoggable.html#debugMetrics()">debugMetrics</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a></code></dd>
+<dt>Returns:</dt>
+<dd>the key value entries to write down; null or emptyMap for no metrics</dd>
+</dl>
 </section>
 </li>
 </ul>
