@@ -105,6 +105,26 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets a <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link"><code>Record</code></a> with all <a href="Channel.html" title="interface in io.openems.edge.common.channel"><code>Channel</code></a> <a href="value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a>s.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setWriteValueIfNotRead(io.openems.edge.common.channel.BooleanWriteChannel,java.lang.Boolean)" class="member-name-link">setWriteValueIfNotRead</a><wbr>(<a href="BooleanWriteChannel.html" title="class in io.openems.edge.common.channel">BooleanWriteChannel</a>&nbsp;channel,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Set write value of a <a href="BooleanWriteChannel.html" title="class in io.openems.edge.common.channel"><code>BooleanWriteChannel</code></a> if the read value is not
+ equal.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setWriteValueIfNotRead(io.openems.edge.common.channel.EnumWriteChannel,io.openems.common.types.OptionsEnum)" class="member-name-link">setWriteValueIfNotRead</a><wbr>(<a href="EnumWriteChannel.html" title="class in io.openems.edge.common.channel">EnumWriteChannel</a>&nbsp;channel,
+ <a href="../../../common/types/OptionsEnum.html" title="interface in io.openems.common.types">OptionsEnum</a>&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Set write value of a <a href="EnumWriteChannel.html" title="class in io.openems.edge.common.channel"><code>EnumWriteChannel</code></a> if the read value is not equal.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setWriteValueIfNotRead(io.openems.edge.common.channel.IntegerWriteChannel,java.lang.Integer)" class="member-name-link">setWriteValueIfNotRead</a><wbr>(<a href="IntegerWriteChannel.html" title="class in io.openems.edge.common.channel">IntegerWriteChannel</a>&nbsp;channel,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Set write value of a <a href="IntegerWriteChannel.html" title="class in io.openems.edge.common.channel"><code>IntegerWriteChannel</code></a> if the read value is not
+ equal.</div>
+</div>
 </div>
 </div>
 </div>
@@ -159,6 +179,68 @@ loadScripts(document, 'script');</script>
 <dd><code>clazz</code> - the Class of the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link"><code>Record</code></a></dd>
 <dt>Returns:</dt>
 <dd>an Optional object of type T</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setWriteValueIfNotRead(io.openems.edge.common.channel.EnumWriteChannel,io.openems.common.types.OptionsEnum)">
+<h3>setWriteValueIfNotRead</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWriteValueIfNotRead</span><wbr><span class="parameters">(<a href="EnumWriteChannel.html" title="class in io.openems.edge.common.channel">EnumWriteChannel</a>&nbsp;channel,
+ <a href="../../../common/types/OptionsEnum.html" title="interface in io.openems.common.types">OptionsEnum</a>&nbsp;value)</span>
+                                   throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block">Set write value of a <a href="EnumWriteChannel.html" title="class in io.openems.edge.common.channel"><code>EnumWriteChannel</code></a> if the read value is not equal.
+ 
+ <p>
+ Use this method if you do not want to write a Channel on every cycle, but
+ only if the Write-Values differs from the current Read-Value.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>channel</code> - the <a href="EnumWriteChannel.html" title="class in io.openems.edge.common.channel"><code>EnumWriteChannel</code></a></dd>
+<dd><code>value</code> - value to be set</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setWriteValueIfNotRead(io.openems.edge.common.channel.IntegerWriteChannel,java.lang.Integer)">
+<h3>setWriteValueIfNotRead</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWriteValueIfNotRead</span><wbr><span class="parameters">(<a href="IntegerWriteChannel.html" title="class in io.openems.edge.common.channel">IntegerWriteChannel</a>&nbsp;channel,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;value)</span>
+                                   throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block">Set write value of a <a href="IntegerWriteChannel.html" title="class in io.openems.edge.common.channel"><code>IntegerWriteChannel</code></a> if the read value is not
+ equal.
+ 
+ <p>
+ Use this method if you do not want to write a Channel on every cycle, but
+ only if the Write-Values differs from the current Read-Value.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>channel</code> - the <a href="IntegerWriteChannel.html" title="class in io.openems.edge.common.channel"><code>IntegerWriteChannel</code></a></dd>
+<dd><code>value</code> - value to be set</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setWriteValueIfNotRead(io.openems.edge.common.channel.BooleanWriteChannel,java.lang.Boolean)">
+<h3>setWriteValueIfNotRead</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWriteValueIfNotRead</span><wbr><span class="parameters">(<a href="BooleanWriteChannel.html" title="class in io.openems.edge.common.channel">BooleanWriteChannel</a>&nbsp;channel,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;value)</span>
+                                   throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block">Set write value of a <a href="BooleanWriteChannel.html" title="class in io.openems.edge.common.channel"><code>BooleanWriteChannel</code></a> if the read value is not
+ equal.
+ 
+ <p>
+ Use this method if you do not want to write a Channel on every cycle, but
+ only if the Write-Values differs from the current Read-Value.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>channel</code> - the <a href="BooleanWriteChannel.html" title="class in io.openems.edge.common.channel"><code>BooleanWriteChannel</code></a></dd>
+<dd><code>value</code> - value to be set</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </section>
 </li>

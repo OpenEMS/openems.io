@@ -113,6 +113,13 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Creates a <a href="ServiceUtils.CloseableService.html" title="class in io.openems.common.utils"><code>ServiceUtils.CloseableService</code></a> with the given parameters.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="ServiceUtils.CloseableService.html" title="class in io.openems.common.utils">ServiceUtils.CloseableService</a>&lt;T&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#useService(org.osgi.framework.BundleContext,java.lang.Class,java.lang.String)" class="member-name-link">useService</a><wbr>(org.osgi.framework.BundleContext&nbsp;bundleContext,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;clazz,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Creates a <a href="ServiceUtils.CloseableService.html" title="class in io.openems.common.utils"><code>ServiceUtils.CloseableService</code></a> with the given parameters.</div>
+</div>
 </div>
 </div>
 </div>
@@ -155,6 +162,40 @@ loadScripts(document, 'script');</script>
 <dd><code>clazz</code> - the class type of the service</dd>
 <dt>Returns:</dt>
 <dd>the <a href="ServiceUtils.CloseableService.html" title="class in io.openems.common.utils"><code>ServiceUtils.CloseableService</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="useService(org.osgi.framework.BundleContext,java.lang.Class,java.lang.String)">
+<h3>useService</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="ServiceUtils.CloseableService.html" title="class in io.openems.common.utils">ServiceUtils.CloseableService</a>&lt;T&gt;</span>&nbsp;<span class="element-name">useService</span><wbr><span class="parameters">(org.osgi.framework.BundleContext&nbsp;bundleContext,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;clazz,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filter)</span>
+                                                       throws <span class="exceptions">org.osgi.framework.InvalidSyntaxException</span></div>
+<div class="block">Creates a <a href="ServiceUtils.CloseableService.html" title="class in io.openems.common.utils"><code>ServiceUtils.CloseableService</code></a> with the given parameters.
+ 
+ <p>
+ Usage: <br>
+ 
+ <pre>
+ try (var componentManagerService = ServiceUtils.useService(bundleContext, ComponentManager.class)) {
+        var componentManager = componentManagerService.getService();
+        // use componentManager here (may be null) ...
+ } catch (Exception e) {
+ }
+ </pre></div>
+<dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>T</code> - the type of the service</dd>
+<dt>Parameters:</dt>
+<dd><code>bundleContext</code> - the <code>BundleContext</code> of the service</dd>
+<dd><code>clazz</code> - the class type of the service</dd>
+<dd><code>filter</code> - the filter expression or null for any service</dd>
+<dt>Returns:</dt>
+<dd>the <a href="ServiceUtils.CloseableService.html" title="class in io.openems.common.utils"><code>ServiceUtils.CloseableService</code></a></dd>
+<dt>Throws:</dt>
+<dd><code>org.osgi.framework.InvalidSyntaxException</code> - If the specified filter contains an invalid
+                                filter expression that cannot be parsed.</dd>
 </dl>
 </section>
 </li>
