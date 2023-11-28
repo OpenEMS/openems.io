@@ -44,7 +44,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -77,16 +77,25 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="MessageSchedulerService.html" title="interface in io.openems.backend.alerting.scheduler">MessageSchedulerService</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></code></dd>
+<dd><code><a href="MessageSchedulerService.html" title="interface in io.openems.backend.alerting.scheduler">MessageSchedulerService</a></code>, <code><a href="TimedExecutor.html" title="interface in io.openems.backend.alerting.scheduler">TimedExecutor</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&gt;</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Scheduler</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>, <a href="MessageSchedulerService.html" title="interface in io.openems.backend.alerting.scheduler">MessageSchedulerService</a></span></div>
+implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&gt;, <a href="MessageSchedulerService.html" title="interface in io.openems.backend.alerting.scheduler">MessageSchedulerService</a>, <a href="TimedExecutor.html" title="interface in io.openems.backend.alerting.scheduler">TimedExecutor</a></span></div>
 <div class="block">A <a href="MessageSchedulerService.html" title="interface in io.openems.backend.alerting.scheduler"><code>MessageSchedulerService</code></a> implementation using <a href="MinuteTimer.html" title="class in io.openems.backend.alerting.scheduler"><code>MinuteTimer</code></a>.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="inherited-list">
+<h2 id="nested-classes-inherited-from-class-io.openems.backend.alerting.scheduler.TimedExecutor">Nested classes/interfaces inherited from interface&nbsp;io.openems.backend.alerting.scheduler.<a href="TimedExecutor.html" title="interface in io.openems.backend.alerting.scheduler">TimedExecutor</a></h2>
+<code><a href="TimedExecutor.TimedTask.html" title="class in io.openems.backend.alerting.scheduler">TimedExecutor.TimedTask</a></code></div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -97,6 +106,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Scheduler</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(io.openems.backend.alerting.scheduler.MinuteTimer)" class="member-name-link">Scheduler</a><wbr>(<a href="MinuteTimer.html" title="class in io.openems.backend.alerting.scheduler">MinuteTimer</a>&nbsp;timer)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -111,10 +122,28 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isScheduled(io.openems.backend.alerting.Message)" class="member-name-link">isScheduled</a><wbr>(<a href="../Message.html" title="class in io.openems.backend.alerting">Message</a>&nbsp;msg)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#accept(java.time.ZonedDateTime)" class="member-name-link">accept</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;now)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#cancel(io.openems.backend.alerting.scheduler.TimedExecutor.TimedTask)" class="member-name-link">cancel</a><wbr>(<a href="TimedExecutor.TimedTask.html" title="class in io.openems.backend.alerting.scheduler">TimedExecutor.TimedTask</a>&nbsp;task)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Cancel <a href="TimedExecutor.TimedTask.html" title="class in io.openems.backend.alerting.scheduler"><code>TimedExecutor.TimedTask</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScheduledMsgsCount()" class="member-name-link">getScheduledMsgsCount</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get the total count of Messages scheduled for dispatch.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isScheduled(io.openems.backend.alerting.Message)" class="member-name-link">isScheduled</a><wbr>(<a href="../Message.html" title="class in io.openems.backend.alerting">Message</a>&nbsp;msg)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Check if given message is scheduled within any MessageScheduler.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#now()" class="member-name-link">now</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get the Executors current <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link"><code>ZonedDateTime</code></a>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="../Message.html" title="class in io.openems.backend.alerting">Message</a>&gt;<br><a href="MessageScheduler.html" title="class in io.openems.backend.alerting.scheduler">MessageScheduler</a>&lt;T&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#register(io.openems.backend.alerting.Handler)" class="member-name-link">register</a><wbr>(<a href="../Handler.html" title="interface in io.openems.backend.alerting">Handler</a>&lt;T&gt;&nbsp;handler)</code></div>
@@ -122,9 +151,12 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="block">Register handler for message scheduling and return MessageScheduler, to do
  so.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run()" class="member-name-link">run</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="TimedExecutor.TimedTask.html" title="class in io.openems.backend.alerting.scheduler">TimedExecutor.TimedTask</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#schedule(java.time.ZonedDateTime,java.util.function.Consumer)" class="member-name-link">schedule</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;at,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&gt;&nbsp;task)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Execute the given task at the given dateTime.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#start()" class="member-name-link">start</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -146,6 +178,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.util.function.Consumer">Methods inherited from interface&nbsp;java.util.function.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html#andThen(java.util.function.Consumer)" title="class or interface in java.util.function" class="external-link">andThen</a></code></div>
 </section>
 </li>
 </ul>
@@ -157,6 +192,12 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="constructor-details" id="constructor-detail">
 <h2>Constructor Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(io.openems.backend.alerting.scheduler.MinuteTimer)">
+<h3>Scheduler</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Scheduler</span><wbr><span class="parameters">(<a href="MinuteTimer.html" title="class in io.openems.backend.alerting.scheduler">MinuteTimer</a>&nbsp;timer)</span></div>
+</section>
+</li>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>Scheduler</h3>
@@ -207,6 +248,54 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 </section>
 </li>
 <li>
+<section class="detail" id="schedule(java.time.ZonedDateTime,java.util.function.Consumer)">
+<h3>schedule</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="TimedExecutor.TimedTask.html" title="class in io.openems.backend.alerting.scheduler">TimedExecutor.TimedTask</a></span>&nbsp;<span class="element-name">schedule</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;at,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&gt;&nbsp;task)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="TimedExecutor.html#schedule(java.time.ZonedDateTime,java.util.function.Consumer)">TimedExecutor</a></code></span></div>
+<div class="block">Execute the given task at the given dateTime.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="TimedExecutor.html#schedule(java.time.ZonedDateTime,java.util.function.Consumer)">schedule</a></code>&nbsp;in interface&nbsp;<code><a href="TimedExecutor.html" title="interface in io.openems.backend.alerting.scheduler">TimedExecutor</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>at</code> - time to execute at</dd>
+<dd><code>task</code> - task to execute</dd>
+<dt>Returns:</dt>
+<dd>reference to Task as <a href="TimedExecutor.TimedTask.html" title="class in io.openems.backend.alerting.scheduler"><code>TimedExecutor.TimedTask</code></a> Can be used to cancel the
+         task.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="cancel(io.openems.backend.alerting.scheduler.TimedExecutor.TimedTask)">
+<h3>cancel</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">cancel</span><wbr><span class="parameters">(<a href="TimedExecutor.TimedTask.html" title="class in io.openems.backend.alerting.scheduler">TimedExecutor.TimedTask</a>&nbsp;task)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="TimedExecutor.html#cancel(io.openems.backend.alerting.scheduler.TimedExecutor.TimedTask)">TimedExecutor</a></code></span></div>
+<div class="block">Cancel <a href="TimedExecutor.TimedTask.html" title="class in io.openems.backend.alerting.scheduler"><code>TimedExecutor.TimedTask</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="TimedExecutor.html#cancel(io.openems.backend.alerting.scheduler.TimedExecutor.TimedTask)">cancel</a></code>&nbsp;in interface&nbsp;<code><a href="TimedExecutor.html" title="interface in io.openems.backend.alerting.scheduler">TimedExecutor</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>task</code> - to remove</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="now()">
+<h3>now</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a></span>&nbsp;<span class="element-name">now</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="TimedExecutor.html#now()">TimedExecutor</a></code></span></div>
+<div class="block">Get the Executors current <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link"><code>ZonedDateTime</code></a>. Should be used to calculate
+ execution time.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="TimedExecutor.html#now()">now</a></code>&nbsp;in interface&nbsp;<code><a href="TimedExecutor.html" title="interface in io.openems.backend.alerting.scheduler">TimedExecutor</a></code></dd>
+<dt>Returns:</dt>
+<dd>current <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link"><code>ZonedDateTime</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="start()">
 <h3>start</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">start</span>()</div>
@@ -218,6 +307,17 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <h3>stop</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stop</span>()</div>
 <div class="block">Unsubscribe from minuteTimer and stop scheduling.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getScheduledMsgsCount()">
+<h3>getScheduledMsgsCount</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getScheduledMsgsCount</span>()</div>
+<div class="block">Get the total count of Messages scheduled for dispatch.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>total count</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -234,12 +334,12 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 </section>
 </li>
 <li>
-<section class="detail" id="run()">
-<h3>run</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">run</span>()</div>
+<section class="detail" id="accept(java.time.ZonedDateTime)">
+<h3>accept</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">accept</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;now)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html#run()" title="class or interface in java.lang" class="external-link">run</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html#accept(T)" title="class or interface in java.util.function" class="external-link">accept</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&gt;</code></dd>
 </dl>
 </section>
 </li>

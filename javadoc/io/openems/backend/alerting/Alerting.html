@@ -79,12 +79,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Alerting</span>
 <span class="extends-implements">extends <a href="../common/component/AbstractOpenemsBackendComponent.html" title="class in io.openems.backend.common.component">AbstractOpenemsBackendComponent</a>
-implements org.osgi.service.event.EventHandler</span></div>
+implements org.osgi.service.event.EventHandler, <a href="../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -97,8 +97,8 @@ implements org.osgi.service.event.EventHandler</span></div>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>protected <a href="Handler.html" title="interface in io.openems.backend.alerting">Handler</a>&lt;?&gt;[]</code></div>
-<div class="col-second even-row-color"><code><a href="#handlers" class="member-name-link">handlers</a></code></div>
+<div class="col-first even-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Handler.html" title="interface in io.openems.backend.alerting">Handler</a>&lt;?&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#handler" class="member-name-link">handler</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected <a href="../common/metadata/Mailer.html" title="interface in io.openems.backend.common.metadata">Mailer</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#mailer" class="member-name-link">mailer</a></code></div>
@@ -106,9 +106,6 @@ implements org.osgi.service.event.EventHandler</span></div>
 <div class="col-first even-row-color"><code>protected <a href="../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a></code></div>
 <div class="col-second even-row-color"><code><a href="#metadata" class="member-name-link">metadata</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected final <a href="scheduler/Scheduler.html" title="class in io.openems.backend.alerting.scheduler">Scheduler</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#scheduler" class="member-name-link">scheduler</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -125,7 +122,8 @@ implements org.osgi.service.event.EventHandler</span></div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Alerting</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected </code></div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(io.openems.backend.alerting.scheduler.Scheduler)" class="member-name-link">Alerting</a><wbr>(<a href="scheduler/Scheduler.html" title="class in io.openems.backend.alerting.scheduler">Scheduler</a>&nbsp;scheduler)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(io.openems.backend.alerting.scheduler.Scheduler,java.util.concurrent.ThreadPoolExecutor)" class="member-name-link">Alerting</a><wbr>(<a href="scheduler/Scheduler.html" title="class in io.openems.backend.alerting.scheduler">Scheduler</a>&nbsp;scheduler,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html" title="class or interface in java.util.concurrent" class="external-link">ThreadPoolExecutor</a>&nbsp;executor)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -147,6 +145,17 @@ implements org.osgi.service.event.EventHandler</span></div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#debugLog()" class="member-name-link">debugLog</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets some output that is suitable for a continuous Debug log.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#debugMetrics()" class="member-name-link">debugMetrics</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets some output that is suitable for a debug metrics to write down as
+ <a href="../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata"><code>Timedata</code></a>.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEvent(org.osgi.service.event.Event)" class="member-name-link">handleEvent</a><wbr>(org.osgi.service.event.Event&nbsp;event)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -171,12 +180,6 @@ implements org.osgi.service.event.EventHandler</span></div>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="scheduler">
-<h3>scheduler</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="scheduler/Scheduler.html" title="class in io.openems.backend.alerting.scheduler">Scheduler</a></span>&nbsp;<span class="element-name">scheduler</span></div>
-</section>
-</li>
-<li>
 <section class="detail" id="metadata">
 <h3>metadata</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a></span>&nbsp;<span class="element-name">metadata</span></div>
@@ -189,9 +192,9 @@ implements org.osgi.service.event.EventHandler</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="handlers">
-<h3>handlers</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="Handler.html" title="interface in io.openems.backend.alerting">Handler</a>&lt;?&gt;[]</span>&nbsp;<span class="element-name">handlers</span></div>
+<section class="detail" id="handler">
+<h3>handler</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Handler.html" title="interface in io.openems.backend.alerting">Handler</a>&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">handler</span></div>
 </section>
 </li>
 </ul>
@@ -203,9 +206,10 @@ implements org.osgi.service.event.EventHandler</span></div>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(io.openems.backend.alerting.scheduler.Scheduler)">
+<section class="detail" id="&lt;init&gt;(io.openems.backend.alerting.scheduler.Scheduler,java.util.concurrent.ThreadPoolExecutor)">
 <h3>Alerting</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">Alerting</span><wbr><span class="parameters">(<a href="scheduler/Scheduler.html" title="class in io.openems.backend.alerting.scheduler">Scheduler</a>&nbsp;scheduler)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">Alerting</span><wbr><span class="parameters">(<a href="scheduler/Scheduler.html" title="class in io.openems.backend.alerting.scheduler">Scheduler</a>&nbsp;scheduler,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html" title="class or interface in java.util.concurrent" class="external-link">ThreadPoolExecutor</a>&nbsp;executor)</span></div>
 </section>
 </li>
 <li>
@@ -241,6 +245,35 @@ implements org.osgi.service.event.EventHandler</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="debugLog()">
+<h3>debugLog</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">debugLog</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../common/debugcycle/DebugLoggable.html#debugLog()">DebugLoggable</a></code></span></div>
+<div class="block">Gets some output that is suitable for a continuous Debug log.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../common/debugcycle/DebugLoggable.html#debugLog()">debugLog</a></code>&nbsp;in interface&nbsp;<code><a href="../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a></code></dd>
+<dt>Returns:</dt>
+<dd>the debug log output; null for no log</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="debugMetrics()">
+<h3>debugMetrics</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>com.google.gson.JsonElement&gt;</span>&nbsp;<span class="element-name">debugMetrics</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../common/debugcycle/DebugLoggable.html#debugMetrics()">DebugLoggable</a></code></span></div>
+<div class="block">Gets some output that is suitable for a debug metrics to write down as
+ <a href="../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata"><code>Timedata</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../common/debugcycle/DebugLoggable.html#debugMetrics()">debugMetrics</a></code>&nbsp;in interface&nbsp;<code><a href="../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a></code></dd>
+<dt>Returns:</dt>
+<dd>the key value entries to write down; null or emptyMap for no metrics</dd>
 </dl>
 </section>
 </li>
