@@ -245,26 +245,34 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Queries historic energy where only one value per day is saved.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryRawHistoricEnergyPerPeriodSinglePerDay(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution,java.lang.String)" class="member-name-link">queryRawHistoricEnergyPerPeriodSinglePerDay</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryLastData(java.util.Optional,io.openems.common.types.ChannelAddress,java.lang.String)" class="member-name-link">queryLastData</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channelAddress,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Queries the last value for given channel address from now to 100 days in the
+ past.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryRawHistoricEnergyPerPeriodSinglePerDay(java.util.Optional,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution,java.lang.String)" class="member-name-link">queryRawHistoricEnergyPerPeriodSinglePerDay</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
  <a href="../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Queries the raw historic values without calculating the difference between
  two values.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(com.influxdb.client.write.Point)" class="member-name-link">write</a><wbr>(com.influxdb.client.write.Point&nbsp;point)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(com.influxdb.client.write.Point)" class="member-name-link">write</a><wbr>(com.influxdb.client.write.Point&nbsp;point)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Actually write the Point to InfluxDB.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(com.influxdb.client.write.Point,com.influxdb.client.write.WriteParameters)" class="member-name-link">write</a><wbr>(com.influxdb.client.write.Point&nbsp;point,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(com.influxdb.client.write.Point,com.influxdb.client.write.WriteParameters)" class="member-name-link">write</a><wbr>(com.influxdb.client.write.Point&nbsp;point,
  com.influxdb.client.write.WriteParameters&nbsp;writeParameters)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Actually write the Point to InfluxDB.</div>
 </div>
 </div>
@@ -523,6 +531,28 @@ loadScripts(document, 'script');</script>
 <dt>Throws:</dt>
 <dd><code><a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
 <dd><code><a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="queryLastData(java.util.Optional,io.openems.common.types.ChannelAddress,java.lang.String)">
+<h3>queryLastData</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</span>&nbsp;<span class="element-name">queryLastData</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;influxEdgeId,
+ <a href="../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channelAddress,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;measurement)</span>
+                                                                    throws <span class="exceptions"><a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block">Queries the last value for given channel address from now to 100 days in the
+ past.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>influxEdgeId</code> - the unique, numeric Edge-ID; or Empty to query all
+                       Edges</dd>
+<dd><code>channelAddress</code> - the Channels to query</dd>
+<dd><code>measurement</code> - the measurement</dd>
+<dt>Returns:</dt>
+<dd>the values mapped to their channel</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </section>
 </li>
