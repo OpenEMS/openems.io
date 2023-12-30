@@ -45,7 +45,7 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
@@ -72,22 +72,30 @@ loadScripts(document, 'script');</script>
 <h1 title="Class Optimizer" class="title">Class Optimizer</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance"><a href="../../../../../common/worker/AbstractWorker.html" title="class in io.openems.common.worker">io.openems.common.worker.AbstractWorker</a>
+<div class="inheritance"><a href="../../../../../common/worker/AbstractImmediateWorker.html" title="class in io.openems.common.worker">io.openems.common.worker.AbstractImmediateWorker</a>
 <div class="inheritance">io.openems.edge.controller.ess.timeofusetariff.optimizer.Optimizer</div>
 </div>
+</div>
+</div>
 <section class="class-description" id="class-description">
-<dl class="notes">
-<dt>All Implemented Interfaces:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></code></dd>
-</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Optimizer</span>
-<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></span></div>
+<span class="extends-implements">extends <a href="../../../../../common/worker/AbstractImmediateWorker.html" title="class in io.openems.common.worker">AbstractImmediateWorker</a></span></div>
 <div class="block">This task is executed once in the beginning and afterwards every full 15
  minutes.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-io.openems.common.worker.AbstractWorker">Fields inherited from class&nbsp;io.openems.common.worker.<a href="../../../../../common/worker/AbstractWorker.html" title="class in io.openems.common.worker">AbstractWorker</a></h3>
+<code><a href="../../../../../common/worker/AbstractWorker.html#ALWAYS_WAIT_FOR_TRIGGER_NEXT_RUN">ALWAYS_WAIT_FOR_TRIGGER_NEXT_RUN</a>, <a href="../../../../../common/worker/AbstractWorker.html#DO_NOT_WAIT">DO_NOT_WAIT</a>, <a href="../../../../../common/worker/AbstractWorker.html#thread">thread</a></code></div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -112,22 +120,35 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Period.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Period</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCurrentPeriod()" class="member-name-link">getCurrentPeriod</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forever()" class="member-name-link">forever</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">This method is called in a loop forever until the Thread gets interrupted.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Period.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Period</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCurrentPeriod()" class="member-name-link">getCurrentPeriod</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the current <a href="Period.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer"><code>Period</code></a> or null.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParams()" class="member-name-link">getParams</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the current <a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer"><code>Params</code></a>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected com.google.common.collect.ImmutableList&lt;<a href="Period.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Period</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPeriods()" class="member-name-link">getPeriods</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets a copy of the <a href="Period.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer"><code>Period</code></a>s list.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run()" class="member-name-link">run</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.common.worker.AbstractImmediateWorker">Methods inherited from class&nbsp;io.openems.common.worker.<a href="../../../../../common/worker/AbstractImmediateWorker.html" title="class in io.openems.common.worker">AbstractImmediateWorker</a></h3>
+<code><a href="../../../../../common/worker/AbstractImmediateWorker.html#activate(java.lang.String)">activate</a>, <a href="../../../../../common/worker/AbstractImmediateWorker.html#deactivate()">deactivate</a>, <a href="../../../../../common/worker/AbstractImmediateWorker.html#getCycleTime()">getCycleTime</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.common.worker.AbstractWorker">Methods inherited from class&nbsp;io.openems.common.worker.<a href="../../../../../common/worker/AbstractWorker.html" title="class in io.openems.common.worker">AbstractWorker</a></h3>
+<code><a href="../../../../../common/worker/AbstractWorker.html#activate(java.lang.String,boolean)">activate</a>, <a href="../../../../../common/worker/AbstractWorker.html#modified(java.lang.String)">modified</a>, <a href="../../../../../common/worker/AbstractWorker.html#modified(java.lang.String,boolean)">modified</a>, <a href="../../../../../common/worker/AbstractWorker.html#triggerNextRun()">triggerNextRun</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -157,12 +178,28 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="run()">
-<h3>run</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">run</span>()</div>
+<section class="detail" id="forever()">
+<h3>forever</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">forever</span>()
+             throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="../../../../../common/worker/AbstractWorker.html#forever()">AbstractWorker</a></code></span></div>
+<div class="block">This method is called in a loop forever until the Thread gets interrupted.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html#run()" title="class or interface in java.lang" class="external-link">run</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></code></dd>
+<dd><code><a href="../../../../../common/worker/AbstractImmediateWorker.html#forever()">forever</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../common/worker/AbstractImmediateWorker.html" title="class in io.openems.common.worker">AbstractImmediateWorker</a></code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getParams()">
+<h3>getParams</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a></span>&nbsp;<span class="element-name">getParams</span>()</div>
+<div class="block">Gets the current <a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer"><code>Params</code></a>.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the <a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer"><code>Params</code></a></dd>
 </dl>
 </section>
 </li>

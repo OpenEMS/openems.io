@@ -139,12 +139,14 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Period.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Period</a>&gt;&nbsp;collect)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBestSchedule(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params)" class="member-name-link">getBestSchedule</a><wbr>(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;p)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBestSchedule(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,long)" class="member-name-link">getBestSchedule</a><wbr>(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;p,
+ long&nbsp;executionLimitSeconds)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Runs the optimization with default settings.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBestSchedule(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,java.lang.Integer,java.lang.Integer)" class="member-name-link">getBestSchedule</a><wbr>(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;p,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBestSchedule(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,long,java.lang.Integer,java.lang.Integer)" class="member-name-link">getBestSchedule</a><wbr>(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;p,
+ long&nbsp;executionLimitSeconds,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;populationSize,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;limit)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
@@ -228,22 +230,25 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getBestSchedule(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params)">
+<section class="detail" id="getBestSchedule(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,long)">
 <h3>getBestSchedule</h3>
-<div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="return-type"><a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>[]</span>&nbsp;<span class="element-name">getBestSchedule</span><wbr><span class="parameters">(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;p)</span></div>
+<div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="return-type"><a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>[]</span>&nbsp;<span class="element-name">getBestSchedule</span><wbr><span class="parameters">(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;p,
+ long&nbsp;executionLimitSeconds)</span></div>
 <div class="block">Runs the optimization with default settings.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>p</code> - the <a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer"><code>Params</code></a></dd>
+<dd><code>executionLimitSeconds</code> - limit.byExecutionTime.ofSeconds</dd>
 <dt>Returns:</dt>
 <dd>the best schedule</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="getBestSchedule(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,java.lang.Integer,java.lang.Integer)">
+<section class="detail" id="getBestSchedule(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,long,java.lang.Integer,java.lang.Integer)">
 <h3>getBestSchedule</h3>
 <div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="return-type"><a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>[]</span>&nbsp;<span class="element-name">getBestSchedule</span><wbr><span class="parameters">(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;p,
+ long&nbsp;executionLimitSeconds,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;populationSize,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;limit)</span></div>
 </section>
