@@ -353,9 +353,9 @@ thousands of connected edges only. If you do not need that functionality you can
 <div class="paragraph">
 <p>A large number of OpenEMS edges connected to a single backend leads to a performance bottleneck.
 The bottleneck is mainly due to the access to the database. This <code>Aggregated InfluxDB</code> bundle in
-combination with the <a href="#../io.openems.backend.timedata.influx.adoc" class="xref unresolved">Timedata Influx</a>
-bundle can mitigate this bottleneck. This happens by writing all data as usual via <a href="#../io.openems.backend.timedata.influx.adoc" class="xref unresolved">Timedata Influx</a> into
-an Influx database (<code>DB 1</code>). Furthermore, all "aggregated data" (see <a href="#timedata.adoc" class="xref unresolved">edge datatypes</a>) are written via the <code>Aggregated InfluxDB</code> bundle to
+combination with the <a href="service.adoc.d/io.openems.backend.timedata.influx.html" class="xref page">Timedata Influx</a>
+bundle can mitigate this bottleneck. This happens by writing all data as usual via <a href="service.adoc.d/io.openems.backend.timedata.influx.html" class="xref page">Timedata Influx</a> into
+an Influx database (<code>DB 1</code>). Furthermore, all "aggregated data" (see <a href="timedata.html" class="xref page">edge datatypes</a>) are written via the <code>Aggregated InfluxDB</code> bundle to
 another database (<code>DB 2</code>) located on another server.
 Thus <code>DB 1</code> holds all data in high resolution, while <code>DB 2</code> only holds very few data (5-minute averages for power values
  or only daily values for energy). Furthermore, a retention policy of e.g. 90 days is applied to <code>DB 2</code>.
