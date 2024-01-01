@@ -98,11 +98,12 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,io.openems.common.session.Language,io.openems.common.session.Role,java.util.NavigableMap)" class="member-name-link">AbstractUser</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,io.openems.common.session.Language,io.openems.common.session.Role,java.util.NavigableMap,com.google.gson.JsonObject)" class="member-name-link">AbstractUser</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;language,
  <a href="Role.html" title="enum class in io.openems.common.session">Role</a>&nbsp;globalRole,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NavigableMap.html" title="class or interface in java.util" class="external-link">NavigableMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="Role.html" title="enum class in io.openems.common.session">Role</a>&gt;&nbsp;roles)</code></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NavigableMap.html" title="class or interface in java.util" class="external-link">NavigableMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="Role.html" title="enum class in io.openems.common.session">Role</a>&gt;&nbsp;roles,
+ com.google.gson.JsonObject&nbsp;settings)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -144,20 +145,25 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the Role for a given Edge-ID.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#hasMultipleEdges()" class="member-name-link">hasMultipleEdges</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.google.gson.JsonObject</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSettings()" class="member-name-link">getSettings</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the settings for this user.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#hasMultipleEdges()" class="member-name-link">hasMultipleEdges</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Gets the Number of Devices, that the user is allowed to see.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLanguage(io.openems.common.session.Language)" class="member-name-link">setLanguage</a><wbr>(<a href="Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;language)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLanguage(io.openems.common.session.Language)" class="member-name-link">setLanguage</a><wbr>(<a href="Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;language)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the user language.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRole(java.lang.String,io.openems.common.session.Role)" class="member-name-link">setRole</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRole(java.lang.String,io.openems.common.session.Role)" class="member-name-link">setRole</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
  <a href="Role.html" title="enum class in io.openems.common.session">Role</a>&nbsp;role)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the Role for a given Edge-ID.</div>
 </div>
 </div>
@@ -178,13 +184,14 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,io.openems.common.session.Language,io.openems.common.session.Role,java.util.NavigableMap)">
+<section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,io.openems.common.session.Language,io.openems.common.session.Role,java.util.NavigableMap,com.google.gson.JsonObject)">
 <h3>AbstractUser</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">AbstractUser</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="Language.html" title="enum class in io.openems.common.session">Language</a>&nbsp;language,
  <a href="Role.html" title="enum class in io.openems.common.session">Role</a>&nbsp;globalRole,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NavigableMap.html" title="class or interface in java.util" class="external-link">NavigableMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="Role.html" title="enum class in io.openems.common.session">Role</a>&gt;&nbsp;roles)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NavigableMap.html" title="class or interface in java.util" class="external-link">NavigableMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="Role.html" title="enum class in io.openems.common.session">Role</a>&gt;&nbsp;roles,
+ com.google.gson.JsonObject&nbsp;settings)</span></div>
 </section>
 </li>
 </ul>
@@ -274,6 +281,17 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>edgeId</code> - the Edge-ID</dd>
 <dd><code>role</code> - the Role</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getSettings()">
+<h3>getSettings</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.google.gson.JsonObject</span>&nbsp;<span class="element-name">getSettings</span>()</div>
+<div class="block">Gets the settings for this user.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the Role</dd>
 </dl>
 </section>
 </li>
