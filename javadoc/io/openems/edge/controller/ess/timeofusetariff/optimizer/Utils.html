@@ -205,72 +205,78 @@ loadScripts(document, 'script');</script>
 <div class="block">Create Params for <a href="Simulator.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer"><code>Simulator</code></a>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getEssMinSoc(java.util.List,java.util.List)" class="member-name-link">getEssMinSoc</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../limittotaldischarge/ControllerEssLimitTotalDischarge.html" title="interface in io.openems.edge.controller.ess.limittotaldischarge">ControllerEssLimitTotalDischarge</a>&gt;&nbsp;ctrlLimitTotalDischarges,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../emergencycapacityreserve/ControllerEssEmergencyCapacityReserve.html" title="interface in io.openems.edge.controller.ess.emergencycapacityreserve">ControllerEssEmergencyCapacityReserve</a>&gt;&nbsp;ctrlEmergencyCapacityReserves)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#essMaxChargePower(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,io.openems.edge.ess.api.ManagedSymmetricEss)" class="member-name-link">essMaxChargePower</a><wbr>(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;params,
+ <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Calculates the ESS Max-Charge power during automatic mode.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getEssMinSoc(java.util.List,java.util.List)" class="member-name-link">getEssMinSoc</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../limittotaldischarge/ControllerEssLimitTotalDischarge.html" title="interface in io.openems.edge.controller.ess.limittotaldischarge">ControllerEssLimitTotalDischarge</a>&gt;&nbsp;ctrlLimitTotalDischarges,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../emergencycapacityreserve/ControllerEssEmergencyCapacityReserve.html" title="interface in io.openems.edge.controller.ess.emergencycapacityreserve">ControllerEssEmergencyCapacityReserve</a>&gt;&nbsp;ctrlEmergencyCapacityReserves)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Returns the configured Minimum-SoC, or zero.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../jsonrpc/GetScheduleResponse.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleResponse</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#handleGetScheduleRequest(io.openems.edge.controller.ess.timeofusetariff.optimizer.Optimizer,java.util.UUID,io.openems.edge.timedata.api.Timedata,java.lang.String,java.time.ZonedDateTime)" class="member-name-link">handleGetScheduleRequest</a><wbr>(<a href="Optimizer.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Optimizer</a>&nbsp;optimizer,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../jsonrpc/GetScheduleResponse.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleResponse</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#handleGetScheduleRequest(io.openems.edge.controller.ess.timeofusetariff.optimizer.Optimizer,java.util.UUID,io.openems.edge.timedata.api.Timedata,java.lang.String,java.time.ZonedDateTime)" class="member-name-link">handleGetScheduleRequest</a><wbr>(<a href="Optimizer.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Optimizer</a>&nbsp;optimizer,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;requestId,
  <a href="../../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a>&nbsp;timedata,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;componentId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;now)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Utilizes the previous three hours' data and computes the next 21 hours data
  from the <a href="Optimizer.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer"><code>Optimizer</code></a> provided, then concatenates them to generate a
  24-hour <a href="../jsonrpc/GetScheduleResponse.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc"><code>GetScheduleResponse</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static float[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#interpolateArray(java.lang.Float%5B%5D)" class="member-name-link">interpolateArray</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>[]&nbsp;values)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static float[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#interpolateArray(java.lang.Float%5B%5D)" class="member-name-link">interpolateArray</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>[]&nbsp;values)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Interpolate an Array of <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link"><code>Float</code></a>s.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static int[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#interpolateArray(java.lang.Integer%5B%5D)" class="member-name-link">interpolateArray</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>[]&nbsp;values)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static int[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#interpolateArray(java.lang.Integer%5B%5D)" class="member-name-link">interpolateArray</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>[]&nbsp;values)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Interpolate an Array of <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link"><code>Integer</code></a>s.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#joinConsumptionPredictions(int,java.lang.Integer%5B%5D,java.lang.Integer%5B%5D)" class="member-name-link">joinConsumptionPredictions</a><wbr>(int&nbsp;splitAfterIndex,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#joinConsumptionPredictions(int,java.lang.Integer%5B%5D,java.lang.Integer%5B%5D)" class="member-name-link">joinConsumptionPredictions</a><wbr>(int&nbsp;splitAfterIndex,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>[]&nbsp;totalConsumption,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>[]&nbsp;unmanagedConsumption)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#logSchedule(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,java.util.TreeMap)" class="member-name-link">logSchedule</a><wbr>(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;params,
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#logSchedule(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,java.util.TreeMap)" class="member-name-link">logSchedule</a><wbr>(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;params,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/TreeMap.html" title="class or interface in java.util" class="external-link">TreeMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="Period.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Period</a>&gt;&nbsp;periods)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Prints the Schedule to System.out.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#paramsAreValid(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params)" class="member-name-link">paramsAreValid</a><wbr>(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;p)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#postprocessRunState(int,java.lang.Integer,io.openems.edge.controller.ess.timeofusetariff.StateMachine)" class="member-name-link">postprocessRunState</a><wbr>(int&nbsp;minSoc,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#paramsAreValid(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params)" class="member-name-link">paramsAreValid</a><wbr>(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;p)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#postprocessRunState(int,java.lang.Integer,io.openems.edge.controller.ess.timeofusetariff.StateMachine)" class="member-name-link">postprocessRunState</a><wbr>(int&nbsp;minSoc,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;soc,
  <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>&nbsp;state)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Post-Process a state during <a href="../../../api/Controller.html#run()"><code>Controller.run()</code></a>, i.e.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#postprocessSimulatorState(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,int,int,int,float,int,io.openems.edge.controller.ess.timeofusetariff.StateMachine)" class="member-name-link">postprocessSimulatorState</a><wbr>(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;p,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#postprocessSimulatorState(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,int,int,int,float,int,io.openems.edge.controller.ess.timeofusetariff.StateMachine)" class="member-name-link">postprocessSimulatorState</a><wbr>(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;p,
  int&nbsp;essChargeDischarge,
  int&nbsp;essInitialEnergy,
  int&nbsp;gridEssCharge,
  float&nbsp;price,
  int&nbsp;balancingChargeDischarge,
  <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>&nbsp;state)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Post-Process a state of a Period during Simulation, i.e.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toEnergy(int)" class="member-name-link">toEnergy</a><wbr>(int&nbsp;power)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toEnergy(int)" class="member-name-link">toEnergy</a><wbr>(int&nbsp;power)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Converts power [W] to energy [Wh/15 min].</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toPower(java.lang.Integer)" class="member-name-link">toPower</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;energy)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toPower(java.lang.Integer)" class="member-name-link">toPower</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;energy)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Converts energy [Wh/15 min] to power [W].</div>
 </div>
 </div>
@@ -541,7 +547,7 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>ess</code> - the <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
 <dd><code>sum</code> - the <a href="../../../../common/sum/Sum.html" title="interface in io.openems.edge.common.sum"><code>Sum</code></a></dd>
-<dd><code>essMaxChargePower</code> - ESS Max Charge Power in CHARGE State</dd>
+<dd><code>essMaxChargePower</code> - ESS Max Charge Power in CHARGE State (positive)</dd>
 <dd><code>maxChargePowerFromGrid</code> - the configured max charge from grid power</dd>
 <dt>Returns:</dt>
 <dd>the set-point or null</dd>
@@ -714,6 +720,21 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>params</code> - the <a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer"><code>Params</code></a></dd>
 <dd><code>periods</code> - the map of <a href="Period.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer"><code>Period</code></a>s</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="essMaxChargePower(io.openems.edge.controller.ess.timeofusetariff.optimizer.Params,io.openems.edge.ess.api.ManagedSymmetricEss)">
+<h3>essMaxChargePower</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">essMaxChargePower</span><wbr><span class="parameters">(<a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Params</a>&nbsp;params,
+ <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api">ManagedSymmetricEss</a>&nbsp;ess)</span></div>
+<div class="block">Calculates the ESS Max-Charge power during automatic mode.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>params</code> - the <a href="Params.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer"><code>Params</code></a>, or null</dd>
+<dd><code>ess</code> - the <a href="../../../../ess/api/ManagedSymmetricEss.html" title="interface in io.openems.edge.ess.api"><code>ManagedSymmetricEss</code></a></dd>
+<dt>Returns:</dt>
+<dd>the power in [W]</dd>
 </dl>
 </section>
 </li>
