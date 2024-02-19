@@ -137,13 +137,12 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPrices()" class="member-name-link">getPrices</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Gives electricity prices for the next 24 h; one value per 15 minutes; 96
- values in total.</div>
+<div class="block">Gives electricity prices; one value per 15 minutes.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static com.google.common.collect.ImmutableSortedMap&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>&gt;</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parsePrices(java.lang.String)" class="member-name-link">parsePrices</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;jsonData)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Parse the Corrently JSON to the Price Map.</div>
+<div class="block">Parse the Corrently JSON to <a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api"><code>TimeOfUsePrices</code></a>.</div>
 </div>
 </div>
 </div>
@@ -199,8 +198,7 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <h3>getPrices</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a></span>&nbsp;<span class="element-name">getPrices</span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../api/TimeOfUseTariff.html#getPrices()">TimeOfUseTariff</a></code></span></div>
-<div class="block">Gives electricity prices for the next 24 h; one value per 15 minutes; 96
- values in total.
+<div class="block">Gives electricity prices; one value per 15 minutes.
 
  <p>
  E.g. if called at 10:05, the first value stands for 10:00 to 10:15; second
@@ -209,7 +207,7 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <dt>Specified by:</dt>
 <dd><code><a href="../api/TimeOfUseTariff.html#getPrices()">getPrices</a></code>&nbsp;in interface&nbsp;<code><a href="../api/TimeOfUseTariff.html" title="interface in io.openems.edge.timeofusetariff.api">TimeOfUseTariff</a></code></dd>
 <dt>Returns:</dt>
-<dd>the prices; <a href="../api/TimeOfUsePrices.html#empty(java.time.ZonedDateTime)"><code>TimeOfUsePrices.empty(java.time.ZonedDateTime)</code></a> if
+<dd>the prices; <code>TimeOfUsePrices#empty(java.time.ZonedDateTime)</code> if
          no prices are known</dd>
 </dl>
 </section>
@@ -217,9 +215,9 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <li>
 <section class="detail" id="parsePrices(java.lang.String)">
 <h3>parsePrices</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">com.google.common.collect.ImmutableSortedMap&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>&gt;</span>&nbsp;<span class="element-name">parsePrices</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;jsonData)</span>
-                                                                                     throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block">Parse the Corrently JSON to the Price Map.</div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a></span>&nbsp;<span class="element-name">parsePrices</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;jsonData)</span>
+                                   throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block">Parse the Corrently JSON to <a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api"><code>TimeOfUsePrices</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>jsonData</code> - the Corrently JSON</dd>

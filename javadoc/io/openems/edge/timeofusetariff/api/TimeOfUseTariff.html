@@ -83,8 +83,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations">@ProviderType
 </span><span class="modifiers">public interface </span><span class="element-name type-name-label">TimeOfUseTariff</span></div>
-<div class="block">Provides a prediction for the next 24 h; one value per 15 minutes; 96 values
- in total.</div>
+<div class="block">Provides quarterly Time-of-Use Tariff prices.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -102,8 +101,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getPrices()" class="member-name-link">getPrices</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Gives electricity prices for the next 24 h; one value per 15 minutes; 96
- values in total.</div>
+<div class="block">Gives electricity prices; one value per 15 minutes.</div>
 </div>
 </div>
 </div>
@@ -123,15 +121,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getPrices()">
 <h3>getPrices</h3>
 <div class="member-signature"><span class="return-type"><a href="TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a></span>&nbsp;<span class="element-name">getPrices</span>()</div>
-<div class="block">Gives electricity prices for the next 24 h; one value per 15 minutes; 96
- values in total.
+<div class="block">Gives electricity prices; one value per 15 minutes.
 
  <p>
  E.g. if called at 10:05, the first value stands for 10:00 to 10:15; second
  value for 10:15 to 10:30.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the prices; <a href="TimeOfUsePrices.html#empty(java.time.ZonedDateTime)"><code>TimeOfUsePrices.empty(java.time.ZonedDateTime)</code></a> if
+<dd>the prices; <code>TimeOfUsePrices#empty(java.time.ZonedDateTime)</code> if
          no prices are known</dd>
 </dl>
 </section>

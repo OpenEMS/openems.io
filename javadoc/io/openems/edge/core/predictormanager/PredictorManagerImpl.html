@@ -79,12 +79,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code>, <code><a href="../../predictor/api/manager/PredictorManager.html" title="interface in io.openems.edge.predictor.api.manager">PredictorManager</a></code></dd>
+<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../predictor/api/manager/PredictorManager.html" title="interface in io.openems.edge.predictor.api.manager">PredictorManager</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">PredictorManagerImpl</span>
 <span class="extends-implements">extends <a href="../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="../../predictor/api/manager/PredictorManager.html" title="interface in io.openems.edge.predictor.api.manager">PredictorManager</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></span></div>
+implements <a href="../../predictor/api/manager/PredictorManager.html" title="interface in io.openems.edge.predictor.api.manager">PredictorManager</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -138,17 +138,11 @@ implements <a href="../../predictor/api/manager/PredictorManager.html" title="in
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Handles @Deactivate of implementations.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../predictor/api/oneday/Prediction24Hours.html" title="class in io.openems.edge.predictor.api.oneday">Prediction24Hours</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get24HoursPrediction(io.openems.common.types.ChannelAddress)" class="member-name-link">get24HoursPrediction</a><wbr>(<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channelAddress)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../predictor/api/prediction/Prediction.html" title="class in io.openems.edge.predictor.api.prediction">Prediction</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPrediction(io.openems.common.types.ChannelAddress)" class="member-name-link">getPrediction</a><wbr>(<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channelAddress)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Gets the <a href="../../predictor/api/oneday/Prediction24Hours.html" title="class in io.openems.edge.predictor.api.oneday"><code>Prediction24Hours</code></a> by the best matching
- <a href="../../predictor/api/oneday/Predictor24Hours.html" title="interface in io.openems.edge.predictor.api.oneday"><code>Predictor24Hours</code></a> for the given <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)" class="member-name-link">handleJsonrpcRequest</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Handles a JSON-RPC Request.</div>
+<div class="block">Gets the <a href="../../predictor/api/prediction/Prediction.html" title="class in io.openems.edge.predictor.api.prediction"><code>Prediction</code></a> by the best matching <code>Predictor</code> for the
+ given <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>.</div>
 </div>
 </div>
 </div>
@@ -200,41 +194,19 @@ implements <a href="../../predictor/api/manager/PredictorManager.html" title="in
 </section>
 </li>
 <li>
-<section class="detail" id="handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">
-<h3>handleJsonrpcRequest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">handleJsonrpcRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</span>
-                                                                         throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../common/jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">JsonApi</a></code></span></div>
-<div class="block">Handles a JSON-RPC Request.</div>
+<section class="detail" id="getPrediction(io.openems.common.types.ChannelAddress)">
+<h3>getPrediction</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../predictor/api/prediction/Prediction.html" title="class in io.openems.edge.predictor.api.prediction">Prediction</a></span>&nbsp;<span class="element-name">getPrediction</span><wbr><span class="parameters">(<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channelAddress)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../predictor/api/manager/PredictorManager.html#getPrediction(io.openems.common.types.ChannelAddress)">PredictorManager</a></code></span></div>
+<div class="block">Gets the <a href="../../predictor/api/prediction/Prediction.html" title="class in io.openems.edge.predictor.api.prediction"><code>Prediction</code></a> by the best matching <code>Predictor</code> for the
+ given <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../common/jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">handleJsonrpcRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
-<dt>Parameters:</dt>
-<dd><code>user</code> - the authenticated <a href="../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a></dd>
-<dd><code>request</code> - the JSON-RPC Request</dd>
-<dt>Returns:</dt>
-<dd>a Future JSON-RPC Success Response; null response results in a
-         OpenemsError.JSONRPC_UNHANDLED_METHOD</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="get24HoursPrediction(io.openems.common.types.ChannelAddress)">
-<h3>get24HoursPrediction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../predictor/api/oneday/Prediction24Hours.html" title="class in io.openems.edge.predictor.api.oneday">Prediction24Hours</a></span>&nbsp;<span class="element-name">get24HoursPrediction</span><wbr><span class="parameters">(<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&nbsp;channelAddress)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../predictor/api/manager/PredictorManager.html#get24HoursPrediction(io.openems.common.types.ChannelAddress)">PredictorManager</a></code></span></div>
-<div class="block">Gets the <a href="../../predictor/api/oneday/Prediction24Hours.html" title="class in io.openems.edge.predictor.api.oneday"><code>Prediction24Hours</code></a> by the best matching
- <a href="../../predictor/api/oneday/Predictor24Hours.html" title="interface in io.openems.edge.predictor.api.oneday"><code>Predictor24Hours</code></a> for the given <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a>.</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="../../predictor/api/manager/PredictorManager.html#get24HoursPrediction(io.openems.common.types.ChannelAddress)">get24HoursPrediction</a></code>&nbsp;in interface&nbsp;<code><a href="../../predictor/api/manager/PredictorManager.html" title="interface in io.openems.edge.predictor.api.manager">PredictorManager</a></code></dd>
+<dd><code><a href="../../predictor/api/manager/PredictorManager.html#getPrediction(io.openems.common.types.ChannelAddress)">getPrediction</a></code>&nbsp;in interface&nbsp;<code><a href="../../predictor/api/manager/PredictorManager.html" title="interface in io.openems.edge.predictor.api.manager">PredictorManager</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>channelAddress</code> - the <a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types"><code>ChannelAddress</code></a></dd>
 <dt>Returns:</dt>
-<dd>the <a href="../../predictor/api/oneday/Prediction24Hours.html" title="class in io.openems.edge.predictor.api.oneday"><code>Prediction24Hours</code></a> - all values null if no Predictor
+<dd>the <a href="../../predictor/api/prediction/Prediction.html" title="class in io.openems.edge.predictor.api.prediction"><code>Prediction</code></a>; <a href="../../predictor/api/prediction/Prediction.html#EMPTY_PREDICTION"><code>Prediction.EMPTY_PREDICTION</code></a> if no Predictor
          matches the Channel-Address</dd>
 </dl>
 </section>

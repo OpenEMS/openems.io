@@ -182,9 +182,14 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Modifies the worker thread.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#triggerNextRun()" class="member-name-link">triggerNextRun</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPriority(int)" class="member-name-link">setPriority</a><wbr>(int&nbsp;newPriority)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Changes the priority of this thread.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#triggerNextRun()" class="member-name-link">triggerNextRun</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Allows the next execution of the forever() method.</div>
 </div>
 </div>
@@ -353,6 +358,27 @@ loadScripts(document, 'script');</script>
 <h3>triggerNextRun</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">triggerNextRun</span>()</div>
 <div class="block">Allows the next execution of the forever() method.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setPriority(int)">
+<h3>setPriority</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPriority</span><wbr><span class="parameters">(int&nbsp;newPriority)</span></div>
+<div class="block">Changes the priority of this thread.
+ 
+ <p>
+ See <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#setPriority(int)" title="class or interface in java.lang" class="external-link"><code>Thread.setPriority(int)</code></a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#MIN_PRIORITY" title="class or interface in java.lang" class="external-link"><code>Thread.MIN_PRIORITY</code></a>,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#NORM_PRIORITY" title="class or interface in java.lang" class="external-link"><code>Thread.NORM_PRIORITY</code></a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#MAX_PRIORITY" title="class or interface in java.lang" class="external-link"><code>Thread.MAX_PRIORITY</code></a>}.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>newPriority</code> - priority to set this thread to</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - If the priority is not in the range
+                                  <code>MIN_PRIORITY</code> to
+                                  <code>MAX_PRIORITY</code>.</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SecurityException.html" title="class or interface in java.lang" class="external-link">SecurityException</a></code> - if the current thread cannot modify this
+                                  thread.</dd>
+</dl>
 </section>
 </li>
 </ul>

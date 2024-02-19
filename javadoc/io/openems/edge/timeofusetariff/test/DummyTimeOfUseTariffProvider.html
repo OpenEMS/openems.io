@@ -94,8 +94,8 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.time.ZonedDateTime,java.lang.Float...)" class="member-name-link">DummyTimeOfUseTariffProvider</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;now,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>...&nbsp;quarterlyPrices)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.time.Clock,io.openems.edge.timeofusetariff.api.TimeOfUsePrices)" class="member-name-link">DummyTimeOfUseTariffProvider</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a>&nbsp;clock,
+ <a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a>&nbsp;prices)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -111,28 +111,31 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPrices()" class="member-name-link">getPrices</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Gives electricity prices for the next 24 h; one value per 15 minutes; 96
- values in total.</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test">DummyTimeOfUseTariffProvider</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#empty(java.time.Clock)" class="member-name-link">empty</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a>&nbsp;clock)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Builds a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a> with empty prices.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test">DummyTimeOfUseTariffProvider</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hourlyPrices(java.time.ZonedDateTime,java.lang.Float...)" class="member-name-link">hourlyPrices</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;now,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>...&nbsp;hourlyPrices)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromHourlyPrices(java.time.Clock,java.lang.Double...)" class="member-name-link">fromHourlyPrices</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a>&nbsp;clock,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>...&nbsp;hourlyPrices)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Builds a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a> from hourly prices.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test">DummyTimeOfUseTariffProvider</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#quarterlyPrices(java.time.ZonedDateTime,java.lang.Float...)" class="member-name-link">quarterlyPrices</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;now,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>...&nbsp;hourlyPrices)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromQuarterlyPrices(java.time.Clock,java.lang.Double...)" class="member-name-link">fromQuarterlyPrices</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a>&nbsp;clock,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>...&nbsp;quarterlyPrices)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Builds a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a> from hourly prices.</div>
+<div class="block">Builds a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a> from quarterly prices.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPrices(java.time.ZonedDateTime,java.lang.Float...)" class="member-name-link">setPrices</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;now,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>...&nbsp;quarterlyPrices)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPrices()" class="member-name-link">getPrices</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gives electricity prices; one value per 15 minutes.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPrices(io.openems.edge.timeofusetariff.api.TimeOfUsePrices)" class="member-name-link">setPrices</a><wbr>(<a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a>&nbsp;prices)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -151,10 +154,10 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.time.ZonedDateTime,java.lang.Float...)">
+<section class="detail" id="&lt;init&gt;(java.time.Clock,io.openems.edge.timeofusetariff.api.TimeOfUsePrices)">
 <h3>DummyTimeOfUseTariffProvider</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DummyTimeOfUseTariffProvider</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;now,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>...&nbsp;quarterlyPrices)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DummyTimeOfUseTariffProvider</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a>&nbsp;clock,
+ <a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a>&nbsp;prices)</span></div>
 </section>
 </li>
 </ul>
@@ -166,40 +169,52 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="hourlyPrices(java.time.ZonedDateTime,java.lang.Float...)">
-<h3>hourlyPrices</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test">DummyTimeOfUseTariffProvider</a></span>&nbsp;<span class="element-name">hourlyPrices</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;now,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>...&nbsp;hourlyPrices)</span></div>
-<div class="block">Builds a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a> from hourly prices.</div>
+<section class="detail" id="empty(java.time.Clock)">
+<h3>empty</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test">DummyTimeOfUseTariffProvider</a></span>&nbsp;<span class="element-name">empty</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a>&nbsp;clock)</span></div>
+<div class="block">Builds a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a> with empty prices.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>hourlyPrices</code> - an array of 24 hourly prices.</dd>
-<dd><code>now</code> -  given during test.</dd>
+<dd><code>clock</code> -  given during test</dd>
 <dt>Returns:</dt>
 <dd>a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a>.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="quarterlyPrices(java.time.ZonedDateTime,java.lang.Float...)">
-<h3>quarterlyPrices</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test">DummyTimeOfUseTariffProvider</a></span>&nbsp;<span class="element-name">quarterlyPrices</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;now,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>...&nbsp;hourlyPrices)</span></div>
-<div class="block">Builds a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a> from hourly prices.</div>
+<section class="detail" id="fromQuarterlyPrices(java.time.Clock,java.lang.Double...)">
+<h3>fromQuarterlyPrices</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test">DummyTimeOfUseTariffProvider</a></span>&nbsp;<span class="element-name">fromQuarterlyPrices</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a>&nbsp;clock,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>...&nbsp;quarterlyPrices)</span></div>
+<div class="block">Builds a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a> from quarterly prices.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>hourlyPrices</code> - an array of hourly prices.</dd>
-<dd><code>now</code> -  given during test.</dd>
+<dd><code>clock</code> -  given during test</dd>
+<dd><code>quarterlyPrices</code> - an array of quarterly prices</dd>
 <dt>Returns:</dt>
 <dd>a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a>.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="setPrices(java.time.ZonedDateTime,java.lang.Float...)">
+<section class="detail" id="fromHourlyPrices(java.time.Clock,java.lang.Double...)">
+<h3>fromHourlyPrices</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test">DummyTimeOfUseTariffProvider</a></span>&nbsp;<span class="element-name">fromHourlyPrices</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a>&nbsp;clock,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>...&nbsp;hourlyPrices)</span></div>
+<div class="block">Builds a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a> from hourly prices.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>clock</code> -  given during test</dd>
+<dd><code>hourlyPrices</code> - an array of hourly prices</dd>
+<dt>Returns:</dt>
+<dd>a <a href="DummyTimeOfUseTariffProvider.html" title="class in io.openems.edge.timeofusetariff.test"><code>DummyTimeOfUseTariffProvider</code></a>.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setPrices(io.openems.edge.timeofusetariff.api.TimeOfUsePrices)">
 <h3>setPrices</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPrices</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;now,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>...&nbsp;quarterlyPrices)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPrices</span><wbr><span class="parameters">(<a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a>&nbsp;prices)</span></div>
 </section>
 </li>
 <li>
@@ -207,8 +222,7 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <h3>getPrices</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../api/TimeOfUsePrices.html" title="class in io.openems.edge.timeofusetariff.api">TimeOfUsePrices</a></span>&nbsp;<span class="element-name">getPrices</span>()</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../api/TimeOfUseTariff.html#getPrices()">TimeOfUseTariff</a></code></span></div>
-<div class="block">Gives electricity prices for the next 24 h; one value per 15 minutes; 96
- values in total.
+<div class="block">Gives electricity prices; one value per 15 minutes.
 
  <p>
  E.g. if called at 10:05, the first value stands for 10:00 to 10:15; second
@@ -217,7 +231,7 @@ implements <a href="../api/TimeOfUseTariff.html" title="interface in io.openems.
 <dt>Specified by:</dt>
 <dd><code><a href="../api/TimeOfUseTariff.html#getPrices()">getPrices</a></code>&nbsp;in interface&nbsp;<code><a href="../api/TimeOfUseTariff.html" title="interface in io.openems.edge.timeofusetariff.api">TimeOfUseTariff</a></code></dd>
 <dt>Returns:</dt>
-<dd>the prices; <a href="../api/TimeOfUsePrices.html#empty(java.time.ZonedDateTime)"><code>TimeOfUsePrices.empty(java.time.ZonedDateTime)</code></a> if
+<dd>the prices; <code>TimeOfUsePrices#empty(java.time.ZonedDateTime)</code> if
          no prices are known</dd>
 </dl>
 </section>

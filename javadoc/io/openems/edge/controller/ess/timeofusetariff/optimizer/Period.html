@@ -78,7 +78,7 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">Period</span>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;time, int&nbsp;production, int&nbsp;consumption, int&nbsp;essInitial, int&nbsp;essMaxCharge, int&nbsp;essMaxDischarge, <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>&nbsp;state, int&nbsp;essChargeDischarge, int&nbsp;grid, float&nbsp;price, double&nbsp;cost)
+<div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">Period</span>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;time, int&nbsp;production, int&nbsp;consumption, int&nbsp;essInitial, <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>&nbsp;state, int&nbsp;essChargeDischarge, int&nbsp;grid, double&nbsp;price, double&nbsp;cost)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
 </section>
 <section class="summary">
@@ -91,16 +91,14 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.time.ZonedDateTime,int,int,int,int,int,io.openems.edge.controller.ess.timeofusetariff.StateMachine,int,int,float,double)" class="member-name-link">Period</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;time,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.time.ZonedDateTime,int,int,int,io.openems.edge.controller.ess.timeofusetariff.StateMachine,int,int,double,double)" class="member-name-link">Period</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;time,
  int&nbsp;production,
  int&nbsp;consumption,
  int&nbsp;essInitial,
- int&nbsp;essMaxCharge,
- int&nbsp;essMaxDischarge,
  <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>&nbsp;state,
  int&nbsp;essChargeDischarge,
  int&nbsp;grid,
- float&nbsp;price,
+ double&nbsp;price,
  double&nbsp;cost)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates an instance of a <code>Period</code> record class.</div>
@@ -144,16 +142,6 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <code>essInitial</code> record component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#essMaxCharge()" class="member-name-link">essMaxCharge</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>essMaxCharge</code> record component.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#essMaxDischarge()" class="member-name-link">essMaxDischarge</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>essMaxDischarge</code> record component.</div>
-</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Period.html" title="class in io.openems.edge.controller.ess.timeofusetariff.optimizer">Period</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromLog(java.lang.String)" class="member-name-link">fromLog</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;log)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
@@ -174,7 +162,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets the <a href="#toString()"><code>toString()</code></a> header.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#price()" class="member-name-link">price</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <code>price</code> record component.</div>
@@ -217,18 +205,16 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.time.ZonedDateTime,int,int,int,int,int,io.openems.edge.controller.ess.timeofusetariff.StateMachine,int,int,float,double)">
+<section class="detail" id="&lt;init&gt;(java.time.ZonedDateTime,int,int,int,io.openems.edge.controller.ess.timeofusetariff.StateMachine,int,int,double,double)">
 <h3>Period</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Period</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;time,
  int&nbsp;production,
  int&nbsp;consumption,
  int&nbsp;essInitial,
- int&nbsp;essMaxCharge,
- int&nbsp;essMaxDischarge,
  <a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>&nbsp;state,
  int&nbsp;essChargeDischarge,
  int&nbsp;grid,
- float&nbsp;price,
+ double&nbsp;price,
  double&nbsp;cost)</span></div>
 <div class="block">Creates an instance of a <code>Period</code> record class.</div>
 <dl class="notes">
@@ -237,8 +223,6 @@ loadScripts(document, 'script');</script>
 <dd><code>production</code> - the value for the <code>production</code> record component</dd>
 <dd><code>consumption</code> - the value for the <code>consumption</code> record component</dd>
 <dd><code>essInitial</code> - the value for the <code>essInitial</code> record component</dd>
-<dd><code>essMaxCharge</code> - the value for the <code>essMaxCharge</code> record component</dd>
-<dd><code>essMaxDischarge</code> - the value for the <code>essMaxDischarge</code> record component</dd>
 <dd><code>state</code> - the value for the <code>state</code> record component</dd>
 <dd><code>essChargeDischarge</code> - the value for the <code>essChargeDischarge</code> record component</dd>
 <dd><code>grid</code> - the value for the <code>grid</code> record component</dd>
@@ -367,28 +351,6 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="essMaxCharge()">
-<h3>essMaxCharge</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">essMaxCharge</span>()</div>
-<div class="block">Returns the value of the <code>essMaxCharge</code> record component.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>the value of the <code>essMaxCharge</code> record component</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="essMaxDischarge()">
-<h3>essMaxDischarge</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">essMaxDischarge</span>()</div>
-<div class="block">Returns the value of the <code>essMaxDischarge</code> record component.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>the value of the <code>essMaxDischarge</code> record component</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="state()">
 <h3>state</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a></span>&nbsp;<span class="element-name">state</span>()</div>
@@ -424,7 +386,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="price()">
 <h3>price</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">price</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">price</span>()</div>
 <div class="block">Returns the value of the <code>price</code> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
