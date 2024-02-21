@@ -87,24 +87,36 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
+<dt>All Superinterfaces:</dt>
+<dd><code><a href="BridgeHttpCycle.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpCycle</a></code>, <code><a href="BridgeHttpTime.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpTime</a></code></dd>
+</dl>
+<dl class="notes">
 <dt>All Known Implementing Classes:</dt>
 <dd><code><a href="../BridgeHttpImpl.html" title="class in io.openems.edge.bridge.http">BridgeHttpImpl</a></code>, <code><a href="../dummy/DummyBridgeHttp.html" title="class in io.openems.edge.bridge.http.dummy">DummyBridgeHttp</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">BridgeHttp</span></div>
-<div class="block">HttpBridge to handle request to a endpoint.
- 
- <p>
- If a request is scheduled every cycle and the request does take longer than
- one cycle it is not executed multiple times instead it waits until the last
- request is finished and will be executed with the next cycle.
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">BridgeHttp</span><span class="extends-implements">
+extends <a href="BridgeHttpCycle.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpCycle</a>, <a href="BridgeHttpTime.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpTime</a></span></div>
+<div class="block">HttpBridge to handle requests to a <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a>.
  
  <p>
  To get a reference to a bridge object include this in your component:
  
  <pre>
-   <code>@Reference</code>(scope = ReferenceScope.PROTOTYPE_REQUIRED)
+   <code>@Reference</code>
+   private BridgeHttpFactory httpBridgeFactory;
    private BridgeHttp httpBridge;
+
+   <code>@Activate</code>
+   private void activate() {
+       this.httpBridge = this.httpBridgeFactory.get();
+   }
+
+   <code>@Deactivate</code>
+   private void deactivate() {
+       this.httpBridgeFactory.unget(this.httpBridge);
+       this.httpBridge = null;
+   }
  </pre>
  
  <p>
@@ -116,13 +128,18 @@ loadScripts(document, 'script');</script>
  }, t -&gt; {
         // handle error
  });
- </pre>
- 
- <p>
- If an enpoint does not require to be called every cycle it can also be
- configured with e. g. <a href="#subscribe(int,java.lang.String,java.util.function.Consumer)"><code>subscribe(int, String, Consumer)</code></a>
- where the first value could be 5 then the request gets triggered every 5th
- cycle.</div>
+ </pre></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="BridgeHttpCycle.html" title="interface in io.openems.edge.bridge.http.api"><code>for more detailed explanation for requests based on
+      cycle</code></a></li>
+<li><a href="BridgeHttpTime.html" title="interface in io.openems.edge.bridge.http.api"><code>for more detailed explanation for requests based on time
+      e. g. every hour</code></a></li>
+</ul>
+</dd>
+</dl>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -139,6 +156,12 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><code><a href="BridgeHttp.Endpoint.html" class="type-name-link" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
+<div class="inherited-list">
+<h2 id="nested-classes-inherited-from-class-io.openems.edge.bridge.http.api.BridgeHttpCycle">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.bridge.http.api.<a href="BridgeHttpCycle.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpCycle</a></h2>
+<code><a href="BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpCycle.CycleEndpoint</a></code></div>
+<div class="inherited-list">
+<h2 id="nested-classes-inherited-from-class-io.openems.edge.bridge.http.api.BridgeHttpTime">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.bridge.http.api.<a href="BridgeHttpTime.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpTime</a></h2>
+<code><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
 </section>
 </li>
 <!-- =========== FIELD SUMMARY =========== -->
@@ -150,6 +173,12 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#DEFAULT_CONNECT_TIMEOUT" class="member-name-link">DEFAULT_CONNECT_TIMEOUT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#DEFAULT_READ_TIMEOUT" class="member-name-link">DEFAULT_READ_TIMEOUT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;</code></div>
 <div class="col-second even-row-color"><code><a href="#EMPTY_ERROR_HANDLER" class="member-name-link">EMPTY_ERROR_HANDLER</a></code></div>
 <div class="col-last even-row-color">
@@ -169,87 +198,71 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#delete(java.lang.String)" class="member-name-link">delete</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Fetches the url once with <a href="HttpMethod.html#DELETE"><code>HttpMethod.DELETE</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#deleteJson(java.lang.String)" class="member-name-link">deleteJson</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Fetches the url once with <a href="HttpMethod.html#DELETE"><code>HttpMethod.DELETE</code></a> and expects the result to
+ be in json format.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#get(java.lang.String)" class="member-name-link">get</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Fetches the url once with <a href="HttpMethod.html#GET"><code>HttpMethod.GET</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getJson(java.lang.String)" class="member-name-link">getJson</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Fetches the url once with <a href="HttpMethod.html#GET"><code>HttpMethod.GET</code></a> and expects the result to be
+ in json format.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#post(java.lang.String,java.lang.String)" class="member-name-link">post</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;body)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Fetches the url once with <a href="HttpMethod.html#POST"><code>HttpMethod.POST</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#postJson(java.lang.String,com.google.gson.JsonElement)" class="member-name-link">postJson</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
+ com.google.gson.JsonElement&nbsp;body)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Fetches the url once with <a href="HttpMethod.html#POST"><code>HttpMethod.POST</code></a> and expects the result to
+ be in json format.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#put(java.lang.String)" class="member-name-link">put</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Fetches the url once with <a href="HttpMethod.html#PUT"><code>HttpMethod.PUT</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#putJson(java.lang.String)" class="member-name-link">putJson</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Fetches the url once with <a href="HttpMethod.html#PUT"><code>HttpMethod.PUT</code></a> and expects the result to be
+ in json format.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#request(java.lang.String)" class="member-name-link">request</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#request(io.openems.edge.bridge.http.api.BridgeHttp.Endpoint)" class="member-name-link">request</a><wbr>(<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Fetches the url once.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setTimeout(int,int)" class="member-name-link">setTimeout</a><wbr>(int&nbsp;connectTimeout,
- int&nbsp;readTimeout)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Sets the connect and read timeout.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribe(int,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribe</a><wbr>(int&nbsp;cycle,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;result,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Subscribes to one http endpoint.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribe(int,java.lang.String,java.util.function.BiConsumer)" class="member-name-link">subscribe</a><wbr>(int&nbsp;cycle,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;action)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#requestJson(io.openems.edge.bridge.http.api.BridgeHttp.Endpoint)" class="member-name-link">requestJson</a><wbr>(<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Subscribes to one http endpoint.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribe(int,java.lang.String,java.util.function.Consumer)" class="member-name-link">subscribe</a><wbr>(int&nbsp;cycle,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;result)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Subscribes to one http endpoint.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#subscribe(io.openems.edge.bridge.http.api.BridgeHttp.Endpoint)" class="member-name-link">subscribe</a><wbr>(<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Subscribes to one http endpoint.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeEveryCycle(java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeEveryCycle</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;result,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Subscribes to one http endpoint.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeEveryCycle(java.lang.String,java.util.function.BiConsumer)" class="member-name-link">subscribeEveryCycle</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;action)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Subscribes to one http endpoint.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeEveryCycle(java.lang.String,java.util.function.Consumer)" class="member-name-link">subscribeEveryCycle</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;result)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Subscribes to one http endpoint.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeJson(int,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeJson</a><wbr>(int&nbsp;cycle,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;com.google.gson.JsonElement,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;result,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Subscribes to one http endpoint.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeJsonEveryCycle(java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeJsonEveryCycle</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;com.google.gson.JsonElement,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;result,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Subscribes to one http endpoint.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeJsonEveryCycle(java.lang.String,java.util.function.BiConsumer)" class="member-name-link">subscribeJsonEveryCycle</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;com.google.gson.JsonElement,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;action)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Subscribes to one http endpoint.</div>
+<div class="block">Fetches the url once and expects the result to be in json format.</div>
 </div>
 </div>
 </div>
 </div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.edge.bridge.http.api.BridgeHttpCycle">Methods inherited from interface&nbsp;io.openems.edge.bridge.http.api.<a href="BridgeHttpCycle.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpCycle</a></h3>
+<code><a href="BridgeHttpCycle.html#subscribeCycle(int,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeCycle</a>, <a href="BridgeHttpCycle.html#subscribeCycle(int,java.lang.String,java.util.function.BiConsumer)">subscribeCycle</a>, <a href="BridgeHttpCycle.html#subscribeCycle(int,java.lang.String,java.util.function.Consumer)">subscribeCycle</a>, <a href="BridgeHttpCycle.html#subscribeCycle(io.openems.edge.bridge.http.api.BridgeHttpCycle.CycleEndpoint)">subscribeCycle</a>, <a href="BridgeHttpCycle.html#subscribeEveryCycle(java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeEveryCycle</a>, <a href="BridgeHttpCycle.html#subscribeEveryCycle(java.lang.String,java.util.function.BiConsumer)">subscribeEveryCycle</a>, <a href="BridgeHttpCycle.html#subscribeEveryCycle(java.lang.String,java.util.function.Consumer)">subscribeEveryCycle</a>, <a href="BridgeHttpCycle.html#subscribeJsonCycle(int,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeJsonCycle</a>, <a href="BridgeHttpCycle.html#subscribeJsonCycle(int,java.lang.String,java.util.function.BiConsumer)">subscribeJsonCycle</a>, <a href="BridgeHttpCycle.html#subscribeJsonEveryCycle(java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeJsonEveryCycle</a>, <a href="BridgeHttpCycle.html#subscribeJsonEveryCycle(java.lang.String,java.util.function.BiConsumer)">subscribeJsonEveryCycle</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.edge.bridge.http.api.BridgeHttpTime">Methods inherited from interface&nbsp;io.openems.edge.bridge.http.api.<a href="BridgeHttpTime.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpTime</a></h3>
+<code><a href="BridgeHttpTime.html#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeJsonTime</a>, <a href="BridgeHttpTime.html#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)">subscribeJsonTime</a>, <a href="BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.api.BridgeHttpTime.TimeEndpoint)">subscribeTime</a>, <a href="BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeTime</a>, <a href="BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer)">subscribeTime</a>, <a href="BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeTime</a>, <a href="BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeTime</a>, <a href="BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)">subscribeTime</a></code></div>
 </section>
 </li>
 </ul>
@@ -261,6 +274,34 @@ loadScripts(document, 'script');</script>
 <section class="field-details" id="field-detail">
 <h2>Field Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="DEFAULT_CONNECT_TIMEOUT">
+<h3>DEFAULT_CONNECT_TIMEOUT</h3>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">DEFAULT_CONNECT_TIMEOUT</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../constant-values.html#io.openems.edge.bridge.http.api.BridgeHttp.DEFAULT_CONNECT_TIMEOUT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="DEFAULT_READ_TIMEOUT">
+<h3>DEFAULT_READ_TIMEOUT</h3>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">DEFAULT_READ_TIMEOUT</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../constant-values.html#io.openems.edge.bridge.http.api.BridgeHttp.DEFAULT_READ_TIMEOUT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
 <li>
 <section class="detail" id="EMPTY_ERROR_HANDLER">
 <h3>EMPTY_ERROR_HANDLER</h3>
@@ -277,205 +318,10 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="subscribe(io.openems.edge.bridge.http.api.BridgeHttp.Endpoint)">
-<h3>subscribe</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">subscribe</span><wbr><span class="parameters">(<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint)</span></div>
-<div class="block">Subscribes to one http endpoint.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>endpoint</code> - the <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> configuration</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="subscribe(int,java.lang.String,java.util.function.Consumer)">
-<h3>subscribe</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribe</span><wbr><span class="parameters">(int&nbsp;cycle,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;result)</span></div>
-<div class="block">Subscribes to one http endpoint.
- 
- <p>
- Tries to fetch data every n-cycle. If receiving data takes more than n-cycle
- the next get request to the url gets send when the last was finished either
- successfully or with a timeout.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>cycle</code> - the number of cycles to wait between requests</dd>
-<dd><code>url</code> - the url of the enpoint</dd>
-<dd><code>result</code> - the consumer to call on every successful result</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="subscribe(int,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
-<h3>subscribe</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribe</span><wbr><span class="parameters">(int&nbsp;cycle,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;result,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</span></div>
-<div class="block">Subscribes to one http endpoint.
- 
- <p>
- Tries to fetch data every n-cycle. If receiving data takes more than n-cycle
- the next get request to the url gets send when the last was finished either
- successfully or with an error.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>cycle</code> - the number of cycles to wait between requests</dd>
-<dd><code>url</code> - the url of the enpoint</dd>
-<dd><code>result</code> - the consumer to call on every successful result</dd>
-<dd><code>onError</code> - the consumer to call on a error</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="subscribe(int,java.lang.String,java.util.function.BiConsumer)">
-<h3>subscribe</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribe</span><wbr><span class="parameters">(int&nbsp;cycle,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;action)</span></div>
-<div class="block">Subscribes to one http endpoint.
- 
- <p>
- Tries to fetch data every n-cycle. If receiving data takes more than n-cycle
- the next get request to the url gets send when the last was finished either
- successfully or with an error.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>cycle</code> - the number of cycles to wait between requests</dd>
-<dd><code>url</code> - the url of the enpoint</dd>
-<dd><code>action</code> - the action to perform; the first is the result of the endpoint
-               if existing and the second argument is passed if an error
-               happend. One of the params is always null and one not</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="subscribeEveryCycle(java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
-<h3>subscribeEveryCycle</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeEveryCycle</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;result,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</span></div>
-<div class="block">Subscribes to one http endpoint.
- 
- <p>
- Tries to fetch data every cycle. If receiving data takes more than one cycle
- the next get request to the url gets send when the last was finished either
- successfully or with an error.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>url</code> - the url of the enpoint</dd>
-<dd><code>result</code> - the consumer to call on every successful result</dd>
-<dd><code>onError</code> - the consumer to call on a error</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="subscribeEveryCycle(java.lang.String,java.util.function.BiConsumer)">
-<h3>subscribeEveryCycle</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeEveryCycle</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;action)</span></div>
-<div class="block">Subscribes to one http endpoint.
- 
- <p>
- Tries to fetch data every cycle. If receiving data takes more than one cycle
- the next get request to the url gets send when the last was finished either
- successfully or with an error.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>url</code> - the url of the enpoint</dd>
-<dd><code>action</code> - the action to perform; the first is the result of the endpoint
-               if existing and the second argument is passed if an error
-               happend. One of the params is always null and one not</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="subscribeEveryCycle(java.lang.String,java.util.function.Consumer)">
-<h3>subscribeEveryCycle</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeEveryCycle</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;result)</span></div>
-<div class="block">Subscribes to one http endpoint.
- 
- <p>
- Tries to fetch data every cycle. If receiving data takes more than one cycle
- the next get request to the url gets send when the last was finished either
- successfully or with an error.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>url</code> - the url of the enpoint</dd>
-<dd><code>result</code> - the consumer to call on every successful result</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="subscribeJson(int,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
-<h3>subscribeJson</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeJson</span><wbr><span class="parameters">(int&nbsp;cycle,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;com.google.gson.JsonElement,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;result,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</span></div>
-<div class="block">Subscribes to one http endpoint.
- 
- <p>
- Tries to fetch data every n-cycle. If receiving data takes more than n-cycle
- the next get request to the url gets send when the last was finished either
- successfully or with an error.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>cycle</code> - the number of cycles to wait between requests</dd>
-<dd><code>url</code> - the url of the enpoint</dd>
-<dd><code>result</code> - the consumer to call on every successful result</dd>
-<dd><code>onError</code> - the consumer to call on a error</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="subscribeJsonEveryCycle(java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
-<h3>subscribeJsonEveryCycle</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeJsonEveryCycle</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;com.google.gson.JsonElement,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;result,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</span></div>
-<div class="block">Subscribes to one http endpoint.
- 
- <p>
- Tries to fetch data every cycle. If receiving data takes more than one cycle
- the next get request to the url gets send when the last was finished either
- successfully or with an error.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>url</code> - the url of the enpoint</dd>
-<dd><code>result</code> - the consumer to call on every successful result</dd>
-<dd><code>onError</code> - the consumer to call on a error</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="subscribeJsonEveryCycle(java.lang.String,java.util.function.BiConsumer)">
-<h3>subscribeJsonEveryCycle</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeJsonEveryCycle</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;com.google.gson.JsonElement,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;action)</span></div>
-<div class="block">Subscribes to one http endpoint.
- 
- <p>
- Tries to fetch data every cycle. If receiving data takes more than one cycle
- the next get request to the url gets send when the last was finished either
- successfully or with an error.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>url</code> - the url of the enpoint</dd>
-<dd><code>action</code> - the action to perform; the first is the result of the endpoint
-               if existing and the second argument is passed if an error
-               happend. One of the params is always null and one not</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="request(java.lang.String)">
-<h3>request</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">request</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</span></div>
-<div class="block">Fetches the url once.</div>
+<section class="detail" id="get(java.lang.String)">
+<h3>get</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</span></div>
+<div class="block">Fetches the url once with <a href="HttpMethod.html#GET"><code>HttpMethod.GET</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>url</code> - the url to fetch</dd>
@@ -485,15 +331,127 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="setTimeout(int,int)">
-<h3>setTimeout</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setTimeout</span><wbr><span class="parameters">(int&nbsp;connectTimeout,
- int&nbsp;readTimeout)</span></div>
-<div class="block">Sets the connect and read timeout.</div>
+<section class="detail" id="getJson(java.lang.String)">
+<h3>getJson</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;com.google.gson.JsonElement&gt;</span>&nbsp;<span class="element-name">getJson</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</span></div>
+<div class="block">Fetches the url once with <a href="HttpMethod.html#GET"><code>HttpMethod.GET</code></a> and expects the result to be
+ in json format.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>connectTimeout</code> - connect timeout</dd>
-<dd><code>readTimeout</code> - read timeout</dd>
+<dd><code>url</code> - the url to fetch</dd>
+<dt>Returns:</dt>
+<dd>the result response future</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="put(java.lang.String)">
+<h3>put</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">put</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</span></div>
+<div class="block">Fetches the url once with <a href="HttpMethod.html#PUT"><code>HttpMethod.PUT</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>url</code> - the url to fetch</dd>
+<dt>Returns:</dt>
+<dd>the result response future</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="putJson(java.lang.String)">
+<h3>putJson</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;com.google.gson.JsonElement&gt;</span>&nbsp;<span class="element-name">putJson</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</span></div>
+<div class="block">Fetches the url once with <a href="HttpMethod.html#PUT"><code>HttpMethod.PUT</code></a> and expects the result to be
+ in json format.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>url</code> - the url to fetch</dd>
+<dt>Returns:</dt>
+<dd>the result response future</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="post(java.lang.String,java.lang.String)">
+<h3>post</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">post</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;body)</span></div>
+<div class="block">Fetches the url once with <a href="HttpMethod.html#POST"><code>HttpMethod.POST</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>url</code> - the url to fetch</dd>
+<dd><code>body</code> - the request body to send</dd>
+<dt>Returns:</dt>
+<dd>the result response future</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="postJson(java.lang.String,com.google.gson.JsonElement)">
+<h3>postJson</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;com.google.gson.JsonElement&gt;</span>&nbsp;<span class="element-name">postJson</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
+ com.google.gson.JsonElement&nbsp;body)</span></div>
+<div class="block">Fetches the url once with <a href="HttpMethod.html#POST"><code>HttpMethod.POST</code></a> and expects the result to
+ be in json format.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>url</code> - the url to fetch</dd>
+<dd><code>body</code> - the request body to send</dd>
+<dt>Returns:</dt>
+<dd>the result response future</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="delete(java.lang.String)">
+<h3>delete</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">delete</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</span></div>
+<div class="block">Fetches the url once with <a href="HttpMethod.html#DELETE"><code>HttpMethod.DELETE</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>url</code> - the url to fetch</dd>
+<dt>Returns:</dt>
+<dd>the result response future</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="deleteJson(java.lang.String)">
+<h3>deleteJson</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;com.google.gson.JsonElement&gt;</span>&nbsp;<span class="element-name">deleteJson</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</span></div>
+<div class="block">Fetches the url once with <a href="HttpMethod.html#DELETE"><code>HttpMethod.DELETE</code></a> and expects the result to
+ be in json format.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>url</code> - the url to fetch</dd>
+<dt>Returns:</dt>
+<dd>the result response future</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="request(io.openems.edge.bridge.http.api.BridgeHttp.Endpoint)">
+<h3>request</h3>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">request</span><wbr><span class="parameters">(<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint)</span></div>
+<div class="block">Fetches the url once.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>endpoint</code> - the <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> to fetch</dd>
+<dt>Returns:</dt>
+<dd>the result response future</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="requestJson(io.openems.edge.bridge.http.api.BridgeHttp.Endpoint)">
+<h3>requestJson</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;com.google.gson.JsonElement&gt;</span>&nbsp;<span class="element-name">requestJson</span><wbr><span class="parameters">(<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint)</span></div>
+<div class="block">Fetches the url once and expects the result to be in json format.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>endpoint</code> - the <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> to fetch</dd>
+<dt>Returns:</dt>
+<dd>the result response future</dd>
 </dl>
 </section>
 </li>
