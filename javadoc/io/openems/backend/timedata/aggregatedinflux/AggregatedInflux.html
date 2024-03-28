@@ -93,12 +93,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a></code>, <code><a href="../../common/timedata/BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></code>, <code><a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a></code>, <code><a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code></dd>
+<dd><code><a href="../../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a></code>, <code><a href="../../common/timedata/BackendTimedata.html" title="interface in io.openems.backend.common.timedata">BackendTimedata</a></code>, <code><a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a></code>, <code><a href="../../../common/timedata/CommonTimedataService.html" title="interface in io.openems.common.timedata">CommonTimedataService</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">AggregatedInflux</span>
 <span class="extends-implements">extends <a href="../../common/component/AbstractOpenemsBackendComponent.html" title="class in io.openems.backend.common.component">AbstractOpenemsBackendComponent</a>
-implements <a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a>, <a href="../../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a></span></div>
+implements <a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata">Timedata</a>, <a href="../../common/debugcycle/DebugLoggable.html" title="interface in io.openems.backend.common.debugcycle">DebugLoggable</a>, org.osgi.service.event.EventHandler</span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -137,60 +137,63 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <div class="block">Gets some output that is suitable for a debug metrics to write down as
  <a href="../../common/timedata/Timedata.html" title="interface in io.openems.backend.common.timedata"><code>Timedata</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#id()" class="member-name-link">id</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEvent(org.osgi.service.event.Event)" class="member-name-link">handleEvent</a><wbr>(org.osgi.service.event.Event&nbsp;event)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#id()" class="member-name-link">id</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a unique ID for this OpenEMS component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a><wbr>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryFirstValueBefore(java.lang.String,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">queryFirstValueBefore</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a><wbr>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryFirstValueBefore(java.lang.String,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">queryFirstValueBefore</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;date,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Queries the latest values which are before the given <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link"><code>ZonedDateTime</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricData(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">queryHistoricData</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricData(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">queryHistoricData</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
  <a href="../../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Queries historic data.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a><wbr>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricEnergy(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">queryHistoricEnergy</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a><wbr>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricEnergy(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set)" class="member-name-link">queryHistoricEnergy</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Queries historic energy.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricEnergyPerPeriod(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">queryHistoricEnergyPerPeriod</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>,<wbr>com.google.gson.JsonElement&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryHistoricEnergyPerPeriod(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)" class="member-name-link">queryHistoricEnergyPerPeriod</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;fromDate,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html" title="class or interface in java.time" class="external-link">ZonedDateTime</a>&nbsp;toDate,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../common/types/ChannelAddress.html" title="class in io.openems.common.types">ChannelAddress</a>&gt;&nbsp;channels,
  <a href="../../../common/timedata/Resolution.html" title="class in io.openems.common.timedata">Resolution</a>&nbsp;resolution)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Queries historic energy per period.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(java.lang.String,io.openems.common.jsonrpc.notification.AggregatedDataNotification)" class="member-name-link">write</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(java.lang.String,io.openems.common.jsonrpc.notification.AggregatedDataNotification)" class="member-name-link">write</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
  <a href="../../../common/jsonrpc/notification/AggregatedDataNotification.html" title="class in io.openems.common.jsonrpc.notification">AggregatedDataNotification</a>&nbsp;notification)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends the data points to the Timedata service.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(java.lang.String,io.openems.common.jsonrpc.notification.ResendDataNotification)" class="member-name-link">write</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+ <a href="../../../common/jsonrpc/notification/ResendDataNotification.html" title="class in io.openems.common.jsonrpc.notification">ResendDataNotification</a>&nbsp;notification)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sends the data points to the Timedata service.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(java.lang.String,io.openems.common.jsonrpc.notification.ResendDataNotification)" class="member-name-link">write</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
- <a href="../../../common/jsonrpc/notification/ResendDataNotification.html" title="class in io.openems.common.jsonrpc.notification">ResendDataNotification</a>&nbsp;notification)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sends the data points to the Timedata service.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(java.lang.String,io.openems.common.jsonrpc.notification.TimestampedDataNotification)" class="member-name-link">write</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(java.lang.String,io.openems.common.jsonrpc.notification.TimestampedDataNotification)" class="member-name-link">write</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
  <a href="../../../common/jsonrpc/notification/TimestampedDataNotification.html" title="class in io.openems.common.jsonrpc.notification">TimestampedDataNotification</a>&nbsp;notification)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sends the data points to the Timedata service.</div>
 </div>
 </div>
@@ -230,6 +233,16 @@ implements <a href="../../common/timedata/Timedata.html" title="interface in io.
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="handleEvent(org.osgi.service.event.Event)">
+<h3>handleEvent</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleEvent</span><wbr><span class="parameters">(org.osgi.service.event.Event&nbsp;event)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>handleEvent</code>&nbsp;in interface&nbsp;<code>org.osgi.service.event.EventHandler</code></dd>
+</dl>
+</section>
+</li>
 <li>
 <section class="detail" id="queryHistoricData(java.lang.String,java.time.ZonedDateTime,java.time.ZonedDateTime,java.util.Set,io.openems.common.timedata.Resolution)">
 <h3>queryHistoricData</h3>

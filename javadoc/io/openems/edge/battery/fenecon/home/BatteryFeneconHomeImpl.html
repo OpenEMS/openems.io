@@ -447,7 +447,16 @@ implements <a href="../../../bridge/modbus/api/ModbusComponent.html" title="inte
  <p>
  Recalculate the number of towers and modules. Unfortunately the battery may
  report too small wrong values in the beginning, so we need to recalculate on
- every change.</div>
+ every change.
+ 
+ <p>
+ As an alternative, these channels may also be introduced in a record, and the
+ associated channel value could be read with the aid of
+ <a href="../../../common/channel/ChannelUtils.html#getValues(io.openems.edge.common.component.OpenemsComponent,java.lang.Class)"><code>ChannelUtils.getValues(io.openems.edge.common.component.OpenemsComponent, java.lang.Class&lt;T&gt;)</code></a>. However, startup time is once again involved
+ in this process. This indicates that the last callback will have been made
+ before the record is set. Furthermore, there is no certainty that the
+ "software version channel value change" will occur, making it unlikely for
+ this to trigger a callback.</div>
 </section>
 </li>
 <li>
