@@ -93,12 +93,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code>, <code><a href="ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend">ControllerApiBackend</a></code>, <code><a href="../Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code>org.ops4j.pax.logging.spi.PaxAppender</code>, <code>org.osgi.service.event.EventHandler</code></dd>
+<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="api/ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend.api">ControllerApiBackend</a></code>, <code><a href="../Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code>org.osgi.service.event.EventHandler</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ControllerApiBackendImpl</span>
 <span class="extends-implements">extends <a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend">ControllerApiBackend</a>, <a href="../Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.ops4j.pax.logging.spi.PaxAppender, org.osgi.service.event.EventHandler</span></div>
+implements <a href="api/ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend.api">ControllerApiBackend</a>, <a href="../Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, org.osgi.service.event.EventHandler</span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -110,8 +110,8 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 <h2 id="nested-classes-inherited-from-class-io.openems.edge.controller.api.Controller">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.controller.api.<a href="../Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></h2>
 <code><a href="../Controller.ChannelId.html" title="enum class in io.openems.edge.controller.api">Controller.ChannelId</a></code></div>
 <div class="inherited-list">
-<h2 id="nested-classes-inherited-from-class-io.openems.edge.controller.api.backend.ControllerApiBackend">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.controller.api.backend.<a href="ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend">ControllerApiBackend</a></h2>
-<code><a href="ControllerApiBackend.ChannelId.html" title="enum class in io.openems.edge.controller.api.backend">ControllerApiBackend.ChannelId</a></code></div>
+<h2 id="nested-classes-inherited-from-class-io.openems.edge.controller.api.backend.api.ControllerApiBackend">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.controller.api.backend.api.<a href="api/ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend.api">ControllerApiBackend</a></h2>
+<code><a href="api/ControllerApiBackend.ChannelId.html" title="enum class in io.openems.edge.controller.api.backend.api">ControllerApiBackend.ChannelId</a></code></div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-io.openems.edge.common.component.OpenemsComponent">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h2>
 <code><a href="../../../common/component/OpenemsComponent.ChannelId.html" title="enum class in io.openems.edge.common.component">OpenemsComponent.ChannelId</a></code></div>
@@ -141,14 +141,20 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 <div class="col-first even-row-color"><code>protected <a href="../../../common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle">Cycle</a></code></div>
 <div class="col-second even-row-color"><code><a href="#cycle" class="member-name-link">cycle</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="ResendHistoricDataWorker.html" title="class in io.openems.edge.controller.api.backend">ResendHistoricDataWorker</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#resendHistoricDataWorker" class="member-name-link">resendHistoricDataWorker</a></code></div>
+<div class="col-first odd-row-color"><code>protected <a href="BackendOnRequest.html" title="class in io.openems.edge.controller.api.backend">BackendOnRequest</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#requestHandler" class="member-name-link">requestHandler</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected final <a href="SendChannelValuesWorker.html" title="class in io.openems.edge.controller.api.backend">SendChannelValuesWorker</a></code></div>
-<div class="col-second even-row-color"><code><a href="#sendChannelValuesWorker" class="member-name-link">sendChannelValuesWorker</a></code></div>
+<div class="col-first even-row-color"><code>protected <a href="ResendHistoricDataWorker.html" title="class in io.openems.edge.controller.api.backend">ResendHistoricDataWorker</a></code></div>
+<div class="col-second even-row-color"><code><a href="#resendHistoricDataWorker" class="member-name-link">resendHistoricDataWorker</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="WebsocketClient.html" title="class in io.openems.edge.controller.api.backend">WebsocketClient</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#websocket" class="member-name-link">websocket</a></code></div>
+<div class="col-first odd-row-color"><code>protected final <a href="SendChannelValuesWorker.html" title="class in io.openems.edge.controller.api.backend">SendChannelValuesWorker</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#sendChannelValuesWorker" class="member-name-link">sendChannelValuesWorker</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected <a href="WebsocketClient.html" title="class in io.openems.edge.controller.api.backend">WebsocketClient</a></code></div>
+<div class="col-second even-row-color"><code><a href="#websocket" class="member-name-link">websocket</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../common/jsonapi/Key.html" title="class in io.openems.edge.common.jsonapi">Key</a><wbr>&lt;<a href="WebsocketClient.html" title="class in io.openems.edge.controller.api.backend">WebsocketClient</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#WEBSOCKET_CLIENT_KEY" class="member-name-link">WEBSOCKET_CLIENT_KEY</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -182,23 +188,14 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Handles @Deactivate of implementations.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doAppend(org.ops4j.pax.logging.spi.PaxLoggingEvent)" class="member-name-link">doAppend</a><wbr>(org.ops4j.pax.logging.spi.PaxLoggingEvent&nbsp;event)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#execute(java.lang.Runnable)" class="member-name-link">execute</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;command)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#execute(java.lang.Runnable)" class="member-name-link">execute</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;command)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Execute a command using the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html" title="class or interface in java.util.concurrent" class="external-link"><code>ScheduledExecutorService</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEvent(org.osgi.service.event.Event)" class="member-name-link">handleEvent</a><wbr>(org.osgi.service.event.Event&nbsp;event)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;? extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)" class="member-name-link">handleJsonrpcRequest</a><wbr>(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="../../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Handles a JSON-RPC Request.</div>
-</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEvent(org.osgi.service.event.Event)" class="member-name-link">handleEvent</a><wbr>(org.osgi.service.event.Event&nbsp;event)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isConnected()" class="member-name-link">isConnected</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -235,10 +232,11 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Schedules a command using the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html" title="class or interface in java.util.concurrent" class="external-link"><code>ScheduledExecutorService</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSystemLogSubscribed(boolean)" class="member-name-link">setSystemLogSubscribed</a><wbr>(boolean&nbsp;isSystemLogSubscribed)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;? extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)" class="member-name-link">sendRequest</a><wbr>(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+ <a href="../../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Activates/deactivates subscription to System-Log.</div>
+<div class="block">Sends the request to the connected backend.</div>
 </div>
 </div>
 </div>
@@ -253,8 +251,8 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 <h3 id="methods-inherited-from-class-io.openems.edge.controller.api.Controller">Methods inherited from interface&nbsp;io.openems.edge.controller.api.<a href="../Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></h3>
 <code><a href="../Controller.html#_setRunFailed(boolean)">_setRunFailed</a>, <a href="../Controller.html#getRunFailed()">getRunFailed</a>, <a href="../Controller.html#getRunFailedChannel()">getRunFailedChannel</a></code></div>
 <div class="inherited-list">
-<h3 id="methods-inherited-from-class-io.openems.edge.controller.api.backend.ControllerApiBackend">Methods inherited from interface&nbsp;io.openems.edge.controller.api.backend.<a href="ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend">ControllerApiBackend</a></h3>
-<code><a href="ControllerApiBackend.html#getApiWorkerLogChannel()">getApiWorkerLogChannel</a>, <a href="ControllerApiBackend.html#getLastSuccessFulResendChannel()">getLastSuccessFulResendChannel</a>, <a href="ControllerApiBackend.html#getUnableToSendChannel()">getUnableToSendChannel</a></code></div>
+<h3 id="methods-inherited-from-class-io.openems.edge.controller.api.backend.api.ControllerApiBackend">Methods inherited from interface&nbsp;io.openems.edge.controller.api.backend.api.<a href="api/ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend.api">ControllerApiBackend</a></h3>
+<code><a href="api/ControllerApiBackend.html#getApiWorkerLogChannel()">getApiWorkerLogChannel</a>, <a href="api/ControllerApiBackend.html#getLastSuccessFulResendChannel()">getLastSuccessFulResendChannel</a>, <a href="api/ControllerApiBackend.html#getUnableToSendChannel()">getUnableToSendChannel</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.common.component.OpenemsComponent">Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
 <code><a href="../../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../../common/component/OpenemsComponent.html#debugLog()">debugLog</a>, <a href="../../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></div>
@@ -284,6 +282,12 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 </section>
 </li>
 <li>
+<section class="detail" id="WEBSOCKET_CLIENT_KEY">
+<h3>WEBSOCKET_CLIENT_KEY</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../common/jsonapi/Key.html" title="class in io.openems.edge.common.jsonapi">Key</a>&lt;<a href="WebsocketClient.html" title="class in io.openems.edge.controller.api.backend">WebsocketClient</a>&gt;</span>&nbsp;<span class="element-name">WEBSOCKET_CLIENT_KEY</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="sendChannelValuesWorker">
 <h3>sendChannelValuesWorker</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="SendChannelValuesWorker.html" title="class in io.openems.edge.controller.api.backend">SendChannelValuesWorker</a></span>&nbsp;<span class="element-name">sendChannelValuesWorker</span></div>
@@ -296,12 +300,6 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 </section>
 </li>
 <li>
-<section class="detail" id="resendHistoricDataWorker">
-<h3>resendHistoricDataWorker</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="ResendHistoricDataWorker.html" title="class in io.openems.edge.controller.api.backend">ResendHistoricDataWorker</a></span>&nbsp;<span class="element-name">resendHistoricDataWorker</span></div>
-</section>
-</li>
-<li>
 <section class="detail" id="componentManager">
 <h3>componentManager</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../../../common/component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></span>&nbsp;<span class="element-name">componentManager</span></div>
@@ -311,6 +309,18 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 <section class="detail" id="cycle">
 <h3>cycle</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../../../common/cycle/Cycle.html" title="interface in io.openems.edge.common.cycle">Cycle</a></span>&nbsp;<span class="element-name">cycle</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="resendHistoricDataWorker">
+<h3>resendHistoricDataWorker</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="ResendHistoricDataWorker.html" title="class in io.openems.edge.controller.api.backend">ResendHistoricDataWorker</a></span>&nbsp;<span class="element-name">resendHistoricDataWorker</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="requestHandler">
+<h3>requestHandler</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="BackendOnRequest.html" title="class in io.openems.edge.controller.api.backend">BackendOnRequest</a></span>&nbsp;<span class="element-name">requestHandler</span></div>
 </section>
 </li>
 <li>
@@ -423,31 +433,6 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 </section>
 </li>
 <li>
-<section class="detail" id="setSystemLogSubscribed(boolean)">
-<h3>setSystemLogSubscribed</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSystemLogSubscribed</span><wbr><span class="parameters">(boolean&nbsp;isSystemLogSubscribed)</span></div>
-<div class="block">Activates/deactivates subscription to System-Log.
-
- <p>
- If activated, all System-Log events are sent via
- <a href="../../../../common/jsonrpc/notification/SystemLogNotification.html" title="class in io.openems.common.jsonrpc.notification"><code>SystemLogNotification</code></a>s.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>isSystemLogSubscribed</code> - true to activate</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="doAppend(org.ops4j.pax.logging.spi.PaxLoggingEvent)">
-<h3>doAppend</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">doAppend</span><wbr><span class="parameters">(org.ops4j.pax.logging.spi.PaxLoggingEvent&nbsp;event)</span></div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code>doAppend</code>&nbsp;in interface&nbsp;<code>org.ops4j.pax.logging.spi.PaxAppender</code></dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="handleEvent(org.osgi.service.event.Event)">
 <h3>handleEvent</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleEvent</span><wbr><span class="parameters">(org.osgi.service.event.Event&nbsp;event)</span></div>
@@ -461,11 +446,11 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 <section class="detail" id="isConnected()">
 <h3>isConnected</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isConnected</span>()</div>
-<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="ControllerApiBackend.html#isConnected()">ControllerApiBackend</a></code></span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="api/ControllerApiBackend.html#isConnected()">ControllerApiBackend</a></code></span></div>
 <div class="block">Gets if the edge is currently connected to the backend.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="ControllerApiBackend.html#isConnected()">isConnected</a></code>&nbsp;in interface&nbsp;<code><a href="ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend">ControllerApiBackend</a></code></dd>
+<dd><code><a href="api/ControllerApiBackend.html#isConnected()">isConnected</a></code>&nbsp;in interface&nbsp;<code><a href="api/ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend.api">ControllerApiBackend</a></code></dd>
 <dt>Returns:</dt>
 <dd>true if it is connected</dd>
 </dl>
@@ -502,22 +487,21 @@ implements <a href="ControllerApiBackend.html" title="interface in io.openems.ed
 </section>
 </li>
 <li>
-<section class="detail" id="handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">
-<h3>handleJsonrpcRequest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">handleJsonrpcRequest</span><wbr><span class="parameters">(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+<section class="detail" id="sendRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">
+<h3>sendRequest</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">sendRequest</span><wbr><span class="parameters">(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
  <a href="../../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</span>
-                                                                         throws <span class="exceptions"><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../../common/jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">JsonApi</a></code></span></div>
-<div class="block">Handles a JSON-RPC Request.</div>
+                                                                throws <span class="exceptions"><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="api/ControllerApiBackend.html#sendRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">ControllerApiBackend</a></code></span></div>
+<div class="block">Sends the request to the connected backend.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../../common/jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">handleJsonrpcRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
+<dd><code><a href="api/ControllerApiBackend.html#sendRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">sendRequest</a></code>&nbsp;in interface&nbsp;<code><a href="api/ControllerApiBackend.html" title="interface in io.openems.edge.controller.api.backend.api">ControllerApiBackend</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>user</code> - the authenticated <a href="../../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a></dd>
-<dd><code>request</code> - the JSON-RPC Request</dd>
+<dd><code>user</code> - the user</dd>
+<dd><code>request</code> - the request to send</dd>
 <dt>Returns:</dt>
-<dd>a Future JSON-RPC Success Response; null response results in a
-         OpenemsError.JSONRPC_UNHANDLED_METHOD</dd>
+<dd>the result future</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>

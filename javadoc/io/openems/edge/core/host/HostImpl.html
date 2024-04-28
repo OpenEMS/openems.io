@@ -93,12 +93,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../common/host/Host.html" title="interface in io.openems.edge.common.host">Host</a></code>, <code><a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
+<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../common/host/Host.html" title="interface in io.openems.edge.common.host">Host</a></code>, <code><a href="../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></code>, <code><a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">HostImpl</span>
 <span class="extends-implements">extends <a href="../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="../../common/host/Host.html" title="interface in io.openems.edge.common.host">Host</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></span></div>
+implements <a href="../../common/host/Host.html" title="interface in io.openems.edge.common.host">Host</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></span></div>
 <div class="block">The Host-Component handles access to the host computer and operating system.</div>
 </section>
 <section class="summary">
@@ -166,33 +166,38 @@ implements <a href="../../common/host/Host.html" title="interface in io.openems.
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)" class="member-name-link">buildJsonApiRoutes</a><wbr>(<a href="../../common/jsonapi/JsonApiBuilder.html" title="class in io.openems.edge.common.jsonapi">JsonApiBuilder</a>&nbsp;builder)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Handles @Deactivate of implementations.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;? extends <a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)" class="member-name-link">handleJsonrpcRequest</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Handles a JSON-RPC Request.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logError(org.slf4j.Logger,java.lang.String)" class="member-name-link">logError</a><wbr>(org.slf4j.Logger&nbsp;log,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Log an error message including the Component ID.</div>
+<div class="block">Specifies routes of the current component in the given builder.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logInfo(org.slf4j.Logger,java.lang.String)" class="member-name-link">logInfo</a><wbr>(org.slf4j.Logger&nbsp;log,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Handles @Deactivate of implementations.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../common/jsonrpc/base/GenericJsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">GenericJsonrpcResponseSuccess</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleSetNetworkConfigRequest(io.openems.edge.common.user.User,io.openems.edge.core.host.jsonrpc.SetNetworkConfigRequest)" class="member-name-link">handleSetNetworkConfigRequest</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+ <a href="jsonrpc/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host.jsonrpc">SetNetworkConfigRequest</a>&nbsp;request)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Handles a SetNetworkConfigRequest.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logError(org.slf4j.Logger,java.lang.String)" class="member-name-link">logError</a><wbr>(org.slf4j.Logger&nbsp;log,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Log an info message including the Component ID.</div>
+<div class="block">Log an error message including the Component ID.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logWarn(org.slf4j.Logger,java.lang.String)" class="member-name-link">logWarn</a><wbr>(org.slf4j.Logger&nbsp;log,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logInfo(org.slf4j.Logger,java.lang.String)" class="member-name-link">logInfo</a><wbr>(org.slf4j.Logger&nbsp;log,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Log an info message including the Component ID.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logWarn(org.slf4j.Logger,java.lang.String)" class="member-name-link">logWarn</a><wbr>(org.slf4j.Logger&nbsp;log,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Log a warn message including the Component ID.</div>
 </div>
 </div>
@@ -204,6 +209,9 @@ implements <a href="../../common/host/Host.html" title="interface in io.openems.
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.edge.common.jsonapi.ComponentJsonApi">Methods inherited from interface&nbsp;io.openems.edge.common.jsonapi.<a href="../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></h3>
+<code><a href="../../common/jsonapi/ComponentJsonApi.html#id()">id</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.common.host.Host">Methods inherited from interface&nbsp;io.openems.edge.common.host.<a href="../../common/host/Host.html" title="interface in io.openems.edge.common.host">Host</a></h3>
 <code><a href="../../common/host/Host.html#_setDiskIsFull(boolean)">_setDiskIsFull</a>, <a href="../../common/host/Host.html#_setHostname(java.lang.String)">_setHostname</a>, <a href="../../common/host/Host.html#getDiskIsFull()">getDiskIsFull</a>, <a href="../../common/host/Host.html#getDiskIsFullChannel()">getDiskIsFullChannel</a>, <a href="../../common/host/Host.html#getHostname()">getHostname</a>, <a href="../../common/host/Host.html#getHostnameChannel()">getHostnameChannel</a></code></div>
@@ -280,22 +288,44 @@ implements <a href="../../common/host/Host.html" title="interface in io.openems.
 </section>
 </li>
 <li>
-<section class="detail" id="handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">
-<h3>handleJsonrpcRequest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">handleJsonrpcRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</span>
-                                                                         throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../common/jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">JsonApi</a></code></span></div>
-<div class="block">Handles a JSON-RPC Request.</div>
+<section class="detail" id="buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">
+<h3>buildJsonApiRoutes</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">buildJsonApiRoutes</span><wbr><span class="parameters">(<a href="../../common/jsonapi/JsonApiBuilder.html" title="class in io.openems.edge.common.jsonapi">JsonApiBuilder</a>&nbsp;builder)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../common/jsonapi/JsonApi.html#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">JsonApi</a></code></span></div>
+<div class="block">Specifies routes of the current component in the given builder.
+ 
+ <p>
+ Example: <br>
+ 
+ <pre>
+ <code>@Override</code>
+ public void buildJsonApiRoutes(JsonApiBuilder builder) {
+     builder.rpc("METHOD_NAME", call -&gt; {
+        // handle call...
+     });
+ }
+ </pre></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../common/jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">handleJsonrpcRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
+<dd><code><a href="../../common/jsonapi/JsonApi.html#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">buildJsonApiRoutes</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>user</code> - the authenticated <a href="../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a></dd>
-<dd><code>request</code> - the JSON-RPC Request</dd>
+<dd><code>builder</code> - the builder to add the routes</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetNetworkConfigRequest(io.openems.edge.common.user.User,io.openems.edge.core.host.jsonrpc.SetNetworkConfigRequest)">
+<h3>handleSetNetworkConfigRequest</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../common/jsonrpc/base/GenericJsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">GenericJsonrpcResponseSuccess</a></span>&nbsp;<span class="element-name">handleSetNetworkConfigRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+ <a href="jsonrpc/SetNetworkConfigRequest.html" title="class in io.openems.edge.core.host.jsonrpc">SetNetworkConfigRequest</a>&nbsp;request)</span>
+                                                            throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block">Handles a SetNetworkConfigRequest.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>user</code> - the User</dd>
+<dd><code>request</code> - the SetNetworkConfigRequest</dd>
 <dt>Returns:</dt>
-<dd>a Future JSON-RPC Success Response; null response results in a
-         OpenemsError.JSONRPC_UNHANDLED_METHOD</dd>
+<dd>the Future JSON-RPC Response</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>

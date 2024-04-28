@@ -93,12 +93,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code>, <code><a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code><a href="TimeOfUseTariffController.html" title="interface in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffController</a></code>, <code><a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
+<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></code>, <code><a href="../../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code>, <code><a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code><a href="TimeOfUseTariffController.html" title="interface in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffController</a></code>, <code><a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">TimeOfUseTariffControllerImpl</span>
 <span class="extends-implements">extends <a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="TimeOfUseTariffController.html" title="interface in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffController</a>, <a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, <a href="../../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></span></div>
+implements <a href="TimeOfUseTariffController.html" title="interface in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffController</a>, <a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, <a href="../../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -150,30 +150,35 @@ implements <a href="TimeOfUseTariffController.html" title="interface in io.opene
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)" class="member-name-link">buildJsonApiRoutes</a><wbr>(<a href="../../../common/jsonapi/JsonApiBuilder.html" title="class in io.openems.edge.common.jsonapi">JsonApiBuilder</a>&nbsp;builder)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Specifies routes of the current component in the given builder.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Handles @Deactivate of implementations.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#debugLog()" class="member-name-link">debugLog</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#debugLog()" class="member-name-link">debugLog</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets some output that is suitable for a continuous Debug log.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTimedata()" class="member-name-link">getTimedata</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTimedata()" class="member-name-link">getTimedata</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the <a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;? extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)" class="member-name-link">handleJsonrpcRequest</a><wbr>(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="../../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Handles a JSON-RPC Request.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run()" class="member-name-link">run</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="jsonrpc/GetScheduleResponse.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleResponse</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleGetScheduleRequest(io.openems.edge.common.user.User,io.openems.edge.controller.ess.timeofusetariff.jsonrpc.GetScheduleRequest)" class="member-name-link">handleGetScheduleRequest</a><wbr>(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+ <a href="jsonrpc/GetScheduleRequest.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleRequest</a>&nbsp;request)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Handles a <a href="jsonrpc/GetScheduleRequest.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc"><code>GetScheduleRequest</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run()" class="member-name-link">run</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Executes the Controller logic.</div>
 </div>
 </div>
@@ -185,6 +190,9 @@ implements <a href="TimeOfUseTariffController.html" title="interface in io.opene
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.edge.common.jsonapi.ComponentJsonApi">Methods inherited from interface&nbsp;io.openems.edge.common.jsonapi.<a href="../../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></h3>
+<code><a href="../../../common/jsonapi/ComponentJsonApi.html#id()">id</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.controller.api.Controller">Methods inherited from interface&nbsp;io.openems.edge.controller.api.<a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></h3>
 <code><a href="../../api/Controller.html#_setRunFailed(boolean)">_setRunFailed</a>, <a href="../../api/Controller.html#getRunFailed()">getRunFailed</a>, <a href="../../api/Controller.html#getRunFailedChannel()">getRunFailedChannel</a></code></div>
@@ -261,22 +269,44 @@ implements <a href="TimeOfUseTariffController.html" title="interface in io.opene
 </section>
 </li>
 <li>
-<section class="detail" id="handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">
-<h3>handleJsonrpcRequest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">handleJsonrpcRequest</span><wbr><span class="parameters">(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="../../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</span>
-                                                                         throws <span class="exceptions"><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../../common/jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">JsonApi</a></code></span></div>
-<div class="block">Handles a JSON-RPC Request.</div>
+<section class="detail" id="buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">
+<h3>buildJsonApiRoutes</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">buildJsonApiRoutes</span><wbr><span class="parameters">(<a href="../../../common/jsonapi/JsonApiBuilder.html" title="class in io.openems.edge.common.jsonapi">JsonApiBuilder</a>&nbsp;builder)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../../common/jsonapi/JsonApi.html#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">JsonApi</a></code></span></div>
+<div class="block">Specifies routes of the current component in the given builder.
+ 
+ <p>
+ Example: <br>
+ 
+ <pre>
+ <code>@Override</code>
+ public void buildJsonApiRoutes(JsonApiBuilder builder) {
+     builder.rpc("METHOD_NAME", call -&gt; {
+        // handle call...
+     });
+ }
+ </pre></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../../common/jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">handleJsonrpcRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
+<dd><code><a href="../../../common/jsonapi/JsonApi.html#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">buildJsonApiRoutes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>user</code> - the authenticated <a href="../../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a></dd>
-<dd><code>request</code> - the JSON-RPC Request</dd>
+<dd><code>builder</code> - the builder to add the routes</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="handleGetScheduleRequest(io.openems.edge.common.user.User,io.openems.edge.controller.ess.timeofusetariff.jsonrpc.GetScheduleRequest)">
+<h3>handleGetScheduleRequest</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="jsonrpc/GetScheduleResponse.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleResponse</a></span>&nbsp;<span class="element-name">handleGetScheduleRequest</span><wbr><span class="parameters">(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+ <a href="jsonrpc/GetScheduleRequest.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleRequest</a>&nbsp;request)</span>
+                                                throws <span class="exceptions"><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block">Handles a <a href="jsonrpc/GetScheduleRequest.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc"><code>GetScheduleRequest</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>user</code> - the User</dd>
+<dd><code>request</code> - the GetScheduleRequest</dd>
 <dt>Returns:</dt>
-<dd>a Future JSON-RPC Success Response; null response results in a
-         OpenemsError.JSONRPC_UNHANDLED_METHOD</dd>
+<dd>the Future JSON-RPC Response</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>

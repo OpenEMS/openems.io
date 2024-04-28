@@ -93,12 +93,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code>, <code><a href="AppManager.html" title="interface in io.openems.edge.core.appmanager">AppManager</a></code></dd>
+<dd><code><a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></code>, <code><a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code>, <code><a href="AppManager.html" title="interface in io.openems.edge.core.appmanager">AppManager</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">AppManagerImpl</span>
 <span class="extends-implements">extends <a href="../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="AppManager.html" title="interface in io.openems.edge.core.appmanager">AppManager</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></span></div>
+implements <a href="AppManager.html" title="interface in io.openems.edge.core.appmanager">AppManager</a>, <a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -209,78 +209,77 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <div class="block">Gets an <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link"><code>Iterable</code></a> that loops thru every instance and its
  configuration.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)" class="member-name-link">buildJsonApiRoutes</a><wbr>(<a href="../../common/jsonapi/JsonApiBuilder.html" title="class in io.openems.edge.common.jsonapi">JsonApiBuilder</a>&nbsp;builder)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Specifies routes of the current component in the given builder.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Handles @Deactivate of implementations.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#debugLog()" class="member-name-link">debugLog</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#debugLog()" class="member-name-link">debugLog</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets some output that is suitable for a continuous Debug log.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a><wbr>&lt;? super <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#excludingInstanceIds(java.util.UUID...)" class="member-name-link">excludingInstanceIds</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>...&nbsp;excludingInstanceIds)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a><wbr>&lt;? super <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#excludingInstanceIds(java.util.UUID...)" class="member-name-link">excludingInstanceIds</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>...&nbsp;excludingInstanceIds)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets a filter for excluding instances.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findAppById(java.lang.String)" class="member-name-link">findAppById</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Finds the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a> with the given id.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findAppByIdOrError(java.lang.String)" class="member-name-link">findAppByIdOrError</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findAppById(java.lang.String)" class="member-name-link">findAppById</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Finds the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a> with the given id.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findInstanceById(java.util.UUID)" class="member-name-link">findInstanceById</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;id)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager">OpenemsApp</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findAppByIdOrError(java.lang.String)" class="member-name-link">findAppByIdOrError</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Finds the <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppInstance</code></a> with the given <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link"><code>UUID</code></a>.</div>
+<div class="block">Finds the <a href="OpenemsApp.html" title="interface in io.openems.edge.core.appmanager"><code>OpenemsApp</code></a> with the given id.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findInstanceByIdOrError(java.util.UUID)" class="member-name-link">findInstanceByIdOrError</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;id)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findInstanceById(java.util.UUID)" class="member-name-link">findInstanceById</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;id)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Finds the <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppInstance</code></a> with the given <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link"><code>UUID</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInstantiatedApps()" class="member-name-link">getInstantiatedApps</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findInstanceByIdOrError(java.util.UUID)" class="member-name-link">findInstanceByIdOrError</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;id)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Finds the <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppInstance</code></a> with the given <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link"><code>UUID</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager">OpenemsAppInstance</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInstantiatedApps()" class="member-name-link">getInstantiatedApps</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets an unmodifiable list of the current instantiated apps.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AppConfiguration</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOtherAppConfigurations(java.util.UUID...)" class="member-name-link">getOtherAppConfigurations</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>...&nbsp;ignoreIds)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager">AppConfiguration</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOtherAppConfigurations(java.util.UUID...)" class="member-name-link">getOtherAppConfigurations</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>...&nbsp;ignoreIds)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets all <a href="AppConfiguration.html" title="class in io.openems.edge.core.appmanager"><code>AppConfiguration</code></a>s from the existing
  <a href="OpenemsAppInstance.html" title="class in io.openems.edge.core.appmanager"><code>OpenemsAppInstance</code></a>s.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="jsonrpc/AddAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Response</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleAddAppInstanceRequest(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.jsonrpc.AddAppInstance.Request)" class="member-name-link">handleAddAppInstanceRequest</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="jsonrpc/AddAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Response</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleAddAppInstanceRequest(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.jsonrpc.AddAppInstance.Request)" class="member-name-link">handleAddAppInstanceRequest</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
  <a href="jsonrpc/AddAppInstance.Request.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Request</a>&nbsp;request)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Handles <a href="jsonrpc/AddAppInstance.html" title="class in io.openems.edge.core.appmanager.jsonrpc"><code>AddAppInstance</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="jsonrpc/AddAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Response</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleAddAppInstanceRequest(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.jsonrpc.AddAppInstance.Request,boolean)" class="member-name-link">handleAddAppInstanceRequest</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="jsonrpc/AddAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Response</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleAddAppInstanceRequest(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.jsonrpc.AddAppInstance.Request,boolean)" class="member-name-link">handleAddAppInstanceRequest</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
  <a href="jsonrpc/AddAppInstance.Request.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Request</a>&nbsp;request,
  boolean&nbsp;ignoreBackend)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Handles <a href="jsonrpc/AddAppInstance.html" title="class in io.openems.edge.core.appmanager.jsonrpc"><code>AddAppInstance</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;? extends <a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleDeleteAppInstanceRequest(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.jsonrpc.DeleteAppInstance.Request)" class="member-name-link">handleDeleteAppInstanceRequest</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="jsonrpc/DeleteAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">DeleteAppInstance.Response</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleDeleteAppInstanceRequest(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.jsonrpc.DeleteAppInstance.Request)" class="member-name-link">handleDeleteAppInstanceRequest</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
  <a href="jsonrpc/DeleteAppInstance.Request.html" title="class in io.openems.edge.core.appmanager.jsonrpc">DeleteAppInstance.Request</a>&nbsp;request)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Handles a <a href="jsonrpc/DeleteAppInstance.html" title="class in io.openems.edge.core.appmanager.jsonrpc"><code>DeleteAppInstance</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;? extends <a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)" class="member-name-link">handleJsonrpcRequest</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Handles a JSON-RPC Request.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="jsonrpc/UpdateAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">UpdateAppInstance.Response</a>&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="jsonrpc/UpdateAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">UpdateAppInstance.Response</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleUpdateAppInstanceRequest(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.jsonrpc.UpdateAppInstance.Request)" class="member-name-link">handleUpdateAppInstanceRequest</a><wbr>(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
  <a href="jsonrpc/UpdateAppInstance.Request.html" title="class in io.openems.edge.core.appmanager.jsonrpc">UpdateAppInstance.Request</a>&nbsp;request)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -302,6 +301,9 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.core.appmanager.AppManager">Methods inherited from interface&nbsp;io.openems.edge.core.appmanager.<a href="AppManager.html" title="interface in io.openems.edge.core.appmanager">AppManager</a></h3>
 <code><a href="AppManager.html#_setDefectiveApp(boolean)">_setDefectiveApp</a>, <a href="AppManager.html#_setWrongAppConfiguration(boolean)">_setWrongAppConfiguration</a>, <a href="AppManager.html#getAppsNotSyncedWithBackend()">getAppsNotSyncedWithBackend</a>, <a href="AppManager.html#getAppsNotSyncedWithBackendChannel()">getAppsNotSyncedWithBackendChannel</a>, <a href="AppManager.html#getDefectiveApp()">getDefectiveApp</a>, <a href="AppManager.html#getDefectiveAppChannel()">getDefectiveAppChannel</a>, <a href="AppManager.html#getWrongAppConfiguration()">getWrongAppConfiguration</a>, <a href="AppManager.html#getWrongAppConfigurationChannel()">getWrongAppConfigurationChannel</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.edge.common.jsonapi.ComponentJsonApi">Methods inherited from interface&nbsp;io.openems.edge.common.jsonapi.<a href="../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></h3>
+<code><a href="../../common/jsonapi/ComponentJsonApi.html#id()">id</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.common.component.OpenemsComponent">Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
 <code><a href="../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></div>
@@ -594,10 +596,10 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <li>
 <section class="detail" id="handleAddAppInstanceRequest(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.jsonrpc.AddAppInstance.Request,boolean)">
 <h3>handleAddAppInstanceRequest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="jsonrpc/AddAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Response</a>&gt;</span>&nbsp;<span class="element-name">handleAddAppInstanceRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="jsonrpc/AddAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Response</a></span>&nbsp;<span class="element-name">handleAddAppInstanceRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
  <a href="jsonrpc/AddAppInstance.Request.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Request</a>&nbsp;request,
  boolean&nbsp;ignoreBackend)</span>
-                                                                       throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+                                                    throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
 <div class="block">Handles <a href="jsonrpc/AddAppInstance.html" title="class in io.openems.edge.core.appmanager.jsonrpc"><code>AddAppInstance</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -614,9 +616,9 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <li>
 <section class="detail" id="handleAddAppInstanceRequest(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.jsonrpc.AddAppInstance.Request)">
 <h3>handleAddAppInstanceRequest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="jsonrpc/AddAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Response</a>&gt;</span>&nbsp;<span class="element-name">handleAddAppInstanceRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="jsonrpc/AddAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Response</a></span>&nbsp;<span class="element-name">handleAddAppInstanceRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
  <a href="jsonrpc/AddAppInstance.Request.html" title="class in io.openems.edge.core.appmanager.jsonrpc">AddAppInstance.Request</a>&nbsp;request)</span>
-                                                                       throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+                                                    throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
 <div class="block">Handles <a href="jsonrpc/AddAppInstance.html" title="class in io.openems.edge.core.appmanager.jsonrpc"><code>AddAppInstance</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -632,9 +634,9 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 <li>
 <section class="detail" id="handleDeleteAppInstanceRequest(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.jsonrpc.DeleteAppInstance.Request)">
 <h3>handleDeleteAppInstanceRequest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">handleDeleteAppInstanceRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="jsonrpc/DeleteAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">DeleteAppInstance.Response</a></span>&nbsp;<span class="element-name">handleDeleteAppInstanceRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
  <a href="jsonrpc/DeleteAppInstance.Request.html" title="class in io.openems.edge.core.appmanager.jsonrpc">DeleteAppInstance.Request</a>&nbsp;request)</span>
-                                                                                   throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+                                                          throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
 <div class="block">Handles a <a href="jsonrpc/DeleteAppInstance.html" title="class in io.openems.edge.core.appmanager.jsonrpc"><code>DeleteAppInstance</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -648,33 +650,37 @@ implements <a href="AppManager.html" title="interface in io.openems.edge.core.ap
 </section>
 </li>
 <li>
-<section class="detail" id="handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">
-<h3>handleJsonrpcRequest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">handleJsonrpcRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</span>
-                                                                         throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../common/jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">JsonApi</a></code></span></div>
-<div class="block">Handles a JSON-RPC Request.</div>
+<section class="detail" id="buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">
+<h3>buildJsonApiRoutes</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">buildJsonApiRoutes</span><wbr><span class="parameters">(<a href="../../common/jsonapi/JsonApiBuilder.html" title="class in io.openems.edge.common.jsonapi">JsonApiBuilder</a>&nbsp;builder)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../common/jsonapi/JsonApi.html#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">JsonApi</a></code></span></div>
+<div class="block">Specifies routes of the current component in the given builder.
+ 
+ <p>
+ Example: <br>
+ 
+ <pre>
+ <code>@Override</code>
+ public void buildJsonApiRoutes(JsonApiBuilder builder) {
+     builder.rpc("METHOD_NAME", call -&gt; {
+        // handle call...
+     });
+ }
+ </pre></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../common/jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">handleJsonrpcRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
+<dd><code><a href="../../common/jsonapi/JsonApi.html#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">buildJsonApiRoutes</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>user</code> - the authenticated <a href="../../common/user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a></dd>
-<dd><code>request</code> - the JSON-RPC Request</dd>
-<dt>Returns:</dt>
-<dd>a Future JSON-RPC Success Response; null response results in a
-         OpenemsError.JSONRPC_UNHANDLED_METHOD</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+<dd><code>builder</code> - the builder to add the routes</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="handleUpdateAppInstanceRequest(io.openems.edge.common.user.User,io.openems.edge.core.appmanager.jsonrpc.UpdateAppInstance.Request)">
 <h3>handleUpdateAppInstanceRequest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="jsonrpc/UpdateAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">UpdateAppInstance.Response</a>&gt;</span>&nbsp;<span class="element-name">handleUpdateAppInstanceRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="jsonrpc/UpdateAppInstance.Response.html" title="class in io.openems.edge.core.appmanager.jsonrpc">UpdateAppInstance.Response</a></span>&nbsp;<span class="element-name">handleUpdateAppInstanceRequest</span><wbr><span class="parameters">(<a href="../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
  <a href="jsonrpc/UpdateAppInstance.Request.html" title="class in io.openems.edge.core.appmanager.jsonrpc">UpdateAppInstance.Request</a>&nbsp;request)</span>
-                                                                             throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+                                                          throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
 <div class="block">Handles <a href="jsonrpc/UpdateAppInstance.html" title="class in io.openems.edge.core.appmanager.jsonrpc"><code>UpdateAppInstance</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>

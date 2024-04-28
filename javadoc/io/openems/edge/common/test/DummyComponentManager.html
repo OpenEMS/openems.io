@@ -91,12 +91,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a></code>, <code><a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code>, <code><a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
+<dd><code><a href="../component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a></code>, <code><a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code>, <code><a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></code>, <code><a href="../jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">DummyComponentManager</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></span></div>
+implements <a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a>, <a href="../jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></span></div>
 <div class="block">Simulates a ComponentManager for the OpenEMS Component test framework.</div>
 </section>
 <section class="summary">
@@ -160,76 +160,93 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a human-readable name of this Component..</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a><wbr>&lt;<a href="../channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;?&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#channels()" class="member-name-link">channels</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)" class="member-name-link">buildJsonApiRoutes</a><wbr>(<a href="../jsonapi/JsonApiBuilder.html" title="class in io.openems.edge.common.jsonapi">JsonApiBuilder</a>&nbsp;builder)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Specifies routes of the current component in the given builder.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a><wbr>&lt;<a href="../channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;?&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#channels()" class="member-name-link">channels</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns all Channels.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAllComponents()" class="member-name-link">getAllComponents</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAllComponents()" class="member-name-link">getAllComponents</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets all OpenEMS-Components.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getClock()" class="member-name-link">getClock</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Clock.html" title="class or interface in java.time" class="external-link">Clock</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getClock()" class="member-name-link">getClock</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the OpenEMS Clock - either the real system clock or a mocked clock for
  simulations.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>T</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getComponent(java.lang.String)" class="member-name-link">getComponent</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;componentId)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>T</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getComponent(java.lang.String)" class="member-name-link">getComponent</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;componentId)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets a OpenEMS-Component by its Component-ID.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.osgi.service.component.ComponentContext</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getComponentContext()" class="member-name-link">getComponentContext</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.osgi.service.component.ComponentContext</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getComponentContext()" class="member-name-link">getComponentContext</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the ComponentContext.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEdgeConfig()" class="member-name-link">getEdgeConfig</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types">EdgeConfig</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEdgeConfig()" class="member-name-link">getEdgeConfig</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the complete configuration of this OpenEMS Edge.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEnabledComponents()" class="member-name-link">getEnabledComponents</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEnabledComponents()" class="member-name-link">getEnabledComponents</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets all enabled OpenEMS-Components.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEnabledComponentsOfType(java.lang.Class)" class="member-name-link">getEnabledComponentsOfType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;clazz)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;T&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEnabledComponentsOfType(java.lang.Class)" class="member-name-link">getEnabledComponentsOfType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;clazz)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets all enabled OpenEMS-Components of the given Type.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>T</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPossiblyDisabledComponent(java.lang.String)" class="member-name-link">getPossiblyDisabledComponent</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;componentId)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>&gt;<br>T</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPossiblyDisabledComponent(java.lang.String)" class="member-name-link">getPossiblyDisabledComponent</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;componentId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets a OpenEMS-Component by its Component-ID.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)" class="member-name-link">handleJsonrpcRequest</a><wbr>(<a href="../user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Handles a JSON-RPC Request.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#id()" class="member-name-link">id</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns a unique ID for this OpenEMS component.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEnabled()" class="member-name-link">isEnabled</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns whether this component is enabled.</div>
-</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfigJson(com.google.gson.JsonObject)" class="member-name-link">setConfigJson</a><wbr>(com.google.gson.JsonObject&nbsp;json)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleCreateComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.CreateComponentConfigRequest)" class="member-name-link">handleCreateComponentConfigRequest</a><wbr>(<a href="../user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+ <a href="../../../common/jsonrpc/request/CreateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request">CreateComponentConfigRequest</a>&nbsp;request)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets a <a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types"><code>EdgeConfig</code></a> json.</div>
+<div class="block">Handles a <a href="../../../common/jsonrpc/request/CreateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request"><code>CreateComponentConfigRequest</code></a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfigurationAdmin(org.osgi.service.cm.ConfigurationAdmin)" class="member-name-link">setConfigurationAdmin</a><wbr>(org.osgi.service.cm.ConfigurationAdmin&nbsp;configurationAdmin)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleDeleteComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.DeleteComponentConfigRequest)" class="member-name-link">handleDeleteComponentConfigRequest</a><wbr>(<a href="../user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+ <a href="../../../common/jsonrpc/request/DeleteComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request">DeleteComponentConfigRequest</a>&nbsp;request)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Handles a <a href="../../../common/jsonrpc/request/DeleteComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request"><code>DeleteComponentConfigRequest</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleUpdateComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.UpdateComponentConfigRequest)" class="member-name-link">handleUpdateComponentConfigRequest</a><wbr>(<a href="../user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+ <a href="../../../common/jsonrpc/request/UpdateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request">UpdateComponentConfigRequest</a>&nbsp;request)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Handles a <a href="../../../common/jsonrpc/request/UpdateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request"><code>UpdateComponentConfigRequest</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#id()" class="member-name-link">id</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns a unique ID for this OpenEMS component.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEnabled()" class="member-name-link">isEnabled</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns whether this component is enabled.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfigJson(com.google.gson.JsonObject)" class="member-name-link">setConfigJson</a><wbr>(com.google.gson.JsonObject&nbsp;json)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets a <a href="../../../common/types/EdgeConfig.html" title="class in io.openems.common.types"><code>EdgeConfig</code></a> json.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfigurationAdmin(org.osgi.service.cm.ConfigurationAdmin)" class="member-name-link">setConfigurationAdmin</a><wbr>(org.osgi.service.cm.ConfigurationAdmin&nbsp;configurationAdmin)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -444,6 +461,8 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 <div class="block">Returns a unique ID for this OpenEMS component.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
+<dd><code><a href="../jsonapi/ComponentJsonApi.html#id()">id</a></code>&nbsp;in interface&nbsp;<code><a href="../jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></code></dd>
+<dt>Specified by:</dt>
 <dd><code><a href="../component/OpenemsComponent.html#id()">id</a></code>&nbsp;in interface&nbsp;<code><a href="../component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code></dd>
 <dt>Returns:</dt>
 <dd>the unique ID</dd>
@@ -529,22 +548,83 @@ implements <a href="../component/ComponentManager.html" title="interface in io.o
 </section>
 </li>
 <li>
-<section class="detail" id="handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">
-<h3>handleJsonrpcRequest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">handleJsonrpcRequest</span><wbr><span class="parameters">(<a href="../user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</span>
-                                                               throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">JsonApi</a></code></span></div>
-<div class="block">Handles a JSON-RPC Request.</div>
+<section class="detail" id="buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">
+<h3>buildJsonApiRoutes</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">buildJsonApiRoutes</span><wbr><span class="parameters">(<a href="../jsonapi/JsonApiBuilder.html" title="class in io.openems.edge.common.jsonapi">JsonApiBuilder</a>&nbsp;builder)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../jsonapi/JsonApi.html#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">JsonApi</a></code></span></div>
+<div class="block">Specifies routes of the current component in the given builder.
+ 
+ <p>
+ Example: <br>
+ 
+ <pre>
+ <code>@Override</code>
+ public void buildJsonApiRoutes(JsonApiBuilder builder) {
+     builder.rpc("METHOD_NAME", call -&gt; {
+        // handle call...
+     });
+ }
+ </pre></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../jsonapi/JsonApi.html#handleJsonrpcRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.base.JsonrpcRequest)">handleJsonrpcRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
+<dd><code><a href="../jsonapi/JsonApi.html#buildJsonApiRoutes(io.openems.edge.common.jsonapi.JsonApiBuilder)">buildJsonApiRoutes</a></code>&nbsp;in interface&nbsp;<code><a href="../jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>user</code> - the authenticated <a href="../user/User.html" title="class in io.openems.edge.common.user"><code>User</code></a></dd>
-<dd><code>request</code> - the JSON-RPC Request</dd>
-<dt>Returns:</dt>
-<dd>a Future JSON-RPC Success Response; null response results in a
-         OpenemsError.JSONRPC_UNHANDLED_METHOD</dd>
+<dd><code>builder</code> - the builder to add the routes</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="handleCreateComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.CreateComponentConfigRequest)">
+<h3>handleCreateComponentConfigRequest</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleCreateComponentConfigRequest</span><wbr><span class="parameters">(<a href="../user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+ <a href="../../../common/jsonrpc/request/CreateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request">CreateComponentConfigRequest</a>&nbsp;request)</span>
+                                        throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../component/ComponentManager.html#handleCreateComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.CreateComponentConfigRequest)">ComponentManager</a></code></span></div>
+<div class="block">Handles a <a href="../../../common/jsonrpc/request/CreateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request"><code>CreateComponentConfigRequest</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../component/ComponentManager.html#handleCreateComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.CreateComponentConfigRequest)">handleCreateComponentConfigRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>user</code> - the user</dd>
+<dd><code>request</code> - the <a href="../../../common/jsonrpc/request/CreateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request"><code>CreateComponentConfigRequest</code></a></dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="handleUpdateComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.UpdateComponentConfigRequest)">
+<h3>handleUpdateComponentConfigRequest</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleUpdateComponentConfigRequest</span><wbr><span class="parameters">(<a href="../user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+ <a href="../../../common/jsonrpc/request/UpdateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request">UpdateComponentConfigRequest</a>&nbsp;request)</span>
+                                        throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../component/ComponentManager.html#handleUpdateComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.UpdateComponentConfigRequest)">ComponentManager</a></code></span></div>
+<div class="block">Handles a <a href="../../../common/jsonrpc/request/UpdateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request"><code>UpdateComponentConfigRequest</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../component/ComponentManager.html#handleUpdateComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.UpdateComponentConfigRequest)">handleUpdateComponentConfigRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>user</code> - the user</dd>
+<dd><code>request</code> - the <a href="../../../common/jsonrpc/request/UpdateComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request"><code>UpdateComponentConfigRequest</code></a></dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="handleDeleteComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.DeleteComponentConfigRequest)">
+<h3>handleDeleteComponentConfigRequest</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleDeleteComponentConfigRequest</span><wbr><span class="parameters">(<a href="../user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
+ <a href="../../../common/jsonrpc/request/DeleteComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request">DeleteComponentConfigRequest</a>&nbsp;request)</span>
+                                        throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../component/ComponentManager.html#handleDeleteComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.DeleteComponentConfigRequest)">ComponentManager</a></code></span></div>
+<div class="block">Handles a <a href="../../../common/jsonrpc/request/DeleteComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request"><code>DeleteComponentConfigRequest</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../component/ComponentManager.html#handleDeleteComponentConfigRequest(io.openems.edge.common.user.User,io.openems.common.jsonrpc.request.DeleteComponentConfigRequest)">handleDeleteComponentConfigRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../component/ComponentManager.html" title="interface in io.openems.edge.common.component">ComponentManager</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>user</code> - the user</dd>
+<dd><code>request</code> - the <a href="../../../common/jsonrpc/request/DeleteComponentConfigRequest.html" title="class in io.openems.common.jsonrpc.request"><code>DeleteComponentConfigRequest</code></a></dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
