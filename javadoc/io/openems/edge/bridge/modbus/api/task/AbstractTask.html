@@ -112,7 +112,7 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <h2>Nested Class Summary</h2>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-io.openems.edge.bridge.modbus.api.task.Task">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></h2>
-<code><a href="Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></code></div>
+<code><a href="Task.ExecuteState.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></code></div>
 </section>
 </li>
 <!-- =========== FIELD SUMMARY =========== -->
@@ -133,12 +133,15 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <div class="col-first even-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#name" class="member-name-link">name</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a><wbr>&lt;<a href="AbstractTask.html" title="type parameter in AbstractTask">RESPONSE</a>&gt;</code></div>
-<div class="col-second odd-row-color"><code><a href="#responseClazz" class="member-name-link">responseClazz</a></code></div>
+<div class="col-first odd-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a><wbr>&lt;<a href="Task.ExecuteState.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#onExecute" class="member-name-link">onExecute</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected final int</code></div>
-<div class="col-second even-row-color"><code><a href="#startAddress" class="member-name-link">startAddress</a></code></div>
+<div class="col-first even-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a><wbr>&lt;<a href="AbstractTask.html" title="type parameter in AbstractTask">RESPONSE</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#responseClazz" class="member-name-link">responseClazz</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#startAddress" class="member-name-link">startAddress</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -150,7 +153,8 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.Class,int,io.openems.edge.bridge.modbus.api.element.ModbusElement...)" class="member-name-link">AbstractTask</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.util.function.Consumer,java.lang.Class,int,io.openems.edge.bridge.modbus.api.element.ModbusElement...)" class="member-name-link">AbstractTask</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Task.ExecuteState.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a>&gt;&nbsp;onExecute,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;<a href="AbstractTask.html" title="type parameter in AbstractTask">RESPONSE</a>&gt;&nbsp;responseClazz,
  int&nbsp;startAddress,
  <a href="../element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>...&nbsp;elements)</code></div>
@@ -179,7 +183,7 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Activate Debug-Mode.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract <a href="Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract <a href="Task.ExecuteState.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)" class="member-name-link">execute</a><wbr>(<a href="../AbstractModbusBridge.html" title="class in io.openems.edge.bridge.modbus.api">AbstractModbusBridge</a>&nbsp;bridge)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Executes the tasks - i.e.</div>
@@ -306,6 +310,12 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 </section>
 </li>
 <li>
+<section class="detail" id="onExecute">
+<h3>onExecute</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Task.ExecuteState.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a>&gt;</span>&nbsp;<span class="element-name">onExecute</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="responseClazz">
 <h3>responseClazz</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;<a href="AbstractTask.html" title="type parameter in AbstractTask">RESPONSE</a> extends com.ghgande.j2mod.modbus.msg.ModbusResponse&gt;</span>&nbsp;<span class="element-name">responseClazz</span></div>
@@ -338,9 +348,10 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.Class,int,io.openems.edge.bridge.modbus.api.element.ModbusElement...)">
+<section class="detail" id="&lt;init&gt;(java.lang.String,java.util.function.Consumer,java.lang.Class,int,io.openems.edge.bridge.modbus.api.element.ModbusElement...)">
 <h3>AbstractTask</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">AbstractTask</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Task.ExecuteState.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a>&gt;&nbsp;onExecute,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;<a href="AbstractTask.html" title="type parameter in AbstractTask">RESPONSE</a>&gt;&nbsp;responseClazz,
  int&nbsp;startAddress,
  <a href="../element/ModbusElement.html" title="class in io.openems.edge.bridge.modbus.api.element">ModbusElement</a>...&nbsp;elements)</span></div>
@@ -427,7 +438,7 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <li>
 <section class="detail" id="execute(io.openems.edge.bridge.modbus.api.AbstractModbusBridge)">
 <h3>execute</h3>
-<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type"><a href="Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></span>&nbsp;<span class="element-name">execute</span><wbr><span class="parameters">(<a href="../AbstractModbusBridge.html" title="class in io.openems.edge.bridge.modbus.api">AbstractModbusBridge</a>&nbsp;bridge)</span></div>
+<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type"><a href="Task.ExecuteState.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></span>&nbsp;<span class="element-name">execute</span><wbr><span class="parameters">(<a href="../AbstractModbusBridge.html" title="class in io.openems.edge.bridge.modbus.api">AbstractModbusBridge</a>&nbsp;bridge)</span></div>
 <div class="block">Executes the tasks - i.e. sends the query of a ReadTask or writes a
  WriteTask.</div>
 <dl class="notes">
@@ -436,7 +447,7 @@ implements <a href="Task.html" title="interface in io.openems.edge.bridge.modbus
 <dt>Parameters:</dt>
 <dd><code>bridge</code> - the Modbus-Bridge</dd>
 <dt>Returns:</dt>
-<dd>the number of executed Sub-Tasks</dd>
+<dd>the <a href="Task.ExecuteState.html" title="interface in io.openems.edge.bridge.modbus.api.task"><code>Task.ExecuteState</code></a></dd>
 </dl>
 </section>
 </li>

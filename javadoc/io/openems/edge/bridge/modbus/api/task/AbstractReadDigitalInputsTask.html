@@ -113,7 +113,7 @@ loadScripts(document, 'script');</script>
 <h2>Nested Class Summary</h2>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-io.openems.edge.bridge.modbus.api.task.Task">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="Task.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task</a></h2>
-<code><a href="Task.ExecuteState.html" title="enum class in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></code></div>
+<code><a href="Task.ExecuteState.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a></code></div>
 </section>
 </li>
 <!-- =========== FIELD SUMMARY =========== -->
@@ -122,7 +122,7 @@ loadScripts(document, 'script');</script>
 <h2>Field Summary</h2>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.edge.bridge.modbus.api.task.AbstractTask">Fields inherited from class&nbsp;io.openems.edge.bridge.modbus.api.task.<a href="AbstractTask.html" title="class in io.openems.edge.bridge.modbus.api.task">AbstractTask</a></h3>
-<code><a href="AbstractTask.html#elements">elements</a>, <a href="AbstractTask.html#length">length</a>, <a href="AbstractTask.html#name">name</a>, <a href="AbstractTask.html#responseClazz">responseClazz</a>, <a href="AbstractTask.html#startAddress">startAddress</a></code></div>
+<code><a href="AbstractTask.html#elements">elements</a>, <a href="AbstractTask.html#length">length</a>, <a href="AbstractTask.html#name">name</a>, <a href="AbstractTask.html#onExecute">onExecute</a>, <a href="AbstractTask.html#responseClazz">responseClazz</a>, <a href="AbstractTask.html#startAddress">startAddress</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -133,7 +133,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.Class,int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.CoilElement...)" class="member-name-link">AbstractReadDigitalInputsTask</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.util.function.Consumer,java.lang.Class,int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.CoilElement...)" class="member-name-link">AbstractReadDigitalInputsTask</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Task.ExecuteState.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a>&gt;&nbsp;onExecute,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;<a href="AbstractReadDigitalInputsTask.html" title="type parameter in AbstractReadDigitalInputsTask">RESPONSE</a>&gt;&nbsp;responseClazz,
  int&nbsp;startAddress,
  <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a>&nbsp;priority,
@@ -213,9 +214,10 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.Class,int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.CoilElement...)">
+<section class="detail" id="&lt;init&gt;(java.lang.String,java.util.function.Consumer,java.lang.Class,int,io.openems.edge.common.taskmanager.Priority,io.openems.edge.bridge.modbus.api.element.CoilElement...)">
 <h3>AbstractReadDigitalInputsTask</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">AbstractReadDigitalInputsTask</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Task.ExecuteState.html" title="interface in io.openems.edge.bridge.modbus.api.task">Task.ExecuteState</a>&gt;&nbsp;onExecute,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;<a href="AbstractReadDigitalInputsTask.html" title="type parameter in AbstractReadDigitalInputsTask">RESPONSE</a>&gt;&nbsp;responseClazz,
  int&nbsp;startAddress,
  <a href="../../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a>&nbsp;priority,

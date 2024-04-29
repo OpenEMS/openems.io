@@ -88,7 +88,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Superinterfaces:</dt>
-<dd><code><a href="../../api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a></code>, <code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></code>, <code><a href="../../api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a></code></dd>
+<dd><code><a href="../../api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a></code>, <code><a href="../../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a></code>, <code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></code>, <code><a href="../../api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a></code></dd>
 </dl>
 <dl class="notes">
 <dt>All Known Implementing Classes:</dt>
@@ -96,7 +96,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">BatteryInverterKacoBlueplanetGridsave</span><span class="extends-implements">
-extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>, <a href="../../api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></span></div>
+extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>, <a href="../../api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>, <a href="../../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../common/startstop/StartStoppable.html" title="interface in io.openems.edge.common.startstop">StartStoppable</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -125,16 +125,6 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static final int</code></div>
-<div class="col-second even-row-color"><code><a href="#RETRY_COMMAND_MAX_ATTEMPTS" class="member-name-link">RETRY_COMMAND_MAX_ATTEMPTS</a></code></div>
-<div class="col-last even-row-color">
-<div class="block">Retry x attempts for set-command.</div>
-</div>
-<div class="col-first odd-row-color"><code>static final int</code></div>
-<div class="col-second odd-row-color"><code><a href="#RETRY_COMMAND_SECONDS" class="member-name-link">RETRY_COMMAND_SECONDS</a></code></div>
-<div class="col-last odd-row-color">
-<div class="block">Retry set-command after x Seconds, e.g.</div>
-</div>
-<div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#WATCHDOG_TIMEOUT_SECONDS" class="member-name-link">WATCHDOG_TIMEOUT_SECONDS</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">Sets the KACO watchdog timeout to 60 seconds.</div>
@@ -162,46 +152,76 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setMaxStartAttempts(java.lang.Boolean)" class="member-name-link">_setMaxStartAttempts</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;value)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setGridDisconnection(boolean)" class="member-name-link">_setGridDisconnection</a><wbr>(boolean&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Internal method to set the 'nextValue' on
- <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_ATTEMPTS</code></a> Channel.</div>
+<div class="block">Writes the value to the ChannelId.GRID_DISCONNECTION.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setMaxStopAttempts(java.lang.Boolean)" class="member-name-link">_setMaxStopAttempts</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;value)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setInverterCurrentStateFault(boolean)" class="member-name-link">_setInverterCurrentStateFault</a><wbr>(boolean&nbsp;value)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Internal method to set the 'nextValue' on <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_ATTEMPTS</code></a>
+<div class="block">Writes the value to the ChannelId.INVERTER_CURRENT_STATE_FAULT.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setMaxStartTimeout(boolean)" class="member-name-link">_setMaxStartTimeout</a><wbr>(boolean&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Internal method to set the 'nextValue' on <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_TIMEOUT</code></a>
  Channel.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="KacoSunSpecModel.S64201.S64201CurrentState.html" title="enum class in io.openems.edge.batteryinverter.kaco.blueplanetgridsave">KacoSunSpecModel.S64201.S64201CurrentState</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getCurrentState()" class="member-name-link">getCurrentState</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setMaxStopTimeout(boolean)" class="member-name-link">_setMaxStopTimeout</a><wbr>(boolean&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Internal method to set the 'nextValue' on <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_TIMEOUT</code></a>
+ Channel.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#_setRunFailed(boolean)" class="member-name-link">_setRunFailed</a><wbr>(boolean&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Writes the value to the ChannelId.RUN_FAILED.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="KacoSunSpecModel.S64201.S64201CurrentState.html" title="enum class in io.openems.edge.batteryinverter.kaco.blueplanetgridsave">KacoSunSpecModel.S64201.S64201CurrentState</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getCurrentState()" class="member-name-link">getCurrentState</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Gets the Current State.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getMaxStartAttempts()" class="member-name-link">getMaxStartAttempts</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Gets the <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_ATTEMPTS</code></a>.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getMaxStartAttemptsChannel()" class="member-name-link">getMaxStartAttemptsChannel</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getGridDisconnectionChannel()" class="member-name-link">getGridDisconnectionChannel</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Gets the Channel for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_ATTEMPTS</code></a>.</div>
+<div class="block">Gets the Channel for ChannelId.GRID_DISCONNECTION.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getMaxStopAttempts()" class="member-name-link">getMaxStopAttempts</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getInverterCurrentStateFaultChannel()" class="member-name-link">getInverterCurrentStateFaultChannel</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Gets the <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_ATTEMPTS</code></a>.</div>
+<div class="block">Gets the Channel for ChannelId.INVERTER_CURRENT_STATE_FAULT.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getMaxStopAttemptsChannel()" class="member-name-link">getMaxStopAttemptsChannel</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getMaxStartTimeout()" class="member-name-link">getMaxStartTimeout</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Gets the Channel for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_ATTEMPTS</code></a>.</div>
+<div class="block">Gets the <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_TIMEOUT</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/WriteChannel.html" title="interface in io.openems.edge.common.channel">WriteChannel</a><wbr>&lt;<a href="KacoSunSpecModel.S64201.S64201RequestedState.html" title="enum class in io.openems.edge.batteryinverter.kaco.blueplanetgridsave">KacoSunSpecModel.S64201.S64201RequestedState</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getRequestedStateChannel()" class="member-name-link">getRequestedStateChannel</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getMaxStartTimeoutChannel()" class="member-name-link">getMaxStartTimeoutChannel</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Gets the Channel for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_TIMEOUT</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getMaxStopTimeout()" class="member-name-link">getMaxStopTimeout</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Gets the <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_TIMEOUT</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getMaxStopTimeoutChannel()" class="member-name-link">getMaxStopTimeoutChannel</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Gets the Channel for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_TIMEOUT</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/WriteChannel.html" title="interface in io.openems.edge.common.channel">WriteChannel</a><wbr>&lt;<a href="KacoSunSpecModel.S64201.S64201RequestedState.html" title="enum class in io.openems.edge.batteryinverter.kaco.blueplanetgridsave">KacoSunSpecModel.S64201.S64201RequestedState</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getRequestedStateChannel()" class="member-name-link">getRequestedStateChannel</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Gets the Channel for KacoSunSpecModel.S64201.REQUESTED_STATE.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getRunFailedChannel()" class="member-name-link">getRunFailedChannel</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Gets the Channel for ChannelId.RUN_FAILED.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop">StartStop</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getStartStopTarget()" class="member-name-link">getStartStopTarget</a>()</code></div>
@@ -213,9 +233,24 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Get the Channel for the given Point or throw an error if it is not available.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#setRequestedState(io.openems.edge.batteryinverter.kaco.blueplanetgridsave.KacoSunSpecModel.S64201.S64201RequestedState)" class="member-name-link">setRequestedState</a><wbr>(<a href="KacoSunSpecModel.S64201.S64201RequestedState.html" title="enum class in io.openems.edge.batteryinverter.kaco.blueplanetgridsave">KacoSunSpecModel.S64201.S64201RequestedState</a>&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#hasFailure()" class="member-name-link">hasFailure</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Checks if the system is in a fault state.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isRunning()" class="member-name-link">isRunning</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Checks if the system is in a running state.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isShutdown()" class="member-name-link">isShutdown</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Checks if the system is in a stop state.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#setRequestedState(io.openems.edge.batteryinverter.kaco.blueplanetgridsave.KacoSunSpecModel.S64201.S64201RequestedState)" class="member-name-link">setRequestedState</a><wbr>(<a href="KacoSunSpecModel.S64201.S64201RequestedState.html" title="enum class in io.openems.edge.batteryinverter.kaco.blueplanetgridsave">KacoSunSpecModel.S64201.S64201RequestedState</a>&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Writes the value to the KacoSunSpecModel.S64201.REQUESTED_STATE Register.</div>
 </div>
 </div>
@@ -224,6 +259,9 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.batteryinverter.api.ManagedSymmetricBatteryInverter">Methods inherited from interface&nbsp;io.openems.edge.batteryinverter.api.<a href="../../api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a></h3>
 <code><a href="../../api/ManagedSymmetricBatteryInverter.html#getPowerPrecision()">getPowerPrecision</a>, <a href="../../api/ManagedSymmetricBatteryInverter.html#getStaticConstraints()">getStaticConstraints</a>, <a href="../../api/ManagedSymmetricBatteryInverter.html#isManaged()">isManaged</a>, <a href="../../api/ManagedSymmetricBatteryInverter.html#isOffGridPossible()">isOffGridPossible</a>, <a href="../../api/ManagedSymmetricBatteryInverter.html#run(io.openems.edge.battery.api.Battery,int,int)">run</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.openems.edge.bridge.modbus.api.ModbusComponent">Methods inherited from interface&nbsp;io.openems.edge.bridge.modbus.api.<a href="../../../bridge/modbus/api/ModbusComponent.html" title="interface in io.openems.edge.bridge.modbus.api">ModbusComponent</a></h3>
+<code><a href="../../../bridge/modbus/api/ModbusComponent.html#_setModbusCommunicationFailed(boolean)">_setModbusCommunicationFailed</a>, <a href="../../../bridge/modbus/api/ModbusComponent.html#getModbusCommunicationFailed()">getModbusCommunicationFailed</a>, <a href="../../../bridge/modbus/api/ModbusComponent.html#getModbusCommunicationFailedChannel()">getModbusCommunicationFailedChannel</a>, <a href="../../../bridge/modbus/api/ModbusComponent.html#retryModbusCommunication()">retryModbusCommunication</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.common.component.OpenemsComponent">Methods inherited from interface&nbsp;io.openems.edge.common.component.<a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></h3>
 <code><a href="../../../common/component/OpenemsComponent.html#_channel(java.lang.String)">_channel</a>, <a href="../../../common/component/OpenemsComponent.html#_getChannelAs(io.openems.edge.common.component.OpenemsComponent.ChannelId,java.lang.Class)">_getChannelAs</a>, <a href="../../../common/component/OpenemsComponent.html#alias()">alias</a>, <a href="../../../common/component/OpenemsComponent.html#channel(io.openems.edge.common.channel.ChannelId)">channel</a>, <a href="../../../common/component/OpenemsComponent.html#channel(java.lang.String)">channel</a>, <a href="../../../common/component/OpenemsComponent.html#channels()">channels</a>, <a href="../../../common/component/OpenemsComponent.html#debugLog()">debugLog</a>, <a href="../../../common/component/OpenemsComponent.html#getComponentContext()">getComponentContext</a>, <a href="../../../common/component/OpenemsComponent.html#getState()">getState</a>, <a href="../../../common/component/OpenemsComponent.html#getStateChannel()">getStateChannel</a>, <a href="../../../common/component/OpenemsComponent.html#hasFaults()">hasFaults</a>, <a href="../../../common/component/OpenemsComponent.html#id()">id</a>, <a href="../../../common/component/OpenemsComponent.html#isEnabled()">isEnabled</a>, <a href="../../../common/component/OpenemsComponent.html#serviceFactoryPid()">serviceFactoryPid</a>, <a href="../../../common/component/OpenemsComponent.html#servicePid()">servicePid</a></code></div>
@@ -270,37 +308,6 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 <dd>
 <ul class="tag-list">
 <li><a href="../../../../../../constant-values.html#io.openems.edge.batteryinverter.kaco.blueplanetgridsave.BatteryInverterKacoBlueplanetGridsave.WATCHDOG_TRIGGER_SECONDS">Constant Field Values</a></li>
-</ul>
-</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="RETRY_COMMAND_SECONDS">
-<h3>RETRY_COMMAND_SECONDS</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">RETRY_COMMAND_SECONDS</span></div>
-<div class="block">Retry set-command after x Seconds, e.g. for starting battery or
- battery-inverter.</div>
-<dl class="notes">
-<dt>See Also:</dt>
-<dd>
-<ul class="tag-list">
-<li><a href="../../../../../../constant-values.html#io.openems.edge.batteryinverter.kaco.blueplanetgridsave.BatteryInverterKacoBlueplanetGridsave.RETRY_COMMAND_SECONDS">Constant Field Values</a></li>
-</ul>
-</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="RETRY_COMMAND_MAX_ATTEMPTS">
-<h3>RETRY_COMMAND_MAX_ATTEMPTS</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">RETRY_COMMAND_MAX_ATTEMPTS</span></div>
-<div class="block">Retry x attempts for set-command.</div>
-<dl class="notes">
-<dt>See Also:</dt>
-<dd>
-<ul class="tag-list">
-<li><a href="../../../../../../constant-values.html#io.openems.edge.batteryinverter.kaco.blueplanetgridsave.BatteryInverterKacoBlueplanetGridsave.RETRY_COMMAND_MAX_ATTEMPTS">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
@@ -355,10 +362,10 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 </section>
 </li>
 <li>
-<section class="detail" id="getMaxStartAttemptsChannel()">
-<h3>getMaxStartAttemptsChannel</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></span>&nbsp;<span class="element-name">getMaxStartAttemptsChannel</span>()</div>
-<div class="block">Gets the Channel for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_ATTEMPTS</code></a>.</div>
+<section class="detail" id="getMaxStartTimeoutChannel()">
+<h3>getMaxStartTimeoutChannel</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></span>&nbsp;<span class="element-name">getMaxStartTimeoutChannel</span>()</div>
+<div class="block">Gets the Channel for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_TIMEOUT</code></a>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the Channel</dd>
@@ -366,10 +373,10 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 </section>
 </li>
 <li>
-<section class="detail" id="getMaxStartAttempts()">
-<h3>getMaxStartAttempts</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name">getMaxStartAttempts</span>()</div>
-<div class="block">Gets the <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_ATTEMPTS</code></a>.</div>
+<section class="detail" id="getMaxStartTimeout()">
+<h3>getMaxStartTimeout</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name">getMaxStartTimeout</span>()</div>
+<div class="block">Gets the <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_TIMEOUT</code></a>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the Channel <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
@@ -377,11 +384,11 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 </section>
 </li>
 <li>
-<section class="detail" id="_setMaxStartAttempts(java.lang.Boolean)">
-<h3>_setMaxStartAttempts</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setMaxStartAttempts</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;value)</span></div>
-<div class="block">Internal method to set the 'nextValue' on
- <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_ATTEMPTS</code></a> Channel.</div>
+<section class="detail" id="_setMaxStartTimeout(boolean)">
+<h3>_setMaxStartTimeout</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setMaxStartTimeout</span><wbr><span class="parameters">(boolean&nbsp;value)</span></div>
+<div class="block">Internal method to set the 'nextValue' on <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_START_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_START_TIMEOUT</code></a>
+ Channel.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>value</code> - the next value</dd>
@@ -389,10 +396,10 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 </section>
 </li>
 <li>
-<section class="detail" id="getMaxStopAttemptsChannel()">
-<h3>getMaxStopAttemptsChannel</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></span>&nbsp;<span class="element-name">getMaxStopAttemptsChannel</span>()</div>
-<div class="block">Gets the Channel for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_ATTEMPTS</code></a>.</div>
+<section class="detail" id="getMaxStopTimeoutChannel()">
+<h3>getMaxStopTimeoutChannel</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel">StateChannel</a></span>&nbsp;<span class="element-name">getMaxStopTimeoutChannel</span>()</div>
+<div class="block">Gets the Channel for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_TIMEOUT</code></a>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the Channel</dd>
@@ -400,10 +407,10 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 </section>
 </li>
 <li>
-<section class="detail" id="getMaxStopAttempts()">
-<h3>getMaxStopAttempts</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name">getMaxStopAttempts</span>()</div>
-<div class="block">Gets the <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_ATTEMPTS</code></a>.</div>
+<section class="detail" id="getMaxStopTimeout()">
+<h3>getMaxStopTimeout</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value">Value</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name">getMaxStopTimeout</span>()</div>
+<div class="block">Gets the <a href="../../../common/channel/StateChannel.html" title="class in io.openems.edge.common.channel"><code>StateChannel</code></a> for <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_TIMEOUT</code></a>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the Channel <a href="../../../common/channel/value/Value.html" title="class in io.openems.edge.common.channel.value"><code>Value</code></a></dd>
@@ -411,10 +418,10 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 </section>
 </li>
 <li>
-<section class="detail" id="_setMaxStopAttempts(java.lang.Boolean)">
-<h3>_setMaxStopAttempts</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setMaxStopAttempts</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;value)</span></div>
-<div class="block">Internal method to set the 'nextValue' on <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_ATTEMPTS"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_ATTEMPTS</code></a>
+<section class="detail" id="_setMaxStopTimeout(boolean)">
+<h3>_setMaxStopTimeout</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setMaxStopTimeout</span><wbr><span class="parameters">(boolean&nbsp;value)</span></div>
+<div class="block">Internal method to set the 'nextValue' on <a href="BatteryInverterKacoBlueplanetGridsave.ChannelId.html#MAX_STOP_TIMEOUT"><code>BatteryInverterKacoBlueplanetGridsave.ChannelId.MAX_STOP_TIMEOUT</code></a>
  Channel.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -447,6 +454,109 @@ extends <a href="../../api/ManagedSymmetricBatteryInverter.html" title="interfac
 <dd><code>value</code> - the next value</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getInverterCurrentStateFaultChannel()">
+<h3>getInverterCurrentStateFaultChannel</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name">getInverterCurrentStateFaultChannel</span>()</div>
+<div class="block">Gets the Channel for ChannelId.INVERTER_CURRENT_STATE_FAULT.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the Channel</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="_setInverterCurrentStateFault(boolean)">
+<h3>_setInverterCurrentStateFault</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setInverterCurrentStateFault</span><wbr><span class="parameters">(boolean&nbsp;value)</span></div>
+<div class="block">Writes the value to the ChannelId.INVERTER_CURRENT_STATE_FAULT.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>value</code> - the next value</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getRunFailedChannel()">
+<h3>getRunFailedChannel</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name">getRunFailedChannel</span>()</div>
+<div class="block">Gets the Channel for ChannelId.RUN_FAILED.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the Channel</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="_setRunFailed(boolean)">
+<h3>_setRunFailed</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setRunFailed</span><wbr><span class="parameters">(boolean&nbsp;value)</span></div>
+<div class="block">Writes the value to the ChannelId.RUN_FAILED.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>value</code> - the next value</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getGridDisconnectionChannel()">
+<h3>getGridDisconnectionChannel</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../common/channel/Channel.html" title="interface in io.openems.edge.common.channel">Channel</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name">getGridDisconnectionChannel</span>()</div>
+<div class="block">Gets the Channel for ChannelId.GRID_DISCONNECTION.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the Channel</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="_setGridDisconnection(boolean)">
+<h3>_setGridDisconnection</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">_setGridDisconnection</span><wbr><span class="parameters">(boolean&nbsp;value)</span></div>
+<div class="block">Writes the value to the ChannelId.GRID_DISCONNECTION.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>value</code> - the next value</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isRunning()">
+<h3>isRunning</h3>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">isRunning</span>()</div>
+<div class="block">Checks if the system is in a running state. This method retrieves the
+ system's global state and determines whether the system is in a running
+ state.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if the system is in a running state, false otherwise.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isShutdown()">
+<h3>isShutdown</h3>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">isShutdown</span>()</div>
+<div class="block">Checks if the system is in a stop state. This method retrieves the system's
+ global state and determines whether the system is in a stop state.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if the system is in a stop state, false otherwise.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hasFailure()">
+<h3>hasFailure</h3>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">hasFailure</span>()</div>
+<div class="block">Checks if the system is in a fault state. This method retrieves the system's
+ global state and determines whether the system is in a fault state.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if the system is in a fault state, false otherwise.</dd>
 </dl>
 </section>
 </li>

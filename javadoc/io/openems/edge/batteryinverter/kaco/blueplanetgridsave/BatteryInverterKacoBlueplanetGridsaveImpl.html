@@ -141,7 +141,7 @@ implements <a href="BatteryInverterKacoBlueplanetGridsave.html" title="interface
 <h2>Field Summary</h2>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.edge.batteryinverter.kaco.blueplanetgridsave.BatteryInverterKacoBlueplanetGridsave">Fields inherited from interface&nbsp;io.openems.edge.batteryinverter.kaco.blueplanetgridsave.<a href="BatteryInverterKacoBlueplanetGridsave.html" title="interface in io.openems.edge.batteryinverter.kaco.blueplanetgridsave">BatteryInverterKacoBlueplanetGridsave</a></h3>
-<code><a href="BatteryInverterKacoBlueplanetGridsave.html#RETRY_COMMAND_MAX_ATTEMPTS">RETRY_COMMAND_MAX_ATTEMPTS</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#RETRY_COMMAND_SECONDS">RETRY_COMMAND_SECONDS</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#WATCHDOG_TIMEOUT_SECONDS">WATCHDOG_TIMEOUT_SECONDS</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#WATCHDOG_TRIGGER_SECONDS">WATCHDOG_TRIGGER_SECONDS</a></code></div>
+<code><a href="BatteryInverterKacoBlueplanetGridsave.html#WATCHDOG_TIMEOUT_SECONDS">WATCHDOG_TIMEOUT_SECONDS</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#WATCHDOG_TRIGGER_SECONDS">WATCHDOG_TRIGGER_SECONDS</a></code></div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.edge.batteryinverter.api.SymmetricBatteryInverter">Fields inherited from interface&nbsp;io.openems.edge.batteryinverter.api.<a href="../../api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a></h3>
 <code><a href="../../api/SymmetricBatteryInverter.html#POWER_DOC_TEXT">POWER_DOC_TEXT</a></code></div>
@@ -224,26 +224,41 @@ implements <a href="BatteryInverterKacoBlueplanetGridsave.html" title="interface
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the <a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onSunSpecInitializationCompleted()" class="member-name-link">onSunSpecInitializationCompleted</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasFailure()" class="member-name-link">hasFailure</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks if the system is in a fault state.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isRunning()" class="member-name-link">isRunning</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks if the system is in a running state.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isShutdown()" class="member-name-link">isShutdown</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks if the system is in a stop state.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onSunSpecInitializationCompleted()" class="member-name-link">onSunSpecInitializationCompleted</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Mark SunSpec initialization completed; this takes some time at startup.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run(io.openems.edge.battery.api.Battery,int,int)" class="member-name-link">run</a><wbr>(<a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run(io.openems.edge.battery.api.Battery,int,int)" class="member-name-link">run</a><wbr>(<a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery,
  int&nbsp;setActivePower,
  int&nbsp;setReactivePower)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Run the Battery-Inverter.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)" class="member-name-link">setModbus</a><wbr>(<a href="../../../bridge/modbus/api/BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a>&nbsp;modbus)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setModbus(io.openems.edge.bridge.modbus.api.BridgeModbus)" class="member-name-link">setModbus</a><wbr>(<a href="../../../bridge/modbus/api/BridgeModbus.html" title="interface in io.openems.edge.bridge.modbus.api">BridgeModbus</a>&nbsp;modbus)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the Modbus bridge.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setStartStop(io.openems.edge.common.startstop.StartStop)" class="member-name-link">setStartStop</a><wbr>(<a href="../../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setStartStop(io.openems.edge.common.startstop.StartStop)" class="member-name-link">setStartStop</a><wbr>(<a href="../../../common/startstop/StartStop.html" title="enum class in io.openems.edge.common.startstop">StartStop</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Starts or stops the device or service represented by this OpenEMS Component.</div>
 </div>
 </div>
@@ -266,7 +281,7 @@ implements <a href="BatteryInverterKacoBlueplanetGridsave.html" title="interface
 <code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.batteryinverter.kaco.blueplanetgridsave.BatteryInverterKacoBlueplanetGridsave">Methods inherited from interface&nbsp;io.openems.edge.batteryinverter.kaco.blueplanetgridsave.<a href="BatteryInverterKacoBlueplanetGridsave.html" title="interface in io.openems.edge.batteryinverter.kaco.blueplanetgridsave">BatteryInverterKacoBlueplanetGridsave</a></h3>
-<code><a href="BatteryInverterKacoBlueplanetGridsave.html#_setMaxStartAttempts(java.lang.Boolean)">_setMaxStartAttempts</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#_setMaxStopAttempts(java.lang.Boolean)">_setMaxStopAttempts</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getMaxStartAttempts()">getMaxStartAttempts</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getMaxStartAttemptsChannel()">getMaxStartAttemptsChannel</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getMaxStopAttempts()">getMaxStopAttempts</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getMaxStopAttemptsChannel()">getMaxStopAttemptsChannel</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getRequestedStateChannel()">getRequestedStateChannel</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#setRequestedState(io.openems.edge.batteryinverter.kaco.blueplanetgridsave.KacoSunSpecModel.S64201.S64201RequestedState)">setRequestedState</a></code></div>
+<code><a href="BatteryInverterKacoBlueplanetGridsave.html#_setGridDisconnection(boolean)">_setGridDisconnection</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#_setInverterCurrentStateFault(boolean)">_setInverterCurrentStateFault</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#_setMaxStartTimeout(boolean)">_setMaxStartTimeout</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#_setMaxStopTimeout(boolean)">_setMaxStopTimeout</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#_setRunFailed(boolean)">_setRunFailed</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getGridDisconnectionChannel()">getGridDisconnectionChannel</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getInverterCurrentStateFaultChannel()">getInverterCurrentStateFaultChannel</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getMaxStartTimeout()">getMaxStartTimeout</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getMaxStartTimeoutChannel()">getMaxStartTimeoutChannel</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getMaxStopTimeout()">getMaxStopTimeout</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getMaxStopTimeoutChannel()">getMaxStopTimeoutChannel</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getRequestedStateChannel()">getRequestedStateChannel</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#getRunFailedChannel()">getRunFailedChannel</a>, <a href="BatteryInverterKacoBlueplanetGridsave.html#setRequestedState(io.openems.edge.batteryinverter.kaco.blueplanetgridsave.KacoSunSpecModel.S64201.S64201RequestedState)">setRequestedState</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.batteryinverter.api.ManagedSymmetricBatteryInverter">Methods inherited from interface&nbsp;io.openems.edge.batteryinverter.api.<a href="../../api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a></h3>
 <code><a href="../../api/ManagedSymmetricBatteryInverter.html#isManaged()">isManaged</a>, <a href="../../api/ManagedSymmetricBatteryInverter.html#isOffGridPossible()">isOffGridPossible</a></code></div>
@@ -296,12 +311,7 @@ implements <a href="BatteryInverterKacoBlueplanetGridsave.html" title="interface
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>BatteryInverterKacoBlueplanetGridsaveImpl</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BatteryInverterKacoBlueplanetGridsaveImpl</span>()
-                                          throws <span class="exceptions"><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
-<dl class="notes">
-<dt>Throws:</dt>
-<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code></dd>
-</dl>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BatteryInverterKacoBlueplanetGridsaveImpl</span>()</div>
 </section>
 </li>
 </ul>
@@ -529,8 +539,7 @@ implements <a href="BatteryInverterKacoBlueplanetGridsave.html" title="interface
 <h3>addBlock</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addBlock</span><wbr><span class="parameters">(int&nbsp;startAddress,
  <a href="../../../bridge/modbus/sunspec/SunSpecModel.html" title="interface in io.openems.edge.bridge.modbus.sunspec">SunSpecModel</a>&nbsp;model,
- <a href="../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a>&nbsp;priority)</span>
-                 throws <span class="exceptions"><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
+ <a href="../../../common/taskmanager/Priority.html" title="enum class in io.openems.edge.common.taskmanager">Priority</a>&nbsp;priority)</span></div>
 <div class="block"><span class="description-from-type-label">Description copied from class:&nbsp;<code><a href="../../../bridge/modbus/sunspec/AbstractOpenemsSunSpecComponent.html#addBlock(int,io.openems.edge.bridge.modbus.sunspec.SunSpecModel,io.openems.edge.common.taskmanager.Priority)">AbstractOpenemsSunSpecComponent</a></code></span></div>
 <div class="block">Adds the block starting from startAddress.</div>
 <dl class="notes">
@@ -540,8 +549,52 @@ implements <a href="BatteryInverterKacoBlueplanetGridsave.html" title="interface
 <dd><code>startAddress</code> - the address to start reading from</dd>
 <dd><code>model</code> - the SunSpecModel</dd>
 <dd><code>priority</code> - the reading priority</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isRunning()">
+<h3>isRunning</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isRunning</span>()</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="BatteryInverterKacoBlueplanetGridsave.html#isRunning()">BatteryInverterKacoBlueplanetGridsave</a></code></span></div>
+<div class="block">Checks if the system is in a running state. This method retrieves the
+ system's global state and determines whether the system is in a running
+ state.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="BatteryInverterKacoBlueplanetGridsave.html#isRunning()">isRunning</a></code>&nbsp;in interface&nbsp;<code><a href="BatteryInverterKacoBlueplanetGridsave.html" title="interface in io.openems.edge.batteryinverter.kaco.blueplanetgridsave">BatteryInverterKacoBlueplanetGridsave</a></code></dd>
+<dt>Returns:</dt>
+<dd>true if the system is in a running state, false otherwise.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isShutdown()">
+<h3>isShutdown</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isShutdown</span>()</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="BatteryInverterKacoBlueplanetGridsave.html#isShutdown()">BatteryInverterKacoBlueplanetGridsave</a></code></span></div>
+<div class="block">Checks if the system is in a stop state. This method retrieves the system's
+ global state and determines whether the system is in a stop state.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="BatteryInverterKacoBlueplanetGridsave.html#isShutdown()">isShutdown</a></code>&nbsp;in interface&nbsp;<code><a href="BatteryInverterKacoBlueplanetGridsave.html" title="interface in io.openems.edge.batteryinverter.kaco.blueplanetgridsave">BatteryInverterKacoBlueplanetGridsave</a></code></dd>
+<dt>Returns:</dt>
+<dd>true if the system is in a stop state, false otherwise.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hasFailure()">
+<h3>hasFailure</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasFailure</span>()</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="BatteryInverterKacoBlueplanetGridsave.html#hasFailure()">BatteryInverterKacoBlueplanetGridsave</a></code></span></div>
+<div class="block">Checks if the system is in a fault state. This method retrieves the system's
+ global state and determines whether the system is in a fault state.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="BatteryInverterKacoBlueplanetGridsave.html#hasFailure()">hasFailure</a></code>&nbsp;in interface&nbsp;<code><a href="BatteryInverterKacoBlueplanetGridsave.html" title="interface in io.openems.edge.batteryinverter.kaco.blueplanetgridsave">BatteryInverterKacoBlueplanetGridsave</a></code></dd>
+<dt>Returns:</dt>
+<dd>true if the system is in a fault state, false otherwise.</dd>
 </dl>
 </section>
 </li>

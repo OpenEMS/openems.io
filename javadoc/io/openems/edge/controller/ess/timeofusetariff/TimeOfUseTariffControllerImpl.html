@@ -93,12 +93,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></code>, <code><a href="../../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code>, <code><a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code><a href="TimeOfUseTariffController.html" title="interface in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffController</a></code>, <code><a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
+<dd><code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code>, <code><a href="../../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></code>, <code><a href="../../../common/jsonapi/JsonApi.html" title="interface in io.openems.edge.common.jsonapi">JsonApi</a></code>, <code><a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></code>, <code><a href="TimeOfUseTariffController.html" title="interface in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffController</a></code>, <code><a href="../../../energy/api/EnergySchedulable.html" title="interface in io.openems.edge.energy.api">EnergySchedulable</a>&lt;<a href="StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>,<wbr><a href="TimeOfUseTariffControllerImpl.Context.html" title="class in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffControllerImpl.Context</a>&gt;</code>, <code><a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">TimeOfUseTariffControllerImpl</span>
 <span class="extends-implements">extends <a href="../../../common/component/AbstractOpenemsComponent.html" title="class in io.openems.edge.common.component">AbstractOpenemsComponent</a>
-implements <a href="TimeOfUseTariffController.html" title="interface in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffController</a>, <a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, <a href="../../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></span></div>
+implements <a href="TimeOfUseTariffController.html" title="interface in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffController</a>, <a href="../../../energy/api/EnergySchedulable.html" title="interface in io.openems.edge.energy.api">EnergySchedulable</a>&lt;<a href="StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>,<wbr><a href="TimeOfUseTariffControllerImpl.Context.html" title="class in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffControllerImpl.Context</a>&gt;, <a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a>, <a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a>, <a href="../../../timedata/api/TimedataProvider.html" title="interface in io.openems.edge.timedata.api">TimedataProvider</a>, <a href="../../../common/jsonapi/ComponentJsonApi.html" title="interface in io.openems.edge.common.jsonapi">ComponentJsonApi</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -106,6 +106,15 @@ implements <a href="TimeOfUseTariffController.html" title="interface in io.opene
 <li>
 <section class="nested-class-summary" id="nested-class-summary">
 <h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="TimeOfUseTariffControllerImpl.Context.html" class="type-name-link" title="class in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffControllerImpl.Context</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-io.openems.edge.controller.api.Controller">Nested classes/interfaces inherited from interface&nbsp;io.openems.edge.controller.api.<a href="../../api/Controller.html" title="interface in io.openems.edge.controller.api">Controller</a></h2>
 <code><a href="../../api/Controller.ChannelId.html" title="enum class in io.openems.edge.controller.api">Controller.ChannelId</a></code></div>
@@ -165,16 +174,15 @@ implements <a href="TimeOfUseTariffController.html" title="interface in io.opene
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets some output that is suitable for a continuous Debug log.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTimedata()" class="member-name-link">getTimedata</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../energy/api/EnergyScheduleHandler.html" title="class in io.openems.edge.energy.api">EnergyScheduleHandler</a><wbr>&lt;<a href="StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>,<wbr><a href="TimeOfUseTariffControllerImpl.Context.html" title="class in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffControllerImpl.Context</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEnergyScheduleHandler()" class="member-name-link">getEnergyScheduleHandler</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Gets the <a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
+<div class="block">Get the <a href="../../../energy/api/EnergyScheduleHandler.html" title="class in io.openems.edge.energy.api"><code>EnergyScheduleHandler</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="jsonrpc/GetScheduleResponse.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleResponse</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleGetScheduleRequest(io.openems.edge.common.user.User,io.openems.edge.controller.ess.timeofusetariff.jsonrpc.GetScheduleRequest)" class="member-name-link">handleGetScheduleRequest</a><wbr>(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="jsonrpc/GetScheduleRequest.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleRequest</a>&nbsp;request)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api">Timedata</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTimedata()" class="member-name-link">getTimedata</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Handles a <a href="jsonrpc/GetScheduleRequest.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc"><code>GetScheduleRequest</code></a>.</div>
+<div class="block">Gets the <a href="../../../timedata/api/Timedata.html" title="interface in io.openems.edge.timedata.api"><code>Timedata</code></a> service.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run()" class="member-name-link">run</a>()</code></div>
@@ -295,24 +303,6 @@ implements <a href="TimeOfUseTariffController.html" title="interface in io.opene
 </section>
 </li>
 <li>
-<section class="detail" id="handleGetScheduleRequest(io.openems.edge.common.user.User,io.openems.edge.controller.ess.timeofusetariff.jsonrpc.GetScheduleRequest)">
-<h3>handleGetScheduleRequest</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="jsonrpc/GetScheduleResponse.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleResponse</a></span>&nbsp;<span class="element-name">handleGetScheduleRequest</span><wbr><span class="parameters">(<a href="../../../common/user/User.html" title="class in io.openems.edge.common.user">User</a>&nbsp;user,
- <a href="jsonrpc/GetScheduleRequest.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc">GetScheduleRequest</a>&nbsp;request)</span>
-                                                throws <span class="exceptions"><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block">Handles a <a href="jsonrpc/GetScheduleRequest.html" title="class in io.openems.edge.controller.ess.timeofusetariff.jsonrpc"><code>GetScheduleRequest</code></a>.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>user</code> - the User</dd>
-<dd><code>request</code> - the GetScheduleRequest</dd>
-<dt>Returns:</dt>
-<dd>the Future JSON-RPC Response</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="debugLog()">
 <h3>debugLog</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">debugLog</span>()</div>
@@ -324,6 +314,20 @@ implements <a href="TimeOfUseTariffController.html" title="interface in io.opene
 <dd><code><a href="../../../common/component/OpenemsComponent.html#debugLog()">debugLog</a></code>&nbsp;in interface&nbsp;<code><a href="../../../common/component/OpenemsComponent.html" title="interface in io.openems.edge.common.component">OpenemsComponent</a></code></dd>
 <dt>Returns:</dt>
 <dd>the debug log output</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getEnergyScheduleHandler()">
+<h3>getEnergyScheduleHandler</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../energy/api/EnergyScheduleHandler.html" title="class in io.openems.edge.energy.api">EnergyScheduleHandler</a>&lt;<a href="StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>,<wbr><a href="TimeOfUseTariffControllerImpl.Context.html" title="class in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffControllerImpl.Context</a>&gt;</span>&nbsp;<span class="element-name">getEnergyScheduleHandler</span>()</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../../energy/api/EnergySchedulable.html#getEnergyScheduleHandler()">EnergySchedulable</a></code></span></div>
+<div class="block">Get the <a href="../../../energy/api/EnergyScheduleHandler.html" title="class in io.openems.edge.energy.api"><code>EnergyScheduleHandler</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../../energy/api/EnergySchedulable.html#getEnergyScheduleHandler()">getEnergyScheduleHandler</a></code>&nbsp;in interface&nbsp;<code><a href="../../../energy/api/EnergySchedulable.html" title="interface in io.openems.edge.energy.api">EnergySchedulable</a>&lt;<a href="StateMachine.html" title="enum class in io.openems.edge.controller.ess.timeofusetariff">StateMachine</a>,<wbr><a href="TimeOfUseTariffControllerImpl.Context.html" title="class in io.openems.edge.controller.ess.timeofusetariff">TimeOfUseTariffControllerImpl.Context</a>&gt;</code></dd>
+<dt>Returns:</dt>
+<dd><a href="../../../energy/api/EnergyScheduleHandler.html" title="class in io.openems.edge.energy.api"><code>EnergyScheduleHandler</code></a></dd>
 </dl>
 </section>
 </li>
