@@ -92,11 +92,11 @@ loadScripts(document, 'script');</script>
 </dl>
 <dl class="notes">
 <dt>All Known Subinterfaces:</dt>
-<dd><code><a href="../../io/shelly/shellyplug/IoShellyPlug.html" title="interface in io.openems.edge.io.shelly.shellyplug">IoShellyPlug</a></code>, <code><a href="../../io/shelly/shellyplusplugs/IoShellyPlusPlugs.html" title="interface in io.openems.edge.io.shelly.shellyplusplugs">IoShellyPlusPlugs</a></code>, <code><a href="../socomec/singlephase/MeterSocomecSinglephase.html" title="interface in io.openems.edge.meter.socomec.singlephase">MeterSocomecSinglephase</a></code></dd>
+<dd><code><a href="../../io/shelly/shellyplug/IoShellyPlug.html" title="interface in io.openems.edge.io.shelly.shellyplug">IoShellyPlug</a></code>, <code><a href="../../io/shelly/shellyplusplugs/IoShellyPlusPlugs.html" title="interface in io.openems.edge.io.shelly.shellyplusplugs">IoShellyPlusPlugs</a></code>, <code><a href="../eastron/sdm120/MeterEastronSdm120.html" title="interface in io.openems.edge.meter.eastron.sdm120">MeterEastronSdm120</a></code>, <code><a href="../socomec/singlephase/MeterSocomecSinglephase.html" title="interface in io.openems.edge.meter.socomec.singlephase">MeterSocomecSinglephase</a></code></dd>
 </dl>
 <dl class="notes">
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="../test/DummySinglePhaseElectricityMeter.html" title="class in io.openems.edge.meter.test">DummySinglePhaseElectricityMeter</a></code>, <code><a href="../../io/shelly/shellyplug/IoShellyPlugImpl.html" title="class in io.openems.edge.io.shelly.shellyplug">IoShellyPlugImpl</a></code>, <code><a href="../../io/shelly/shellyplusplugs/IoShellyPlusPlugsImpl.html" title="class in io.openems.edge.io.shelly.shellyplusplugs">IoShellyPlusPlugsImpl</a></code>, <code><a href="../socomec/singlephase/MeterSocomecSinglephaseImpl.html" title="class in io.openems.edge.meter.socomec.singlephase">MeterSocomecSinglephaseImpl</a></code></dd>
+<dd><code><a href="../test/DummySinglePhaseElectricityMeter.html" title="class in io.openems.edge.meter.test">DummySinglePhaseElectricityMeter</a></code>, <code><a href="../../io/shelly/shellyplug/IoShellyPlugImpl.html" title="class in io.openems.edge.io.shelly.shellyplug">IoShellyPlugImpl</a></code>, <code><a href="../../io/shelly/shellyplusplugs/IoShellyPlusPlugsImpl.html" title="class in io.openems.edge.io.shelly.shellyplusplugs">IoShellyPlusPlugsImpl</a></code>, <code><a href="../eastron/sdm120/MeterEastronSdm120Impl.html" title="class in io.openems.edge.meter.eastron.sdm120">MeterEastronSdm120Impl</a></code>, <code><a href="../socomec/singlephase/MeterSocomecSinglephaseImpl.html" title="class in io.openems.edge.meter.socomec.singlephase">MeterSocomecSinglephaseImpl</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@ProviderType
@@ -149,6 +149,17 @@ extends <a href="ElectricityMeter.html" title="interface in io.openems.edge.mete
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;METER extends <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api">ElectricityMeter</a>&gt;<br>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#calculateSinglePhaseFromCurrent(METER,java.util.function.Function)" class="member-name-link">calculateSinglePhaseFromCurrent</a><wbr>(METER&nbsp;meter,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;METER,<wbr><a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api">SinglePhase</a>&gt;&nbsp;phaseProvider)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
+<div class="block">Initializes Channel listeners for a <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#calculateSinglePhaseFromReactivePower(io.openems.edge.meter.api.SinglePhaseMeter)" class="member-name-link">calculateSinglePhaseFromReactivePower</a><wbr>(<a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api">SinglePhaseMeter</a>&nbsp;meter)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
+<div class="block">Initializes Channel listeners for a <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;METER extends <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api">ElectricityMeter</a>&gt;<br>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#calculateSinglePhaseFromReactivePower(METER,java.util.function.Function)" class="member-name-link">calculateSinglePhaseFromReactivePower</a><wbr>(METER&nbsp;meter,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;METER,<wbr><a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api">SinglePhase</a>&gt;&nbsp;phaseProvider)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Initializes Channel listeners for a <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>.</div>
@@ -276,6 +287,89 @@ extends <a href="ElectricityMeter.html" title="interface in io.openems.edge.mete
 <details class="invalid-tag">
 <summary>invalid reference</summary>
 <pre><code>ChannelId#ACTIVE_POWER</code></pre>
+</details>
+ by evaluating the provided
+ <a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api"><code>SinglePhase</code></a>.</div>
+<dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>METER</code> - type that extends <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api"><code>ElectricityMeter</code></a></dd>
+<dt>Parameters:</dt>
+<dd><code>meter</code> - a <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api"><code>ElectricityMeter</code></a></dd>
+<dd><code>phaseProvider</code> - a provider for <a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api"><code>SinglePhase</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="calculateSinglePhaseFromReactivePower(io.openems.edge.meter.api.SinglePhaseMeter)">
+<h3>calculateSinglePhaseFromReactivePower</h3>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">calculateSinglePhaseFromReactivePower</span><wbr><span class="parameters">(<a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api">SinglePhaseMeter</a>&nbsp;meter)</span></div>
+<div class="block">Initializes Channel listeners for a <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>.
+ 
+ <p>
+ Sets the correct value for 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>ChannelId#REACTIVE_POWER_L1</code></pre>
+</details>
+,
+ 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>ChannelId#REACTIVE_POWER_L2</code></pre>
+</details>
+ or 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>ChannelId#REACTIVE_POWER_L3</code></pre>
+</details>
+
+ from 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>ChannelId#REACTIVE_POWER</code></pre>
+</details>
+ by evaluating the configured
+ <a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api"><code>SinglePhase</code></a> via <a href="#getPhase()"><code>getPhase()</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>meter</code> - the <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="calculateSinglePhaseFromReactivePower(METER,java.util.function.Function)">
+<h3 id="calculateSinglePhaseFromReactivePower(io.openems.edge.meter.api.ElectricityMeter,java.util.function.Function)">calculateSinglePhaseFromReactivePower</h3>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;METER extends <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api">ElectricityMeter</a>&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">calculateSinglePhaseFromReactivePower</span><wbr><span class="parameters">(METER&nbsp;meter,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;METER,<wbr><a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api">SinglePhase</a>&gt;&nbsp;phaseProvider)</span></div>
+<div class="block">Initializes Channel listeners for a <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>.
+ 
+ <p>
+ Use this method if it is not known at compile time, that the
+ <a href="ElectricityMeter.html" title="interface in io.openems.edge.meter.api"><code>ElectricityMeter</code></a> is a <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>, i.e. it is not
+ implementing <a href="SinglePhaseMeter.html" title="interface in io.openems.edge.meter.api"><code>SinglePhaseMeter</code></a>.
+ 
+ <p>
+ Sets the correct value for 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>ChannelId#REACTIVE_POWER_L1</code></pre>
+</details>
+,
+ 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>ChannelId#REACTIVE_POWER_L2</code></pre>
+</details>
+ or 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>ChannelId#REACTIVE_POWER_L3</code></pre>
+</details>
+
+ from 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>ChannelId#REACTIVE_POWER</code></pre>
 </details>
  by evaluating the provided
  <a href="SinglePhase.html" title="enum class in io.openems.edge.meter.api"><code>SinglePhase</code></a>.</div>
