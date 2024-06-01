@@ -83,7 +83,7 @@ loadScripts(document, 'script');</script>
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">io.openems.edge.ess.generic.common</a></div>
-<h1 title="Class AbstractChannelManager" class="title">Class AbstractChannelManager&lt;ESS extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>,<wbr>BATTERY extends <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<wbr>BATTERY_INVERTER extends <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>&gt;</h1>
+<h1 title="Class AbstractChannelManager" class="title">Class AbstractChannelManager&lt;ESS extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a> &amp; <a href="CycleProvider.html" title="interface in io.openems.edge.ess.generic.common">CycleProvider</a>,<wbr>BATTERY extends <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<wbr>BATTERY_INVERTER extends <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>&gt;</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
 <div class="inheritance"><a href="../../../common/channel/AbstractChannelListenerManager.html" title="class in io.openems.edge.common.channel">io.openems.edge.common.channel.AbstractChannelListenerManager</a>
@@ -96,7 +96,7 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="../symmetric/ChannelManager.html" title="class in io.openems.edge.ess.generic.symmetric">ChannelManager</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">AbstractChannelManager&lt;ESS extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>,<wbr>BATTERY extends <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<wbr>BATTERY_INVERTER extends <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>&gt;</span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">AbstractChannelManager&lt;ESS extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a> &amp; <a href="CycleProvider.html" title="interface in io.openems.edge.ess.generic.common">CycleProvider</a>,<wbr>BATTERY extends <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<wbr>BATTERY_INVERTER extends <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>&gt;</span>
 <span class="extends-implements">extends <a href="../../../common/channel/AbstractChannelListenerManager.html" title="class in io.openems.edge.common.channel">AbstractChannelListenerManager</a></span></div>
 <div class="block">Helper wrapping class to handle everything related to Channels; in particular
  calculating the Ess-Channels based on the Channels of the Battery and
@@ -132,7 +132,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#activate(io.openems.edge.common.component.ClockProvider,io.openems.edge.battery.api.Battery,io.openems.edge.batteryinverter.api.ManagedSymmetricBatteryInverter)" class="member-name-link">activate</a><wbr>(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
  <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery,
- <a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&nbsp;batteryInverter)</code></div>
+ <a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&nbsp;inverter)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Called on Component activate().</div>
 </div>
@@ -183,13 +183,13 @@ loadScripts(document, 'script');</script>
 <h3>activate</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">activate</span><wbr><span class="parameters">(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
  <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery,
- <a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&nbsp;batteryInverter)</span></div>
+ <a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">ManagedSymmetricBatteryInverter</a>&nbsp;inverter)</span></div>
 <div class="block">Called on Component activate().</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>clockProvider</code> - the <a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component"><code>ClockProvider</code></a></dd>
 <dd><code>battery</code> - the <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api"><code>Battery</code></a></dd>
-<dd><code>batteryInverter</code> - the <a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>ManagedSymmetricBatteryInverter</code></a></dd>
+<dd><code>inverter</code> - the <a href="../../../batteryinverter/api/ManagedSymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>ManagedSymmetricBatteryInverter</code></a></dd>
 </dl>
 </section>
 </li>

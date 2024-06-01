@@ -83,7 +83,7 @@ loadScripts(document, 'script');</script>
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">io.openems.edge.ess.generic.common</a></div>
-<h1 title="Class AbstractAllowedChargeDischargeHandler" class="title">Class AbstractAllowedChargeDischargeHandler&lt;ESS extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>&gt;</h1>
+<h1 title="Class AbstractAllowedChargeDischargeHandler" class="title">Class AbstractAllowedChargeDischargeHandler&lt;ESS extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a> &amp; <a href="CycleProvider.html" title="interface in io.openems.edge.ess.generic.common">CycleProvider</a>&gt;</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
 <div class="inheritance">io.openems.edge.ess.generic.common.AbstractAllowedChargeDischargeHandler&lt;ESS&gt;</div>
@@ -91,16 +91,16 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>,<wbr><a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&gt;</code></dd>
+<dd><code>org.apache.logging.log4j.util.TriConsumer&lt;<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>,<wbr><a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<wbr><a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>&gt;</code></dd>
 </dl>
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
 <dd><code><a href="../symmetric/AllowedChargeDischargeHandler.html" title="class in io.openems.edge.ess.generic.symmetric">AllowedChargeDischargeHandler</a></code>, <code><a href="../../../goodwe/ess/AllowedChargeDischargeHandler.html" title="class in io.openems.edge.goodwe.ess">AllowedChargeDischargeHandler</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">AbstractAllowedChargeDischargeHandler&lt;ESS extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a>&gt;</span>
+<div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">AbstractAllowedChargeDischargeHandler&lt;ESS extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a> &amp; <a href="CycleProvider.html" title="interface in io.openems.edge.ess.generic.common">CycleProvider</a>&gt;</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>,<wbr><a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&gt;</span></div>
+implements org.apache.logging.log4j.util.TriConsumer&lt;<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>,<wbr><a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<wbr><a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>&gt;</span></div>
 <div class="block">Helper class to handle calculation of Allowed-Charge-Power and
  Allowed-Discharge-Power. This class is used by <a href="../symmetric/ChannelManager.html" title="class in io.openems.edge.ess.generic.symmetric"><code>ChannelManager</code></a> as a
  callback to updates of Battery Channels.</div>
@@ -133,6 +133,12 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="col-first even-row-color"><code>protected final <a href="AbstractAllowedChargeDischargeHandler.html" title="type parameter in AbstractAllowedChargeDischargeHandler">ESS</a></code></div>
 <div class="col-second even-row-color"><code><a href="#parent" class="member-name-link">parent</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#VOLTAGE_CONTROL_FILTER_TIME_CONSTANT" class="member-name-link">VOLTAGE_CONTROL_FILTER_TIME_CONSTANT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#VOLTAGE_CONTROL_OFFSET" class="member-name-link">VOLTAGE_CONTROL_OFFSET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -161,8 +167,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#accept(io.openems.edge.common.component.ClockProvider,io.openems.edge.battery.api.Battery)" class="member-name-link">accept</a><wbr>(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
- <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#accept(io.openems.edge.common.component.ClockProvider,io.openems.edge.battery.api.Battery,io.openems.edge.batteryinverter.api.SymmetricBatteryInverter)" class="member-name-link">accept</a><wbr>(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
+ <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery,
+ <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>&nbsp;inverter)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#calculateAllowedChargeDischargePower(io.openems.edge.common.component.ClockProvider,boolean,java.lang.Integer,java.lang.Integer,java.lang.Integer)" class="member-name-link">calculateAllowedChargeDischargePower</a><wbr>(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
@@ -175,8 +182,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
  parameters.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#calculateAllowedChargeDischargePower(io.openems.edge.common.component.ClockProvider,io.openems.edge.battery.api.Battery)" class="member-name-link">calculateAllowedChargeDischargePower</a><wbr>(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
- <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#calculateAllowedChargeDischargePower(io.openems.edge.common.component.ClockProvider,io.openems.edge.battery.api.Battery,io.openems.edge.batteryinverter.api.SymmetricBatteryInverter)" class="member-name-link">calculateAllowedChargeDischargePower</a><wbr>(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
+ <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery,
+ <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>&nbsp;inverter)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Calculates Allowed-Charge-Power and Allowed-Discharge Power from the given
  parameters.</div>
@@ -187,9 +195,6 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
-<div class="inherited-list">
-<h3 id="methods-inherited-from-class-java.util.function.BiConsumer">Methods inherited from interface&nbsp;java.util.function.<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a></h3>
-<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html#andThen(java.util.function.BiConsumer)" title="class or interface in java.util.function" class="external-link">andThen</a></code></div>
 </section>
 </li>
 </ul>
@@ -234,9 +239,37 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 </section>
 </li>
 <li>
+<section class="detail" id="VOLTAGE_CONTROL_FILTER_TIME_CONSTANT">
+<h3>VOLTAGE_CONTROL_FILTER_TIME_CONSTANT</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">VOLTAGE_CONTROL_FILTER_TIME_CONSTANT</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../constant-values.html#io.openems.edge.ess.generic.common.AbstractAllowedChargeDischargeHandler.VOLTAGE_CONTROL_FILTER_TIME_CONSTANT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="VOLTAGE_CONTROL_OFFSET">
+<h3>VOLTAGE_CONTROL_OFFSET</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">VOLTAGE_CONTROL_OFFSET</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../constant-values.html#io.openems.edge.ess.generic.common.AbstractAllowedChargeDischargeHandler.VOLTAGE_CONTROL_OFFSET">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="parent">
 <h3>parent</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="AbstractAllowedChargeDischargeHandler.html" title="type parameter in AbstractAllowedChargeDischargeHandler">ESS</a> extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a></span>&nbsp;<span class="element-name">parent</span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="AbstractAllowedChargeDischargeHandler.html" title="type parameter in AbstractAllowedChargeDischargeHandler">ESS</a> extends <a href="../../api/SymmetricEss.html" title="interface in io.openems.edge.ess.api">SymmetricEss</a> &amp; <a href="CycleProvider.html" title="interface in io.openems.edge.ess.generic.common">CycleProvider</a></span>&nbsp;<span class="element-name">parent</span></div>
 </section>
 </li>
 <li>
@@ -274,21 +307,23 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="accept(io.openems.edge.common.component.ClockProvider,io.openems.edge.battery.api.Battery)">
+<section class="detail" id="accept(io.openems.edge.common.component.ClockProvider,io.openems.edge.battery.api.Battery,io.openems.edge.batteryinverter.api.SymmetricBatteryInverter)">
 <h3>accept</h3>
 <div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">accept</span><wbr><span class="parameters">(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
- <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery)</span></div>
+ <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery,
+ <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>&nbsp;inverter)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html#accept(T,U)" title="class or interface in java.util.function" class="external-link">accept</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>,<wbr><a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&gt;</code></dd>
+<dd><code>accept</code>&nbsp;in interface&nbsp;<code>org.apache.logging.log4j.util.TriConsumer&lt;<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>,<wbr><a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>,<wbr><a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>&gt;</code></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="calculateAllowedChargeDischargePower(io.openems.edge.common.component.ClockProvider,io.openems.edge.battery.api.Battery)">
+<section class="detail" id="calculateAllowedChargeDischargePower(io.openems.edge.common.component.ClockProvider,io.openems.edge.battery.api.Battery,io.openems.edge.batteryinverter.api.SymmetricBatteryInverter)">
 <h3>calculateAllowedChargeDischargePower</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">calculateAllowedChargeDischargePower</span><wbr><span class="parameters">(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
- <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery)</span></div>
+ <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api">Battery</a>&nbsp;battery,
+ <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api">SymmetricBatteryInverter</a>&nbsp;inverter)</span></div>
 <div class="block">Calculates Allowed-Charge-Power and Allowed-Discharge Power from the given
  parameters. Result is stored in 'lastBatteryAllowedChargePower' and
  'lastBatteryAllowedDischargePower' variables - both as positive values!</div>
@@ -296,6 +331,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <dt>Parameters:</dt>
 <dd><code>clockProvider</code> - the <a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component"><code>ClockProvider</code></a></dd>
 <dd><code>battery</code> - the <a href="../../../battery/api/Battery.html" title="interface in io.openems.edge.battery.api"><code>Battery</code></a></dd>
+<dd><code>inverter</code> - the <a href="../../../batteryinverter/api/SymmetricBatteryInverter.html" title="interface in io.openems.edge.batteryinverter.api"><code>SymmetricBatteryInverter</code></a></dd>
 </dl>
 </section>
 </li>
@@ -315,12 +351,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <dd><code>clockProvider</code> - the <a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component"><code>ClockProvider</code></a></dd>
 <dd><code>isStarted</code> - is the ESS started?</dd>
 <dd><code>chargeMaxCurrent</code> - the <a href="../../../battery/api/Battery.ChannelId.html#CHARGE_MAX_CURRENT"><code>Battery.ChannelId.CHARGE_MAX_CURRENT</code></a></dd>
-<dd><code>dischargeMaxCurrent</code> - the 
-<details class="invalid-tag">
-<summary>invalid reference</summary>
-<pre><code>Battery.ChannelId#DISHARGE_MAX_CURRENT</code></pre>
-</details>
-</dd>
+<dd><code>dischargeMaxCurrent</code> - the
+                            <a href="../../../battery/api/Battery.ChannelId.html#DISCHARGE_MAX_CURRENT"><code>Battery.ChannelId.DISCHARGE_MAX_CURRENT</code></a></dd>
 <dd><code>voltage</code> - the <a href="../../../battery/api/Battery.ChannelId.html#VOLTAGE"><code>Battery.ChannelId.VOLTAGE</code></a></dd>
 </dl>
 </section>

@@ -221,14 +221,23 @@ implements <a href="GoodWe.html" title="interface in io.openems.edge.goodwe.comm
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEvent(org.osgi.service.event.Event)" class="member-name-link">handleEvent</a><wbr>(org.osgi.service.event.Event&nbsp;event)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeCharger(io.openems.edge.goodwe.charger.GoodWeCharger)" class="member-name-link">removeCharger</a><wbr>(<a href="../charger/GoodWeCharger.html" title="interface in io.openems.edge.goodwe.charger">GoodWeCharger</a>&nbsp;charger)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#postprocessPBattery1(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.util.function.Consumer,java.util.Optional)" class="member-name-link">postprocessPBattery1</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;pBattery,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;dcVoltage,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;maxDcCurrent,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;&nbsp;setState,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;prevPBattery)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Postprocess PBattery1 value.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeCharger(io.openems.edge.goodwe.charger.GoodWeCharger)" class="member-name-link">removeCharger</a><wbr>(<a href="../charger/GoodWeCharger.html" title="interface in io.openems.edge.goodwe.charger">GoodWeCharger</a>&nbsp;charger)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Unregisters a GoodWe Charger.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updatePowerAndEnergyChannels()" class="member-name-link">updatePowerAndEnergyChannels</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updatePowerAndEnergyChannels()" class="member-name-link">updatePowerAndEnergyChannels</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -410,6 +419,35 @@ implements <a href="GoodWe.html" title="interface in io.openems.edge.goodwe.comm
 <section class="detail" id="updatePowerAndEnergyChannels()">
 <h3>updatePowerAndEnergyChannels</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updatePowerAndEnergyChannels</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="postprocessPBattery1(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.util.function.Consumer,java.util.Optional)">
+<h3>postprocessPBattery1</h3>
+<div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">postprocessPBattery1</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;pBattery,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;dcVoltage,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;maxDcCurrent,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;&nbsp;setState,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;prevPBattery)</span></div>
+<div class="block">Postprocess PBattery1 value.
+ 
+ <p>
+ Impossible battery power values will be ignored.
+ 
+ <p>
+ The total max DC current including a buffer of 10A is used to identify an
+ impossible power value, as WBMS_VOLTAGE has lower priority than pBattery and
+ the battery could charge even if the BmsChargeMaxCurrent is 0.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pBattery</code> - battery power</dd>
+<dd><code>dcVoltage</code> - dc voltage</dd>
+<dd><code>maxDcCurrent</code> - max dc current</dd>
+<dd><code>setState</code> - consume state</dd>
+<dd><code>prevPBattery</code> - previous battery power</dd>
+<dt>Returns:</dt>
+<dd>possible battery power</dd>
+</dl>
 </section>
 </li>
 <li>
