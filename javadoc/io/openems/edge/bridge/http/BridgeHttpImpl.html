@@ -133,7 +133,7 @@ implements <a href="api/BridgeHttp.html" title="interface in io.openems.edge.bri
 <h2>Field Summary</h2>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.edge.bridge.http.api.BridgeHttp">Fields inherited from interface&nbsp;io.openems.edge.bridge.http.api.<a href="api/BridgeHttp.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttp</a></h3>
-<code><a href="api/BridgeHttp.html#DEFAULT_CONNECT_TIMEOUT">DEFAULT_CONNECT_TIMEOUT</a>, <a href="api/BridgeHttp.html#DEFAULT_READ_TIMEOUT">DEFAULT_READ_TIMEOUT</a>, <a href="api/BridgeHttp.html#EMPTY_ERROR_HANDLER">EMPTY_ERROR_HANDLER</a></code></div>
+<code><a href="api/BridgeHttp.html#DEFAULT_CONNECT_TIMEOUT">DEFAULT_CONNECT_TIMEOUT</a>, <a href="api/BridgeHttp.html#DEFAULT_READ_TIMEOUT">DEFAULT_READ_TIMEOUT</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -144,7 +144,9 @@ implements <a href="api/BridgeHttp.html" title="interface in io.openems.edge.bri
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">BridgeHttpImpl</a>()</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(io.openems.edge.bridge.http.api.CycleSubscriber,io.openems.edge.bridge.http.api.EndpointFetcher,io.openems.edge.bridge.http.api.BridgeHttpExecutor)" class="member-name-link">BridgeHttpImpl</a><wbr>(<a href="api/CycleSubscriber.html" title="class in io.openems.edge.bridge.http.api">CycleSubscriber</a>&nbsp;cycleSubscriber,
+ <a href="api/EndpointFetcher.html" title="interface in io.openems.edge.bridge.http.api">EndpointFetcher</a>&nbsp;urlFetcher,
+ <a href="api/BridgeHttpExecutor.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpExecutor</a>&nbsp;pool)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -161,34 +163,33 @@ implements <a href="api/BridgeHttp.html" title="interface in io.openems.edge.bri
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#activate()" class="member-name-link">activate</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Activate method.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Deactivate method.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/PriorityQueue.html" title="class or interface in java.util" class="external-link">PriorityQueue</a><wbr>&lt;<a href="BridgeHttpImpl.CycleEndpointCountdown.html" title="class in io.openems.edge.bridge.http">BridgeHttpImpl.CycleEndpointCountdown</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCycleEndpoints()" class="member-name-link">getCycleEndpoints</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="BridgeHttpImpl.TimeEndpointCountdown.html" title="class in io.openems.edge.bridge.http">BridgeHttpImpl.TimeEndpointCountdown</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTimeEndpoints()" class="member-name-link">getTimeEndpoints</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#request(io.openems.edge.bridge.http.api.BridgeHttp.Endpoint)" class="member-name-link">request</a><wbr>(<a href="api/BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a><wbr>&lt;<a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpCycle.CycleEndpoint</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeCycleEndpointIf(java.util.function.Predicate)" class="member-name-link">removeCycleEndpointIf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpCycle.CycleEndpoint</a>&gt;&nbsp;condition)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Removes a <a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpCycle.CycleEndpoint</code></a> if it matches the provided <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a><wbr>&lt;<a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeTimeEndpointIf(java.util.function.Predicate)" class="member-name-link">removeTimeEndpointIf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&gt;&nbsp;condition)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Removes a <a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> if it matches the provided <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="api/HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#request(io.openems.edge.bridge.http.api.BridgeHttp.Endpoint)" class="member-name-link">request</a><wbr>(<a href="api/BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Fetches the url once.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#subscribeCycle(io.openems.edge.bridge.http.api.BridgeHttpCycle.CycleEndpoint)" class="member-name-link">subscribeCycle</a><wbr>(<a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpCycle.CycleEndpoint</a>&nbsp;endpoint)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpCycle.CycleEndpoint</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#subscribeCycle(io.openems.edge.bridge.http.api.BridgeHttpCycle.CycleEndpoint)" class="member-name-link">subscribeCycle</a><wbr>(<a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpCycle.CycleEndpoint</a>&nbsp;endpoint)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Subscribes to one http endpoint.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#subscribeTime(io.openems.edge.bridge.http.api.BridgeHttpTime.TimeEndpoint)" class="member-name-link">subscribeTime</a><wbr>(<a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&nbsp;endpoint)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#subscribeTime(io.openems.edge.bridge.http.api.BridgeHttpTime.TimeEndpoint)" class="member-name-link">subscribeTime</a><wbr>(<a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&nbsp;endpoint)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Subscribes to an <a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>.</div>
 </div>
 </div>
@@ -202,10 +203,10 @@ implements <a href="api/BridgeHttp.html" title="interface in io.openems.edge.bri
 <code><a href="api/BridgeHttp.html#delete(java.lang.String)">delete</a>, <a href="api/BridgeHttp.html#deleteJson(java.lang.String)">deleteJson</a>, <a href="api/BridgeHttp.html#get(java.lang.String)">get</a>, <a href="api/BridgeHttp.html#getJson(java.lang.String)">getJson</a>, <a href="api/BridgeHttp.html#post(java.lang.String,java.lang.String)">post</a>, <a href="api/BridgeHttp.html#postJson(java.lang.String,com.google.gson.JsonElement)">postJson</a>, <a href="api/BridgeHttp.html#put(java.lang.String)">put</a>, <a href="api/BridgeHttp.html#putJson(java.lang.String)">putJson</a>, <a href="api/BridgeHttp.html#requestJson(io.openems.edge.bridge.http.api.BridgeHttp.Endpoint)">requestJson</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.http.api.BridgeHttpCycle">Methods inherited from interface&nbsp;io.openems.edge.bridge.http.api.<a href="api/BridgeHttpCycle.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpCycle</a></h3>
-<code><a href="api/BridgeHttpCycle.html#subscribeCycle(int,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeCycle(int,java.lang.String,java.util.function.BiConsumer)">subscribeCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeCycle(int,java.lang.String,java.util.function.Consumer)">subscribeCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeEveryCycle(java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeEveryCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeEveryCycle(java.lang.String,java.util.function.BiConsumer)">subscribeEveryCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeEveryCycle(java.lang.String,java.util.function.Consumer)">subscribeEveryCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeJsonCycle(int,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeJsonCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeJsonCycle(int,java.lang.String,java.util.function.BiConsumer)">subscribeJsonCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeJsonEveryCycle(java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeJsonEveryCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeJsonEveryCycle(java.lang.String,java.util.function.BiConsumer)">subscribeJsonEveryCycle</a></code></div>
+<code><a href="api/BridgeHttpCycle.html#removeAllCycleEndpoints()">removeAllCycleEndpoints</a>, <a href="api/BridgeHttpCycle.html#removeCycleEndpoint(io.openems.edge.bridge.http.api.BridgeHttpCycle.CycleEndpoint)">removeCycleEndpoint</a>, <a href="api/BridgeHttpCycle.html#subscribeCycle(int,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeCycle(int,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeCycle(int,java.lang.String,java.util.function.BiConsumer)">subscribeCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeCycle(int,java.lang.String,java.util.function.Consumer)">subscribeCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeCycle(int,java.util.function.Supplier,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeEveryCycle(java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeEveryCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeEveryCycle(java.lang.String,java.util.function.BiConsumer)">subscribeEveryCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeEveryCycle(java.lang.String,java.util.function.Consumer)">subscribeEveryCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeJsonCycle(int,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeJsonCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeJsonCycle(int,java.lang.String,java.util.function.BiConsumer)">subscribeJsonCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeJsonEveryCycle(java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeJsonEveryCycle</a>, <a href="api/BridgeHttpCycle.html#subscribeJsonEveryCycle(java.lang.String,java.util.function.BiConsumer)">subscribeJsonEveryCycle</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.edge.bridge.http.api.BridgeHttpTime">Methods inherited from interface&nbsp;io.openems.edge.bridge.http.api.<a href="api/BridgeHttpTime.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpTime</a></h3>
-<code><a href="api/BridgeHttpTime.html#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeJsonTime</a>, <a href="api/BridgeHttpTime.html#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)">subscribeJsonTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer)">subscribeTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)">subscribeTime</a></code></div>
+<code><a href="api/BridgeHttpTime.html#removeAllTimeEndpoints()">removeAllTimeEndpoints</a>, <a href="api/BridgeHttpTime.html#removeTimeEndpoint(io.openems.edge.bridge.http.api.BridgeHttpTime.TimeEndpoint)">removeTimeEndpoint</a>, <a href="api/BridgeHttpTime.html#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeJsonTime</a>, <a href="api/BridgeHttpTime.html#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)">subscribeJsonTime</a>, <a href="api/BridgeHttpTime.html#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeJsonTime</a>, <a href="api/BridgeHttpTime.html#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,java.util.function.BiConsumer)">subscribeJsonTime</a>, <a href="api/BridgeHttpTime.html#subscribeJsonTime(java.util.function.Function,java.util.function.Function,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeJsonTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer)">subscribeTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)">subscribeTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,java.util.function.BiConsumer)">subscribeTime</a>, <a href="api/BridgeHttpTime.html#subscribeTime(java.util.function.Function,java.util.function.Function,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">subscribeTime</a></code></div>
 </section>
 </li>
 </ul>
@@ -218,9 +219,11 @@ implements <a href="api/BridgeHttp.html" title="interface in io.openems.edge.bri
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;()">
+<section class="detail" id="&lt;init&gt;(io.openems.edge.bridge.http.api.CycleSubscriber,io.openems.edge.bridge.http.api.EndpointFetcher,io.openems.edge.bridge.http.api.BridgeHttpExecutor)">
 <h3>BridgeHttpImpl</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BridgeHttpImpl</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BridgeHttpImpl</span><wbr><span class="parameters">(<a href="api/CycleSubscriber.html" title="class in io.openems.edge.bridge.http.api">CycleSubscriber</a>&nbsp;cycleSubscriber,
+ <a href="api/EndpointFetcher.html" title="interface in io.openems.edge.bridge.http.api">EndpointFetcher</a>&nbsp;urlFetcher,
+ <a href="api/BridgeHttpExecutor.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpExecutor</a>&nbsp;pool)</span></div>
 </section>
 </li>
 </ul>
@@ -232,13 +235,6 @@ implements <a href="api/BridgeHttp.html" title="interface in io.openems.edge.bri
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="activate()">
-<h3>activate</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">activate</span>()</div>
-<div class="block">Activate method.</div>
-</section>
-</li>
-<li>
 <section class="detail" id="deactivate()">
 <h3>deactivate</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deactivate</span>()</div>
@@ -248,7 +244,7 @@ implements <a href="api/BridgeHttp.html" title="interface in io.openems.edge.bri
 <li>
 <section class="detail" id="subscribeCycle(io.openems.edge.bridge.http.api.BridgeHttpCycle.CycleEndpoint)">
 <h3>subscribeCycle</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeCycle</span><wbr><span class="parameters">(<a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpCycle.CycleEndpoint</a>&nbsp;endpoint)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpCycle.CycleEndpoint</a></span>&nbsp;<span class="element-name">subscribeCycle</span><wbr><span class="parameters">(<a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpCycle.CycleEndpoint</a>&nbsp;endpoint)</span></div>
 <div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="api/BridgeHttpCycle.html#subscribeCycle(io.openems.edge.bridge.http.api.BridgeHttpCycle.CycleEndpoint)">BridgeHttpCycle</a></code></span></div>
 <div class="block">Subscribes to one http endpoint.</div>
 <dl class="notes">
@@ -256,13 +252,16 @@ implements <a href="api/BridgeHttp.html" title="interface in io.openems.edge.bri
 <dd><code><a href="api/BridgeHttpCycle.html#subscribeCycle(io.openems.edge.bridge.http.api.BridgeHttpCycle.CycleEndpoint)">subscribeCycle</a></code>&nbsp;in interface&nbsp;<code><a href="api/BridgeHttpCycle.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpCycle</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>endpoint</code> - the <a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpCycle.CycleEndpoint</code></a> configuration</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpCycle.CycleEndpoint</code></a> (always the provided one); or null if
+         the <a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpCycle.CycleEndpoint</code></a> could not be added</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="subscribeTime(io.openems.edge.bridge.http.api.BridgeHttpTime.TimeEndpoint)">
 <h3>subscribeTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&nbsp;endpoint)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&nbsp;endpoint)</span></div>
 <div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.api.BridgeHttpTime.TimeEndpoint)">BridgeHttpTime</a></code></span></div>
 <div class="block">Subscribes to an <a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>. The <code>BridgeHttpTime.TimeEndpoint.endpoint</code> gets
  fetched based on the delayed time provided by the
@@ -274,13 +273,16 @@ implements <a href="api/BridgeHttp.html" title="interface in io.openems.edge.bri
 <dd><code><a href="api/BridgeHttpTime.html#subscribeTime(io.openems.edge.bridge.http.api.BridgeHttpTime.TimeEndpoint)">subscribeTime</a></code>&nbsp;in interface&nbsp;<code><a href="api/BridgeHttpTime.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpTime</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>endpoint</code> - the <a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> to add a subscription</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> (always the provided one); or null if
+         the <a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> could not be added</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="request(io.openems.edge.bridge.http.api.BridgeHttp.Endpoint)">
 <h3>request</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">request</span><wbr><span class="parameters">(<a href="api/BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="api/HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;</span>&nbsp;<span class="element-name">request</span><wbr><span class="parameters">(<a href="api/BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint)</span></div>
 <div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="api/BridgeHttp.html#request(io.openems.edge.bridge.http.api.BridgeHttp.Endpoint)">BridgeHttp</a></code></span></div>
 <div class="block">Fetches the url once.</div>
 <dl class="notes">
@@ -294,15 +296,35 @@ implements <a href="api/BridgeHttp.html" title="interface in io.openems.edge.bri
 </section>
 </li>
 <li>
-<section class="detail" id="getCycleEndpoints()">
-<h3>getCycleEndpoints</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/PriorityQueue.html" title="class or interface in java.util" class="external-link">PriorityQueue</a>&lt;<a href="BridgeHttpImpl.CycleEndpointCountdown.html" title="class in io.openems.edge.bridge.http">BridgeHttpImpl.CycleEndpointCountdown</a>&gt;</span>&nbsp;<span class="element-name">getCycleEndpoints</span>()</div>
+<section class="detail" id="removeTimeEndpointIf(java.util.function.Predicate)">
+<h3>removeTimeEndpointIf</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&gt;</span>&nbsp;<span class="element-name">removeTimeEndpointIf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&gt;&nbsp;condition)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="api/BridgeHttpTime.html#removeTimeEndpointIf(java.util.function.Predicate)">BridgeHttpTime</a></code></span></div>
+<div class="block">Removes a <a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> if it matches the provided <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="api/BridgeHttpTime.html#removeTimeEndpointIf(java.util.function.Predicate)">removeTimeEndpointIf</a></code>&nbsp;in interface&nbsp;<code><a href="api/BridgeHttpTime.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpTime</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>condition</code> - the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a> to match</dd>
+<dt>Returns:</dt>
+<dd>the removed <a href="api/BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>TimeEndpoints</code></a></dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="getTimeEndpoints()">
-<h3>getTimeEndpoints</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="BridgeHttpImpl.TimeEndpointCountdown.html" title="class in io.openems.edge.bridge.http">BridgeHttpImpl.TimeEndpointCountdown</a>&gt;</span>&nbsp;<span class="element-name">getTimeEndpoints</span>()</div>
+<section class="detail" id="removeCycleEndpointIf(java.util.function.Predicate)">
+<h3>removeCycleEndpointIf</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpCycle.CycleEndpoint</a>&gt;</span>&nbsp;<span class="element-name">removeCycleEndpointIf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpCycle.CycleEndpoint</a>&gt;&nbsp;condition)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="api/BridgeHttpCycle.html#removeCycleEndpointIf(java.util.function.Predicate)">BridgeHttpCycle</a></code></span></div>
+<div class="block">Removes a <a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpCycle.CycleEndpoint</code></a> if it matches the provided <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="api/BridgeHttpCycle.html#removeCycleEndpointIf(java.util.function.Predicate)">removeCycleEndpointIf</a></code>&nbsp;in interface&nbsp;<code><a href="api/BridgeHttpCycle.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpCycle</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>condition</code> - the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a> to match</dd>
+<dt>Returns:</dt>
+<dd>the removed <a href="api/BridgeHttpCycle.CycleEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>CycleEndpoints</code></a></dd>
+</dl>
 </section>
 </li>
 </ul>

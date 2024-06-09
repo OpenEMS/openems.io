@@ -103,7 +103,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.google.common.base.Supplier)" class="member-name-link">DelayTimeProviderChain</a><wbr>(com.google.common.base.Supplier&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a>&gt;&nbsp;supplier)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.google.common.base.Supplier)" class="member-name-link">DelayTimeProviderChain</a><wbr>(com.google.common.base.Supplier&lt;<a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a>&gt;&nbsp;supplier)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -127,12 +127,12 @@ loadScripts(document, 'script');</script>
  till the next truncated time of the given <a href="../../../../common/timedata/DurationUnit.html" title="class in io.openems.common.timedata"><code>DurationUnit</code></a>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fixedDelay(java.time.Duration)" class="member-name-link">fixedDelay</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a>&nbsp;delay)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fixedDelay(java.time.Duration)" class="member-name-link">fixedDelay</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a>&nbsp;duration)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Creates a <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> which returns a fixed
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link"><code>Duration</code></a> on request.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a></code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDelay()" class="member-name-link">getDelay</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a></code></div>
@@ -169,6 +169,12 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates a <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> which adds to the original provider
  a random amount between 0 (inclusive) and bound (exclusive).</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#runNeverAgain()" class="member-name-link">runNeverAgain</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Creates a <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> which returns a <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a> which
+ indicates that the next run should never happen.</div>
+</div>
 </div>
 </div>
 </div>
@@ -189,7 +195,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(com.google.common.base.Supplier)">
 <h3>DelayTimeProviderChain</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DelayTimeProviderChain</span><wbr><span class="parameters">(com.google.common.base.Supplier&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a>&gt;&nbsp;supplier)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DelayTimeProviderChain</span><wbr><span class="parameters">(com.google.common.base.Supplier&lt;<a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a>&gt;&nbsp;supplier)</span></div>
 </section>
 </li>
 </ul>
@@ -215,12 +221,12 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="fixedDelay(java.time.Duration)">
 <h3>fixedDelay</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a></span>&nbsp;<span class="element-name">fixedDelay</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a>&nbsp;delay)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a></span>&nbsp;<span class="element-name">fixedDelay</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a>&nbsp;duration)</span></div>
 <div class="block">Creates a <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> which returns a fixed
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link"><code>Duration</code></a> on request.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>delay</code> - the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link"><code>Duration</code></a> to return when requested</dd>
+<dd><code>duration</code> - the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link"><code>Duration</code></a> to return when requested</dd>
 <dt>Returns:</dt>
 <dd>a <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> of the given <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link"><code>Duration</code></a></dd>
 </dl>
@@ -249,9 +255,27 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="runNeverAgain()">
+<h3>runNeverAgain</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a></span>&nbsp;<span class="element-name">runNeverAgain</span>()</div>
+<div class="block">Creates a <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> which returns a <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a> which
+ indicates that the next run should never happen. May be used if
+ <a href="../api/BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> credentials are wrong or expired.
+ 
+ <p>
+ NOTE: Do not use a very large <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link"><code>Duration</code></a> to indicate that a task should
+ not be executed anymore. An Overflow exception could happen if additional
+ delay gets added and the task would still be queued but never executed.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>a <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> which returns the <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="getDelay()">
 <h3>getDelay</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a></span>&nbsp;<span class="element-name">getDelay</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a></span>&nbsp;<span class="element-name">getDelay</span>()</div>
 </section>
 </li>
 <li>
@@ -261,12 +285,7 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a>&nbsp;duration)</span></div>
 <div class="block">Creates a <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> which adds to the original provider
  the given amount. The new provided <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link"><code>Duration</code></a> gets rounded to seconds
- based on the implementation of 
-<details class="invalid-tag">
-<summary>invalid reference</summary>
-<pre><code>Delay#plus(Delay)</code></pre>
-</details>
-.</div>
+ based on the implementation of <a href="DelayTimeProvider.Delay.html#plus(io.openems.edge.bridge.http.time.DelayTimeProvider.Delay)"><code>DelayTimeProvider.Delay.plus(Delay)</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>origin</code> - the original <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> to get the
@@ -313,12 +332,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates a <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> which adds to the original provider
  a random amount between 0 (inclusive) and bound (exclusive). The new provided
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link"><code>Duration</code></a> gets rounded to seconds based on the implementation of
- 
-<details class="invalid-tag">
-<summary>invalid reference</summary>
-<pre><code>Delay#plus(Delay)</code></pre>
-</details>
-.</div>
+ <a href="DelayTimeProvider.Delay.html#plus(io.openems.edge.bridge.http.time.DelayTimeProvider.Delay)"><code>DelayTimeProvider.Delay.plus(Delay)</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>origin</code> - the original <a href="DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> to get the initial

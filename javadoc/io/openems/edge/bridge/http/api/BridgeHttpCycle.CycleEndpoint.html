@@ -96,7 +96,7 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="BridgeHttpCycle.html" title="interface in io.openems.edge.bridge.http.api">BridgeHttpCycle</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public static record </span><span class="element-name type-name-label">BridgeHttpCycle.CycleEndpoint</span>(int&nbsp;cycle, <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;result, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)
+<div class="type-signature"><span class="modifiers">public static record </span><span class="element-name type-name-label">BridgeHttpCycle.CycleEndpoint</span>(int&nbsp;cycle, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;&nbsp;endpoint, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;&nbsp;onResult, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
 </section>
 <section class="summary">
@@ -109,10 +109,10 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.Consumer,java.util.function.Consumer)" class="member-name-link">CycleEndpoint</a><wbr>(int&nbsp;cycle,
- <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;result,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,java.util.function.Supplier,java.util.function.Consumer,java.util.function.Consumer)" class="member-name-link">CycleEndpoint</a><wbr>(int&nbsp;cycle,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;&nbsp;endpoint,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates an instance of a <code>CycleEndpoint</code> record class.</div>
 </div>
@@ -135,7 +135,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <code>cycle</code> record component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a></code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a><wbr>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#endpoint()" class="member-name-link">endpoint</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <code>endpoint</code> record component.</div>
@@ -150,15 +150,15 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a hash code value for this object.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a><wbr>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onError()" class="member-name-link">onError</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <code>onError</code> record component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#result()" class="member-name-link">result</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a><wbr>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onResult()" class="member-name-link">onResult</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>result</code> record component.</div>
+<div class="block">Returns the value of the <code>onResult</code> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -183,18 +183,18 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(int,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.Consumer,java.util.function.Consumer)">
+<section class="detail" id="&lt;init&gt;(int,java.util.function.Supplier,java.util.function.Consumer,java.util.function.Consumer)">
 <h3>CycleEndpoint</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">CycleEndpoint</span><wbr><span class="parameters">(int&nbsp;cycle,
- <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;result,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;&nbsp;endpoint,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</span></div>
 <div class="block">Creates an instance of a <code>CycleEndpoint</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>cycle</code> - the value for the <code>cycle</code> record component</dd>
 <dd><code>endpoint</code> - the value for the <code>endpoint</code> record component</dd>
-<dd><code>result</code> - the value for the <code>result</code> record component</dd>
+<dd><code>onResult</code> - the value for the <code>onResult</code> record component</dd>
 <dd><code>onError</code> - the value for the <code>onError</code> record component</dd>
 </dl>
 </section>
@@ -262,7 +262,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="endpoint()">
 <h3>endpoint</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a></span>&nbsp;<span class="element-name">endpoint</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;</span>&nbsp;<span class="element-name">endpoint</span>()</div>
 <div class="block">Returns the value of the <code>endpoint</code> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -271,20 +271,20 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="result()">
-<h3>result</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">result</span>()</div>
-<div class="block">Returns the value of the <code>result</code> record component.</div>
+<section class="detail" id="onResult()">
+<h3>onResult</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;</span>&nbsp;<span class="element-name">onResult</span>()</div>
+<div class="block">Returns the value of the <code>onResult</code> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>result</code> record component</dd>
+<dd>the value of the <code>onResult</code> record component</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="onError()">
 <h3>onError</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;</span>&nbsp;<span class="element-name">onError</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;</span>&nbsp;<span class="element-name">onError</span>()</div>
 <div class="block">Returns the value of the <code>onError</code> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>

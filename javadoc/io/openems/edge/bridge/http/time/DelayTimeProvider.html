@@ -38,7 +38,7 @@ loadScripts(document, 'script');</script>
 <li>
 <p>Summary:</p>
 <ul>
-<li>Nested</li>
+<li><a href="#nested-class-summary">Nested</a></li>
 <li>Field</li>
 <li>Constr</li>
 <li><a href="#method-summary">Method</a></li>
@@ -58,7 +58,7 @@ loadScripts(document, 'script');</script>
 <div id="navbar-sub-list">
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -88,13 +88,28 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="DefaultDelayTimeProvider.html" title="class in io.openems.edge.bridge.http.time">DefaultDelayTimeProvider</a></code>, <code><a href="../../../timeofusetariff/rabotcharge/TimeOfUseTariffRabotChargeImpl.RabotChargeDelayTimeProvider.html" title="class in io.openems.edge.timeofusetariff.rabotcharge">TimeOfUseTariffRabotChargeImpl.RabotChargeDelayTimeProvider</a></code></dd>
+<dd><code><a href="DefaultDelayTimeProvider.html" title="class in io.openems.edge.bridge.http.time">DefaultDelayTimeProvider</a></code>, <code><a href="../../../timeofusetariff/groupe/TimeOfUseTariffGroupeImpl.GroupeDelayTimeProvider.html" title="class in io.openems.edge.timeofusetariff.groupe">TimeOfUseTariffGroupeImpl.GroupeDelayTimeProvider</a></code>, <code><a href="../../../timeofusetariff/hassfurt/TimeOfUseTariffHassfurtImpl.HassfurtDelayTimeProvider.html" title="class in io.openems.edge.timeofusetariff.hassfurt">TimeOfUseTariffHassfurtImpl.HassfurtDelayTimeProvider</a></code>, <code><a href="../../../timeofusetariff/rabotcharge/TimeOfUseTariffRabotChargeImpl.RabotChargeDelayTimeProvider.html" title="class in io.openems.edge.timeofusetariff.rabotcharge">TimeOfUseTariffRabotChargeImpl.RabotChargeDelayTimeProvider</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">DelayTimeProvider</span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Interface</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="DelayTimeProvider.Delay.html" class="type-name-link" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
 <!-- ========== METHOD SUMMARY =========== -->
 <li>
 <section class="method-summary" id="method-summary">
@@ -106,11 +121,23 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#nextRun(boolean,boolean)" class="member-name-link">nextRun</a><wbr>(boolean&nbsp;firstRun,
- boolean&nbsp;lastRunSuccessful)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#onErrorRunDelay(io.openems.edge.bridge.http.api.HttpError)" class="member-name-link">onErrorRunDelay</a><wbr>(<a href="../api/HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&nbsp;error)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Gives the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link"><code>Duration</code></a> till the next run should be triggered.</div>
+<div class="block">Gives the <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a> till the next run should be triggered when the last
+ run completed with an error.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#onFirstRunDelay()" class="member-name-link">onFirstRunDelay</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Gives the <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a> till the next run should be triggered on the first
+ trigger.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#onSuccessRunDelay(io.openems.edge.bridge.http.api.HttpResponse)" class="member-name-link">onSuccessRunDelay</a><wbr>(<a href="../api/HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;result)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Gives the <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a> till the next run should be triggered when the last
+ run completed successfully.</div>
 </div>
 </div>
 </div>
@@ -127,18 +154,42 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="nextRun(boolean,boolean)">
-<h3>nextRun</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a></span>&nbsp;<span class="element-name">nextRun</span><wbr><span class="parameters">(boolean&nbsp;firstRun,
- boolean&nbsp;lastRunSuccessful)</span></div>
-<div class="block">Gives the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link"><code>Duration</code></a> till the next run should be triggered.</div>
+<section class="detail" id="onFirstRunDelay()">
+<h3>onFirstRunDelay</h3>
+<div class="member-signature"><span class="return-type"><a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a></span>&nbsp;<span class="element-name">onFirstRunDelay</span>()</div>
+<div class="block">Gives the <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a> till the next run should be triggered on the first
+ trigger.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a> till the next run</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="onErrorRunDelay(io.openems.edge.bridge.http.api.HttpError)">
+<h3>onErrorRunDelay</h3>
+<div class="member-signature"><span class="return-type"><a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a></span>&nbsp;<span class="element-name">onErrorRunDelay</span><wbr><span class="parameters">(<a href="../api/HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&nbsp;error)</span></div>
+<div class="block">Gives the <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a> till the next run should be triggered when the last
+ run completed with an error.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>firstRun</code> - true if this method gets executed for the first time</dd>
-<dd><code>lastRunSuccessful</code> - true if the last fetch of an <a href="../api/BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> was
-                          successful</dd>
+<dd><code>error</code> - the <a href="../api/HttpError.html" title="class in io.openems.edge.bridge.http.api"><code>HttpError</code></a> which happened</dd>
 <dt>Returns:</dt>
-<dd>the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link"><code>Duration</code></a> till the next run</dd>
+<dd>the <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a> till the next run</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="onSuccessRunDelay(io.openems.edge.bridge.http.api.HttpResponse)">
+<h3>onSuccessRunDelay</h3>
+<div class="member-signature"><span class="return-type"><a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a></span>&nbsp;<span class="element-name">onSuccessRunDelay</span><wbr><span class="parameters">(<a href="../api/HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;result)</span></div>
+<div class="block">Gives the <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a> till the next run should be triggered when the last
+ run completed successfully.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>result</code> - the result of the last run</dd>
+<dt>Returns:</dt>
+<dd>the <a href="DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider.Delay</code></a> till the next run</dd>
 </dl>
 </section>
 </li>

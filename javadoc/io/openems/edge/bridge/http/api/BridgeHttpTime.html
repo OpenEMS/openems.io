@@ -101,7 +101,12 @@ loadScripts(document, 'script');</script>
  <p>
  The calculation when an endpoint gets called is provided in the
  <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a>. The
- <a href="../time/DelayTimeProvider.html#nextRun(boolean,boolean)"><code>DelayTimeProvider.nextRun(boolean, boolean)</code></a> gets called instantly
+ 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>DelayTimeProvider#nextRun(boolean, boolean)</code></pre>
+</details>
+ gets called instantly
  when the initial method to add the endpoint gets called and then every time
  after the last endpoint handle was finished.
  
@@ -151,80 +156,147 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeJsonTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
- <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;com.google.gson.JsonElement,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a><wbr>&lt;<a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#removeAllTimeEndpoints()" class="member-name-link">removeAllTimeEndpoints</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Removes all active <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>TimeEndpoints</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#removeTimeEndpoint(io.openems.edge.bridge.http.api.BridgeHttpTime.TimeEndpoint)" class="member-name-link">removeTimeEndpoint</a><wbr>(<a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&nbsp;timeEndpoint)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Removes a <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> if it matches the provided
+ <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a><wbr>&lt;<a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#removeTimeEndpointIf(java.util.function.Predicate)" class="member-name-link">removeTimeEndpointIf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&gt;&nbsp;condition)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Removes a <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> if it matches the provided <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeJsonTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+ <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint,
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;com.google.gson.JsonElement&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch either the
  <code>onResult</code> or the <code>onError</code> method gets called.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)" class="member-name-link">subscribeJsonTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)" class="member-name-link">subscribeJsonTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
  <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;com.google.gson.JsonElement,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;action)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;com.google.gson.JsonElement&gt;,<wbr><a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;action)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch the
  <code>action</code> gets called either with the result or the error at least
  one is not null.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeJsonTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;&nbsp;endpointSupplier,
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;com.google.gson.JsonElement&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
+ <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch either the
+ <code>onResult</code> or the <code>onError</code> method gets called.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,java.util.function.BiConsumer)" class="member-name-link">subscribeJsonTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;&nbsp;endpointSupplier,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;com.google.gson.JsonElement&gt;,<wbr><a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;action)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
+ <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch the
+ <code>action</code> gets called either with the result or the error at least
+ one is not null.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeJsonTime(java.util.function.Function,java.util.function.Function,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeJsonTime</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>,<wbr><a href="../time/DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a>&gt;&nbsp;onErrorDelay,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="../time/DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a>&gt;&nbsp;onSuccessDelay,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;com.google.gson.JsonElement&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the delay
+ provider and after every endpoint fetch either the <code>onResult</code> or
+ the <code>onError</code> method gets called.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#subscribeTime(io.openems.edge.bridge.http.api.BridgeHttpTime.TimeEndpoint)" class="member-name-link">subscribeTime</a><wbr>(<a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&nbsp;endpoint)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Subscribes to an <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;onErrorDelay,
- <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;onSuccessDelay,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;delay,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</code></div>
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> and after every endpoint fetch either the
  <code>onResult</code> or the <code>onError</code> method gets called.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;delay,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;delay,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult)</code></div>
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> and after every endpoint fetch either the
  <code>onResult</code> or the <code>onError</code> method gets called.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;delay,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
- <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> and after every endpoint fetch either the
- <code>onResult</code> or the <code>onError</code> method gets called.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
  <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch either the
  <code>onResult</code> or the <code>onError</code> method gets called.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
  <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;action)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;action)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch the
  <code>action</code> gets called either with the result or the error at least
  one is not null.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;&nbsp;endpointSupplier,
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
+ <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch either the
+ <code>onResult</code> or the <code>onError</code> method gets called.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,java.util.function.BiConsumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;&nbsp;endpointSupplier,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;action)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
+ <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch the
+ <code>action</code> gets called either with the result or the error at least
+ one is not null.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#subscribeTime(java.util.function.Function,java.util.function.Function,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)" class="member-name-link">subscribeTime</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>,<wbr><a href="../time/DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a>&gt;&nbsp;onErrorDelay,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="../time/DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a>&gt;&nbsp;onSuccessDelay,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
+ <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> and after every endpoint fetch either the
+ <code>onResult</code> or the <code>onError</code> method gets called.</div>
 </div>
 </div>
 </div>
@@ -243,7 +315,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="subscribeTime(io.openems.edge.bridge.http.api.BridgeHttpTime.TimeEndpoint)">
 <h3>subscribeTime</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&nbsp;endpoint)</span></div>
+<div class="member-signature"><span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&nbsp;endpoint)</span></div>
 <div class="block">Subscribes to an <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>. The <code>BridgeHttpTime.TimeEndpoint.endpoint</code> gets
  fetched based on the delayed time provided by the
  <code>BridgeHttpTime.TimeEndpoint.delayTimeProvider</code>. After the endpoint gets fetched
@@ -252,16 +324,19 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>endpoint</code> - the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> to add a subscription</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> (always the provided one); or null if
+         the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> could not be added</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
 <h3>subscribeTime</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
  <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</span></div>
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</span></div>
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch either the
  <code>onResult</code> or the <code>onError</code> method gets called.</div>
@@ -273,15 +348,44 @@ loadScripts(document, 'script');</script>
 <dd><code>onResult</code> - the method to call on successful fetch</dd>
 <dd><code>onError</code> - the method to call if an error happens during
                           fetching or handling the result</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
+<h3>subscribeTime</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;&nbsp;endpointSupplier,
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</span></div>
+<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
+ <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch either the
+ <code>onResult</code> or the <code>onError</code> method gets called.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>delayTimeProvider</code> - the <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> to provided the delay
+                          between the fetches</dd>
+<dd><code>endpointSupplier</code> - the supplier to get the <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> to fetch;
+                          the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link"><code>Supplier</code></a> gets called right before the
+                          fetch happens</dd>
+<dd><code>onResult</code> - the method to call on successful fetch</dd>
+<dd><code>onError</code> - the method to call if an error happens during
+                          fetching or handling the result</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)">
 <h3>subscribeTime</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
  <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;action)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;action)</span></div>
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch the
  <code>action</code> gets called either with the result or the error at least
@@ -295,17 +399,47 @@ loadScripts(document, 'script');</script>
                           the endpoint if existing and the second argument is
                           passed if an error happend. One of the params is
                           always null and one not</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
+<section class="detail" id="subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,java.util.function.BiConsumer)">
 <h3>subscribeTime</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;onErrorDelay,
- <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;onSuccessDelay,
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;&nbsp;endpointSupplier,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;action)</span></div>
+<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
+ <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch the
+ <code>action</code> gets called either with the result or the error at least
+ one is not null.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>delayTimeProvider</code> - the <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> to provided the delay
+                          between the fetches</dd>
+<dd><code>endpointSupplier</code> - the supplier to get the <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> to fetch;
+                          the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link"><code>Supplier</code></a> gets called right before the
+                          fetch happens</dd>
+<dd><code>action</code> - the action to perform; the first is the result of
+                          the endpoint if existing and the second argument is
+                          passed if an error happend. One of the params is
+                          always null and one not</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="subscribeTime(java.util.function.Function,java.util.function.Function,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
+<h3>subscribeTime</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>,<wbr><a href="../time/DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a>&gt;&nbsp;onErrorDelay,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="../time/DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a>&gt;&nbsp;onSuccessDelay,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</span></div>
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</span></div>
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> and after every endpoint fetch either the
  <code>onResult</code> or the <code>onError</code> method gets called.
@@ -314,24 +448,26 @@ loadScripts(document, 'script');</script>
  Note: the first fetch gets triggered immediately</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>onErrorDelay</code> - the <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> when the last fetch
-                       was not successful</dd>
-<dd><code>onSuccessDelay</code> - the <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> when the last fetch
-                       was successful</dd>
+<dd><code>onErrorDelay</code> - the delay provider when the last fetch was not
+                       successful</dd>
+<dd><code>onSuccessDelay</code> - the delay provider when the last fetch was successful</dd>
 <dd><code>url</code> - the url to fetch</dd>
 <dd><code>onResult</code> - the method to call on successful fetch</dd>
 <dd><code>onError</code> - the method to call if an error happens during fetching
                        or handling the result</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
 <h3>subscribeTime</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;delay,
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;delay,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</span></div>
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</span></div>
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> and after every endpoint fetch either the
  <code>onResult</code> or the <code>onError</code> method gets called.
@@ -345,15 +481,18 @@ loadScripts(document, 'script');</script>
 <dd><code>onResult</code> - the method to call on successful fetch</dd>
 <dd><code>onError</code> - the method to call if an error happens during fetching or
                  handling the result</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="subscribeTime(io.openems.edge.bridge.http.time.DelayTimeProviderChain,java.lang.String,io.openems.common.function.ThrowingConsumer)">
 <h3>subscribeTime</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;delay,
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time">DelayTimeProviderChain</a>&nbsp;delay,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult)</span></div>
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult)</span></div>
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> and after every endpoint fetch either the
  <code>onResult</code> or the <code>onError</code> method gets called.
@@ -365,16 +504,48 @@ loadScripts(document, 'script');</script>
 <dd><code>delay</code> - the <a href="../time/DelayTimeProviderChain.html" title="class in io.openems.edge.bridge.http.time"><code>DelayTimeProviderChain</code></a> between each fetch</dd>
 <dd><code>url</code> - the url to fetch</dd>
 <dd><code>onResult</code> - the method to call on successful fetch</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="subscribeJsonTime(java.util.function.Function,java.util.function.Function,java.lang.String,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
+<h3>subscribeJsonTime</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeJsonTime</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>,<wbr><a href="../time/DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a>&gt;&nbsp;onErrorDelay,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;,<wbr><a href="../time/DelayTimeProvider.Delay.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider.Delay</a>&gt;&nbsp;onSuccessDelay,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url,
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;com.google.gson.JsonElement&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</span></div>
+<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the delay
+ provider and after every endpoint fetch either the <code>onResult</code> or
+ the <code>onError</code> method gets called.
+ 
+ <p>
+ Note: the first fetch gets triggered immediately</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>onErrorDelay</code> - the delay provider when the last fetch was not
+                       successful</dd>
+<dd><code>onSuccessDelay</code> - the delay provider when the last fetch was successful</dd>
+<dd><code>url</code> - the url to fetch</dd>
+<dd><code>onResult</code> - the method to call on successful fetch</dd>
+<dd><code>onError</code> - the method to call if an error happens during fetching
+                       or handling the result</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
 <h3>subscribeJsonTime</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeJsonTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeJsonTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
  <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint,
- <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;com.google.gson.JsonElement,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;onError)</span></div>
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;com.google.gson.JsonElement&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</span></div>
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch either the
  <code>onResult</code> or the <code>onError</code> method gets called.</div>
@@ -386,15 +557,44 @@ loadScripts(document, 'script');</script>
 <dd><code>onResult</code> - the method to call on successful fetch</dd>
 <dd><code>onError</code> - the method to call if an error happens during
                           fetching or handling the result</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,io.openems.common.function.ThrowingConsumer,java.util.function.Consumer)">
+<h3>subscribeJsonTime</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeJsonTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;&nbsp;endpointSupplier,
+ <a href="../../../../common/function/ThrowingConsumer.html" title="interface in io.openems.common.function">ThrowingConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;com.google.gson.JsonElement&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;onResult,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;onError)</span></div>
+<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
+ <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch either the
+ <code>onResult</code> or the <code>onError</code> method gets called.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>delayTimeProvider</code> - the <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> to provided the delay
+                          between the fetches</dd>
+<dd><code>endpointSupplier</code> - the supplier to get the <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> to fetch;
+                          the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link"><code>Supplier</code></a> gets called right before the
+                          fetch happens</dd>
+<dd><code>onResult</code> - the method to call on successful fetch</dd>
+<dd><code>onError</code> - the method to call if an error happens during
+                          fetching or handling the result</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,io.openems.edge.bridge.http.api.BridgeHttp.Endpoint,java.util.function.BiConsumer)">
 <h3>subscribeJsonTime</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeJsonTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeJsonTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
  <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&nbsp;endpoint,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;com.google.gson.JsonElement,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;&nbsp;action)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;com.google.gson.JsonElement&gt;,<wbr><a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;action)</span></div>
 <div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
  <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch the
  <code>action</code> gets called either with the result or the error at least
@@ -408,6 +608,74 @@ loadScripts(document, 'script');</script>
                           the endpoint if existing and the second argument is
                           passed if an error happend. One of the params is
                           always null and one not</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="subscribeJsonTime(io.openems.edge.bridge.http.time.DelayTimeProvider,java.util.function.Supplier,java.util.function.BiConsumer)">
+<h3>subscribeJsonTime</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a></span>&nbsp;<span class="element-name">subscribeJsonTime</span><wbr><span class="parameters">(<a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time">DelayTimeProvider</a>&nbsp;delayTimeProvider,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttp.Endpoint</a>&gt;&nbsp;endpointSupplier,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="HttpResponse.html" title="class in io.openems.edge.bridge.http.api">HttpResponse</a>&lt;com.google.gson.JsonElement&gt;,<wbr><a href="HttpError.html" title="class in io.openems.edge.bridge.http.api">HttpError</a>&gt;&nbsp;action)</span></div>
+<div class="block">Subscribes to an <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> with the delay provided by the
+ <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> and after every endpoint fetch the
+ <code>action</code> gets called either with the result or the error at least
+ one is not null.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>delayTimeProvider</code> - the <a href="../time/DelayTimeProvider.html" title="interface in io.openems.edge.bridge.http.time"><code>DelayTimeProvider</code></a> to provided the delay
+                          between the fetches</dd>
+<dd><code>endpointSupplier</code> - the supplier to get the <a href="BridgeHttp.Endpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttp.Endpoint</code></a> to fetch;
+                          the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link"><code>Supplier</code></a> gets called right before the
+                          fetch happens</dd>
+<dd><code>action</code> - the action to perform; the first is the result of
+                          the endpoint if existing and the second argument is
+                          passed if an error happend. One of the params is
+                          always null and one not</dd>
+<dt>Returns:</dt>
+<dd>the added <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>; or null if the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>
+         could not be added</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeTimeEndpointIf(java.util.function.Predicate)">
+<h3>removeTimeEndpointIf</h3>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&gt;</span>&nbsp;<span class="element-name">removeTimeEndpointIf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&gt;&nbsp;condition)</span></div>
+<div class="block">Removes a <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> if it matches the provided <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>condition</code> - the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a> to match</dd>
+<dt>Returns:</dt>
+<dd>the removed <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>TimeEndpoints</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeAllTimeEndpoints()">
+<h3>removeAllTimeEndpoints</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&gt;</span>&nbsp;<span class="element-name">removeAllTimeEndpoints</span>()</div>
+<div class="block">Removes all active <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>TimeEndpoints</code></a>.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the removed <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>TimeEndpoints</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeTimeEndpoint(io.openems.edge.bridge.http.api.BridgeHttpTime.TimeEndpoint)">
+<h3>removeTimeEndpoint</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">removeTimeEndpoint</span><wbr><span class="parameters">(<a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api">BridgeHttpTime.TimeEndpoint</a>&nbsp;timeEndpoint)</span></div>
+<div class="block">Removes a <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> if it matches the provided
+ <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>timeEndpoint</code> - the <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>BridgeHttpTime.TimeEndpoint</code></a> to match</dd>
+<dt>Returns:</dt>
+<dd>the removed <a href="BridgeHttpTime.TimeEndpoint.html" title="class in io.openems.edge.bridge.http.api"><code>TimeEndpoints</code></a></dd>
 </dl>
 </section>
 </li>
