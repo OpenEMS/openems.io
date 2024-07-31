@@ -120,15 +120,22 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getWsDataString(org.java_websocket.WebSocket)" class="member-name-link">getWsDataString</a><wbr>(org.java_websocket.WebSocket&nbsp;ws)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#generateWsDataString(org.java_websocket.WebSocket)" class="member-name-link">generateWsDataString</a><wbr>(org.java_websocket.WebSocket&nbsp;ws)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Gets the toString() content of the WsData attachment of the WebSocket; or
  empty string if not available.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static com.google.gson.JsonObject</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#handshakeToJsonObject(org.java_websocket.handshake.Handshakedata)" class="member-name-link">handshakeToJsonObject</a><wbr>(org.java_websocket.handshake.Handshakedata&nbsp;handshake)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getAsString(org.java_websocket.handshake.Handshakedata,java.lang.String)" class="member-name-link">getAsString</a><wbr>(org.java_websocket.handshake.Handshakedata&nbsp;handshakedata,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fieldName)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Converts a Handshake to a JsonObject.</div>
+<div class="block">Gets a String value from a <code>Handshakedata</code>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseRemoteIdentifier(org.java_websocket.WebSocket,org.java_websocket.handshake.Handshakedata)" class="member-name-link">parseRemoteIdentifier</a><wbr>(org.java_websocket.WebSocket&nbsp;ws,
+ org.java_websocket.handshake.Handshakedata&nbsp;handshakedata)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Parses a identifier for the Remote from the <code>Handshakedata</code>.</div>
 </div>
 </div>
 </div>
@@ -162,27 +169,47 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="handshakeToJsonObject(org.java_websocket.handshake.Handshakedata)">
-<h3>handshakeToJsonObject</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">com.google.gson.JsonObject</span>&nbsp;<span class="element-name">handshakeToJsonObject</span><wbr><span class="parameters">(org.java_websocket.handshake.Handshakedata&nbsp;handshake)</span></div>
-<div class="block">Converts a Handshake to a JsonObject.
+<section class="detail" id="getAsString(org.java_websocket.handshake.Handshakedata,java.lang.String)">
+<h3>getAsString</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getAsString</span><wbr><span class="parameters">(org.java_websocket.handshake.Handshakedata&nbsp;handshakedata,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fieldName)</span></div>
+<div class="block">Gets a String value from a <code>Handshakedata</code>.
  
  <p>
  NOTE: Per <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">specification</a>
- "Field names are case-insensitive". Because of this fields are converted to
- lower-case.</div>
+ "Field names are case-insensitive".</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>handshake</code> - the <code>Handshakedata</code></dd>
+<dd><code>handshakedata</code> - the <code>Handshakedata</code></dd>
+<dd><code>fieldName</code> - the name of the field</dd>
 <dt>Returns:</dt>
-<dd>the converted <code>JsonObject</code></dd>
+<dd>the field value; or null</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="getWsDataString(org.java_websocket.WebSocket)">
-<h3>getWsDataString</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getWsDataString</span><wbr><span class="parameters">(org.java_websocket.WebSocket&nbsp;ws)</span></div>
+<section class="detail" id="parseRemoteIdentifier(org.java_websocket.WebSocket,org.java_websocket.handshake.Handshakedata)">
+<h3>parseRemoteIdentifier</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">parseRemoteIdentifier</span><wbr><span class="parameters">(org.java_websocket.WebSocket&nbsp;ws,
+ org.java_websocket.handshake.Handshakedata&nbsp;handshakedata)</span></div>
+<div class="block">Parses a identifier for the Remote from the <code>Handshakedata</code>.
+ 
+ <p>
+ Tries to use the headers "Forwarded", "X-Forwarded-For" or "X-Real-IP". Falls
+ back to `ws.getRemoteSocketAddress()`. See https://serverfault.com/a/920060</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>ws</code> - the <code>WebSocket</code></dd>
+<dd><code>handshakedata</code> - the <code>Handshakedata</code></dd>
+<dt>Returns:</dt>
+<dd>an identifier String</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="generateWsDataString(org.java_websocket.WebSocket)">
+<h3>generateWsDataString</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">generateWsDataString</span><wbr><span class="parameters">(org.java_websocket.WebSocket&nbsp;ws)</span></div>
 <div class="block">Gets the toString() content of the WsData attachment of the WebSocket; or
  empty string if not available.</div>
 <dl class="notes">

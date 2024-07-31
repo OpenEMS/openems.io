@@ -118,7 +118,7 @@ loadScripts(document, 'script');</script>
 <h2>Field Summary</h2>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-io.openems.edge.battery.protection.currenthandler.AbstractMaxCurrentHandler">Fields inherited from class&nbsp;io.openems.edge.battery.protection.currenthandler.<a href="AbstractMaxCurrentHandler.html" title="class in io.openems.edge.battery.protection.currenthandler">AbstractMaxCurrentHandler</a></h3>
-<code><a href="AbstractMaxCurrentHandler.html#bmsMaxEverCurrent">bmsMaxEverCurrent</a>, <a href="AbstractMaxCurrentHandler.html#clockProvider">clockProvider</a>, <a href="AbstractMaxCurrentHandler.html#forceChargeDischarge">forceChargeDischarge</a>, <a href="AbstractMaxCurrentHandler.html#lastCurrentLimit">lastCurrentLimit</a>, <a href="AbstractMaxCurrentHandler.html#lastResultTimestamp">lastResultTimestamp</a>, <a href="AbstractMaxCurrentHandler.html#temperatureToPercent">temperatureToPercent</a>, <a href="AbstractMaxCurrentHandler.html#voltageToPercent">voltageToPercent</a></code></div>
+<code><a href="AbstractMaxCurrentHandler.html#bmsMaxEverCurrent">bmsMaxEverCurrent</a>, <a href="AbstractMaxCurrentHandler.html#clockProvider">clockProvider</a>, <a href="AbstractMaxCurrentHandler.html#forceChargeDischarge">forceChargeDischarge</a>, <a href="AbstractMaxCurrentHandler.html#lastCurrentLimit">lastCurrentLimit</a>, <a href="AbstractMaxCurrentHandler.html#lastResultTimestamp">lastResultTimestamp</a>, <a href="AbstractMaxCurrentHandler.html#socToPercent">socToPercent</a>, <a href="AbstractMaxCurrentHandler.html#temperatureToPercent">temperatureToPercent</a>, <a href="AbstractMaxCurrentHandler.html#voltageToPercent">voltageToPercent</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -131,10 +131,11 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(io.openems.edge.common.component.ClockProvider,int,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,java.lang.Double,io.openems.edge.battery.protection.force.ForceCharge)" class="member-name-link">DischargeMaxCurrentHandler</a><wbr>(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(io.openems.edge.common.component.ClockProvider,int,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,java.lang.Double,io.openems.edge.battery.protection.force.ForceCharge)" class="member-name-link">DischargeMaxCurrentHandler</a><wbr>(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
  int&nbsp;initialBmsMaxEverDischargeCurrent,
  <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;voltageToPercent,
  <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;temperatureToPercent,
+ <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;socToPercent,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;maxIncreasePerSecond,
  <a href="../force/ForceCharge.html" title="class in io.openems.edge.battery.protection.force">ForceCharge</a>&nbsp;forceCharge)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -175,23 +176,28 @@ loadScripts(document, 'script');</script>
 <div class="block">Gets the ChannelId for Battery-Protection Limit by Max-Increase-Ampere ramp.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBpMaxTemperatureChannelId()" class="member-name-link">getBpMaxTemperatureChannelId</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBpMaxSocChannelId()" class="member-name-link">getBpMaxSocChannelId</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the ChannelId for Battery-Protection Limit by state of charge.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBpMaxTemperatureChannelId()" class="member-name-link">getBpMaxTemperatureChannelId</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the ChannelId for Battery-Protection Limit by Max-Cell-Temperature.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBpMaxVoltageChannelId()" class="member-name-link">getBpMaxVoltageChannelId</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBpMaxVoltageChannelId()" class="member-name-link">getBpMaxVoltageChannelId</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the ChannelId for Battery-Protection Limit by Max-Cell-Voltage.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBpMinTemperatureChannelId()" class="member-name-link">getBpMinTemperatureChannelId</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBpMinTemperatureChannelId()" class="member-name-link">getBpMinTemperatureChannelId</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the ChannelId for Battery-Protection Limit by Min-Cell-Temperature.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBpMinVoltageChannelId()" class="member-name-link">getBpMinVoltageChannelId</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBpMinVoltageChannelId()" class="member-name-link">getBpMinVoltageChannelId</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the ChannelId for Battery-Protection Limit by Min-Cell-Voltage.</div>
 </div>
 </div>
@@ -215,12 +221,13 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(io.openems.edge.common.component.ClockProvider,int,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,java.lang.Double,io.openems.edge.battery.protection.force.ForceCharge)">
+<section class="detail" id="&lt;init&gt;(io.openems.edge.common.component.ClockProvider,int,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,java.lang.Double,io.openems.edge.battery.protection.force.ForceCharge)">
 <h3>DischargeMaxCurrentHandler</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">DischargeMaxCurrentHandler</span><wbr><span class="parameters">(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
  int&nbsp;initialBmsMaxEverDischargeCurrent,
  <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;voltageToPercent,
  <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;temperatureToPercent,
+ <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;socToPercent,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;maxIncreasePerSecond,
  <a href="../force/ForceCharge.html" title="class in io.openems.edge.battery.protection.force">ForceCharge</a>&nbsp;forceCharge)</span></div>
 </section>
@@ -343,6 +350,25 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="AbstractMaxCurrentHandler.html#getBpMaxTemperatureChannelId()">getBpMaxTemperatureChannelId</a></code>&nbsp;in class&nbsp;<code><a href="AbstractMaxCurrentHandler.html" title="class in io.openems.edge.battery.protection.currenthandler">AbstractMaxCurrentHandler</a></code></dd>
+<dt>Returns:</dt>
+<dd>the <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection"><code>BatteryProtection.ChannelId</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getBpMaxSocChannelId()">
+<h3>getBpMaxSocChannelId</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></span>&nbsp;<span class="element-name">getBpMaxSocChannelId</span>()</div>
+<div class="block"><span class="description-from-type-label">Description copied from class:&nbsp;<code><a href="AbstractMaxCurrentHandler.html#getBpMaxSocChannelId()">AbstractMaxCurrentHandler</a></code></span></div>
+<div class="block">Gets the ChannelId for Battery-Protection Limit by state of charge.
+
+ <ul>
+ <li><a href="../BatteryProtection.ChannelId.html#BP_CHARGE_MAX_SOC"><code>BatteryProtection.ChannelId.BP_CHARGE_MAX_SOC</code></a>
+ <li><a href="../BatteryProtection.ChannelId.html#BP_DISCHARGE_MAX_SOC"><code>BatteryProtection.ChannelId.BP_DISCHARGE_MAX_SOC</code></a>
+ </ul></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="AbstractMaxCurrentHandler.html#getBpMaxSocChannelId()">getBpMaxSocChannelId</a></code>&nbsp;in class&nbsp;<code><a href="AbstractMaxCurrentHandler.html" title="class in io.openems.edge.battery.protection.currenthandler">AbstractMaxCurrentHandler</a></code></dd>
 <dt>Returns:</dt>
 <dd>the <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection"><code>BatteryProtection.ChannelId</code></a></dd>
 </dl>

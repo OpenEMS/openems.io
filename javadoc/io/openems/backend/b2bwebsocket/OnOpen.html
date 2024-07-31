@@ -39,7 +39,7 @@ loadScripts(document, 'script');</script>
 <p>Summary:</p>
 <ul>
 <li>Nested</li>
-<li>Field</li>
+<li><a href="#field-summary">Field</a></li>
 <li><a href="#constructor-summary">Constr</a></li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
@@ -59,7 +59,7 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
@@ -91,7 +91,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/websocket/OnOpen.html" title="interface in io.openems.common.websocket">OnOpen</a></code></dd>
+<dd><code><a href="../../common/websocket/OnOpen.html" title="interface in io.openems.common.websocket">OnOpen</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;org.java_websocket.WebSocket,<wbr>org.java_websocket.handshake.Handshakedata,<wbr><a href="../../common/exceptions/OpenemsError.html" title="enum class in io.openems.common.exceptions">OpenemsError</a>&gt;</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">OnOpen</span>
@@ -100,6 +100,15 @@ implements <a href="../../common/websocket/OnOpen.html" title="interface in io.o
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-io.openems.common.websocket.OnOpen">Fields inherited from interface&nbsp;io.openems.common.websocket.<a href="../../common/websocket/OnOpen.html" title="interface in io.openems.common.websocket">OnOpen</a></h3>
+<code><a href="../../common/websocket/OnOpen.html#NO_OP">NO_OP</a></code></div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -108,7 +117,8 @@ implements <a href="../../common/websocket/OnOpen.html" title="interface in io.o
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(io.openems.backend.b2bwebsocket.Backend2BackendWebsocket)" class="member-name-link">OnOpen</a><wbr>(<a href="Backend2BackendWebsocket.html" title="class in io.openems.backend.b2bwebsocket">Backend2BackendWebsocket</a>&nbsp;parent)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.function.Supplier,java.util.function.BiConsumer)" class="member-name-link">OnOpen</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a>&gt;&nbsp;metadata,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;org.slf4j.Logger,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;logInfo)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -124,9 +134,9 @@ implements <a href="../../common/websocket/OnOpen.html" title="interface in io.o
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run(org.java_websocket.WebSocket,com.google.gson.JsonObject)" class="member-name-link">run</a><wbr>(org.java_websocket.WebSocket&nbsp;ws,
- com.google.gson.JsonObject&nbsp;handshake)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../common/exceptions/OpenemsError.html" title="enum class in io.openems.common.exceptions">OpenemsError</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#apply(org.java_websocket.WebSocket,org.java_websocket.handshake.Handshakedata)" class="member-name-link">apply</a><wbr>(org.java_websocket.WebSocket&nbsp;ws,
+ org.java_websocket.handshake.Handshakedata&nbsp;handshakedata)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Handles OnOpen event of WebSocket.</div>
 </div>
@@ -136,6 +146,9 @@ implements <a href="../../common/websocket/OnOpen.html" title="interface in io.o
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.util.function.BiFunction">Methods inherited from interface&nbsp;java.util.function.<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiFunction.html#andThen(java.util.function.Function)" title="class or interface in java.util.function" class="external-link">andThen</a></code></div>
 </section>
 </li>
 </ul>
@@ -148,9 +161,10 @@ implements <a href="../../common/websocket/OnOpen.html" title="interface in io.o
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(io.openems.backend.b2bwebsocket.Backend2BackendWebsocket)">
+<section class="detail" id="&lt;init&gt;(java.util.function.Supplier,java.util.function.BiConsumer)">
 <h3>OnOpen</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">OnOpen</span><wbr><span class="parameters">(<a href="Backend2BackendWebsocket.html" title="class in io.openems.backend.b2bwebsocket">Backend2BackendWebsocket</a>&nbsp;parent)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">OnOpen</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="../common/metadata/Metadata.html" title="interface in io.openems.backend.common.metadata">Metadata</a>&gt;&nbsp;metadata,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;org.slf4j.Logger,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;logInfo)</span></div>
 </section>
 </li>
 </ul>
@@ -162,21 +176,22 @@ implements <a href="../../common/websocket/OnOpen.html" title="interface in io.o
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="run(org.java_websocket.WebSocket,com.google.gson.JsonObject)">
-<h3>run</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">run</span><wbr><span class="parameters">(org.java_websocket.WebSocket&nbsp;ws,
- com.google.gson.JsonObject&nbsp;handshake)</span>
-         throws <span class="exceptions"><a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../common/websocket/OnOpen.html#run(org.java_websocket.WebSocket,com.google.gson.JsonObject)">OnOpen</a></code></span></div>
+<section class="detail" id="apply(org.java_websocket.WebSocket,org.java_websocket.handshake.Handshakedata)">
+<h3>apply</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../common/exceptions/OpenemsError.html" title="enum class in io.openems.common.exceptions">OpenemsError</a></span>&nbsp;<span class="element-name">apply</span><wbr><span class="parameters">(org.java_websocket.WebSocket&nbsp;ws,
+ org.java_websocket.handshake.Handshakedata&nbsp;handshakedata)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../common/websocket/OnOpen.html#apply(org.java_websocket.WebSocket,org.java_websocket.handshake.Handshakedata)">OnOpen</a></code></span></div>
 <div class="block">Handles OnOpen event of WebSocket.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../common/websocket/OnOpen.html#run(org.java_websocket.WebSocket,com.google.gson.JsonObject)">run</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/websocket/OnOpen.html" title="interface in io.openems.common.websocket">OnOpen</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiFunction.html#apply(T,U)" title="class or interface in java.util.function" class="external-link">apply</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;org.java_websocket.WebSocket,<wbr>org.java_websocket.handshake.Handshakedata,<wbr><a href="../../common/exceptions/OpenemsError.html" title="enum class in io.openems.common.exceptions">OpenemsError</a>&gt;</code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/websocket/OnOpen.html#apply(org.java_websocket.WebSocket,org.java_websocket.handshake.Handshakedata)">apply</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/websocket/OnOpen.html" title="interface in io.openems.common.websocket">OnOpen</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>ws</code> - the WebSocket</dd>
-<dd><code>handshake</code> - the HTTP handshake/headers</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+<dd><code>ws</code> - the <code>WebSocket</code></dd>
+<dd><code>handshakedata</code> - the <code>Handshakedata</code> with HTTP headers</dd>
+<dt>Returns:</dt>
+<dd><a href="../../common/exceptions/OpenemsError.html" title="enum class in io.openems.common.exceptions"><code>OpenemsError</code></a> or null</dd>
 </dl>
 </section>
 </li>

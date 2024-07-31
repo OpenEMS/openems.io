@@ -198,7 +198,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Log a warn message including the Component ID.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcNotification)" class="member-name-link">send</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;websocketId,
  <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -353,9 +353,8 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <li>
 <section class="detail" id="send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcNotification)">
 <h3>send</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">send</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;websocketId,
- <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</span>
-          throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">send</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;websocketId,
+ <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</span></div>
 <div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcNotification)">UiWebsocket</a></code></span></div>
 <div class="block">Send a JSON-RPC Notification to a UI session.</div>
 <dl class="notes">
@@ -364,8 +363,8 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <dt>Parameters:</dt>
 <dd><code>websocketId</code> - the id of the UI websocket connection</dd>
 <dd><code>notification</code> - the JsonrpcNotification</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
+<dt>Returns:</dt>
+<dd>true if sending was successful; false otherwise</dd>
 </dl>
 </section>
 </li>
@@ -373,8 +372,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <section class="detail" id="send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcRequest)">
 <h3>send</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">send</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;websocketId,
- <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</span>
-                                               throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+ <a href="../../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</span></div>
 <div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html#send(java.util.UUID,io.openems.common.jsonrpc.base.JsonrpcRequest)">UiWebsocket</a></code></span></div>
 <div class="block">Send a JSON-RPC Request to a UI session via WebSocket and expect a JSON-RPC
  Response.</div>
@@ -386,8 +384,6 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <dd><code>request</code> - the JsonrpcRequest</dd>
 <dt>Returns:</dt>
 <dd>the JSON-RPC Success Response Future</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </section>
 </li>
@@ -395,8 +391,7 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <section class="detail" id="sendBroadcast(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">
 <h3>sendBroadcast</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendBroadcast</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;edgeId,
- <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</span>
-                   throws <span class="exceptions"><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+ <a href="../../../common/jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</span></div>
 <div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../common/uiwebsocket/UiWebsocket.html#sendBroadcast(java.lang.String,io.openems.common.jsonrpc.base.JsonrpcNotification)">UiWebsocket</a></code></span></div>
 <div class="block">Send a JSON-RPC Notification broadcast to all UI sessions with a given
  Edge-ID.</div>
@@ -406,8 +401,6 @@ implements <a href="../../common/uiwebsocket/UiWebsocket.html" title="interface 
 <dt>Parameters:</dt>
 <dd><code>edgeId</code> - the Edge-ID</dd>
 <dd><code>notification</code> - the JsonrpcNotification</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </section>
 </li>

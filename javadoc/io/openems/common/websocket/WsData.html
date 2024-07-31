@@ -91,7 +91,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="DummyWsData.html" title="class in io.openems.common.websocket">DummyWsData</a></code>, <code><a href="../../backend/b2bwebsocket/WsData.html" title="class in io.openems.backend.b2bwebsocket">WsData</a></code>, <code><a href="../../backend/edgewebsocket/WsData.html" title="class in io.openems.backend.edgewebsocket">WsData</a></code>, <code><a href="../../backend/uiwebsocket/impl/WsData.html" title="class in io.openems.backend.uiwebsocket.impl">WsData</a></code>, <code><a href="../../edge/controller/api/backend/WsData.html" title="class in io.openems.edge.controller.api.backend">WsData</a></code>, <code><a href="../../edge/controller/api/websocket/WsData.html" title="class in io.openems.edge.controller.api.websocket">WsData</a></code></dd>
+<dd><code><a href="../../backend/b2bwebsocket/WsData.html" title="class in io.openems.backend.b2bwebsocket">WsData</a></code>, <code><a href="../../backend/edgewebsocket/WsData.html" title="class in io.openems.backend.edgewebsocket">WsData</a></code>, <code><a href="../../backend/uiwebsocket/impl/WsData.html" title="class in io.openems.backend.uiwebsocket.impl">WsData</a></code>, <code><a href="../../edge/controller/api/backend/WsData.html" title="class in io.openems.edge.controller.api.backend">WsData</a></code>, <code><a href="../../edge/controller/api/websocket/WsData.html" title="class in io.openems.edge.controller.api.websocket">WsData</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">WsData</span>
@@ -106,10 +106,12 @@ loadScripts(document, 'script');</script>
 <section class="constructor-summary" id="constructor-summary">
 <h2>Constructor Summary</h2>
 <div class="caption"><span>Constructors</span></div>
-<div class="summary-table two-column-summary">
-<div class="table-header col-first">Constructor</div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">WsData</a>()</code></div>
+<div class="col-first even-row-color"><code>protected </code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.java_websocket.WebSocket)" class="member-name-link">WsData</a><wbr>(org.java_websocket.WebSocket&nbsp;ws)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -141,7 +143,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Handles a JSON-RPC response by completing the previously registers request
  Future.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#send(io.openems.common.jsonrpc.base.JsonrpcNotification)" class="member-name-link">send</a><wbr>(<a href="../jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sends a JSON-RPC Notification to a WebSocket.</div>
@@ -151,14 +153,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sends a JSON-RPC request to a Websocket and registers a callback.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setWebsocket(org.java_websocket.WebSocket)" class="member-name-link">setWebsocket</a><wbr>(org.java_websocket.WebSocket&nbsp;ws)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets the WebSocket.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Provides a specific toString method.</div>
 </div>
 </div>
@@ -179,9 +176,9 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;()">
+<section class="detail" id="&lt;init&gt;(org.java_websocket.WebSocket)">
 <h3>WsData</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">WsData</span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">WsData</span><wbr><span class="parameters">(org.java_websocket.WebSocket&nbsp;ws)</span></div>
 </section>
 </li>
 </ul>
@@ -201,17 +198,6 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="setWebsocket(org.java_websocket.WebSocket)">
-<h3>setWebsocket</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWebsocket</span><wbr><span class="parameters">(org.java_websocket.WebSocket&nbsp;ws)</span></div>
-<div class="block">Sets the WebSocket.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>ws</code> - the WebSocket instance</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="getWebsocket()">
 <h3>getWebsocket</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">org.java_websocket.WebSocket</span>&nbsp;<span class="element-name">getWebsocket</span>()</div>
@@ -225,30 +211,26 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="send(io.openems.common.jsonrpc.base.JsonrpcRequest)">
 <h3>send</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">send</span><wbr><span class="parameters">(<a href="../jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</span>
-                                               throws <span class="exceptions"><a href="../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">send</span><wbr><span class="parameters">(<a href="../jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</span></div>
 <div class="block">Sends a JSON-RPC request to a Websocket and registers a callback.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>request</code> - the JSON-RPC Request</dd>
 <dt>Returns:</dt>
 <dd>a promise for a successful JSON-RPC Response</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></code> - on error</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="send(io.openems.common.jsonrpc.base.JsonrpcNotification)">
 <h3>send</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">send</span><wbr><span class="parameters">(<a href="../jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</span>
-          throws <span class="exceptions"><a href="../exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">send</span><wbr><span class="parameters">(<a href="../jsonrpc/base/JsonrpcNotification.html" title="class in io.openems.common.jsonrpc.base">JsonrpcNotification</a>&nbsp;notification)</span></div>
 <div class="block">Sends a JSON-RPC Notification to a WebSocket.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>notification</code> - the JSON-RPC Notification</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a></code> - on error</dd>
+<dt>Returns:</dt>
+<dd>true if sending was successful; false otherwise</dd>
 </dl>
 </section>
 </li>

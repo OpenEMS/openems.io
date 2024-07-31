@@ -141,8 +141,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Gets the cycleTime of this worker in [ms].</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static &lt;T extends <a href="WsData.html" title="class in io.openems.common.websocket">WsData</a>&gt;<br>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#resetWebSocketClient(org.java_websocket.client.WebSocketClient,java.util.function.Supplier)" class="member-name-link">resetWebSocketClient</a><wbr>(org.java_websocket.client.WebSocketClient&nbsp;ws,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;T&gt;&nbsp;attachmentSupplier)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#resetWebSocketClient(org.java_websocket.client.WebSocketClient,java.util.function.Function)" class="member-name-link">resetWebSocketClient</a><wbr>(org.java_websocket.client.WebSocketClient&nbsp;ws,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;org.java_websocket.WebSocket,<wbr>T&gt;&nbsp;wsData)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">This method is a copy of <code>WebSocketClient</code> reset()-method, because the
  original one may block at the call of 'closeBlocking()' method.</div>
@@ -197,10 +197,10 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="resetWebSocketClient(org.java_websocket.client.WebSocketClient,java.util.function.Supplier)">
+<section class="detail" id="resetWebSocketClient(org.java_websocket.client.WebSocketClient,java.util.function.Function)">
 <h3>resetWebSocketClient</h3>
 <div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="WsData.html" title="class in io.openems.common.websocket">WsData</a>&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">resetWebSocketClient</span><wbr><span class="parameters">(org.java_websocket.client.WebSocketClient&nbsp;ws,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;T&gt;&nbsp;attachmentSupplier)</span>
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;org.java_websocket.WebSocket,<wbr>T&gt;&nbsp;wsData)</span>
                                                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">This method is a copy of <code>WebSocketClient</code> reset()-method, because the
  original one may block at the call of 'closeBlocking()' method. It also sets
@@ -214,7 +214,7 @@ loadScripts(document, 'script');</script>
 <dd><code>T</code> - the type of the attachment</dd>
 <dt>Parameters:</dt>
 <dd><code>ws</code> - the <code>WebSocketClient</code></dd>
-<dd><code>attachmentSupplier</code> - the supplier for the new attachment</dd>
+<dd><code>wsData</code> - <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link"><code>Function</code></a> to provide a the new attachment</dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></code> - on error</dd>
 </dl>

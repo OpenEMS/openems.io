@@ -139,11 +139,14 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><code><a href="#lastResultTimestamp" class="member-name-link">lastResultTimestamp</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected final <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#temperatureToPercent" class="member-name-link">temperatureToPercent</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#socToPercent" class="member-name-link">socToPercent</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected final <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a></code></div>
-<div class="col-second even-row-color"><code><a href="#voltageToPercent" class="member-name-link">voltageToPercent</a></code></div>
+<div class="col-second even-row-color"><code><a href="#temperatureToPercent" class="member-name-link">temperatureToPercent</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected final <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#voltageToPercent" class="member-name-link">voltageToPercent</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -157,10 +160,11 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(io.openems.edge.common.component.ClockProvider,int,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,java.lang.Double,io.openems.edge.battery.protection.force.AbstractForceChargeDischarge)" class="member-name-link">AbstractMaxCurrentHandler</a><wbr>(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(io.openems.edge.common.component.ClockProvider,int,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,java.lang.Double,io.openems.edge.battery.protection.force.AbstractForceChargeDischarge)" class="member-name-link">AbstractMaxCurrentHandler</a><wbr>(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
  int&nbsp;initialBmsMaxEverCurrent,
  <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;voltageToPercent,
  <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;temperatureToPercent,
+ <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;socToPercent,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;maxIncreasePerSecond,
  <a href="../force/AbstractForceChargeDischarge.html" title="class in io.openems.edge.battery.protection.force">AbstractForceChargeDischarge</a>&nbsp;forceChargeDischarge)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -200,46 +204,51 @@ loadScripts(document, 'script');</script>
 <div class="block">Gets the ChannelId for Battery-Protection Limit by Max-Increase-Ampere ramp.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBpMaxTemperatureChannelId()" class="member-name-link">getBpMaxTemperatureChannelId</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBpMaxSocChannelId()" class="member-name-link">getBpMaxSocChannelId</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Gets the ChannelId for Battery-Protection Limit by state of charge.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBpMaxTemperatureChannelId()" class="member-name-link">getBpMaxTemperatureChannelId</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Gets the ChannelId for Battery-Protection Limit by Max-Cell-Temperature.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBpMaxVoltageChannelId()" class="member-name-link">getBpMaxVoltageChannelId</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBpMaxVoltageChannelId()" class="member-name-link">getBpMaxVoltageChannelId</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Gets the ChannelId for Battery-Protection Limit by Max-Cell-Voltage.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBpMinTemperatureChannelId()" class="member-name-link">getBpMinTemperatureChannelId</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBpMinTemperatureChannelId()" class="member-name-link">getBpMinTemperatureChannelId</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Gets the ChannelId for Battery-Protection Limit by Min-Cell-Temperature.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBpMinVoltageChannelId()" class="member-name-link">getBpMinVoltageChannelId</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBpMinVoltageChannelId()" class="member-name-link">getBpMinVoltageChannelId</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Gets the ChannelId for Battery-Protection Limit by Min-Cell-Voltage.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getForceCurrent(java.lang.Integer,java.lang.Integer)" class="member-name-link">getForceCurrent</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;minCellVoltage,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getForceCurrent(java.lang.Integer,java.lang.Integer)" class="member-name-link">getForceCurrent</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;minCellVoltage,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;maxCellVoltage)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Calculates the Ampere limit in Force Charge/Discharge mode.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxCellVoltageToPercentLimit(java.lang.Integer)" class="member-name-link">getMaxCellVoltageToPercentLimit</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;minCellVoltage)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxIncreaseAmpereLimit()" class="member-name-link">getMaxIncreaseAmpereLimit</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxCellVoltageToPercentLimit(java.lang.Integer)" class="member-name-link">getMaxCellVoltageToPercentLimit</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;minCellVoltage)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxIncreaseAmpereLimit()" class="member-name-link">getMaxIncreaseAmpereLimit</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Calculates the maximum increase limit in Ampere from the
  'maxIncreasePerSecond' parameter.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMinCellVoltageToPercentLimit(java.lang.Integer)" class="member-name-link">getMinCellVoltageToPercentLimit</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;minCellVoltage)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#percentToAmpere(java.lang.Double)" class="member-name-link">percentToAmpere</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;percent)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMinCellVoltageToPercentLimit(java.lang.Integer)" class="member-name-link">getMinCellVoltageToPercentLimit</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;minCellVoltage)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#percentToAmpere(java.lang.Double)" class="member-name-link">percentToAmpere</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;percent)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Convert a Percent value to a concrete Ampere value in [A] by multiplying it
  with 'bmsMaxEverAllowedChargeCurrent'.</div>
 </div>
@@ -279,6 +288,12 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="socToPercent">
+<h3>socToPercent</h3>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a></span>&nbsp;<span class="element-name">socToPercent</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="forceChargeDischarge">
 <h3>forceChargeDischarge</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="../force/AbstractForceChargeDischarge.html" title="class in io.openems.edge.battery.protection.force">AbstractForceChargeDischarge</a></span>&nbsp;<span class="element-name">forceChargeDischarge</span></div>
@@ -311,12 +326,13 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(io.openems.edge.common.component.ClockProvider,int,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,java.lang.Double,io.openems.edge.battery.protection.force.AbstractForceChargeDischarge)">
+<section class="detail" id="&lt;init&gt;(io.openems.edge.common.component.ClockProvider,int,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,io.openems.edge.common.linecharacteristic.PolyLine,java.lang.Double,io.openems.edge.battery.protection.force.AbstractForceChargeDischarge)">
 <h3>AbstractMaxCurrentHandler</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">AbstractMaxCurrentHandler</span><wbr><span class="parameters">(<a href="../../../common/component/ClockProvider.html" title="interface in io.openems.edge.common.component">ClockProvider</a>&nbsp;clockProvider,
  int&nbsp;initialBmsMaxEverCurrent,
  <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;voltageToPercent,
  <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;temperatureToPercent,
+ <a href="../../../common/linecharacteristic/PolyLine.html" title="class in io.openems.edge.common.linecharacteristic">PolyLine</a>&nbsp;socToPercent,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;maxIncreasePerSecond,
  <a href="../force/AbstractForceChargeDischarge.html" title="class in io.openems.edge.battery.protection.force">AbstractForceChargeDischarge</a>&nbsp;forceChargeDischarge)</span></div>
 </section>
@@ -410,6 +426,22 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="getBpMaxSocChannelId()">
+<h3>getBpMaxSocChannelId</h3>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></span>&nbsp;<span class="element-name">getBpMaxSocChannelId</span>()</div>
+<div class="block">Gets the ChannelId for Battery-Protection Limit by state of charge.
+
+ <ul>
+ <li><a href="../BatteryProtection.ChannelId.html#BP_CHARGE_MAX_SOC"><code>BatteryProtection.ChannelId.BP_CHARGE_MAX_SOC</code></a>
+ <li><a href="../BatteryProtection.ChannelId.html#BP_DISCHARGE_MAX_SOC"><code>BatteryProtection.ChannelId.BP_DISCHARGE_MAX_SOC</code></a>
+ </ul></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the <a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection"><code>BatteryProtection.ChannelId</code></a></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="getBpForceCurrentChannelId()">
 <h3>getBpForceCurrentChannelId</h3>
 <div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="../BatteryProtection.ChannelId.html" title="enum class in io.openems.edge.battery.protection">BatteryProtection.ChannelId</a></span>&nbsp;<span class="element-name">getBpForceCurrentChannelId</span>()</div>
@@ -457,6 +489,7 @@ loadScripts(document, 'script');</script>
  <li>Voltage-to-Percent characteristics for Max-Cell-Voltage
  <li>Temperature-to-Percent characteristics for Min-Cell-Temperature
  <li>Temperature-to-Percent characteristics for Max-Cell-Temperature
+ <li>SoC-to-Percent characteristics for SoC limitations
  <li>Applied max increase limit (e.g. 0.5 A per second)
  <li>Force Charge/Discharge mode (e.g. -1 A to enforce charge/discharge)
  </ul></div>

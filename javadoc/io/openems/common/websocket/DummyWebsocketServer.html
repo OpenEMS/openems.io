@@ -117,9 +117,6 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="col-second even-row-color"><code><a href="DummyWebsocketServer.Builder.html" class="type-name-link" title="class in io.openems.common.websocket">DummyWebsocketServer.Builder</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
-<div class="inherited-list">
-<h2 id="nested-classes-inherited-from-class-io.openems.common.websocket.AbstractWebsocketServer">Nested classes/interfaces inherited from class&nbsp;io.openems.common.websocket.<a href="AbstractWebsocketServer.html" title="class in io.openems.common.websocket">AbstractWebsocketServer</a></h2>
-<code><a href="AbstractWebsocketServer.DebugMode.html" title="enum class in io.openems.common.websocket">AbstractWebsocketServer.DebugMode</a></code></div>
 </section>
 </li>
 <!-- ========== METHOD SUMMARY =========== -->
@@ -142,10 +139,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="block">Create a Config builder.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="WsData.html" title="class in io.openems.common.websocket">WsData</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createWsData()" class="member-name-link">createWsData</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createWsData(org.java_websocket.WebSocket)" class="member-name-link">createWsData</a><wbr>(org.java_websocket.WebSocket&nbsp;ws)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Creates an empty WsData object that is attached to the WebSocket as early as
- possible.</div>
+<div class="block">Creates an empty WsData object that is attached to the given
+ <code>WebSocket</code> as early as possible.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="OnClose.html" title="interface in io.openems.common.websocket">OnClose</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOnClose()" class="member-name-link">getOnClose</a>()</code></div>
@@ -195,10 +192,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.common.websocket.AbstractWebsocketServer">Methods inherited from class&nbsp;io.openems.common.websocket.<a href="AbstractWebsocketServer.html" title="class in io.openems.common.websocket">AbstractWebsocketServer</a></h3>
-<code><a href="AbstractWebsocketServer.html#broadcastMessage(io.openems.common.jsonrpc.base.JsonrpcMessage)">broadcastMessage</a>, <a href="AbstractWebsocketServer.html#debugLog()">debugLog</a>, <a href="AbstractWebsocketServer.html#debugMetrics()">debugMetrics</a>, <a href="AbstractWebsocketServer.html#execute(java.lang.Runnable)">execute</a>, <a href="AbstractWebsocketServer.html#getConnections()">getConnections</a>, <a href="AbstractWebsocketServer.html#getOnInternalError()">getOnInternalError</a>, <a href="AbstractWebsocketServer.html#getPort()">getPort</a>, <a href="AbstractWebsocketServer.html#handleNonJsonrpcMessage(org.java_websocket.WebSocket,java.lang.String,io.openems.common.exceptions.OpenemsError.OpenemsNamedException)">handleNonJsonrpcMessage</a>, <a href="AbstractWebsocketServer.html#sendMessage(org.java_websocket.WebSocket,io.openems.common.jsonrpc.base.JsonrpcMessage)">sendMessage</a>, <a href="AbstractWebsocketServer.html#start()">start</a>, <a href="AbstractWebsocketServer.html#stop()">stop</a></code></div>
+<code><a href="AbstractWebsocketServer.html#broadcastMessage(io.openems.common.jsonrpc.base.JsonrpcMessage)">broadcastMessage</a>, <a href="AbstractWebsocketServer.html#debugLog()">debugLog</a>, <a href="AbstractWebsocketServer.html#debugMetrics()">debugMetrics</a>, <a href="AbstractWebsocketServer.html#execute(java.lang.Runnable)">execute</a>, <a href="AbstractWebsocketServer.html#getConnections()">getConnections</a>, <a href="AbstractWebsocketServer.html#getOnInternalError()">getOnInternalError</a>, <a href="AbstractWebsocketServer.html#getPort()">getPort</a>, <a href="AbstractWebsocketServer.html#start()">start</a>, <a href="AbstractWebsocketServer.html#stop()">stop</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-io.openems.common.websocket.AbstractWebsocket">Methods inherited from class&nbsp;io.openems.common.websocket.<a href="AbstractWebsocket.html" title="class in io.openems.common.websocket">AbstractWebsocket</a></h3>
-<code><a href="AbstractWebsocket.html#getName()">getName</a>, <a href="AbstractWebsocket.html#handleInternalErrorAsync(java.lang.Throwable,java.lang.String)">handleInternalErrorAsync</a>, <a href="AbstractWebsocket.html#handleInternalErrorSync(java.lang.Throwable,java.lang.String)">handleInternalErrorSync</a></code></div>
+<code><a href="AbstractWebsocket.html#getName()">getName</a>, <a href="AbstractWebsocket.html#handleInternalError(java.lang.Throwable,java.lang.String)">handleInternalError</a>, <a href="AbstractWebsocket.html#sendMessage(org.java_websocket.WebSocket,io.openems.common.jsonrpc.base.JsonrpcMessage)">sendMessage</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -225,15 +222,17 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 </section>
 </li>
 <li>
-<section class="detail" id="createWsData()">
+<section class="detail" id="createWsData(org.java_websocket.WebSocket)">
 <h3>createWsData</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="WsData.html" title="class in io.openems.common.websocket">WsData</a></span>&nbsp;<span class="element-name">createWsData</span>()</div>
-<div class="block"><span class="description-from-type-label">Description copied from class:&nbsp;<code><a href="AbstractWebsocket.html#createWsData()">AbstractWebsocket</a></code></span></div>
-<div class="block">Creates an empty WsData object that is attached to the WebSocket as early as
- possible.</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="WsData.html" title="class in io.openems.common.websocket">WsData</a></span>&nbsp;<span class="element-name">createWsData</span><wbr><span class="parameters">(org.java_websocket.WebSocket&nbsp;ws)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from class:&nbsp;<code><a href="AbstractWebsocket.html#createWsData(org.java_websocket.WebSocket)">AbstractWebsocket</a></code></span></div>
+<div class="block">Creates an empty WsData object that is attached to the given
+ <code>WebSocket</code> as early as possible.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="AbstractWebsocket.html#createWsData()">createWsData</a></code>&nbsp;in class&nbsp;<code><a href="AbstractWebsocket.html" title="class in io.openems.common.websocket">AbstractWebsocket</a>&lt;<a href="WsData.html" title="class in io.openems.common.websocket">WsData</a>&gt;</code></dd>
+<dd><code><a href="AbstractWebsocket.html#createWsData(org.java_websocket.WebSocket)">createWsData</a></code>&nbsp;in class&nbsp;<code><a href="AbstractWebsocket.html" title="class in io.openems.common.websocket">AbstractWebsocket</a>&lt;<a href="WsData.html" title="class in io.openems.common.websocket">WsData</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>ws</code> - the <code>WebSocket</code></dd>
 <dt>Returns:</dt>
 <dd>the typed <a href="WsData.html" title="class in io.openems.common.websocket"><code>WsData</code></a></dd>
 </dl>
@@ -360,13 +359,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="close()">
 <h3>close</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">close</span>()
-           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">close</span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/AutoCloseable.html#close()" title="class or interface in java.lang" class="external-link">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></code></dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></code></dd>
 </dl>
 </section>
 </li>

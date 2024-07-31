@@ -39,7 +39,7 @@ loadScripts(document, 'script');</script>
 <p>Summary:</p>
 <ul>
 <li>Nested</li>
-<li>Field</li>
+<li><a href="#field-summary">Field</a></li>
 <li><a href="#constructor-summary">Constr</a></li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
@@ -59,7 +59,7 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
@@ -91,7 +91,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../common/websocket/OnRequest.html" title="interface in io.openems.common.websocket">OnRequest</a></code></dd>
+<dd><code><a href="../../common/function/ThrowingBiFunction.html" title="interface in io.openems.common.function">ThrowingBiFunction</a>&lt;org.java_websocket.WebSocket,<wbr><a href="../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;,<wbr><a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</code>, <code><a href="../../common/websocket/OnRequest.html" title="interface in io.openems.common.websocket">OnRequest</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">OnRequest</span>
@@ -100,6 +100,15 @@ implements <a href="../../common/websocket/OnRequest.html" title="interface in i
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-io.openems.common.websocket.OnRequest">Fields inherited from interface&nbsp;io.openems.common.websocket.<a href="../../common/websocket/OnRequest.html" title="interface in io.openems.common.websocket">OnRequest</a></h3>
+<code><a href="../../common/websocket/OnRequest.html#NO_OP">NO_OP</a></code></div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -125,7 +134,7 @@ implements <a href="../../common/websocket/OnRequest.html" title="interface in i
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;? extends <a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run(org.java_websocket.WebSocket,io.openems.common.jsonrpc.base.JsonrpcRequest)" class="member-name-link">run</a><wbr>(org.java_websocket.WebSocket&nbsp;ws,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#apply(org.java_websocket.WebSocket,io.openems.common.jsonrpc.base.JsonrpcRequest)" class="member-name-link">apply</a><wbr>(org.java_websocket.WebSocket&nbsp;ws,
  <a href="../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Handle a JSON-RPC Request, receive a JSON-RPC Response via callback.</div>
@@ -162,17 +171,19 @@ implements <a href="../../common/websocket/OnRequest.html" title="interface in i
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="run(org.java_websocket.WebSocket,io.openems.common.jsonrpc.base.JsonrpcRequest)">
-<h3>run</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">run</span><wbr><span class="parameters">(org.java_websocket.WebSocket&nbsp;ws,
+<section class="detail" id="apply(org.java_websocket.WebSocket,io.openems.common.jsonrpc.base.JsonrpcRequest)">
+<h3>apply</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;</span>&nbsp;<span class="element-name">apply</span><wbr><span class="parameters">(org.java_websocket.WebSocket&nbsp;ws,
  <a href="../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>&nbsp;request)</span>
-                                                        throws <span class="exceptions"><a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a>,
+                                                          throws <span class="exceptions"><a href="../../common/exceptions/OpenemsException.html" title="class in io.openems.common.exceptions">OpenemsException</a>,
 <a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a></span></div>
-<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../common/websocket/OnRequest.html#run(org.java_websocket.WebSocket,io.openems.common.jsonrpc.base.JsonrpcRequest)">OnRequest</a></code></span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../common/websocket/OnRequest.html#apply(org.java_websocket.WebSocket,io.openems.common.jsonrpc.base.JsonrpcRequest)">OnRequest</a></code></span></div>
 <div class="block">Handle a JSON-RPC Request, receive a JSON-RPC Response via callback.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../common/websocket/OnRequest.html#run(org.java_websocket.WebSocket,io.openems.common.jsonrpc.base.JsonrpcRequest)">run</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/websocket/OnRequest.html" title="interface in io.openems.common.websocket">OnRequest</a></code></dd>
+<dd><code><a href="../../common/websocket/OnRequest.html#apply(org.java_websocket.WebSocket,io.openems.common.jsonrpc.base.JsonrpcRequest)">apply</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/websocket/OnRequest.html" title="interface in io.openems.common.websocket">OnRequest</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="../../common/function/ThrowingBiFunction.html#apply(T,U)">apply</a></code>&nbsp;in interface&nbsp;<code><a href="../../common/function/ThrowingBiFunction.html" title="interface in io.openems.common.function">ThrowingBiFunction</a>&lt;org.java_websocket.WebSocket,<wbr><a href="../../common/jsonrpc/base/JsonrpcRequest.html" title="class in io.openems.common.jsonrpc.base">JsonrpcRequest</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;? extends <a href="../../common/jsonrpc/base/JsonrpcResponseSuccess.html" title="class in io.openems.common.jsonrpc.base">JsonrpcResponseSuccess</a>&gt;,<wbr><a href="../../common/exceptions/OpenemsError.OpenemsNamedException.html" title="class in io.openems.common.exceptions">OpenemsError.OpenemsNamedException</a>&gt;</code></dd>
 <dt>Parameters:</dt>
 <dd><code>ws</code> - the <code>WebSocket</code></dd>
 <dd><code>request</code> - the JSON-RPC Request</dd>
