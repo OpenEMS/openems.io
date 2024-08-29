@@ -226,11 +226,250 @@
 </aside>
 <article class="doc">
 <h1 class="page">Bridge</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>To simplify the implementation of hardware that is connected via certain standardized physical connection layers and protocols, those are implemented as Bridges.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_http"><a class="anchor" href="#_http"></a>1. Http</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Unresolved include directive in modules/ROOT/pages/edge/bridge.adoc - include::bridge.adoc.d/_include.adoc[]</p>
+<p>Http is a widely used standard for web communication. It is used for some hardware devices like electric meters, relays and so on.
+The standard architecture used by the devices are RESTful api&#8217;s.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.bridge.http">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_m_bus"><a class="anchor" href="#_m_bus"></a>2. M-Bus</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>M-Bus is a widely used standard for fieldbus communication. It enables connection to M-Bus devices like meters.</p>
+</div>
+<div class="sect2">
+<h3 id="_setup_note"><a class="anchor" href="#_setup_note"></a>2.1. Setup note</h3>
+<div class="paragraph">
+<p>This bridge depends on jMbus, a user guide for it can be found at <a href="https://www.openmuc.org/m-bus/user-guide/" class="bare">https://www.openmuc.org/m-bus/user-guide/</a>.</p>
+</div>
+<div class="paragraph">
+<p>Note: For jMbus to work you need to install the native part of RxTx which is a library for serial port
+communication jMbus is dependent on. See paragraph 2.5 for further information.</p>
+</div>
+<div class="paragraph">
+<p>For Linux users: In case the RxTx library cannot be found under /usr/lib/jni you can try to move all .so files of that directory to
+/usr/lib (see <a href="https://community.openems.io/t/loading-library-from-external-jar/134/3">OpenEMS Community</a>).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modbus"><a class="anchor" href="#_modbus"></a>3. Modbus</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Modbus is a widely used standard for fieldbus communications. It is used by all kinds of hardware devices like photovoltaics inverters, electric meters, and so on.</p>
+</div>
+<div class="sect2">
+<h3 id="_modbustcp"><a class="anchor" href="#_modbustcp"></a>3.1. Modbus/TCP</h3>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusTcpImpl.java">Bridge Modbus/TCP</a> for fieldbus communication via TCP/IP network.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modbusrtu"><a class="anchor" href="#_modbusrtu"></a>3.2. Modbus/RTU</h3>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusSerialImpl.java">Bridge Modbus/RTU Serial</a> for fieldbus communication via RS485 serial bus.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementation_details"><a class="anchor" href="#_implementation_details"></a>3.3. Implementation details</h3>
+<div class="paragraph">
+<p>OpenEMS Components that use Modbus communication, must implement the <code>ModbusComponent</code> interface and provide a <code>ModbusProtocol</code>. A protocol uses the notion of a <code>Task</code> to define an individual Modbus Read or Write request that can cover multiple Modbus Registers or Coils depending on the Modbus function code. It is possible to add or remove tasks to/from a protocol at runtime or to change the execution <code>Priority</code>. The Modbus Bridge (<code>Bridge Modbus/RTU Serial</code> or <code>Bridge Modbus/TCP</code>) collects all protocols and manages the execution of Tasks.</p>
+</div>
+<div class="sect3">
+<h4 id="_execution_of_modbus_tasks"><a class="anchor" href="#_execution_of_modbus_tasks"></a>3.3.1. Execution of Modbus Tasks</h4>
+<div class="paragraph">
+<p>Execution of Modbus Tasks is managed by the <code>ModbusWorker</code>. It&#8230;&#8203;
+- executes Write-Tasks as early as possible (directly after the EXECUTE_WRITE event)
+- executes Read-Tasks as late as possible to have values available exactly when they are needed (i.e. just before the BEFORE_PROCESS_IMAGE event). To achieve this, the ModbusWorker evaluates all execution times and 'learns' an ideal delay time, that is applied on every Cycle - the 'CycleDelay'
+- handles defective ModbusComponents (i.e. ones where tasks have repeatedly failed) and delays reading from/writing to those components in order to avoid having defective components block the entire communication bus. Maximum delay is 5 minutes for read from defective components. ModbusComponents can trigger a retry from a defective Component by calling the <code>retryModbusCommunication()</code> method.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_priority"><a class="anchor" href="#_priority"></a>3.3.2. Priority</h4>
+<div class="paragraph">
+<p>Read-Tasks can have two different priorities, that are defined in the ModbusProtocol definition:
+- <code>HIGH</code>: the task is executed once every Cycle
+- <code>LOW</code>: only one task of all defined LOW priority tasks of all components registered on the same bridge is executed per Cycle
+Write-Tasks always have <code>HIGH</code> priority, i.e. a set-point is always executed as-soon-as-possible - as long as the Component is not marked as defective</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_channels"><a class="anchor" href="#_channels"></a>3.3.3. Channels</h4>
+<div class="paragraph">
+<p>Each Modbus Bridge provides Channels for more detailed information:
+- <code>CycleTimeIsTooShort</code>: the configured global Cycle-Time is too short to execute all planned tasks in one Cycle
+- <code>CycleDelay</code>: see 'CycleDelay' in the 'ModbusWorker' description above</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_logging"><a class="anchor" href="#_logging"></a>3.3.4. Logging</h4>
+<div class="paragraph">
+<p>Often it is useful to print detailed logging information on the Console for debugging purposes. Logging can be enabled on Task level in the definition of the ModbusProtocol by adding <code>.debug()</code> or globally per Modbus Bridge via the <code>LogVerbosity</code> configuration parameter:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NONE</code>: Show no logs</p>
+</li>
+<li>
+<p><code>DEBUG_LOG</code>: Shows basic logging information via the Controller.Debug.Log</p>
+</li>
+<li>
+<p><code>READS_AND_WRITES</code>: Show logs for all read and write requests</p>
+</li>
+<li>
+<p><code>READS_AND_WRITES_VERBOSE</code>: Show logs for all read and write requests, including actual hex or binary values of request and response</p>
+</li>
+<li>
+<p><code>READS_AND_WRITES_DURATION</code>: Show logs for all read and write requests, including actual duration time per request</p>
+</li>
+<li>
+<p><code>READS_AND_WRITES_DURATION_TRACE_EVENTS</code>: Show logs for all read and write requests, including actual duration time per request &amp; trace the internal Event-based State-Machine</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The log level via configuration parameter may be changed at any time during runtime without side-effects on the communication.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_onewire"><a class="anchor" href="#_onewire"></a>4. OneWire</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OneWire is a widely used protocol for home automation. It is used by sensors like thermometers.</p>
+</div>
+<div class="sect2">
+<h3 id="_setup"><a class="anchor" href="#_setup"></a>4.1. Setup</h3>
+<div class="paragraph">
+<p>This implementation directly talks to the OneWire busmaster, e.g. a DS9490R USB dongle, without requiring the OneWire File System (OWFS).
+It therefore requires the natively compiled C library by the manufacturer of the OneWire chip Maxim Integrated.
+This library is then accessed using Java JNI.</p>
+</div>
+<div class="paragraph">
+<p>To compile the native library follow the guide on <a href="https://www.maximintegrated.com/en/design/technical-documents/app-notes/5/5917.html" class="bare">https://www.maximintegrated.com/en/design/technical-documents/app-notes/5/5917.html</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download the OneWireViewer-Linux.zip file</p>
+</li>
+<li>
+<p>Unzip the file (<code>unzip OneWireViewer-Linux.zip</code>)</p>
+</li>
+<li>
+<p>Prepare compile environment (<code>sudo apt-get install libusb-dev build-essential</code>)</p>
+</li>
+<li>
+<p>Install Java JDK (e.g. <code>sudo apt-get install openjdk-8-jdk</code>)</p>
+</li>
+<li>
+<p>Compile (<code>cd OneWireViewer-Linux/PDKAdapterUSB &amp;&amp; make &amp;&amp; sudo make install</code>)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The library needs exclusive access to the busmaster.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Unload the default Linux driver: <code>rmmod ds2490</code></p>
+</li>
+<li>
+<p>Block the driver from loading on next boot <code>echo blacklist ds2490 &gt; /etc/modprobe.d/ds2490.conf</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_identifying_devices"><a class="anchor" href="#_identifying_devices"></a>4.2. Identifying devices</h3>
+<div class="paragraph">
+<p>The OneWire Bridge provides a JSON-RPC Request that reads all devices connected to the OneWire bus.</p>
+</div>
+<div class="paragraph">
+<p>Example: read via OpenEMS Backend</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "method": "edgeRpc",
+  "params": {
+    "edgeId": "edge0",
+    "payload":{
+      "method": "componentJsonApi",
+      "params": {
+        "componentId": "onewire0",
+        "payload": {
+          "method": "getDevices",
+          "params": {}
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example Response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "jsonrpc":"2.0",
+  "id":"UUID",
+  "result":{
+    "payload":{
+      "jsonrpc":"2.0",
+      "id":"UUID",
+      "result":{
+        "devices":[
+          {
+            "address":"4D0000094xxxxxxx",
+            "name":"DS18B20",
+            "alternateName":"DS1820B, DS18B20X",
+            "description":"Digital thermometer measures temperatures from -55C to 125C in 0.75 seconds (max).  +/- 0.5C accuracy between -10C and 85C. Thermometer resolution is programmable at 9, 10, 11, and 12 bits. ",
+            "details":{
+              "type":"TemperatureContainer",
+              "temperature":17.5625
+            }
+          },
+          {
+            "address":"6F0000022xxxxxxx",
+            "name":"DS2438",
+            "alternateName":"Smart Battery Monitor",
+            "description":"1-Wire device that integrates the total current charging or discharging through a battery and stores it in a register. It also returns the temperature (accurate to 2 degrees celsius), as well as the instantaneous current and voltage and also provides 40 bytes of EEPROM storage.",
+            "details":{
+              "type":"TemperatureContainer",
+              "temperature":19.3125
+            }
+          }
+        ]
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </article>
   </div>

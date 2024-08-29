@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Timedata Aggregated InfluxDB :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/backend/service.adoc.d/io.openems.backend.timedata.aggregatedinflux.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://openems.github.io/openems.io">Open Energy Management System</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+            <span class="gitlink">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="openems" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/nature.html">Nature</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/bridge.html">Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/device_service.html">Device &amp; Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/deploy.html">Deploy OpenEMS Edge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/setup-ide.html">Setup IDE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/chart.html">Chart</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadata.html">Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../service.html">Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../build.html">Build OpenEMS Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploy.html">Deploy OpenEMS Backend</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Simulation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/gitpod.html">Live-Demo on Gitpod</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/realtime.html">Real-Time Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/ui-history.html">UI History Simulation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Contribute</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../contribute/coding-guidelines.html">Coding Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../contribute/documentation.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../introduction.html">Open Energy Management System</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../introduction.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../introduction.html">Open Energy Management System</a></li>
+    <li><a href="io.openems.backend.timedata.aggregatedinflux.html">Timedata Aggregated InfluxDB</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/backend/service.adoc.d/io.openems.backend.timedata.aggregatedinflux.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Timedata Aggregated InfluxDB</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenEMS Backend implementation for aggregated InfluxDB access.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Bundle is needed for highly optimized environments with
+thousands of connected edges only. If you do not need that functionality you can skip this chapter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A large number of OpenEMS edges connected to a single backend leads to a performance bottleneck.
+The bottleneck is mainly due to the access to the database. This <code>Aggregated InfluxDB</code> bundle in
+combination with the <a href="io.openems.backend.timedata.influx.html" class="xref page">Timedata Influx</a>
+bundle can mitigate this bottleneck. This happens by writing all data as usual via <a href="io.openems.backend.timedata.influx.html" class="xref page">Timedata Influx</a> into
+an Influx database (<code>DB 1</code>). Furthermore, all "aggregated data" (see <a href="../timedata.html" class="xref page">edge datatypes</a>) are written via the <code>Aggregated InfluxDB</code> bundle to
+another database (<code>DB 2</code>) located on another server.
+Thus <code>DB 1</code> holds all data in high resolution, while <code>DB 2</code> only holds very few data (5-minute averages for power values
+ or only daily values for energy). Furthermore, a retention policy of e.g. 90 days is applied to <code>DB 2</code>.
+Thus <code>DB 1</code> provides relatively slow access to a huge amount of data
+and <code>DB 2</code> provides fast and responsive access to a relatively small database.</p>
+</div>
+<div class="paragraph">
+<p>Within OpenEMS backend access to both databases is managed by the
+<a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.backend.core/src/io/openems/backend/core/timedatamanager/TimedataManagerImpl.java">TimedataManager</a>.
+The TimedataManager writes edge relevant data to <strong>all</strong> Timedata providers,
+whereas it reads data only from the <strong>first</strong> Timedata provider,
+ which can deliver.
+Assuming correct configuration, TimedataManager first returns historical data
+from <code>DB 2</code> (fast and responsive).
+And only in a very few cases it gets the data from <code>DB 1</code>
+(probably slower).</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>Timedata.AggregatedInfluxDB</code> includes a class <code>AllowedChannels.java</code>.
+This implementation includes a <strong>hardcoded</strong> list of channels:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ALLOWED_AVERAGE_CHANNELS</code> are used to calculate the 5min average values (e.g. average power values).</p>
+</li>
+<li>
+<p><code>ALLOWED_CUMULATED_CHANNELS</code> are used to calculate daily values (e.g. energy values).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This list must be adopted to a concrete usecase. It strongly depends on</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>your strategy to select component-IDs.</p>
+</li>
+<li>
+<p>the components you are using within OpenEMS.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you detect some widgets within your OpenEMS-UI which hava empty values,
+it may have to do with an incorrect hardcoded list.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_setup"><a class="anchor" href="#_configuration_setup"></a>Configuration Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you expect your backend to handle thousands of connected edges,
+the following configuration may provide a good start setup:</p>
+</div>
+<div class="paragraph">
+<p><strong>Create database and set retention policy:</strong></p>
+</div>
+<div class="paragraph">
+<p>Before starting the OpenEMS backend and after intially setting up the influx servers,
+you need to create the databases <code>influx0</code> and <code>aggregated0</code>
+and some retention policies:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">##### Influx Server 1 #####
+curl -i -XPOST http://127.0.0.1:8082/query --data-urlencode "q=CREATE DATABASE influx0"
+
+##### Influx Server 2 #####
+curl -i -XPOST http://127.0.0.1:8081/query --data-urlencode "q=CREATE DATABASE aggregated0"
+
+curl -i -XPOST http://127.0.0.1:8081/query --data-urlencode "q=CREATE RETENTION POLICY rp_max ON aggregated0 DURATION 90d REPLICATION 1"
+curl -i -XPOST http://127.0.0.1:8081/query --data-urlencode "q=CREATE RETENTION POLICY rp_avg ON aggregated0 DURATION 90d REPLICATION 1"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>OpenEMS backend configuration:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>bundle <code>Timedata.AggregatedInfluxDB</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>ComponentID: <code>timedata0</code></p>
+</li>
+<li>
+<p>QueryLanguage: <code>INFLUX_QL</code></p>
+</li>
+<li>
+<p>URL: <a href="http://127.0.0.1:8081" class="bare">http://127.0.0.1:8081</a></p>
+</li>
+<li>
+<p>Apikey: <code>influxuser:influxpassword</code></p>
+</li>
+<li>
+<p>Bucket: <code>aggregated0</code></p>
+</li>
+<li>
+<p>Retention policy for avg values: <code>rp_avg</code></p>
+</li>
+<li>
+<p>Retention policy for max values: <code>rp_max</code></p>
+</li>
+<li>
+<p>Measurement Avg: <code>avg</code></p>
+</li>
+<li>
+<p>Measurement for max values: <code>Europe/Berlin=max</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>bundle <code>Timedata.InfluxDB</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>ComponentID: <code>timedata1</code></p>
+</li>
+<li>
+<p>QueryLanguage: <code>INFLUX_QL</code></p>
+</li>
+<li>
+<p>URL: <a href="http://127.0.0.1:8082" class="bare">http://127.0.0.1:8082</a></p>
+</li>
+<li>
+<p>Org: <code>-</code></p>
+</li>
+<li>
+<p>Apikey: <code>influxuser:influxpassword</code></p>
+</li>
+<li>
+<p>Bucket: <code>influx0/autogen</code></p>
+</li>
+<li>
+<p>Measurement: <code>data</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>bundle <code>Core Timedata-Manager</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Timedata-IDs:  <code>[timedata0, timedata1]</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Note the different Bucket namings, one with retention policy <code>autogen</code> and one without.</p>
+</li>
+<li>
+<p>Make sure that your influx databases are located on two different servers
+or that you can easily move one database to another server later.</p>
+</li>
+<li>
+<p>Be sure that the sequence within the <code>Core Timedata-Manager</code> is
+configured correctly - the component-ID of the <code>Timedata.AggregatedInfluxDB</code>
+comes first.</p>
+</li>
+<li>
+<p>Influx Database must have at least Version 1.8.10.</p>
+</li>
+<li>
+<p>Take care of your edge to backend connections on the edge side. Be sure to understand and select the right <code>PersistencePriority</code> for the different datatypes.</p>
+</li>
+<li>
+<p>Remember the hardcoded list in <em>AllowedChannels.java</em></p>
+</li>
+<li>
+<p>Note that you can shift the load of your databases by choosing different retention policies.</p>
+</li>
+<li>
+<p>Be sure you know exactly how Influx handles <strong>reading</strong> and <strong>writing</strong> data when using different retention policies on one database.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.backend.timedata.influx.aggregatedinflux">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

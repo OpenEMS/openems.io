@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Symmetric Balancing Schedule :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/controller.adoc.d/io.openems.edge.controller.symmetric.balancingschedule.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://openems.github.io/openems.io">Open Energy Management System</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+            <span class="gitlink">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="openems" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../nature.html">Nature</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../bridge.html">Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../device_service.html">Device &amp; Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploy.html">Deploy OpenEMS Edge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/setup-ide.html">Setup IDE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/chart.html">Chart</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/metadata.html">Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/service.html">Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/build.html">Build OpenEMS Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/deploy.html">Deploy OpenEMS Backend</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Simulation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/gitpod.html">Live-Demo on Gitpod</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/realtime.html">Real-Time Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/ui-history.html">UI History Simulation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Contribute</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../contribute/coding-guidelines.html">Coding Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../contribute/documentation.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../introduction.html">Open Energy Management System</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../introduction.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../introduction.html">Open Energy Management System</a></li>
+    <li><a href="io.openems.edge.controller.symmetric.balancingschedule.html">Symmetric Balancing Schedule</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/controller.adoc.d/io.openems.edge.controller.symmetric.balancingschedule.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Symmetric Balancing Schedule</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls a symmetric energy storage system in balancing mode. The control algorithm charges or discharges the battery in order to reach a given power target set-point at the grid connection point. If the target set-point is defined as zero, the behaviour is like with self-consumption optimization.</p>
+</div>
+<div class="paragraph">
+<p>This controller allows two ways of controlling the power target set-point:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>1. Definition of a power target set-point Schedule</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The static configuration parameter "schedule" takes a Schedule of set-points as a Json-Array. An example schedule looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+	{
+		"startTimestamp": 1577836800,
+		"duration": 900,
+		"activePowerSetPoint": 0
+	}, {
+		"startTimestamp": 1577837700,
+		"duration": 900,
+		"activePowerSetPoint": -2000
+	}
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This schedule will activate a power target set-point of zero starting at the epoch time 1577836800 (i.e. <strong>seconds</strong> since 1st January 2020 00:00:00 <strong>in timezone UTC</strong>), that lasts for 900 seconds (i.e. 15 minutes).
+Afterwards - from 1577837700 - for another 900 seconds a  set-point of -2000 W (i.e. feeding 2000 W to the grid) is targeted.
+After the second period passes, no more charging or discharging commands are set on the battery.</p>
+</div>
+<div class="paragraph">
+<p>The schedule configuration parameter may be updated</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>via a browser using the OpenEMS user interface</p>
+</li>
+<li>
+<p>using the <a href="https://openems.github.io/openems.io/openems/latest/backend/backend-to-backend.html#_setgridconnschedule"><code>SetGridConnSchedule</code> JSON-RPC Request via OpenEMS Backend</a></p>
+</li>
+<li>
+<p>using a direct <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.common/src/io/openems/common/jsonrpc/request/SetGridConnScheduleRequest.java">SetGridConnScheduleRequest</a> via <a href="https://openems.github.io/openems.io/openems/latest/component-communication/index.html#_communicate_with_a_specific_edge_component">JsonApi</a></p>
+</li>
+<li>
+<p>or using the <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/shared/jsonrpc/request/updateComponentConfigRequest.ts"><code>UpdateComponentConfigRequest</code> JSON-RPC Request</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Be aware that an <code>UpdateComponentConfigRequest</code> will always result in a actual configuration file being updated by Apache Felix Configuration Admin, so this command should not be used too frequently, e.g. only once per day. The <code>SetGridConnScheduleRequest</code> variant runs only in memory and is not persisted. Downside is, that if OpenEMS Edge gets restarted, the schedule is lost.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>2. Immediate control of the power target set-point</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The power target set-point may also be controlled directly via the <code>GridActivePowerSetPoint</code> channel. E.g. if the controller component has the Id <code>ctrlBalancingSchedule0</code> one can use e.g. the <a href="https://openems.github.io/openems.io/openems/latest/edge/controller.html#_rest_api_controller">REST-Api Controller</a> and write</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+	"value": 5000
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>to the channel <code>ctrlBalancingSchedule0/GridActivePowerSetPoint</code> (e.g. ` <a href="http://x:user@localhost:8084/rest/channel/ctrlBalancingSchedule0/GridActivePowerSetPoint`" class="bare">http://x:user@localhost:8084/rest/channel/ctrlBalancingSchedule0/GridActivePowerSetPoint`</a>), to set a temporary power target set-point of 5000.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.symmetric.balancingschedule">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
