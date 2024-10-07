@@ -226,16 +226,14 @@
 </aside>
 <article class="doc">
 <h1 class="page">Deploy OpenEMS Backend</h1>
-<div id="preamble">
+<div class="sect1">
+<h2 id="_debian_linux"><a class="anchor" href="#_debian_linux"></a>1. Debian Linux</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter explains how OpenEMS Backend can be deployed on a Debian Linux server. Similar techniques will work for other operating systems as well.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_prepare_operating_system_environment"><a class="anchor" href="#_prepare_operating_system_environment"></a>1. Prepare operating system environment</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_prepare_operating_system_environment"><a class="anchor" href="#_prepare_operating_system_environment"></a>1.1. Prepare operating system environment</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -248,8 +246,8 @@ It is recommended to run every service on a server with limited permissions. Thi
 </tr>
 </table>
 </div>
-<div class="sect2">
-<h3 id="_create_an_application_directory"><a class="anchor" href="#_create_an_application_directory"></a>1.1. Create an application directory</h3>
+<div class="sect3">
+<h4 id="_create_an_application_directory"><a class="anchor" href="#_create_an_application_directory"></a>1.1.1. Create an application directory</h4>
 <div class="paragraph">
 <p>Create the directory <strong>/opt/openems-backend</strong>. This is going to be the place, where we put the JAR file.</p>
 </div>
@@ -257,8 +255,8 @@ It is recommended to run every service on a server with limited permissions. Thi
 <p>Execute <code>mkdir /opt/openems-backend</code>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_create_a_config_directory"><a class="anchor" href="#_create_a_config_directory"></a>1.2. Create a config directory</h3>
+<div class="sect3">
+<h4 id="_create_a_config_directory"><a class="anchor" href="#_create_a_config_directory"></a>1.1.2. Create a config directory</h4>
 <div class="paragraph">
 <p>Create the directory <strong>/opt/openems-backend/config.d</strong>. This is going to be the place, where all the bundle configurations are held.</p>
 </div>
@@ -266,8 +264,8 @@ It is recommended to run every service on a server with limited permissions. Thi
 <p>Execute <code>mkdir /opt/openems-backend/config.d</code>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_create_a_systemd_service_definition"><a class="anchor" href="#_create_a_systemd_service_definition"></a>1.3. Create a systemd service definition</h3>
+<div class="sect3">
+<h4 id="_create_a_systemd_service_definition"><a class="anchor" href="#_create_a_systemd_service_definition"></a>1.1.3. Create a systemd service definition</h4>
 <div class="paragraph">
 <p>The systemd 'Service Manager' manages system processes in a Debian Linux. We will create a systemd service definition file, so that systemd takes care of managing (starting/restarting/&#8230;&#8203;) the OpenEMS Backend service.</p>
 </div>
@@ -350,8 +348,9 @@ WantedBy=multi-user.target</pre>
 </ol>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_start_openems_backend"><a class="anchor" href="#_start_openems_backend"></a>1.4. Start OpenEMS Backend</h3>
+<h3 id="_start_openems_backend"><a class="anchor" href="#_start_openems_backend"></a>1.2. Start OpenEMS Backend</h3>
 <div class="paragraph">
 <p>To update the OpenEMS JAR file at the target device, it is required to copy the JAR file from your build directory to <code>/opt/openems-backend/openems-backend.jar</code> on the server. Afterwards it is required to restart the systemd service</p>
 </div>
@@ -367,6 +366,127 @@ WantedBy=multi-user.target</pre>
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_docker"><a class="anchor" href="#_docker"></a>2. Docker</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter explains how OpenEMS Backend can be deployed using our official <a href="https://hub.docker.com/r/openems/backend">Docker image</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_prepare_system"><a class="anchor" href="#_prepare_system"></a>2.1. Prepare system</h3>
+<div class="sect3">
+<h4 id="_connect_to_the_server"><a class="anchor" href="#_connect_to_the_server"></a>2.1.1. Connect to the server</h4>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/deploy-docker-ssh.png" alt="SSH into device">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_check_docker_installation"><a class="anchor" href="#_check_docker_installation"></a>2.1.2. Check docker installation</h4>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/deploy-docker-backend-check-version.png" alt="Check docker installation">
+</div>
+</div>
+<div class="paragraph">
+<p><em>if not already installed, follow <a href="#_setup_docker">Setup docker</a></em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_setup_docker"><a class="anchor" href="#_setup_docker"></a>2.1.3. Setup docker</h4>
+<div class="paragraph">
+<p>To setup docker follow the instuctions from <a href="https://docs.docker.com/engine/install/">docs.docker.com</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_a_docker_compose"><a class="anchor" href="#_create_a_docker_compose"></a>2.2. Create a Docker compose</h3>
+<div class="paragraph">
+<p>Paste content into a <code>docker-compose.yml</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>services:
+  openems_backend:
+    image: openems/backend:latest
+    container_name: openems_backend
+    hostname: openems_backend
+    restart: unless-stopped
+    volumes:
+      - openems-backend-conf:/var/opt/openems/config:rw
+      - openems-backend-data:/var/opt/openems/data:rw
+    ports:
+      - 8079:8079 # Apache-Felix
+      - 8081:8081 # Edge-Websocket
+      - 8082:8082 # UI-Websocket
+
+  openems-ui:
+    image: openems/ui-backend:latest
+    container_name: openems_ui
+    hostname: openems_ui
+    restart: unless-stopped
+    volumes:
+      - openems-ui-conf:/etc/nginx:rw
+      - openems-ui-log:/var/log/nginx:rw
+    environment:
+      - UI_WEBSOCKET=ws://&lt;hostname&gt;:8082 # Change to your actual hostname or ip
+    ports:
+      - 80:80
+      - 443:443
+
+volumes:
+  openems-backend-conf:
+  openems-backend-data:
+  openems-ui-conf:
+  openems-ui-log:</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_run_compose_file"><a class="anchor" href="#_run_compose_file"></a>2.3. Run compose file</h3>
+<div class="paragraph">
+<p>To start the previously created <code>docker-compose.yml</code> run the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>docker compose up -d</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_check_logs"><a class="anchor" href="#_check_logs"></a>2.4. Check logs</h3>
+<div class="paragraph">
+<p>To check if the container is up and running, check <code>docker ps</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/deploy-docker-backend.png" alt="docker ps">
+</div>
+</div>
+<div class="paragraph">
+<p>or read its logs with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>docker logs openems_backend</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you want to run the backand with an InfluxDB instance as well, see: <a href="https://github.com/OpenEMS/openems/tree/develop/tools/docker/backend" class="bare">https://github.com/OpenEMS/openems/tree/develop/tools/docker/backend</a>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
