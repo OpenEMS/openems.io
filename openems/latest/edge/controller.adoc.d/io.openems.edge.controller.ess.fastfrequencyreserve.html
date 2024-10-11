@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ESS Fast Frequency Reserve :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/controller.adoc.d/io.openems.edge.controller.ess.fastfrequencyreserve.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://openems.github.io/openems.io">Open Energy Management System</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+            <span class="gitlink">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="openems" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../nature.html">Nature</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../bridge.html">Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../device_service.html">Device &amp; Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploy.html">Deploy OpenEMS Edge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/setup-ide.html">Setup IDE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/chart.html">Chart</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/metadata.html">Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/service.html">Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/build.html">Build OpenEMS Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/deploy.html">Deploy OpenEMS Backend</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Simulation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/gitpod.html">Live-Demo on Gitpod</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/realtime.html">Real-Time Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/ui-history.html">UI History Simulation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Contribute</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../contribute/coding-guidelines.html">Coding Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../contribute/documentation.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../introduction.html">Open Energy Management System</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../introduction.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../introduction.html">Open Energy Management System</a></li>
+    <li><a href="io.openems.edge.controller.ess.fastfrequencyreserve.html">ESS Fast Frequency Reserve</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/controller.adoc.d/io.openems.edge.controller.ess.fastfrequencyreserve.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">ESS Fast Frequency Reserve</h1>
+<div class="sect1">
+<h2 id="_1_1_introduction"><a class="anchor" href="#_1_1_introduction"></a>1.1 Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In electricity networks, the Fast Frequency Reserve (FFR) controller is providing power available to the system operator within a short interval to meet demand in case of a frequency drop, i.e. in case a generator goes down or there is another disruption to the supply. More details on <a href="https://en.wikipedia.org/wiki/Operating_reserve">Wikipedia</a>.</p>
+</div>
+<div class="paragraph">
+<p>This controller helps the Energy Storage System (ESS) to provide power, essentially battery discharge, when the measured "Grid frequency" is lower than that of a defined "Frequency limit".</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_2_controller_parameters"><a class="anchor" href="#_1_2_controller_parameters"></a>1.2 Controller Parameters</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>mode</strong>: mode of the controller, On or Off?</p>
+</li>
+<li>
+<p><strong>id</strong>: the id for the controller</p>
+</li>
+<li>
+<p><strong>alias</strong>: Alias for the controller</p>
+</li>
+<li>
+<p><strong>enabled</strong>: enabled or not?</p>
+</li>
+<li>
+<p><strong>meterId</strong>: the id of the meter</p>
+</li>
+<li>
+<p><strong>essId</strong>: the id of the Ess</p>
+</li>
+<li>
+<p><strong>batteryInverterId</strong>: the id of the battery inverter</p>
+</li>
+<li>
+<p><strong>preActivationTime</strong>: A time before the activation time for charging the system(min).</p>
+</li>
+<li>
+<p><strong>schedule</strong>: scheduling of the controller, via JSON see below for the example</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_1_2_1_the_example_schedule_json"><a class="anchor" href="#_1_2_1_the_example_schedule_json"></a>1.2.1 The Example Schedule-JSON</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+    {
+        "startTimestamp": 1684792800,
+        "duration": 86400,
+        "dischargePowerSetPoint": 92000,
+        "frequencyLimit": 50000,
+        "activationRunTime": "LONG_ACTIVATION_RUN",
+        "supportDuration": "LONG_SUPPORT_DURATION"
+    },
+    {
+        "startTimestamp": 1684879200,
+        "duration": 86400,
+        "dischargePowerSetPoint": 6000,
+        "frequencyLimit": 50000,
+        "activationRunTime": "LONG_ACTIVATION_RUN",
+        "supportDuration": "LONG_SUPPORT_DURATION"
+    }
+]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_2_2_json_element_details"><a class="anchor" href="#_1_2_2_json_element_details"></a>1.2.2 JSON Element details</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>StartTimeStamp</code>: When the controller should be activated.</p>
+</li>
+<li>
+<p><code>Duration</code>: How long is the controller to be activated?</p>
+</li>
+<li>
+<p><code>frequency limit</code>: The controller continuously monitors and checks whether a Frequency limit or threshold is less than the
+measured grid frequency.</p>
+</li>
+<li>
+<p><code>DischargePower</code>: The Ess discharges from the batteries when generating capacity.</p>
+</li>
+<li>
+<p><code>activationRunTime</code>: The time in milliseconds required for the reserve to fully activate. Short(700 ms) or Medium(1000 ms) or Long(1300 ms) activation Time.</p>
+</li>
+<li>
+<p><code>supportDuration</code>: The time in milliseconds for which the reserve should continue providing support after the frequency has stabilized. Short(5 seconds) or Long(30 seconds) support duration.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_2_3_explanation_of_the_schedule"><a class="anchor" href="#_1_2_3_explanation_of_the_schedule"></a>1.2.3 Explanation of the Schedule</h3>
+<div class="paragraph">
+<p>The Schedule JSON activates FFR for a full day (86400 seconds or 24 hours) with the following parameters:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Schedule for 23rd May 2023 00:00:00 to 24th May:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Threshold frequency:</strong> 49700 mHz</p>
+</li>
+<li>
+<p><strong>Discharge power:</strong> 92000 W</p>
+</li>
+<li>
+<p><strong>Long activation time:</strong> 1.3 seconds</p>
+</li>
+<li>
+<p><strong>Support duration:</strong> 30 seconds</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Following Schedule for 24th May 2023 00:00:00 to 25th May:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Threshold frequency:</strong> 49700 mHz</p>
+</li>
+<li>
+<p><strong>Discharge power:</strong> 52000 W</p>
+</li>
+<li>
+<p><strong>Long activation time:</strong> 1.3 seconds</p>
+</li>
+<li>
+<p><strong>Support duration:</strong> 30 seconds</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_1_rest_api_for_updating_fast_frequency_reserve_controllers_schedule_locally"><a class="anchor" href="#_2_1_rest_api_for_updating_fast_frequency_reserve_controllers_schedule_locally"></a>2.1 REST API for updating Fast Frequency Reserve controllers schedule locally</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>note : The controller/ App should be activated to update the schedule, which can be done using online monitoring or apache felix.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_1_1_overview"><a class="anchor" href="#_2_1_1_overview"></a>2.1.1 Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This REST API allows you to update FFR schedule for the specified edge device. The API endpoint takes a JSON payload that specifies the schedule, including the start time, duration, discharge power set point, frequency limit, activation runtime, and support duration.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_1_2_endpoint"><a class="anchor" href="#_2_1_2_endpoint"></a>2.1.2 Endpoint</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>URL</strong>: <a href="http://&lt;ipaddress&gt;:8084/jsonrpc" class="bare">http://&lt;ipaddress&gt;:8084/jsonrpc</a></p>
+</li>
+<li>
+<p><strong>Method</strong>: POST</p>
+</li>
+<li>
+<p><strong>Content-Type</strong>: application/json</p>
+</li>
+<li>
+<p><strong>Authorization</strong>: Basic Authentication, username: x, password: owner</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_1_3_body"><a class="anchor" href="#_2_1_3_body"></a>2.1.3 Body</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The request body must be a JSON object with the following structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "method": "componentJsonApi",
+    "params": {
+        "componentId": "ctrlFastFreqReserve0",
+        "payload": {
+            "method": "setActivateFastFreqReserve",
+            "params": {
+                "id": "edge0",
+                "schedule": [
+                    {
+                        "startTimestamp": 1701871562,
+                        "duration": 999,
+                        "dischargePowerSetPoint": 6000,
+                        "frequencyLimit": 502000,
+                        "activationRunTime": "LONG_ACTIVATION_RUN",
+                        "supportDuration": "LONG_SUPPORT_DURATION"
+                    }
+                ]
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_1_4_request_parameters"><a class="anchor" href="#_2_1_4_request_parameters"></a>2.1.4 Request Parameters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The request body for this REST API call is a JSON object with the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>method</strong>: The specific method to call within the component. In this case, it is <code>componentJsonApi</code>.</p>
+</li>
+<li>
+<p><strong>params</strong>: The parameters associated with the method call.</p>
+</li>
+<li>
+<p><strong>componentId</strong>: The unique identifier of the component that is receiving the request.</p>
+</li>
+<li>
+<p><strong>payload</strong>: The specific data being sent to the component. See below</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_2_1_5_payload_parameters"><a class="anchor" href="#_2_1_5_payload_parameters"></a>2.1.5 Payload Parameters</h3>
+<div class="paragraph">
+<p>Within the payload parameter, there is another JSON object that specifies the details of the activation request:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>method</strong>: The method to call within the component to handle the activation request. In this case, it is <code>setActivateFastFreqReserve</code>.</p>
+</li>
+<li>
+<p><strong>params</strong>: The parameters associated with the <code>setActivateFastFreqReserve</code> method.</p>
+</li>
+<li>
+<p><strong>id</strong>: The unique identifier of the edge device for which the activation is being requested, locally is always <code>edge0</code>.</p>
+</li>
+<li>
+<p><strong>schedule</strong>: An array of schedule items that define the activation pattern for the reserve.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_1_6_schedule_item_parameters"><a class="anchor" href="#_2_1_6_schedule_item_parameters"></a>2.1.6 Schedule Item Parameters</h3>
+<div class="paragraph">
+<p>Each schedule item within the schedule array specifies a specific activation period:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>startTimestamp</strong>: The unix time stamp when the FFR should start activating.</p>
+</li>
+<li>
+<p><strong>duration</strong>: The duration in milliseconds for which the reserve should remain active.</p>
+</li>
+<li>
+<p><strong>dischargePowerSetPoint</strong>: The maximum power in kilowatts that the reserve should discharge during activation.</p>
+</li>
+<li>
+<p><strong>frequencyLimit</strong>: The frequency threshold below which the reserve should be activated.</p>
+</li>
+<li>
+<p><strong>activationRunTime</strong>: The time in milliseconds required for the reserve to fully activate.</p>
+</li>
+<li>
+<p><strong>supportDuration</strong>: The time in milliseconds for which the reserve should continue providing support after the frequency has stabilized.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_1_7_example_python_code"><a class="anchor" href="#_2_1_7_example_python_code"></a>2.1.7 Example Python code</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">import requests
+import json
+from requests.auth import HTTPBasicAuth
+
+# API URL
+url = 'http://10.0.10.178:8084/jsonrpc'
+
+# Authentication
+auth = HTTPBasicAuth('x', 'owner')
+
+# Request headers
+headers = {
+    'Content-Type': 'application/json',
+}
+
+# Request payload
+payload = {
+    'jsonrpc': '2.0',
+    'id': '00000000-0000-0000-0000-000000000000',
+    'method': 'componentJsonApi',
+    'params': {
+        'componentId': 'ctrlFastFreqReserve0',
+        'payload': {
+            'method': 'setActivateFastFreqReserve',
+            'params': {
+                'id': 'edge0',
+                'schedule': [
+                    {
+                        'startTimestamp': 1701871562,
+                        'duration': 999,
+                        'dischargePowerSetPoint': 6000,
+                        'frequencyLimit': 502000,
+                        'activationRunTime': 'LONG_ACTIVATION_RUN',
+                        'supportDuration': 'LONG_SUPPORT_DURATION'
+                    }
+                ]
+            }
+        }
+    }
+}
+
+# Make the request
+response = requests.post(url, auth=auth, headers=headers, json=payload)
+
+# Print the response
+print(response.json())</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_1_rest_api_for_activating_fast_frequency_reserve_controllers_schedule_using_backend"><a class="anchor" href="#_3_1_rest_api_for_activating_fast_frequency_reserve_controllers_schedule_using_backend"></a>3.1 REST API for Activating Fast Frequency Reserve controllers schedule using Backend</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>note : The controller/ App should be activated to update the schedule, which can be done using online monitoring or apache felix.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_1_1_overview"><a class="anchor" href="#_3_1_1_overview"></a>3.1.1 Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This REST API allows you to update FFR for a specific edge device. The API endpoint takes a JSON payload that updates activation schedule, including the start time, duration, discharge power set point, frequency limit, activation runtime, and support duration.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_1_2_endpoint"><a class="anchor" href="#_3_1_2_endpoint"></a>3.1.2 Endpoint</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>URL</strong>: <a href="https://femecon.de/fems/rest/jsonrpc" class="bare">https://femecon.de/fems/rest/jsonrpc</a></p>
+</li>
+<li>
+<p><strong>Method</strong>: POST</p>
+</li>
+<li>
+<p><strong>Content-Type</strong>: application/json</p>
+</li>
+<li>
+<p><strong>Authorization</strong>: Basic Authentication, username:foo.com, password:*<strong>*</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_1_3_body"><a class="anchor" href="#_3_1_3_body"></a>3.1.3 Body</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The request body must be a JSON object with the following structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "method": "edgeRpc",
+  "params": {
+    "edgeId": "fems3734",
+    "payload": {
+      "method": "componentJsonApi",
+      "params": {
+        "componentId": "ctrlFastFreqReserve0",
+        "payload": {
+          "method": "setActivateFastFreqReserve",
+          "params": {
+            "id": "edge3734",
+            "schedule": [
+              {
+                "startTimestamp": "1701767477",
+                "duration": "11000",
+                "dischargePowerSetPoint": "6000",
+                "frequencyLimit": "52000",
+                "activationRunTime": "LONG_ACTIVATION_RUN",
+                "supportDuration": "LONG_SUPPORT_DURATION"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_1_4_request_parameters"><a class="anchor" href="#_3_1_4_request_parameters"></a>3.1.4 Request Parameters</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>method</strong>: The JSONRPC method to call. In this case, it is <code>edgeRpc</code>.</p>
+</li>
+<li>
+<p><strong>params</strong>: The JSONRPC parameters.</p>
+</li>
+<li>
+<p><strong>edgeId</strong>: The ID of the edge device for which to activate the FFR.</p>
+</li>
+<li>
+<p><strong>payload</strong>: The JSONRPC payload.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_1_5_payload_parameters"><a class="anchor" href="#_3_1_5_payload_parameters"></a>3.1.5 Payload Parameters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Within the payload parameter, there is another JSON object that specifies the details of the activation request:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>method</strong>: The JSONRPC method to call within the component. In this case, it is <code>componentJsonApi</code>.</p>
+</li>
+<li>
+<p><strong>params</strong>: The JSONRPC parameters for the <code>componentJsonApi</code> method.</p>
+</li>
+<li>
+<p><strong>componentId</strong>: The ID of the component within which to call the method. In this case, it is <code>ctrlFastFreqReserve0</code>.</p>
+</li>
+<li>
+<p><strong>payload</strong>: The JSONRPC payload for the method.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_1_6_schedule_item_parameters"><a class="anchor" href="#_3_1_6_schedule_item_parameters"></a>3.1.6 Schedule Item Parameters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each schedule item within the schedule array specifies a specific activation period:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>startTimestamp</strong>: The unix time stamp in milliseconds when the FFR should start activating.</p>
+</li>
+<li>
+<p><strong>duration</strong>: The duration in milliseconds for which the reserve should remain active.</p>
+</li>
+<li>
+<p><strong>dischargePowerSetPoint</strong>: The maximum power in kilowatts that the reserve should discharge during activation.</p>
+</li>
+<li>
+<p><strong>frequencyLimit</strong>: The frequency threshold below which the reserve should be activated.</p>
+</li>
+<li>
+<p><strong>activationRunTime</strong>: The time in milliseconds required for the reserve to fully activate.</p>
+</li>
+<li>
+<p><strong>supportDuration</strong>: The time in milliseconds for which the reserve should continue providing support after the frequency has stabilized.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_1_7_example_python_code"><a class="anchor" href="#_3_1_7_example_python_code"></a>3.1.7 Example Python code:</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">import requests
+import json
+from requests.auth import HTTPBasicAuth
+import base64
+import os
+
+url = "https://fenecon.de/fems/rest/jsonrpc"
+
+username = os.getenv("FENECON_USERNAME")
+password = os.getenv("FENECON_PASSWORD")
+
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": "Basic " + base64.b64encode(f"{username}:{password}".encode("utf-8")).decode("utf-8")
+}
+
+body = {
+    "method": "edgeRpc",
+    "params": {
+        "edgeId": "fems3734",
+        "payload": {
+            "method": "componentJsonApi",
+            "params": {
+                "componentId": "ctrlFastFreqReserve0",
+                "payload": {
+                    "method": "setActivateFastFreqReserve",
+                    "params": {
+                        "id": "edge3734",
+                        "schedule": [
+                            {
+                                "startTimestamp": "1701767477",
+                                "duration": "11000",
+                                "dischargePowerSetPoint": "6000",
+                                "frequencyLimit": "52000",
+                                "activationRunTime": "LONG_ACTIVATION_RUN",
+                                "supportDuration": "LONG_SUPPORT_DURATION"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
+
+response = requests.post(url, headers=headers, data=json.dumps(body))
+
+if response.status_code == 200:
+    print("Fast Frequency Reserve activated successfully")
+else:
+    print("Error activating Fast Frequency Reserve:", response.text)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.fastfrequencyreserve">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
