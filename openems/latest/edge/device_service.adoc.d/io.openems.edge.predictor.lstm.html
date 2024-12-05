@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Meter Ziehl EFR4001IP :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.adoc.d/io.openems.edge.meter.ziehl.html">
+    <title>Long Short-Term Memory (LSTM) predictor :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.adoc.d/io.openems.edge.predictor.lstm.html">
     <meta name="generator" content="Antora 3.1.10">
     <link rel="stylesheet" href="../../../../_/css/site.css">
   </head>
@@ -213,29 +213,78 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
-    <li><a href="io.openems.edge.meter.ziehl.html">Meter Ziehl EFR4001IP</a></li>
+    <li><a href="io.openems.edge.predictor.lstm.html">Long Short-Term Memory (LSTM) predictor</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.adoc.d/io.openems.edge.meter.ziehl.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.adoc.d/io.openems.edge.predictor.lstm.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Meter Ziehl EFR4001IP</h1>
+<h1 class="page">Long Short-Term Memory (LSTM) predictor</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>Implemented Natures:
-- ElectricityMeter</p>
+<p>The Long Short-Term Memory (LSTM) model is a type of recurrent neural network (RNN) that is particularly well-suited for time series prediction tasks, including consumption and production power predictions, due to its ability to capture dependencies and patterns over time. <a href="https://en.wikipedia.org/wiki/Long_short-term_memory">More details on LSTM</a></p>
 </div>
 <div class="paragraph">
-<p>For details, see <a href="https://www.ziehl.com/de/produkte/detail/EFR4001IP-362" class="bare">https://www.ziehl.com/de/produkte/detail/EFR4001IP-362</a>.</p>
+<p>This application is used for predicting consumption and production power values.
+Here, for power prediction, LSTM models can analyze historical power data to learn patterns and trends that occur over time, such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Daily and seasonal variations: Consumption power often follows cyclic patterns (e.g. higher usage during the day, lower at night). Solar production power is high during the day and zero during the nights.</p>
+</li>
+<li>
+<p>External Factors: LSTM can incorporate external factors like weather, day of the week, or holidays to improve prediction accuracy.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_training_lstm_for_power_predictions"><a class="anchor" href="#_training_lstm_for_power_predictions"></a>Training LSTM for power predictions:</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Input Data (channels address <code>_sum/UnmanagedConsumptionActivePower</code>): Time series data of past consumptions.</p>
+</li>
+<li>
+<p>Pre-processing: Data needs to be scaled and sometimes transformed to remove seasonality or noise.</p>
+</li>
+<li>
+<p>Training: The LSTM is trained on historical data using techniques like backpropagation through time (BPTT), where it learns to minimize the error between predicted and actual consumption.</p>
+</li>
+<li>
+<p>Prediction: Once trained, the model can predict future power consumption for various time steps ahead (e.g., hours, days, or even weeks).</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Modbus Protocol: <a href="https://www.ziehl.com/de/produkte/dl/Betriebsanleitung_Modbus-3585/?task=download" class="bare">https://www.ziehl.com/de/produkte/dl/Betriebsanleitung_Modbus-3585/?task=download</a></p>
+<p>In practice, LSTMs are favored for their ability to learn complex time-related patterns, making them effective in forecasting energy demand patterns that can inform Energy Management System (EMS) for optimized energy distribution and cost strategies.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_note_for_activating_the_predictor"><a class="anchor" href="#_note_for_activating_the_predictor"></a>Note for activating the predictor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This predictor creates a folder named "lstm" in the OpenEMS data directory (defined by <code>openems.data.dir</code> in <code>EdgeApp.bndrun</code>).</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.meter.ziehl">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+<p>Initially, a generic model will be used for predictions, which may not yield optimal results. However, a training process is scheduled to occur every 45 days, during which the models in this directory will be updated. The 45-day interval consists of 30 days for training and 15 days for validation.</p>
+</div>
+<div class="paragraph">
+<p>As a result of this process, a new model will be trained and will automatically replace the previous one.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.predictor.lstm">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
 </div>
 </article>
   </div>
