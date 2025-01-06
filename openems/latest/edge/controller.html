@@ -2027,13 +2027,66 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>42. IO Heating Element</h2>
+<h2 id="_io_heating_room"><a class="anchor" href="#_io_heating_room"></a>42. IO Heating Room</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controls electric floor and infrared heating in a room.</p>
+</div>
+<div class="paragraph">
+<p>The Controller activates electric floor and infrared heating in a room in order to keep a configured LOW or HIGH temperature.
+The timings of LOW or HIGH are configured via a <code>schedule</code> configuration parameter.
+It holds a JsonArray with JSCalendar information, e.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[
+   {
+      "@type":"Task",
+      "start":"05:30:00",
+      "duration":"PT2H30M",
+      "recurrenceRules":[
+         {
+            "frequency":"weekly",
+            "byDay":[
+               "mo",
+               "tu",
+               "we",
+               "th",
+               "fr"
+            ]
+         }
+      ]
+   },
+   {
+      "@type":"Task",
+      "start":"08:00:00",
+      "duration":"PT16H",
+      "recurrenceRules":[
+         {
+            "frequency":"weekly",
+            "byDay":[
+               "sa",
+               "su"
+            ]
+         }
+      ]
+   }
+]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.io.heating.room">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>43. IO Heating Element</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a three-phase heating element via Relays, according to grid active power.</p>
 </div>
 <div class="sect2">
-<h3 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>42.1. Phase and Level</h3>
+<h3 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>43.1. Phase and Level</h3>
 <div class="paragraph">
 <p>The Controller distinguishes the definition of Phase and Level.
 <strong>Phase</strong> represents the electrical phase L1, L2 or L3.
@@ -2054,7 +2107,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_channels"><a class="anchor" href="#_channels"></a>42.2. Channels</h3>
+<h3 id="_channels"><a class="anchor" href="#_channels"></a>43.2. Channels</h3>
 <div class="paragraph">
 <p>Example:
 * the power of the heating element per phase is 1000 W
@@ -2168,13 +2221,13 @@ L1|     xxxxxxxxxxxxxxxx
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>43. IO SG-Ready Heat Pump</h2>
+<h2 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>44. IO SG-Ready Heat Pump</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a heat pump that implements the SG-Ready standard via two Relay contacts, depending on surplus power and battery state-of-charge.</p>
 </div>
 <div class="sect2">
-<h3 id="_states"><a class="anchor" href="#_states"></a>43.1. States</h3>
+<h3 id="_states"><a class="anchor" href="#_states"></a>44.1. States</h3>
 <div class="paragraph">
 <p>The Controller distinguishes the different States, according to the SG-Ready standard.</p>
 </div>
@@ -2210,7 +2263,7 @@ L1|     xxxxxxxxxxxxxxxx
 </table>
 </div>
 <div class="sect2">
-<h3 id="_channels_2"><a class="anchor" href="#_channels_2"></a>43.2. Channels</h3>
+<h3 id="_channels_2"><a class="anchor" href="#_channels_2"></a>44.2. Channels</h3>
 <div class="paragraph">
 <p>The Controller has an ongoing time counter for every state, that is started and stopped if the corresponding state is active or not.</p>
 </div>
@@ -2225,7 +2278,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>44. PV-Inverter Fix Power Limit</h2>
+<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>45. PV-Inverter Fix Power Limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed power limit for PV-Inverter production.</p>
@@ -2236,7 +2289,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>45. PV-Inverter Sell-To-Grid limit</h2>
+<h2 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>46. PV-Inverter Sell-To-Grid limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Dynamically limits the Sell-To-Grid power of a PV-Inverter to a defined maximum power.</p>
@@ -2251,7 +2304,7 @@ The main purpose of the asymmetric mode is, to prevent the grid fuse from overcu
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>46. Symmetric Balancing Schedule</h2>
+<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>47. Symmetric Balancing Schedule</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in balancing mode. The control algorithm charges or discharges the battery in order to reach a given power target set-point at the grid connection point. If the target set-point is defined as zero, the behaviour is like with self-consumption optimization.</p>
@@ -2260,7 +2313,7 @@ The main purpose of the asymmetric mode is, to prevent the grid fuse from overcu
 <p>This controller allows two ways of controlling the power target set-point:</p>
 </div>
 <div class="sect2">
-<h3 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>46.1. 1. Definition of a power target set-point Schedule</h3>
+<h3 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>47.1. 1. Definition of a power target set-point Schedule</h3>
 <div class="paragraph">
 <p>The static configuration parameter "schedule" takes a Schedule of set-points as a Json-Array. An example schedule looks like this:</p>
 </div>
@@ -2308,7 +2361,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>46.2. 2. Immediate control of the power target set-point</h3>
+<h3 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>47.2. 2. Immediate control of the power target set-point</h3>
 <div class="paragraph">
 <p>The power target set-point may also be controlled directly via the <code>GridActivePowerSetPoint</code> channel. E.g. if the controller component has the Id <code>ctrlBalancingSchedule0</code> one can use e.g. the <a href="https://openems.github.io/openems.io/openems/latest/edge/controller.html#_rest_api_controller">REST-Api Controller</a> and write</p>
 </div>
@@ -2329,7 +2382,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>47. Symmetric Fix Reactive Power</h2>
+<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>48. Symmetric Fix Reactive Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed reactive power for a symmetric energy storage system.</p>
@@ -2340,7 +2393,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>48. Symmetric Limit Active Power</h2>
+<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>49. Symmetric Limit Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
@@ -2351,7 +2404,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>49. Symmetric Peak-Shaving</h2>
+<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>50. Symmetric Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
@@ -2362,7 +2415,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>50. Symmetric Random-Power</h2>
+<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>51. Symmetric Random-Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
@@ -2373,7 +2426,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>51. Symmetric Timeslot Peak-Shaving</h2>
+<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>52. Symmetric Timeslot Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving within a configured timeslot at the grid using a symmetric energy storage system. Outside of the timeslot the battery recharges.</p>
