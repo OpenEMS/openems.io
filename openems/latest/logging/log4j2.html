@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>UI Architecture :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/ui/architecture.html">
+    <title>Logging :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/logging/log4j2.html">
     <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 3.1.10">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -95,27 +95,27 @@
     <span class="nav-text">OpenEMS UI</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="setup-ide.html">Setup IDE</a>
+    <a class="nav-link" href="../ui/setup-ide.html">Setup IDE</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="architecture.html">Architecture</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ui/architecture.html">Architecture</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="build.html">Build OpenEMS UI</a>
+    <a class="nav-link" href="../ui/build.html">Build OpenEMS UI</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="implementing-a-widget/introduction.html">Implementing a UI Widget</a>
+    <a class="nav-link" href="../ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="implementing-a-widget/components/flat.html">Flat-Widget</a>
+    <a class="nav-link" href="../ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="implementing-a-widget/components/modal.html">Modal-Widget</a>
+    <a class="nav-link" href="../ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="implementing-a-widget/components/chart.html">Chart</a>
+    <a class="nav-link" href="../ui/implementing-a-widget/components/chart.html">Chart</a>
   </li>
 </ul>
   </li>
@@ -153,8 +153,8 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../component-communication/index.html">Component Communication</a>
   </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../logging/log4j2.html">Logging</a>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="log4j2.html">Logging</a>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -217,47 +217,85 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../introduction.html">Open Energy Management System</a></li>
-    <li>OpenEMS UI</li>
-    <li><a href="architecture.html">Architecture</a></li>
+    <li><a href="log4j2.html">Logging</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/ui/architecture.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/logging/log4j2.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">UI Architecture</h1>
-<div id="preamble">
+<h1 class="page">Logging</h1>
+<div class="sect1">
+<h2 id="_log4j2"><a class="anchor" href="#_log4j2"></a>1. Log4j2</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>OpenEMS UI is the real-time user interface for web browsers and smartphones.</p>
+<p>Configuring log outputs in OpenEMS with fine granularity is often useful for debugging purposes. Setting the ROOT log level to DEBUG or TRACE may flood the console output, making it difficult to debug specific packages. OpenEMS utilizes the Log4j2 framework for logging. To customize log output using a <code>log4j2.xml</code> file, follow these steps:</p>
 </div>
-<div class="imageblock">
+<div class="sect2">
+<h3 id="_create_config_file"><a class="anchor" href="#_create_config_file"></a>1.1. Create config file</h3>
+<div class="paragraph">
+<p>Create a new file <code>log4j2.xml</code> in any location of your choice. As a example, this config represents the default OpenEMS log configuration:</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<img src="../_images/ui-live.png" alt="OpenEMS UI Live view">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;Configuration&gt;
+    &lt;Appenders&gt;
+        &lt;!-- Console Appender --&gt;
+        &lt;Console name="console" target="SYSTEM_OUT"&gt;
+            &lt;PatternLayout pattern="%d{ISO8601} [%-8.8t] %-5p [%-30.30c] %m%n" /&gt;
+        &lt;/Console&gt;
+
+        &lt;!-- PaxOsgi Appender --&gt;
+        &lt;PaxOsgi name="paxosgi" /&gt;
+    &lt;/Appenders&gt;
+
+    &lt;Loggers&gt;
+        &lt;!-- OpenEMS Logger --&gt;
+        &lt;Logger name="io.openems" level="info" additivity="false"&gt;
+            &lt;AppenderRef ref="console" /&gt;
+        &lt;/Logger&gt;
+
+        &lt;!-- Root Logger --&gt;
+        &lt;Root level="info"&gt;
+            &lt;AppenderRef ref="console" /&gt;
+            &lt;AppenderRef ref="paxosgi" /&gt;
+        &lt;/Root&gt;
+    &lt;/Loggers&gt;
+&lt;/Configuration&gt;</code></pre>
 </div>
-<div class="title">Figure 1. OpenEMS UI Live view</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+for more information, about the log4j2 configuration, see the official documentation:
+<a href="https://logging.apache.org/log4j/2.x/manual/configuration.html" class="bare">https://logging.apache.org/log4j/2.x/manual/configuration.html</a>
+</td>
+</tr>
+</table>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_adaptive_user_interface"><a class="anchor" href="#_adaptive_user_interface"></a>1. Adaptive User Interface</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_update_openems_configuration"><a class="anchor" href="#_update_openems_configuration"></a>1.2. Update OpenEMS configuration</h3>
 <div class="paragraph">
-<p>The OpenEMS UI is the standard user interface for OpenEMS.
-It uses the <code>EdgeConfig</code> (see Edge &#8594; Configuration) to adapt its visualisation in accordance with the actual configuration.
-The screenshot above visualizes the 'Live view' of OpenEMS UI.
-It shows Storage System, Production and Grid because corresponding OpenEMS Components are listed in the EdgeConfig.</p>
+<p>To tell OpenEMS to use this configuration file, change the logging config using Apache Felix. Open the Apache Felix Web Console in your browser (e.g. <code><a href="http://localhost:8080/system/console/configMgr" class="bare">http://localhost:8080/system/console/configMgr</a></code>) and search for the <code>org.ops4j.pax.logging</code> configuration. Change the <code>org.ops4j.pax.logging.log4j2.config.file</code> value to the path of your <code>log4j2.xml</code> file.</p>
+</div>
+<div class="imageblock text-left">
+<div class="content">
+<img src="../_images/pax_logging_component.png" alt="Logging Component" width="400">
 </div>
 </div>
+<div class="imageblock text-left">
+<div class="content">
+<img src="../_images/pax_logging_settings.png" alt="Logging Settings" width="400">
 </div>
-<div class="sect1">
-<h2 id="_configuration_of_openems_edge"><a class="anchor" href="#_configuration_of_openems_edge"></a>2. Configuration of OpenEMS Edge</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>OpenEMS UI provides a way to instantiate an OpenEMS Component from a factory by providing configuration parameters. See Edge &#8594; Configuration for details.</p>
+</div>
 </div>
 </div>
 </div>
