@@ -757,7 +757,21 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_detailed_debug_log"><a class="anchor" href="#_detailed_debug_log"></a>12. Detailed Debug Log</h2>
+<h2 id="_clever_pv"><a class="anchor" href="#_clever_pv"></a>12. Clever-PV</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sends current power data to the clever-PV cloud service via their Push-API.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="https://www.clever-pv.com/anleitungen/push-api" class="bare">https://www.clever-pv.com/anleitungen/push-api</a> for details and how to get the configuration URL.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.cleverpv">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_detailed_debug_log"><a class="anchor" href="#_detailed_debug_log"></a>13. Detailed Debug Log</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Constantly shows the values of all Channels of a Component on the console. Primarily used for developing and debugging.</p>
@@ -768,7 +782,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_debug_log"><a class="anchor" href="#_debug_log"></a>13. Debug Log</h2>
+<h2 id="_debug_log"><a class="anchor" href="#_debug_log"></a>14. Debug Log</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Constantly shows the most important values of all Components on the console. This is often activated by default to be able to track the running system easily.</p>
@@ -797,7 +811,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_ac_island"><a class="anchor" href="#_ess_ac_island"></a>14. ESS AC-Island</h2>
+<h2 id="_ess_ac_island"><a class="anchor" href="#_ess_ac_island"></a>15. ESS AC-Island</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Switches an AC PV inverter to the emergency power on grid outage.</p>
@@ -808,7 +822,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_active_power_voltage_characteristic"><a class="anchor" href="#_ess_active_power_voltage_characteristic"></a>15. Ess Active Power Voltage Characteristic</h2>
+<h2 id="_ess_active_power_voltage_characteristic"><a class="anchor" href="#_ess_active_power_voltage_characteristic"></a>16. Ess Active Power Voltage Characteristic</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -866,7 +880,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_balancing"><a class="anchor" href="#_ess_balancing"></a>16. ESS Balancing</h2>
+<h2 id="_ess_balancing"><a class="anchor" href="#_ess_balancing"></a>17. ESS Balancing</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This controls a energy storage system in self-consumption optimization mode by trying to balance the power at the grid connection point, i.e.:
@@ -874,7 +888,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 - discharge the battery, when consumption is larger than production (i.e. when buying power from the grid)</p>
 </div>
 <div class="sect2">
-<h3 id="_requirements"><a class="anchor" href="#_requirements"></a>16.1. Requirements</h3>
+<h3 id="_requirements"><a class="anchor" href="#_requirements"></a>17.1. Requirements</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -887,7 +901,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_application_notes"><a class="anchor" href="#_additional_application_notes"></a>16.2. Additional application notes</h3>
+<h3 id="_additional_application_notes"><a class="anchor" href="#_additional_application_notes"></a>17.2. Additional application notes</h3>
 <div class="paragraph">
 <p>Above description assumes that the grid connection point should be balanced to <code>0 Watt</code>. This bevahiour is configurable using the <code>targetGridSetpoint</code> configuration parameter.</p>
 </div>
@@ -898,13 +912,13 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cycle_controller"><a class="anchor" href="#_cycle_controller"></a>17. Cycle Controller</h2>
+<h2 id="_cycle_controller"><a class="anchor" href="#_cycle_controller"></a>18. Cycle Controller</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This controller was developed to support battery cycling or battery capacity test scenarios.</p>
 </div>
 <div class="sect2">
-<h3 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>17.1. Configuration</h3>
+<h3 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>18.1. Configuration</h3>
 <div class="paragraph">
 <p>Parameters which should be taken care of:</p>
 </div>
@@ -958,7 +972,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_monitoring"><a class="anchor" href="#_monitoring"></a>17.2. Monitoring</h3>
+<h3 id="_monitoring"><a class="anchor" href="#_monitoring"></a>18.2. Monitoring</h3>
 <div class="paragraph">
 <p>Channels can be followed from Grafana or online monitoring:</p>
 </div>
@@ -980,7 +994,7 @@ io0/relay1 - represents the relay 1 of the relay board.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_algorithm_logic"><a class="anchor" href="#_algorithm_logic"></a>17.3. Algorithm logic</h3>
+<h3 id="_algorithm_logic"><a class="anchor" href="#_algorithm_logic"></a>18.3. Algorithm logic</h3>
 <div class="paragraph">
 <p>Controller starts with <code>UNDEFINED</code> state. First checks for <code>cycleOrder</code> configuration. If it is defined, according to the selection goes to <code>CHARGE or `DISCHARGE</code> state.
 If <code>cycleOrder</code> is not defined, selection is made according to the Soc value.
@@ -1005,7 +1019,7 @@ If the <code>totalCycleNumber</code> is higher than "1", next cycle will be call
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_delay_charge"><a class="anchor" href="#_ess_delay_charge"></a>18. ESS Delay Charge</h2>
+<h2 id="_ess_delay_charge"><a class="anchor" href="#_ess_delay_charge"></a>19. ESS Delay Charge</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Controller delays full charing of an energy storage system (ESS) to a certain hour of the day. If for example configured to delay till 4 pm, the allowed charge power is limited in a way, that 100 % State-of-Charge is reached only at 4 pm. The Controller therefor constantly watches the remaining time and remaining capacity of the ESS.</p>
@@ -1016,7 +1030,7 @@ If the <code>totalCycleNumber</code> is higher than "1", next cycle will be call
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_delayed_sell_to_grid"><a class="anchor" href="#_ess_delayed_sell_to_grid"></a>19. ESS Delayed Sell-To-Grid</h2>
+<h2 id="_ess_delayed_sell_to_grid"><a class="anchor" href="#_ess_delayed_sell_to_grid"></a>20. ESS Delayed Sell-To-Grid</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls an energy storage system so, that it delays the sell-to-grid power e.g. of a photovoltaics system.</p>
@@ -1031,7 +1045,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_emergency_capacity_reserve"><a class="anchor" href="#_ess_emergency_capacity_reserve"></a>20. ESS Emergency Capacity Reserve</h2>
+<h2 id="_ess_emergency_capacity_reserve"><a class="anchor" href="#_ess_emergency_capacity_reserve"></a>21. ESS Emergency Capacity Reserve</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Controller allows setting a <code>ReserveSoc</code> as the minimum State-Of-Charge that should be reached during normal on-grid operation, i.e. a energy storage system in self-consumption optimization mode will stop discharging at this SoC.</p>
@@ -1045,10 +1059,10 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_fast_frequency_reserve"><a class="anchor" href="#_ess_fast_frequency_reserve"></a>21. ESS Fast Frequency Reserve</h2>
+<h2 id="_ess_fast_frequency_reserve"><a class="anchor" href="#_ess_fast_frequency_reserve"></a>22. ESS Fast Frequency Reserve</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_1_1_introduction"><a class="anchor" href="#_1_1_introduction"></a>21.1. 1.1 Introduction</h3>
+<h3 id="_1_1_introduction"><a class="anchor" href="#_1_1_introduction"></a>22.1. 1.1 Introduction</h3>
 <div class="paragraph">
 <p>In electricity networks, the Fast Frequency Reserve (FFR) controller is providing power available to the system operator within a short interval to meet demand in case of a frequency drop, i.e. in case a generator goes down or there is another disruption to the supply. More details on <a href="https://en.wikipedia.org/wiki/Operating_reserve">Wikipedia</a>.</p>
 </div>
@@ -1057,7 +1071,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect2">
-<h3 id="_1_2_controller_parameters"><a class="anchor" href="#_1_2_controller_parameters"></a>21.2. 1.2 Controller Parameters</h3>
+<h3 id="_1_2_controller_parameters"><a class="anchor" href="#_1_2_controller_parameters"></a>22.2. 1.2 Controller Parameters</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1090,7 +1104,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_1_2_1_the_example_schedule_json"><a class="anchor" href="#_1_2_1_the_example_schedule_json"></a>21.2.1. 1.2.1 The Example Schedule-JSON</h4>
+<h4 id="_1_2_1_the_example_schedule_json"><a class="anchor" href="#_1_2_1_the_example_schedule_json"></a>22.2.1. 1.2.1 The Example Schedule-JSON</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
@@ -1115,7 +1129,7 @@ and discharges when sell-to-grid power is falling below "Continuous Sell-To-Grid
 </div>
 </div>
 <div class="sect3">
-<h4 id="_1_2_2_json_element_details"><a class="anchor" href="#_1_2_2_json_element_details"></a>21.2.2. 1.2.2 JSON Element details</h4>
+<h4 id="_1_2_2_json_element_details"><a class="anchor" href="#_1_2_2_json_element_details"></a>22.2.2. 1.2.2 JSON Element details</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1141,7 +1155,7 @@ measured grid frequency.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_1_2_3_explanation_of_the_schedule"><a class="anchor" href="#_1_2_3_explanation_of_the_schedule"></a>21.2.3. 1.2.3 Explanation of the Schedule</h4>
+<h4 id="_1_2_3_explanation_of_the_schedule"><a class="anchor" href="#_1_2_3_explanation_of_the_schedule"></a>22.2.3. 1.2.3 Explanation of the Schedule</h4>
 <div class="paragraph">
 <p>The Schedule JSON activates FFR for a full day (86400 seconds or 24 hours) with the following parameters:</p>
 </div>
@@ -1190,19 +1204,19 @@ measured grid frequency.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_1_rest_api_for_updating_fast_frequency_reserve_controllers_schedule_locally"><a class="anchor" href="#_2_1_rest_api_for_updating_fast_frequency_reserve_controllers_schedule_locally"></a>21.3. 2.1 REST API for updating Fast Frequency Reserve controllers schedule locally</h3>
+<h3 id="_2_1_rest_api_for_updating_fast_frequency_reserve_controllers_schedule_locally"><a class="anchor" href="#_2_1_rest_api_for_updating_fast_frequency_reserve_controllers_schedule_locally"></a>22.3. 2.1 REST API for updating Fast Frequency Reserve controllers schedule locally</h3>
 <div class="paragraph">
 <p>note : The controller/ App should be activated to update the schedule, which can be done using online monitoring or apache felix.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_1_1_overview"><a class="anchor" href="#_2_1_1_overview"></a>21.4. 2.1.1 Overview</h3>
+<h3 id="_2_1_1_overview"><a class="anchor" href="#_2_1_1_overview"></a>22.4. 2.1.1 Overview</h3>
 <div class="paragraph">
 <p>This REST API allows you to update FFR schedule for the specified edge device. The API endpoint takes a JSON payload that specifies the schedule, including the start time, duration, discharge power set point, frequency limit, activation runtime, and support duration.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_1_2_endpoint"><a class="anchor" href="#_2_1_2_endpoint"></a>21.5. 2.1.2 Endpoint</h3>
+<h3 id="_2_1_2_endpoint"><a class="anchor" href="#_2_1_2_endpoint"></a>22.5. 2.1.2 Endpoint</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1221,7 +1235,7 @@ measured grid frequency.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_1_3_body"><a class="anchor" href="#_2_1_3_body"></a>21.6. 2.1.3 Body</h3>
+<h3 id="_2_1_3_body"><a class="anchor" href="#_2_1_3_body"></a>22.6. 2.1.3 Body</h3>
 <div class="paragraph">
 <p>The request body must be a JSON object with the following structure:</p>
 </div>
@@ -1253,7 +1267,7 @@ measured grid frequency.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_1_4_request_parameters"><a class="anchor" href="#_2_1_4_request_parameters"></a>21.7. 2.1.4 Request Parameters</h3>
+<h3 id="_2_1_4_request_parameters"><a class="anchor" href="#_2_1_4_request_parameters"></a>22.7. 2.1.4 Request Parameters</h3>
 <div class="paragraph">
 <p>The request body for this REST API call is a JSON object with the following parameters:</p>
 </div>
@@ -1274,7 +1288,7 @@ measured grid frequency.</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_2_1_5_payload_parameters"><a class="anchor" href="#_2_1_5_payload_parameters"></a>21.7.1. 2.1.5 Payload Parameters</h4>
+<h4 id="_2_1_5_payload_parameters"><a class="anchor" href="#_2_1_5_payload_parameters"></a>22.7.1. 2.1.5 Payload Parameters</h4>
 <div class="paragraph">
 <p>Within the payload parameter, there is another JSON object that specifies the details of the activation request:</p>
 </div>
@@ -1296,7 +1310,7 @@ measured grid frequency.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_2_1_6_schedule_item_parameters"><a class="anchor" href="#_2_1_6_schedule_item_parameters"></a>21.7.2. 2.1.6 Schedule Item Parameters</h4>
+<h4 id="_2_1_6_schedule_item_parameters"><a class="anchor" href="#_2_1_6_schedule_item_parameters"></a>22.7.2. 2.1.6 Schedule Item Parameters</h4>
 <div class="paragraph">
 <p>Each schedule item within the schedule array specifies a specific activation period:</p>
 </div>
@@ -1324,7 +1338,7 @@ measured grid frequency.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_2_1_7_example_python_code"><a class="anchor" href="#_2_1_7_example_python_code"></a>21.7.3. 2.1.7 Example Python code</h4>
+<h4 id="_2_1_7_example_python_code"><a class="anchor" href="#_2_1_7_example_python_code"></a>22.7.3. 2.1.7 Example Python code</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">import requests
@@ -1378,19 +1392,19 @@ print(response.json())</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_1_rest_api_for_activating_fast_frequency_reserve_controllers_schedule_using_backend"><a class="anchor" href="#_3_1_rest_api_for_activating_fast_frequency_reserve_controllers_schedule_using_backend"></a>21.8. 3.1 REST API for Activating Fast Frequency Reserve controllers schedule using Backend</h3>
+<h3 id="_3_1_rest_api_for_activating_fast_frequency_reserve_controllers_schedule_using_backend"><a class="anchor" href="#_3_1_rest_api_for_activating_fast_frequency_reserve_controllers_schedule_using_backend"></a>22.8. 3.1 REST API for Activating Fast Frequency Reserve controllers schedule using Backend</h3>
 <div class="paragraph">
 <p>note : The controller/ App should be activated to update the schedule, which can be done using online monitoring or apache felix.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_1_1_overview"><a class="anchor" href="#_3_1_1_overview"></a>21.9. 3.1.1 Overview</h3>
+<h3 id="_3_1_1_overview"><a class="anchor" href="#_3_1_1_overview"></a>22.9. 3.1.1 Overview</h3>
 <div class="paragraph">
 <p>This REST API allows you to update FFR for a specific edge device. The API endpoint takes a JSON payload that updates activation schedule, including the start time, duration, discharge power set point, frequency limit, activation runtime, and support duration.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_1_2_endpoint"><a class="anchor" href="#_3_1_2_endpoint"></a>21.10. 3.1.2 Endpoint</h3>
+<h3 id="_3_1_2_endpoint"><a class="anchor" href="#_3_1_2_endpoint"></a>22.10. 3.1.2 Endpoint</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1409,7 +1423,7 @@ print(response.json())</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_1_3_body"><a class="anchor" href="#_3_1_3_body"></a>21.11. 3.1.3 Body</h3>
+<h3 id="_3_1_3_body"><a class="anchor" href="#_3_1_3_body"></a>22.11. 3.1.3 Body</h3>
 <div class="paragraph">
 <p>The request body must be a JSON object with the following structure:</p>
 </div>
@@ -1447,7 +1461,7 @@ print(response.json())</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_1_4_request_parameters"><a class="anchor" href="#_3_1_4_request_parameters"></a>21.12. 3.1.4 Request Parameters</h3>
+<h3 id="_3_1_4_request_parameters"><a class="anchor" href="#_3_1_4_request_parameters"></a>22.12. 3.1.4 Request Parameters</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1466,7 +1480,7 @@ print(response.json())</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_1_5_payload_parameters"><a class="anchor" href="#_3_1_5_payload_parameters"></a>21.13. 3.1.5 Payload Parameters</h3>
+<h3 id="_3_1_5_payload_parameters"><a class="anchor" href="#_3_1_5_payload_parameters"></a>22.13. 3.1.5 Payload Parameters</h3>
 <div class="paragraph">
 <p>Within the payload parameter, there is another JSON object that specifies the details of the activation request:</p>
 </div>
@@ -1488,7 +1502,7 @@ print(response.json())</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_1_6_schedule_item_parameters"><a class="anchor" href="#_3_1_6_schedule_item_parameters"></a>21.14. 3.1.6 Schedule Item Parameters</h3>
+<h3 id="_3_1_6_schedule_item_parameters"><a class="anchor" href="#_3_1_6_schedule_item_parameters"></a>22.14. 3.1.6 Schedule Item Parameters</h3>
 <div class="paragraph">
 <p>Each schedule item within the schedule array specifies a specific activation period:</p>
 </div>
@@ -1516,7 +1530,7 @@ print(response.json())</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_1_7_example_python_code"><a class="anchor" href="#_3_1_7_example_python_code"></a>21.15. 3.1.7 Example Python code:</h3>
+<h3 id="_3_1_7_example_python_code"><a class="anchor" href="#_3_1_7_example_python_code"></a>22.15. 3.1.7 Example Python code:</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">import requests
@@ -1579,7 +1593,7 @@ else:
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>22. Symmetric Fix Active Power</h2>
+<h2 id="_symmetric_fix_active_power"><a class="anchor" href="#_symmetric_fix_active_power"></a>23. Symmetric Fix Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed active power for charging/discharging of a symmetric energy storage system.</p>
@@ -1590,7 +1604,7 @@ else:
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_fix_state_of_charge"><a class="anchor" href="#_ess_fix_state_of_charge"></a>23. ESS Fix State Of Charge</h2>
+<h2 id="_ess_fix_state_of_charge"><a class="anchor" href="#_ess_fix_state_of_charge"></a>24. ESS Fix State Of Charge</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets active power constraints for charging/discharging of a symmetric energy storage system, to reach a final SoC under the constraints below.</p>
@@ -1611,7 +1625,7 @@ else:
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_grid_optimized_charge"><a class="anchor" href="#_ess_grid_optimized_charge"></a>24. ESS Grid Optimized Charge</h2>
+<h2 id="_ess_grid_optimized_charge"><a class="anchor" href="#_ess_grid_optimized_charge"></a>25. ESS Grid Optimized Charge</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Combination of the PredictiveDelayCharge and the SellToGridPowerLimit controllers:</p>
@@ -1629,7 +1643,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hybrid_ess_surplus_feed_to_grid_controller"><a class="anchor" href="#_hybrid_ess_surplus_feed_to_grid_controller"></a>25. Hybrid-Ess Surplus-Feed-To-Grid Controller</h2>
+<h2 id="_hybrid_ess_surplus_feed_to_grid_controller"><a class="anchor" href="#_hybrid_ess_surplus_feed_to_grid_controller"></a>26. Hybrid-Ess Surplus-Feed-To-Grid Controller</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a Hybrid Battery Inverter (i.e. integrated Energy Storage System) so, that the surplus DC production of its chargers gets fed to grid.</p>
@@ -1640,7 +1654,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_14a_enwg_controller"><a class="anchor" href="#_ess_14a_enwg_controller"></a>26. ESS §14a EnWG Controller</h2>
+<h2 id="_ess_14a_enwg_controller"><a class="anchor" href="#_ess_14a_enwg_controller"></a>27. ESS §14a EnWG Controller</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Established by law (for Germany), this controller lowers active power to <code>-4200 W</code> in response to grid operator limitations, aiming to alleviate load on transformers.</p>
@@ -1655,7 +1669,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_limit_total_discharge"><a class="anchor" href="#_ess_limit_total_discharge"></a>27. ESS Limit Total Discharge</h2>
+<h2 id="_ess_limit_total_discharge"><a class="anchor" href="#_ess_limit_total_discharge"></a>28. ESS Limit Total Discharge</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Limits the discharge power of an energy storage system according to its State-of-Charge, e.g. to keep energy for emergency power or to avoid deep discharge.</p>
@@ -1666,7 +1680,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_linear_power_band"><a class="anchor" href="#_ess_linear_power_band"></a>28. ESS Linear Power Band</h2>
+<h2 id="_ess_linear_power_band"><a class="anchor" href="#_ess_linear_power_band"></a>29. ESS Linear Power Band</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Executes a test cycle for an energy storage system by increasing and decreasing the charging/discharging power in given limits.</p>
@@ -1677,7 +1691,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_minimum_discharge_period"><a class="anchor" href="#_ess_minimum_discharge_period"></a>29. ESS Minimum Discharge Period</h2>
+<h2 id="_ess_minimum_discharge_period"><a class="anchor" href="#_ess_minimum_discharge_period"></a>30. ESS Minimum Discharge Period</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Provides a minimum discharge power of the storage system for a configured time period, if a certain power peak has been reached.</p>
@@ -1691,7 +1705,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_reactive_power_voltage_characteristic"><a class="anchor" href="#_ess_reactive_power_voltage_characteristic"></a>30. Ess Reactive Power Voltage Characteristic</h2>
+<h2 id="_ess_reactive_power_voltage_characteristic"><a class="anchor" href="#_ess_reactive_power_voltage_characteristic"></a>31. Ess Reactive Power Voltage Characteristic</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1744,7 +1758,7 @@ This is mainly used when only 70 percent of the maximum production is allowed to
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_sell_to_grid_limit"><a class="anchor" href="#_ess_sell_to_grid_limit"></a>31. ESS Sell-To-Grid Limit</h2>
+<h2 id="_ess_sell_to_grid_limit"><a class="anchor" href="#_ess_sell_to_grid_limit"></a>32. ESS Sell-To-Grid Limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Limits the maximum sell-to-grid power by actively charging the Ess.
@@ -1756,7 +1770,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_standby"><a class="anchor" href="#_ess_standby"></a>32. ESS Standby</h2>
+<h2 id="_ess_standby"><a class="anchor" href="#_ess_standby"></a>33. ESS Standby</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Regularly checks the functionality of an ESS once per week while being in Standby mode.</p>
@@ -1779,7 +1793,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_time_of_use_tariff"><a class="anchor" href="#_ess_time_of_use_tariff"></a>33. ESS Time-of-Use Tariff</h2>
+<h2 id="_ess_time_of_use_tariff"><a class="anchor" href="#_ess_time_of_use_tariff"></a>34. ESS Time-of-Use Tariff</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Controller optimizes the performance of an energy storage system (ESS) in conjunction with a Time-Of-Use (ToU) Tariff provider.</p>
@@ -1791,7 +1805,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 <p>This iterative and dynamic approach ensures that the ESS operates efficiently by staying synchronized with real-time forecasts and the evolving state of the battery, thereby maximizing cost-effectiveness and self-consumption of stored energy.</p>
 </div>
 <div class="sect2">
-<h3 id="_schedule_calculation_modes"><a class="anchor" href="#_schedule_calculation_modes"></a>33.1. Schedule Calculation Modes</h3>
+<h3 id="_schedule_calculation_modes"><a class="anchor" href="#_schedule_calculation_modes"></a>34.1. Schedule Calculation Modes</h3>
 <div class="paragraph">
 <p>The schedule calculation process varies depending on the local market conditions. To accommodate this variability, two distinct modes have been introduced to facilitate flexible operation:</p>
 </div>
@@ -1817,7 +1831,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_evcs"><a class="anchor" href="#_evcs"></a>34. EVCS</h2>
+<h2 id="_evcs"><a class="anchor" href="#_evcs"></a>35. EVCS</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls an Electric Vehicle Charging Station (EVCS) in different modes, like "Force-Charge" and "Surplus Energy Charging".</p>
@@ -1828,7 +1842,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>35. EVCS Fix Active Power</h2>
+<h2 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>36. EVCS Fix Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed maximum charge power to an Electric Vehicle Charging Station (EVCS).</p>
@@ -1839,7 +1853,28 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_generic_jsonlogic"><a class="anchor" href="#_generic_jsonlogic"></a>36. Generic JsonLogic</h2>
+<h2 id="_evse_controllers"><a class="anchor" href="#_evse_controllers"></a>37. EVSE Controllers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Controllers for</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Single Charge-Point</p>
+</li>
+<li>
+<p>Cluster of Charge-Point-Controllers</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.evse">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_generic_jsonlogic"><a class="anchor" href="#_generic_jsonlogic"></a>38. Generic JsonLogic</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The JsonLogic-Controller is a very generic Controller that allows the definition of a complex logic as a configuration at runtime, e.g. via Apache Felix Web Console.</p>
@@ -1911,7 +1946,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>37. High-Load Timeslot</h2>
+<h2 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>39. High-Load Timeslot</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls an energy storage system for a High-Load timeslot application (German "Hochlastzeitfenster").</p>
@@ -1922,14 +1957,14 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_alarm"><a class="anchor" href="#_io_alarm"></a>38. IO Alarm</h2>
+<h2 id="_io_alarm"><a class="anchor" href="#_io_alarm"></a>40. IO Alarm</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Switches a digital output, when one or more State-Channels are set. This controller can be used to signal alarms.
 This controller is used to check for the State-Channels which are boolean type, which typically represents the error channels. A specific configured digital output channel can be signaled based on the configured input State-Channels(one more channels).</p>
 </div>
 <div class="sect2">
-<h3 id="_configuration_3"><a class="anchor" href="#_configuration_3"></a>38.1. Configuration</h3>
+<h3 id="_configuration_3"><a class="anchor" href="#_configuration_3"></a>40.1. Configuration</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1951,7 +1986,7 @@ This controller is used to check for the State-Channels which are boolean type, 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>38.2. Example Configuration</h3>
+<h3 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>40.2. Example Configuration</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1991,7 +2026,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_analog_controller"><a class="anchor" href="#_io_analog_controller"></a>39. IO Analog Controller</h2>
+<h2 id="_io_analog_controller"><a class="anchor" href="#_io_analog_controller"></a>41. IO Analog Controller</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controller that sets a analog output according to the configured inputs to OFF|AUTOMATIC|ON.</p>
@@ -2005,7 +2040,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>40. IO Channel-Single-Threshold</h2>
+<h2 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>42. IO Channel-Single-Threshold</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Generic Controller that sets a digital output according to the value of given Channel - e.g. turn a Relay on or off, when configured input channel/SoC is above or below a given threshold respectively.</p>
@@ -2016,7 +2051,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>41. IO Fix Digital Output</h2>
+<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>43. IO Fix Digital Output</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a digital output statically ON or OFF.</p>
@@ -2027,7 +2062,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_heating_room"><a class="anchor" href="#_io_heating_room"></a>42. IO Heating Room</h2>
+<h2 id="_io_heating_room"><a class="anchor" href="#_io_heating_room"></a>44. IO Heating Room</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls electric floor and infrared heating in a room.</p>
@@ -2080,13 +2115,13 @@ It holds a JsonArray with JSCalendar information, e.g.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>43. IO Heating Element</h2>
+<h2 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>45. IO Heating Element</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a three-phase heating element via Relays, according to grid active power.</p>
 </div>
 <div class="sect2">
-<h3 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>43.1. Phase and Level</h3>
+<h3 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>45.1. Phase and Level</h3>
 <div class="paragraph">
 <p>The Controller distinguishes the definition of Phase and Level.
 <strong>Phase</strong> represents the electrical phase L1, L2 or L3.
@@ -2107,7 +2142,7 @@ It holds a JsonArray with JSCalendar information, e.g.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_channels"><a class="anchor" href="#_channels"></a>43.2. Channels</h3>
+<h3 id="_channels"><a class="anchor" href="#_channels"></a>45.2. Channels</h3>
 <div class="paragraph">
 <p>Example:
 * the power of the heating element per phase is 1000 W
@@ -2221,13 +2256,13 @@ L1|     xxxxxxxxxxxxxxxx
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>44. IO SG-Ready Heat Pump</h2>
+<h2 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>46. IO SG-Ready Heat Pump</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a heat pump that implements the SG-Ready standard via two Relay contacts, depending on surplus power and battery state-of-charge.</p>
 </div>
 <div class="sect2">
-<h3 id="_states"><a class="anchor" href="#_states"></a>44.1. States</h3>
+<h3 id="_states"><a class="anchor" href="#_states"></a>46.1. States</h3>
 <div class="paragraph">
 <p>The Controller distinguishes the different States, according to the SG-Ready standard.</p>
 </div>
@@ -2263,7 +2298,7 @@ L1|     xxxxxxxxxxxxxxxx
 </table>
 </div>
 <div class="sect2">
-<h3 id="_channels_2"><a class="anchor" href="#_channels_2"></a>44.2. Channels</h3>
+<h3 id="_channels_2"><a class="anchor" href="#_channels_2"></a>46.2. Channels</h3>
 <div class="paragraph">
 <p>The Controller has an ongoing time counter for every state, that is started and stopped if the corresponding state is active or not.</p>
 </div>
@@ -2278,7 +2313,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>45. PV-Inverter Fix Power Limit</h2>
+<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>47. PV-Inverter Fix Power Limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed power limit for PV-Inverter production.</p>
@@ -2289,7 +2324,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>46. PV-Inverter Sell-To-Grid limit</h2>
+<h2 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>48. PV-Inverter Sell-To-Grid limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Dynamically limits the Sell-To-Grid power of a PV-Inverter to a defined maximum power.</p>
@@ -2304,7 +2339,7 @@ The main purpose of the asymmetric mode is, to prevent the grid fuse from overcu
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>47. Symmetric Balancing Schedule</h2>
+<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>49. Symmetric Balancing Schedule</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in balancing mode. The control algorithm charges or discharges the battery in order to reach a given power target set-point at the grid connection point. If the target set-point is defined as zero, the behaviour is like with self-consumption optimization.</p>
@@ -2313,7 +2348,7 @@ The main purpose of the asymmetric mode is, to prevent the grid fuse from overcu
 <p>This controller allows two ways of controlling the power target set-point:</p>
 </div>
 <div class="sect2">
-<h3 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>47.1. 1. Definition of a power target set-point Schedule</h3>
+<h3 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>49.1. 1. Definition of a power target set-point Schedule</h3>
 <div class="paragraph">
 <p>The static configuration parameter "schedule" takes a Schedule of set-points as a Json-Array. An example schedule looks like this:</p>
 </div>
@@ -2361,7 +2396,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>47.2. 2. Immediate control of the power target set-point</h3>
+<h3 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>49.2. 2. Immediate control of the power target set-point</h3>
 <div class="paragraph">
 <p>The power target set-point may also be controlled directly via the <code>GridActivePowerSetPoint</code> channel. E.g. if the controller component has the Id <code>ctrlBalancingSchedule0</code> one can use e.g. the <a href="https://openems.github.io/openems.io/openems/latest/edge/controller.html#_rest_api_controller">REST-Api Controller</a> and write</p>
 </div>
@@ -2382,7 +2417,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>48. Symmetric Fix Reactive Power</h2>
+<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>50. Symmetric Fix Reactive Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed reactive power for a symmetric energy storage system.</p>
@@ -2393,7 +2428,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>49. Symmetric Limit Active Power</h2>
+<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>51. Symmetric Limit Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
@@ -2404,7 +2439,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>50. Symmetric Peak-Shaving</h2>
+<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>52. Symmetric Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
@@ -2415,7 +2450,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>51. Symmetric Random-Power</h2>
+<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>53. Symmetric Random-Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
@@ -2426,7 +2461,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>52. Symmetric Timeslot Peak-Shaving</h2>
+<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>54. Symmetric Timeslot Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving within a configured timeslot at the grid using a symmetric energy storage system. Outside of the timeslot the battery recharges.</p>
