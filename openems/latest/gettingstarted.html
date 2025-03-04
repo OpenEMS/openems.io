@@ -231,12 +231,60 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This quick 'Getting Started' guide should help you setup a complete development environment. Once finished you will have a working instance of OpenEMS Edge, with simulated energy storage and photovoltaic system, as well as an OpenEMS UI for monitoring the simulator inside your web browser. Finally OpenEMS Backend is added to simulate a cloud backend that connects UI and Edge.</p>
+<p>There are three ways to get started with OpenEMS.
+You can either setup your development environment and compile OpenEMS Edge from source, you can use pre-built <a href="https://github.com/OpenEMS/openems/releases">Release</a> packages, or you can use the <a href="https://github.com/OpenEMS/openems/tree/main/tools/docker/">Docker</a> images.
+How to use the Docker images is described in the README linked above.
+For the other two ways, keep reading.
+Either way, once finished you will have a working instance of OpenEMS Edge, with simulated energy storage and photovoltaic system, as well as an OpenEMS UI for monitoring the simulator inside your web browser.
+Finally OpenEMS Backend is added to simulate a cloud backend that connects UI and Edge.
+If you chose to setup the development environment, skip the first section and go to <a href="#download-the-source-code">Download the source code</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_download_the_source_code"><a class="anchor" href="#_download_the_source_code"></a>1. Download the source code</h2>
+<h2 id="_running_the_pre_built_openems_edge"><a class="anchor" href="#_running_the_pre_built_openems_edge"></a>1. Running the pre-built OpenEMS Edge</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to the <a href="https://github.com/OpenEMS/openems/releases/">OpenEMS' release Page</a> on GitHub and download the latest <code>openems-edge.jar</code>.</p>
+</li>
+<li>
+<p>Open up your Terminal and go to the directory you downloaded the packages to.</p>
+</li>
+<li>
+<p>Start OpenEMS Edge with the following command <code>java -jar openems-edge.jar</code></p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Make sure the right java Version (21.0) is installed and active on your system.
+On most systems <code>java -version</code> in your CLI will show the active version.
+On how to change the active version, refer to your system documentation.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you see the following warning in your terminal: <strong>There are no schedulers configured!</strong> OpenEMS Edge runs perfectly. :-)</p>
+</li>
+<li>
+<p>Now you can continue with <a href="#starting-a-simulation">Starting a simulation</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="download-the-source-code"><a class="anchor" href="#download-the-source-code"></a>2. Download the source code</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -311,7 +359,7 @@ OpenEMS uses the <strong>git</strong> version control system via the popular Git
 </div>
 </div>
 <div class="sect1">
-<h2 id="_setup_eclipse_ide_for_openems_edge_and_backend"><a class="anchor" href="#_setup_eclipse_ide_for_openems_edge_and_backend"></a>2. Setup Eclipse IDE for OpenEMS Edge and Backend</h2>
+<h2 id="_setup_eclipse_ide_for_openems_edge_and_backend"><a class="anchor" href="#_setup_eclipse_ide_for_openems_edge_and_backend"></a>3. Setup Eclipse IDE for OpenEMS Edge and Backend</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -404,7 +452,7 @@ Select your source code directory (<code>C:\Users\your.user\git\openems</code> i
 </div>
 </div>
 <div class="sect1">
-<h2 id="_run_openems_edge_and_start_simulator"><a class="anchor" href="#_run_openems_edge_and_start_simulator"></a>3. Run OpenEMS Edge and start Simulator</h2>
+<h2 id="_run_openems_edge_from_eclipse_ide"><a class="anchor" href="#_run_openems_edge_from_eclipse_ide"></a>4. Run OpenEMS Edge from Eclipse IDE</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -461,10 +509,15 @@ Instead of navigating through the projects tree, you can simply use the keyboard
 </ol>
 </div>
 </li>
-<li>
-<p>Configure and start the Simulator</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="starting-a-simulation"><a class="anchor" href="#starting-a-simulation"></a>5. Starting a simulation</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Open the <a href="http://localhost:8080/system/console/configMgr">Apache Felix Web Console Configuration <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
 <div class="paragraph">
@@ -491,8 +544,8 @@ The Scheduler is responsible for executing the control algorithms (Controllers) 
 </tr>
 </table>
 </div>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>Click on <em><strong>Scheduler All Alphabetically</strong></em></p>
 <div class="imageblock">
@@ -735,13 +788,10 @@ The Controller Api Websocket is required so that OpenEMS UI can connect to OpenE
 </li>
 </ol>
 </div>
-</li>
-</ol>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_run_openems_ui"><a class="anchor" href="#_run_openems_ui"></a>4. Run OpenEMS UI</h2>
+<h2 id="_run_openems_ui"><a class="anchor" href="#_run_openems_ui"></a>6. Run OpenEMS UI</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -795,13 +845,13 @@ If you plan to actively develop on OpenEMS UI, you can now also setup a developm
 </div>
 </div>
 <div class="sect1">
-<h2 id="_integrate_openems_backend"><a class="anchor" href="#_integrate_openems_backend"></a>5. Integrate OpenEMS Backend</h2>
+<h2 id="_integrate_openems_backend"><a class="anchor" href="#_integrate_openems_backend"></a>7. Integrate OpenEMS Backend</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Instead of having Edge and UI talk to each other directly, the communication can also be proxied via Backend.</p>
 </div>
 <div class="sect2">
-<h3 id="_run_and_configure_openems_backend"><a class="anchor" href="#_run_and_configure_openems_backend"></a>5.1. Run and configure OpenEMS Backend</h3>
+<h3 id="_run_and_configure_openems_backend"><a class="anchor" href="#_run_and_configure_openems_backend"></a>7.1. Run and configure OpenEMS Backend</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -982,7 +1032,7 @@ INFO  [socket.AbstractWebsocketServer] [Edge.Websocket] Starting websocket serve
 </div>
 </div>
 <div class="sect2">
-<h3 id="_configure_openems_edge"><a class="anchor" href="#_configure_openems_edge"></a>5.2. Configure OpenEMS Edge</h3>
+<h3 id="_configure_openems_edge"><a class="anchor" href="#_configure_openems_edge"></a>7.2. Configure OpenEMS Edge</h3>
 <div class="paragraph">
 <p>Next we will configure OpenEMS Edge to connect to the OpenEMS Backend <em><strong>Edge.Websocket</strong></em> service.</p>
 </div>
@@ -1039,7 +1089,7 @@ INFO  [dgewebsocket.EdgeWebsocketImpl] [monitor] Edge-Connections: 1</code></pre
 </div>
 </div>
 <div class="sect2">
-<h3 id="_connect_openems_ui_with_backend"><a class="anchor" href="#_connect_openems_ui_with_backend"></a>5.3. Connect OpenEMS UI with Backend</h3>
+<h3 id="_connect_openems_ui_with_backend"><a class="anchor" href="#_connect_openems_ui_with_backend"></a>7.3. Connect OpenEMS UI with Backend</h3>
 <div class="paragraph">
 <p><em>(You need to have completed the <a href="ui/setup-ide.html" class="xref page">OpenEMS UI guide</a> for the following steps)</em></p>
 </div>
@@ -1118,7 +1168,7 @@ OpenEMS UI can work both for local connections to OpenEMS Edge as well as cloud 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>6. Next steps</h2>
+<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>8. Next steps</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Now that you setup a complete development environment and have a working instance of OpenEMS Edge, OpenEMS Backend an OpenEMS UI, you can continue implementing your first device driver in OpenEMS. We provide a tutorial that explains the steps to implement an electric meter in OpenEMS Edge that is connected via Modbus/TCP.</p>
@@ -1129,7 +1179,7 @@ OpenEMS UI can work both for local connections to OpenEMS Edge as well as cloud 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_help"><a class="anchor" href="#_help"></a>7. Help</h2>
+<h2 id="_help"><a class="anchor" href="#_help"></a>9. Help</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you experienced any problems or doubts, please get in touch with us on the <a href="https://community.openems.io/">OpenEMS Community</a> forum.</p>
