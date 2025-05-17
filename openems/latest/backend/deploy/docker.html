@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Deploy OpenEMS Backend to Docker :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/backend/deploy/docker.html">
+    <meta name="keywords" content="AsciiDoc">
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://openems.github.io/openems.io">Open Energy Management System</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+            <span class="gitlink">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="openems" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/nature.html">Nature</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/bridge.html">Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/device_service.html">Device &amp; Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../edge/deploy/systemd.html">Deploy on Debian/Ubuntu</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../edge/deploy/docker.html">Deploy to Docker</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/setup-ide.html">Setup IDE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/chart.html">Chart</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadata.html">Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../service.html">Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="systemd.html">Deploy on Debian/Ubuntu</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="docker.html">Deploy to Docker</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#logging/log4j2.adoc">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Simulation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/gitpod.html">Live-Demo on Gitpod</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/realtime.html">Real-Time Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/ui-history.html">UI History Simulation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Contribute</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../contribute/coding-guidelines.html">Coding Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../contribute/documentation.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../introduction.html">Open Energy Management System</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../introduction.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../introduction.html">Open Energy Management System</a></li>
+    <li>OpenEMS Backend</li>
+    <li>Deploy</li>
+    <li><a href="docker.html">Deploy to Docker</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/backend/deploy/docker.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Deploy OpenEMS Backend to Docker</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter explains how OpenEMS Backend can be deployed using our official <a href="https://hub.docker.com/r/openems/backend">Docker image</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prepare_system"><a class="anchor" href="#_prepare_system"></a>1. Prepare system</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_connect_to_the_server"><a class="anchor" href="#_connect_to_the_server"></a>1.1. Connect to the server</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ssh admin@ubuntu</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_check_docker_installation"><a class="anchor" href="#_check_docker_installation"></a>1.2. Check docker installation</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">admin@ubuntu:~$ docker --version
+Docker version 27.3.1, build ce12230</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>if not already installed, follow <a href="#_setup_docker">Setup docker</a></em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setup_docker"><a class="anchor" href="#_setup_docker"></a>1.3. Setup docker</h3>
+<div class="paragraph">
+<p>To setup docker follow the instuctions from <a href="https://docs.docker.com/engine/install/">docs.docker.com</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_start_container"><a class="anchor" href="#_start_container"></a>2. Start Container</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_create_a_docker_compose"><a class="anchor" href="#_create_a_docker_compose"></a>2.1. Create a Docker compose</h3>
+<div class="paragraph">
+<p>Paste content into a <code>docker-compose.yml</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">services:
+  openems_backend:
+    image: openems/backend:latest
+    container_name: openems_backend
+    hostname: openems_backend
+    restart: unless-stopped
+    volumes:
+      - openems-backend-conf:/var/opt/openems/config:rw
+      - openems-backend-data:/var/opt/openems/data:rw
+    ports:
+      - 8079:8079 # Apache-Felix
+      - 8081:8081 # Edge-Websocket
+
+volumes:
+  openems-backend-conf:
+  openems-backend-data:</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_run_compose_file"><a class="anchor" href="#_run_compose_file"></a>2.2. Run compose file</h3>
+<div class="paragraph">
+<p>To start the previously created <code>docker-compose.yml</code> run the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker compose up -d</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_check_logs"><a class="anchor" href="#_check_logs"></a>2.3. Check logs</h3>
+<div class="paragraph">
+<p>To check if the container is up and running, check <code>docker ps</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">admin@ubuntu:~$ docker ps
+CONTAINER ID  IMAGE                       COMMAND   CREATED               STATUS
+15d5ba3c5f13  openems/backend:latest      "/init"   About a minute ago    Up About a minute</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or read its logs with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker logs openems_backend</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_openems_backend_ui"><a class="anchor" href="#_openems_backend_ui"></a>3. OpenEMS Backend UI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to add the OpenEMS Backend UI to your setup, you can do so by adjusting your <code>docker-compose.yml</code> file to look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">services:
+  openems_backend:
+    image: openems/backend:latest
+    container_name: openems_backend
+    hostname: openems_backend
+    restart: unless-stopped
+    volumes:
+      - openems-backend-conf:/var/opt/openems/config:rw
+      - openems-backend-data:/var/opt/openems/data:rw
+    ports:
+      - 8079:8079 # Apache-Felix
+      - 8081:8081 # Edge-Websocket
+      - 8082:8082 # UI-Websocket
+
+  openems-ui:
+    image: openems/ui-backend:latest
+    container_name: openems_ui
+    hostname: openems_ui
+    restart: unless-stopped
+    volumes:
+      - openems-ui-conf:/etc/nginx:rw
+      - openems-ui-log:/var/log/nginx:rw
+    environment:
+      - UI_WEBSOCKET=ws://&lt;hostname&gt;:8082
+    ports:
+      - 80:80
+      - 443:443
+
+volumes:
+  openems-backend-conf:
+  openems-backend-data:
+  openems-ui-conf:
+  openems-ui-log:</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>summary of the changes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open a Port for UI Websocket (8082) on the <code>openems-backend</code> service</p>
+</li>
+<li>
+<p>Added a new service <code>openems-ui</code> to the docker-compose file</p>
+</li>
+<li>
+<p>Added the volumes <code>openems-ui-conf</code> and <code>openems-ui-log</code></p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>UI_WEBSOCKET</code> environment variable must be set to the hostname of the OpenEMS Backend container. This URL is used by the UI to connect to the OpenEMS Backend Websocket. Make sure it is reachable from any device you want to use the UI on.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_update_docker_compose"><a class="anchor" href="#_update_docker_compose"></a>3.1. Update docker-compose</h3>
+<div class="paragraph">
+<p>Update the compose running with: <code>docker compose up -d</code></p>
+</div>
+<div class="sect3">
+<h4 id="_check_container_status"><a class="anchor" href="#_check_container_status"></a>3.1.1. Check container status</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">admin@ubuntu:~$ docker ps
+CONTAINER ID  IMAGE                       COMMAND   CREATED               STATUS
+018187f444b1  openems/ui-backend:latest   "/init"   About a minute ago    Up About a minute
+15d5ba3c5f13  openems/backend:latest      "/init"   About a minute ago    Up About a minute</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_add_influxdb_container"><a class="anchor" href="#_add_influxdb_container"></a>4. Add InfluxDB Container</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_update_docker_compose_2"><a class="anchor" href="#_update_docker_compose_2"></a>4.1. Update docker-compose</h3>
+<div class="paragraph">
+<p>to add InfluxDB to your setup, you can do so by adjusting your <code>docker-compose.yml</code>, by adding the following lines:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  …
+  openems_influxdb:
+    image: influxdb:alpine
+    container_name: openems_influxdb
+    hostname: openems_influxdb
+    restart: unless-stopped
+    volumes:
+      - openems-influxdb:/var/lib/influxdb2:rw
+    ports:
+      - 8086:8086
+
+volumes:
+  …
+  openems-influxdb:</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setup_influxdb"><a class="anchor" href="#_setup_influxdb"></a>4.2. Setup InfluxDB</h3>
+<div class="sect3">
+<h4 id="_setup_influxdb_2"><a class="anchor" href="#_setup_influxdb_2"></a>4.2.1. Setup InfluxDB</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker exec openems_influxdb influx setup \
+  --username openems \
+  --password WKeuIhl0deIJjrjoY62M \
+  --org openems.io \
+  --bucket openems \
+  --force</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker exec openems_influxdb influx auth list</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note down Token
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_open_backend_apache_felix"><a class="anchor" href="#_open_backend_apache_felix"></a>4.2.2. Open Backend Apache-Felix.</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Remove Timedata.Dummy</p>
+</li>
+<li>
+<p>Add Timedata.InfluxDB</p>
+</li>
+</ol>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Language</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INFLUX_QL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://openems_influxdb:8086" class="bare">http://openems_influxdb:8086</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Org</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openems.io</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiKey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InfluxDB-Token</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openems</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Values not specified can be left at their default values
+Timedata.InfluxDB
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>for further information see OpenEMS docs</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
