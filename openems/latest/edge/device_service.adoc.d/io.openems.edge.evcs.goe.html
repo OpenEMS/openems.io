@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>IO Heating Element :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/controller.adoc.d/io.openems.edge.controller.io.heatingelement.html">
+    <title>Go-e Gemini Charging Station :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.adoc.d/io.openems.edge.evcs.goe.html">
     <meta name="generator" content="Antora 3.1.10">
     <link rel="stylesheet" href="../../../../_/css/site.css">
   </head>
@@ -231,165 +231,68 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
-    <li><a href="io.openems.edge.controller.io.heatingelement.html">IO Heating Element</a></li>
+    <li><a href="io.openems.edge.evcs.goe.html">Go-e Gemini Charging Station</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/controller.adoc.d/io.openems.edge.controller.io.heatingelement.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.adoc.d/io.openems.edge.evcs.goe.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">IO Heating Element</h1>
+<h1 class="page">Go-e Gemini Charging Station</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Controls a three-phase heating element via Relays, according to grid active power.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>Phase and Level</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The Controller distinguishes the definition of Phase and Level.
-<strong>Phase</strong> represents the electrical phase L1, L2 or L3.
-<strong>Level</strong> represents how many Phases are active at one point in time:</p>
+<p>This component implements the Gemini family of charging station by the manufacturer go-e.
+There are two implementations present:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Level 1: only Phase L1 is active</p>
+<p>GoE API V2 via HTTP (OpenEMS preferred solution)</p>
 </li>
 <li>
-<p>Level 2: Phase L1 and L2 are active</p>
-</li>
-<li>
-<p>Level 3: all three Phases are active</p>
+<p>Modbus (Versions &gt;= 57.1 appear to be stable)</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_channels"><a class="anchor" href="#_channels"></a>Channels</h2>
+<h2 id="_compatibility"><a class="anchor" href="#_compatibility"></a>Compatibility</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Example:
-* the power of the heating element per phase is 1000 W
-* each "x" below represents one hour</p>
-</div>
-<div class="paragraph">
-<p>Assume the Controller was activating Phases L1, L2 and L3 during the day like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>L3|           xxx
-L2|        xxxxxxxxx
-L1|     xxxxxxxxxxxxxxxx
- t|------------------------</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Channel <em>Phase1Time</em></dt>
-<dd>
-<p><code>= 16 h = <strong>57600 sec</strong></code></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>        |--------------|</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Channel <em>Phase2Time</em></dt>
-<dd>
-<p><code>= 9 hours = <strong>32400 sec</strong></code></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>           |-------|</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Channel <em>Phase3Time</em></dt>
-<dd>
-<p><code>= 3 hours = <strong>10800 sec</strong></code></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>              |-|</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Channel <em>Level1Time</em></dt>
-<dd>
-<p><code>= Phase1Time - Phase2Time = 7 hours = <strong>25200 sec</strong></code></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>        |-|         |--|</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Channel <em>Level2Time</em></dt>
-<dd>
-<p><code>= Phase2Time - Phase3Time = 6 hours = <strong>21600 sec</strong></code></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>           |-|   |-|</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Channel <em>Level3Time</em></dt>
-<dd>
-<p><code>= Phase3Time = 3 hours = <strong>10800 sec</strong></code></p>
-</dd>
-</dl>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>              |-|</pre>
-</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Channel <em>TotalTime</em></dt>
-<dd>
-<p><code><strong>28000 Wh</strong> = 28 kWh</code></p>
-</dd>
-<dt class="hdlist1">Channel <em>TotalPhaseTime</em></dt>
-<dd>
-<p><code>= Phase1Time + Phase2Time + Phase3Time = 16 + 9 + 3 = 28 h = <strong>100800 sec</strong></code></p>
-</dd>
-</dl>
+<div class="ulist">
+<ul>
+<li>
+<p>Charger Gemini</p>
+</li>
+<li>
+<p>Charger Gemini flex</p>
+</li>
+<li>
+<p>Charger Gemini 2.0</p>
+</li>
+<li>
+<p>Charger Gemini 2.0 flex</p>
+</li>
+<li>
+<p>Charger Pro</p>
+</li>
+</ul>
 </div>
 <div class="sect2">
-<h3 id="_schedule_configuration"><a class="anchor" href="#_schedule_configuration"></a>Schedule Configuration</h3>
+<h3 id="_technical_data"><a class="anchor" href="#_technical_data"></a>Technical Data</h3>
 <div class="paragraph">
-<p>This controller supports time-based scheduling via the schedule parameter. It uses the JSCalendar format to define recurring schedules.<br>
-Examples of usage and formatting can be found in the test classes ControllerHeatingElementImplTest9.java and ControllerHeatingElementImplTest10.java.<br>
-Note: The schedule only takes effect in the Mode Automatic with any WorkMode (None, Time, Energy)</p>
+<p><a href="https://github.com/goecharger/go-eCharger-API-v2/blob/main/modbus-en.md" class="bare">https://github.com/goecharger/go-eCharger-API-v2/blob/main/modbus-en.md</a></p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.io.heatingelement">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+<p>Implemented Natures:
+* Evcs (Electric Vehicle Charging Station)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.evcs.goe">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 </div>
