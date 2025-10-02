@@ -6,7 +6,7 @@
     <title>Controller :: Open Energy Management System</title>
     <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.html">
     <meta name="keywords" content="AsciiDoc">
-    <meta name="generator" content="Antora 3.1.12">
+    <meta name="generator" content="Antora 3.1.13">
     <link rel="stylesheet" href="../../../_/css/site.css">
   </head>
   <body class="article">
@@ -796,37 +796,7 @@ It&#8217;s typically recreated multiple times per second.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_alpitronic_hypercharger_v1_x"><a class="anchor" href="#_alpitronic_hypercharger_v1_x"></a>20. Alpitronic Hypercharger V1-X</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Implementation of the Alpitronic Hypercharger V1-X DC electric vehicle charging station.</p>
-</div>
-<div class="sect2">
-<h3 id="_compatibility"><a class="anchor" href="#_compatibility"></a>20.1. Compatibility</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Alpitronic Hypercharger V1-X</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_additional_application_notes"><a class="anchor" href="#_additional_application_notes"></a>20.2. Additional application notes</h3>
-<div class="paragraph">
-<p>The charging station comes with up to four physical connectors. This implementation is designed in a way, that each connector is represented by an individual OpenEMS Component. So if you have a Alpitronic with two connectors, please configure two "EVCS Alpitronic Hypercharger" with the <code>connector</code> configuration property set to <code>SLOT_0</code> and <code>SLOT_1</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Supported Firmware versions: <code>1.7.2</code> and higher.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.evcs.alpitronic.hypercharger">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_evcs_cluster"><a class="anchor" href="#_evcs_cluster"></a>21. EVCS Cluster</h2>
+<h2 id="_evcs_cluster"><a class="anchor" href="#_evcs_cluster"></a>20. EVCS Cluster</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Distributes the charging power (Depending on the implementation) to the prioritized charging stations.
@@ -849,16 +819,16 @@ The self consumption cluster is calculating the power depending on the excess po
 </div>
 </div>
 <div class="sect1">
-<h2 id="_evcs_core"><a class="anchor" href="#_evcs_core"></a>22. EVCS Core</h2>
+<h2 id="_evcs_core"><a class="anchor" href="#_evcs_core"></a>21. EVCS Core</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_core"><a class="anchor" href="#_core"></a>22.1. Core</h3>
+<h3 id="_core"><a class="anchor" href="#_core"></a>21.1. Core</h3>
 <div class="paragraph">
 <p>Core services for electric vehicle charging.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_implementing_an_electric_vehicle_charging_station"><a class="anchor" href="#_implementing_an_electric_vehicle_charging_station"></a>22.2. Implementing an Electric Vehicle Charging Station</h3>
+<h3 id="_implementing_an_electric_vehicle_charging_station"><a class="anchor" href="#_implementing_an_electric_vehicle_charging_station"></a>21.2. Implementing an Electric Vehicle Charging Station</h3>
 <div class="paragraph">
 <p>These are a couple of steps that should be helpful in your implementation of a new evcs component.
 Note that some parts may still be missing.</p>
@@ -1129,7 +1099,7 @@ protected void setModbus(BridgeModbus modbus) {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_go_e_gemini_charging_station"><a class="anchor" href="#_go_e_gemini_charging_station"></a>23. Go-e Gemini Charging Station</h2>
+<h2 id="_go_e_gemini_charging_station"><a class="anchor" href="#_go_e_gemini_charging_station"></a>22. Go-e Gemini Charging Station</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This component implements the Gemini family of charging station by the manufacturer go-e.
@@ -1146,7 +1116,7 @@ There are two implementations present:</p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_compatibility_2"><a class="anchor" href="#_compatibility_2"></a>23.1. Compatibility</h3>
+<h3 id="_compatibility"><a class="anchor" href="#_compatibility"></a>22.1. Compatibility</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1167,7 +1137,7 @@ There are two implementations present:</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_technical_data"><a class="anchor" href="#_technical_data"></a>23.1.1. Technical Data</h4>
+<h4 id="_technical_data"><a class="anchor" href="#_technical_data"></a>22.1.1. Technical Data</h4>
 <div class="paragraph">
 <p><a href="https://github.com/goecharger/go-eCharger-API-v2/blob/main/modbus-en.md" class="bare">https://github.com/goecharger/go-eCharger-API-v2/blob/main/modbus-en.md</a></p>
 </div>
@@ -1183,7 +1153,7 @@ There are two implementations present:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_go_e_charger_home_charging_station"><a class="anchor" href="#_go_e_charger_home_charging_station"></a>24. Go-e Charger Home Charging Station</h2>
+<h2 id="_go_e_charger_home_charging_station"><a class="anchor" href="#_go_e_charger_home_charging_station"></a>23. Go-e Charger Home Charging Station</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This component implements the go-e charger home charging station, which is controlled and read out using the Rest-API protocol.
@@ -1197,13 +1167,13 @@ It collects all relevant informations into the given Nature Channels and its own
 </div>
 </div>
 <div class="sect1">
-<h2 id="_heidelberg_wallbox_energy_control_charging_station"><a class="anchor" href="#_heidelberg_wallbox_energy_control_charging_station"></a>25. Heidelberg Wallbox Energy Control Charging Station</h2>
+<h2 id="_heidelberg_wallbox_energy_control_charging_station"><a class="anchor" href="#_heidelberg_wallbox_energy_control_charging_station"></a>24. Heidelberg Wallbox Energy Control Charging Station</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the Heidelberg electric vehicle charging station.</p>
 </div>
 <div class="sect2">
-<h3 id="_compatibility_3"><a class="anchor" href="#_compatibility_3"></a>25.1. Compatibility</h3>
+<h3 id="_compatibility_2"><a class="anchor" href="#_compatibility_2"></a>24.1. Compatibility</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1212,7 +1182,7 @@ It collects all relevant informations into the given Nature Channels and its own
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_technical_data_2"><a class="anchor" href="#_technical_data_2"></a>25.1.1. Technical Data</h4>
+<h4 id="_technical_data_2"><a class="anchor" href="#_technical_data_2"></a>24.1.1. Technical Data</h4>
 <div class="paragraph">
 <p>Implemented Natures:
 * Evcs (Electric Vehicle Charging Station)</p>
@@ -1225,18 +1195,18 @@ It collects all relevant informations into the given Nature Channels and its own
 </div>
 </div>
 <div class="sect1">
-<h2 id="_mennekes_amtron_professional_charging_station"><a class="anchor" href="#_mennekes_amtron_professional_charging_station"></a>26. Mennekes Amtron Professional Charging Station</h2>
+<h2 id="_mennekes_amtron_professional_charging_station"><a class="anchor" href="#_mennekes_amtron_professional_charging_station"></a>25. Mennekes Amtron Professional Charging Station</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This component implements the Mennekes Professional charging station by the manufacturer Mennekes. It collects all relevant information into the given Nature Channels and its own Channels and sends charging commands that have been set by another controllers.</p>
 </div>
 <div class="sect2">
-<h3 id="_software_release_life_cycle_beta"><a class="anchor" href="#_software_release_life_cycle_beta"></a>26.1. <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle">Software release life cycle</a>: BETA</h3>
+<h3 id="_software_release_life_cycle_beta"><a class="anchor" href="#_software_release_life_cycle_beta"></a>25.1. <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle">Software release life cycle</a>: BETA</h3>
 <div class="paragraph">
 <p>This implementation has been carried out during OpenEMS Hackathon Q1/2023 and is not yet fully feature tested. Please consider it BETA quality</p>
 </div>
 <div class="sect3">
-<h4 id="_technical_data_3"><a class="anchor" href="#_technical_data_3"></a>26.1.1. Technical Data</h4>
+<h4 id="_technical_data_3"><a class="anchor" href="#_technical_data_3"></a>25.1.1. Technical Data</h4>
 <div class="paragraph">
 <p>Implemented Natures:
 * Evcs (Electric Vehicle Charging Station)
@@ -1250,7 +1220,7 @@ It collects all relevant informations into the given Nature Channels and its own
 </div>
 </div>
 <div class="sect1">
-<h2 id="_abl_charging_station"><a class="anchor" href="#_abl_charging_station"></a>27. ABL Charging Station</h2>
+<h2 id="_abl_charging_station"><a class="anchor" href="#_abl_charging_station"></a>26. ABL Charging Station</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This component implements the ABL EMH 3 series charging station, which is controlled and read out using the OCPP protocol.
@@ -1271,7 +1241,7 @@ It provides specific information for the AbstractOcppEvcsComponent.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_electric_vehicle_charging_station_ocpp_common"><a class="anchor" href="#_electric_vehicle_charging_station_ocpp_common"></a>28. Electric Vehicle Charging Station OCPP Common</h2>
+<h2 id="_electric_vehicle_charging_station_ocpp_common"><a class="anchor" href="#_electric_vehicle_charging_station_ocpp_common"></a>27. Electric Vehicle Charging Station OCPP Common</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The Open Charge Point Protocol (OCPP) is an application protocol for communication between
@@ -1292,7 +1262,7 @@ It also provides a default abstract ocpp EVCS component that can be used by ever
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ies_keywatt_charging_station"><a class="anchor" href="#_ies_keywatt_charging_station"></a>29. IES KeyWatt Charging Station</h2>
+<h2 id="_ies_keywatt_charging_station"><a class="anchor" href="#_ies_keywatt_charging_station"></a>28. IES KeyWatt Charging Station</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This component implements the IES KeyWatt CCS charging station with a single plug, which is controlled and read out using the OCPP protocol.
@@ -1314,7 +1284,7 @@ It provides specific information for the AbstractOcppEvcsComponent.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ocpp_server"><a class="anchor" href="#_ocpp_server"></a>30. OCPP Server</h2>
+<h2 id="_ocpp_server"><a class="anchor" href="#_ocpp_server"></a>29. OCPP Server</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The OCPP Server is implementing a central management system.
@@ -1339,7 +1309,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_spelsberg_smart_pro_charging_station_beta"><a class="anchor" href="#_spelsberg_smart_pro_charging_station_beta"></a>31. Spelsberg SMART PRO charging station (BETA)</h2>
+<h2 id="_spelsberg_smart_pro_charging_station_beta"><a class="anchor" href="#_spelsberg_smart_pro_charging_station_beta"></a>30. Spelsberg SMART PRO charging station (BETA)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the Spelsberg SMART PRO charging station.</p>
@@ -1348,7 +1318,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 <p>This EVCS component implementation is not yet fully feature tested. Please consider it BETA quality.</p>
 </div>
 <div class="sect2">
-<h3 id="_technical_data_4"><a class="anchor" href="#_technical_data_4"></a>31.1. Technical Data</h3>
+<h3 id="_technical_data_4"><a class="anchor" href="#_technical_data_4"></a>30.1. Technical Data</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1367,7 +1337,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_this_implementation_includes"><a class="anchor" href="#_this_implementation_includes"></a>31.2. This implementation includes:</h3>
+<h3 id="_this_implementation_includes"><a class="anchor" href="#_this_implementation_includes"></a>30.2. This implementation includes:</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1389,7 +1359,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_planned_features"><a class="anchor" href="#_planned_features"></a>31.3. Planned Features:</h3>
+<h3 id="_planned_features"><a class="anchor" href="#_planned_features"></a>30.3. Planned Features:</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1404,19 +1374,19 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_webasto_next_charging_station_beta"><a class="anchor" href="#_webasto_next_charging_station_beta"></a>32. Webasto Next Charging Station (BETA)</h2>
+<h2 id="_webasto_next_charging_station_beta"><a class="anchor" href="#_webasto_next_charging_station_beta"></a>31. Webasto Next Charging Station (BETA)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the Webasto Next electric vehicle charging station.</p>
 </div>
 <div class="sect2">
-<h3 id="_software_release_life_cycle_beta_2"><a class="anchor" href="#_software_release_life_cycle_beta_2"></a>32.1. <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle">Software release life cycle</a>: BETA</h3>
+<h3 id="_software_release_life_cycle_beta_2"><a class="anchor" href="#_software_release_life_cycle_beta_2"></a>31.1. <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle">Software release life cycle</a>: BETA</h3>
 <div class="paragraph">
 <p>This implementation has been carried out during OpenEMS Hackathon Q1/2023 and is not yet fully feature tested. Please consider it BETA quality</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_compatibility_4"><a class="anchor" href="#_compatibility_4"></a>32.2. Compatibility</h3>
+<h3 id="_compatibility_3"><a class="anchor" href="#_compatibility_3"></a>31.2. Compatibility</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1425,7 +1395,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_technical_data_5"><a class="anchor" href="#_technical_data_5"></a>32.2.1. Technical Data</h4>
+<h4 id="_technical_data_5"><a class="anchor" href="#_technical_data_5"></a>31.2.1. Technical Data</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1455,7 +1425,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_application_notes_2"><a class="anchor" href="#_additional_application_notes_2"></a>32.3. Additional application notes</h3>
+<h3 id="_additional_application_notes"><a class="anchor" href="#_additional_application_notes"></a>31.3. Additional application notes</h3>
 <div class="paragraph">
 <p>The implementation includes:</p>
 </div>
@@ -1476,19 +1446,19 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_webasto_unite_charging_station_beta"><a class="anchor" href="#_webasto_unite_charging_station_beta"></a>33. Webasto Unite Charging Station (BETA)</h2>
+<h2 id="_webasto_unite_charging_station_beta"><a class="anchor" href="#_webasto_unite_charging_station_beta"></a>32. Webasto Unite Charging Station (BETA)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the Webasto Unite electric vehicle charging station.</p>
 </div>
 <div class="sect2">
-<h3 id="_software_release_life_cycle_beta_3"><a class="anchor" href="#_software_release_life_cycle_beta_3"></a>33.1. <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle">Software release life cycle</a>: BETA</h3>
+<h3 id="_software_release_life_cycle_beta_3"><a class="anchor" href="#_software_release_life_cycle_beta_3"></a>32.1. <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle">Software release life cycle</a>: BETA</h3>
 <div class="paragraph">
 <p>This implementation has been carried out during OpenEMS Hackathon Q1/2023 and is not yet fully feature tested. Please consider it BETA quality</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_compatibility_5"><a class="anchor" href="#_compatibility_5"></a>33.2. Compatibility</h3>
+<h3 id="_compatibility_4"><a class="anchor" href="#_compatibility_4"></a>32.2. Compatibility</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1498,7 +1468,7 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_application_notes_3"><a class="anchor" href="#_additional_application_notes_3"></a>33.3. Additional application notes</h3>
+<h3 id="_additional_application_notes_2"><a class="anchor" href="#_additional_application_notes_2"></a>32.3. Additional application notes</h3>
 <div class="paragraph">
 <p>The implementation includes:</p>
 </div>
@@ -1514,6 +1484,36 @@ The server maintains connections to the EVCS&#8217;s, i.e.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.evcs.webasto.unite">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_alpitronic_hypercharger_v1_x"><a class="anchor" href="#_alpitronic_hypercharger_v1_x"></a>33. Alpitronic Hypercharger V1-X</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Implementation of the Alpitronic Hypercharger V1-X DC electric vehicle charging station.</p>
+</div>
+<div class="sect2">
+<h3 id="_compatibility_5"><a class="anchor" href="#_compatibility_5"></a>33.1. Compatibility</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Alpitronic Hypercharger V1-X</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_additional_application_notes_3"><a class="anchor" href="#_additional_application_notes_3"></a>33.2. Additional application notes</h3>
+<div class="paragraph">
+<p>The charging station comes with up to four physical connectors. This implementation is designed in a way, that each connector is represented by an individual OpenEMS Component. So if you have a Alpitronic with two connectors, please configure two "EVCS Alpitronic Hypercharger" with the <code>connector</code> configuration property set to <code>SLOT_0</code> and <code>SLOT_1</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Supported Firmware versions: <code>1.7.2</code> and higher.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.evcs.alpitronic.hypercharger">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 </div>
@@ -2773,7 +2773,19 @@ Here, for power prediction, LSTM models can analyze historical power data to lea
 </div>
 </div>
 <div class="sect1">
-<h2 id="_similarday_model_predictor"><a class="anchor" href="#_similarday_model_predictor"></a>80. Similarday-Model Predictor</h2>
+<h2 id="_profile_clustering_predictor"><a class="anchor" href="#_profile_clustering_predictor"></a>80. Profile Clustering Predictor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This model forecasts future unmanaged consumption based on daily load profiles specific to each household.
+The profiles are identified using clustering algorithms. Taking into account factors such as the upcoming day and the previous profile, the model predicts the most likely profile for the next day, which serves as the forecast.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.predictor.profileclusteringmodel">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_similarday_model_predictor"><a class="anchor" href="#_similarday_model_predictor"></a>81. Similarday-Model Predictor</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This predictor uses "Similar day technique" for prediction.
@@ -2804,7 +2816,7 @@ This particular implementation requires mainly two inputs, which are</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>81. PV-Inverter Cluster</h2>
+<h2 id="_pv_inverter_cluster"><a class="anchor" href="#_pv_inverter_cluster"></a>82. PV-Inverter Cluster</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Combines multiple PV-Inverters to one common PV-Inverter. This way every Controller can easily work with multiple PV-Inverters in parallel.</p>
@@ -2815,13 +2827,13 @@ This particular implementation requires mainly two inputs, which are</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>82. KACO blueplanet PV inverter</h2>
+<h2 id="_kaco_blueplanet_pv_inverter"><a class="anchor" href="#_kaco_blueplanet_pv_inverter"></a>83. KACO blueplanet PV inverter</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the KACO blueplanet series PV inverters.</p>
 </div>
 <div class="sect2">
-<h3 id="_compatibility_7"><a class="anchor" href="#_compatibility_7"></a>82.1. Compatibility</h3>
+<h3 id="_compatibility_7"><a class="anchor" href="#_compatibility_7"></a>83.1. Compatibility</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2866,7 +2878,7 @@ This particular implementation requires mainly two inputs, which are</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_application_notes_4"><a class="anchor" href="#_additional_application_notes_4"></a>82.2. Additional application notes</h3>
+<h3 id="_additional_application_notes_4"><a class="anchor" href="#_additional_application_notes_4"></a>83.2. Additional application notes</h3>
 <div class="paragraph">
 <p>Experiences from testing this plugin with a KACO Blueplanet NX3 M2:</p>
 </div>
@@ -2900,7 +2912,7 @@ too much of a problem.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_kostal_pv_inverter"><a class="anchor" href="#_kostal_pv_inverter"></a>83. Kostal PV inverter</h2>
+<h2 id="_kostal_pv_inverter"><a class="anchor" href="#_kostal_pv_inverter"></a>84. Kostal PV inverter</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the Kostal PV inverters.</p>
@@ -2934,7 +2946,7 @@ Modbus must be active and byte order must be big-endian for sunspec.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_solar_log"><a class="anchor" href="#_solar_log"></a>84. Solar-Log</h2>
+<h2 id="_solar_log"><a class="anchor" href="#_solar_log"></a>85. Solar-Log</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implemented Natures:
@@ -2947,13 +2959,13 @@ Modbus must be active and byte order must be big-endian for sunspec.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_simulated_openems_components"><a class="anchor" href="#_simulated_openems_components"></a>85. Simulated OpenEMS Components</h2>
+<h2 id="_simulated_openems_components"><a class="anchor" href="#_simulated_openems_components"></a>86. Simulated OpenEMS Components</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This bundle provides simulated OpenEMS Components for the Natures. They are useful for testing and demoing without real hardware.</p>
 </div>
 <div class="sect2">
-<h3 id="_simulator_app"><a class="anchor" href="#_simulator_app"></a>85.1. Simulator-App</h3>
+<h3 id="_simulator_app"><a class="anchor" href="#_simulator_app"></a>86.1. Simulator-App</h3>
 <div class="paragraph">
 <p>The Simulator-App is a very specific component that needs to be handled with care. It provides a full simulation environment to run an OpenEMS Edge instance in simulated realtime environment. After you ran a Simulation, you will receive the simulation result as a JSON. Also the simulation result can be viewed in OpenEMS UI.</p>
 </div>
@@ -3126,10 +3138,10 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sma"><a class="anchor" href="#_sma"></a>86. SMA</h2>
+<h2 id="_sma"><a class="anchor" href="#_sma"></a>87. SMA</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_ess"><a class="anchor" href="#_ess"></a>86.1. ESS</h3>
+<h3 id="_ess"><a class="anchor" href="#_ess"></a>87.1. ESS</h3>
 <div class="paragraph">
 <p>Tested on
 - SMA SunnyIsland 6.0H
@@ -3146,7 +3158,7 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 </div>
 </div>
 <div class="sect2">
-<h3 id="_meter"><a class="anchor" href="#_meter"></a>86.2. Meter</h3>
+<h3 id="_meter"><a class="anchor" href="#_meter"></a>87.2. Meter</h3>
 <div class="paragraph">
 <p>Tested on
 - SMA Sunny Home Manager 2.0 Integrated Meter</p>
@@ -3161,7 +3173,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect2">
-<h3 id="_pv_inverter_2"><a class="anchor" href="#_pv_inverter_2"></a>86.3. PV Inverter</h3>
+<h3 id="_pv_inverter_2"><a class="anchor" href="#_pv_inverter_2"></a>87.3. PV Inverter</h3>
 <div class="paragraph">
 <p>Tested on
 - <a href="https://www.sma.de/produkte/solar-wechselrichter/sunny-tripower-80-100.html">SMA SUNNY TRIPOWER 8.0 / 10.0 </a>
@@ -3179,7 +3191,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect1">
-<h2 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>87. SolarEdge PV Inverter + Grid-Meter</h2>
+<h2 id="_solaredge_pv_inverter_grid_meter"><a class="anchor" href="#_solaredge_pv_inverter_grid_meter"></a>88. SolarEdge PV Inverter + Grid-Meter</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the SolarEdge PV inverters.</p>
@@ -3194,7 +3206,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect1">
-<h2 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>88. Tesla Powerwall 2</h2>
+<h2 id="_tesla_powerwall_2"><a class="anchor" href="#_tesla_powerwall_2"></a>89. Tesla Powerwall 2</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the Tesla Powerwall 2 energy storage system</p>
@@ -3219,7 +3231,15 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_of_use_tariff_awattar"><a class="anchor" href="#_time_of_use_tariff_awattar"></a>89. Time-Of-Use Tariff Awattar</h2>
+<h2 id="_time_of_use_tariff_ancillary_costs"><a class="anchor" href="#_time_of_use_tariff_ancillary_costs"></a>90. Time-Of-Use Tariff Ancillary Costs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.timeofusetariff.ancillarycosts">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_time_of_use_tariff_awattar"><a class="anchor" href="#_time_of_use_tariff_awattar"></a>91. Time-Of-Use Tariff Awattar</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Retrieves the hourly prices from the Awattar API and converts them into quarterly prices. Prices are updated every day at 14:00 and stored locally.</p>
@@ -3230,7 +3250,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_of_use_tariff_corrently_by_stromdao"><a class="anchor" href="#_time_of_use_tariff_corrently_by_stromdao"></a>90. Time-Of-Use Tariff Corrently by STROMDAO</h2>
+<h2 id="_time_of_use_tariff_corrently_by_stromdao"><a class="anchor" href="#_time_of_use_tariff_corrently_by_stromdao"></a>92. Time-Of-Use Tariff Corrently by STROMDAO</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Retrieves the quarterly prices from the Corrently API. Prices are updated every day at 14:00 and stored locally.</p>
@@ -3241,7 +3261,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_of_use_tariff_entso_e"><a class="anchor" href="#_time_of_use_tariff_entso_e"></a>91. Time-Of-Use Tariff ENTSO-E</h2>
+<h2 id="_time_of_use_tariff_entso_e"><a class="anchor" href="#_time_of_use_tariff_entso_e"></a>93. Time-Of-Use Tariff ENTSO-E</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This implementation uses the ENTSO-E transparency platform to receive day-ahead prices in European power grids.</p>
@@ -3261,7 +3281,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_of_use_tariff_groupe_e"><a class="anchor" href="#_time_of_use_tariff_groupe_e"></a>92. Time-Of-Use Tariff Groupe-E</h2>
+<h2 id="_time_of_use_tariff_groupe_e"><a class="anchor" href="#_time_of_use_tariff_groupe_e"></a>94. Time-Of-Use Tariff Groupe-E</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This implementation uses the Groupe-E platform to receive day-ahead quarterly prices.</p>
@@ -3278,7 +3298,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_of_use_tariff_stadtwerk_hassfurt"><a class="anchor" href="#_time_of_use_tariff_stadtwerk_hassfurt"></a>93. Time-Of-Use Tariff Stadtwerk Hassfurt</h2>
+<h2 id="_time_of_use_tariff_stadtwerk_hassfurt"><a class="anchor" href="#_time_of_use_tariff_stadtwerk_hassfurt"></a>95. Time-Of-Use Tariff Stadtwerk Hassfurt</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Retrieves the hourly prices from the Stadtwerk Hassfurt API and converts them into quarterly prices. The current implementation supports both "haStrom Flex" and "haStrom Flex Pro" models provided by Stadtwerk Hassfurt.</p>
@@ -3289,7 +3309,7 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_of_use_tariff_manual"><a class="anchor" href="#_time_of_use_tariff_manual"></a>94. Time-Of-Use Tariff Manual</h2>
+<h2 id="_time_of_use_tariff_manual"><a class="anchor" href="#_time_of_use_tariff_manual"></a>96. Time-Of-Use Tariff Manual</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This bundle provides manually configurable time-of-use-tariffs.</p>
@@ -3298,14 +3318,14 @@ Data needs to polled through Modbus from an attached SMA inverter as the HM2.0 d
 <p>Implementations:</p>
 </div>
 <div class="sect2">
-<h3 id="_octopus_go"><a class="anchor" href="#_octopus_go"></a>94.1. Octopus Go</h3>
+<h3 id="_octopus_go"><a class="anchor" href="#_octopus_go"></a>96.1. Octopus Go</h3>
 <div class="paragraph">
 <p>Calculates the quarterly prices for the next 36 hours based on the standard and low-price details from the user&#8217;s contract.
 For a detailed overview of the tariff structure, please refer to: <a href="https://octopusenergy.de/octopus-go" class="bare">https://octopusenergy.de/octopus-go</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_octopus_heat"><a class="anchor" href="#_octopus_heat"></a>94.2. Octopus Heat</h3>
+<h3 id="_octopus_heat"><a class="anchor" href="#_octopus_heat"></a>96.2. Octopus Heat</h3>
 <div class="paragraph">
 <p>Calculates the quarterly prices for the next 36 hours based on the high, standard and low-price details from the user&#8217;s contract.
 For a detailed overview of the tariff structure, please refer to: <a href="https://octopusenergy.de/octopus-heat" class="bare">https://octopusenergy.de/octopus-heat</a></p>
@@ -3317,7 +3337,7 @@ For a detailed overview of the tariff structure, please refer to: <a href="https
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_of_use_tariff_rabot_charge"><a class="anchor" href="#_time_of_use_tariff_rabot_charge"></a>95. Time-Of-Use Tariff rabot.charge</h2>
+<h2 id="_time_of_use_tariff_rabot_charge"><a class="anchor" href="#_time_of_use_tariff_rabot_charge"></a>97. Time-Of-Use Tariff rabot.charge</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Retrieves the hourly prices from the rabot.charge API and converts them into quarterly prices.</p>
@@ -3328,7 +3348,7 @@ For a detailed overview of the tariff structure, please refer to: <a href="https
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_of_use_tariff_swisspower"><a class="anchor" href="#_time_of_use_tariff_swisspower"></a>96. Time-Of-Use Tariff Swisspower</h2>
+<h2 id="_time_of_use_tariff_swisspower"><a class="anchor" href="#_time_of_use_tariff_swisspower"></a>98. Time-Of-Use Tariff Swisspower</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Retrieves the quarterly prices from the Swisspower ESIT API.</p>
@@ -3348,7 +3368,7 @@ For a detailed overview of the tariff structure, please refer to: <a href="https
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_of_use_tariff_tibber"><a class="anchor" href="#_time_of_use_tariff_tibber"></a>97. Time-Of-Use Tariff Tibber</h2>
+<h2 id="_time_of_use_tariff_tibber"><a class="anchor" href="#_time_of_use_tariff_tibber"></a>99. Time-Of-Use Tariff Tibber</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Retrieves the hourly prices from the Tibber API and converts them into quarterly prices. Prices are updated every day at 14:00 and stored locally.</p>
@@ -3359,7 +3379,7 @@ For a detailed overview of the tariff structure, please refer to: <a href="https
 </div>
 </div>
 <div class="sect1">
-<h2 id="_weather_open_meteo"><a class="anchor" href="#_weather_open_meteo"></a>98. Weather Open-Meteo</h2>
+<h2 id="_weather_open_meteo"><a class="anchor" href="#_weather_open_meteo"></a>100. Weather Open-Meteo</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Implements a subscription to the Open-Meteo API to fetch weather forecasts for the upcoming days at fixed time intervals. The system periodically polls the API to update forecast data. Historical weather data can be retrieved on demand through individual API calls. All weather data is provided with a resolution of 15 minutes.</p>
@@ -3370,7 +3390,7 @@ For a detailed overview of the tariff structure, please refer to: <a href="https
 </div>
 </div>
 <div class="sect1">
-<h2 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>99. KACO blueplanet hybrid 10.0 TL3</h2>
+<h2 id="_kaco_blueplanet_hybrid_10_0_tl3"><a class="anchor" href="#_kaco_blueplanet_hybrid_10_0_tl3"></a>101. KACO blueplanet hybrid 10.0 TL3</h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
