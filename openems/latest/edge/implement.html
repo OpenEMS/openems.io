@@ -661,7 +661,7 @@ public MeterType getMeterType() {
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
-protected ModbusProtocol defineModbusProtocol() throws OpenemsException {
+protected ModbusProtocol defineModbusProtocol() {
 	// TODO implement ModbusProtocol
 	return new ModbusProtocol(this);
 }</code></pre>
@@ -673,7 +673,7 @@ protected ModbusProtocol defineModbusProtocol() throws OpenemsException {
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
-protected ModbusProtocol defineModbusProtocol() throws OpenemsException {
+protected ModbusProtocol defineModbusProtocol() {
 	return new ModbusProtocol(this, //
 			new FC3ReadRegistersTask(1000, Priority.HIGH,
 					m(ElectricityMeter.ChannelId.ACTIVE_POWER, new SignedWordElement(1000))));
@@ -783,7 +783,7 @@ public class MeterSimulatedImpl extends AbstractOpenemsModbusComponent <i class=
 	}
 
 	@Override
-	protected ModbusProtocol defineModbusProtocol() throws OpenemsException { <i class="conum" data-value="13"></i><b>(13)</b>
+	protected ModbusProtocol defineModbusProtocol() { <i class="conum" data-value="13"></i><b>(13)</b>
 		return new ModbusProtocol(this, <i class="conum" data-value="14"></i><b>(14)</b>
 				new FC3ReadRegistersTask(1000, Priority.HIGH, <i class="conum" data-value="15"></i><b>(15)</b>
 						m(ElectricityMeter.ChannelId.ACTIVE_POWER, new SignedWordElement(1000)))); <i class="conum" data-value="16"></i><b>(16)</b>
