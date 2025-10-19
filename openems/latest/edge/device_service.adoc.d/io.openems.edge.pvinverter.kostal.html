@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kostal PV inverter :: Open Energy Management System</title>
+    <title>KOSTAL Solar Electric :: Open Energy Management System</title>
     <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.adoc.d/io.openems.edge.pvinverter.kostal.html">
     <meta name="generator" content="Antora 3.1.14">
     <link rel="stylesheet" href="../../../../_/css/site.css">
@@ -231,7 +231,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
-    <li><a href="io.openems.edge.pvinverter.kostal.html">Kostal PV inverter</a></li>
+    <li><a href="io.openems.edge.pvinverter.kostal.html">KOSTAL Solar Electric</a></li>
   </ul>
 </nav>
 <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.adoc.d/io.openems.edge.pvinverter.kostal.adoc">Edit this Page</a></div>
@@ -241,10 +241,17 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Kostal PV inverter</h1>
+<h1 class="page">KOSTAL Solar Electric</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>Implementation of the Kostal PV inverters.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pv_inverter_kostal"><a class="anchor" href="#_pv_inverter_kostal"></a>PV-Inverter.Kostal</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Tested on
 - Kostal Plenticore 5.5
@@ -268,8 +275,234 @@ Modbus must be active and byte order must be big-endian for sunspec.</p>
 - ElectricityMeter
 - ManagedSymmetricPvInverter</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pv_inverter_kostal_piko"><a class="anchor" href="#_pv_inverter_kostal_piko"></a>PV-Inverter.Kostal.Piko</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Implements the KOSTAL PIKO PV inverter using HTTP/HTML parsing.</p>
+</div>
+<div class="sect2">
+<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h3>
+<div class="paragraph">
+<p>The component requires the following configuration:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pvinverter0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">alias</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Human-readable name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable/disable the component</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IP address of the KOSTAL PIKO inverter (required)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pvserver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username for Basic Authentication</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pvwr</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for Basic Authentication</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_channels"><a class="anchor" href="#_channels"></a>Channels</h3>
+<div class="paragraph">
+<p>The component provides the following channels:</p>
+</div>
+<div class="sect3">
+<h4 id="_standard_pv_inverter_channels"><a class="anchor" href="#_standard_pv_inverter_channels"></a>Standard PV-Inverter Channels</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ActivePower</code>: Current AC power output [W]</p>
+</li>
+<li>
+<p><code>ActivePowerLimit</code>: Active power limit (not used)</p>
+</li>
+<li>
+<p><code>MaxApparentPower</code>: Maximum apparent power (not used)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kostal_piko_specific_channels"><a class="anchor" href="#_kostal_piko_specific_channels"></a>KOSTAL PIKO Specific Channels</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Status</code>: Current inverter status (e.g., "Aus", "Feed-in", etc.)</p>
+</li>
+<li>
+<p><code>TotalYield</code>: Total energy production [kWh]</p>
+</li>
+<li>
+<p><code>DayYield</code>: Daily energy production [kWh]</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="_dc_string_channels"><a class="anchor" href="#_dc_string_channels"></a>DC String Channels</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DcString1Voltage</code>: DC voltage of string 1 [V]</p>
+</li>
+<li>
+<p><code>DcString1Current</code>: DC current of string 1 [mA]</p>
+</li>
+<li>
+<p><code>DcString1Power</code>: DC power of string 1 [W]</p>
+</li>
+<li>
+<p><code>DcString2Voltage</code>: DC voltage of string 2 [V]</p>
+</li>
+<li>
+<p><code>DcString2Current</code>: DC current of string 2 [mA]</p>
+</li>
+<li>
+<p><code>DcString2Power</code>: DC power of string 2 [W]</p>
+</li>
+<li>
+<p><code>DcString3Voltage</code>: DC voltage of string 3 [V]</p>
+</li>
+<li>
+<p><code>DcString3Current</code>: DC current of string 3 [mA]</p>
+</li>
+<li>
+<p><code>DcString3Power</code>: DC power of string 3 [W]</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_ac_phase_channels"><a class="anchor" href="#_ac_phase_channels"></a>AC Phase Channels</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AcL1Voltage</code>: AC voltage of phase L1 [V]</p>
+</li>
+<li>
+<p><code>AcL1Power</code>: AC power of phase L1 [W]</p>
+</li>
+<li>
+<p><code>AcL2Voltage</code>: AC voltage of phase L2 [V]</p>
+</li>
+<li>
+<p><code>AcL2Power</code>: AC power of phase L2 [W]</p>
+</li>
+<li>
+<p><code>AcL3Voltage</code>: AC voltage of phase L3 [V]</p>
+</li>
+<li>
+<p><code>AcL3Power</code>: AC power of phase L3 [W]</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_debug_channel"><a class="anchor" href="#_debug_channel"></a>Debug Channel</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DebugHtml</code>: Raw HTML response (first 1000 characters) for debugging</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementation_details"><a class="anchor" href="#_implementation_details"></a>Implementation Details</h3>
+<div class="paragraph">
+<p>This component:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connects to the KOSTAL PIKO inverter via HTTP using Basic Authentication</p>
+</li>
+<li>
+<p>Fetches the main status page HTML</p>
+</li>
+<li>
+<p>Parses the HTML using Jsoup to extract values</p>
+</li>
+<li>
+<p>Updates channels every 10 seconds</p>
+</li>
+<li>
+<p>Handles connection errors gracefully</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The HTML parsing is based on finding table cells with <code>bgcolor="#FFFFFF"</code> attribute and extracting values in a specific order.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_compatibility"><a class="anchor" href="#_compatibility"></a>Compatibility</h3>
+<div class="paragraph">
+<p>This component is compatible with KOSTAL PIKO inverters that provide a web interface with Basic Authentication (typically username: <code>pvserver</code>, password: <code>pvwr</code>).</p>
+</div>
+<div class="paragraph">
+<p>Tested with:
+* KOSTAL PIKO 10.1</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_known_limitations"><a class="anchor" href="#_known_limitations"></a>Known Limitations</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Read-only implementation (no control capabilities)</p>
+</li>
+<li>
+<p>Requires network access to the inverter</p>
+</li>
+<li>
+<p>HTML parsing may break if KOSTAL changes the web interface format</p>
+</li>
+<li>
+<p>Values marked as "x x x" in the web interface are interpreted as null/unavailable</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.pvinverter.kostal">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
 </div>
 </article>
   </div>
