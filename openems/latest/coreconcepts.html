@@ -169,9 +169,6 @@
     <a class="nav-link" href="component-communication/index.html">Component Communication</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="#logging/log4j2.adoc">Logging</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Simulation</span>
 <ul class="nav-list">
@@ -435,7 +432,7 @@ The control algorithm does not need to know anything about the ESS&#8217;s speci
 <div class="paragraph">
 <p>Natures extend normal Java interfaces with 'Channels'.
 If a Component implements a Nature it also needs to provide the required Channels.
-For example the Energy Storage System (ESS) Simulator <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.simulator/src/io/openems/edge/simulator/ess/symmetric/reacting/EssSymmetric.java">Simulator.EssSymmetric.Reacting <span class="icon"><i class="fa fa-code"></i></span></a> implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/SymmetricEss.java">Ess interface <span class="icon"><i class="fa fa-code"></i></span></a> and therefor needs to provide a <code>Soc</code> Channel that provides the current 'State of Charge' of the battery.</p>
+For example the Energy Storage System (ESS) Simulator <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.simulator/src/io/openems/edge/simulator/ess/symmetric/reacting/EssSymmetric.java">Simulator.EssSymmetric.Reacting <span class="icon"><i class="fa fa-code"></i></span></a> implements the <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/SymmetricEss.java">Ess interface <span class="icon"><i class="fa fa-code"></i></span></a> and therefore needs to provide a <code>Soc</code> Channel that provides the current 'State of Charge' of the battery.</p>
 </div>
 <div class="paragraph">
 <p><a href="edge/controller.html" class="xref page">Controllers</a> are written against Nature implementations. Example: A Controller can be used with any ESS, because it can be sure that it provides all the data the Controller requires for its algorithm.</p>

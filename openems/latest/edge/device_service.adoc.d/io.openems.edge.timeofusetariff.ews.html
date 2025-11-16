@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>REST-Api Controller :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/controller.adoc.d/io.openems.edge.controller.api.rest.html">
+    <title>Time-Of-Use Tariff Ews by EWS Schönau :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.adoc.d/io.openems.edge.timeofusetariff.ews.html">
     <meta name="generator" content="Antora 3.1.14">
     <link rel="stylesheet" href="../../../../_/css/site.css">
   </head>
@@ -228,228 +228,25 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
-    <li><a href="io.openems.edge.controller.api.rest.html">REST-Api Controller</a></li>
+    <li><a href="io.openems.edge.timeofusetariff.ews.html">Time-Of-Use Tariff Ews by EWS Schönau</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/controller.adoc.d/io.openems.edge.controller.api.rest.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.adoc.d/io.openems.edge.timeofusetariff.ews.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">REST-Api Controller</h1>
-<div id="preamble">
-<div class="sectionbody">
+<h1 class="page">Time-Of-Use Tariff Ews by EWS Schönau</h1>
 <div class="paragraph">
-<p>A REST-Api for external access to OpenEMS Edge. This Controller provides access to Channels and JSON-RPC Requests from an external device via JSON/REST.</p>
+<p>Retrieves the quarterly prices from the EWS API. Prices for the next day are updated every day between 15:00 to 17:00 and stored locally.</p>
 </div>
 <div class="paragraph">
-<p>The default port for the server is <strong>8084</strong>; so the default base address for REST calls is <code><a href="http://x:&lt;PASSWORD&gt;@&lt;IP&gt;:8084/rest" class="bare">http://x:&lt;PASSWORD&gt;@&lt;IP&gt;:8084/rest</a></code>, where</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>http</code> is the protocol</p>
-</li>
-<li>
-<p><code>x</code> is the user. Authentication in OpenEMS is via password only, so the username can be omitted.</p>
-</li>
-<li>
-<p><code>&lt;PASSWORD&gt;</code> is the user password. If no specific settings have been made, try 'user' or 'admin' here.</p>
-</li>
-<li>
-<p><code>8084</code> is the configured port</p>
-</li>
-</ul>
+<p>To request a (free) authentication token, please contact <a href="mailto:api@ews-schoenau.de">api@ews-schoenau.de</a></p>
 </div>
 <div class="paragraph">
-<p>A good way to test REST-Api calls is via the Chrome extension <a href="https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm">Restlet</a></p>
-</div>
-<div class="paragraph">
-<p>For more information find the implementation  <a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.rest">Source Code <span class="icon"><i class="fa fa-github"></i></span></a>.</p>
-</div>
-<div class="paragraph">
-<p>Those are the available REST-Api endpoints:</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_endpoint_restchannelcomponent_idchannel_id"><a class="anchor" href="#_endpoint_restchannelcomponent_idchannel_id"></a>Endpoint <code>/rest/channel/&lt;Component-ID&gt;/&lt;Channel-ID&gt;</code></h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><code>Component-ID</code> is the ID of the Component, e.g. "_sum", "ess0", "meter0",&#8230;&#8203;</p>
-</li>
-<li>
-<p><code>Channel-ID</code> is the ID of the Channel, e.g. "ActivePowerL1", "Soc",&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="_get"><a class="anchor" href="#_get"></a>GET</h3>
-<div class="paragraph">
-<p>Use a HTTP request with method <code>GET</code> to read the current value of a Channel.</p>
-</div>
-<div class="paragraph">
-<p><strong>Example:</strong> To read the current state of charge of the battery, send a GET request to <a href="http://x:user@localhost:8084/rest/channel/_sum/EssSoC" class="bare">http://x:user@localhost:8084/rest/channel/_sum/EssSoC</a>. It returns a response like:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">{
-  "type":"INTEGER",
-  "accessMode":"RO",
-  "text":"",
-  "unit":"%",
-  "value":50
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>GET</code> api also understands regular expressions. Send a GET request to <a href="http://x:user@localhost:8084/rest/channel/.*/Active.*Power" class="bare">http://x:user@localhost:8084/rest/channel/.*/Active.*Power</a> to read all <code>ActivePower</code> and <code>ReactivePower</code> channels of all components. It returns a response like:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">[
-  {
-    "address":"pvInverter0/ActivePower",
-    "type":"INTEGER",
-    "accessMode":"RO",
-    "text":"",
-    "unit":"W",
-    "value":90
-  },
-  {
-    "address":"meter0/ActiveProductionPower",
-    "type":"INTEGER",
-    "accessMode":"RO",
-    "text":"",
-    "unit":"W",
-    "value":465
-  },
-  {
-    "address":"meter0/ActivePower",
-    "type":"INTEGER",
-    "accessMode":"RO",
-    "text":"",
-    "unit":"W",
-    "value":465
-  },
-  {
-    "address":"meter0/ActiveConsumptionPower",
-    "type":"INTEGER",
-    "accessMode":"RO",
-    "text":"",
-    "unit":"W",
-    "value":0
-  }
-]</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_post"><a class="anchor" href="#_post"></a>POST</h3>
-<div class="paragraph">
-<p>Use a HTTP request with method <code>POST</code> to write a Channel.</p>
-</div>
-<div class="paragraph">
-<p><strong>Example:</strong> To switch a Digital-Output or Relay on, send a POST request to <a href="http://x:user@localhost:8084/rest/channel/io0/Relay1" class="bare">http://x:user@localhost:8084/rest/channel/io0/Relay1</a> with the following body:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">{
-  "value": true
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_endpoint_jsonrpc"><a class="anchor" href="#_endpoint_jsonrpc"></a>Endpoint '/jsonrpc'</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This allows remote procedure calls (RPC) using JSON-RPC. The JSON-RPC commands need to be sent as <code>POST</code> requests with the specified body.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-JSON-RPC usually requires the properties 'id' and 'jsonrpc'. Those can be omitted here, as they are not required for HTTP POST calls.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Following JSON-RPC commands are available:</p>
-</div>
-<div class="sect2">
-<h3 id="_getedgeconfig"><a class="anchor" href="#_getedgeconfig"></a>getEdgeConfig</h3>
-<div class="paragraph">
-<p>Gets the current configuration of the OpenEMS Edge.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">{
-  "method": "getEdgeConfig",
-  "params": {}
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_componentjsonapi"><a class="anchor" href="#_componentjsonapi"></a>componentJsonApi</h3>
-<div class="paragraph">
-<p>Forwards a JSON-RPC payload to a given Component, identified by its Component-ID.</p>
-</div>
-<div class="sect3">
-<h4 id="_getmodbusprotocol"><a class="anchor" href="#_getmodbusprotocol"></a>getModbusProtocol</h4>
-<div class="paragraph">
-<p>Gets the currently active Modbus-TCP protocol definition from the Modbus-TCP-Api Controller with the ID "ctrlModbusTcp0".</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">{
-  "method":"componentJsonApi",
-  "params":{
-    "componentId":"ctrlApiModbusTcp0",
-    "payload":{
-      "method":"getModbusProtocol",
-      "params":{
-
-      }
-    }
-  }
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_updatecomponentconfig"><a class="anchor" href="#_updatecomponentconfig"></a>updateComponentConfig</h3>
-<div class="paragraph">
-<p>Updates a Component configuration.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">{
-	"method": "updateComponentConfig",
-	"params": {
-		"componentId": "ctrlDebugLog0",
-		"properties": [{
- 			"name": "enabled",
-			"value": true
-		}]
-	}
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.timeofusetariff.ews">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </article>
   </div>

@@ -168,9 +168,6 @@
     <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="#logging/log4j2.adoc">Logging</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Simulation</span>
 <ul class="nav-list">
@@ -252,56 +249,53 @@
 </div>
 </div>
 </div>
-<h1 id="_terms" class="sect0"><a class="anchor" href="#_terms"></a>Terms</h1>
+<div class="sect1">
+<h2 id="_terms"><a class="anchor" href="#_terms"></a>Terms</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Following terms and relations to Jenetics are used:</p>
 </div>
-<div class="sect1">
-<h2 id="_mode"><a class="anchor" href="#_mode"></a>Mode</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_mode"><a class="anchor" href="#_mode"></a>Mode</h3>
 <div class="paragraph">
 <p>The Mode refers to a predefined operation mode of a OpenEMS Controller.
 A Mode is represented in Jenetics as a <code>Gene</code>.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_period"><a class="anchor" href="#_period"></a>Period</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_period"><a class="anchor" href="#_period"></a>Period</h3>
 <div class="paragraph">
 <p>The Period refers to a space in time. A Period holds one Mode per OpenEMS Controller to define its operation mode within this period of time.
 A Period is represented in Jenetics as an index within a <code>Genotype</code> of <code>Chromosome</code> s.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_schedule"><a class="anchor" href="#_schedule"></a>Schedule</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_schedule"><a class="anchor" href="#_schedule"></a>Schedule</h3>
 <div class="paragraph">
 <p>A Schedule refers to a set of multiple Periods.
 A Schedule is represented in Jenetics as a <code>Genotype</code>.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_optimization"><a class="anchor" href="#_optimization"></a>Optimization</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_optimization"><a class="anchor" href="#_optimization"></a>Optimization</h3>
 <div class="paragraph">
 <p>A Optimization consists of multiple Schedules that are typically simulated within a 15-minutes period.
 A Optimization is represented in Jenetics as a <code>Population</code>.</p>
 </div>
 </div>
 </div>
-<h1 id="_context_and_their_scopes" class="sect0"><a class="anchor" href="#_context_and_their_scopes"></a>Context and their Scopes</h1>
+</div>
+<div class="sect1">
+<h2 id="_context_and_their_scopes"><a class="anchor" href="#_context_and_their_scopes"></a>Context and their Scopes</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Energy Scheduler uses <code>Context</code> objects that hold information that is relevant to a certain Scope of an Optimization run.</p>
 </div>
 <div class="paragraph">
 <p>OpenEMS Controllers use delegation to <code>EnergyScheduleHandler</code> objects to handle requirements of the Energy Scheduler.</p>
 </div>
-<div class="sect1">
-<h2 id="_globaloptimizationcontext_goc"><a class="anchor" href="#_globaloptimizationcontext_goc"></a>GlobalOptimizationContext (<code>goc</code>)</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_globaloptimizationcontext_goc"><a class="anchor" href="#_globaloptimizationcontext_goc"></a>GlobalOptimizationContext (<code>goc</code>)</h3>
 <div class="paragraph">
 <p>The GlobalOptimizationContext - commonly abbreviated as <code>goc</code> - is a Context that is valid throughout an entire Optimization.
 It&#8217;s typically recreated once per 15-minutes.</p>
@@ -314,10 +308,8 @@ It&#8217;s typically recreated once per 15-minutes.</p>
 - &#8230;&#8203;</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_globalschedulecontext_gsc"><a class="anchor" href="#_globalschedulecontext_gsc"></a>GlobalScheduleContext (<code>gsc</code>)</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_globalschedulecontext_gsc"><a class="anchor" href="#_globalschedulecontext_gsc"></a>GlobalScheduleContext (<code>gsc</code>)</h3>
 <div class="paragraph">
 <p>The GlobalScheduleContext - commonly abbreviated as <code>gsc</code> - is a Context that is valid for simulation of one Schedule.
 It&#8217;s typically recreated multiple times per second.</p>
@@ -327,25 +319,22 @@ It&#8217;s typically recreated multiple times per second.</p>
 - Initial Energy of an ESS at the start of a Period.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_controlleroptimizationcontext_coc"><a class="anchor" href="#_controlleroptimizationcontext_coc"></a>ControllerOptimizationContext (<code>coc</code>)</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_controlleroptimizationcontext_coc"><a class="anchor" href="#_controlleroptimizationcontext_coc"></a>ControllerOptimizationContext (<code>coc</code>)</h3>
 <div class="paragraph">
 <p>The ControllerOptimizationContext - commonly abbreviated as <code>coc</code> - is a Context that is valid throughout an entire Optimization for one Controller/EnergyScheduleHandler.
 It&#8217;s typically recreated once per 15-minutes.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_controllerschedulecontext_csc"><a class="anchor" href="#_controllerschedulecontext_csc"></a>ControllerScheduleContext (<code>csc</code>)</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_controllerschedulecontext_csc"><a class="anchor" href="#_controllerschedulecontext_csc"></a>ControllerScheduleContext (<code>csc</code>)</h3>
 <div class="paragraph">
 <p>The ControllerScheduleContext - commonly abbreviated as <code>csc</code> - is a Context that is valid for simulation of one Schedule of one Controller/EnergyScheduleHandler.
 It&#8217;s typically recreated multiple times per second.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.energy">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
 </div>
 </div>
 </div>

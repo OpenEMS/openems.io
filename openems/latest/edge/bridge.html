@@ -169,9 +169,6 @@
     <a class="nav-link" href="../component-communication/index.html">Component Communication</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="#logging/log4j2.adoc">Logging</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Simulation</span>
 <ul class="nav-list">
@@ -259,18 +256,30 @@
 The standard architecture used by the devices are RESTful api&#8217;s.</p>
 </div>
 <div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.common.http">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_http_2"><a class="anchor" href="#_http_2"></a>2. Http</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Http is a widely used standard for web communication. It is used for some hardware devices like electric meters, relays and so on.
+The standard architecture used by the devices are RESTful api&#8217;s.</p>
+</div>
+<div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.bridge.http">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_m_bus"><a class="anchor" href="#_m_bus"></a>2. M-Bus</h2>
+<h2 id="_m_bus"><a class="anchor" href="#_m_bus"></a>3. M-Bus</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>M-Bus is a widely used standard for fieldbus communication. It enables connection to M-Bus devices like meters.</p>
 </div>
 <div class="sect2">
-<h3 id="_setup_note"><a class="anchor" href="#_setup_note"></a>2.1. Setup note</h3>
+<h3 id="_setup_note"><a class="anchor" href="#_setup_note"></a>3.1. Setup note</h3>
 <div class="paragraph">
 <p>This bridge depends on jMbus, a user guide for it can be found at <a href="https://www.openmuc.org/m-bus/user-guide/" class="bare">https://www.openmuc.org/m-bus/user-guide/</a>.</p>
 </div>
@@ -286,30 +295,30 @@ communication jMbus is dependent on. See paragraph 2.5 for further information.<
 </div>
 </div>
 <div class="sect1">
-<h2 id="_modbus"><a class="anchor" href="#_modbus"></a>3. Modbus</h2>
+<h2 id="_modbus"><a class="anchor" href="#_modbus"></a>4. Modbus</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Modbus is a widely used standard for fieldbus communications. It is used by all kinds of hardware devices like photovoltaics inverters, electric meters, and so on.</p>
 </div>
 <div class="sect2">
-<h3 id="_modbustcp"><a class="anchor" href="#_modbustcp"></a>3.1. Modbus/TCP</h3>
+<h3 id="_modbustcp"><a class="anchor" href="#_modbustcp"></a>4.1. Modbus/TCP</h3>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusTcpImpl.java">Bridge Modbus/TCP</a> for fieldbus communication via TCP/IP network.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_modbusrtu"><a class="anchor" href="#_modbusrtu"></a>3.2. Modbus/RTU</h3>
+<h3 id="_modbusrtu"><a class="anchor" href="#_modbusrtu"></a>4.2. Modbus/RTU</h3>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.bridge.modbus/src/io/openems/edge/bridge/modbus/BridgeModbusSerialImpl.java">Bridge Modbus/RTU Serial</a> for fieldbus communication via RS485 serial bus.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_implementation_details"><a class="anchor" href="#_implementation_details"></a>3.3. Implementation details</h3>
+<h3 id="_implementation_details"><a class="anchor" href="#_implementation_details"></a>4.3. Implementation details</h3>
 <div class="paragraph">
 <p>OpenEMS Components that use Modbus communication, must implement the <code>ModbusComponent</code> interface and provide a <code>ModbusProtocol</code>. A protocol uses the notion of a <code>Task</code> to define an individual Modbus Read or Write request that can cover multiple Modbus Registers or Coils depending on the Modbus function code. It is possible to add or remove tasks to/from a protocol at runtime or to change the execution <code>Priority</code>. The Modbus Bridge (<code>Bridge Modbus/RTU Serial</code> or <code>Bridge Modbus/TCP</code>) collects all protocols and manages the execution of Tasks.</p>
 </div>
 <div class="sect3">
-<h4 id="_execution_of_modbus_tasks"><a class="anchor" href="#_execution_of_modbus_tasks"></a>3.3.1. Execution of Modbus Tasks</h4>
+<h4 id="_execution_of_modbus_tasks"><a class="anchor" href="#_execution_of_modbus_tasks"></a>4.3.1. Execution of Modbus Tasks</h4>
 <div class="paragraph">
 <p>Execution of Modbus Tasks is managed by the <code>ModbusWorker</code>. It&#8230;&#8203;
 - executes Write-Tasks as early as possible (directly after the EXECUTE_WRITE event)
@@ -318,7 +327,7 @@ communication jMbus is dependent on. See paragraph 2.5 for further information.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="_priority"><a class="anchor" href="#_priority"></a>3.3.2. Priority</h4>
+<h4 id="_priority"><a class="anchor" href="#_priority"></a>4.3.2. Priority</h4>
 <div class="paragraph">
 <p>Read-Tasks can have two different priorities, that are defined in the ModbusProtocol definition:
 - <code>HIGH</code>: the task is executed once every Cycle
@@ -327,7 +336,7 @@ Write-Tasks always have <code>HIGH</code> priority, i.e. a set-point is always e
 </div>
 </div>
 <div class="sect3">
-<h4 id="_channels"><a class="anchor" href="#_channels"></a>3.3.3. Channels</h4>
+<h4 id="_channels"><a class="anchor" href="#_channels"></a>4.3.3. Channels</h4>
 <div class="paragraph">
 <p>Each Modbus Bridge provides Channels for more detailed information:
 - <code>CycleTimeIsTooShort</code>: the configured global Cycle-Time is too short to execute all planned tasks in one Cycle
@@ -335,7 +344,7 @@ Write-Tasks always have <code>HIGH</code> priority, i.e. a set-point is always e
 </div>
 </div>
 <div class="sect3">
-<h4 id="_logging"><a class="anchor" href="#_logging"></a>3.3.4. Logging</h4>
+<h4 id="_logging"><a class="anchor" href="#_logging"></a>4.3.4. Logging</h4>
 <div class="paragraph">
 <p>Often it is useful to print detailed logging information on the Console for debugging purposes. Logging can be enabled on Task level in the definition of the ModbusProtocol by adding <code>.debug()</code> or globally per Modbus Bridge via the <code>LogVerbosity</code> configuration parameter:</p>
 </div>
@@ -369,13 +378,13 @@ Write-Tasks always have <code>HIGH</code> priority, i.e. a set-point is always e
 </div>
 </div>
 <div class="sect1">
-<h2 id="_onewire"><a class="anchor" href="#_onewire"></a>4. OneWire</h2>
+<h2 id="_onewire"><a class="anchor" href="#_onewire"></a>5. OneWire</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>OneWire is a widely used protocol for home automation. It is used by sensors like thermometers.</p>
 </div>
 <div class="sect2">
-<h3 id="_setup"><a class="anchor" href="#_setup"></a>4.1. Setup</h3>
+<h3 id="_setup"><a class="anchor" href="#_setup"></a>5.1. Setup</h3>
 <div class="paragraph">
 <p>This implementation directly talks to the OneWire busmaster, e.g. a DS9490R USB dongle, without requiring the OneWire File System (OWFS).
 It therefore requires the natively compiled C library by the manufacturer of the OneWire chip Maxim Integrated.
@@ -418,7 +427,7 @@ This library is then accessed using Java JNI.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_identifying_devices"><a class="anchor" href="#_identifying_devices"></a>4.2. Identifying devices</h3>
+<h3 id="_identifying_devices"><a class="anchor" href="#_identifying_devices"></a>5.2. Identifying devices</h3>
 <div class="paragraph">
 <p>The OneWire Bridge provides a JSON-RPC Request that reads all devices connected to the OneWire bus.</p>
 </div>
