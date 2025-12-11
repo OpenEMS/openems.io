@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>UI History Simulation :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/simulation/ui-history.html">
+    <title>Overview :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/development/overview.html">
+    <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 3.1.14">
     <link rel="stylesheet" href="../../../_/css/site.css">
   </head>
@@ -175,13 +176,13 @@
     <span class="nav-text">Simulation</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="gitpod.html">Live-Demo on Gitpod</a>
+    <a class="nav-link" href="../simulation/gitpod.html">Live-Demo on Gitpod</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="realtime.html">Real-Time Simulation</a>
+    <a class="nav-link" href="../simulation/realtime.html">Real-Time Simulation</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="ui-history.html">UI History Simulation</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../simulation/ui-history.html">UI History Simulation</a>
   </li>
 </ul>
   </li>
@@ -189,26 +190,26 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Developer Guide</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../development/overview.html">Overview</a>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">IDE Setup</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../development/ide/eclipse.html">Eclipse</a>
+    <a class="nav-link" href="ide/eclipse.html">Eclipse</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../development/ide/intellij.html">IntelliJ</a>
+    <a class="nav-link" href="ide/intellij.html">IntelliJ</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../development/coding-guidelines.html">Coding Guidelines</a>
+    <a class="nav-link" href="coding-guidelines.html">Coding Guidelines</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../development/documentation.html">Documentation</a>
+    <a class="nav-link" href="documentation.html">Documentation</a>
   </li>
 </ul>
   </li>
@@ -246,31 +247,73 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../introduction.html">Open Energy Management System</a></li>
-    <li>Simulation</li>
-    <li><a href="ui-history.html">UI History Simulation</a></li>
+    <li>Developer Guide</li>
+    <li><a href="overview.html">Overview</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/simulation/ui-history.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/development/overview.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">UI History Simulation</h1>
+<h1 class="page">Overview</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>Sometimes it can be useful to mock historic data in OpenEMS UI in order to take consistent screenshots or to visualize how a certain Controller would have behaved during a day.</p>
+<p>This guide will show you how to setup a development environment for OpenEMS by getting a local copy of the source code and setting up your preferred IDE. You can then compile and run the project.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>1. Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenEMS uses <a href="https://git-scm.com">git</a> as a version control system and <a href="https://github.com/openems">GitHub</a> for hosting the source code. You can use git either from the command line, from a dedicated GUI, or from inside your IDE. This guide assumes that you have git installed on your system and have some basic familiarity with it. If you are new to git, there are a number of great tutorials out there to get you started.</p>
 </div>
 <div class="paragraph">
-<p>Prepare the mock for the historic view:</p>
+<p>OpenEMS is written in <a href="https://www.oracle.com/java/">Java</a>. This guide also assumes that you are familiar with Java and its related tools. You need to have the correct version of the Java Development Kit (JDK) installed on your system. As of writing, the current version used by OpenEMS is 21. We recommend using <a href="https://adoptium.net/de/temurin/releases?version=21">Eclipse Temurin by Adoptium</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_clone_the_openems_git_repository"><a class="anchor" href="#_clone_the_openems_git_repository"></a>2. Clone the OpenEMS git repository</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use git to obtain a local copy of the OpenEMS source code.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>first copy the example <a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.simulator/src/io/openems/edge/simulator/timedata/timedata.csv">CSV file <span class="icon"><i class="fa fa-github"></i></span></a> to your home directory, e.g. <code>C:\Users\username\</code> on windows.</p>
+<p>open a console</p>
 </li>
 <li>
-<p>adjust the file to mock all required channel values.</p>
+<p>change to the target directory</p>
+</li>
+<li>
+<p>execute <code>git clone <a href="https://github.com/OpenEMS/openems.git" class="bare">https://github.com/OpenEMS/openems.git</a></code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setup_your_preferred_ide"><a class="anchor" href="#_setup_your_preferred_ide"></a>3. Setup your preferred IDE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use any IDE suitable for Java development to work on OpenEMS. Currently, we provide instructions on how to use Eclipse and IntelliJ IDEA.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To setup Eclipse, follow <a href="ide/eclipse.html" class="xref page">this guide</a>.</p>
+</li>
+<li>
+<p>To setup IntelliJ IDEA, follow <a href="ide/intellij.html" class="xref page">this guide</a>.</p>
+</li>
+</ul>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -278,53 +321,23 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The CSV file is read on every data query by the UI. So in order to update the values, just save the CSV file and click again on 'Today' or 'Yesterday' in the history view to refresh.
+Eclipse IDE is the recommended development environment for newcomers to OpenEMS.
 </td>
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-To provide data for one day, that file should have 288 lines with values.
-</td>
-</tr>
-</table>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/ui-mock-csv.png" alt="The mocked data in the CSV file">
 </div>
-<div class="title">Figure 1. The mocked data in the CSV file</div>
-</div>
-</li>
-</ol>
+<div class="sect1">
+<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>4. Next steps</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that you setup a complete development environment and have a working instance of OpenEMS Edge, OpenEMS Backend an OpenEMS UI, you can continue implementing your first device driver in OpenEMS. We provide a tutorial that explains the steps to implement an electric meter in OpenEMS Edge that is connected via Modbus/TCP.</p>
 </div>
 <div class="paragraph">
-<p>OpenEMS UI creates charts dynamically according to which OpenEMS Components are enabled. To mock the historic view, it is required to activate OpenEMS Component via Apache Felix (see <a href="../gettingstarted.html" class="xref page">Getting Started</a>) or directly in the UI OpenEMS Settings screen.</p>
+<p>The meter itself is simulated using a small Modbus slave application, so no external hardware is required for this guide. → <a href="../edge/implement.html" class="xref page">Implementing a Device</a></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>configure the OpenEMS Components that should be simulated, e.g. a meter, PV inverter,&#8230;&#8203;</p>
-</li>
-<li>
-<p>configure the <code>Simulator Timedata</code> service.</p>
-</li>
-<li>
-<p>open the OpenEMS UI (see <a href="../gettingstarted.html" class="xref page">Getting Started</a>), login and open the 'History' view. You should be presented the mocked data.</p>
-</li>
-</ol>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/ui-mock-history.png" alt="The mocked data in the UI 'History' view">
-</div>
-<div class="title">Figure 2. The mocked data in the UI 'History' view</div>
 </div>
 </article>
   </div>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Implementing a UI-Widget :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/ui/implementing-a-widget/introduction.html">
+    <title>Eclipse :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/development/ide/eclipse.html">
     <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 3.1.14">
     <link rel="stylesheet" href="../../../../_/css/site.css">
@@ -104,30 +104,30 @@
     <span class="nav-text">OpenEMS UI</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../deploy.html">Deploy UI to Docker</a>
+    <a class="nav-link" href="../../ui/deploy.html">Deploy UI to Docker</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../setup-ide.html">Setup IDE</a>
+    <a class="nav-link" href="../../ui/setup-ide.html">Setup IDE</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../architecture.html">Architecture</a>
+    <a class="nav-link" href="../../ui/architecture.html">Architecture</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../build.html">Build OpenEMS UI</a>
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="3">
+  <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="introduction.html">Implementing a UI Widget</a>
+    <a class="nav-link" href="../../ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="components/flat.html">Flat-Widget</a>
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="components/modal.html">Modal-Widget</a>
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="components/chart.html">Chart</a>
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/chart.html">Chart</a>
   </li>
 </ul>
   </li>
@@ -191,25 +191,25 @@
     <span class="nav-text">Developer Guide</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../development/overview.html">Overview</a>
+    <a class="nav-link" href="../overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">IDE Setup</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../../development/ide/eclipse.html">Eclipse</a>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="eclipse.html">Eclipse</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../../development/ide/intellij.html">IntelliJ</a>
+    <a class="nav-link" href="intellij.html">IntelliJ</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../development/coding-guidelines.html">Coding Guidelines</a>
+    <a class="nav-link" href="../coding-guidelines.html">Coding Guidelines</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../development/documentation.html">Documentation</a>
+    <a class="nav-link" href="../documentation.html">Documentation</a>
   </li>
 </ul>
   </li>
@@ -247,80 +247,23 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
-    <li>OpenEMS UI</li>
-    <li><a href="../build.html">Build OpenEMS UI</a></li>
-    <li><a href="introduction.html">Implementing a UI Widget</a></li>
+    <li>Developer Guide</li>
+    <li>IDE Setup</li>
+    <li><a href="eclipse.html">Eclipse</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/ui/implementing-a-widget/introduction.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/development/ide/eclipse.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Implementing a UI-Widget</h1>
-<div class="sect1">
-<h2 id="_step_by_step_guide"><a class="anchor" href="#_step_by_step_guide"></a>1. Step-by-step guide</h2>
+<h1 class="page">Eclipse</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This chapter explains the steps required to implement a UI Widget for OpenEMS UI. There are many examples of how ui widgets are created and used in
-<a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/edge/live/live.component.html" target="_blank" rel="noopener">LiveComponent</a> and <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/edge/history/history.component.html" target="_blank" rel="noopener">HistoryComponent</a>.</p>
-</div>
-<div class="paragraph">
-<p>UI-Modules mainly consist of these components:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Module</dt>
-<dd>
-<p>Modules should always be used to import and export all of the components, relevant to this Widget. The following components could be part of it:</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">FlatWidget</dt>
-<dd>
-<p>directly visible in Live-View.</p>
-</dd>
-<dt class="hdlist1">ModalComponent</dt>
-<dd>
-<p>Popover, that can be opened when clicking on a <code>FlatWidget</code>, used in Live-View.</p>
-</dd>
-<dt class="hdlist1">Chart</dt>
-<dd>
-<p>Chart that is shown instead of a modal, used in History-View</p>
-</dd>
-</dl>
-</div>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_create_a_new_module_live_view"><a class="anchor" href="#_create_a_new_module_live_view"></a>2. Create a new module [Live-View]</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Copy an existing Module e.g. <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/edge/live/Controller/Ess/FixActivePower/Ess_FixActivePower.ts" target="_blank" rel="noopener">FixActivePower</a> and paste it inside the Live-View.</p>
-</li>
-<li>
-<p>Change the <code>@Component</code> <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/edge/live/Controller/Ess/FixActivePower/flat/flat.ts" target="_blank" rel="noopener">selector</a> and use it inside <a href="file:ui/src/app/edge/live/live.component.html#L135" target="_blank" rel="noopener">LiveComponent</a>.</p>
-</li>
-<li>
-<p>Rename the <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/edge/live/Controller/Ess/FixActivePower/Ess_FixActivePower.ts" target="_blank" rel="noopener">Module</a> and import it in <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/edge/live/live.module.ts" target="_blank" rel="noopener">LiveModule</a> under imports.
-To be able to see the module in action, you need to create a new switchCase Statement with your controllers factoryId.</p>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">    &lt;ion-col size="12" *ngSwitchCase="'Controller.Ess.FixActivePower'"
-    size-lg="6" class="ion-no-padding"&gt;
-        &lt;Controller_Ess_FixActivePower [componentId]="widget.componentId"&gt;
-        &lt;/Controller_Ess_FixActivePower&gt;
-    &lt;/ion-col&gt;</code></pre>
-</div>
+<p>This guide will show you how to setup <a href="https://www.eclipse.org/downloads/">Eclipse IDE</a> for OpenEMS development.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -329,28 +272,182 @@ To be able to see the module in action, you need to create a new switchCase Stat
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The Live and History View are designed to show UI-Widgets dependent on the <code>EdgeConfig</code>, except of widgets listed in <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/edge/live/common/" target="_blank" rel="noopener">Common</a>.
-If you implemented a controller or component, that is part of an <code>EdgeConfig</code>, you have to use the factoryId as a switchCase statement.
-If thats not the case, go into <a href="https://github.com/OpenEMS/openems/blob/develop/ui/src/app/shared/type/widget.ts" target="_blank" rel="noopener">widget.ts</a> and add a identifier to the classes array inside <code>parseWidgets()</code>.
+Make sure you have the correct version of the Java Development Kit (JDK) installed on your system.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setup_eclipse_ide_for_openems_edge_and_backend"><a class="anchor" href="#_setup_eclipse_ide_for_openems_edge_and_backend"></a>1. Setup Eclipse IDE for OpenEMS Edge and Backend</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prepare Eclipse IDE</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download <a href="https://www.eclipse.org/downloads/">Eclipse for Java <span class="icon"><i class="fa fa-external-link"></i></span></a>, install and start it</p>
+</li>
+<li>
+<p>On first start you will get asked to create a workspace.
+Select your source code directory (<code>C:\Users\your.user\git\openems</code> in our example) and press <b class="button">Launch</b>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/eclipse-workspace.png" alt="Creating a workspace in Eclipse IDE">
+</div>
+<div class="title">Figure 1. Creating a workspace in Eclipse IDE</div>
+</div>
+</li>
+<li>
+<p>Install <a href="http://bndtools.org">BndTools <span class="icon"><i class="fa fa-external-link"></i></span></a> in Eclipse:</p>
+<div class="paragraph">
+<p>Menu: <b class="button">Help</b> → <b class="button">Eclipse Marketplace&#8230;&#8203;</b> → <b class="button">Find:</b> → enter <b class="button">Bndtools</b> → press <b class="button">Install</b></p>
+</div>
+</li>
+<li>
+<p>Configure Eclipse IDE to use JDK 21.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In the Menu select <b class="button">Windows</b> → <b class="button">Preferences</b></p>
+</li>
+<li>
+<p>Select <b class="button">Java</b> - <b class="button">Installed JREs</b> in the navigation tree</p>
+</li>
+<li>
+<p>Press the <b class="button">Add&#8230;&#8203;</b> button</p>
+</li>
+<li>
+<p>Keep <b class="button">Standard VM</b> selected and press <b class="button">Next &gt;</b></p>
+</li>
+<li>
+<p>Press the <b class="button">Directory&#8230;&#8203;</b> button and select the folder of the installed JDK (e.g. <code>C:\Program Files\Eclipse Adoptium\jdk-21.0.3.9-hotspot</code>)</p>
+</li>
+<li>
+<p>Press the <b class="button">Finish</b> button</p>
+</li>
+<li>
+<p>Back in the Preferences window, tick the newly added JDK 21 and press <b class="button">Apply and Close</b></p>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/eclipse-select-jdk.png" alt="Set the Java Development Kit in Eclipse IDE">
+</div>
+<div class="title">Figure 2. Creating a workspace in Eclipse IDE</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Import OpenEMS component projects (OSGi bundles):</p>
+<div class="paragraph">
+<p>Menu: <b class="button">File</b> →  <b class="button">Import&#8230;&#8203;</b> → <b class="button">Bndtools</b> → <b class="button">Existing Bnd Workspace</b> → your source code directory should have been selected as <strong>Root Directory</strong> automatically → <b class="button">Finish</b> → "Switch to Bndtools perspective?" <b class="button">Yes</b></p>
+</div>
+</li>
+<li>
+<p>Eclipse will now spend some time importing and building OpenEMS Edge and Backend. Close the <strong>Welcome</strong> window to follow the progress till you eventually see the full tree of OpenEMS projects (or bundles) in the <strong>Bndtools Explorer</strong> and all errors and warnings in the <strong>Problems</strong> tab disappear.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_run_openems_edge"><a class="anchor" href="#_run_openems_edge"></a>2. Run OpenEMS Edge</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the project <b class="button">io.openems.edge.application</b> and double click on <b class="button">EdgeApp.bndrun</b>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/eclipse-io.openems.edge.application.png" alt="io.openems.edge.application project in Eclipse IDE">
+</div>
+<div class="title">Figure 3. io.openems.edge.application project in Eclipse IDE</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Instead of navigating through the projects tree, you can simply use the keyboard shortcut <b class="button">Ctrl</b> + <b class="button">Shift</b> + <b class="button">R</b> to start the "Open Resource" dialog. Enter "EdgeApp.bndrun" there and press <b class="button">Enter</b> to open the file.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The FlatWidget should now be visible in the Live-View and could be looking like this.</p>
+<p>The <code>EdgeApp.bndrun</code> file declares all the bundles and runtime properties. For now it should not be necessary to edit it, but it hides some useful settings under the <b class="button">Source</b> tab:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>org.osgi.service.http.port=8080</code>: start the Apache Felix Web Console on port <code>8080</code></p>
+</li>
+<li>
+<p><code>felix.cm.dir=c:/openems/config</code>: persist configurations in the folder <code>c:/openems/config</code>. Adjust this if you are working on Linux to keep your configurations after restart</p>
+</li>
+<li>
+<p><code>openems.data.dir=c:/openems/data</code>: this is where bundles are allowed to persist data. It is used e.g. by the RRD4j timedata storage</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click on <b class="button">Run OSGi</b> to run OpenEMS Edge. You should see log outputs in the <strong>Console</strong> tab inside Eclipse IDE.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../../_images/ui-flat-widget-fixactivepower.png" alt="FlatWidget FixActivePower">
+<img src="../../_images/eclipse-edge-initial-log-output.png" alt="OpenEMS Edge initial log output">
 </div>
+<div class="title">Figure 4. OpenEMS Edge initial log output</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_create_a_new_module_history_view"><a class="anchor" href="#_create_a_new_module_history_view"></a>3. Create a new module [History-View]</h2>
+<h2 id="_run_openems_backend"><a class="anchor" href="#_run_openems_backend"></a>3. Run OpenEMS Backend</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>For creating a module in the history-view, you can follow the same steps as for the live-view.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the project <b class="button">io.openems.backend.application</b> and double click on <b class="button">BackendApp.bndrun</b>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/eclipse-io.openems.backend.application.png" alt="io.openems.backend.application project in Eclipse IDE">
+</div>
+<div class="title">Figure 5. io.openems.backend.application project in Eclipse IDE</div>
+</div>
+</li>
+<li>
+<p>Click on <b class="button">Run OSGi</b> to run OpenEMS Backend. You should see log outputs on the console inside Eclipse IDE.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/eclipse-backend-initial-log-output.png" alt="OpenEMS Backend initial log output">
+</div>
+<div class="title">Figure 6. OpenEMS Backend initial log output</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Disable the two icon buttons "Show Console When Standard Out changes" and "Show Console When Standard Error changes" next to the <em>Console</em> tab to avoid constant switching between the output of OpenEMS Edge and OpenEMS Backend.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>

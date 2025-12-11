@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Documentation :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/contribute/documentation.html">
+    <title>Coding Guidelines :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/development/coding-guidelines.html">
     <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 3.1.14">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -188,12 +188,27 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Contribute</span>
+    <span class="nav-text">Developer Guide</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="coding-guidelines.html">Coding Guidelines</a>
+    <a class="nav-link" href="overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">IDE Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="ide/eclipse.html">Eclipse</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="ide/intellij.html">IntelliJ</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="coding-guidelines.html">Coding Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="documentation.html">Documentation</a>
   </li>
 </ul>
@@ -232,121 +247,195 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../introduction.html">Open Energy Management System</a></li>
-    <li>Contribute</li>
-    <li><a href="documentation.html">Documentation</a></li>
+    <li>Developer Guide</li>
+    <li><a href="coding-guidelines.html">Coding Guidelines</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/contribute/documentation.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/development/coding-guidelines.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Documentation</h1>
+<h1 class="page">Coding Guidelines</h1>
 <div class="sect1">
-<h2 id="_concept"><a class="anchor" href="#_concept"></a>1. Concept</h2>
+<h2 id="_general"><a class="anchor" href="#_general"></a>1. General</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>The OpenEMS Documentation is built with <a href="https://antora.org/">Antora <span class="icon"><i class="fa fa-external-link"></i></span></a>.</p>
-</div>
-<div class="paragraph">
-<p>OpenEMS <a href="https://github.com/OpenEMS/openems">Files <span class="icon"><i class="fa fa-external-link"></i></span></a> and <a href="https://github.com/OpenEMS/openems.io">Documentation <span class="icon"><i class="fa fa-external-link"></i></span></a> are separated on two different repositories.</p>
-</div>
-<div class="paragraph">
-<p>The <a href="https://github.com/OpenEMS/openems/blob/develop/doc/build/uibundle_openems.zip?raw=true">UI <span class="icon"><i class="fa fa-external-link"></i></span></a> was slightly modified to fit our needs.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-For more Information regarding <a href="https://asciidoctor.org/docs/asciidoc-writers-guide/">AsciiDoc <span class="icon"><i class="fa fa-external-link"></i></span></a> and <a href="https://docs.antora.org/antora/1.1/">Antora <span class="icon"><i class="fa fa-external-link"></i></span></a> see their Docs.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_edit_a_page"><a class="anchor" href="#_edit_a_page"></a>2. Edit a page</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>If you want to edit a Docs - Page just click on 'Edit this Page' in the upper right corner to edit the page you are currently visiting.</p>
-</div>
-<div class="paragraph">
-<p>Edit the Page according to your ideas and commit your changes.</p>
-</div>
-<div class="paragraph">
-<p>You will see the changes you have made after our frequent Docs - Update.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_add_a_page"><a class="anchor" href="#_add_a_page"></a>3. Add a page</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>To add a page, clone the OpenEMS Repository (preferably <a href="../gettingstarted.html#_download_the_source_code" class="xref page">Source Tree</a>) and open it with a Code Editor (preferably <a href="../gettingstarted.html#_setup_visual_studio_code_for_openems_ui" class="xref page">Visual Studio Code</a>).</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>Go to <a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages">doc/modules/ROOT/pages <span class="icon"><i class="fa fa-external-link"></i></span></a> and create a .adoc file with the desired name.</p>
+<p>The OpenEMS Coding Guidelines are based on (and complement) the <a href="https://www.oracle.com/technetwork/java/codeconventions-150003.pdf">Java Coding Convention</a>.</p>
 </li>
 <li>
-<p>Go to <a href="https://github.com/OpenEMS/openems/blob/develop/doc/modules/ROOT/nav.adoc">doc/modules/ROOT/nav.adoc <span class="icon"><i class="fa fa-external-link"></i></span></a> and add your page with the correct filename to the nav file.</p>
+<p>Limit pull requests to a small and closed topic.</p>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_build_docs"><a class="anchor" href="#_build_docs"></a>4. Build Docs</h2>
+<h2 id="_openems_edge_backend"><a class="anchor" href="#_openems_edge_backend"></a>2. OpenEMS Edge &amp; Backend</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_java_code"><a class="anchor" href="#_java_code"></a>2.1. Java Code</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Limit Pull-Request to only one bundle/directory preferred</p>
+</li>
+<li>
+<p>Remove unnecessary console.logs</p>
+</li>
+<li>
+<p>Remove unnecessary empty lines</p>
+</li>
+<li>
+<p>Never use System.out.println()</p>
+</li>
+<li>
+<p>Fix all errors &amp; warnings</p>
+</li>
+<li>
+<p>Use precise naming for methods/functions</p>
+</li>
+<li>
+<p>Use narrow scopes for variables; avoid class variables</p>
+</li>
+<li>
+<p>Split code in Interface, Implementation(..Impl) and Config files</p>
+</li>
+<li>
+<p>Use modern Java 21 syntax (e.g. 'var' keyword, streams, etc.)</p>
+</li>
+<li>
+<p>Add readme.adoc to a new bundle</p>
+</li>
+<li>
+<p>Review data in bnd.bnd file</p>
+</li>
+<li>
+<p>Format all files via Eclipse Autoformat, organize Imports, apply Checkstyle suggestions (see below)</p>
+</li>
+<li>
+<p>Avoid unnecessary comments on self explaining code</p>
+</li>
+<li>
+<p>Add comments to code that is difficult to understand</p>
+</li>
+<li>
+<p>Prefer functional programming (e.g. use Lambda expressions)</p>
+</li>
+<li>
+<p>Add JUnit tests.</p>
+</li>
+<li>
+<p>Run ./tools/prepare-commit.sh script</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tool_support"><a class="anchor" href="#_tool_support"></a>2.2. Tool support</h3>
 <div class="paragraph">
-<p>To build the docs, clone the OpenEMS Repository (preferably <a href="../gettingstarted.html#_download_the_source_code" class="xref page">Source Tree</a>) and open it with a Code Editor (preferably <a href="../gettingstarted.html#_setup_visual_studio_code_for_openems_ui" class="xref page">Visual Studio Code</a>).</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>NodeJS has to be installed</p>
-</div>
-</td>
-</tr>
-</table>
+<p>While IntelliJ also works, Eclipse IDE is the officially supported development environment. It also provides tool support for guided assistance via bndtools.</p>
 </div>
 <div class="paragraph">
-<div class="title">Build the documents:</div>
-<p>Open the integrated terminal, change to the <a href="https://github.com/OpenEMS/openems/tree/develop/">root directory <span class="icon"><i class="fa fa-external-link"></i></span></a> and type</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p><code>gradlew buildAntoraDocs</code></p>
-</div>
-</div>
+<div class="title">Eclipse Version</div>
+<p>Some Eclipse default code formatting rules and warning settings change over time. Therefore,
+always use the latest Version of the Eclipse IDE for Java Developers (4.30.0 +).</p>
 </div>
 <div class="paragraph">
-<p>Docs should be building.. the finished HTML Folder can be found in your local 'build' folder (inside your <a href="https://github.com/OpenEMS/openems/tree/develop/doc/build">repository build folder <span class="icon"><i class="fa fa-external-link"></i></span></a>)</p>
+<div class="title">Eclipse Code formatter</div>
+<p>Use <code>Eclipse [built-in]</code> code formatting rules</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you want to build your own docs with Antora see <a href="https://fabianfnc.github.io/bocs/">this guide <span class="icon"><i class="fa fa-external-link"></i></span></a>
-</td>
-</tr>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p>Eclipse &#8594; Window &#8594; Preferences &#8594; Java &#8594; Code Style &#8594; Formatter &#8594; ActiveProfile &#8594; select &#8594; <code>Eclipse [built-in]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Before you commit files, run the Eclipse code formatter on each java source code file (Ctrl + Shift + F).</p>
+</div>
+<div class="paragraph">
+<div class="title">Eclipse Checkstyle plugin</div>
+<p>Use Eclipse checkstyle plugin <code>Eclipse-cs</code>. Install it with</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Eclipse &#8594; Help &#8594; Eclipse Marketplace &#8594; Find &#8594; <code>Eclipse-cs</code> &#8594; Install</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Configure it with</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Eclipse &#8594; Window &#8594; Preferences &#8594; Checkstyle &#8594; New &#8594;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Type: <code>Project Relative Configuration</code></p>
+</li>
+<li>
+<p>Name: <code>OpenEMS</code></p>
+</li>
+<li>
+<p>Location: <code>/cnf/checkstyle.xml</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Later set <code>OpenEMS</code> as default. Enable Checkstyle for every bundle you like in the Bndtools Explorer in the bundles context menu.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_openems_ui"><a class="anchor" href="#_openems_ui"></a>3. OpenEMS UI</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_typescript"><a class="anchor" href="#_typescript"></a>3.1. TypeScript</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Act according to the rules above wherever it makes sense to do so.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git_flow_workflow"><a class="anchor" href="#_git_flow_workflow"></a>4. Git-Flow workflow</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>OpenEMS development follows the <a href="https://docs.github.com/en/get-started/quickstart/github-flow">Git-Flow workflow</a>.</p>
+</li>
+<li>
+<p>Choose precise naming of pull request and its comments when making a pull request</p>
+</li>
+<li>
+<p>After opening the Pull-Request, review for yourself the actual changes line by line in the 'files' tab on Github.
+Ask for review only after you checked the actual changes again this way.</p>
+</li>
+<li>
+<p>Ask for review when pull request is ready for review (not before)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong> If you realize, that you added files accidentally, you can always reset them to the current 'develop' state with the command <code>git checkout develop &lt;filename&gt;</code></p>
 </div>
 </div>
 </div>
