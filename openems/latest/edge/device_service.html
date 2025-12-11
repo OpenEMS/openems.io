@@ -3405,8 +3405,77 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
 }</code></pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_datasources"><a class="anchor" href="#_datasources"></a>86.2. Datasources</h3>
+<div class="paragraph">
+<p>Datasources provide input data for simulated components. There are several types available:</p>
+</div>
+<div class="sect3">
+<h4 id="_csv_datasources"><a class="anchor" href="#_csv_datasources"></a>86.2.1. CSV Datasources</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Simulator.Datasource.CSV.Direct</strong> - Reads data directly from a CSV string provided in the configuration.</p>
+</li>
+<li>
+<p><strong>Simulator.Datasource.CSV.Predefined</strong> - Reads data from predefined CSV files bundled with OpenEMS (e.g., standard load profiles).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_single_value_datasources"><a class="anchor" href="#_single_value_datasources"></a>86.2.2. Single Value Datasources</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Simulator.Datasource.Single.Direct</strong> - Provides a single data channel with values defined as an integer array in the configuration.</p>
+</li>
+<li>
+<p><strong>Simulator.Datasource.Single.Channel</strong> - Provides a single data channel that can be set dynamically via a writable channel. This is useful for external testing scenarios where production/consumption data needs to be injected at runtime.</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="_using_simulator_datasource_single_channel"><a class="anchor" href="#_using_simulator_datasource_single_channel"></a>86.2.2.1. Using Simulator.Datasource.Single.Channel</h5>
+<div class="paragraph">
+<p>This datasource allows setting simulation values externally via REST API or other channel write mechanisms.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Setting consumption data via REST API</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Set consumption to 6000 W
+curl -d '{"value":6000}' http://admin:admin@localhost:8084/rest/channel/simulateConsumption/Data
+
+# Verify the value was set
+curl http://admin:admin@localhost:8084/rest/channel/_sum/ConsumptionActivePower</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Configuration example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "factoryPid": "Simulator.Datasource.Single.Channel",
+  "properties": [
+    {
+      "name": "id",
+      "value": "simulateConsumption"
+    },
+    {
+      "name": "enabled",
+      "value": true
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The datasource exposes a <code>Data</code> channel with read/write access. When a value is written to this channel, it immediately becomes available as the datasource&#8217;s output value. If no value has been set, the default value is <code>0</code>.</p>
+</div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.simulator">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
 </div>
 </div>
 </div>
