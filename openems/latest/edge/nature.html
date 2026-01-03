@@ -267,10 +267,52 @@
 <div class="paragraph">
 <p>Technically Natures are implemented as OSGi API Bundles.</p>
 </div>
+<div class="paragraph">
+<p>Each .api bundle contains the nature interfaces that device implementations must implement. For example, io.openems.edge.ess.api defines interfaces like SymmetricEss, AsymmetricEss, ManagedSymmetricEss, etc. These are sub-natures of the Ess nature.</p>
+</div>
+<div class="paragraph">
+<p>OpenEMS Edge provides the following types of Natures:</p>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_battery"><a class="anchor" href="#_battery"></a>1. Battery</h2>
+<h2 id="_device_natures"><a class="anchor" href="#_device_natures"></a>1. Device Natures</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>e.g.:
+- io.openems.edge.battery.api - Battery interfaces
+- io.openems.edge.batteryinverter.api - Battery inverter interfaces
+- io.openems.edge.ess.api - Energy Storage System interfaces
+- io.openems.edge.evcs.api - EV Charging Station interfaces
+- io.openems.edge.evse.api - EV Supply Equipment interfaces
+- io.openems.edge.meter.api - Power meter interfaces
+- io.openems.edge.pvinverter.api - PV inverter interfaces
+- io.openems.edge.io.api - IO device interfaces
+- io.openems.edge.heat.api - Heat pump interfaces
+- io.openems.edge.thermometer.api - Thermometer interfaces</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_servicesupport_natures"><a class="anchor" href="#_servicesupport_natures"></a>2. Service/Support Natures</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>e.g.:
+- io.openems.edge.controller.api - Controller interfaces
+- io.openems.edge.scheduler.api - Scheduler interfaces
+- io.openems.edge.timedata.api - Time-series data interfaces
+- io.openems.edge.timeofusetariff.api - Dynamic pricing interfaces
+- io.openems.edge.predictor.api - Forecasting interfaces
+- io.openems.edge.weather.api - Weather service interfaces
+- io.openems.edge.energy.api - Energy management interfaces</p>
+</div>
+<div class="paragraph">
+<p>Following you find all natures currently defined in OpenEMS Edge:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_battery"><a class="anchor" href="#_battery"></a>3. Battery</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A battery that is connected to a battery inverter.</p>
@@ -278,7 +320,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_battery_inverter"><a class="anchor" href="#_battery_inverter"></a>2. Battery-Inverter</h2>
+<h2 id="_battery_inverter"><a class="anchor" href="#_battery_inverter"></a>4. Battery-Inverter</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Together with a battery, a battery-inverter builds an Energy Storage System.</p>
@@ -289,7 +331,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_controller"><a class="anchor" href="#_controller"></a>3. Controller</h2>
+<h2 id="_controller"><a class="anchor" href="#_controller"></a>5. Controller</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A Controller; see the Controller chapter for details.</p>
@@ -297,7 +339,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_openems_energy_api"><a class="anchor" href="#_openems_energy_api"></a>4. OpenEMS Energy API</h2>
+<h2 id="_openems_energy_api"><a class="anchor" href="#_openems_energy_api"></a>6. OpenEMS Energy API</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The API for OpenEMS Energy Schedules.</p>
@@ -308,38 +350,351 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_energy_storage_system"><a class="anchor" href="#_ess_energy_storage_system"></a>5. ESS (Energy Storage System)</h2>
+<h2 id="_ess_energy_storage_system"><a class="anchor" href="#_ess_energy_storage_system"></a>7. ESS (Energy Storage System)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>An Energy Storage System is an integrated system with battery and battery inverter.</p>
+<p>An Energy Storage System is an integrated system with battery and battery inverter. This API bundle defines the core natures (interfaces) that ESS components implement.</p>
 </div>
+<div class="sect2">
+<h3 id="_core_ess_natures"><a class="anchor" href="#_core_ess_natures"></a>7.1. Core ESS Natures</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/SymmetricEss.java">Ess <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/SymmetricEss.java">SymmetricEss <span class="icon"><i class="fa fa-code"></i></span></a></dt>
 <dd>
-<p>A generic Energy Storage System</p>
+<p>A symmetric Energy Storage System that provides balanced power across all phases. This is the base nature for most ESS implementations.</p>
+<div class="paragraph">
+<p><strong>Key Channels:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SOC</code> - State of Charge (%)</p>
+</li>
+<li>
+<p><code>CAPACITY</code> - Battery capacity (Wh)</p>
+</li>
+<li>
+<p><code>GRID_MODE</code> - Current grid mode (On-Grid/Off-Grid)</p>
+</li>
+<li>
+<p><code>ACTIVE_POWER</code> - Active power (W, negative=charge, positive=discharge)</p>
+</li>
+<li>
+<p><code>REACTIVE_POWER</code> - Reactive power (var)</p>
+</li>
+</ul>
+</div>
 </dd>
-<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/SymmetricEss.java">SymmetricEssReadonly <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/ManagedSymmetricEss.java">ManagedSymmetricEss <span class="icon"><i class="fa fa-code"></i></span></a></dt>
 <dd>
-<p>A symmetric Energy Storage System in readonly-mode.</p>
+<p>A controllable symmetric Energy Storage System that extends <code>SymmetricEss</code>. Supports active and reactive power control commands.
+This is the most commonly used nature for controllable ESS implementations.</p>
+<div class="paragraph">
+<p><strong>Key Channels:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ALLOWED_CHARGE_POWER</code> - Maximum allowed charge power (W, negative value)</p>
+</li>
+<li>
+<p><code>ALLOWED_DISCHARGE_POWER</code> - Maximum allowed discharge power (W, positive value)</p>
+</li>
+<li>
+<p><code>SET_ACTIVE_POWER_EQUALS</code> - Write command to set active power</p>
+</li>
+<li>
+<p><code>SET_ACTIVE_POWER_LESS_OR_EQUALS</code> - Write command to limit maximum discharge power</p>
+</li>
+<li>
+<p><code>SET_ACTIVE_POWER_GREATER_OR_EQUALS</code> - Write command to limit maximum charge power</p>
+</li>
+<li>
+<p><code>SET_REACTIVE_POWER_EQUALS</code> - Write command to set reactive power</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/AsymmetricEss.java">AsymmetricEss <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>A three-phase Asymmetric Energy Storage System that extends <code>SymmetricEss</code>. Provides separate power measurements for each phase (L1, L2, L3).</p>
+<div class="paragraph">
+<p><strong>Key Channels:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ACTIVE_POWER_L1</code>, <code>ACTIVE_POWER_L2</code>, <code>ACTIVE_POWER_L3</code> - Active power per phase (W)</p>
+</li>
+<li>
+<p><code>REACTIVE_POWER_L1</code>, <code>REACTIVE_POWER_L2</code>, <code>REACTIVE_POWER_L3</code> - Reactive power per phase (var)</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/ManagedAsymmetricEss.java">ManagedAsymmetricEss <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>A controllable asymmetric Energy Storage System that extends both <code>ManagedSymmetricEss</code> and <code>AsymmetricEss</code>. Allows independent control of each phase.</p>
+<div class="paragraph">
+<p><strong>Key Channels:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SET_ACTIVE_POWER_L1_EQUALS</code>, <code>SET_ACTIVE_POWER_L2_EQUALS</code>, <code>SET_ACTIVE_POWER_L3_EQUALS</code> - Write commands for active power per phase</p>
+</li>
+<li>
+<p><code>SET_REACTIVE_POWER_L1_EQUALS</code>, <code>SET_REACTIVE_POWER_L2_EQUALS</code>, <code>SET_REACTIVE_POWER_L3_EQUALS</code> - Write commands for reactive power per phase</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/SinglePhaseEss.java">SinglePhaseEss <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>A single-phase Energy Storage System that extends <code>AsymmetricEss</code>. Connected to only one phase (L1, L2, or L3).</p>
+<div class="paragraph">
+<p><strong>Key Methods:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>getPhase()</code> - Returns which phase (L1/L2/L3) the ESS is connected to</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/ManagedSinglePhaseEss.java">ManagedSinglePhaseEss <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>A controllable single-phase Energy Storage System that extends both <code>ManagedSymmetricEss</code> and <code>SinglePhaseEss</code>.</p>
 </dd>
 </dl>
 </div>
-<div class="paragraph">
-<p>A symmetric, controllable Energy Storage System.</p>
 </div>
+<div class="sect2">
+<h3 id="_specialized_ess_natures"><a class="anchor" href="#_specialized_ess_natures"></a>7.2. Specialized ESS Natures</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/HybridEss.java">HybridEss <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>An ESS with one or more DC-coupled PV chargers. Extends <code>SymmetricEss</code>.</p>
+<div class="paragraph">
+<p><strong>Key Channels:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DC_DISCHARGE_POWER</code> - Actual battery discharge power (W), i.e., <code>ACTIVE_POWER</code> minus DC charger production</p>
+</li>
+<li>
+<p><code>DC_CHARGE_ENERGY</code> - Cumulative battery charge energy (Wh)</p>
+</li>
+<li>
+<p><code>DC_DISCHARGE_ENERGY</code> - Cumulative battery discharge energy (Wh)</p>
+<div class="paragraph">
+<p><strong>Note:</strong> For hybrid inverters, <code>ACTIVE_POWER</code> includes excess DC-PV production, while <code>DC_DISCHARGE_POWER</code> represents the actual battery power flow.</p>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/MetaEss.java">MetaEss <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>A virtual ESS that wraps one or more physical energy storage systems. Extends <code>SymmetricEss</code>. Used for ESS clusters or combined systems.</p>
+<div class="paragraph">
+<p><strong>Key Methods:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>getEssIds()</code> - Returns array of Component-IDs of the physical ESS components</p>
+<div class="paragraph">
+<p><strong>Usage:</strong> Implements aggregation logic to combine multiple ESS into a single logical unit.</p>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/offgrid/api/OffGridEss.java">OffGridEss <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>An ESS with off-grid (island mode) capabilities. Extends <code>ManagedSymmetricEss</code>.</p>
+<div class="paragraph">
+<p><strong>Key Methods:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>isOffGridPossible()</code> - Returns true if the ESS can build a micro-grid in off-grid mode</p>
+<div class="paragraph">
+<p><strong>Usage:</strong> Typically used with systems that can form and maintain an AC grid when disconnected from the utility grid.</p>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/api/EssErrorAcknowledge.java">EssErrorAcknowledge <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>Defines error acknowledgement capabilities for ESS components. Extends <code>OpenemsComponent</code>.</p>
+<div class="paragraph">
+<p><strong>Key Channels:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TIMEOUT_START_BATTERY</code> - Fault state when battery start timeout is exceeded</p>
+</li>
+<li>
+<p><code>TIMEOUT_START_BATTERY_INVERTER</code> - Fault state when battery inverter start timeout is exceeded</p>
+</li>
+<li>
+<p><code>TIMEOUT_STOP_BATTERY</code> - Fault state when battery stop timeout is exceeded</p>
+</li>
+<li>
+<p><code>TIMEOUT_STOP_BATTERY_INVERTER</code> - Fault state when battery inverter stop timeout is exceeded</p>
+<div class="paragraph">
+<p><strong>Key Methods:</strong></p>
+</div>
+</li>
+<li>
+<p><code>executeErrorAcknowledge()</code> - Attempts to clear error channels</p>
+<div class="paragraph">
+<p><strong>Usage:</strong> Implemented by ESS components that require explicit error acknowledgement and timeout handling.</p>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_auxiliary_components"><a class="anchor" href="#_auxiliary_components"></a>7.3. Auxiliary Components</h3>
+<div class="sect3">
+<h4 id="_dc_charger"><a class="anchor" href="#_dc_charger"></a>7.3.1. DC Charger</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/dccharger/api/EssDcCharger.java">EssDcCharger <span class="icon"><i class="fa fa-code"></i></span></a></dt>
 <dd>
-<p>A solar charger that is connected to DC side of an energy storage system.</p>
+<p>A DC-coupled solar charger connected to the DC side of an energy storage system. Extends <code>OpenemsComponent</code>.</p>
+<div class="paragraph">
+<p><strong>Key Channels:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ACTUAL_POWER</code> - Current DC power production (W, positive value)</p>
+</li>
+<li>
+<p><code>ACTUAL_ENERGY</code> - Cumulative energy production (Wh)</p>
+</li>
+<li>
+<p><code>MAX_ACTUAL_POWER</code> - Maximum ever recorded power (W)</p>
+</li>
+<li>
+<p><code>VOLTAGE</code> - DC voltage (V)</p>
+<div class="paragraph">
+<p><strong>Usage:</strong> Used in hybrid ESS systems where PV production feeds directly into the battery DC bus.</p>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_off_grid_switch"><a class="anchor" href="#_off_grid_switch"></a>7.3.2. Off-Grid Switch</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.ess.api/src/io/openems/edge/ess/offgrid/api/OffGridSwitch.java">OffGridSwitch <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>A device that determines grid status and actively switches between on-grid and off-grid modes. Extends <code>OpenemsComponent</code>.</p>
+<div class="paragraph">
+<p><strong>Key Channels:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MAIN_CONTACTOR</code> - Main contactor state connecting inverter to public grid (Boolean)</p>
+</li>
+<li>
+<p><code>GROUNDING_CONTACTOR</code> - Grounding contactor state for off-grid neutral connection (Boolean)</p>
+</li>
+<li>
+<p><code>GRID_MODE</code> - Current grid mode (On-Grid/Off-Grid)</p>
+<div class="paragraph">
+<p><strong>Usage:</strong> Used in systems with active grid separation capabilities.</p>
+</div>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_nature_hierarchy"><a class="anchor" href="#_nature_hierarchy"></a>7.4. Nature Hierarchy</h3>
+<div class="paragraph">
+<p>The following diagram shows the inheritance relationships:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">OpenemsComponent (base interface)
+├── SymmetricEss
+│   ├── ManagedSymmetricEss
+│   │   ├── ManagedAsymmetricEss (also extends AsymmetricEss)
+│   │   ├── ManagedSinglePhaseEss (also extends SinglePhaseEss)
+│   │   └── OffGridEss
+│   ├── AsymmetricEss
+│   │   ├── ManagedAsymmetricEss (also extends ManagedSymmetricEss)
+│   │   └── SinglePhaseEss
+│   │       └── ManagedSinglePhaseEss (also extends ManagedSymmetricEss)
+│   ├── MetaEss
+│   └── HybridEss
+├── EssDcCharger
+├── OffGridSwitch
+└── EssErrorAcknowledge</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementation_guidelines"><a class="anchor" href="#_implementation_guidelines"></a>7.5. Implementation Guidelines</h3>
+<div class="paragraph">
+<p>When implementing an ESS component, choose the appropriate nature(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Read-only ESS</strong>: Implement <code>SymmetricEss</code> only</p>
+</li>
+<li>
+<p><strong>Controllable ESS</strong>: Implement <code>ManagedSymmetricEss</code></p>
+</li>
+<li>
+<p><strong>Three-phase with independent control</strong>: Implement <code>ManagedAsymmetricEss</code></p>
+</li>
+<li>
+<p><strong>Single-phase system</strong>: Implement <code>ManagedSinglePhaseEss</code></p>
+</li>
+<li>
+<p><strong>Hybrid inverter with DC-PV</strong>: Implement <code>HybridEss</code> and provide <code>EssDcCharger</code> component(s)</p>
+</li>
+<li>
+<p><strong>Off-grid capable</strong>: Implement <code>OffGridEss</code> and optionally <code>OffGridSwitch</code></p>
+</li>
+<li>
+<p><strong>ESS cluster/aggregation</strong>: Implement <code>MetaEss</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Multiple natures can be combined. For example, a hybrid off-grid ESS would implement both <code>HybridEss</code> and <code>OffGridEss</code>.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
-<h2 id="_evcs_electric_vehicle_charging_station"><a class="anchor" href="#_evcs_electric_vehicle_charging_station"></a>6. EVCS (Electric Vehicle Charging Station)</h2>
+<h2 id="_evcs_electric_vehicle_charging_station"><a class="anchor" href="#_evcs_electric_vehicle_charging_station"></a>8. EVCS (Electric Vehicle Charging Station)</h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -352,7 +707,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_electric_vehicle_supply_equipment_evse_api"><a class="anchor" href="#_electric_vehicle_supply_equipment_evse_api"></a>7. Electric Vehicle Supply Equipment (EVSE) Api</h2>
+<h2 id="_electric_vehicle_supply_equipment_evse_api"><a class="anchor" href="#_electric_vehicle_supply_equipment_evse_api"></a>9. Electric Vehicle Supply Equipment (EVSE) Api</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>APIs for</p>
@@ -373,7 +728,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_openems_edge_heat_api"><a class="anchor" href="#_openems_edge_heat_api"></a>8. OpenEMS Edge Heat Api</h2>
+<h2 id="_openems_edge_heat_api"><a class="anchor" href="#_openems_edge_heat_api"></a>10. OpenEMS Edge Heat Api</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.heat.Api">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
@@ -381,7 +736,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_digital_inputoutput"><a class="anchor" href="#_io_digital_inputoutput"></a>9. I/O (Digital Input/Output)</h2>
+<h2 id="_io_digital_or_analog_inputoutput"><a class="anchor" href="#_io_digital_or_analog_inputoutput"></a>11. I/O (Digital or Analog Input/Output)</h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -389,12 +744,24 @@
 <dd>
 <p>One or more digital outputs or relays.</p>
 </dd>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.io.api/src/io/openems/edge/io/api/DigitalInput.java">DigitalInput <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>One or more digital inputs.</p>
+</dd>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.io.api/src/io/openems/edge/io/api/AnalogVoltageOutput.java">AnalogVoltageOutput <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>One or more Analog Voltage outputs.</p>
+</dd>
+<dt class="hdlist1"><a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.io.api/src/io/openems/edge/io/api/AnalogInput.java">AnalogInput <span class="icon"><i class="fa fa-code"></i></span></a></dt>
+<dd>
+<p>One or more analog inputs.</p>
+</dd>
 </dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_meter"><a class="anchor" href="#_meter"></a>10. Meter</h2>
+<h2 id="_meter"><a class="anchor" href="#_meter"></a>12. Meter</h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -407,7 +774,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_predictor"><a class="anchor" href="#_predictor"></a>11. Predictor</h2>
+<h2 id="_predictor"><a class="anchor" href="#_predictor"></a>13. Predictor</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A Predictor provides abstract access to prediction of production and consumption.</p>
@@ -415,7 +782,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_scheduler"><a class="anchor" href="#_scheduler"></a>12. Scheduler</h2>
+<h2 id="_scheduler"><a class="anchor" href="#_scheduler"></a>14. Scheduler</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A Scheduler; see the Scheduler chapter for details.</p>
@@ -423,7 +790,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_thermometer"><a class="anchor" href="#_thermometer"></a>13. Thermometer</h2>
+<h2 id="_thermometer"><a class="anchor" href="#_thermometer"></a>15. Thermometer</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A Thermometer measures temperature.</p>
@@ -431,7 +798,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_timedata"><a class="anchor" href="#_timedata"></a>14. Timedata</h2>
+<h2 id="_timedata"><a class="anchor" href="#_timedata"></a>16. Timedata</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A provider for time-series data, like historic recordings of Channels.</p>
@@ -439,7 +806,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_of_use_tariff_api"><a class="anchor" href="#_time_of_use_tariff_api"></a>15. Time-Of-Use Tariff API.</h2>
+<h2 id="_time_of_use_tariff_api"><a class="anchor" href="#_time_of_use_tariff_api"></a>17. Time-Of-Use Tariff API.</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Provides abstract access for getting prices from every "Time-Of-Use" tariff providers like:
@@ -452,7 +819,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_weather_api"><a class="anchor" href="#_weather_api"></a>16. Weather API</h2>
+<h2 id="_weather_api"><a class="anchor" href="#_weather_api"></a>18. Weather API</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Provides a clean and unified interface for accessing historical and forecast weather data from various API providers.</p>

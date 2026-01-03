@@ -365,6 +365,132 @@ If you want to build your own docs with Antora see <a href="https://fabianfnc.gi
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_dynamic_documentation_generation"><a class="anchor" href="#_dynamic_documentation_generation"></a>5. Dynamic Documentation Generation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some parts of the OpenEMS documentation are generated dynamically during the build process.</p>
+</div>
+<div class="paragraph">
+<p>In the repository you can find pages like <code>nature.adoc</code> with some text and then</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-adoc hljs" data-lang="adoc">Unresolved include directive in modules/ROOT/pages/development/documentation.adoc - include::nature.adoc.d/_include.adoc[]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where the corresponding folder <code>nature.adoc.d</code> is basically empty. (It only contains a <code>.gitignore</code> file to keep it that way in version control.) This is, where the dynamic generation happens.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_process"><a class="anchor" href="#_the_process"></a>5.1. The Process</h3>
+<div class="paragraph">
+<p>(shown at the example of <a href="https://openems.github.io/openems.io/openems/latest/edge/nature.html">Natures</a> documentation)</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Build-Time Generation (in <code>doc/build.gradle</code> lines 320-405)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The copyBundleReadmes Gradle task runs during the documentation build process and:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Creates an empty <code>_include.adoc</code> file in <code>doc/modules/ROOT/pages/edge/nature.adoc.d/</code></p>
+</li>
+<li>
+<p>Scans all bundles in the project looking for <code>readme.adoc</code> files</p>
+</li>
+<li>
+<p>Identifies .api bundles - When it finds a bundle ending with .api, it:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Copies that bundle&#8217;s <code>readme.adoc</code> to <code>nature.adoc.d/{bundle-name}.adoc</code></p>
+</li>
+<li>
+<p>Appends an include statement to <code>_include.adoc</code>:</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Unresolved directive in documentation.adoc - include::{bundle-name}.adoc[leveloffset=+1]</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Result</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The generated <code>nature.adoc.d/_include.adoc</code> file contains something like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-adoc hljs" data-lang="adoc">Unresolved include directive in modules/ROOT/pages/development/documentation.adoc - include::io.openems.edge.battery.api.adoc[]
+Unresolved include directive in modules/ROOT/pages/development/documentation.adoc - include::io.openems.edge.batteryinverter.api.adoc[]
+Unresolved include directive in modules/ROOT/pages/development/documentation.adoc - include::io.openems.edge.ess.api.adoc[]
+Unresolved include directive in modules/ROOT/pages/development/documentation.adoc - include::io.openems.edge.meter.api.adoc[]
+...</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>AsciiDoc Processing</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When Antora builds the documentation, it processes <code>nature.adoc</code> which includes the line:
+Unresolved include directive in modules/ROOT/pages/development/documentation.adoc - include::nature.adoc.d/_include.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>This cascades to include all the individual bundle readme files, creating the complete list of natures.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_why_this_pattern"><a class="anchor" href="#_why_this_pattern"></a>5.2. Why This Pattern?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Automatic: New .api bundles with <code>readme.adoc</code> files automatically appear in the documentation</p>
+</li>
+<li>
+<p>Maintainable: Each bundle documents itself in its own <code>readme.adoc</code></p>
+</li>
+<li>
+<p>DRY: No need to manually maintain a central list</p>
+</li>
+<li>
+<p>Build artifact: The <code>_include.adoc</code> is git-ignored (hence the <code>.gitignore</code> in the directory) and regenerated on each build</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can see this in action by running:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./gradlew copyBundleReadmes</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will not only populate <code>doc/modules/ROOT/pages/edge/nature.adoc.d/</code> with all the individual nature documentation files! It will do it for all dynamically generated documentation parts in the OpenEMS docs that follow this pattern.</p>
+</div>
+</div>
+</div>
+</div>
 </article>
   </div>
 </main>
