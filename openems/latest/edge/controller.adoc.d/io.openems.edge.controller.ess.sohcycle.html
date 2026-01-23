@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SOH Cycle Controller :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/controller.adoc.d/io.openems.edge.controller.ess.sohcycle.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://openems.github.io/openems.io">Open Energy Management System</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+            <span class="gitlink">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="openems" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../nature.html">Nature</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../bridge.html">Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../device_service.html">Device &amp; Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../deploy/systemd.html">Deploy on Debian/Ubuntu</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../deploy/docker.html">Deploy to Docker</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/deploy.html">Deploy UI to Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/setup-ide.html">Setup IDE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/chart.html">Chart</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/metadata.html">Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/service.html">Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/deploy/systemd.html">Deploy on Debian/Ubuntu</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/deploy/docker.html">Deploy to Docker</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Simulation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/gitpod.html">Live-Demo on Gitpod</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/realtime.html">Real-Time Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/ui-history.html">UI History Simulation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developer Guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../development/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">IDE Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../development/ide/eclipse.html">Eclipse</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../development/ide/intellij.html">IntelliJ</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../development/coding-guidelines.html">Coding Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../development/documentation.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../introduction.html">Open Energy Management System</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../introduction.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../introduction.html">Open Energy Management System</a></li>
+    <li><a href="io.openems.edge.controller.ess.sohcycle.html">SOH Cycle Controller</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/controller.adoc.d/io.openems.edge.controller.ess.sohcycle.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">SOH Cycle Controller</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This controller is used to run a defined State-of-Health (SOH) test cycle on a battery storage system. It executes a reference cycle and a measurement cycle and evaluates the result in order to determine the SOH of the ESS.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parameters which should be taken care of:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>mode</code></dt>
+<dd>
+<p>Select MANUAL_ON to activate the logic</p>
+</dd>
+<dt class="hdlist1"><code>ess_id</code></dt>
+<dd>
+<p>Id of the device. ex, ess0</p>
+</dd>
+<dt class="hdlist1"><code>startTime</code></dt>
+<dd>
+<p>Start time in format [YYYY-MM-DD HH:MM], activates the controller logic at required date and time</p>
+</dd>
+<dt class="hdlist1"><code>targetSoc</code></dt>
+<dd>
+<p>Target state-of-charge for start/end of the SOH cycle (depending on implementation)</p>
+</dd>
+<dt class="hdlist1"><code>referenceDischargePower</code></dt>
+<dd>
+<p>The (constant) power in Watt that is used for the <strong>reference</strong> discharging phase</p>
+</dd>
+<dt class="hdlist1"><code>referenceChargePower</code></dt>
+<dd>
+<p>The (constant) power in Watt that is used for the <strong>reference</strong> charging phase</p>
+</dd>
+<dt class="hdlist1"><code>measurementDischargePower</code></dt>
+<dd>
+<p>The (constant) power in Watt that is used for the <strong>measurement</strong> discharging phase</p>
+</dd>
+<dt class="hdlist1"><code>measurementChargePower</code></dt>
+<dd>
+<p>The (constant) power in Watt that is used for the <strong>measurement</strong> charging phase</p>
+</dd>
+<dt class="hdlist1"><code>hybridEssMode</code></dt>
+<dd>
+<p>Whether to apply the power on AC or DC side of a hybrid ESS</p>
+</dd>
+<dt class="hdlist1"><code>balancingTimeout</code></dt>
+<dd>
+<p>Maximum time to wait for cell balancing before aborting with ERROR_ABORT</p>
+</dd>
+<dt class="hdlist1"><code>maxDeltaSoc</code></dt>
+<dd>
+<p>Maximum allowed SOC deviation between phases; if violated, controller may abort with ERROR_ABORT</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_monitoring"><a class="anchor" href="#_monitoring"></a>Monitoring</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Typical channels can be followed from Grafana or online monitoring (names may differ depending on configuration):</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>ctrlEssSohCycle0/StateMachine</code></dt>
+<dd>
+<p>The current state of the SOH State-Machine: IDLE, PREPARE_REFERENCE, REFERENCE_CYCLE_CHARGING, REFERENCE_CYCLE_CHARGING_WAIT, REFERENCE_CYCLE_DISCHARGING, REFERENCE_CYCLE_DISCHARGING_WAIT, MEASUREMENT_CYCLE_CHARGING, MEASUREMENT_CYCLE_CHARGING_WAIT, CHECK_BALANCING, MEASUREMENT_CYCLE_DISCHARGING, MEASUREMENT_CYCLE_DISCHARGING_WAIT, EVALUATE_RESULT, DONE, ERROR_ABORT.</p>
+</dd>
+<dt class="hdlist1"><code>ctrlEssSohCycle0/ResultSoh</code></dt>
+<dd>
+<p>Calculated SOH result of the last completed cycle in percent.</p>
+</dd>
+<dt class="hdlist1"><code>ctrlEssSohCycle0/IsRunning</code></dt>
+<dd>
+<p>Indicates whether a SOH cycle is currently in progress.</p>
+</dd>
+<dt class="hdlist1"><code>ctrlEssSohCycle0/ErrorMessage</code></dt>
+<dd>
+<p>Text description in case of ERROR_ABORT.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_algorithm_logic"><a class="anchor" href="#_algorithm_logic"></a>Algorithm logic</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The SOH Cycle Controller is implemented as a state machine:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>IDLE</code> – Waits for activation.</p>
+</li>
+<li>
+<p><code>PREPARE_REFERENCE</code> – Prepares the ESS (e.g. brings battery to target SOC).</p>
+</li>
+<li>
+<p><code>REFERENCE_CYCLE_CHARGING</code> – Charges using <code>referenceChargePower</code>.</p>
+</li>
+<li>
+<p><code>REFERENCE_CYCLE_CHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
+</li>
+<li>
+<p><code>REFERENCE_CYCLE_DISCHARGING</code> – Discharges using <code>referenceDischargePower</code>.</p>
+</li>
+<li>
+<p><code>REFERENCE_CYCLE_DISCHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
+</li>
+<li>
+<p><code>MEASUREMENT_CYCLE_CHARGING</code> – Charges using <code>measurementChargePower</code>.</p>
+</li>
+<li>
+<p><code>MEASUREMENT_CYCLE_CHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
+</li>
+<li>
+<p><code>CHECK_BALANCING</code> – Checks cell balancing status.</p>
+</li>
+<li>
+<p><code>MEASUREMENT_CYCLE_DISCHARGING</code> – Discharges using <code>measurementDischargePower</code>.</p>
+</li>
+<li>
+<p><code>MEASUREMENT_CYCLE_DISCHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
+</li>
+<li>
+<p><code>EVALUATE_RESULT</code> – Calculates SOH from collected data.</p>
+</li>
+<li>
+<p><code>DONE</code> – Cycle finished successfully.</p>
+</li>
+<li>
+<p><code>ERROR_ABORT</code> – Fatal error occurred; manual reset required.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.sohcycle">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
