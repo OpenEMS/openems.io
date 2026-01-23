@@ -257,20 +257,223 @@
 </aside>
 <article class="doc">
 <h1 class="page">Time-Of-Use Tariff ENTSO-E</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>This implementation uses the ENTSO-E transparency platform to receive day-ahead prices in European power grids.</p>
+<p>This implementation uses the <a href="https://transparency.entsoe.eu/">ENTSO-E Transparency Platform</a> to receive day-ahead electricity prices for European bidding zones.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To request a (free) authentication token, please see chapter <strong>"How to get security token?"</strong> in the official API documentation:
+<a href="https://transparencyplatform.zendesk.com/hc/en-us/articles/12845911031188-How-to-get-security-token" class="bare">https://transparencyplatform.zendesk.com/hc/en-us/articles/12845911031188-How-to-get-security-token</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_currency_conversion"><a class="anchor" href="#_currency_conversion"></a>Currency Conversion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Prices retrieved from ENTSO-E are automatically converted to the user’s configured currency (set in the <strong>Core.Meta</strong> component) using the <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html">ECB Exchange Rates API</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The component expects the following configuration inputs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>biddingZone</strong>: ENTSO-E bidding zone (e.g., <code>GERMANY</code>)</p>
+</li>
+<li>
+<p><strong>ancillaryCosts</strong>: JSON string defining additional costs on top of the day-ahead price</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>To request a (free) authentication token, please see chapter "How to get security token?" in the official API documentation: <a href="https://transparencyplatform.zendesk.com/hc/en-us/articles/12845911031188-How-to-get-security-token" class="bare">https://transparencyplatform.zendesk.com/hc/en-us/articles/12845911031188-How-to-get-security-token</a></p>
+<p>You can configure ancillary costs in two ways: by using a predefined German Distribution System Operator (DSO) or by providing a custom schedule.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_a_predefined_dso"><a class="anchor" href="#_using_a_predefined_dso"></a>Using a Predefined DSO</h3>
+<div class="paragraph">
+<p>For convenience, several German DSOs are already predefined in the implementation. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "dso": "BAYERNWERK"
+}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Prices retrieved from ENTSO-E are subsequently converted to the user&#8217;s currency (defined in Core.Meta Component) using the Exchange Rates API.</p>
+<p>Configuration example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>biddingZone</code>: <code>GERMANY</code></p>
+</li>
+<li>
+<p><code>ancillaryCosts</code>: <code>{"dso":"BAYERNWERK"}</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>For detailed information about the Exchange Rates API, please refer to: <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" class="bare">https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html</a></p>
+<p>For a list of predefined DSOs see <a href="https://github.com/OpenEMS/openems/blob/develop/io.openems.edge.timeofusetariff.entsoe/src/io/openems/edge/timeofusetariff/entsoe/GermanDSO.java"><code>GermanDSO.java</code></a>.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="_using_custom_ancillary_costs_dso_other"><a class="anchor" href="#_using_custom_ancillary_costs_dso_other"></a>Using Custom Ancillary Costs (DSO = "OTHER")</h3>
+<div class="paragraph">
+<p>If your DSO is not on the predefined list, or if you need to define a custom time-of-use tariff structure, you can provide your own schedule.</p>
+</div>
+<div class="paragraph">
+<p>In this case, set <code>"dso": "OTHER"</code> and provide a <code>schedule</code> array with quarterly definitions.</p>
+</div>
+<div class="paragraph">
+<p>Each entry in the schedule contains:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>year</code>: calendar year (e.g., <code>2025</code>)</p>
+</li>
+<li>
+<p><code>tariffs</code>: fixed additional costs (per kWh) for each tariff level (<code>low</code>, <code>standard</code>, <code>high</code>)</p>
+</li>
+<li>
+<p><code>quarters</code>: quarterly schedules (Q1–Q4) with <code>dailySchedule</code> definitions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example configuration:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>biddingZone</strong>:: <code>GERMANY</code></p>
+</li>
+<li>
+<p><strong>ancillaryCosts</strong>:: See the detailed JSON string below.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "dso": "OTHER",
+  "schedule": [
+    {
+      "year": 2025,
+      "tariffs": {
+        "low": 0.10,
+        "standard": 0.20,
+        "high": 0.30
+      },
+      "quarters": [
+        {
+          "quarter": 1,
+          "dailySchedule": [
+            { "tariff": "low", "from": "00:00", "to": "06:00" },
+            { "tariff": "standard", "from": "06:00", "to": "18:00" },
+            { "tariff": "high", "from": "18:00", "to": "23:59" }
+          ]
+        },
+        {
+          "quarter": 2,
+          "dailySchedule": []
+        },
+        {
+          "quarter": 3,
+          "dailySchedule": []
+        },
+        {
+          "quarter": 4,
+          "dailySchedule": [
+            { "tariff": "low", "from": "00:00", "to": "06:00" },
+            { "tariff": "standard", "from": "06:00", "to": "18:00" },
+            { "tariff": "high", "from": "18:00", "to": "23:59" }
+          ]
+        }
+      ]
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_custom_schedule_json_structure_explained"><a class="anchor" href="#_custom_schedule_json_structure_explained"></a>Custom Schedule JSON Structure Explained</h4>
+<div class="paragraph">
+<p>The <code>schedule</code> is a JSON array where each object defines the tariffs for a specific year.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>year</code>:: The year for which this schedule is valid (e.g., <code>2025</code>).</p>
+</li>
+<li>
+<p><code>tariffs</code>:: An object defining the named price levels. You can define your own names (e.g., <code>low</code>, <code>standard</code>, <code>high</code>) and assign a cost to each.
+The name <strong><code>standard</code></strong> is special and is used as a fallback if no time slot applies.</p>
+</li>
+<li>
+<p><code>quarters</code>:: An array defining the schedule for each quarter of the year.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>quarter</code>:: The quarter number (<code>1</code> to <code>4</code>).</p>
+</li>
+<li>
+<p><code>dailySchedule</code>:: An array specifying the time slots and their corresponding tariffs for each day in that quarter.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tariff</code>:: The tariff name, which must match one of the keys defined in the <code>tariffs</code> object.</p>
+</li>
+<li>
+<p><code>from</code>:: The start time of the slot in <code>HH:mm</code> format.</p>
+</li>
+<li>
+<p><code>to</code>:: The end time of the slot in <code>HH:mm</code> format.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_notes"><a class="anchor" href="#_notes"></a>Notes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>dailySchedule</code> for a quarter is empty (<code>[]</code>), the system will default to using the price defined for the <strong><code>standard</code></strong> tariff for that entire quarter. This is useful for seasons with flat ancillary costs.</p>
+</li>
+<li>
+<p>Tariff boundaries (<code>from</code>/<code>to</code>) must not overlap and must follow chronological order.</p>
+</li>
+<li>
+<p>Multiple years can be defined by adding more entries to the <code>schedule</code> array.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.timeofusetariff.entsoe">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </article>
   </div>
