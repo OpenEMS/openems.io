@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>SOH Cycle Controller :: Open Energy Management System</title>
+    <title>Untitled :: Open Energy Management System</title>
     <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/controller.adoc.d/io.openems.edge.controller.ess.sohcycle.html">
     <meta name="generator" content="Antora 3.1.14">
     <link rel="stylesheet" href="../../../../_/css/site.css">
@@ -244,10 +244,6 @@
 <button class="nav-toggle"></button>
   <a href="../../introduction.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="../../introduction.html">Open Energy Management System</a></li>
-    <li><a href="io.openems.edge.controller.ess.sohcycle.html">SOH Cycle Controller</a></li>
-  </ul>
 </nav>
 <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/controller.adoc.d/io.openems.edge.controller.ess.sohcycle.adoc">Edit this Page</a></div>
 </div>
@@ -256,152 +252,416 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">SOH Cycle Controller</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>This controller is used to run a defined State-of-Health (SOH) test cycle on a battery storage system. It executes a reference cycle and a measurement cycle and evaluates the result in order to determine the SOH of the ESS.</p>
-</div>
-</div>
-</div>
 <div class="sect1">
-<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
+<h2 id="_soh_cycle_controller"><a class="anchor" href="#_soh_cycle_controller"></a>SOH Cycle Controller</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Parameters which should be taken care of:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>mode</code></dt>
-<dd>
-<p>Select MANUAL_ON to activate the logic</p>
-</dd>
-<dt class="hdlist1"><code>ess_id</code></dt>
-<dd>
-<p>Id of the device. ex, ess0</p>
-</dd>
-<dt class="hdlist1"><code>startTime</code></dt>
-<dd>
-<p>Start time in format [YYYY-MM-DD HH:MM], activates the controller logic at required date and time</p>
-</dd>
-<dt class="hdlist1"><code>targetSoc</code></dt>
-<dd>
-<p>Target state-of-charge for start/end of the SOH cycle (depending on implementation)</p>
-</dd>
-<dt class="hdlist1"><code>referenceDischargePower</code></dt>
-<dd>
-<p>The (constant) power in Watt that is used for the <strong>reference</strong> discharging phase</p>
-</dd>
-<dt class="hdlist1"><code>referenceChargePower</code></dt>
-<dd>
-<p>The (constant) power in Watt that is used for the <strong>reference</strong> charging phase</p>
-</dd>
-<dt class="hdlist1"><code>measurementDischargePower</code></dt>
-<dd>
-<p>The (constant) power in Watt that is used for the <strong>measurement</strong> discharging phase</p>
-</dd>
-<dt class="hdlist1"><code>measurementChargePower</code></dt>
-<dd>
-<p>The (constant) power in Watt that is used for the <strong>measurement</strong> charging phase</p>
-</dd>
-<dt class="hdlist1"><code>hybridEssMode</code></dt>
-<dd>
-<p>Whether to apply the power on AC or DC side of a hybrid ESS</p>
-</dd>
-<dt class="hdlist1"><code>balancingTimeout</code></dt>
-<dd>
-<p>Maximum time to wait for cell balancing before aborting with ERROR_ABORT</p>
-</dd>
-<dt class="hdlist1"><code>maxDeltaSoc</code></dt>
-<dd>
-<p>Maximum allowed SOC deviation between phases; if violated, controller may abort with ERROR_ABORT</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_monitoring"><a class="anchor" href="#_monitoring"></a>Monitoring</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Typical channels can be followed from Grafana or online monitoring (names may differ depending on configuration):</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>ctrlEssSohCycle0/StateMachine</code></dt>
-<dd>
-<p>The current state of the SOH State-Machine: IDLE, PREPARE_REFERENCE, REFERENCE_CYCLE_CHARGING, REFERENCE_CYCLE_CHARGING_WAIT, REFERENCE_CYCLE_DISCHARGING, REFERENCE_CYCLE_DISCHARGING_WAIT, MEASUREMENT_CYCLE_CHARGING, MEASUREMENT_CYCLE_CHARGING_WAIT, CHECK_BALANCING, MEASUREMENT_CYCLE_DISCHARGING, MEASUREMENT_CYCLE_DISCHARGING_WAIT, EVALUATE_RESULT, DONE, ERROR_ABORT.</p>
-</dd>
-<dt class="hdlist1"><code>ctrlEssSohCycle0/ResultSoh</code></dt>
-<dd>
-<p>Calculated SOH result of the last completed cycle in percent.</p>
-</dd>
-<dt class="hdlist1"><code>ctrlEssSohCycle0/IsRunning</code></dt>
-<dd>
-<p>Indicates whether a SOH cycle is currently in progress.</p>
-</dd>
-<dt class="hdlist1"><code>ctrlEssSohCycle0/ErrorMessage</code></dt>
-<dd>
-<p>Text description in case of ERROR_ABORT.</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_algorithm_logic"><a class="anchor" href="#_algorithm_logic"></a>Algorithm logic</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The SOH Cycle Controller is implemented as a state machine:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>IDLE</code> – Waits for activation.</p>
-</li>
-<li>
-<p><code>PREPARE_REFERENCE</code> – Prepares the ESS (e.g. brings battery to target SOC).</p>
-</li>
-<li>
-<p><code>REFERENCE_CYCLE_CHARGING</code> – Charges using <code>referenceChargePower</code>.</p>
-</li>
-<li>
-<p><code>REFERENCE_CYCLE_CHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
-</li>
-<li>
-<p><code>REFERENCE_CYCLE_DISCHARGING</code> – Discharges using <code>referenceDischargePower</code>.</p>
-</li>
-<li>
-<p><code>REFERENCE_CYCLE_DISCHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
-</li>
-<li>
-<p><code>MEASUREMENT_CYCLE_CHARGING</code> – Charges using <code>measurementChargePower</code>.</p>
-</li>
-<li>
-<p><code>MEASUREMENT_CYCLE_CHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
-</li>
-<li>
-<p><code>CHECK_BALANCING</code> – Checks cell balancing status.</p>
-</li>
-<li>
-<p><code>MEASUREMENT_CYCLE_DISCHARGING</code> – Discharges using <code>measurementDischargePower</code>.</p>
-</li>
-<li>
-<p><code>MEASUREMENT_CYCLE_DISCHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
-</li>
-<li>
-<p><code>EVALUATE_RESULT</code> – Calculates SOH from collected data.</p>
-</li>
-<li>
-<p><code>DONE</code> – Cycle finished successfully.</p>
-</li>
-<li>
-<p><code>ERROR_ABORT</code> – Fatal error occurred; manual reset required.</p>
-</li>
-</ol>
+<p>This controller runs a defined State-of-Health (SOH) test cycle on an
+ESS (battery storage system). It executes an optional <strong>reference cycle</strong>
+and a <strong>measurement cycle</strong>, then evaluates the result to determine the
+SOH of the ESS.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.sohcycle">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+<p>The purpose of this README is to store useful technical information
+about the controller logic and states. This information is primarily
+needed for developers (e.g., to answer questions from product
+management).</p>
+</div>
+<hr>
+<div class="sect2">
+<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h3>
+<div class="paragraph">
+<p>The following configuration parameters are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>id</code></strong><br>
+Component-ID – Unique ID of this component (default: <code>ctrlEssSohCycle0</code>)</p>
+</li>
+<li>
+<p><strong><code>ess_id</code></strong><br>
+ID of the ESS device to monitor (e.g., <code>ess0</code>)</p>
+</li>
+<li>
+<p><strong><code>alias</code></strong><br>
+Human-readable name of this component; defaults to Component-ID</p>
+</li>
+<li>
+<p><strong><code>enabled</code></strong><br>
+Whether this component is enabled (default: <code>true</code>)</p>
+</li>
+<li>
+<p><strong><code>mode</code></strong><br>
+Operating mode – Select <code>MANUAL_ON</code> to activate the cycle logic;
+<code>MANUAL_OFF</code> disables the cycle (default: <code>MANUAL_OFF</code>)</p>
+</li>
+<li>
+<p><strong><code>logVerbosity</code></strong><br>
+Sets the logging verbosity level (default: <code>NONE</code>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NONE</code>: No logs</p>
+</li>
+<li>
+<p><code>DEBUG_LOG</code>: Detailed logging to Controller.Debug.Log</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong><code>referenceCycleEnabled</code></strong><br>
+Enables the optional reference cycle measurement (default: <code>false</code>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If <code>false</code>: cycle skips directly to the measurement cycle</p>
+</li>
+<li>
+<p>If <code>true</code>: full cycle with reference measurements included</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="_monitoring"><a class="anchor" href="#_monitoring"></a>Monitoring</h3>
+<div class="paragraph">
+<p>Typical channels can be followed from Grafana or online monitoring
+(names may differ depending on configuration).</p>
+</div>
+<div class="sect3">
+<h4 id="_core_state_and_results"><a class="anchor" href="#_core_state_and_results"></a>Core state and results</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>ctrlEssSohCycle0/StateMachine</code></strong><br>
+Current state of the SOH state machine:<br>
+<code>IDLE</code>, <code>PREPARE</code>, <code>REFERENCE_CYCLE_CHARGING</code>,
+<code>REFERENCE_CYCLE_CHARGING_WAIT</code>,<br>
+<code>REFERENCE_CYCLE_DISCHARGING</code>,
+<code>REFERENCE_CYCLE_DISCHARGING_WAIT</code>,<br>
+<code>MEASUREMENT_CYCLE_CHARGING</code>,
+<code>MEASUREMENT_CYCLE_CHARGING_WAIT</code>, <code>CHECK_BALANCING</code>,<br>
+<code>MEASUREMENT_CYCLE_DISCHARGING</code>,
+<code>MEASUREMENT_CYCLE_DISCHARGING_WAIT</code>,<br>
+<code>EVALUATE_RESULT</code>, <code>DONE</code>, <code>ERROR_ABORT</code>.</p>
+</li>
+<li>
+<p><strong><code>ctrlEssSohCycle0/SohPercent</code></strong><br>
+Calculated SOH result of the last completed cycle in percent (0–100).</p>
+</li>
+<li>
+<p><strong><code>ctrlEssSohCycle0/SohRawDebug</code></strong><br>
+Raw calculated SOH value without clamping to 100. May exceed 100 and is
+intended for debugging.</p>
+</li>
+<li>
+<p><strong><code>ctrlEssSohCycle0/MeasuredCapacity</code></strong><br>
+Last measured capacity of the ESS in Watt-hours (Wh).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_battery_balancing_status_and_diagnostics"><a class="anchor" href="#_battery_balancing_status_and_diagnostics"></a>Battery balancing status and diagnostics</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>ctrlEssSohCycle0/IsBatteryBalanced</code></strong><br>
+Indicates whether the battery cells are sufficiently balanced.<br>
+Values: <code>NOT_MEASURED</code>, <code>BALANCED</code>, <code>NOT_BALANCED</code>, <code>ERROR</code>.</p>
+</li>
+<li>
+<p><strong><code>ctrlEssSohCycle0/BalancingDeltaMvDebug</code></strong><br>
+Cell voltage delta (max − min) in millivolts. Persisted for debugging
+long-running cycles.<br>
+<code>null</code> if delta cannot be calculated.</p>
+</li>
+<li>
+<p><strong><code>ctrlEssSohCycle0/BalancingReason</code></strong><br>
+Explains why the balance check results in <code>NOT_MEASURED</code> or
+<code>NOT_BALANCED</code>.<br>
+Typical values:<br>
+<code>NONE</code>, <code>BASELINE_MIN_MISSING</code>, <code>MAX_VOLTAGE_UNDEFINED</code>,
+<code>MIN_VOLTAGE_UNDEFINED</code>,<br>
+<code>DELTA_NEGATIVE</code>, <code>DELTA_ABOVE_THRESHOLD</code>, <code>TIMEOUT</code>,
+<code>INTERNAL_ERROR</code>.</p>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Note: exact enum values depend on the controller version.</p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_voltage_monitoring"><a class="anchor" href="#_voltage_monitoring"></a>Voltage monitoring</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>ctrlEssSohCycle0/VoltageDelta</code></strong><br>
+Cell voltage delta (in mV) used for balancing evaluation and
+diagnostics.</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_algorithm_logic"><a class="anchor" href="#_algorithm_logic"></a>Algorithm logic</h3>
+<div class="paragraph">
+<p>The SOH Cycle Controller is implemented as a state machine with the
+following phases:</p>
+</div>
+<div class="sect3">
+<h4 id="_1_idle_preparation"><a class="anchor" href="#_1_idle_preparation"></a>1) Idle &amp; preparation</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>IDLE</code></strong> – Waits for activation via <code>MANUAL_ON</code> mode.</p>
+</li>
+<li>
+<p><strong><code>PREPARE</code></strong> – Prepares the ESS by discharging to minimum SOC (0%).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_reference_cycle_optional"><a class="anchor" href="#_2_reference_cycle_optional"></a>2) Reference cycle (optional)</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>REFERENCE_CYCLE_CHARGING</code></strong> – Charges the battery to maximum
+SOC (100%) at 0.2C rate.</p>
+</li>
+<li>
+<p><strong><code>REFERENCE_CYCLE_CHARGING_WAIT</code></strong> – Waits for voltage
+stabilization.</p>
+</li>
+<li>
+<p><strong><code>REFERENCE_CYCLE_DISCHARGING</code></strong> – Discharges the battery to
+minimum SOC (0%) at 0.2C rate.</p>
+</li>
+<li>
+<p><strong><code>REFERENCE_CYCLE_DISCHARGING_WAIT</code></strong> – Waits for voltage
+stabilization.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_measurement_cycle_always_executed"><a class="anchor" href="#_3_measurement_cycle_always_executed"></a>3) Measurement cycle (always executed)</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>MEASUREMENT_CYCLE_CHARGING</code></strong> – Charges the battery to
+maximum SOC (100%) at 0.2C rate.<br>
+During this phase the controller continuously collects cell voltage
+range data for balancing diagnostics.</p>
+</li>
+<li>
+<p><strong><code>MEASUREMENT_CYCLE_CHARGING_WAIT</code></strong> – Waits for voltage
+stabilization.</p>
+</li>
+<li>
+<p><strong><code>CHECK_BALANCING</code></strong> – Evaluates battery cell balancing status
+using the measured cell voltage delta.<br>
+Sets:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsBatteryBalanced</code></p>
+</li>
+<li>
+<p><code>BalancingDeltaMvDebug</code></p>
+</li>
+<li>
+<p><code>BalancingReason</code></p>
+<div class="paragraph">
+<p>Threshold: <strong>100 mV</strong>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong><code>MEASUREMENT_CYCLE_DISCHARGING</code></strong> – Discharges the battery to
+minimum SOC (0%) at 0.2C rate while measuring energy for capacity
+calculation.</p>
+</li>
+<li>
+<p><strong><code>MEASUREMENT_CYCLE_DISCHARGING_WAIT</code></strong> – Waits for voltage
+stabilization.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_4_result_evaluation"><a class="anchor" href="#_4_result_evaluation"></a>4) Result evaluation</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>EVALUATE_RESULT</code></strong> – Calculates SOH from measured capacity; sets:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SohPercent</code></p>
+</li>
+<li>
+<p><code>SohRawDebug</code></p>
+</li>
+<li>
+<p><code>MeasuredCapacity</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong><code>DONE</code></strong> – Cycle finished successfully.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_5_error_handling"><a class="anchor" href="#_5_error_handling"></a>5) Error handling</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>ERROR_ABORT</code></strong> – Fatal error occurred; manual reset required via
+mode change to <code>MANUAL_OFF</code>.</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_battery_balancing_check_how_voltage_delta_is_measured"><a class="anchor" href="#_battery_balancing_check_how_voltage_delta_is_measured"></a>Battery balancing check: how voltage delta is measured</h3>
+<div class="sect3">
+<h4 id="_what_is_measured"><a class="anchor" href="#_what_is_measured"></a>What is measured?</h4>
+<div class="paragraph">
+<p>The balancing check uses the cell voltage delta:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>delta_mV = maxCellVoltage_mV - minCellVoltage_mV</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The value is written to <code>BalancingDeltaMvDebug</code> and used to determine
+<code>IsBatteryBalanced</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_how_are_min_and_max_voltages_captured"><a class="anchor" href="#_how_are_min_and_max_voltages_captured"></a>How are min and max voltages captured?</h4>
+<div class="paragraph">
+<p>During the measurement charging phase and again at
+<code>CHECK_BALANCING</code>, the controller calls:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">refreshMeasurementChargingVoltageRange()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This method reads:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ess.getMinCellVoltage()</code></p>
+</li>
+<li>
+<p><code>ess.getMaxCellVoltage()</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>and stores them internally.</p>
+</div>
+<div class="paragraph">
+<p><strong>Important: min and max may be captured at different times</strong></p>
+</div>
+<div class="paragraph">
+<p>Min and max voltages are updated independently:</p>
+</div>
+<div class="paragraph">
+<p>The stored minimum voltage is actually the highest observed minimum
+during charging:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">if (stored == null || current &gt; stored) {
+    stored = current;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The stored maximum voltage is the highest observed maximum:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">if (stored == null || current &gt; stored) {
+    stored = current;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As a result, the voltage delta may combine values measured at different
+points in time. It represents a range envelope observed during charging,
+not necessarily an instantaneous snapshot.</p>
+</div>
+<div class="sect4">
+<h5 id="_implications"><a class="anchor" href="#_implications"></a>Implications</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>The delta is a diagnostic indicator of imbalance.</p>
+</li>
+<li>
+<p>It may be slightly conservative, but helps answer:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>“Did a large spread occur during charging?”</p>
+</li>
+<li>
+<p>“Is the spread still significant near the end of charging?”</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If an instantaneous delta at a single timestamp is required, min and max
+would need to be sampled together and evaluated immediately.</p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_check_balancing_behavior_and_diagnostics"><a class="anchor" href="#_check_balancing_behavior_and_diagnostics"></a>CHECK_BALANCING behavior and diagnostics</h4>
+<div class="paragraph">
+<p>In <code>CHECK_BALANCING</code>, the controller: 1. Refreshes voltage range
+data 3. Calculates voltage delta and diagnostic reason 5. Sets: *
+BalancingDeltaMvDebug * BalancingReason * IsBatteryBalanced 13.
+Continues the cycle even if the battery is not balanced</p>
+</div>
+<div class="paragraph">
+<p>Diagnostics are persisted as channels, enabling root-cause analysis
+without relying on logs.</p>
+</div>
+</div>
 </div>
 </div>
 </div>

@@ -1802,153 +1802,421 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.selltogridlimit">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
+<div class="sect2">
+<h3 id="_soh_cycle_controller"><a class="anchor" href="#_soh_cycle_controller"></a>32.1. SOH Cycle Controller</h3>
+<div class="paragraph">
+<p>This controller runs a defined State-of-Health (SOH) test cycle on an
+ESS (battery storage system). It executes an optional <strong>reference cycle</strong>
+and a <strong>measurement cycle</strong>, then evaluates the result to determine the
+SOH of the ESS.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of this README is to store useful technical information
+about the controller logic and states. This information is primarily
+needed for developers (e.g., to answer questions from product
+management).</p>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="_configuration_3"><a class="anchor" href="#_configuration_3"></a>32.1.1. Configuration</h4>
+<div class="paragraph">
+<p>The following configuration parameters are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>id</code></strong><br>
+Component-ID – Unique ID of this component (default: <code>ctrlEssSohCycle0</code>)</p>
+</li>
+<li>
+<p><strong><code>ess_id</code></strong><br>
+ID of the ESS device to monitor (e.g., <code>ess0</code>)</p>
+</li>
+<li>
+<p><strong><code>alias</code></strong><br>
+Human-readable name of this component; defaults to Component-ID</p>
+</li>
+<li>
+<p><strong><code>enabled</code></strong><br>
+Whether this component is enabled (default: <code>true</code>)</p>
+</li>
+<li>
+<p><strong><code>mode</code></strong><br>
+Operating mode – Select <code>MANUAL_ON</code> to activate the cycle logic;
+<code>MANUAL_OFF</code> disables the cycle (default: <code>MANUAL_OFF</code>)</p>
+</li>
+<li>
+<p><strong><code>logVerbosity</code></strong><br>
+Sets the logging verbosity level (default: <code>NONE</code>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NONE</code>: No logs</p>
+</li>
+<li>
+<p><code>DEBUG_LOG</code>: Detailed logging to Controller.Debug.Log</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong><code>referenceCycleEnabled</code></strong><br>
+Enables the optional reference cycle measurement (default: <code>false</code>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If <code>false</code>: cycle skips directly to the measurement cycle</p>
+</li>
+<li>
+<p>If <code>true</code>: full cycle with reference measurements included</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="_monitoring_2"><a class="anchor" href="#_monitoring_2"></a>32.1.2. Monitoring</h4>
+<div class="paragraph">
+<p>Typical channels can be followed from Grafana or online monitoring
+(names may differ depending on configuration).</p>
+</div>
+<div class="sect4">
+<h5 id="_core_state_and_results"><a class="anchor" href="#_core_state_and_results"></a>32.1.2.1. Core state and results</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>ctrlEssSohCycle0/StateMachine</code></strong><br>
+Current state of the SOH state machine:<br>
+<code>IDLE</code>, <code>PREPARE</code>, <code>REFERENCE_CYCLE_CHARGING</code>,
+<code>REFERENCE_CYCLE_CHARGING_WAIT</code>,<br>
+<code>REFERENCE_CYCLE_DISCHARGING</code>,
+<code>REFERENCE_CYCLE_DISCHARGING_WAIT</code>,<br>
+<code>MEASUREMENT_CYCLE_CHARGING</code>,
+<code>MEASUREMENT_CYCLE_CHARGING_WAIT</code>, <code>CHECK_BALANCING</code>,<br>
+<code>MEASUREMENT_CYCLE_DISCHARGING</code>,
+<code>MEASUREMENT_CYCLE_DISCHARGING_WAIT</code>,<br>
+<code>EVALUATE_RESULT</code>, <code>DONE</code>, <code>ERROR_ABORT</code>.</p>
+</li>
+<li>
+<p><strong><code>ctrlEssSohCycle0/SohPercent</code></strong><br>
+Calculated SOH result of the last completed cycle in percent (0–100).</p>
+</li>
+<li>
+<p><strong><code>ctrlEssSohCycle0/SohRawDebug</code></strong><br>
+Raw calculated SOH value without clamping to 100. May exceed 100 and is
+intended for debugging.</p>
+</li>
+<li>
+<p><strong><code>ctrlEssSohCycle0/MeasuredCapacity</code></strong><br>
+Last measured capacity of the ESS in Watt-hours (Wh).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_battery_balancing_status_and_diagnostics"><a class="anchor" href="#_battery_balancing_status_and_diagnostics"></a>32.1.2.2. Battery balancing status and diagnostics</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>ctrlEssSohCycle0/IsBatteryBalanced</code></strong><br>
+Indicates whether the battery cells are sufficiently balanced.<br>
+Values: <code>NOT_MEASURED</code>, <code>BALANCED</code>, <code>NOT_BALANCED</code>, <code>ERROR</code>.</p>
+</li>
+<li>
+<p><strong><code>ctrlEssSohCycle0/BalancingDeltaMvDebug</code></strong><br>
+Cell voltage delta (max − min) in millivolts. Persisted for debugging
+long-running cycles.<br>
+<code>null</code> if delta cannot be calculated.</p>
+</li>
+<li>
+<p><strong><code>ctrlEssSohCycle0/BalancingReason</code></strong><br>
+Explains why the balance check results in <code>NOT_MEASURED</code> or
+<code>NOT_BALANCED</code>.<br>
+Typical values:<br>
+<code>NONE</code>, <code>BASELINE_MIN_MISSING</code>, <code>MAX_VOLTAGE_UNDEFINED</code>,
+<code>MIN_VOLTAGE_UNDEFINED</code>,<br>
+<code>DELTA_NEGATIVE</code>, <code>DELTA_ABOVE_THRESHOLD</code>, <code>TIMEOUT</code>,
+<code>INTERNAL_ERROR</code>.</p>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Note: exact enum values depend on the controller version.</p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_voltage_monitoring"><a class="anchor" href="#_voltage_monitoring"></a>32.1.2.3. Voltage monitoring</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>ctrlEssSohCycle0/VoltageDelta</code></strong><br>
+Cell voltage delta (in mV) used for balancing evaluation and
+diagnostics.</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_algorithm_logic_2"><a class="anchor" href="#_algorithm_logic_2"></a>32.1.3. Algorithm logic</h4>
+<div class="paragraph">
+<p>The SOH Cycle Controller is implemented as a state machine with the
+following phases:</p>
+</div>
+<div class="sect4">
+<h5 id="_1_idle_preparation"><a class="anchor" href="#_1_idle_preparation"></a>32.1.3.1. 1) Idle &amp; preparation</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>IDLE</code></strong> – Waits for activation via <code>MANUAL_ON</code> mode.</p>
+</li>
+<li>
+<p><strong><code>PREPARE</code></strong> – Prepares the ESS by discharging to minimum SOC (0%).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_2_reference_cycle_optional"><a class="anchor" href="#_2_reference_cycle_optional"></a>32.1.3.2. 2) Reference cycle (optional)</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>REFERENCE_CYCLE_CHARGING</code></strong> – Charges the battery to maximum
+SOC (100%) at 0.2C rate.</p>
+</li>
+<li>
+<p><strong><code>REFERENCE_CYCLE_CHARGING_WAIT</code></strong> – Waits for voltage
+stabilization.</p>
+</li>
+<li>
+<p><strong><code>REFERENCE_CYCLE_DISCHARGING</code></strong> – Discharges the battery to
+minimum SOC (0%) at 0.2C rate.</p>
+</li>
+<li>
+<p><strong><code>REFERENCE_CYCLE_DISCHARGING_WAIT</code></strong> – Waits for voltage
+stabilization.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_3_measurement_cycle_always_executed"><a class="anchor" href="#_3_measurement_cycle_always_executed"></a>32.1.3.3. 3) Measurement cycle (always executed)</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>MEASUREMENT_CYCLE_CHARGING</code></strong> – Charges the battery to
+maximum SOC (100%) at 0.2C rate.<br>
+During this phase the controller continuously collects cell voltage
+range data for balancing diagnostics.</p>
+</li>
+<li>
+<p><strong><code>MEASUREMENT_CYCLE_CHARGING_WAIT</code></strong> – Waits for voltage
+stabilization.</p>
+</li>
+<li>
+<p><strong><code>CHECK_BALANCING</code></strong> – Evaluates battery cell balancing status
+using the measured cell voltage delta.<br>
+Sets:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsBatteryBalanced</code></p>
+</li>
+<li>
+<p><code>BalancingDeltaMvDebug</code></p>
+</li>
+<li>
+<p><code>BalancingReason</code></p>
+<div class="paragraph">
+<p>Threshold: <strong>100 mV</strong>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong><code>MEASUREMENT_CYCLE_DISCHARGING</code></strong> – Discharges the battery to
+minimum SOC (0%) at 0.2C rate while measuring energy for capacity
+calculation.</p>
+</li>
+<li>
+<p><strong><code>MEASUREMENT_CYCLE_DISCHARGING_WAIT</code></strong> – Waits for voltage
+stabilization.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_4_result_evaluation"><a class="anchor" href="#_4_result_evaluation"></a>32.1.3.4. 4) Result evaluation</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>EVALUATE_RESULT</code></strong> – Calculates SOH from measured capacity; sets:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SohPercent</code></p>
+</li>
+<li>
+<p><code>SohRawDebug</code></p>
+</li>
+<li>
+<p><code>MeasuredCapacity</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong><code>DONE</code></strong> – Cycle finished successfully.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_5_error_handling"><a class="anchor" href="#_5_error_handling"></a>32.1.3.5. 5) Error handling</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>ERROR_ABORT</code></strong> – Fatal error occurred; manual reset required via
+mode change to <code>MANUAL_OFF</code>.</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_battery_balancing_check_how_voltage_delta_is_measured"><a class="anchor" href="#_battery_balancing_check_how_voltage_delta_is_measured"></a>32.1.4. Battery balancing check: how voltage delta is measured</h4>
+<div class="sect4">
+<h5 id="_what_is_measured"><a class="anchor" href="#_what_is_measured"></a>32.1.4.1. What is measured?</h5>
+<div class="paragraph">
+<p>The balancing check uses the cell voltage delta:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>delta_mV = maxCellVoltage_mV - minCellVoltage_mV</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The value is written to <code>BalancingDeltaMvDebug</code> and used to determine
+<code>IsBatteryBalanced</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_how_are_min_and_max_voltages_captured"><a class="anchor" href="#_how_are_min_and_max_voltages_captured"></a>32.1.4.2. How are min and max voltages captured?</h5>
+<div class="paragraph">
+<p>During the measurement charging phase and again at
+<code>CHECK_BALANCING</code>, the controller calls:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">refreshMeasurementChargingVoltageRange()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This method reads:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ess.getMinCellVoltage()</code></p>
+</li>
+<li>
+<p><code>ess.getMaxCellVoltage()</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>and stores them internally.</p>
+</div>
+<div class="paragraph">
+<p><strong>Important: min and max may be captured at different times</strong></p>
+</div>
+<div class="paragraph">
+<p>Min and max voltages are updated independently:</p>
+</div>
+<div class="paragraph">
+<p>The stored minimum voltage is actually the highest observed minimum
+during charging:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">if (stored == null || current &gt; stored) {
+    stored = current;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The stored maximum voltage is the highest observed maximum:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">if (stored == null || current &gt; stored) {
+    stored = current;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As a result, the voltage delta may combine values measured at different
+points in time. It represents a range envelope observed during charging,
+not necessarily an instantaneous snapshot.</p>
+</div>
+<div class="sect5">
+<h6 id="_implications"><a class="anchor" href="#_implications"></a>Implications</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>The delta is a diagnostic indicator of imbalance.</p>
+</li>
+<li>
+<p>It may be slightly conservative, but helps answer:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>“Did a large spread occur during charging?”</p>
+</li>
+<li>
+<p>“Is the spread still significant near the end of charging?”</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If an instantaneous delta at a single timestamp is required, min and max
+would need to be sampled together and evaluated immediately.</p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_check_balancing_behavior_and_diagnostics"><a class="anchor" href="#_check_balancing_behavior_and_diagnostics"></a>32.1.4.3. CHECK_BALANCING behavior and diagnostics</h5>
+<div class="paragraph">
+<p>In <code>CHECK_BALANCING</code>, the controller: 1. Refreshes voltage range
+data 3. Calculates voltage delta and diagnostic reason 5. Sets: *
+BalancingDeltaMvDebug * BalancingReason * IsBatteryBalanced 13.
+Continues the cycle even if the battery is not balanced</p>
+</div>
+<div class="paragraph">
+<p>Diagnostics are persisted as channels, enabling root-cause analysis
+without relying on logs.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_soh_cycle_controller"><a class="anchor" href="#_soh_cycle_controller"></a>33. SOH Cycle Controller</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This controller is used to run a defined State-of-Health (SOH) test cycle on a battery storage system. It executes a reference cycle and a measurement cycle and evaluates the result in order to determine the SOH of the ESS.</p>
-</div>
-<div class="sect2">
-<h3 id="_configuration_3"><a class="anchor" href="#_configuration_3"></a>33.1. Configuration</h3>
-<div class="paragraph">
-<p>Parameters which should be taken care of:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>mode</code></dt>
-<dd>
-<p>Select MANUAL_ON to activate the logic</p>
-</dd>
-<dt class="hdlist1"><code>ess_id</code></dt>
-<dd>
-<p>Id of the device. ex, ess0</p>
-</dd>
-<dt class="hdlist1"><code>startTime</code></dt>
-<dd>
-<p>Start time in format [YYYY-MM-DD HH:MM], activates the controller logic at required date and time</p>
-</dd>
-<dt class="hdlist1"><code>targetSoc</code></dt>
-<dd>
-<p>Target state-of-charge for start/end of the SOH cycle (depending on implementation)</p>
-</dd>
-<dt class="hdlist1"><code>referenceDischargePower</code></dt>
-<dd>
-<p>The (constant) power in Watt that is used for the <strong>reference</strong> discharging phase</p>
-</dd>
-<dt class="hdlist1"><code>referenceChargePower</code></dt>
-<dd>
-<p>The (constant) power in Watt that is used for the <strong>reference</strong> charging phase</p>
-</dd>
-<dt class="hdlist1"><code>measurementDischargePower</code></dt>
-<dd>
-<p>The (constant) power in Watt that is used for the <strong>measurement</strong> discharging phase</p>
-</dd>
-<dt class="hdlist1"><code>measurementChargePower</code></dt>
-<dd>
-<p>The (constant) power in Watt that is used for the <strong>measurement</strong> charging phase</p>
-</dd>
-<dt class="hdlist1"><code>hybridEssMode</code></dt>
-<dd>
-<p>Whether to apply the power on AC or DC side of a hybrid ESS</p>
-</dd>
-<dt class="hdlist1"><code>balancingTimeout</code></dt>
-<dd>
-<p>Maximum time to wait for cell balancing before aborting with ERROR_ABORT</p>
-</dd>
-<dt class="hdlist1"><code>maxDeltaSoc</code></dt>
-<dd>
-<p>Maximum allowed SOC deviation between phases; if violated, controller may abort with ERROR_ABORT</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_monitoring_2"><a class="anchor" href="#_monitoring_2"></a>33.2. Monitoring</h3>
-<div class="paragraph">
-<p>Typical channels can be followed from Grafana or online monitoring (names may differ depending on configuration):</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>ctrlEssSohCycle0/StateMachine</code></dt>
-<dd>
-<p>The current state of the SOH State-Machine: IDLE, PREPARE_REFERENCE, REFERENCE_CYCLE_CHARGING, REFERENCE_CYCLE_CHARGING_WAIT, REFERENCE_CYCLE_DISCHARGING, REFERENCE_CYCLE_DISCHARGING_WAIT, MEASUREMENT_CYCLE_CHARGING, MEASUREMENT_CYCLE_CHARGING_WAIT, CHECK_BALANCING, MEASUREMENT_CYCLE_DISCHARGING, MEASUREMENT_CYCLE_DISCHARGING_WAIT, EVALUATE_RESULT, DONE, ERROR_ABORT.</p>
-</dd>
-<dt class="hdlist1"><code>ctrlEssSohCycle0/ResultSoh</code></dt>
-<dd>
-<p>Calculated SOH result of the last completed cycle in percent.</p>
-</dd>
-<dt class="hdlist1"><code>ctrlEssSohCycle0/IsRunning</code></dt>
-<dd>
-<p>Indicates whether a SOH cycle is currently in progress.</p>
-</dd>
-<dt class="hdlist1"><code>ctrlEssSohCycle0/ErrorMessage</code></dt>
-<dd>
-<p>Text description in case of ERROR_ABORT.</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_algorithm_logic_2"><a class="anchor" href="#_algorithm_logic_2"></a>33.3. Algorithm logic</h3>
-<div class="paragraph">
-<p>The SOH Cycle Controller is implemented as a state machine:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>IDLE</code> – Waits for activation.</p>
-</li>
-<li>
-<p><code>PREPARE_REFERENCE</code> – Prepares the ESS (e.g. brings battery to target SOC).</p>
-</li>
-<li>
-<p><code>REFERENCE_CYCLE_CHARGING</code> – Charges using <code>referenceChargePower</code>.</p>
-</li>
-<li>
-<p><code>REFERENCE_CYCLE_CHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
-</li>
-<li>
-<p><code>REFERENCE_CYCLE_DISCHARGING</code> – Discharges using <code>referenceDischargePower</code>.</p>
-</li>
-<li>
-<p><code>REFERENCE_CYCLE_DISCHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
-</li>
-<li>
-<p><code>MEASUREMENT_CYCLE_CHARGING</code> – Charges using <code>measurementChargePower</code>.</p>
-</li>
-<li>
-<p><code>MEASUREMENT_CYCLE_CHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
-</li>
-<li>
-<p><code>CHECK_BALANCING</code> – Checks cell balancing status.</p>
-</li>
-<li>
-<p><code>MEASUREMENT_CYCLE_DISCHARGING</code> – Discharges using <code>measurementDischargePower</code>.</p>
-</li>
-<li>
-<p><code>MEASUREMENT_CYCLE_DISCHARGING_WAIT</code> – Waits 30 minutes for stabilization.</p>
-</li>
-<li>
-<p><code>EVALUATE_RESULT</code> – Calculates SOH from collected data.</p>
-</li>
-<li>
-<p><code>DONE</code> – Cycle finished successfully.</p>
-</li>
-<li>
-<p><code>ERROR_ABORT</code> – Fatal error occurred; manual reset required.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.sohcycle">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ess_standby"><a class="anchor" href="#_ess_standby"></a>34. ESS Standby</h2>
+<h2 id="_ess_standby"><a class="anchor" href="#_ess_standby"></a>33. ESS Standby</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Regularly checks the functionality of an ESS once per week while being in Standby mode.</p>
@@ -1971,7 +2239,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ess_time_of_use_tariff"><a class="anchor" href="#_ess_time_of_use_tariff"></a>35. ESS Time-of-Use Tariff</h2>
+<h2 id="_ess_time_of_use_tariff"><a class="anchor" href="#_ess_time_of_use_tariff"></a>34. ESS Time-of-Use Tariff</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Controller optimizes the performance of an energy storage system (ESS) in conjunction with a Time-Of-Use (ToU) Tariff provider.</p>
@@ -1983,7 +2251,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 <p>This iterative and dynamic approach ensures that the ESS operates efficiently by staying synchronized with real-time forecasts and the evolving state of the battery, thereby maximizing cost-effectiveness and self-consumption of stored energy.</p>
 </div>
 <div class="sect2">
-<h3 id="_schedule_calculation_modes"><a class="anchor" href="#_schedule_calculation_modes"></a>35.1. Schedule Calculation Modes</h3>
+<h3 id="_schedule_calculation_modes"><a class="anchor" href="#_schedule_calculation_modes"></a>34.1. Schedule Calculation Modes</h3>
 <div class="paragraph">
 <p>The schedule calculation process varies depending on the local market conditions. To accommodate this variability, two distinct modes have been introduced to facilitate flexible operation:</p>
 </div>
@@ -2009,7 +2277,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_evcs"><a class="anchor" href="#_evcs"></a>36. EVCS</h2>
+<h2 id="_evcs"><a class="anchor" href="#_evcs"></a>35. EVCS</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls an Electric Vehicle Charging Station (EVCS) in different modes, like "Force-Charge" and "Surplus Energy Charging".</p>
@@ -2020,7 +2288,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>37. EVCS Fix Active Power</h2>
+<h2 id="_evcs_fix_active_power"><a class="anchor" href="#_evcs_fix_active_power"></a>36. EVCS Fix Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed maximum charge power to an Electric Vehicle Charging Station (EVCS).</p>
@@ -2031,7 +2299,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_evse_controllers"><a class="anchor" href="#_evse_controllers"></a>38. EVSE Controllers</h2>
+<h2 id="_evse_controllers"><a class="anchor" href="#_evse_controllers"></a>37. EVSE Controllers</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controllers for</p>
@@ -2052,7 +2320,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_generic_jsonlogic"><a class="anchor" href="#_generic_jsonlogic"></a>39. Generic JsonLogic</h2>
+<h2 id="_generic_jsonlogic"><a class="anchor" href="#_generic_jsonlogic"></a>38. Generic JsonLogic</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The JsonLogic-Controller is a very generic Controller that allows the definition of a complex logic as a configuration at runtime, e.g. via Apache Felix Web Console.</p>
@@ -2124,7 +2392,7 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>40. High-Load Timeslot</h2>
+<h2 id="_high_load_timeslot"><a class="anchor" href="#_high_load_timeslot"></a>39. High-Load Timeslot</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls an energy storage system for a High-Load timeslot application (German "Hochlastzeitfenster").</p>
@@ -2135,14 +2403,14 @@ Can be used to apply a 70 % limit to the sell-to-grid power according to German 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_alarm"><a class="anchor" href="#_io_alarm"></a>41. IO Alarm</h2>
+<h2 id="_io_alarm"><a class="anchor" href="#_io_alarm"></a>40. IO Alarm</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Switches a digital output, when one or more State-Channels are set. This controller can be used to signal alarms.
 This controller is used to check for the State-Channels which are boolean type, which typically represents the error channels. A specific configured digital output channel can be signaled based on the configured input State-Channels(one more channels).</p>
 </div>
 <div class="sect2">
-<h3 id="_configuration_4"><a class="anchor" href="#_configuration_4"></a>41.1. Configuration</h3>
+<h3 id="_configuration_4"><a class="anchor" href="#_configuration_4"></a>40.1. Configuration</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2164,7 +2432,7 @@ This controller is used to check for the State-Channels which are boolean type, 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>41.2. Example Configuration</h3>
+<h3 id="_example_configuration_2"><a class="anchor" href="#_example_configuration_2"></a>40.2. Example Configuration</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2204,7 +2472,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_analog_controller"><a class="anchor" href="#_io_analog_controller"></a>42. IO Analog Controller</h2>
+<h2 id="_io_analog_controller"><a class="anchor" href="#_io_analog_controller"></a>41. IO Analog Controller</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controller that sets a analog output according to the configured inputs to OFF|AUTOMATIC|ON.</p>
@@ -2218,7 +2486,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>43. IO Channel-Single-Threshold</h2>
+<h2 id="_io_channel_single_threshold"><a class="anchor" href="#_io_channel_single_threshold"></a>42. IO Channel-Single-Threshold</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Generic Controller that sets a digital output according to the value of given Channel&#8201;&#8212;&#8201;e.g., turn a relay on or off, when configured input channel/SoC is above or below a given threshold respectively.</p>
@@ -2232,7 +2500,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>44. IO Fix Digital Output</h2>
+<h2 id="_io_fix_digital_output"><a class="anchor" href="#_io_fix_digital_output"></a>43. IO Fix Digital Output</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a digital output statically ON or OFF.</p>
@@ -2243,7 +2511,7 @@ io0/relay1 = represents the relay 1 of the KM tronic relay board.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_heating_room"><a class="anchor" href="#_io_heating_room"></a>45. IO Heating Room</h2>
+<h2 id="_io_heating_room"><a class="anchor" href="#_io_heating_room"></a>44. IO Heating Room</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls electric floor and infrared heating in a room.</p>
@@ -2296,13 +2564,13 @@ It holds a JsonArray with JSCalendar information, e.g.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>46. IO Heating Element</h2>
+<h2 id="_io_heating_element"><a class="anchor" href="#_io_heating_element"></a>45. IO Heating Element</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a three-phase heating element via Relays, according to grid active power.</p>
 </div>
 <div class="sect2">
-<h3 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>46.1. Phase and Level</h3>
+<h3 id="_phase_and_level"><a class="anchor" href="#_phase_and_level"></a>45.1. Phase and Level</h3>
 <div class="paragraph">
 <p>The Controller distinguishes the definition of Phase and Level.
 <strong>Phase</strong> represents the electrical phase L1, L2 or L3.
@@ -2323,7 +2591,7 @@ It holds a JsonArray with JSCalendar information, e.g.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_channels"><a class="anchor" href="#_channels"></a>46.2. Channels</h3>
+<h3 id="_channels"><a class="anchor" href="#_channels"></a>45.2. Channels</h3>
 <div class="paragraph">
 <p>Example:
 * the power of the heating element per phase is 1000 W
@@ -2431,7 +2699,7 @@ L1|     xxxxxxxxxxxxxxxx
 </dl>
 </div>
 <div class="sect3">
-<h4 id="_schedule_configuration"><a class="anchor" href="#_schedule_configuration"></a>46.2.1. Schedule Configuration</h4>
+<h4 id="_schedule_configuration"><a class="anchor" href="#_schedule_configuration"></a>45.2.1. Schedule Configuration</h4>
 <div class="paragraph">
 <p>This controller supports time-based scheduling via the schedule parameter. It uses the JSCalendar format to define recurring schedules.<br>
 Examples of usage and formatting can be found in the test classes ControllerHeatingElementImplTest9.java and ControllerHeatingElementImplTest10.java.<br>
@@ -2445,13 +2713,13 @@ Note: The schedule only takes effect in the Mode Automatic with any WorkMode (No
 </div>
 </div>
 <div class="sect1">
-<h2 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>47. IO SG-Ready Heat Pump</h2>
+<h2 id="_io_sg_ready_heat_pump"><a class="anchor" href="#_io_sg_ready_heat_pump"></a>46. IO SG-Ready Heat Pump</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a heat pump that implements the SG-Ready standard via two Relay contacts, depending on surplus power and battery state-of-charge.</p>
 </div>
 <div class="sect2">
-<h3 id="_states"><a class="anchor" href="#_states"></a>47.1. States</h3>
+<h3 id="_states"><a class="anchor" href="#_states"></a>46.1. States</h3>
 <div class="paragraph">
 <p>The Controller distinguishes the different States, according to the SG-Ready standard.</p>
 </div>
@@ -2487,7 +2755,7 @@ Note: The schedule only takes effect in the Mode Automatic with any WorkMode (No
 </table>
 </div>
 <div class="sect2">
-<h3 id="_channels_2"><a class="anchor" href="#_channels_2"></a>47.2. Channels</h3>
+<h3 id="_channels_2"><a class="anchor" href="#_channels_2"></a>46.2. Channels</h3>
 <div class="paragraph">
 <p>The Controller has an ongoing time counter for every state, that is started and stopped if the corresponding state is active or not.</p>
 </div>
@@ -2502,7 +2770,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>48. PV-Inverter Fix Power Limit</h2>
+<h2 id="_pv_inverter_fix_power_limit"><a class="anchor" href="#_pv_inverter_fix_power_limit"></a>47. PV-Inverter Fix Power Limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed power limit for PV-Inverter production.</p>
@@ -2513,7 +2781,7 @@ As an additional preventative, the controller has a minimum switching time. If a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>49. PV-Inverter Sell-To-Grid limit</h2>
+<h2 id="_pv_inverter_sell_to_grid_limit"><a class="anchor" href="#_pv_inverter_sell_to_grid_limit"></a>48. PV-Inverter Sell-To-Grid limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Dynamically limits the Sell-To-Grid power of a PV-Inverter to a defined maximum power.</p>
@@ -2528,7 +2796,7 @@ The main purpose of the asymmetric mode is, to prevent the grid fuse from overcu
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>50. Symmetric Balancing Schedule</h2>
+<h2 id="_symmetric_balancing_schedule"><a class="anchor" href="#_symmetric_balancing_schedule"></a>49. Symmetric Balancing Schedule</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Controls a symmetric energy storage system in balancing mode. The control algorithm charges or discharges the battery in order to reach a given power target set-point at the grid connection point. If the target set-point is defined as zero, the behaviour is like with self-consumption optimization.</p>
@@ -2537,7 +2805,7 @@ The main purpose of the asymmetric mode is, to prevent the grid fuse from overcu
 <p>This controller allows two ways of controlling the power target set-point:</p>
 </div>
 <div class="sect2">
-<h3 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>50.1. 1. Definition of a power target set-point Schedule</h3>
+<h3 id="_1_definition_of_a_power_target_set_point_schedule"><a class="anchor" href="#_1_definition_of_a_power_target_set_point_schedule"></a>49.1. 1. Definition of a power target set-point Schedule</h3>
 <div class="paragraph">
 <p>The static configuration parameter "schedule" takes a Schedule of set-points as a Json-Array. An example schedule looks like this:</p>
 </div>
@@ -2585,7 +2853,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>50.2. 2. Immediate control of the power target set-point</h3>
+<h3 id="_2_immediate_control_of_the_power_target_set_point"><a class="anchor" href="#_2_immediate_control_of_the_power_target_set_point"></a>49.2. 2. Immediate control of the power target set-point</h3>
 <div class="paragraph">
 <p>The power target set-point may also be controlled directly via the <code>GridActivePowerSetPoint</code> channel. E.g. if the controller component has the Id <code>ctrlBalancingSchedule0</code> one can use e.g. the <a href="https://openems.github.io/openems.io/openems/latest/edge/controller.html#_rest_api_controller">REST-Api Controller</a> and write</p>
 </div>
@@ -2606,7 +2874,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>51. Symmetric Fix Reactive Power</h2>
+<h2 id="_symmetric_fix_reactive_power"><a class="anchor" href="#_symmetric_fix_reactive_power"></a>50. Symmetric Fix Reactive Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sets a fixed reactive power for a symmetric energy storage system.</p>
@@ -2617,7 +2885,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>52. Symmetric Limit Active Power</h2>
+<h2 id="_symmetric_limit_active_power"><a class="anchor" href="#_symmetric_limit_active_power"></a>51. Symmetric Limit Active Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Limits the allowed active power for charging and discharging of a symmetric energy storage system.</p>
@@ -2628,7 +2896,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>53. Symmetric Peak-Shaving</h2>
+<h2 id="_symmetric_peak_shaving"><a class="anchor" href="#_symmetric_peak_shaving"></a>52. Symmetric Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving at the grid using a symmetric energy storage system.</p>
@@ -2639,7 +2907,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>54. Symmetric Random-Power</h2>
+<h2 id="_symmetric_random_power"><a class="anchor" href="#_symmetric_random_power"></a>53. Symmetric Random-Power</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies random charging/discharging of a symmetric energy storage system for performance tests.</p>
@@ -2650,7 +2918,7 @@ After the second period passes, no more charging or discharging commands are set
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>55. Symmetric Timeslot Peak-Shaving</h2>
+<h2 id="_symmetric_timeslot_peak_shaving"><a class="anchor" href="#_symmetric_timeslot_peak_shaving"></a>54. Symmetric Timeslot Peak-Shaving</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applies peak-shaving within a configured timeslot at the grid using a symmetric energy storage system. Outside of the timeslot the battery recharges.</p>
