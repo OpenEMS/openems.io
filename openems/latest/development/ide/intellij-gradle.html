@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>IntelliJ IDEA + Gradle Setup for OpenEMS :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/development/ide/intellij-gradle.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://openems.github.io/openems.io">Open Energy Management System</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+            <span class="gitlink">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="openems" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/nature.html">Nature</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/scheduler.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/controller.html">Controller</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/bridge.html">Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/device_service.html">Device &amp; Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../edge/build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../edge/deploy/systemd.html">Deploy on Debian/Ubuntu</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../edge/deploy/docker.html">Deploy to Docker</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/deploy.html">Deploy UI to Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/setup-ide.html">Setup IDE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/chart.html">Chart</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/metadata.html">Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/service.html">Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/deploy/systemd.html">Deploy on Debian/Ubuntu</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/deploy/docker.html">Deploy to Docker</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Simulation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/gitpod.html">Live-Demo on Gitpod</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/realtime.html">Real-Time Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/ui-history.html">UI History Simulation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developer Guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">IDE Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="eclipse.html">Eclipse</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="intellij.html">IntelliJ</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../coding-guidelines.html">Coding Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../documentation.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../introduction.html">Open Energy Management System</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../introduction.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../introduction.html">Open Energy Management System</a></li>
+    <li><a href="intellij-gradle.html">IntelliJ IDEA + Gradle Setup for OpenEMS</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/development/ide/intellij-gradle.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">IntelliJ IDEA + Gradle Setup for OpenEMS</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_prerequisites">1. Prerequisites</a></li>
+<li><a href="#_import_the_repository_as_a_gradle_project">2. Import the repository as a Gradle project</a></li>
+<li><a href="#_load_sync_the_gradle_project">3. Load / sync the Gradle project</a></li>
+<li><a href="#_create_a_run_configuration_for_edge_jar">4. Create a Run configuration for Edge (JAR)</a>
+<ul class="sectlevel2">
+<li><a href="#_create_a_jar_application_configuration">4.1. Create a “JAR Application” configuration</a></li>
+<li><a href="#_add_a_before_launch_gradle_task">4.2. Add a “Before launch” Gradle task</a></li>
+</ul>
+</li>
+<li><a href="#_install_required_ide_plugins">5. Install required IDE plugins</a></li>
+<li><a href="#_configure_checkstyle">6. Configure Checkstyle</a></li>
+<li><a href="#_enable_eclipse_formatting">7. Enable Eclipse formatting</a></li>
+<li><a href="#_intellij_code_style_tweaks_imports_and_tabs">8. IntelliJ code style tweaks (imports and tabs)</a>
+<ul class="sectlevel2">
+<li><a href="#_imports_avoid_wildcard_imports">8.1. Imports: avoid wildcard imports</a></li>
+<li><a href="#_indentation_tabs_vs_spaces">8.2. Indentation: tabs vs spaces</a></li>
+</ul>
+</li>
+<li><a href="#_debugging_tests_kotlin_coroutine_agent">9. Debugging tests (Kotlin coroutine agent)</a></li>
+<li><a href="#_run_the_ui_from_intellij_optional">10. Run the UI from IntelliJ (optional)</a></li>
+<li><a href="#_intellij_commit">11. IntelliJ Commit</a></li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This page describes how to import the OpenEMS <strong>openems</strong> repository into IntelliJ IDEA as a Gradle project and how to create useful run/debug configurations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>1. Prerequisites</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>IntelliJ IDEA (Community or Ultimate)</p>
+</li>
+<li>
+<p>A JDK matching the OpenEMS build requirements (commonly <strong>JDK 21</strong>; e.g., Temurin 21)</p>
+</li>
+<li>
+<p>Git</p>
+</li>
+<li>
+<p>(Optional for UI) Node.js + npm, and the Angular CLI (or the tooling used in your OpenEMS UI setup)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_import_the_repository_as_a_gradle_project"><a class="anchor" href="#_import_the_repository_as_a_gradle_project"></a>2. Import the repository as a Gradle project</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start IntelliJ IDEA (open any project or use the Welcome screen).</p>
+</li>
+<li>
+<p>Select <strong>File &#8594; New &#8594; Project from Existing Sources…</strong></p>
+</li>
+<li>
+<p>Choose the repository folder (commonly named <code>openems</code>) and import it as a <strong>Gradle</strong> project.</p>
+</li>
+<li>
+<p>If IntelliJ asks which window to use, select <strong>This Window</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Import the project as <strong>Gradle</strong> (not as a plain IntelliJ project). This ensures IntelliJ uses the Gradle model for module structure, dependencies, and tasks.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_load_sync_the_gradle_project"><a class="anchor" href="#_load_sync_the_gradle_project"></a>3. Load / sync the Gradle project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After opening the repository, IntelliJ should show a popup like “Gradle build scripts found”.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click <strong>Load Gradle Project</strong>.</p>
+</li>
+<li>
+<p>Wait until the Gradle import finishes (you can see progress in the status bar, e.g. “Importing Gradle Project …”).</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-2.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_run_configuration_for_edge_jar"><a class="anchor" href="#_create_a_run_configuration_for_edge_jar"></a>4. Create a Run configuration for Edge (JAR)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The common workflow is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Build the Edge JAR with a Gradle task (e.g. <code>buildEdge</code>)</p>
+</li>
+<li>
+<p>Run the generated JAR from IntelliJ</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_create_a_jar_application_configuration"><a class="anchor" href="#_create_a_jar_application_configuration"></a>4.1. Create a “JAR Application” configuration</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Run &#8594; Edit Configurations…</strong></p>
+</li>
+<li>
+<p>Click <strong>+</strong> and add a new <strong>JAR Application</strong> configuration.</p>
+</li>
+<li>
+<p>Fill in the values similar to the following (adapt paths to your machine):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name</strong>: <code>Run Edge</code> (example)</p>
+</li>
+<li>
+<p><strong>Path to JAR</strong>: <code>/&lt;path-to-your-repo&gt;/build/openems-edge.jar</code> (example)</p>
+</li>
+<li>
+<p><strong>Working directory</strong>: <code>/&lt;path-to-your-repo&gt;/</code></p>
+</li>
+<li>
+<p><strong>JRE</strong>: select your configured JDK (e.g., <code>temurin-21</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the jar name or location differs in your checkout, search in your repository for the jar output produced by the Gradle task <code>buildEdge</code> and use that path.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-3.png" alt="Settings">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-4.png" alt="Settings">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-5.png" alt="Settings">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_add_a_before_launch_gradle_task"><a class="anchor" href="#_add_a_before_launch_gradle_task"></a>4.2. Add a “Before launch” Gradle task</h3>
+<div class="paragraph">
+<p>To ensure the JAR is up-to-date on every run:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the same Run configuration, find the <strong>Before launch</strong> section.</p>
+</li>
+<li>
+<p>Add a <strong>Gradle</strong> task.</p>
+</li>
+<li>
+<p>Set:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Gradle project</strong>: <code>openems</code></p>
+</li>
+<li>
+<p><strong>Tasks</strong>: <code>buildEdge</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now, running <code>Run Edge</code> will build the Edge jar first and then launch it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-6.png" alt="Settings">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-7.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_install_required_ide_plugins"><a class="anchor" href="#_install_required_ide_plugins"></a>5. Install required IDE plugins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Install these IntelliJ plugins:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Adapter for Eclipse Code Formatter</strong></p>
+</li>
+<li>
+<p><strong>CheckStyle-IDEA</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Path: <strong>Settings/Preferences &#8594; Plugins</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configure_checkstyle"><a class="anchor" href="#_configure_checkstyle"></a>6. Configure Checkstyle</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Settings/Preferences &#8594; Tools &#8594; Checkstyle</strong>.</p>
+</li>
+<li>
+<p>Add a new configuration:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description</strong>: <code>OpenEMS</code> (example)</p>
+</li>
+<li>
+<p><strong>File</strong>: point to the repository checkstyle configuration (commonly <code>cnf/checkstyle.xml</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Next &#8594; Finish</strong> and activate the created configuration.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-8.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enable_eclipse_formatting"><a class="anchor" href="#_enable_eclipse_formatting"></a>7. Enable Eclipse formatting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This aligns IntelliJ formatting with the formatting used in Eclipse-based setups.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Settings/Preferences &#8594; Adapter for Eclipse Code Formatter</strong>.</p>
+</li>
+<li>
+<p>Enable <strong>Use Eclipse&#8217;s Code Formatter</strong>.</p>
+</li>
+<li>
+<p>Set the <strong>Eclipse installation folder</strong> to your local Eclipse installation (only needed if your plugin version requires it).</p>
+</li>
+<li>
+<p>Select a profile, e.g. <code>Eclipse (built-in)</code> or the profile agreed upon in your project.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If your team has an exported Eclipse formatter profile (e.g. <code><strong>.xml</code> or <code></strong>.prefs</code>), prefer that to ensure consistent formatting across IDEs.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-9.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_intellij_code_style_tweaks_imports_and_tabs"><a class="anchor" href="#_intellij_code_style_tweaks_imports_and_tabs"></a>8. IntelliJ code style tweaks (imports and tabs)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some teams require specific import and indentation behavior.</p>
+</div>
+<div class="sect2">
+<h3 id="_imports_avoid_wildcard_imports"><a class="anchor" href="#_imports_avoid_wildcard_imports"></a>8.1. Imports: avoid wildcard imports</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Settings/Preferences &#8594; Editor &#8594; Code Style &#8594; Java &#8594; Imports</strong>.</p>
+</li>
+<li>
+<p>Configure the thresholds for wildcard imports to high values (example: <code>999</code>) to avoid <code>*</code> imports:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(1) <strong>Remove java.awt.</strong> and javax.swing.* imports*: unchecked (unless your project uses these packages)</p>
+</li>
+<li>
+<p>(2) <strong>Class count to use import with '</strong>'*: <code>999</code></p>
+</li>
+<li>
+<p>(2) <strong>Names count to use static import with '</strong>'*: <code>999</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-10.png" alt="Settings">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_indentation_tabs_vs_spaces"><a class="anchor" href="#_indentation_tabs_vs_spaces"></a>8.2. Indentation: tabs vs spaces</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Settings/Preferences &#8594; Editor &#8594; Code Style &#8594; Java &#8594; Tabs and Indents</strong>.</p>
+</li>
+<li>
+<p>If your project uses tabs, enable <strong>Use tab character</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-11.png" alt="Settings">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Repeat for other languages used in your project (e.g., Kotlin, XML, etc.) if they have different indentation rules.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-11-1.png" alt="Settings">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Follow your repository / team conventions. If unsure, check existing source files and the formatting rules.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_debugging_tests_kotlin_coroutine_agent"><a class="anchor" href="#_debugging_tests_kotlin_coroutine_agent"></a>9. Debugging tests (Kotlin coroutine agent)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If test debugging behaves unexpectedly, disable the Kotlin coroutine agent:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to <strong>Settings/Preferences &#8594; Build, Execution, Deployment &#8594; Debugger</strong>.</p>
+</li>
+<li>
+<p>Under <strong>Kotlin</strong>, uncheck <strong>Attach coroutine agent</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-12.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_run_the_ui_from_intellij_optional"><a class="anchor" href="#_run_the_ui_from_intellij_optional"></a>10. Run the UI from IntelliJ (optional)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can start the UI dev server from IntelliJ via a Shell Script configuration.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Run &#8594; Edit Configurations…</strong></p>
+</li>
+<li>
+<p>Add a new configuration of type <strong>Shell Script</strong>.</p>
+</li>
+<li>
+<p>Set:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name</strong>: <code>UI</code></p>
+</li>
+<li>
+<p><strong>Script text</strong>: <code>ng serve -o -c openems-edge-dev</code></p>
+</li>
+<li>
+<p><strong>Working directory</strong>: <code>/&lt;path-to-your-repo&gt;/ui</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Apply and run.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This requires that UI dependencies are installed (usually via <code>npm install</code>) and that <code>ng</code> is available (Angular CLI).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-13.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_intellij_commit"><a class="anchor" href="#_intellij_commit"></a>11. IntelliJ Commit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To ensure code is properly formatted and quality checks run on commit.
+Click on gear icon in the Commit tool window and enable:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reformat code</p>
+</li>
+<li>
+<p>Run Checkstyle</p>
+</li>
+<li>
+<p>Optimize imports</p>
+</li>
+<li>
+<p>Scan with Checkstyle</p>
+</li>
+<li>
+<p>Perform SonarQube for IDE analysis (if SonarQube plugin is installed)</p>
+</li>
+<li>
+<p>Check TODOs</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-14.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
