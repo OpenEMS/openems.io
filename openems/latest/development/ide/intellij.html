@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>IntelliJ IDEA :: Open Energy Management System</title>
+    <title>IntelliJ IDEA + Gradle Setup for OpenEMS :: Open Energy Management System</title>
     <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/development/ide/intellij.html">
-    <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 3.1.14">
     <link rel="stylesheet" href="../../../../_/css/site.css">
   </head>
@@ -259,11 +258,79 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">IntelliJ IDEA</h1>
+<h1 class="page">IntelliJ IDEA + Gradle Setup for OpenEMS</h1>
 <div id="preamble">
 <div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_prerequisites">1. Prerequisites</a></li>
+<li><a href="#_import_the_repository_as_a_gradle_project">2. Import the repository as a Gradle project</a></li>
+<li><a href="#_load_sync_the_gradle_project">3. Load / sync the Gradle project</a></li>
+<li><a href="#_create_a_run_configuration_for_edge_jar">4. Create a Run configuration for Edge (JAR)</a>
+<ul class="sectlevel2">
+<li><a href="#_create_a_jar_application_configuration">4.1. Create a “JAR Application” configuration</a></li>
+<li><a href="#_add_a_before_launch_gradle_task">4.2. Add a “Before launch” Gradle task</a></li>
+</ul>
+</li>
+<li><a href="#_install_required_ide_plugins">5. Install required IDE plugins</a></li>
+<li><a href="#_configure_checkstyle">6. Configure Checkstyle</a></li>
+<li><a href="#_enable_eclipse_formatting">7. Enable Eclipse formatting</a></li>
+<li><a href="#_intellij_code_style_tweaks_imports_and_tabs">8. IntelliJ code style tweaks (imports and tabs)</a>
+<ul class="sectlevel2">
+<li><a href="#_imports_avoid_wildcard_imports">8.1. Imports: avoid wildcard imports</a></li>
+<li><a href="#_indentation_tabs_vs_spaces">8.2. Indentation: tabs vs spaces</a></li>
+</ul>
+</li>
+<li><a href="#_debugging_tests_kotlin_coroutine_agent">9. Debugging tests (Kotlin coroutine agent)</a></li>
+<li><a href="#_run_the_ui_from_intellij_optional">10. Run the UI from IntelliJ (optional)</a></li>
+<li><a href="#_intellij_commit">11. IntelliJ Commit</a></li>
+</ul>
+</div>
 <div class="paragraph">
-<p>This guide will show you how to setup <a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a> for OpenEMS development.</p>
+<p>This page describes how to import the OpenEMS <strong>openems</strong> repository into IntelliJ IDEA as a Gradle project and how to create useful run/debug configurations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>1. Prerequisites</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>IntelliJ IDEA (Community or Ultimate)</p>
+</li>
+<li>
+<p>A JDK matching the OpenEMS build requirements (commonly <strong>JDK 21</strong>; e.g., Temurin 21)</p>
+</li>
+<li>
+<p>Git</p>
+</li>
+<li>
+<p>(Optional for UI) Node.js + npm, and the Angular CLI (or the tooling used in your OpenEMS UI setup)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_import_the_repository_as_a_gradle_project"><a class="anchor" href="#_import_the_repository_as_a_gradle_project"></a>2. Import the repository as a Gradle project</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start IntelliJ IDEA (open any project or use the Welcome screen).</p>
+</li>
+<li>
+<p>Select <strong>File &#8594; New &#8594; Project from Existing Sources…</strong></p>
+</li>
+<li>
+<p>Choose the repository folder (commonly named <code>openems</code>) and import it as a <strong>Gradle</strong> project.</p>
+</li>
+<li>
+<p>If IntelliJ asks which window to use, select <strong>This Window</strong>.</p>
+</li>
+</ol>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -272,188 +339,456 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Make sure you have the correct version of the Java Development Kit (JDK) installed on your system.
+<div class="paragraph">
+<p>Import the project as <strong>Gradle</strong> (not as a plain IntelliJ project). This ensures IntelliJ uses the Gradle model for module structure, dependencies, and tasks.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_load_sync_the_gradle_project"><a class="anchor" href="#_load_sync_the_gradle_project"></a>3. Load / sync the Gradle project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After opening the repository, IntelliJ should show a popup like “Gradle build scripts found”.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click <strong>Load Gradle Project</strong>.</p>
+</li>
+<li>
+<p>Wait until the Gradle import finishes (you can see progress in the status bar, e.g. “Importing Gradle Project …”).</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-2.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_run_configuration_for_edge_jar"><a class="anchor" href="#_create_a_run_configuration_for_edge_jar"></a>4. Create a Run configuration for Edge (JAR)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The common workflow is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Build the Edge JAR with a Gradle task (e.g. <code>buildEdge</code>)</p>
+</li>
+<li>
+<p>Run the generated JAR from IntelliJ</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_create_a_jar_application_configuration"><a class="anchor" href="#_create_a_jar_application_configuration"></a>4.1. Create a “JAR Application” configuration</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Run &#8594; Edit Configurations…</strong></p>
+</li>
+<li>
+<p>Click <strong>+</strong> and add a new <strong>JAR Application</strong> configuration.</p>
+</li>
+<li>
+<p>Fill in the values similar to the following (adapt paths to your machine):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name</strong>: <code>Run Edge</code> (example)</p>
+</li>
+<li>
+<p><strong>Path to JAR</strong>: <code>/&lt;path-to-your-repo&gt;/build/openems-edge.jar</code> (example)</p>
+</li>
+<li>
+<p><strong>Working directory</strong>: <code>/&lt;path-to-your-repo&gt;/</code></p>
+</li>
+<li>
+<p><strong>JRE</strong>: select your configured JDK (e.g., <code>temurin-21</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the jar name or location differs in your checkout, search in your repository for the jar output produced by the Gradle task <code>buildEdge</code> and use that path.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-3.png" alt="Settings">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-4.png" alt="Settings">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-5.png" alt="Settings">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_add_a_before_launch_gradle_task"><a class="anchor" href="#_add_a_before_launch_gradle_task"></a>4.2. Add a “Before launch” Gradle task</h3>
+<div class="paragraph">
+<p>To ensure the JAR is up-to-date on every run:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the same Run configuration, find the <strong>Before launch</strong> section.</p>
+</li>
+<li>
+<p>Add a <strong>Gradle</strong> task.</p>
+</li>
+<li>
+<p>Set:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Gradle project</strong>: <code>openems</code></p>
+</li>
+<li>
+<p><strong>Tasks</strong>: <code>buildEdge</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now, running <code>Run Edge</code> will build the Edge jar first and then launch it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-6.png" alt="Settings">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-7.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_install_required_ide_plugins"><a class="anchor" href="#_install_required_ide_plugins"></a>5. Install required IDE plugins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Install these IntelliJ plugins:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Adapter for Eclipse Code Formatter</strong></p>
+</li>
+<li>
+<p><strong>CheckStyle-IDEA</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Path: <strong>Settings/Preferences &#8594; Plugins</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configure_checkstyle"><a class="anchor" href="#_configure_checkstyle"></a>6. Configure Checkstyle</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Settings/Preferences &#8594; Tools &#8594; Checkstyle</strong>.</p>
+</li>
+<li>
+<p>Add a new configuration:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Description</strong>: <code>OpenEMS</code> (example)</p>
+</li>
+<li>
+<p><strong>File</strong>: point to the repository checkstyle configuration (commonly <code>cnf/checkstyle.xml</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Next &#8594; Finish</strong> and activate the created configuration.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-8.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enable_eclipse_formatting"><a class="anchor" href="#_enable_eclipse_formatting"></a>7. Enable Eclipse formatting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This aligns IntelliJ formatting with the formatting used in Eclipse-based setups.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Settings/Preferences &#8594; Adapter for Eclipse Code Formatter</strong>.</p>
+</li>
+<li>
+<p>Enable <strong>Use Eclipse&#8217;s Code Formatter</strong>.</p>
+</li>
+<li>
+<p>Set the <strong>Eclipse installation folder</strong> to your local Eclipse installation (only needed if your plugin version requires it).</p>
+</li>
+<li>
+<p>Select a profile, e.g. <code>Eclipse (built-in)</code> or the profile agreed upon in your project.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If your team has an exported Eclipse formatter profile (e.g. <code><strong>.xml</code> or <code></strong>.prefs</code>), prefer that to ensure consistent formatting across IDEs.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-9.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_intellij_code_style_tweaks_imports_and_tabs"><a class="anchor" href="#_intellij_code_style_tweaks_imports_and_tabs"></a>8. IntelliJ code style tweaks (imports and tabs)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some teams require specific import and indentation behavior.</p>
+</div>
+<div class="sect2">
+<h3 id="_imports_avoid_wildcard_imports"><a class="anchor" href="#_imports_avoid_wildcard_imports"></a>8.1. Imports: avoid wildcard imports</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Settings/Preferences &#8594; Editor &#8594; Code Style &#8594; Java &#8594; Imports</strong>.</p>
+</li>
+<li>
+<p>Configure the thresholds for wildcard imports to high values (example: <code>999</code>) to avoid <code>*</code> imports:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(1) <strong>Remove java.awt.</strong> and javax.swing.* imports*: unchecked (unless your project uses these packages)</p>
+</li>
+<li>
+<p>(2) <strong>Class count to use import with '</strong>'*: <code>999</code></p>
+</li>
+<li>
+<p>(2) <strong>Names count to use static import with '</strong>'*: <code>999</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-10.png" alt="Settings">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_indentation_tabs_vs_spaces"><a class="anchor" href="#_indentation_tabs_vs_spaces"></a>8.2. Indentation: tabs vs spaces</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Settings/Preferences &#8594; Editor &#8594; Code Style &#8594; Java &#8594; Tabs and Indents</strong>.</p>
+</li>
+<li>
+<p>If your project uses tabs, enable <strong>Use tab character</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-11.png" alt="Settings">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Repeat for other languages used in your project (e.g., Kotlin, XML, etc.) if they have different indentation rules.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-11-1.png" alt="Settings">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Follow your repository / team conventions. If unsure, check existing source files and the formatting rules.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_setup_intellij_idea_for_openems_edge_and_backend"><a class="anchor" href="#_setup_intellij_idea_for_openems_edge_and_backend"></a>1. Setup IntelliJ IDEA for OpenEMS Edge and Backend</h2>
+<h2 id="_debugging_tests_kotlin_coroutine_agent"><a class="anchor" href="#_debugging_tests_kotlin_coroutine_agent"></a>9. Debugging tests (Kotlin coroutine agent)</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>If test debugging behaves unexpectedly, disable the Kotlin coroutine agent:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prepare Intellij IDEA</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>We use the Amdatu Plugin. Please confirm that the plugin is compatible with the latest version. See the <a href="https://plugins.jetbrains.com/plugin/10639-amdatu/versions">Amdatu homepage <span class="icon"><i class="fa fa-external-link"></i></span></a>.</p>
+<p>Go to <strong>Settings/Preferences &#8594; Build, Execution, Deployment &#8594; Debugger</strong>.</p>
 </li>
 <li>
-<p>With the toolbox you can select the right version <a href="https://www.jetbrains.com/toolbox-app/download/">Intellij Version <span class="icon"><i class="fa fa-external-link"></i></span></a>.</p>
-</li>
-<li>
-<p>To avoid incompatible updates, you may disable Auto-Updates in the Toolbox. It is also possible to select a earlier version if the update was done accidentally</p>
-</li>
-<li>
-<p>Search under Plugins "Amdatu" und "Checkstyle"</p>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-settings.png" alt="Settings">
-</div>
-<div class="title">Figure 1. IntelliJ settings</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-plugins.png" alt="Plugins">
-</div>
-<div class="title">Figure 2. Install plugins</div>
-</div>
-</li>
-<li>
-<p>Preparing your project with intellij</p>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-project-import.png" alt="intellij project import">
-</div>
-<div class="title">Figure 3. IntelliJ project import from existing source</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-select-directory.png" alt="intellij select directory">
-</div>
-<div class="title">Figure 4. Select directory to import</div>
-</div>
-</li>
-<li>
-<p>Select Bnd/bndtools</p>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-import-bnd.png" alt="intellij import bnd">
-</div>
-<div class="title">Figure 5. Bnd import</div>
-</div>
-</li>
-<li>
-<p>Build OpenEMS Edge in IntelliJ</p>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-build-gradle.png" alt="intellij build gradle">
-</div>
-<div class="title">Figure 6. build.gradle</div>
-</div>
-</li>
-<li>
-<p>or alternatively make an configuration "edit configuration"</p>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-add-configuration.png" alt="intellij add configuration">
-</div>
-<div class="title">Figure 7. build gradle over configuration</div>
-</div>
-</li>
-<li>
-<p>creating a new module</p>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-new-module.png" alt="intellij new module">
-</div>
-<div class="title">Figure 8. creating a module</div>
-</div>
-<div class="paragraph">
-<p>Rightclick on an existing module: New &#8594; Module</p>
-</div>
-<div class="paragraph">
-<p>Amdatu&#8594; Project Template Project (Stringtemplate)</p>
-</div>
-</li>
-<li>
-<p>add Support for Eclipse Code Formatting</p>
-<div class="paragraph">
-<p>Search for 'Adapter for Eclipse Code Formatter' in the Plugin store</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-code-formatter.png" alt="intellij code formatter">
-</div>
-<div class="title">Figure 9. download Adapter for Eclipse Code Formatter</div>
-</div>
-<div class="paragraph">
-<p>After restarting the IDE go to Settings &#8594; Other Settings &#8594; Adapter for Eclipse Code Formatter</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-code-formatter-settings.png" alt="intellij code formatter settings">
-</div>
-<div class="title">Figure 10. Adapter Settings</div>
-</div>
-<div class="paragraph">
-<p>Check the radiobutton for "Use Eclipse&#8217;s Code Formatter"</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-code-formatter-enable.png" alt="intellij code formatter enable">
-</div>
-<div class="title">Figure 11. Enable Adapter</div>
-</div>
-<div class="paragraph">
-<p>Type in your Eclipse installation folder</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-code-formatter-path.png" alt="intellij code formatter path">
-</div>
-<div class="title">Figure 12. Set Eclipse Path</div>
-</div>
-<div class="paragraph">
-<p>Choose 'Eclipse [built-in]' as a formatter config</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-code-formatter-format.png" alt="intellij code formatter format">
-</div>
-<div class="title">Figure 13. Choose Format</div>
-</div>
-<div class="paragraph">
-<p>Now Reformat Code will use the Eclipse format (e.g. Use TAB instead of Whitespaces)</p>
-</div>
+<p>Under <strong>Kotlin</strong>, uncheck <strong>Attach coroutine agent</strong>.</p>
 </li>
 </ol>
 </div>
-</li>
-</ol>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-12.png" alt="Settings">
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hints_intellij_problems"><a class="anchor" href="#_hints_intellij_problems"></a>2. Hints - intellij problems</h2>
+<h2 id="_run_the_ui_from_intellij_optional"><a class="anchor" href="#_run_the_ui_from_intellij_optional"></a>10. Run the UI from IntelliJ (optional)</h2>
 <div class="sectionbody">
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>If you have some problems - for example java version is not found: look in File &#8594; Project Structure &#8594; Project</p>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-java.png" alt="intellij java">
+<div class="paragraph">
+<p>You can start the UI dev server from IntelliJ via a Shell Script configuration.</p>
 </div>
-<div class="title">Figure 14. check java version</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <strong>Run &#8594; Edit Configurations…</strong></p>
+</li>
+<li>
+<p>Add a new configuration of type <strong>Shell Script</strong>.</p>
+</li>
+<li>
+<p>Set:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name</strong>: <code>UI</code></p>
+</li>
+<li>
+<p><strong>Script text</strong>: <code>ng serve -o -c openems-edge-dev</code></p>
+</li>
+<li>
+<p><strong>Working directory</strong>: <code>/&lt;path-to-your-repo&gt;/ui</code></p>
+</li>
+</ul>
 </div>
 </li>
 <li>
-<p>If there is the module not correctly loaded, you can see that the blue square is not present</p>
-<div class="imageblock">
-<div class="content">
-<img src="../../_images/intellij-load-modul.png" alt="intellij load modul">
-</div>
-<div class="title">Figure 15. not loaded modules</div>
-</div>
-<div class="paragraph">
-<p>This can be fixed via Tools &#8594; Amdatu &#8594; Refresh-Workspace. If it is still not working: File &#8594; Invalidate Caches/Restart</p>
-</div>
+<p>Apply and run.</p>
 </li>
 </ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This requires that UI dependencies are installed (usually via <code>npm install</code>) and that <code>ng</code> is available (Angular CLI).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-13.png" alt="Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_intellij_commit"><a class="anchor" href="#_intellij_commit"></a>11. IntelliJ Commit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To ensure code is properly formatted and quality checks run on commit.
+Click on gear icon in the Commit tool window and enable:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reformat code</p>
+</li>
+<li>
+<p>Run Checkstyle</p>
+</li>
+<li>
+<p>Optimize imports</p>
+</li>
+<li>
+<p>Scan with Checkstyle</p>
+</li>
+<li>
+<p>Perform SonarQube for IDE analysis (if SonarQube plugin is installed)</p>
+</li>
+<li>
+<p>Check TODOs</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/intellij-import-as-gradle-14.png" alt="Settings">
+</div>
 </div>
 </div>
 </div>
