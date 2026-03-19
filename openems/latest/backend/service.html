@@ -650,67 +650,6 @@ It helps you getting a deep insight into the data collected with OpenEMS.</p>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_timedata_timescaledb"><a class="anchor" href="#_timedata_timescaledb"></a>6. Timedata TimescaleDB</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>OpenEMS Backend implementation for TimescaleDB.</p>
-</div>
-<div class="sect2">
-<h3 id="_setup_timescaledb_on_debian"><a class="anchor" href="#_setup_timescaledb_on_debian"></a>6.1. Setup TimescaleDB on Debian</h3>
-<div class="paragraph">
-<p>See <a href="https://docs.timescale.com/install/latest/self-hosted/installation-debian/" class="bare">https://docs.timescale.com/install/latest/self-hosted/installation-debian/</a>
-for reference.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">apt install gnupg postgresql-common apt-transport-https lsb-release wget
-
-/usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
-
-curl -s https://packagecloud.io/install/repositories/timescale/timescaledb/script.deb.sh | bash
-
-apt install timescaledb-2-postgresql-14 timescaledb-tools
-
-timescaledb-tune --quiet --yes
-
-# Open port 5432
-vim /etc/postgresql/14/main/postgresql.conf
-    listen_addresses = '*'
-    data_directory = '/opt/postgresql'
-vim /etc/postgresql/14/main/pg_hba.conf
-    host    all             all              0.0.0.0/0                       md5
-
-# Firewall
-ufw allow to any port 5432
-
-# Apply configuration changes
-systemctl restart postgresql
-
-cd /tmp
-su postgres -c psql
-
-CREATE DATABASE data;
-
-CREATE USER openems WITH ENCRYPTED PASSWORD 'password';
-
-GRANT ALL PRIVILEGES ON DATABASE data TO openems;
-
-# Use 'data' db
-\c data
-
-CREATE EXTENSION IF NOT EXISTS timescaledb;
-CREATE EXTENSION IF NOT EXISTS tablefunc;
-
-exit</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.backend.timedata.timescaledb">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
-</div>
-</div>
-</div>
-</div>
 </article>
   </div>
 </main>
