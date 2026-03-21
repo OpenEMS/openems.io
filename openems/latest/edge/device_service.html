@@ -1928,13 +1928,16 @@ Tested mainly on Raspberry Pi based devices.</p>
 <p><a href="https://www.shelly.com/en/products/shop/shelly-3-em">Shelly 3EM</a></p>
 </li>
 <li>
+<p><a href="https://www.shelly.com/de/products/shelly-3em-63w-gen3">Shelly 3EM Gen3 3-Phase-Meter (63W &amp; 63T)</a></p>
+</li>
+<li>
 <p><a href="https://www.shelly.com/de/products/shelly-plug-s-gen3">Shelly Plug S</a></p>
 </li>
 <li>
 <p><a href="https://www.shelly.com/de/products/shop/shelly-plus-plug-s-1">Shelly Plus Plug S</a></p>
 </li>
 <li>
-<p><a href="https://www.shelly.com/de/products/shop/shelly-pro-3-em-120-a-1">Shelly Pro 3EM 3-Phase Meter</a></p>
+<p><a href="https://www.shelly.com/de/products/shop/shelly-pro-3-em-120-a-1">Shelly Pro 3EM 3-Phase Meter (120A, 400A, 3CT 63)</a></p>
 </li>
 <li>
 <p><a href="https://www.shelly.com/de/products/shop/shelly-plus-1-pm">Shelly Plus 1PM</a></p>
@@ -1947,6 +1950,16 @@ Tested mainly on Raspberry Pi based devices.</p>
 </li>
 <li>
 <p><a href="https://www.shelly.com/de/products/shelly-pm-mini-gen3">Shelly Plus PM Mini Gen3</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shelly-pro-1pm">Shelly Pro 1PM</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shelly-pro-2pm">Shelly Pro 2PM</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shelly-pro-4pm">Shelly Pro 4PM</a>
+-</p>
 </li>
 </ul>
 </div>
@@ -3958,14 +3971,28 @@ The name <strong><code>standard</code></strong> is special and is used as a fall
 <p>Implementations:</p>
 </div>
 <div class="sect2">
-<h3 id="_octopus_go"><a class="anchor" href="#_octopus_go"></a>99.1. Octopus Go</h3>
+<h3 id="_fixed_grid_sell"><a class="anchor" href="#_fixed_grid_sell"></a>99.1. Fixed Grid-Sell</h3>
+<div class="paragraph">
+<p>Implementation of a grid-sell tariff with a fixed grid-sell price.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eeg_2025"><a class="anchor" href="#_eeg_2025"></a>99.2. EEG 2025</h3>
+<div class="paragraph">
+<p>Implementation of a grid-sell tariff according to the EEG 2025 policy.
+It uses the ENTSO-E Transparency Platform to retrieve day-ahead electricity prices for European bidding zones.
+While the tariff is generally fixed, if the day-ahead market price is negative for a given period, the grid-sell price for that period is set to 0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_octopus_go"><a class="anchor" href="#_octopus_go"></a>99.3. Octopus Go</h3>
 <div class="paragraph">
 <p>Calculates the quarterly prices for the next 36 hours based on the standard and low-price details from the user&#8217;s contract.
 For a detailed overview of the tariff structure, please refer to: <a href="https://octopusenergy.de/octopus-go" class="bare">https://octopusenergy.de/octopus-go</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_octopus_heat"><a class="anchor" href="#_octopus_heat"></a>99.2. Octopus Heat</h3>
+<h3 id="_octopus_heat"><a class="anchor" href="#_octopus_heat"></a>99.4. Octopus Heat</h3>
 <div class="paragraph">
 <p>Calculates the quarterly prices for the next 36 hours based on the high, standard and low-price details from the user&#8217;s contract.
 For a detailed overview of the tariff structure, please refer to: <a href="https://octopusenergy.de/octopus-heat" class="bare">https://octopusenergy.de/octopus-heat</a></p>
