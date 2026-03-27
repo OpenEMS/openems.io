@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>API REST :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/controller.d/io.openems.edge.controller.api.rest.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://openems.github.io/openems.io">Open Energy Management System</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+            <span class="gitlink">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="openems" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Nature</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.battery.api.html">Battery API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.batteryinverter.api.html">Battery-Inverter API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.controller.api.html">Controller API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.evse.api.html">Electric Vehicle Supply Equipment (EVSE) Api</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.ess.api.html">ESS (Energy Storage System)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.evcs.api.html">EVCS (Electric Vehicle Charging Station)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.io.api.html">I/O (Digital or Analog Input/Output)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.meter.api.html">Meter API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.heat.api.html">OpenEMS Edge Heat Api</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.energy.api.html">OpenEMS Energy API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.predictor.api.html">Predictor</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.scheduler.api.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.thermometer.api.html">Thermometer</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.timeofusetariff.api.html">Time-Of-Use Tariff API.</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.timedata.api.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.weather.api.html">Weather API</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Scheduler</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../scheduler.d/io.openems.edge.scheduler.allalphabetically.html">All-Alphabetically</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../scheduler.d/io.openems.edge.scheduler.daily.html">Daily</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../scheduler.d/io.openems.edge.scheduler.fixedorder.html">Fixed Order</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../scheduler.d/io.openems.edge.scheduler.jscalendar.html">JSCalendar</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Controller</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.api.backend.html"><a id="_api_backend"></a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.api.modbus.html"><a id="_api_modbus"></a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.api.mqtt.html"><a id="_api_mqtt"></a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.api.rest.html"><a id="_api_rest"></a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.api.websocket.html"><a id="_api_websocket"></a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.asymmetric.balancingcosphi.html">Asymmetric Balancing Cos-Phi</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.asymmetric.fixreactivepower.html">Asymmetric Fix Reactive Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.asymmetric.peakshaving.html">Asymmetric Peak-Shaving</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.asymmetric.phaserectification.html">Asymmetric Phase Rectification</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.channelthreshold.html">Channel-Threshold</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.chp.soc.html">CHP control via State-of-Charge (SoC)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.cleverpv.html">Clever-PV</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.cycle.html">Cycle Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.debug.log.html">Debug Log</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.debug.detailedlog.html">Detailed Debug Log</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.acisland.html">ESS AC-Island</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.activepowervoltagecharacteristic.html">Ess Active Power Voltage Characteristic</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.balancing.html">ESS Balancing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.delaycharge.html">ESS Delay Charge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.delayedselltogrid.html">ESS Delayed Sell-To-Grid</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.emergencycapacityreserve.html">ESS Emergency Capacity Reserve</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.fastfrequencyreserve.html">ESS Fast Frequency Reserve</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.fixstateofcharge.html">ESS Fix State Of Charge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.gridoptimizedcharge.html">ESS Grid Optimized Charge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.limittotaldischarge.html">ESS Limit Total Discharge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.linearpowerband.html">ESS Linear Power Band</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.mindischargeperiod.html">ESS Minimum Discharge Period</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.reactivepowervoltagecharacteristic.html">Ess Reactive Power Voltage Characteristic</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.selltogridlimit.html">ESS Sell-To-Grid Limit</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.standby.html">ESS Standby</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.timeofusetariff.html">ESS Time-of-Use Tariff</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.limiter14a.html">ESS §14a EnWG Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.evcs.html">EVCS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.evcs.fixactivepower.html">EVCS Fix Active Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.evse.html">EVSE Controllers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.generic.jsonlogic.html">Generic JsonLogic</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.highloadtimeslot.html">High-Load Timeslot</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.hybrid.surplusfeedtogrid.html">Hybrid-Ess Surplus-Feed-To-Grid Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.io.alarm.html">IO Alarm</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.io.analog.html">IO Analog Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.io.channelsinglethreshold.html">IO Channel-Single-Threshold</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.io.fixdigitaloutput.html">IO Fix Digital Output</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.io.heatingelement.html">IO Heating Element</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.io.heating.room.html">IO Heating Room</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.io.heatpump.sgready.html">IO SG-Ready Heat Pump</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.pvinverter.fixpowerlimit.html">PV-Inverter Fix Power Limit</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.pvinverter.selltogridlimit.html">PV-Inverter Sell-To-Grid limit</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.sohcycle.html">SOH Cycle Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.symmetric.balancingschedule.html">Symmetric Balancing Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.ess.fixactivepower.html">Symmetric Fix Active Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.symmetric.fixreactivepower.html">Symmetric Fix Reactive Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.symmetric.limitactivepower.html">Symmetric Limit Active Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.symmetric.peakshaving.html">Symmetric Peak-Shaving</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.symmetric.randompower.html">Symmetric Random-Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.controller.symmetric.timeslotpeakshaving.html">Symmetric Timeslot Peak-Shaving</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Bridge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../bridge.d/io.openems.edge.bridge.http.html">HTTP Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../bridge.d/io.openems.edge.bridge.mbus.html">M-Bus Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../bridge.d/io.openems.edge.bridge.modbus.html">Modbus Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../bridge.d/io.openems.edge.bridge.mqtt.html">MQTT Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../bridge.d/io.openems.edge.bridge.onewire.html">OneWire Bridge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Device &amp; Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.abb.html">ABB B23 M-Bus Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evcs.abl.html">ABL eM4 charging station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evcs.ocpp.abl.html">ABL OCPP Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.ess.adstec.storaxe.html">ADS-TEC StoraXe Energy Storage System</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evse.chargepoint.alpitronic.html">Alpitronic Hypercharger</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.artemes.am2.html">Artemes AM-2 Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.heat.askoma.html">Askoma Heating Element</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.bcontrol.em300.html">B-Control / TQ-Systems EM300 Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.bgetech.html">BGE-TECH DRT428M-2 Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.battery.bmw.html">BMW Battery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.bosch.bpts5hybrid.html">Bosch BPT-S 5 Hybrid</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.battery.bydcommercial.html">BYD Battery-Box Commercial C130</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.camillebauer.aplus.html">Camille Bauer APLUS Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.carlo.gavazzi.html">Carlo Gavazzi Electricity Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.discovergy.html">Discovergy Smart Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.eastron.html">Eastron / Microcare SDM Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.edge2edge.html">Edge-2-Edge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evse.electricvehicle.generic.html">EVSE Electric-Vehicle Generic</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.ess.fenecon.commercial40.html">FENECON Commercial 40 AC/DC/Hybrid</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.battery.fenecon.commercial.html">FENECON Commercial Battery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.fenecon.dess.html">FENECON DESS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.battery.fenecon.home.html">FENECON Home Battery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.fenecon.mini.html">FENECON Mini 3-3 | 3-6</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.fenecon.pro.html">FENECON Pro 9-12</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.io.filipowski.html">Filipowski (F&amp;F) Analog Output MR-AO-1</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.fronius.html">Fronius</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evcs.goe.chargerhome.html">Go-e Charger Home Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evcs.goe.html">Go-e Gemini Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.goodwe.html">GoodWe ET and BT-Series Hybrid Inverters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.io.gpio.html">GPIO (General Purpose Input/Output)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.hager.html">Hager ECR380D Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evse.chargepoint.hardybarth.html">Hardy Barth Salia Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evse.chargepoint.heidelberg.html">Heidelberg Connect Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evcs.heidelberg.html">Heidelberg Wallbox Energy Control Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evcs.ocpp.ies.keywatt.singleccs.html">IES KeyWatt Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.janitza.html">Janitza Energy Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.batteryinverter.kaco.blueplanetgridsave.html">KACO blueplanet gridsave</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.kaco.blueplanet.hybrid10.html">KACO blueplanet hybrid 10.0 TL3</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.pvinverter.kaco.blueplanet.html">KACO blueplanet PV inverter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.katek.edcom.html">Katek EDCOM Library</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.kdk.html">KDK 420506PRO20-U (2PU CT) Professional Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evse.chargepoint.keba.html">KEBA KeContact Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.io.kmtronic.html">KMtronic Modbus Relay Board</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.kostal.html">KOSTAL Inverters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.pvinverter.kostal.html">KOSTAL Solar Electric</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evcs.mennekes.html">Mennekes Amtron Professional Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.heat.mypv.html">my-PV Heatingelement</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.io.offgridswitch.html">Off-Grid Switch (Emergency Power Switch)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.onewire.thermometer.html">OneWire Thermometer</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evcs.openwb.html">OpenWB Series2 Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.phoenixcontact.html">Phoenix Contact EEM-MB370-24DC Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.plexlog.html">Plexlog Datalogger</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.pqplus.html">PQ-Plus UMD96 / UMD97 Power Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.battery.pylontech.html">Pylontech Powercube M2 Battery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.batteryinverter.refu88k.html">REFUstore 88K</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.io.revpi.html">RevolutionPi DigitalIO Module</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.ess.samsung.html">Samsung ESS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.schneider.acti9.smartlink.html">Schneider Acti9 Smartlink Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.io.shelly.html">Shelly WiFi Relay Switch</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.siemens.html">Siemens Energy Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.io.siemenslogo.html">Siemens LOGO! Programmable Logic Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.batteryinverter.sinexcel.html">Sinexcel Battery Inverter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.sma.html">SMA</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.socomec.html">Socomec Energy Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.pvinverter.solarlog.html">Solar-Log</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.solaredge.html">SolarEdge PV Inverter + Grid-Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.battery.soltaro.html">Soltaro Battery Rack</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evcs.spelsberg.html">Spelsberg SMART PRO charging station (BETA)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.tesla.powerwall2.html">Tesla Powerwall 2</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.victron.html">Victron Battery Inverter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.virtual.html">Virtual Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.io.wago.html">WAGO Fieldbus Coupler 750-352</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.weather.openmeteo.html">Weather Open-Meteo</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evcs.webasto.next.html">Webasto Next Charging Station (BETA)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.evcs.webasto.unite.html">Webasto Unite Charging Station (BETA)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.weidmueller.html">Weidmueller 525 Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.io.weidmueller.html">Weidmüller Fieldbus Coupler UR20</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../device_service.d/io.openems.edge.meter.ziehl.html">Ziehl EFR4001IP Meter</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Predictors</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../predictor.d/io.openems.edge.predictor.lstm.html">Long Short-Term Memory (LSTM)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../predictor.d/io.openems.edge.predictor.persistencemodel.html">Persistence-Model</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../predictor.d/io.openems.edge.predictor.profileclusteringmodel.html">Profile Clustering</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../predictor.d/io.openems.edge.predictor.production.linearmodel.html">Regression Model Production</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../predictor.d/io.openems.edge.predictor.similardaymodel.html">Similarday-Model</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Time-of-Use-Tariffs</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.ancillarycosts.html">Ancillary Costs</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.awattar.html">Awattar</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.corrently.html">Corrently by STROMDAO</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.entsoe.html">ENTSO-E / EPEX SPOT</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.ews.html">EWS Schönau</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.groupe.html">Groupe-E</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.luox.html">LUOX Energy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.manual.html">Manually Configurable</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.rabotcharge.html">rabot.charge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.hassfurt.html">Stadtwerk Hassfurt</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.swisspower.html">Swisspower</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.tibber.html">Tibber</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Timedata</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../timedata.d/io.openems.edge.timedata.influxdb.html">InfluxDB</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../timedata.d/io.openems.edge.timedata.rrd4j.html">RRD4J </a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Core Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.evcs.ocpp.common.html">Electric Vehicle Charging Station OCPP Common</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.ess.cluster.html">ESS Cluster</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.evcs.cluster.html">EVCS Cluster</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.evcs.core.html">EVCS Core</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.ess.generic.html">Generic Energy Storage System</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.evcs.ocpp.server.html">OCPP Server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.energy.html">OpenEMS Energy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.pvinverter.cluster.html">PV-Inverter Cluster</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.simulator.html">Simulated OpenEMS Components</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../deploy/systemd.html">Deploy on Debian/Ubuntu</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../deploy/docker.html">Deploy to Docker</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/deploy.html">Deploy UI to Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/setup-ide.html">Setup IDE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/chart.html">Chart</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/metadata.html">Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.metadata.file.html">Metadata File</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.metadata.odoo.html">Metadata Odoo</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.timedata.aggregatedinflux.html">Timedata Aggregated InfluxDB</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.timedata.dummy.html">Timedata Dummy </a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.timedata.influx.html">Timedata InfluxDB </a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/deploy/systemd.html">Deploy on Debian/Ubuntu</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/deploy/docker.html">Deploy to Docker</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Simulation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/gitpod.html">Live-Demo on Gitpod</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/realtime.html">Real-Time Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/ui-history.html">UI History Simulation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developer Guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../development/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">IDE Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../development/ide/eclipse.html">Eclipse</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../development/ide/intellij.html">IntelliJ</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../development/coding-guidelines.html">Coding Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../development/documentation.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../introduction.html">Open Energy Management System</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../introduction.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../introduction.html">Open Energy Management System</a></li>
+    <li>OpenEMS Edge</li>
+    <li>Controller</li>
+    <li><a href="io.openems.edge.controller.api.rest.html"><a id="_api_rest"></a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/controller.d/io.openems.edge.controller.api.rest.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">API REST</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Provides RESTful HTTP/JSON access to OpenEMS Edge channels and JSON-RPC methods.
+Enables external systems to monitor and control OpenEMS via standard HTTP protocol.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.api.rest">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The REST API Controller exposes OpenEMS channels and configuration as REST endpoints.
+External clients (web applications, mobile apps, scripts) can:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Read Channels</strong>: Query current values of any channel via GET requests</p>
+</li>
+<li>
+<p><strong>Write Channels</strong>: Set channel values via POST requests (write-enabled mode only)</p>
+</li>
+<li>
+<p><strong>Regex Queries</strong>: Use regular expressions to query multiple channels in one request</p>
+</li>
+<li>
+<p><strong>JSON-RPC Methods</strong>: Execute remote procedure calls for complex operations</p>
+</li>
+<li>
+<p><strong>Configuration Management</strong>: Query and update component configuration</p>
+</li>
+<li>
+<p><strong>Component Discovery</strong>: Get full Edge configuration with components and channels</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Key Capabilities</div>
+<ul>
+<li>
+<p>HTTP/JSON REST endpoints</p>
+</li>
+<li>
+<p>Regular expression channel queries</p>
+</li>
+<li>
+<p>Basic authentication (password-based)</p>
+</li>
+<li>
+<p>Read-only or read-write access modes</p>
+</li>
+<li>
+<p>Configurable port (default 8084)</p>
+</li>
+<li>
+<p>Connection rate limiting</p>
+</li>
+<li>
+<p>Write timeout protection</p>
+</li>
+<li>
+<p>Debug logging mode</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_components"><a class="anchor" href="#_components"></a>Components</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_component_controller_api_rest_readwrite"><a class="anchor" href="#_component_controller_api_rest_readwrite"></a>Controller.Api.Rest.ReadWrite</h3>
+<div class="paragraph">
+<div class="title">Description</div>
+<p>HTTP REST server with read-write access to channels and JSON-RPC methods.
+External clients can read all channels and write to channels via POST requests.</p>
+</div>
+<div class="paragraph">
+<div class="title">Factory-PID</div>
+<p><code>Controller.Api.Rest.ReadWrite</code></p>
+</div>
+<div class="paragraph">
+<div class="title">Service Binding</div>
+<p>Implements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>io.openems.edge.controller.api.rest.readwrite.ControllerApiRestReadWrite</code></p>
+</li>
+<li>
+<p><code>io.openems.edge.controller.api.rest.RestApi</code></p>
+</li>
+<li>
+<p><code>io.openems.edge.controller.api.Controller</code></p>
+</li>
+<li>
+<p><code>io.openems.edge.common.component.OpenemsComponent</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Configuration Parameters</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique component identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ctrlApiRest0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>alias</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Human-readable component name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(component-id)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable/disable the controller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>port</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP server port</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>8084</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>connectionlimit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum concurrent HTTP connections</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apiTimeout</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout for channel writes (seconds)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>60</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>debugMode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable verbose debug logging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_component_controller_api_rest_readonly"><a class="anchor" href="#_component_controller_api_rest_readonly"></a>Controller.Api.Rest.ReadOnly</h3>
+<div class="paragraph">
+<div class="title">Description</div>
+<p>HTTP REST server with read-only access to channels.
+External clients can only read channels; write requests are rejected.</p>
+</div>
+<div class="paragraph">
+<div class="title">Factory-PID</div>
+<p><code>Controller.Api.Rest.ReadOnly</code></p>
+</div>
+<div class="paragraph">
+<div class="title">Configuration Parameters</div>
+<p>Same as ReadWrite.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_base_url"><a class="anchor" href="#_base_url"></a>Base URL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All REST requests use this base URL pattern:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">http://[username:password@]&lt;IP&gt;:&lt;PORT&gt;/rest</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">URL Components</div>
+<ul>
+<li>
+<p><code>username</code>: Always optional; if omitted, can be replaced with <code>x</code></p>
+</li>
+<li>
+<p><code>password</code>: User password (required for authentication)</p>
+</li>
+<li>
+<p><code>&lt;IP&gt;</code>: Edge machine IP address or hostname</p>
+</li>
+<li>
+<p><code>&lt;PORT&gt;</code>: Configured port (default 8084)</p>
+</li>
+<li>
+<p><code>/rest</code>: REST API path prefix</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Examples</div>
+<ul>
+<li>
+<p><code><a href="http://x:user@192.168.1.100:8084/rest" class="bare">http://x:user@192.168.1.100:8084/rest</a></code></p>
+</li>
+<li>
+<p><code><a href="http://x:admin@openems.local:8084/rest" class="bare">http://x:admin@openems.local:8084/rest</a></code></p>
+</li>
+<li>
+<p><code><a href="http://edge0:password@192.168.1.100:8084/rest" class="bare">http://edge0:password@192.168.1.100:8084/rest</a></code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rest_endpoints"><a class="anchor" href="#_rest_endpoints"></a>REST Endpoints</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_endpoint_channel_read"><a class="anchor" href="#_endpoint_channel_read"></a>GET <code>/rest/channel/&lt;Component-ID&gt;/&lt;Channel-ID&gt;</code></h3>
+<div class="paragraph">
+<p>Read the current value of a single channel.</p>
+</div>
+<div class="sect3">
+<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;Component-ID&gt;</code>: Component identifier (e.g., <code>_sum</code>, <code>ess0</code>, <code>meter0</code>)</p>
+</li>
+<li>
+<p><code>&lt;Channel-ID&gt;</code>: Channel identifier (e.g., <code>ActivePowerL1</code>, <code>Soc</code>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response"><a class="anchor" href="#_response"></a>Response</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "type": "INTEGER",
+  "accessMode": "RO",
+  "text": "",
+  "unit": "%",
+  "value": 50
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">Response Fields</div>
+<ul>
+<li>
+<p><code>type</code>: Data type (INTEGER, LONG, FLOAT, STRING, STATE, BOOLEAN)</p>
+</li>
+<li>
+<p><code>accessMode</code>: Read/Write permissions (RO, RW)</p>
+</li>
+<li>
+<p><code>text</code>: Human-readable description</p>
+</li>
+<li>
+<p><code>unit</code>: Measurement unit (W, V, %, A, Hz, etc.)</p>
+</li>
+<li>
+<p><code>value</code>: Current channel value</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_requests"><a class="anchor" href="#_example_requests"></a>Example Requests</h4>
+<div class="listingblock">
+<div class="title">Read ESS state of charge</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">GET http://x:user@localhost:8084/rest/channel/_sum/EssSoc</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Read meter active power</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">GET http://x:user@localhost:8084/rest/channel/meter0/ActivePower</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_endpoint_channel_regex"><a class="anchor" href="#_endpoint_channel_regex"></a>GET <code>/rest/channel/&lt;Regex-Component&gt;/&lt;Regex-Channel&gt;</code></h3>
+<div class="paragraph">
+<p>Query multiple channels using regular expressions.</p>
+</div>
+<div class="sect3">
+<h4 id="_parameters_2"><a class="anchor" href="#_parameters_2"></a>Parameters</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;Regex-Component&gt;</code>: Regular expression pattern for component IDs (e.g., <code>.*</code> for all)</p>
+</li>
+<li>
+<p><code>&lt;Regex-Channel&gt;</code>: Regular expression pattern for channel IDs (e.g., <code>Active.*Power</code> for active power channels)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_2"><a class="anchor" href="#_response_2"></a>Response</h4>
+<div class="paragraph">
+<p>Returns array of matching channels:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  {
+    "address": "pvInverter0/ActivePower",
+    "type": "INTEGER",
+    "accessMode": "RO",
+    "text": "",
+    "unit": "W",
+    "value": 90
+  },
+  {
+    "address": "meter0/ActivePower",
+    "type": "INTEGER",
+    "accessMode": "RO",
+    "text": "",
+    "unit": "W",
+    "value": 465
+  },
+  {
+    "address": "ess0/ActivePower",
+    "type": "INTEGER",
+    "accessMode": "RW",
+    "text": "",
+    "unit": "W",
+    "value": -250
+  }
+]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_requests_2"><a class="anchor" href="#_example_requests_2"></a>Example Requests</h4>
+<div class="listingblock">
+<div class="title">Query all active power channels</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">GET http://x:user@localhost:8084/rest/channel/.*/Active.*Power</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Query all ESS-related channels</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">GET http://x:user@localhost:8084/rest/channel/ess.*/.*</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Query all reactive power channels</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">GET http://x:user@localhost:8084/rest/channel/.*/Reactive.*Power</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_endpoint_channel_write"><a class="anchor" href="#_endpoint_channel_write"></a>POST <code>/rest/channel/&lt;Component-ID&gt;/&lt;Channel-ID&gt;</code></h3>
+<div class="paragraph">
+<p>Write a value to a writable channel (read-write mode only).</p>
+</div>
+<div class="sect3">
+<h4 id="_parameters_3"><a class="anchor" href="#_parameters_3"></a>Parameters</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;Component-ID&gt;</code>: Component identifier</p>
+</li>
+<li>
+<p><code>&lt;Channel-ID&gt;</code>: Writable channel identifier</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_body"><a class="anchor" href="#_request_body"></a>Request Body</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "value": &lt;NEW_VALUE&gt;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_3"><a class="anchor" href="#_response_3"></a>Response</h4>
+<div class="paragraph">
+<p>Returns 200 OK if successful. No body returned.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_requests_3"><a class="anchor" href="#_example_requests_3"></a>Example Requests</h4>
+<div class="listingblock">
+<div class="title">Enable a digital output relay</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">POST http://x:user@localhost:8084/rest/channel/io0/Relay1
+Content-Type: application/json
+
+{
+  "value": true
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Set ESS charging power</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">POST http://x:user@localhost:8084/rest/channel/ess0/SetActivePowerEquals
+Content-Type: application/json
+
+{
+  "value": 5000
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Set boolean input</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">POST http://x:user@localhost:8084/rest/channel/heatpump0/Start
+Content-Type: application/json
+
+{
+  "value": false
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_json_rpc_endpoints"><a class="anchor" href="#_json_rpc_endpoints"></a>JSON-RPC Endpoints</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_post_restjsonrpc"><a class="anchor" href="#_post_restjsonrpc"></a>POST <code>/rest/jsonrpc</code></h3>
+<div class="paragraph">
+<p>Execute JSON-RPC method calls.</p>
+</div>
+<div class="paragraph">
+<p>All JSON-RPC requests are sent as POST requests with JSON body. Standard JSON-RPC fields <code>id</code> and <code>jsonrpc</code> are optional.</p>
+</div>
+<div class="sect3">
+<h4 id="_jsonrpc_getedgeconfig"><a class="anchor" href="#_jsonrpc_getedgeconfig"></a>getEdgeConfig</h4>
+<div class="paragraph">
+<p>Get complete Edge configuration including components, channels, and their metadata.</p>
+</div>
+<div class="sect4">
+<h5 id="_request"><a class="anchor" href="#_request"></a>Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "method": "getEdgeConfig",
+  "params": {}
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_4"><a class="anchor" href="#_response_4"></a>Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "components": [
+    {
+      "id": "_sum",
+      "alias": "Summary",
+      "type": "io.openems.edge.common.sum.Sum",
+      "channels": [
+        {
+          "id": "GridActivePower",
+          "type": "INTEGER",
+          "unit": "W",
+          "accessMode": "RO"
+        }
+      ]
+    },
+    {
+      "id": "ess0",
+      "alias": "Battery System",
+      "type": "io.openems.edge.ess.api.ManagedSymmetricEss",
+      "channels": [...]
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jsonrpc_componentjsonapi"><a class="anchor" href="#_jsonrpc_componentjsonapi"></a>componentJsonApi</h4>
+<div class="paragraph">
+<p>Forward a JSON-RPC payload to a specific component.</p>
+</div>
+<div class="sect4">
+<h5 id="_request_2"><a class="anchor" href="#_request_2"></a>Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "method": "componentJsonApi",
+  "params": {
+    "componentId": "ctrlApiModbusTcp0",
+    "payload": {
+      "method": "getModbusProtocol",
+      "params": {}
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_5"><a class="anchor" href="#_response_5"></a>Response</h5>
+<div class="paragraph">
+<p>Returns component-specific response (varies by component).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_get_modbus_protocol"><a class="anchor" href="#_example_get_modbus_protocol"></a>Example: Get Modbus Protocol</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "method": "componentJsonApi",
+  "params": {
+    "componentId": "ctrlApiModbusTcp0",
+    "payload": {
+      "method": "getModbusProtocol",
+      "params": {}
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jsonrpc_updatecomponentconfig"><a class="anchor" href="#_jsonrpc_updatecomponentconfig"></a>updateComponentConfig</h4>
+<div class="paragraph">
+<p>Modify component configuration parameters.</p>
+</div>
+<div class="sect4">
+<h5 id="_request_3"><a class="anchor" href="#_request_3"></a>Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "method": "updateComponentConfig",
+  "params": {
+    "componentId": "ctrlDebugLog0",
+    "properties": [
+      {
+        "name": "enabled",
+        "value": true
+      },
+      {
+        "name": "logLevel",
+        "value": "DEBUG"
+      }
+    ]
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_6"><a class="anchor" href="#_response_6"></a>Response</h5>
+<div class="paragraph">
+<p>Returns 200 OK if successful.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_examples"><a class="anchor" href="#_configuration_examples"></a>Configuration Examples</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Standard Read-Write Setup</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "id": "ctrlApiRest0",
+  "alias": "REST API Server",
+  "enabled": true,
+  "port": 8084,
+  "connectionlimit": 10,
+  "apiTimeout": 60,
+  "debugMode": false
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">High-Concurrency Read-Only Setup</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "id": "ctrlApiRest0",
+  "alias": "REST API (Read-Only)",
+  "enabled": true,
+  "port": 8080,
+  "connectionlimit": 50,
+  "apiTimeout": 30,
+  "debugMode": false
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Basic HTTP authentication is used. Format:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Authorization: Basic base64(username:password)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Usernames are typically:
+* <code>user</code> (default unprivileged)
+* <code>admin</code> (admin privileges)
+* <code>x</code> (if username is omitted)</p>
+</div>
+<div class="paragraph">
+<p>Password must match configured user password in OpenEMS.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_error_responses"><a class="anchor" href="#_error_responses"></a>Error Responses</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Status</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200 OK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Request successful</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400 Bad Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid JSON format or missing required parameters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">401 Unauthorized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Authentication failed (invalid credentials)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">403 Forbidden</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Access denied (insufficient permissions or read-only mode)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">404 Not Found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Component or channel not found</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">408 Request Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Channel write operation timed out</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500 Internal Server Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Server error</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="title">Error Response Format</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "error": "Channel not found: component/channel"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_client_examples"><a class="anchor" href="#_client_examples"></a>Client Examples</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_curl"><a class="anchor" href="#_curl"></a>cURL</h3>
+<div class="listingblock">
+<div class="title">Read channel</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -u x:user http://localhost:8084/rest/channel/_sum/EssSoc</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Write channel</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST -u x:user \
+  -H "Content-Type: application/json" \
+  -d '{"value": 5000}' \
+  http://localhost:8084/rest/channel/ess0/SetActivePowerEquals</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Regex query</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -u x:user http://localhost:8084/rest/channel/.*/Active.*Power</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">JSON-RPC call</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST -u x:user \
+  -H "Content-Type: application/json" \
+  -d '{"method":"getEdgeConfig","params":{}}' \
+  http://localhost:8084/rest/jsonrpc</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_javascriptfetch"><a class="anchor" href="#_javascriptfetch"></a>JavaScript/Fetch</h3>
+<div class="listingblock">
+<div class="title">Read channel</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">fetch('http://localhost:8084/rest/channel/_sum/EssSoc', {
+  headers: { 'Authorization': 'Basic ' + btoa('x:user') }
+}).then(r =&gt; r.json()).then(data =&gt; console.log(data.value));</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Write channel</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">fetch('http://localhost:8084/rest/channel/ess0/SetActivePowerEquals', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Basic ' + btoa('x:user'),
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ value: 5000 })
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing_tools"><a class="anchor" href="#_testing_tools"></a>Testing Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Popular tools for testing REST APIs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.postman.com/">Postman</a> - Desktop client for REST testing</p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm">Restlet Client</a> - Chrome extension</p>
+</li>
+<li>
+<p><a href="https://insomnia.rest/">Insomnia</a> - REST client alternative to Postman</p>
+</li>
+<li>
+<p><code>curl</code> - Command-line HTTP client</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Shelly WiFi Relay Switch :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.d/io.openems.edge.io.shelly.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://openems.github.io/openems.io">Open Energy Management System</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="navbar-item" href="https://github.com/OpenEMS/openems">
+            <span class="gitlink">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="openems" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../introduction.html">Open Energy Management System</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../coreconcepts.html">Core concepts &amp; terminology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Edge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Nature</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.battery.api.html">Battery API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.batteryinverter.api.html">Battery-Inverter API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.controller.api.html">Controller API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.evse.api.html">Electric Vehicle Supply Equipment (EVSE) Api</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.ess.api.html">ESS (Energy Storage System)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.evcs.api.html">EVCS (Electric Vehicle Charging Station)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.io.api.html">I/O (Digital or Analog Input/Output)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.meter.api.html">Meter API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.heat.api.html">OpenEMS Edge Heat Api</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.energy.api.html">OpenEMS Energy API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.predictor.api.html">Predictor</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.scheduler.api.html">Scheduler</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.thermometer.api.html">Thermometer</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.timeofusetariff.api.html">Time-Of-Use Tariff API.</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.timedata.api.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../nature.d/io.openems.edge.weather.api.html">Weather API</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Scheduler</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../scheduler.d/io.openems.edge.scheduler.allalphabetically.html">All-Alphabetically</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../scheduler.d/io.openems.edge.scheduler.daily.html">Daily</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../scheduler.d/io.openems.edge.scheduler.fixedorder.html">Fixed Order</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../scheduler.d/io.openems.edge.scheduler.jscalendar.html">JSCalendar</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Controller</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.api.backend.html"><a id="_api_backend"></a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.api.modbus.html"><a id="_api_modbus"></a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.api.mqtt.html"><a id="_api_mqtt"></a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.api.rest.html"><a id="_api_rest"></a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.api.websocket.html"><a id="_api_websocket"></a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.asymmetric.balancingcosphi.html">Asymmetric Balancing Cos-Phi</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.asymmetric.fixreactivepower.html">Asymmetric Fix Reactive Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.asymmetric.peakshaving.html">Asymmetric Peak-Shaving</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.asymmetric.phaserectification.html">Asymmetric Phase Rectification</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.channelthreshold.html">Channel-Threshold</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.chp.soc.html">CHP control via State-of-Charge (SoC)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.cleverpv.html">Clever-PV</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.cycle.html">Cycle Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.debug.log.html">Debug Log</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.debug.detailedlog.html">Detailed Debug Log</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.acisland.html">ESS AC-Island</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.activepowervoltagecharacteristic.html">Ess Active Power Voltage Characteristic</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.balancing.html">ESS Balancing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.delaycharge.html">ESS Delay Charge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.delayedselltogrid.html">ESS Delayed Sell-To-Grid</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.emergencycapacityreserve.html">ESS Emergency Capacity Reserve</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.fastfrequencyreserve.html">ESS Fast Frequency Reserve</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.fixstateofcharge.html">ESS Fix State Of Charge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.gridoptimizedcharge.html">ESS Grid Optimized Charge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.limittotaldischarge.html">ESS Limit Total Discharge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.linearpowerband.html">ESS Linear Power Band</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.mindischargeperiod.html">ESS Minimum Discharge Period</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.reactivepowervoltagecharacteristic.html">Ess Reactive Power Voltage Characteristic</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.selltogridlimit.html">ESS Sell-To-Grid Limit</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.standby.html">ESS Standby</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.timeofusetariff.html">ESS Time-of-Use Tariff</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.limiter14a.html">ESS §14a EnWG Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.evcs.html">EVCS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.evcs.fixactivepower.html">EVCS Fix Active Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.evse.html">EVSE Controllers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.generic.jsonlogic.html">Generic JsonLogic</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.highloadtimeslot.html">High-Load Timeslot</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.hybrid.surplusfeedtogrid.html">Hybrid-Ess Surplus-Feed-To-Grid Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.io.alarm.html">IO Alarm</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.io.analog.html">IO Analog Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.io.channelsinglethreshold.html">IO Channel-Single-Threshold</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.io.fixdigitaloutput.html">IO Fix Digital Output</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.io.heatingelement.html">IO Heating Element</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.io.heating.room.html">IO Heating Room</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.io.heatpump.sgready.html">IO SG-Ready Heat Pump</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.pvinverter.fixpowerlimit.html">PV-Inverter Fix Power Limit</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.pvinverter.selltogridlimit.html">PV-Inverter Sell-To-Grid limit</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.sohcycle.html">SOH Cycle Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.symmetric.balancingschedule.html">Symmetric Balancing Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.fixactivepower.html">Symmetric Fix Active Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.symmetric.fixreactivepower.html">Symmetric Fix Reactive Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.symmetric.limitactivepower.html">Symmetric Limit Active Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.symmetric.peakshaving.html">Symmetric Peak-Shaving</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.symmetric.randompower.html">Symmetric Random-Power</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.symmetric.timeslotpeakshaving.html">Symmetric Timeslot Peak-Shaving</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Bridge</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../bridge.d/io.openems.edge.bridge.http.html">HTTP Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../bridge.d/io.openems.edge.bridge.mbus.html">M-Bus Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../bridge.d/io.openems.edge.bridge.modbus.html">Modbus Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../bridge.d/io.openems.edge.bridge.mqtt.html">MQTT Bridge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../bridge.d/io.openems.edge.bridge.onewire.html">OneWire Bridge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Device &amp; Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.abb.html">ABB B23 M-Bus Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evcs.abl.html">ABL eM4 charging station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evcs.ocpp.abl.html">ABL OCPP Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.ess.adstec.storaxe.html">ADS-TEC StoraXe Energy Storage System</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evse.chargepoint.alpitronic.html">Alpitronic Hypercharger</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.artemes.am2.html">Artemes AM-2 Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.heat.askoma.html">Askoma Heating Element</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.bcontrol.em300.html">B-Control / TQ-Systems EM300 Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.bgetech.html">BGE-TECH DRT428M-2 Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.battery.bmw.html">BMW Battery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.bosch.bpts5hybrid.html">Bosch BPT-S 5 Hybrid</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.battery.bydcommercial.html">BYD Battery-Box Commercial C130</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.camillebauer.aplus.html">Camille Bauer APLUS Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.carlo.gavazzi.html">Carlo Gavazzi Electricity Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.discovergy.html">Discovergy Smart Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.eastron.html">Eastron / Microcare SDM Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.edge2edge.html">Edge-2-Edge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evse.electricvehicle.generic.html">EVSE Electric-Vehicle Generic</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.ess.fenecon.commercial40.html">FENECON Commercial 40 AC/DC/Hybrid</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.battery.fenecon.commercial.html">FENECON Commercial Battery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.fenecon.dess.html">FENECON DESS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.battery.fenecon.home.html">FENECON Home Battery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.fenecon.mini.html">FENECON Mini 3-3 | 3-6</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.fenecon.pro.html">FENECON Pro 9-12</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.io.filipowski.html">Filipowski (F&amp;F) Analog Output MR-AO-1</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.fronius.html">Fronius</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evcs.goe.chargerhome.html">Go-e Charger Home Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evcs.goe.html">Go-e Gemini Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.goodwe.html">GoodWe ET and BT-Series Hybrid Inverters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.io.gpio.html">GPIO (General Purpose Input/Output)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.hager.html">Hager ECR380D Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evse.chargepoint.hardybarth.html">Hardy Barth Salia Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evse.chargepoint.heidelberg.html">Heidelberg Connect Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evcs.heidelberg.html">Heidelberg Wallbox Energy Control Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evcs.ocpp.ies.keywatt.singleccs.html">IES KeyWatt Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.janitza.html">Janitza Energy Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.batteryinverter.kaco.blueplanetgridsave.html">KACO blueplanet gridsave</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.kaco.blueplanet.hybrid10.html">KACO blueplanet hybrid 10.0 TL3</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.pvinverter.kaco.blueplanet.html">KACO blueplanet PV inverter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.katek.edcom.html">Katek EDCOM Library</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.kdk.html">KDK 420506PRO20-U (2PU CT) Professional Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evse.chargepoint.keba.html">KEBA KeContact Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.io.kmtronic.html">KMtronic Modbus Relay Board</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.kostal.html">KOSTAL Inverters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.pvinverter.kostal.html">KOSTAL Solar Electric</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evcs.mennekes.html">Mennekes Amtron Professional Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.heat.mypv.html">my-PV Heatingelement</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.io.offgridswitch.html">Off-Grid Switch (Emergency Power Switch)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.onewire.thermometer.html">OneWire Thermometer</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evcs.openwb.html">OpenWB Series2 Charging Station</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.phoenixcontact.html">Phoenix Contact EEM-MB370-24DC Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.plexlog.html">Plexlog Datalogger</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.pqplus.html">PQ-Plus UMD96 / UMD97 Power Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.battery.pylontech.html">Pylontech Powercube M2 Battery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.batteryinverter.refu88k.html">REFUstore 88K</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.io.revpi.html">RevolutionPi DigitalIO Module</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.ess.samsung.html">Samsung ESS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.schneider.acti9.smartlink.html">Schneider Acti9 Smartlink Meter</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.io.shelly.html">Shelly WiFi Relay Switch</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.siemens.html">Siemens Energy Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.io.siemenslogo.html">Siemens LOGO! Programmable Logic Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.batteryinverter.sinexcel.html">Sinexcel Battery Inverter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.sma.html">SMA</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.socomec.html">Socomec Energy Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.pvinverter.solarlog.html">Solar-Log</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.solaredge.html">SolarEdge PV Inverter + Grid-Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.battery.soltaro.html">Soltaro Battery Rack</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evcs.spelsberg.html">Spelsberg SMART PRO charging station (BETA)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.tesla.powerwall2.html">Tesla Powerwall 2</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.victron.html">Victron Battery Inverter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.virtual.html">Virtual Meters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.io.wago.html">WAGO Fieldbus Coupler 750-352</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.weather.openmeteo.html">Weather Open-Meteo</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evcs.webasto.next.html">Webasto Next Charging Station (BETA)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.evcs.webasto.unite.html">Webasto Unite Charging Station (BETA)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.weidmueller.html">Weidmueller 525 Meter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.io.weidmueller.html">Weidmüller Fieldbus Coupler UR20</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="io.openems.edge.meter.ziehl.html">Ziehl EFR4001IP Meter</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Predictors</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../predictor.d/io.openems.edge.predictor.lstm.html">Long Short-Term Memory (LSTM)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../predictor.d/io.openems.edge.predictor.persistencemodel.html">Persistence-Model</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../predictor.d/io.openems.edge.predictor.profileclusteringmodel.html">Profile Clustering</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../predictor.d/io.openems.edge.predictor.production.linearmodel.html">Regression Model Production</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../predictor.d/io.openems.edge.predictor.similardaymodel.html">Similarday-Model</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Time-of-Use-Tariffs</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.ancillarycosts.html">Ancillary Costs</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.awattar.html">Awattar</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.corrently.html">Corrently by STROMDAO</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.entsoe.html">ENTSO-E / EPEX SPOT</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.ews.html">EWS Schönau</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.groupe.html">Groupe-E</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.luox.html">LUOX Energy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.manual.html">Manually Configurable</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.rabotcharge.html">rabot.charge</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.hassfurt.html">Stadtwerk Hassfurt</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.swisspower.html">Swisspower</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../tariff.d/io.openems.edge.timeofusetariff.tibber.html">Tibber</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Timedata</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../timedata.d/io.openems.edge.timedata.influxdb.html">InfluxDB</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../timedata.d/io.openems.edge.timedata.rrd4j.html">RRD4J </a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Core Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.evcs.ocpp.common.html">Electric Vehicle Charging Station OCPP Common</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.ess.cluster.html">ESS Cluster</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.evcs.cluster.html">EVCS Cluster</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.evcs.core.html">EVCS Core</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.ess.generic.html">Generic Energy Storage System</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.evcs.ocpp.server.html">OCPP Server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.energy.html">OpenEMS Energy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.pvinverter.cluster.html">PV-Inverter Cluster</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core.d/io.openems.edge.simulator.html">Simulated OpenEMS Components</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implement.html">Implementing a Device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../build.html">Build OpenEMS Edge</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../deploy/systemd.html">Deploy on Debian/Ubuntu</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../deploy/docker.html">Deploy to Docker</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS UI</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/deploy.html">Deploy UI to Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/setup-ide.html">Setup IDE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ui/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../ui/implementing-a-widget/components/chart.html">Chart</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">OpenEMS Backend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/backend-to-backend.html">Backend-to-Backend</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/metadata.html">Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../backend/timedata.html">Timedata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Service</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.metadata.file.html">Metadata File</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.metadata.odoo.html">Metadata Odoo</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.timedata.aggregatedinflux.html">Timedata Aggregated InfluxDB</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.timedata.dummy.html">Timedata Dummy </a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.timedata.influx.html">Timedata InfluxDB </a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/deploy/systemd.html">Deploy on Debian/Ubuntu</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/deploy/docker.html">Deploy to Docker</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../component-communication/index.html">Component Communication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Simulation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/gitpod.html">Live-Demo on Gitpod</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/realtime.html">Real-Time Simulation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simulation/ui-history.html">UI History Simulation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developer Guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../development/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">IDE Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../development/ide/eclipse.html">Eclipse</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../development/ide/intellij.html">IntelliJ</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../development/coding-guidelines.html">Coding Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../development/documentation.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://openems.github.io/openems.io/javadoc/">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Open Energy Management System</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../introduction.html">Open Energy Management System</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../introduction.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../introduction.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../introduction.html">Open Energy Management System</a></li>
+    <li>OpenEMS Edge</li>
+    <li>Device &amp; Service</li>
+    <li><a href="io.openems.edge.io.shelly.html">Shelly WiFi Relay Switch</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.d/io.openems.edge.io.shelly.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Shelly WiFi Relay Switch</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Integrates Shelly WiFi-enabled relay switches and meters into OpenEMS for monitoring and control of electrical devices and energy production.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This bundle provides a comprehensive integration for Shelly devices, a popular range of WiFi-enabled smart relays, meters, and switches. Each Shelly device type is implemented as a separate OpenEMS Component with its own Factory-PID, allowing multiple devices to be configured and managed independently within OpenEMS Edge.</p>
+</div>
+<div class="paragraph">
+<p>The bundle enables real-time monitoring of electrical parameters (voltage, current, power, energy) and remote control of relay switches. Shelly devices communicate via their native HTTP REST API, providing reliable WiFi-based communication over standard networks.</p>
+</div>
+<div class="paragraph">
+<p>All Shelly devices are accessed via their IP addresses or via mDNS autodiscovery on the local network. The integration handles polling of device status and provides channel mapping for electrical meter data and digital output control.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_supported_devices"><a class="anchor" href="#_supported_devices"></a>Supported Devices</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each device type below is individually integrated with dedicated component support:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.shelly.com/de/products/shelly-1-gen4">Shelly 1 Gen4 <span class="icon"><i class="fa fa-external-link"></i></span></a> - Single relay with optional metering - <a href="#_shelly_1">Shelly 1</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shop/1xs25">Shelly 2.5 <span class="icon"><i class="fa fa-external-link"></i></span></a> - Dual relay switch with power metering - <a href="#_shelly_2_5">Shelly 2.5</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/en/products/shop/shelly-3-em">Shelly 3EM <span class="icon"><i class="fa fa-external-link"></i></span></a> - 3-phase electricity meter - <a href="#_shelly_3em">Shelly 3EM</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shelly-3em-63w-gen3">Shelly 3EM Gen3 <span class="icon"><i class="fa fa-external-link"></i></span></a> - 3-phase meter Gen3 - <a href="#_shelly_3em_gen3">Shelly 3EM Gen3</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/en/products/shop/shelly-plug">Shelly Plug <span class="icon"><i class="fa fa-external-link"></i></span></a> - Basic relay plug with metering - <a href="#_shelly_plug">Shelly Plug</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shelly-plug-s-gen3">Shelly Plug S Gen3 <span class="icon"><i class="fa fa-external-link"></i></span></a> - Compact relay plug - <a href="#_shelly_plug_s_gen3">Shelly Plug S Gen3</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shop/shelly-plus-1-pm">Shelly Plus 1PM <span class="icon"><i class="fa fa-external-link"></i></span></a> - Single relay with integrated meter - <a href="#_shelly_plus_1pm">Shelly Plus 1PM</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shop/shelly-plus-plug-s-1">Shelly Plus Plug S <span class="icon"><i class="fa fa-external-link"></i></span></a> - Improved plug with metering - <a href="#_shelly_plus_plug_s">Shelly Plus Plug S</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shelly-plus-pm-mini">Shelly Plus PM Mini <span class="icon"><i class="fa fa-external-link"></i></span></a> - Compact 2-channel meter - <a href="#_shelly_plus_pm_mini">Shelly Plus PM Mini</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shelly-pro-1pm">Shelly Pro 1PM <span class="icon"><i class="fa fa-external-link"></i></span></a> - Professional single relay with metering - <a href="#_shelly_pro_1pm">Shelly Pro 1PM</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shelly-pro-2pm">Shelly Pro 2PM <span class="icon"><i class="fa fa-external-link"></i></span></a> - Professional dual relay with metering - <a href="#_shelly_pro_2pm_device">Shelly Pro 2PM Device</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shop/shelly-pro-3-1">Shelly Pro 3 <span class="icon"><i class="fa fa-external-link"></i></span></a> - Triple relay - <a href="#_shelly_pro_3">Shelly Pro 3</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shop/shelly-pro-3-em-120-a-1">Shelly Pro 3EM <span class="icon"><i class="fa fa-external-link"></i></span></a> - 3-phase meter (120A, 400A variants) - <a href="#_shelly_pro_3em">Shelly Pro 3EM</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shelly-pro-4pm">Shelly Pro 4PM <span class="icon"><i class="fa fa-external-link"></i></span></a> - Professional quad relay with metering - <a href="#_shelly_pro_4pm_device">Shelly Pro 4PM Device</a></p>
+</li>
+<li>
+<p><a href="https://www.shelly.com/de/products/shop/shelly-outdoor-plug-s-gen3">Shelly Outdoor Plug S Gen3 <span class="icon"><i class="fa fa-external-link"></i></span></a> - Weather-resistant outdoor plug - <a href="#_shelly_outdoor_plug_s_gen3">Shelly Outdoor Plug S Gen3</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_components"><a class="anchor" href="#_components"></a>Components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This bundle implements the following OpenEMS Components, each supporting one or multiple Shelly device types. Each component has its own Factory-PID for independent configuration and instantiation:</p>
+</div>
+<div class="sect2">
+<h3 id="_shelly_1"><a class="anchor" href="#_shelly_1"></a>Shelly 1</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly1</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shelly1</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly 1 device <strong>(required)</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_2_5"><a class="anchor" href="#_shelly_2_5"></a>Shelly 2.5</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.25</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shelly25</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly 2.5 device <strong>(required)</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_3em"><a class="anchor" href="#_shelly_3em"></a>Shelly 3EM</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.3EM</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shelly3em</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput</p>
+</li>
+<li>
+<p>ElectricityMeter (3-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "meter0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly 3EM device <strong>(required)</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_3em_gen3"><a class="anchor" href="#_shelly_3em_gen3"></a>Shelly 3EM Gen3</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.3EMG3</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shelly3emgen3</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>ElectricityMeter (3-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "meter0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly 3EM Gen3 device <strong>(required)</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_plug"><a class="anchor" href="#_shelly_plug"></a>Shelly Plug</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.Plug</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellyplug</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput</p>
+</li>
+<li>
+<p>SinglePhaseMeter</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>phase</code> (SinglePhase): Which phase the Shelly Plug is connected to (default: L1)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Plug device <strong>(required)</strong></p>
+</li>
+<li>
+<p><code>type</code> (MeterType): What is measured by this meter (default: CONSUMPTION_METERED)</p>
+</li>
+<li>
+<p><code>invert</code> (Boolean): Inverts power values and swaps production/consumption energy (default: false)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_plug_s_gen3"><a class="anchor" href="#_shelly_plug_s_gen3"></a>Shelly Plug S Gen3</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.PlugSG3</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellyplugsgen3</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>phase</code> (SinglePhase): Which phase the Shelly Plug is connected to (default: L1)</p>
+</li>
+<li>
+<p><code>mdnsName</code> (String): mDNS name for device discovery (optional)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Plug S Gen3 device (optional)</p>
+</li>
+<li>
+<p><code>type</code> (MeterType): What is measured by this meter (default: CONSUMPTION_METERED)</p>
+</li>
+<li>
+<p><code>invert</code> (Boolean): Inverts power values and swaps production/consumption energy (default: false)</p>
+</li>
+<li>
+<p><code>validateDevice</code> (Boolean): If enabled and type is wrong, no values will be read from device (default: false)</p>
+</li>
+<li>
+<p><code>debugMode</code> (DebugMode): Activates debug mode (default: OFF)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_plus_1pm"><a class="anchor" href="#_shelly_plus_1pm"></a>Shelly Plus 1PM</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.Plus1PM</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellyplus1pm</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Plus 1PM device <strong>(required)</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_plus_plug_s"><a class="anchor" href="#_shelly_plus_plug_s"></a>Shelly Plus Plug S</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.Plus.PlugS</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellyplusplugs</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>phase</code> (SinglePhase): Which phase the Shelly Plug is connected to (default: L1)</p>
+</li>
+<li>
+<p><code>mdnsName</code> (String): mDNS name for device discovery (optional)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Plus Plug S device (optional)</p>
+</li>
+<li>
+<p><code>type</code> (MeterType): What is measured by this meter (default: CONSUMPTION_METERED)</p>
+</li>
+<li>
+<p><code>invert</code> (Boolean): Inverts power values and swaps production/consumption energy (default: false)</p>
+</li>
+<li>
+<p><code>validateDevice</code> (Boolean): If enabled and type is wrong, no values will be read from device (default: false)</p>
+</li>
+<li>
+<p><code>debugMode</code> (DebugMode): Activates debug mode (default: OFF)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_plus_pm_mini"><a class="anchor" href="#_shelly_plus_pm_mini"></a>Shelly Plus PM Mini</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.PlusPMMini</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellypluspmmini</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>SinglePhaseMeter</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "ioShellyPmMini0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>phase</code> (SinglePhase): Which phase the Shelly Plug is connected to (default: L1)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Plus PM Mini device <strong>(required)</strong></p>
+</li>
+<li>
+<p><code>type</code> (MeterType): What is measured by this meter (default: CONSUMPTION_METERED)</p>
+</li>
+<li>
+<p><code>invert</code> (Boolean): Inverts power values and swaps production/consumption energy (default: false)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_pro_1pm"><a class="anchor" href="#_shelly_pro_1pm"></a>Shelly Pro 1PM</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.Pro1PM</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellypro1pm</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput</p>
+</li>
+<li>
+<p>SinglePhaseMeter</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Pro 1PM device <strong>(required)</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_pro_2pm_device"><a class="anchor" href="#_shelly_pro_2pm_device"></a>Shelly Pro 2PM Device</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.Pro2PM</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellypro2pm.device</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput (dual)</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>phase</code> (SinglePhase): Which phase the Shelly is connected to (default: L1)</p>
+</li>
+<li>
+<p><code>mdnsName</code> (String): mDNS name for device discovery (optional)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Pro 2PM device (optional)</p>
+</li>
+<li>
+<p><code>debugMode</code> (DebugMode): Activates debug mode (default: OFF)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Note</strong>: The Shelly Pro 2PM also provides a separate Terminal component for accessing individual relay terminal data.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_pro_2pm_terminal"><a class="anchor" href="#_shelly_pro_2pm_terminal"></a>Shelly Pro 2PM Terminal</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.Pro2PM.Terminal</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellypro2pm.terminal</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>SinglePhaseMeter</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>mdnsName</code> (String): mDNS name for device discovery (optional)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Pro 2PM device (optional)</p>
+</li>
+<li>
+<p><code>terminal</code> (TerminalEnum): Terminal selection (required)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_pro_3"><a class="anchor" href="#_shelly_pro_3"></a>Shelly Pro 3</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.Pro3</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellypro3</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Pro 3 device <strong>(required)</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_pro_3em"><a class="anchor" href="#_shelly_pro_3em"></a>Shelly Pro 3EM</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.Pro3EM</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellypro3em</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>ElectricityMeter (3-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "meter0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Pro 3EM device <strong>(required)</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_pro_4pm_device"><a class="anchor" href="#_shelly_pro_4pm_device"></a>Shelly Pro 4PM Device</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.Pro4PM</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellypro4pm.device</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput (quad)</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>phase</code> (SinglePhase): Which phase the Shelly is connected to (default: L1)</p>
+</li>
+<li>
+<p><code>mdnsName</code> (String): mDNS name for device discovery (optional)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Pro 4PM device (optional)</p>
+</li>
+<li>
+<p><code>debugMode</code> (DebugMode): Activates debug mode (default: OFF)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Note</strong>: The Shelly Pro 4PM also provides a separate Terminal component for accessing individual relay terminal data.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_pro_4pm_terminal"><a class="anchor" href="#_shelly_pro_4pm_terminal"></a>Shelly Pro 4PM Terminal</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.Pro4PM.Terminal</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.shellypro4pm.terminal</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>SinglePhaseMeter</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>mdnsName</code> (String): mDNS name for device discovery (optional)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Pro 4PM device (optional)</p>
+</li>
+<li>
+<p><code>terminal</code> (TerminalEnum): Terminal selection (required)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_outdoor_plug_s_gen3"><a class="anchor" href="#_shelly_outdoor_plug_s_gen3"></a>Shelly Outdoor Plug S Gen3</h3>
+<div class="paragraph">
+<p><strong>Name</strong>: IO Shelly.OutdoorPlugSG3</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>io.openems.edge.io.shelly.outdoorplugsgen3</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>DigitalOutput</p>
+</li>
+<li>
+<p>ElectricityMeter (single-phase)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Configuration Parameters</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "io0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>phase</code> (SinglePhase): Which phase the Shelly Plug is connected to (default: L1)</p>
+</li>
+<li>
+<p><code>mdnsName</code> (String): mDNS name for device discovery (optional)</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the Shelly Outdoor Plug S Gen3 device (optional)</p>
+</li>
+<li>
+<p><code>type</code> (MeterType): What is measured by this meter (default: CONSUMPTION_METERED)</p>
+</li>
+<li>
+<p><code>invert</code> (Boolean): Inverts power values and swaps production/consumption energy (default: false)</p>
+</li>
+<li>
+<p><code>validateDevice</code> (Boolean): If enabled and type is wrong, no values will be read from device (default: false)</p>
+</li>
+<li>
+<p><code>debugMode</code> (DebugMode): Activates debug mode (default: OFF)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites_dependencies"><a class="anchor" href="#_prerequisites_dependencies"></a>Prerequisites / Dependencies</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_system_requirements"><a class="anchor" href="#_system_requirements"></a>System Requirements</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Network connectivity: All Shelly devices communicate via WiFi/Ethernet and must be reachable from OpenEMS Edge on port 80 (HTTP)</p>
+</li>
+<li>
+<p>Local Network: Shelly devices must be configured to operate on the same network as OpenEMS Edge</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shelly_device_setup"><a class="anchor" href="#_shelly_device_setup"></a>Shelly Device Setup</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure Shelly device IP address (static IP recommended for reliability)</p>
+</li>
+<li>
+<p>Ensure device firmware is up-to-date (devices should support the Gen2 or Gen3 protocol versions)</p>
+</li>
+<li>
+<p>Network accessibility: Verify device responds to HTTP requests from OpenEMS system</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_no_authentication_support"><a class="anchor" href="#_no_authentication_support"></a>No Authentication Support</h3>
+<div class="paragraph">
+<p>Password-protected Shelly devices are currently not supported. Ensure Shelly devices are configured without authentication or with WiFi-only access restrictions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_known_limitations"><a class="anchor" href="#_known_limitations"></a>Known Limitations</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>No HTTPS Support</strong>: Communication with Shelly devices uses HTTP only; HTTPS is not currently supported</p>
+</li>
+<li>
+<p><strong>No Authentication</strong>: Devices with password protection cannot be accessed</p>
+</li>
+<li>
+<p><strong>Polling-Based</strong>: Status updates are polling-based (not real-time event-driven); update frequency depends on configuration</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.io.shelly">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
