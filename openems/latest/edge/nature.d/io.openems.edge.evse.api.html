@@ -874,21 +874,91 @@
 </aside>
 <article class="doc">
 <h1 class="page">Electric Vehicle Supply Equipment (EVSE) Api</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>APIs for</p>
+<p>This bundle defines the OpenEMS interface contracts for EVSE integration. It does not implement device-specific hardware logic itself; instead, bundle authors implement <code>EvseChargePoint</code> and <code>EvseElectricVehicle</code> and controllers such as <code>Evse.Controller.Single</code> and <code>Evse.Controller.Cluster</code> orchestrate charging and phase switching.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>io.openems.edge.evse.api</code> provides the interface definitions for EVSE charge point and electric vehicle capabilities.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Electric Vehicle</p>
+<p><code>EvseChargePoint</code> defines the actively managed charge point device and its charge control abilities.</p>
 </li>
 <li>
-<p>Charge Point</p>
+<p><code>EvseElectricVehicle</code> defines the connected vehicle profile and charging limits.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This API is consumed by EVSE controllers in <code>io.openems.edge.controller.evse</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_integration_with_controllers"><a class="anchor" href="#_integration_with_controllers"></a>Integration with Controllers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The single-controller implementation <code>Evse.Controller.Single</code> binds exactly one <code>EvseChargePoint</code> and one <code>EvseElectricVehicle</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Evse.Controller.Single</code> uses <code>EvseChargePoint.getChargePointAbilities()</code> and <code>EvseElectricVehicle.getElectricVehicleAbilities()</code> to read device capabilities.</p>
+</li>
+<li>
+<p>It merges these into <code>CombinedAbilities</code> using <code>CombinedAbilities.createFrom(&#8230;&#8203;)</code>.</p>
+</li>
+<li>
+<p>The merged <code>CombinedAbilities</code> contains a unified <code>applySetPoint</code> ability, ready-for-charging state, and the effective <code>phaseSwitch</code> ability.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Evse.Controller.Cluster</code> then aggregates multiple <code>Evse.Controller.Single</code> instances and applies computed actions for each charge point.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The cluster controller obtains per-controller parameters via <code>ControllerEvseSingle.getParams()</code>.</p>
+</li>
+<li>
+<p>It distributes power and phase-switch directives using <code>RunUtils.calculate(&#8230;&#8203;)</code> and <code>RunUtils.handlePhaseSwitch(&#8230;&#8203;)</code>.</p>
+</li>
+<li>
+<p>Only controllers whose combined abilities include a valid <code>phaseSwitch</code> ability can receive a phase-switch action.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_notes"><a class="anchor" href="#_notes"></a>Notes</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>EvseChargePoint</code> is an <code>ElectricityMeter</code> and exposes the active power and ready-for-charging state.</p>
+</li>
+<li>
+<p><code>EvseElectricVehicle</code> is intentionally lightweight and only exposes the EV abilities needed for charging control.</p>
+</li>
+<li>
+<p>The cluster controller orchestrates multiple single controllers, but the phase-switch decision remains per <code>ControllerEvseSingle</code> instance.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.evse.api">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
 </div>
 </article>
   </div>
