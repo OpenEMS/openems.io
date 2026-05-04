@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Deploy OpenEMS Backend on Debian Linux :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/backend/deploy/systemd.html">
+    <title>Set up nginx webserver for OpenEMS UI :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/ui/deploy/nginx.html">
     <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 3.1.14">
     <link rel="stylesheet" href="../../../../_/css/site.css">
@@ -713,26 +713,26 @@
     <a class="nav-link" href="#ui/deploy.adoc">Deploy UI to Docker</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ui/setup-ide.html">Setup IDE</a>
+    <a class="nav-link" href="../setup-ide.html">Setup IDE</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ui/architecture.html">Architecture</a>
+    <a class="nav-link" href="../architecture.html">Architecture</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ui/build.html">Build OpenEMS UI</a>
+    <a class="nav-link" href="../build.html">Build OpenEMS UI</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../../ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
+    <a class="nav-link" href="../implementing-a-widget/introduction.html">Implementing a UI Widget</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../../ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
+    <a class="nav-link" href="../implementing-a-widget/components/flat.html">Flat-Widget</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../../ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
+    <a class="nav-link" href="../implementing-a-widget/components/modal.html">Modal-Widget</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../../ui/implementing-a-widget/components/chart.html">Chart</a>
+    <a class="nav-link" href="../implementing-a-widget/components/chart.html">Chart</a>
   </li>
 </ul>
   </li>
@@ -743,35 +743,35 @@
     <span class="nav-text">OpenEMS Backend</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../architecture.html">Architecture</a>
+    <a class="nav-link" href="../../backend/architecture.html">Architecture</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../backend-to-backend.html">Backend-to-Backend</a>
+    <a class="nav-link" href="../../backend/backend-to-backend.html">Backend-to-Backend</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../metadata.html">Metadata</a>
+    <a class="nav-link" href="../../backend/metadata.html">Metadata</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../timedata.html">Timedata</a>
+    <a class="nav-link" href="../../backend/timedata.html">Timedata</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Service</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../service.d/io.openems.backend.metadata.file.html">Metadata File</a>
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.metadata.file.html">Metadata File</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../service.d/io.openems.backend.metadata.odoo.html">Metadata Odoo</a>
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.metadata.odoo.html">Metadata Odoo</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../service.d/io.openems.backend.timedata.aggregatedinflux.html">Timedata Aggregated InfluxDB</a>
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.timedata.aggregatedinflux.html">Timedata Aggregated InfluxDB</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../service.d/io.openems.backend.timedata.dummy.html">Timedata Dummy </a>
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.timedata.dummy.html">Timedata Dummy </a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../service.d/io.openems.backend.timedata.influx.html">Timedata InfluxDB </a>
+    <a class="nav-link" href="../../backend/service.d/io.openems.backend.timedata.influx.html">Timedata InfluxDB </a>
   </li>
 </ul>
   </li>
@@ -779,11 +779,11 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Deploy</span>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="3">
-    <a class="nav-link" href="systemd.html">Deploy on Debian/Ubuntu</a>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../backend/deploy/systemd.html">Deploy on Debian/Ubuntu</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="docker.html">Deploy to Docker</a>
+    <a class="nav-link" href="../../backend/deploy/docker.html">Deploy to Docker</a>
   </li>
 </ul>
   </li>
@@ -868,28 +868,26 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
-    <li>OpenEMS Backend</li>
-    <li>Deploy</li>
-    <li><a href="systemd.html">Deploy on Debian/Ubuntu</a></li>
+    <li><a href="nginx.html">Set up nginx webserver for OpenEMS UI</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/backend/deploy/systemd.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/ui/deploy/nginx.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Deploy OpenEMS Backend on Debian Linux</h1>
+<h1 class="page">Set up nginx webserver for OpenEMS UI</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This chapter explains how OpenEMS Backend can be deployed on a Debian Linux server. Similar techniques will work for other operating systems as well.</p>
+<p>This chapter explains how to set up the nginx webserver for OpenEMS UI.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_prepare_operating_system_environment"><a class="anchor" href="#_prepare_operating_system_environment"></a>1. Prepare operating system environment</h2>
+<h2 id="_quick_setup_under_linux"><a class="anchor" href="#_quick_setup_under_linux"></a>1. Quick setup under Linux</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -898,154 +896,60 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It is recommended to run every service on a server with limited permissions. This example runs OpenEMS Backend with user "root" which is a bad idea for a production server!
+These instructions are intended for a quick setup, e.g. to get started with OpenEMS UI. Instructions for a production deployment may be added in the future.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_check_java_version"><a class="anchor" href="#_check_java_version"></a>1.1. Check JAVA version</h3>
+<h3 id="_setup"><a class="anchor" href="#_setup"></a>1.1. Setup</h3>
 <div class="paragraph">
-<p>Ensure that a JRE version 21 or later is installed. We recommend using <code>temurin-21-jre</code></p>
-</div>
-<div class="paragraph">
-<p>For detailed installation instructions, visit <a href="https://adoptium.net/de/installation/linux/">Adoptium Installation Guide</a>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you are using an <strong>ARM32</strong> device, download <a href="https://openems.io/download/temurin-21-jre-armhf_21.0.6+2.deb">temurin-21-jre-armhf_21.0.6+2.deb</a> directly from OpenEMS.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_create_an_application_directory"><a class="anchor" href="#_create_an_application_directory"></a>1.2. Create an application directory</h3>
-<div class="paragraph">
-<p>Create the directory <strong>/opt/openems-backend</strong>. This is going to be the place, where we put the JAR file.</p>
-</div>
-<div class="paragraph">
-<p>Execute <code>mkdir /opt/openems-backend</code>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_create_a_config_directory"><a class="anchor" href="#_create_a_config_directory"></a>1.3. Create a config directory</h3>
-<div class="paragraph">
-<p>Create the directory <strong>/opt/openems-backend/config.d</strong>. This is going to be the place, where all the bundle configurations are held.</p>
-</div>
-<div class="paragraph">
-<p>Execute <code>mkdir /opt/openems-backend/config.d</code>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_create_a_systemd_service_definition"><a class="anchor" href="#_create_a_systemd_service_definition"></a>1.4. Create a systemd service definition</h3>
-<div class="paragraph">
-<p>The systemd 'Service Manager' manages system processes in a Debian Linux. We will create a systemd service definition file, so that systemd takes care of managing (starting/restarting/&#8230;&#8203;) the OpenEMS Backend service.</p>
+<p>We assume that the files for OpemEMS UI are in /home/user/openems/openems-ui</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create and open the service definition file.</p>
-<div class="paragraph">
-<p>Execute <code>nano /etc/systemd/system/openems-backend.service</code></p>
-</div>
+<p>Install nginx (e.g. <code>apt install nginx</code> on Debian / Ubuntu and derivatives)</p>
 </li>
 <li>
-<p>Paste the following content:</p>
+<p>Create a file /etc/nginx/conf.d/openems_nginx.conf with the following contents:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-ini hljs" data-lang="ini">[Unit]
-Description=OpenEMS <i class="conum" data-value="1"></i><b>(1)</b>
-After=network.target <i class="conum" data-value="2"></i><b>(2)</b>
+<pre class="highlightjs highlight"><code class="language-none hljs">server {
+    listen 4200;
+    server_name openems;
+    # OpenEMS Web-Interface
+    location / {
+       root    /home/user/openems/openems-ui;
+       index    index.html index.htm;
 
-[Service]
-User=root <i class="conum" data-value="3"></i><b>(3)</b>
-Group=root
-Type=simple <i class="conum" data-value="4"></i><b>(4)</b>
-WorkingDirectory=/opt/openems-backend
-ExecStart=/usr/bin/java -XX:+ExitOnOutOfMemoryError -Dfelix.cm.dir=/opt/openems-backend/config.d -Djava.util.concurrent.ForkJoinPool.common.parallelism=100 -jar /opt/openems-backend/openems-backend.jar <i class="conum" data-value="5"></i><b>(5)</b>
-SuccessExitStatus=143 <i class="conum" data-value="6"></i><b>(6)</b>
-Restart=always <i class="conum" data-value="7"></i><b>(7)</b>
-RestartSec=10 <i class="conum" data-value="8"></i><b>(8)</b>
-
-[Install]
-WantedBy=multi-user.target</code></pre>
+       error_page    404    300    /index.html;
+    }
+}</code></pre>
 </div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The name of the service.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The service is allowed to start after network is available (e.g. to be able to access devices via ethernet connection)</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>It is run as user 'root' to have access to all devices. It is recommended to change this for productive systems.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>OpenEMS Backend uses a "simple" process fork.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>The start command. It uses the Java JRE, sets the config directory to <code>/opt/openems-backend/config.d</code>, sets a parallelism value for ForkJoinPool - this depends on the number of OpenEMS Edge devices you expect to connect - and runs the jar file at <code>/opt/openems-backend/openems-backend.jar</code></td>
-</tr>
-<tr>
-<td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>In contrast to what systemd expects, Java exits with status 143 on success.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>Systemd <em>always</em> tries to restart OpenEMS Backend once it was quit.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="8"></i><b>8</b></td>
-<td>Systemd waits <em>10</em> seconds till the next restart.</td>
-</tr>
-</table>
 </div>
 </li>
 <li>
-<p>Press <b class="button">Ctrl</b> + <b class="button">x</b> to exit and <b class="button">y</b> to save the file.</p>
-</li>
-<li>
-<p>Activate the service definition:</p>
-<div class="paragraph">
-<p>Execute <code>systemctl daemon-reload</code></p>
-</div>
+<p>Start nginx. See <code>man nginx</code> and the documentation on <a href="https://nginx.org" class="bare">https://nginx.org</a> for more information.</p>
 </li>
 </ol>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_start_openems_backend"><a class="anchor" href="#_start_openems_backend"></a>2. Start OpenEMS Backend</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>To update the OpenEMS JAR file at the target device, it is required to copy the JAR file from your build directory to <code>/opt/openems-backend/openems-backend.jar</code> on the server. Afterwards it is required to restart the systemd service</p>
+<p>OpenEMS UI should now be available on port 4200.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_troubleshooting"><a class="anchor" href="#_troubleshooting"></a>1.2. Troubleshooting</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>(Re)start OpenEMS systemd service.</p>
-<div class="paragraph">
-<p>Execute <code>systemctl restart openems-backend --no-block; journalctl -lfu openems-backend</code></p>
-</div>
-<div class="paragraph">
-<p>The command restarts the service (<em>systemctl restart openems-backend</em>) while not waiting for the OpenEMS startup notification (<em>--no-block</em>). Then it directly prints the OpenEMS system log (<em>journalctl -lfu openems-backend</em>).</p>
-</div>
+<p>If there are error messages saying that port 80 is already used, e.g. by another webserver already running on your machine: Remove /etc/nginx/sites-enabled/default. This is a link to /etc/nginx/sites-available/default where port 80 is configured to be used.</p>
+</li>
+<li>
+<p>If the browser shows “403 forbidden”, this may be due to missing permissions. nginx needs read and execute permissions on all directories on the path to the openems-ui directory. You can check this with the command <code>namei -l /home/user/openems/openems-ui</code>. For example, /home/user might have “rwx” permissions only for user. In that case, the command <code>chmod a+rx /home/user</code> changes the permissions, so that nginx can run openems-ui.</p>
 </li>
 </ol>
+</div>
 </div>
 </div>
 </div>

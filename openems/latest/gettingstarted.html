@@ -707,7 +707,10 @@
     <span class="nav-text">OpenEMS UI</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="ui/deploy.html">Deploy UI to Docker</a>
+    <a class="nav-link" href="#ui/run-prebuilt.adoc">Run prebuilt UI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ui/deploy.adoc">Deploy UI to Docker</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="ui/setup-ide.html">Setup IDE</a>
@@ -716,23 +719,20 @@
     <a class="nav-link" href="ui/architecture.html">Architecture</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="ui/build.html">Build OpenEMS UI</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
+  </li>
+  <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="ui/implementing-a-widget/introduction.html">Implementing a UI Widget</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="4">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="ui/implementing-a-widget/components/flat.html">Flat-Widget</a>
   </li>
-  <li class="nav-item" data-depth="4">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="ui/implementing-a-widget/components/modal.html">Modal-Widget</a>
   </li>
-  <li class="nav-item" data-depth="4">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="ui/implementing-a-widget/components/chart.html">Chart</a>
-  </li>
-</ul>
   </li>
 </ul>
   </li>
@@ -1278,7 +1278,7 @@ Values will differ slightly for you, but note how the Controller now tells the b
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you plan to actively develop on OpenEMS UI, you can now also setup a development environment for it using <a href="ui/setup-ide.html" class="xref page">this guide</a>. Otherwise you can use the prebuilt UI or <a href="ui/deploy.html" class="xref page">deploy the OpenEMS UI as docker image</a>.
+If you plan to actively develop on OpenEMS UI, you can now also setup a development environment for it using <a href="ui/setup-ide.html" class="xref page">this guide</a>. Otherwise you can use the prebuilt UI as described below, or <a href="#ui/deploy.adoc" class="xref unresolved">deploy the OpenEMS UI as docker image</a>.
 </td>
 </tr>
 </table>
@@ -1286,10 +1286,16 @@ If you plan to actively develop on OpenEMS UI, you can now also setup a developm
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Make sure OpenEMS Edge is running locally and the websocket is running on port <code>8085</code>.</p>
+<p>To use the prebuilt UI, go to the <a href="https://github.com/OpenEMS/openems/releases/">OpenEMS release page</a> on GitHub and download the latest <code>openems-ui.tar.xz</code>. Extract it to a local directory.</p>
 </li>
 <li>
-<p>Open the UI URL</p>
+<p>Set up a web server serving this directory on port 4200 and start it. Any web server can be used. You can find information on how to set up the nginx webserver <a href="ui/deploy/nginx.html" class="xref page">here</a>.</p>
+</li>
+<li>
+<p>Make sure OpenEMS Edge is running locally, and the port of the websocket matches the port the UI is expecting. For the prebuilt UI it is port <code>8075</code>.</p>
+</li>
+<li>
+<p>Open the UI URL, e.g. <a href="http://localhost:4200" class="bare">http://localhost:4200</a>. If the UI is running on a remote machine, replace <code>localhost</code> by the IP address of that machine.</p>
 </li>
 <li>
 <p>You should see OpenEMS UI. Log in as user "guest" by leaving the standard password and clicking the login button. Alternatively type "admin" in the password field to log in with extended permissions.</p>
