@@ -897,7 +897,7 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This bundle currently provides OpenEMS integration for the Chint DDSU666 single-phase meter. The component communicates through the OpenEMS Modbus bridge and exposes standard <code>ElectricityMeter</code> channels for power, voltage, current, frequency, and cumulative energy.</p>
+<p>This bundle provides OpenEMS integration for selected Chint electricity meters. The components communicate through the OpenEMS Modbus bridge and expose standard <code>ElectricityMeter</code> channels for power, voltage, current, frequency, and cumulative energy.</p>
 </div>
 </div>
 </div>
@@ -907,7 +907,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://chintglobal.com/global/en/products/instruments-meters/electricity-meter/ddsu666.html">Chint DDSU666 <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
+<p><a href="https://www.chintglobal.com/global/en/products/instruments-meters/electricity-meter/ddsu666.html">Chint DDSU666 <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
+</li>
+<li>
+<p><a href="https://www.chintglobal.com/global/en/products/instruments-meters/electricity-meter/dtsu666.html">Chint DTSU666 <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
 </li>
 </ul>
 </div>
@@ -982,7 +985,84 @@
 </li>
 </ul>
 </div>
-<div id="_ddsu666_meter" class="paragraph">
+</div>
+<div class="sect2">
+<h3 id="_ddsu666_meter"><a class="anchor" href="#_ddsu666_meter"></a><a href="#_dtsu666_meter">Chint DTSU666 Meter</a></h3>
+<div class="paragraph">
+<p><strong>Name</strong>: Meter Chint DTSU666</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>Meter.Chint.DTSU666</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>MeterChintDtsu666</p>
+</li>
+<li>
+<p>ElectricityMeter</p>
+</li>
+<li>
+<p>ModbusComponent</p>
+</li>
+<li>
+<p>OpenemsComponent</p>
+</li>
+<li>
+<p>ModbusSlave</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong>: Three-phase, four-wire electricity meter via Modbus input registers. This implementation supports <code>phaseRotation</code>, maps the total import-energy register to standard OpenEMS cumulative energy channels, and exposes the total power factor as a device-specific channel.</p>
+</div>
+<div class="paragraph">
+<p>Unlike the DDSU666 single-phase support in this bundle, DTSU666 uses <code>FC4</code> / input registers for the verified live register map.</p>
+</div>
+<div class="ulist">
+<div class="title"><strong>Configuration</strong>:</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "meter0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+</li>
+<li>
+<p><code>modbus_id</code> (String): ID of Modbus bridge for communication (default: "modbus0")</p>
+</li>
+<li>
+<p><code>modbusUnitId</code> (Integer): Modbus Unit ID of the meter device (default: 1)</p>
+</li>
+<li>
+<p><code>type</code> (Enum): Meter type - GRID, PRODUCTION, or CONSUMPTION (default: GRID)</p>
+</li>
+<li>
+<p><code>invert</code> (Boolean): Invert power values and swap production/consumption energy (default: false)</p>
+</li>
+<li>
+<p><code>phaseRotation</code> (Enum): Phase mapping for the three-phase meter (default: <code>L1_L2_L3</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Configuration note</strong>: the OSGi attribute is named <code>modbus_id</code>, but in FileInstall/Felix <code>.config</code> files the property key is typically <code>modbus.id</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Verified DTSU666 communication assumptions</strong>:
+* Use <code>FC4</code> / input registers
+* Recommended serial bridge settings are <code>9600-N-8-2</code>
+* Total import energy is read from register <code>0x4000</code>
+* Total power factor is read from register <code>0x202A</code> and exposed as an integer-style OpenEMS value with scale <code>1000 = 1.000</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Scope note</strong>: <code>DTSU666</code> is the supported three-phase, four-wire model in this bundle. The separate <code>DSSU666</code> three-phase, three-wire variant is intentionally not included here.</p>
+</div>
+<div id="_dtsu666_meter" class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.meter.chint">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
