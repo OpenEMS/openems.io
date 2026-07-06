@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Mennekes Charging Station :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.d/io.openems.edge.evse.chargepoint.mennekes.html">
+    <title>ESS Power - Power Distribution :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.d/io.openems.edge.ess.core.html">
     <meta name="generator" content="Antora 3.1.15">
     <link rel="stylesheet" href="../../../../_/css/site.css">
   </head>
@@ -388,7 +388,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.edge2edge.html">Edge-2-Edge</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="io.openems.edge.ess.core.html">ESS Power - Power Distribution</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -478,7 +478,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.pvinverter.kostal.html">KOSTAL Solar Electric</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="3">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.evse.chargepoint.mennekes.html">Mennekes Charging Station</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -887,22 +887,694 @@
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
     <li>OpenEMS Edge</li>
     <li>Device &amp; Service</li>
-    <li><a href="io.openems.edge.evse.chargepoint.mennekes.html">Mennekes Charging Station</a></li>
+    <li><a href="io.openems.edge.ess.core.html">ESS Power - Power Distribution</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.d/io.openems.edge.evse.chargepoint.mennekes.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.d/io.openems.edge.ess.core.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Mennekes Charging Station</h1>
+<h1 class="page">ESS Power - Power Distribution</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>This component implements the charging stations by the manufacturer Mennekes. It collects all relevant information into the given Nature Channels and its own Channels and sends charging commands that have been set by another controllers. Supported are both the Amtron Professional and the 4You.</p>
+<p>The ESS Power component is the central authority for distributing active and reactive power across all battery ESS units in an OpenEMS Edge system.
+Every control cycle, it collects power requests from all active controllers, resolves any conflicts, respects each ESS&#8217;s hardware limits, and delivers a consistent setpoint to each unit.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.evcs.mennekes">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+<p>It follows the OpenEMS <a href="https://openems.github.io/openems.io/openems/latest/edge/architecture.html">Input-Process-Output</a> model: hardware measurements are read first, controllers add their constraints, and the computed setpoints are written to the ESS units - all within a single cycle.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.ess.core">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_control_cycle"><a class="anchor" href="#_1_control_cycle"></a>1. Control Cycle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The power distribution runs every <a href="https://openems.github.io/openems.io/openems/latest/edge/architecture.html#_cycle">Core cycle</a> (1 second default), aligned with the OpenEMS Edge cycle events:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">AfterProcessImage</dt>
+<dd>
+<p>Live measurements are captured from each ESS: allowed charge power, allowed discharge power, state-of-charge, and maximum apparent power.
+These values define the hardware boundaries for the upcoming solve and remain constant for the rest of the cycle.</p>
+</dd>
+<dt class="hdlist1">BeforeWrite</dt>
+<dd>
+<p>Controllers inject their power requests as <em>constraints</em>.
+The solver computes a setpoint for each ESS and calls <code>applyPower()</code> on each ESS.</p>
+</dd>
+<dt class="hdlist1">AfterWrite</dt>
+<dd>
+<p>Constraints are cleared. Fresh constraints will be collected at the start of the next cycle.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The process image — including hardware limits — is guaranteed not to change between <code>AfterProcessImage</code> and <code>AfterWrite</code>.
+Controllers always work against a consistent image of the system state.
+</td>
+</tr>
+</table>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_power_constraints"><a class="anchor" href="#_2_power_constraints"></a>2. Power Constraints</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A constraint is a bound that a controller places on the power of a specific ESS for the current cycle.
+Multiple controllers can add constraints simultaneously; the solver finds the ESS setpoint that satisfies all of them at once.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 42.8571%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EQUALS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Force an exact power value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Charge this ESS at exactly 5 000 W</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LESS_OR_EQUALS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set an upper limit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discharge no more than 10 000 W</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GREATER_OR_EQUALS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set a lower limit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must discharge at least 2 000 W</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Constraints can apply to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Active power</strong> (W) — real power delivered to or drawn from the Grid</p>
+</li>
+<li>
+<p><strong>Reactive power</strong> (VAr) — reactive power for power factor or voltage support</p>
+</li>
+<li>
+<p><strong>All phases combined</strong> (symmetric ESS) or <strong>individual phases L1 / L2 / L3</strong> (asymmetric ESS)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example: A peak-shaving controller sets a <code>LESS_OR_EQUALS</code> constraint to cap grid feed-in.
+At the same time, an emergency reserve controller sets a <code>GREATER_OR_EQUALS</code> constraint to ensure a minimum SoC buffer is never discharged.
+The solver satisfies both simultaneously; if they conflict, it finds the closest feasible operating point and raises a fault flag.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the set of constraints has no feasible solution, all ESS units are driven to zero for that cycle and the <code>NotSolved</code> channel is set.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_2_1_coefficients"><a class="anchor" href="#_2_1_coefficients"></a>2.1 Coefficients</h3>
+<div class="paragraph">
+<p>A <strong>Coefficient</strong> identifies the specific power quantity being targeted by a constraint.
+It answers three questions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Which ESS?</strong> — the ESS or cluster by ID</p>
+</li>
+<li>
+<p><strong>Which power type?</strong> — active power (W) or reactive power (VAr)</p>
+</li>
+<li>
+<p><strong>Which phase?</strong> — all phases combined (symmetric) or a single phase L1 / L2 / L3 (asymmetric)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example: <em>"the active power of ESS1 across all phases"</em> is one Coefficient.
+<em>"the reactive power of ESS2 on phase L2"</em> is another.</p>
+</div>
+<div class="sect3">
+<h4 id="_simple_constraints"><a class="anchor" href="#_simple_constraints"></a>Simple Constraints</h4>
+<div class="paragraph">
+<p>A <strong>simple constraint</strong> binds a single Coefficient to a fixed value.
+This is what controllers typically use to express a power request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ESS1 / All phases / Active power  &lt;=  10 000 W</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_complex_constraints"><a class="anchor" href="#_complex_constraints"></a>Complex Constraints</h4>
+<div class="paragraph">
+<p>A <strong>complex constraint</strong> ties two or more Coefficients together in a linear relationship.
+No fixed value is imposed — instead, a <strong>ratio</strong> between the power quantities of different ESS units is enforced.
+This is what the distribution strategies use internally to express proportional loading:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ESS1_ActivePower x weight_B  =  ESS2_ActivePower x weight_A</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example: The <em>Move Towards Target</em> strategy builds one such constraint for every pair of ESS units.
+If ESS1 should carry 70 % and ESS2 should carry 30 % of the total power, the constraint becomes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ESS1_ActivePower x 30  =  ESS2_ActivePower x 70</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The solver satisfies this alongside all hardware and controller constraints simultaneously, producing a setpoint where both the ratio and the bounds are respected.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Controllers always use simple constraints. Complex constraints are constructed internally by the solver strategies and are never exposed to individual controllers.
+</td>
+</tr>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_solvers"><a class="anchor" href="#_3_solvers"></a>3. Solvers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The component provides two types solver. The active solver is selected by the <code>strategy</code> configuration parameter.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Engine</th>
+<th class="tableblock halign-left valign-top">Strategy</th>
+<th class="tableblock halign-left valign-top">Best suited for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>V1</strong> — Linear Constraint Solver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIMIZE_BY_MOVING_TOWARDS_TARGET</code> <em>(default)</em><br>
+  <code>OPTIMIZE_BY_KEEPING_TARGET_DIRECTION_AND_MAXIMIZING_IN_ORDER</code><br>
+  <code>OPTIMIZE_BY_KEEPING_ALL_EQUAL</code><br>
+  <code>OPTIMIZE_BY_KEEPING_ALL_NEAR_EQUAL</code> <br>
+  <code>ALL_CONSTRAINTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Systems with multiple standalone ESS units where SoC balancing and constraint-based optimisation are required</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>V2</strong> — Balance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BALANCE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clustered systems where physical ESS units are grouped under a MetaEss and proportional top-down distribution is sufficient</p></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_4_v1_linear_constraint_solver"><a class="anchor" href="#_4_v1_linear_constraint_solver"></a>4. V1 — Linear Constraint Solver</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>V1 uses linear programming to find the optimal power setpoint for each ESS that satisfies all active constraints simultaneously.
+If the chosen strategy cannot produce a valid setpoint, the engine automatically tries the remaining strategies in the fallback order defined below.
+As a final last resort, <code>ALL_CONSTRAINTS</code> performs a pure feasibility solve — finding any operating point that satisfies all hardware and controller constraints, with no further optimisation objective.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Configured strategy</th>
+<th class="tableblock halign-left valign-top">Fallback sequence (left to right, then ALL_CONSTRAINTS)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIMIZE_BY_MOVING_TOWARDS_TARGET</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8594; <code>OPTIMIZE_BY_KEEPING_TARGET_DIRECTION_AND_MAXIMIZING_IN_ORDER</code> &#8594; <code>ALL_CONSTRAINTS</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIMIZE_BY_KEEPING_TARGET_DIRECTION_AND_MAXIMIZING_IN_ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8594; <code>OPTIMIZE_BY_MOVING_TOWARDS_TARGET</code> &#8594; <code>ALL_CONSTRAINTS</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIMIZE_BY_KEEPING_ALL_EQUAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8594; <code>OPTIMIZE_BY_KEEPING_ALL_NEAR_EQUAL</code> &#8594; <code>OPTIMIZE_BY_KEEPING_TARGET_DIRECTION_AND_MAXIMIZING_IN_ORDER</code> &#8594; <code>OPTIMIZE_BY_MOVING_TOWARDS_TARGET</code> &#8594; <code>ALL_CONSTRAINTS</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIMIZE_BY_KEEPING_ALL_NEAR_EQUAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8594; <code>OPTIMIZE_BY_KEEPING_ALL_EQUAL</code> &#8594; <code>OPTIMIZE_BY_KEEPING_TARGET_DIRECTION_AND_MAXIMIZING_IN_ORDER</code> &#8594; <code>OPTIMIZE_BY_MOVING_TOWARDS_TARGET</code> &#8594; <code>ALL_CONSTRAINTS</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ALL_CONSTRAINTS</code> / <code>UNDEFINED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8594; <code>ALL_CONSTRAINTS</code> directly (no optimisation attempted)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_4_1_charge_discharge_direction"><a class="anchor" href="#_4_1_charge_discharge_direction"></a>4.1 Charge / Discharge Direction</h3>
+<div class="paragraph">
+<p>Before distributing power, the engine determines the <strong>operating direction</strong> from the combined effect of all active constraints:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">DISCHARGE</dt>
+<dd>
+<p>Power flows <strong>out of</strong> the battery into the grid or load.</p>
+</dd>
+<dt class="hdlist1">CHARGE</dt>
+<dd>
+<p>Power flows <strong>into</strong> the battery from the grid or a PV source.</p>
+</dd>
+<dt class="hdlist1">KEEP_ZERO</dt>
+<dd>
+<p>No power exchange is required. All ESS units are driven toward zero active power.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_2_ess_selection"><a class="anchor" href="#_4_2_ess_selection"></a>4.2 ESS Selection</h3>
+<div class="paragraph">
+<p>When only a subset of ESS units is needed to fulfil a power request, the engine activates the <strong>minimum number</strong> required:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>On <strong>discharge</strong>: ESS units with the highest state-of-charge are activated first.</p>
+</li>
+<li>
+<p>On <strong>charge</strong>: ESS units with the lowest state-of-charge are activated first.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This reduces unnecessary cycling of units that do not need to participate in a given operating point and limits wear on ESS units that are already near their SoC limits.</p>
+</div>
+<div class="paragraph">
+<p>Example: Three batteries at 80 %, 60 %, and 30 % SoC must deliver 10 kW.
+If one ESS alone can cover 10 kW, only the 80 % unit is used.
+The other two remain idle for that cycle.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The operating direction does not switch immediately when the power request changes from discharge to charge or vice versa.
+The engine waits for 100 consecutive cycles of the new direction before committing to the switch.
+This prevents rapid ESS on/off switching when the system oscillates around zero power.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_3_distribution_strategies"><a class="anchor" href="#_4_3_distribution_strategies"></a>4.3 Distribution Strategies</h3>
+<div class="sect3">
+<h4 id="_4_3_1_move_towards_target"><a class="anchor" href="#_4_3_1_move_towards_target"></a>4.3.1 Move Towards Target</h4>
+<div class="paragraph">
+<p>Each ESS is assigned a <strong>weight</strong> derived from its state-of-charge and the current operating direction:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Discharge</strong>: weight is proportional to SoC — higher SoC ESS units carry more of the load.</p>
+</li>
+<li>
+<p><strong>Charge</strong>: weight is inversely proportional to SoC — lower SoC ESS units absorb more of the incoming power.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Rather than jumping immediately to the target weights, the distribution moves <strong>10 % of the remaining difference</strong> each cycle.
+This produces a smooth, gradual load shift between ESS units and avoids abrupt step changes on the AC bus.</p>
+</div>
+<div class="paragraph">
+<p>Example: Two batteries at 70 % and 40 % SoC must discharge 8 kW.
+The target weight gives 70 % of the power (~5.6 kW) to the high-SoC unit and 30 % (~2.4 kW) to the low-SoC unit.
+If last cycle both were carrying equal power, this cycle moves 10 % of the way toward that split.
+Over the following cycles, the distribution gradually converges to the SoC-weighted target.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_4_3_2_keep_target_direction_and_maximize_in_order"><a class="anchor" href="#_4_3_2_keep_target_direction_and_maximize_in_order"></a>4.3.2 Keep Target Direction and Maximize in Order</h4>
+<div class="paragraph">
+<p>Each active ESS is pushed as far as possible in the target direction — full discharge or full charge — one ESS at a time — on discharge, highest SoC first; on charge, lowest SoC first.
+The first ESS is loaded to its hardware limit before the next one is engaged.</p>
+</div>
+<div class="paragraph">
+<p>This strategy minimises the number of ESS units operating simultaneously and runs each participating unit at or near its rated power rather than spreading a modest load across all units.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_4_3_3_keep_all_equal"><a class="anchor" href="#_4_3_3_keep_all_equal"></a>4.3.3 Keep All Equal</h4>
+<div class="paragraph">
+<p>All active ESS units carry the <strong>same active and reactive power</strong>.
+Power is split equally regardless of state-of-charge.</p>
+</div>
+<div class="paragraph">
+<p>This is appropriate when all battery units are identical in capacity and chemistry, and even thermal loading across ESS units is the primary objective.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If strict equality is not achievable under the individual hardware limits (e.g. one ESS is near its charge limit), the strategy falls back to Keep All Near Equal automatically.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_4_3_4_keep_all_near_equal_default"><a class="anchor" href="#_4_3_4_keep_all_near_equal_default"></a>4.3.4 Keep All Near Equal <em>(default)</em></h4>
+<div class="paragraph">
+<p>Power is distributed using <strong>SoC-based weights</strong>, computed in the same way as Move Towards Target:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Discharge</strong>: weight proportional to SoC — higher SoC ESS units carry more of the load.</p>
+</li>
+<li>
+<p><strong>Charge</strong>: weight inversely proportional to SoC — lower SoC ESS units absorb more of the incoming power.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Unlike Move Towards Target, which shifts gradually toward the target over many cycles, Keep All Near Equal solves the weighted distribution <strong>in one step</strong> each cycle using a linear system (LU decomposition).
+The proportionality equations and the total power sum are expressed as a matrix and solved directly to produce each ESS&#8217;s setpoint.</p>
+</div>
+<div class="paragraph">
+<p>If the unconstrained solution would push any ESS beyond its hardware limit, that ESS is clamped to its limit and the remaining power is redistributed among the unclamped units — still proportionally, using the same SoC weights.
+This clamping and re-solve repeats until all ESS setpoints are within their bounds.</p>
+</div>
+<div class="paragraph">
+<p>Example: Two ESS units must discharge 8 kW. ESS A has SoC 60 % and can deliver up to 6 kW; ESS B has SoC 40 % and can deliver up to 10 kW.
+The initial weighted split gives ESS A ~5.3 kW (60 %) and ESS B ~3.7 kW (40 %).
+Since both are within their limits, the result is applied directly — no clamping needed.
+If the target were instead 12 kW, the weighted split would give ESS A ~7.2 kW — exceeding its 6 kW limit.
+ESS A is clamped to 6 kW and the remaining 6 kW is assigned entirely to ESS B, which has sufficient headroom.</p>
+</div>
+<div class="paragraph">
+<p>ESS units currently in a fault state are automatically excluded and held at zero active power.
+This prevents a faulted unit from reducing the total available capacity and starving healthy ESS units of their fair share.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_4_3_5_all_constraints"><a class="anchor" href="#_4_3_5_all_constraints"></a>4.3.5 All Constraints</h4>
+<div class="paragraph">
+<p><code>ALL_CONSTRAINTS</code> performs a pure feasibility solve with no optimisation objective.
+Rather than balancing SoC or distributing power proportionally, it simply finds <strong>any</strong> operating point that satisfies all active hardware and controller constraints simultaneously.</p>
+</div>
+<div class="paragraph">
+<p>It is used in two ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>As an <strong>explicit configuration choice</strong> — when no distribution optimisation is needed, the solver skips all strategy logic and goes directly to the feasibility solve.</p>
+</li>
+<li>
+<p>As the <strong>automatic last-resort fallback</strong> — after every other configured strategy has failed to produce a valid solution, <code>ALL_CONSTRAINTS</code> is always tried before the solver gives up and sets all ESS units to zero.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_4_reactive_power"><a class="anchor" href="#_4_4_reactive_power"></a>4.4 Reactive Power</h3>
+<div class="paragraph">
+<p>In V1, reactive power is solved <strong>jointly</strong> with active power in the same linear constraint system.
+Controller constraints on reactive power are added alongside active power constraints and satisfied simultaneously in a single solve.</p>
+</div>
+<div class="paragraph">
+<p>The apparent power limit is enforced <strong>inside the solver</strong> — not as a post-solve check.
+Before each cycle, the apparent power circle (<code>P² + Q² ≤ S²</code>) is approximated by 8 linear tangent lines forming a polygon, and these are injected as hardware constraints alongside the AllowedCharge and AllowedDischarge bounds.
+The solver physically cannot produce a P+Q combination that lies outside this polygon.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The polygon approximation is slightly conservative — the octagon sits <strong>inside</strong> the true circle — so the usable apparent power is marginally less than the rated value. In V2, by contrast, reactive power is bounded sequentially after active power is fixed, using the exact formula <code>Q_max = sqrt(S² - P²)</code>.
+</td>
+</tr>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_v2_balance"><a class="anchor" href="#_5_v2_balance"></a>5. V2 — Balance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>V2 is used when a <strong>cluster</strong> groups several physical ESS units under a single logical ESS (MetaEss).
+It does not use linear programming — instead, power is distributed top-down through the cluster hierarchy in a single pass.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The cluster receives a target setpoint from its constraint (e.g. charge the entire cluster at 20 kW).</p>
+</li>
+<li>
+<p>The target is clamped to the aggregate charge or discharge capability of all member ESS units.
+This clamping happens <strong>before</strong> distribution begins — so if the target is physically unreachable, each ESS still receives a valid, feasible command rather than an impossible one.</p>
+</li>
+<li>
+<p>Power is divided among members <strong>proportionally to their individual available capacity</strong>.
+The reason for proportional distribution is the same as in Keep All Near Equal: an ESS with more headroom can and should absorb a larger share, making full use of the available capacity across the cluster.</p>
+</li>
+<li>
+<p>Sub-clusters are resolved recursively in the same way, level by level, until every physical ESS has a setpoint.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Each ESS&#8217;s contribution is bounded by its own allowed charge or discharge power at every level.
+Infeasible cluster targets — for example, requesting more power than all members combined can provide — are automatically corrected to the nearest achievable value before distribution begins.</p>
+</div>
+<div class="sect2">
+<h3 id="_5_1_reactive_power"><a class="anchor" href="#_5_1_reactive_power"></a>5.1 Reactive Power</h3>
+<div class="paragraph">
+<p>In V2, reactive power is solved <strong>after</strong> active power.
+Once each ESS&#8217;s active power setpoint is fixed, its remaining reactive power capacity is calculated from the apparent power rating:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Q_max = sqrt( Apparent_power^2 - Active_power^2 )</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The reactive power setpoint is then bounded to <code>[-Q_max .. +Q_max]</code>, and any controller constraints — such as a target reactive power — are applied within that window.
+This guarantees that the combined active and reactive setpoint never exceeds the ESS&#8217;s apparent power rating <code>Apparent_power</code>, regardless of the active power share.</p>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_6_output_filtering"><a class="anchor" href="#_6_output_filtering"></a>6. Output Filtering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To prevent rapid oscillations in the power command sent to hardware, each ESS&#8217;s setpoint is passed through an output filter before being applied.
+The filter type is selected in the configuration.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">PID Filter <em>(default)</em></dt>
+<dd>
+<p>A Proportional-Integral-Derivative filter. Reacts quickly to large setpoint changes while dampening small oscillations.
+This is the recommended setting for most installations.<br>
+Default gains: P = 0.3, I = 0.3, D = 0.</p>
+</dd>
+<dt class="hdlist1">PT1 Filter</dt>
+<dd>
+<p>A first-order lag filter. The output approaches the target exponentially with a configurable time constant.
+Simpler than PID and predictable in response speed. Suitable when a fixed ramp rate is preferred over adaptive control.</p>
+</dd>
+<dt class="hdlist1">Disabled</dt>
+<dd>
+<p>No filtering. The raw solver setpoint is written to the inverter each cycle.
+Use only if ramp-rate limiting is already handled at the inverter or controller level.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The filter operates per ESS. A system with three batteries uses three independent filter instances, one for each ESS.
+</td>
+</tr>
+</table>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_7_configuration"><a class="anchor" href="#_7_configuration"></a>7. Configuration</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>strategy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPTIMIZE_BY_MOVING_TOWARDS_TARGET</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Power distribution strategy (see section 3)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>symmetricMode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Forces asymmetric ESS units to balance all three phases to the same power level</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>debugMode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logs active constraints and solver result to the Edge log each cycle</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enablePid</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables PID output filter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>p</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID proportional gain <code>[0..1]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>i</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID integral gain <code>[0..1]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PID derivative gain <code>[0..1]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enablePT1Filter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables PT1 filter (only effective when PID is disabled)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pt1TimeConstant</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>30 000 ms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PT1 time constant — time for the output to reach ~63 % of a step change</p></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_8_status_channels"><a class="anchor" href="#_8_status_channels"></a>8. Status Channels</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Channel</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>StaticConstraintsFailed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The hardware limits alone — before any controller constraints — already form an infeasible combination. Indicates a configuration or hardware problem.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NotSolved</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No valid setpoint could be computed this cycle. All ESS units were set to zero.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SolveDuration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time taken by the solver in milliseconds. Useful for performance monitoring.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SolveStrategy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The strategy that successfully produced a solution this cycle. Helps identify when fallbacks are being used regularly.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </article>
   </div>
