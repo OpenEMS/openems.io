@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Backend Architecture :: Open Energy Management System</title>
     <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/backend/architecture.html">
+    <meta name="keywords" content="AsciiDoc">
     <meta name="generator" content="Antora 3.1.15">
     <link rel="stylesheet" href="../../../_/css/site.css">
   </head>
@@ -897,7 +898,108 @@
 </aside>
 <article class="doc">
 <h1 class="page">Backend Architecture</h1>
-
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenEMS Backend runs on a (cloud) server. It connects the decentralized OpenEMS Edge systems and provides aggregation, monitoring and control via the internet. Internally it is built from loosely coupled OSGi services, most importantly:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Metadata</strong> (<a href="metadata.html" class="xref page">Metadata</a>) - identification and authorization of Edges and Users.</p>
+</li>
+<li>
+<p><strong>Timedata</strong> (<a href="timedata.html" class="xref page">Timedata</a>) - persistence and query of historic data.</p>
+</li>
+<li>
+<p><strong>Ui.Websocket</strong> - the WebSocket endpoint for the OpenEMS UI.</p>
+</li>
+<li>
+<p><strong>Edge.Manager</strong> - the service that manages the connected OpenEMS Edges.</p>
+</li>
+<li>
+<p><strong>Backend-to-Backend</strong> (<a href="backend-to-backend.html" class="xref page">Backend-to-Backend</a>) - APIs for third-party systems.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_connecting_openems_edge"><a class="anchor" href="#_connecting_openems_edge"></a>1. Connecting OpenEMS Edge</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An OpenEMS Edge connects to the Backend using its <code>Controller.Api.Backend</code> over a WebSocket connection. Historically the Edge-facing endpoint was a component running inside the central Backend server. To be able to scale to a large number of Edges, this endpoint was separated into its own application, the <strong>Backend.Edge.App</strong>, which can be deployed on one or more independent servers.</p>
+</div>
+<div class="paragraph">
+<p>The general setup is:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>   [OpenEMS Edge]        [OpenEMS Edge]        [OpenEMS Edge]      ...
+        |                     |                     |
+        |  WebSocket (Controller.Api.Backend)       |
+        v                     v                     v
+ +--------------------------------------------------------------+
+ |                      Backend.Edge.App                        |   &lt;- Edge-facing server(s)
+ |         (accepts Edge connections, relays messages)          |      (one or more, scalable)
+ +--------------------------------------------------------------+
+        |
+        |  WebSocket
+        v
+ +--------------------------------------------------------------+
+ |                    OpenEMS Backend (central)                 |   &lt;- Central server
+ |   Edge.Manager  ·  Metadata  ·  Timedata  ·  Ui.Websocket    |
+ +--------------------------------------------------------------+</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <strong>Backend.Edge.App</strong> acts as a proxy/relay between the OpenEMS Edges and the central Backend:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>it accepts the incoming WebSocket connections from the Edges (authenticating each Edge by its API-key),</p>
+</li>
+<li>
+<p>it relays messages in both directions between the Edge and the central Backend&#8217;s <strong>Edge.Manager</strong>, and</p>
+</li>
+<li>
+<p>it keeps a local cache of connection state (e.g. the mapping of API-key to Edge-ID that it receives from the central Backend&#8217;s Metadata service).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Because the Backend.Edge.App handles the protocol towards the central Backend, <strong>the Edge <code>Controller.Api.Backend</code> does not need to be modified</strong>: an Edge always connects to a Backend.Edge.App, regardless of how many Edge-facing servers are deployed.</p>
+</div>
+<div class="sect2">
+<h3 id="_deployment_options"><a class="anchor" href="#_deployment_options"></a>1.1. Deployment options</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Scaled setup</strong>: run one or more Backend.Edge.App instances on separate physical servers, each connecting back to the central Backend&#8217;s Edge.Manager. This distributes the Edge connections across several machines.</p>
+</li>
+<li>
+<p><strong>Single-server setup</strong>: run a single Backend.Edge.App on the central server itself and let it connect to the Backend&#8217;s Edge.Manager on <code>localhost</code>. This is the simplest setup for small deployments.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The Metadata service on the central Backend supplies the Backend.Edge.App with the API-key to Edge-ID mapping. When using File-based Metadata, make sure it provides this mapping (see <a href="metadata.html" class="xref page">Metadata</a>); the Odoo and Dummy Metadata implementations already do.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
 </article>
   </div>
 </main>
