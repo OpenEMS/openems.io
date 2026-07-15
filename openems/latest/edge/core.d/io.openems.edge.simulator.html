@@ -482,7 +482,7 @@
     <a class="nav-link" href="../device_service.d/io.openems.edge.evse.chargepoint.mennekes.html">Mennekes Charging Station</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../device_service.d/io.openems.edge.heat.mypv.html">my-PV Heatingelement</a>
+    <a class="nav-link" href="../device_service.d/io.openems.edge.heat.mypv.html">my-PV Heating element</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../device_service.d/io.openems.edge.io.offgridswitch.html">Off-Grid Switch (Emergency Power Switch)</a>
@@ -509,7 +509,7 @@
     <a class="nav-link" href="../device_service.d/io.openems.edge.battery.pylontech.html">Pylontech Powercube M2 Battery</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../device_service.d/io.openems.edge.batteryinverter.refu88k.html">REFUstore 88K</a>
+    <a class="nav-link" href="../device_service.d/io.openems.edge.batteryinverter.refu.html">REFU Battery Inverter</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../device_service.d/io.openems.edge.io.revpi.html">RevolutionPi DigitalIO Module</a>
@@ -1071,6 +1071,77 @@ Be aware that the SimulatorApp Component takes control over the complete OpenEMS
       }
    }
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_device_simulators"><a class="anchor" href="#_device_simulators"></a>Device Simulators</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_evse_charge_point"><a class="anchor" href="#_evse_charge_point"></a>EVSE Charge-Point</h3>
+<div class="paragraph">
+<p>The EVSE Charge-Point Simulator simulates an AC charging station for tests, development, and demo setups in OpenEMS Edge.
+It provides typical charge-point and metering channels, accepts a charging current setpoint (mA), and derives simulated power and energy counters from it.</p>
+</div>
+<div class="sect3">
+<h4 id="_component"><a class="anchor" href="#_component"></a>Component</h4>
+<div class="paragraph">
+<p><strong>Name</strong>: Simulator EVSE Charge-Point</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>Simulator.Evse.ChargePoint</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_behavior"><a class="anchor" href="#_behavior"></a>Behavior</h4>
+<div class="paragraph">
+<p>Simulates a charge-point with configurable parameters and channels for testing and development purposes.
+Key features include:
+* Simulates vehicle connection status via <code>vehicleConnected</code>
+* Define min and max charging current (<code>ApplySetPoint</code>) in milliampere
+* Calculates per-phase active power from <code>voltage * current</code>
+* Aggregates current/power and updates per-phase energy counters cyclically
+* Supports single-phase and three-phase wiring including <code>phaseRotation</code> and phase switch
+* Optional read-only mode without active control</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>id</code> (String): Component ID (default: <code>evseChargePoint0</code>)</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable name (default: empty)</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enables/disables the component (default: <code>true</code>)</p>
+</li>
+<li>
+<p><code>readOnly</code> (Boolean): No active control/write access. The charge-point will use minCurrent as the current power if a vehicle is connected (default: <code>false</code>)</p>
+</li>
+<li>
+<p><code>vehicleConnected</code> (Boolean): Simulated vehicle connection (default: <code>true</code>)</p>
+</li>
+<li>
+<p><code>maxMilliampere</code> (Integer): Maximum charging current in mA (default: <code>16000</code>)</p>
+</li>
+<li>
+<p><code>minMilliampere</code> (Integer): Minimum charging current in mA (default: <code>6000</code>)</p>
+</li>
+<li>
+<p><code>voltage</code> (Integer): Simulated phase voltage in V (default: <code>230</code>)</p>
+</li>
+<li>
+<p><code>wiring</code> (SingleOrThreePhase): <code>SINGLE_PHASE</code> or <code>THREE_PHASE</code> (default: <code>THREE_PHASE</code>)</p>
+</li>
+<li>
+<p><code>phaseRotation</code> (PhaseRotation): Phase sequence (default: <code>L1_L2_L3</code>)</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
