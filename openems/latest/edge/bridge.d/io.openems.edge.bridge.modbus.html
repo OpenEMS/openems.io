@@ -912,17 +912,39 @@
 <p>Modbus is a widely-used industrial communication standard for fieldbus communications. The Modbus Bridge enables OpenEMS to communicate with all kinds of hardware devices like photovoltaic inverters, electric meters, battery systems, and other industrial equipment that support Modbus protocol.</p>
 </div>
 <div class="paragraph">
-<p>The bridge manages:
-* Modbus task execution scheduling and prioritization
-* Read and write request coordination across all Modbus components
-* Automatic defective component handling and retry logic
-* Cycle-synchronized communication timing
-* Detailed logging and debugging capabilities</p>
+<p>The bridge manages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Modbus task execution scheduling and prioritization</p>
+</li>
+<li>
+<p>Read and write request coordination across all Modbus components</p>
+</li>
+<li>
+<p>Automatic defective component handling and retry logic</p>
+</li>
+<li>
+<p>Cycle-synchronized communication timing</p>
+</li>
+<li>
+<p>Detailed logging and debugging capabilities</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Two transport protocols are supported:
-* <strong>Modbus/TCP</strong> - Network-based communication via TCP/IP
-* <strong>Modbus/RTU</strong> - Serial-based communication via RS485 or RS232</p>
+<p>Two transport protocols are supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Modbus/TCP</strong> - Network-based communication via TCP/IP</p>
+</li>
+<li>
+<p><strong>Modbus/RTU</strong> - Serial-based communication via RS485 or RS232</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -941,11 +963,23 @@
 <p><strong>Purpose</strong>: Master bridge for Modbus/TCP network communication.</p>
 </div>
 <div class="paragraph">
-<p><strong>Use Cases</strong>:
-* Network-connected industrial devices
-* Distributed systems across network segments
-* Devices with native Ethernet interfaces
-* Preferred for modern installations</p>
+<p><strong>Use Cases</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Network-connected industrial devices</p>
+</li>
+<li>
+<p>Distributed systems across network segments</p>
+</li>
+<li>
+<p>Devices with native Ethernet interfaces</p>
+</li>
+<li>
+<p>Preferred for modern installations</p>
+</li>
+</ul>
 </div>
 <div class="ulist">
 <div class="title"><strong>Configuration</strong>:</div>
@@ -980,11 +1014,23 @@
 <p><strong>Purpose</strong>: Master bridge for Modbus/RTU serial communication via RS485 or RS232.</p>
 </div>
 <div class="paragraph">
-<p><strong>Use Cases</strong>:
-* Legacy equipment with serial interfaces
-* Short-distance installations (under 1km)
-* Isolated systems without network connectivity
-* Multi-drop serial bus configurations</p>
+<p><strong>Use Cases</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Legacy equipment with serial interfaces</p>
+</li>
+<li>
+<p>Short-distance installations (under 1km)</p>
+</li>
+<li>
+<p>Isolated systems without network connectivity</p>
+</li>
+<li>
+<p>Multi-drop serial bus configurations</p>
+</li>
+</ul>
 </div>
 <div class="ulist">
 <div class="title"><strong>Configuration</strong>:</div>
@@ -1095,9 +1141,17 @@
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Priority Levels</strong>:
-* <code>HIGH</code> - Executed every cycle (typical for control feedback)
-* <code>LOW</code> - Round-robin execution (one LOW task per cycle per component)</p>
+<p><strong>Priority Levels</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>HIGH</code> - Executed every cycle (typical for control feedback)</p>
+</li>
+<li>
+<p><code>LOW</code> - Round-robin execution (one LOW task per cycle per component)</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1147,10 +1201,20 @@
 <p><strong>Timing Optimization</strong>:</p>
 </div>
 <div class="paragraph">
-<p>The ModbusWorker "learns" an ideal delay time each cycle:
-* Measures time to execute all write tasks
-* Calculates when read tasks should start
-* Automatically applies CycleDelay for just-in-time reads</p>
+<p>The ModbusWorker "learns" an ideal delay time each cycle:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Measures time to execute all write tasks</p>
+</li>
+<li>
+<p>Calculates when read tasks should start</p>
+</li>
+<li>
+<p>Automatically applies CycleDelay for just-in-time reads</p>
+</li>
+</ul>
 </div>
 </div>
 </div>

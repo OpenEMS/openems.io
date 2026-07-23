@@ -912,11 +912,23 @@
 <p>The Controller API bundle defines the base interface that all OpenEMS edge controllers must implement. Controllers are the core logic components that automate energy management decisions - they run periodically to read sensor data and command power adjustments to batteries, inverters, EVCS chargers, and other actuators.</p>
 </div>
 <div class="paragraph">
-<p>A controller has:
-* A <code>run()</code> method called every OpenEMS cycle
-* Access to all component data via the component registry
-* Ability to set target power, reactive power, charging current, etc.
-* A RUN_FAILED channel to report execution errors</p>
+<p>A controller has:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>run()</code> method called every OpenEMS cycle</p>
+</li>
+<li>
+<p>Access to all component data via the component registry</p>
+</li>
+<li>
+<p>Ability to set target power, reactive power, charging current, etc.</p>
+</li>
+<li>
+<p>A RUN_FAILED channel to report execution errors</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -932,12 +944,24 @@
 <p><strong>Purpose</strong>: Defines the contract that controllers must follow for execution in the OpenEMS control loop.</p>
 </div>
 <div class="paragraph">
-<p><strong>Key Method</strong>:
-* <code>run()</code> - Executes the controller logic every cycle</p>
+<p><strong>Key Method</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>run()</code> - Executes the controller logic every cycle</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p><strong>Channel</strong>:
-* <code>RUN_FAILED</code> - Fault channel indicating controller execution failure</p>
+<p><strong>Channel</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RUN_FAILED</code> - Fault channel indicating controller execution failure</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Usage</strong>:

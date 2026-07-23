@@ -1065,11 +1065,23 @@
 <p><strong>Configuration note</strong>: the OSGi attribute is named <code>modbus_id</code>, but in FileInstall/Felix <code>.config</code> files the property key is typically <code>modbus.id</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Verified DTSU666 communication assumptions</strong>:
-* Use <code>FC4</code> / input registers
-* Recommended serial bridge settings are <code>9600-N-8-2</code>
-* Total import energy is read from register <code>0x4000</code>
-* Total power factor is read from register <code>0x202A</code> and exposed as an integer-style OpenEMS value with scale <code>1000 = 1.000</code></p>
+<p><strong>Verified DTSU666 communication assumptions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use <code>FC4</code> / input registers</p>
+</li>
+<li>
+<p>Recommended serial bridge settings are <code>9600-N-8-2</code></p>
+</li>
+<li>
+<p>Total import energy is read from register <code>0x4000</code></p>
+</li>
+<li>
+<p>Total power factor is read from register <code>0x202A</code> and exposed as an integer-style OpenEMS value with scale <code>1000 = 1.000</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Scope note</strong>: <code>DTSU666</code> is the supported three-phase, four-wire model in this bundle. The separate <code>DSSU666</code> three-phase, three-wire variant is intentionally not included here.</p>

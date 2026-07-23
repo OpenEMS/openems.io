@@ -912,12 +912,26 @@
 <p>This API bundle defines the core interfaces and contracts for battery inverter components. A battery inverter is a critical component that converts between DC power from a battery and AC power for the grid or loads. Together with a battery component, a battery inverter builds an Energy Storage System (ESS).</p>
 </div>
 <div class="paragraph">
-<p>The bundle provides interfaces for:
-* Symmetric battery inverters for three-phase systems
-* Managed battery inverters that can be controlled
-* Hybrid battery inverters that can also handle PV input
-* Off-grid battery inverters
-* Inverter constraints and error handling</p>
+<p>The bundle provides interfaces for:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Symmetric battery inverters for three-phase systems</p>
+</li>
+<li>
+<p>Managed battery inverters that can be controlled</p>
+</li>
+<li>
+<p>Hybrid battery inverters that can also handle PV input</p>
+</li>
+<li>
+<p>Off-grid battery inverters</p>
+</li>
+<li>
+<p>Inverter constraints and error handling</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -968,11 +982,23 @@
 <p><strong>Purpose</strong>: Control and manage battery inverter charging/discharging operations.</p>
 </div>
 <div class="paragraph">
-<p><strong>Key Methods</strong>:
-* <code>run(Battery battery, int setActivePower, int setReactivePower)</code> - Apply power setpoints
-* <code>getStaticConstraints()</code> - Get power constraints for the inverter
-* <code>getPowerPrecision()</code> - Get minimum power step resolution
-* Inherits <code>StartStoppable</code> for start/stop lifecycle management</p>
+<p><strong>Key Methods</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>run(Battery battery, int setActivePower, int setReactivePower)</code> - Apply power setpoints</p>
+</li>
+<li>
+<p><code>getStaticConstraints()</code> - Get power constraints for the inverter</p>
+</li>
+<li>
+<p><code>getPowerPrecision()</code> - Get minimum power step resolution</p>
+</li>
+<li>
+<p>Inherits <code>StartStoppable</code> for start/stop lifecycle management</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Typical Usage</strong>: Controllers use this interface to command the inverter to charge or discharge at specified power levels.</p>
@@ -987,10 +1013,20 @@
 <p><strong>Purpose</strong>: Control inverters that can simultaneously handle battery and photovoltaic inputs.</p>
 </div>
 <div class="paragraph">
-<p><strong>Additional Capabilities</strong>:
-* Manages DC side with battery input and PV input
-* Coordinates charging from both sources
-* Handles PV feed-to-grid scenarios</p>
+<p><strong>Additional Capabilities</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Manages DC side with battery input and PV input</p>
+</li>
+<li>
+<p>Coordinates charging from both sources</p>
+</li>
+<li>
+<p>Handles PV feed-to-grid scenarios</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1002,10 +1038,20 @@
 <p><strong>Purpose</strong>: Support for island/microgrid mode where battery inverter operates independently from the main grid.</p>
 </div>
 <div class="paragraph">
-<p><strong>Use Cases</strong>:
-* Backup power systems
-* Island installations
-* Microgrids</p>
+<p><strong>Use Cases</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Backup power systems</p>
+</li>
+<li>
+<p>Island installations</p>
+</li>
+<li>
+<p>Microgrids</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1075,11 +1121,23 @@
 <div class="sectionbody">
 <div class="paragraph">
 <div class="title">ESS (Energy Storage System)</div>
-<p>Battery Inverter + Battery component together provide ESS functionality:
-* Charge/discharge coordination
-* Reactive power support
-* Grid support services
-* Off-grid capability</p>
+<p>Battery Inverter + Battery component together provide ESS functionality:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Charge/discharge coordination</p>
+</li>
+<li>
+<p>Reactive power support</p>
+</li>
+<li>
+<p>Grid support services</p>
+</li>
+<li>
+<p>Off-grid capability</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.batteryinverter.api">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>

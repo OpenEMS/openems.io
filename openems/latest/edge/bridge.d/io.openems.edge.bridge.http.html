@@ -912,12 +912,26 @@
 <p>The HTTP Bridge provides cycle-synchronized HTTP communication with remote devices and services using REST APIs. It enables OpenEMS components to periodically fetch data from HTTP endpoints and handle responses asynchronously. The bridge is widely used to integrate hardware devices like electric meters, relays, inverters, and other devices that expose RESTful APIs.</p>
 </div>
 <div class="paragraph">
-<p>Key capabilities:
-* Cycle-synchronized periodic HTTP requests (every N cycles)
-* Configurable connect and read timeouts
-* Automatic error handling and retry logic
-* JSON parsing support for structured data
-* Custom headers and HTTP method support</p>
+<p>Key capabilities:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cycle-synchronized periodic HTTP requests (every N cycles)</p>
+</li>
+<li>
+<p>Configurable connect and read timeouts</p>
+</li>
+<li>
+<p>Automatic error handling and retry logic</p>
+</li>
+<li>
+<p>JSON parsing support for structured data</p>
+</li>
+<li>
+<p>Custom headers and HTTP method support</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -951,12 +965,26 @@
 <p><strong>Purpose</strong>: Provides cycle-synchronized HTTP communication with remote endpoints.</p>
 </div>
 <div class="paragraph">
-<p><strong>Key Features</strong>:
-* <code>subscribeCycle(int cycle, String url, Consumer&lt;HttpResponse&lt;String&gt;&gt;)</code> - Fetch every N cycles
-* <code>subscribeEveryCycle(String url, Consumer&lt;HttpResponse&lt;String&gt;&gt;)</code> - Fetch every cycle
-* <code>subscribeCycle(CycleEndpoint endpoint)</code> - Advanced configuration with custom callbacks
-* <code>subscribeJsonCycle(&#8230;&#8203;)</code> - Convenience methods with automatic JSON parsing
-* <code>removeCycleEndpoint(CycleEndpoint)</code> - Cancel subscriptions</p>
+<p><strong>Key Features</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>subscribeCycle(int cycle, String url, Consumer&lt;HttpResponse&lt;String&gt;&gt;)</code> - Fetch every N cycles</p>
+</li>
+<li>
+<p><code>subscribeEveryCycle(String url, Consumer&lt;HttpResponse&lt;String&gt;&gt;)</code> - Fetch every cycle</p>
+</li>
+<li>
+<p><code>subscribeCycle(CycleEndpoint endpoint)</code> - Advanced configuration with custom callbacks</p>
+</li>
+<li>
+<p><code>subscribeJsonCycle(&#8230;&#8203;)</code> - Convenience methods with automatic JSON parsing</p>
+</li>
+<li>
+<p><code>removeCycleEndpoint(CycleEndpoint)</code> - Cancel subscriptions</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Usage Pattern</strong>:</p>
@@ -976,10 +1004,20 @@
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Cycle Scheduling</strong>:
-* If cycle=1: Fetch every OpenEMS cycle
-* If cycle=5: Fetch every 5th cycle (reduced polling)
-* If request takes longer than cycle period: Wait for completion, then schedule next</p>
+<p><strong>Cycle Scheduling</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If cycle=1: Fetch every OpenEMS cycle</p>
+</li>
+<li>
+<p>If cycle=5: Fetch every 5th cycle (reduced polling)</p>
+</li>
+<li>
+<p>If request takes longer than cycle period: Wait for completion, then schedule next</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -988,11 +1026,23 @@
 <p>Configuration record for a single HTTP subscription:</p>
 </div>
 <div class="paragraph">
-<p><strong>Fields</strong>:
-* <code>cycle</code> (int): How many cycles to wait between requests (minimum 1)
-* <code>endpoint</code> (Supplier&lt;Endpoint&gt;): Supplies the HTTP endpoint to fetch
-* <code>onResult</code> (Consumer&lt;HttpResponse&lt;String&gt;&gt;): Callback for successful responses
-* <code>onError</code> (Consumer&lt;HttpError&gt;): Callback for errors</p>
+<p><strong>Fields</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cycle</code> (int): How many cycles to wait between requests (minimum 1)</p>
+</li>
+<li>
+<p><code>endpoint</code> (Supplier&lt;Endpoint&gt;): Supplies the HTTP endpoint to fetch</p>
+</li>
+<li>
+<p><code>onResult</code> (Consumer&lt;HttpResponse&lt;String&gt;&gt;): Callback for successful responses</p>
+</li>
+<li>
+<p><code>onError</code> (Consumer&lt;HttpError&gt;): Callback for errors</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Usage</strong>:</p>
