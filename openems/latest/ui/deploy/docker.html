@@ -951,11 +951,23 @@ volumes:
 <p>You can find this at <code>tools/docker/ui/docker-compose.yml</code>.</p>
 </div>
 <div class="paragraph">
-<p>Summary of the changes (compared to what you find for <a href="../../edge/deploy/docker.html#_openems_edge_ui" class="xref page">Edge</a>):
-1. Just the service <code>openems-ui</code> in the docker-compose file
-2. The WEBSOCKET_HOST is directed to the localhost of the host computer (assumed to be your development machine)
-3. The internal port 80 is mapped to the external port 4200 to allow the links to localhost:4200 in the dev environment and documentation to function
-4. The volumes <code>openems-ui-conf</code> and <code>openems-ui-log</code></p>
+<p>Summary of the changes (compared to what you find for <a href="../../edge/deploy/docker.html#_openems_edge_ui" class="xref page">Edge</a>):</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Just the service <code>openems-ui</code> in the docker-compose file</p>
+</li>
+<li>
+<p>The WEBSOCKET_HOST is directed to the localhost of the host computer (assumed to be your development machine)</p>
+</li>
+<li>
+<p>The internal port 80 is mapped to the external port 4200 to allow the links to localhost:4200 in the dev environment and documentation to function</p>
+</li>
+<li>
+<p>The volumes <code>openems-ui-conf</code> and <code>openems-ui-log</code></p>
+</li>
+</ol>
 </div>
 <div class="sect2">
 <h3 id="_run_docker_compose"><a class="anchor" href="#_run_docker_compose"></a>2.1. Run docker-compose</h3>
@@ -982,10 +994,20 @@ d708a6cd1583   openems/ui-edge:latest   "/init"   2 hours ago   Up About an hour
 <div class="sect2">
 <h3 id="_troubleshooting"><a class="anchor" href="#_troubleshooting"></a>2.2. Troubleshooting</h3>
 <div class="paragraph">
-<p>If after opening the OpenEMS UI page at <a href="http://localhost:4200/" class="bare">http://localhost:4200/</a> you get an error page telling you to wait in case the OpenEMS device was just started, then make sure:
-* The Apache Felix Web Console is reachable at <a href="http://localhost:8080/system/console/configMgr" class="bare">http://localhost:8080/system/console/configMgr</a>,
-    * if not, make sure that the OpenEMS Edge is running (Eclipse: <code>Run OSGi</code> in <code>EdgeApp.bndrun</code> under <code>io.openems.edge.application</code>),
-* Check in Apache Felix, that you have configured the openEMS component 'Controller Api Websocket` with Port set to <code>8085</code>.</p>
+<p>If after opening the OpenEMS UI page at <a href="http://localhost:4200/" class="bare">http://localhost:4200/</a> you get an error page telling you to wait in case the OpenEMS device was just started, then make sure:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Apache Felix Web Console is reachable at <a href="http://localhost:8080/system/console/configMgr" class="bare">http://localhost:8080/system/console/configMgr</a>,</p>
+</li>
+<li>
+<p>if not, make sure that the OpenEMS Edge is running (Eclipse: <code>Run OSGi</code> in <code>EdgeApp.bndrun</code> under <code>io.openems.edge.application</code>),</p>
+</li>
+<li>
+<p>Check in Apache Felix, that you have configured the openEMS component 'Controller Api Websocket` with Port set to <code>8085</code>.</p>
+</li>
+</ul>
 </div>
 <div class="sect3">
 <h4 id="_ui_shows_connection_failed"><a class="anchor" href="#_ui_shows_connection_failed"></a>2.2.1. UI shows "Connection Failed"</h4>
@@ -1027,9 +1049,17 @@ This creates/updates a <code>docker-compose.override.yml</code> that fixes the I
 <div class="sect3">
 <h4 id="_further_docker_related_issues"><a class="anchor" href="#_further_docker_related_issues"></a>2.2.3. further Docker related issues</h4>
 <div class="paragraph">
-<p>For more docker related issues, like
-* Port 4200 already in use
-* Container won&#8217;t start</p>
+<p>For more docker related issues, like</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Port 4200 already in use</p>
+</li>
+<li>
+<p>Container won&#8217;t start</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>see <a href="../../edge/deploy/docker.html#_troubleshooting_docker" class="xref page">Edge Docker Troubleshooting</a> or <a href="#https://docs.docker.com/compose/gettingstarted/">Docker&#8217;s documentation</a></p>
