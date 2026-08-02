@@ -1090,19 +1090,19 @@ CONTAINER ID  IMAGE                       COMMAND   CREATED               STATUS
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  …
-  openems_influxdb:
-    image: influxdb:alpine
-    container_name: openems_influxdb
-    hostname: openems_influxdb
+  openems-influxdb:
+    image: influxdb:2.9-alpine
+    container_name: openems-influxdb
+    hostname: openems-influxdb
     restart: unless-stopped
     volumes:
-      - openems-influxdb:/var/lib/influxdb2:rw
+      - openems-influxdb2-data:/var/lib/influxdb2:rw
     ports:
       - 8086:8086
 
 volumes:
   …
-  openems-influxdb:</code></pre>
+  openems-influxdb2-data:</code></pre>
 </div>
 </div>
 </div>
@@ -1162,7 +1162,7 @@ Note down Token
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">URL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://openems_influxdb:8086" class="bare">http://openems_influxdb:8086</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://openems-influxdb:8086" class="bare">http://openems-influxdb:8086</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Org</p></td>
