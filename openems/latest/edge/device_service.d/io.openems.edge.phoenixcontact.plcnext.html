@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Carlo Gavazzi Electricity Meters :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.d/io.openems.edge.meter.carlo.gavazzi.html">
+    <title>Phoenix Contact PLCnext :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.d/io.openems.edge.phoenixcontact.plcnext.html">
     <meta name="generator" content="Antora 3.2.0">
     <link rel="stylesheet" href="../../../../_/css/site.css">
   </head>
@@ -373,7 +373,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.meter.camillebauer.aplus.html">Camille Bauer APLUS Meter</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="3">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.meter.carlo.gavazzi.html">Carlo Gavazzi Electricity Meters</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -499,7 +499,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.meter.phoenixcontact.html">Phoenix Contact EEM-MB370-24DC Meter</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="io.openems.edge.phoenixcontact.plcnext.html">Phoenix Contact PLCnext</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -893,180 +893,64 @@
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
     <li>OpenEMS Edge</li>
     <li>Device &amp; Service</li>
-    <li><a href="io.openems.edge.meter.carlo.gavazzi.html">Carlo Gavazzi Electricity Meters</a></li>
+    <li><a href="io.openems.edge.phoenixcontact.plcnext.html">Phoenix Contact PLCnext</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.d/io.openems.edge.meter.carlo.gavazzi.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.d/io.openems.edge.phoenixcontact.plcnext.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Carlo Gavazzi Electricity Meters</h1>
+<h1 class="page">Phoenix Contact PLCnext</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Integration with Carlo Gavazzi EM100 and EM300 series electricity meters via Modbus protocol.</p>
+<p>Official drivers for PLCnext architecture of Phoenix Contact.</p>
+</div>
+<div class="paragraph">
+<p>Implemented drivers/natures:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>io.openems.edge.phoenixcntact.plcnext.ess: ManagedSymmetricEss, SymmetricEss</p>
+</li>
+<li>
+<p>io.openems.edge.phoenixcntact.plcnext.loadcircuit: No nature! Represents a PPC (= Powerplant Controller)</p>
+</li>
+<li>
+<p>io.openems.edge.phoenixcntact.plcnext.meter: ElectricityMeter</p>
+</li>
+<li>
+<p>io.openems.edge.phoenixcntact.plcnext.pvinverter: ManagedSymmetricPvInverter</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To use the drivers stated above, pls. use basic PLCnext C++ types described in a
+<a href="doc/readme.adoc">more detailed README linked here.</a> These types are required to
+pickup/send the data from/to "PLCnext GDS" (= Global-Data-Space).</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<h2 id="_more_documentation"><a class="anchor" href="#_more_documentation"></a>More documentation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This bundle provides integration with Carlo Gavazzi electricity meters, supporting both single-phase (EM100 series) and three-phase (EM300 series) installations. The components communicate with meters through the Modbus TCP protocol, enabling real-time energy monitoring, power measurement, and comprehensive data collection in OpenEMS.</p>
-</div>
-<div class="paragraph">
-<p>Carlo Gavazzi meters are known for reliable energy measurement and are widely deployed in residential, commercial, and industrial installations. They support energy consumption, production, or grid measurement depending on configuration.</p>
+<p>A more fine grained documentation to this module can be found in subfolder <a href="doc/readme.adoc">'doc'</a> of this module.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_supported_devices"><a class="anchor" href="#_supported_devices"></a>Supported Devices</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://www.carlogavazzi.com/">Carlo Gavazzi EM100 Series <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
-</li>
-<li>
-<p><a href="https://www.carlogavazzi.com/">Carlo Gavazzi EM300 Series <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
-</li>
-<li>
-<p><a href="https://www.carlogavazzi.com/">Carlo Gavazzi EM330 <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
-</li>
-<li>
-<p><a href="https://www.carlogavazzi.com/">Carlo Gavazzi EM340 <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_components"><a class="anchor" href="#_components"></a>Components</h2>
+<h2 id="_source_code"><a class="anchor" href="#_source_code"></a>Source code</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This bundle implements the following OpenEMS Components:</p>
-</div>
-<div class="sect2">
-<h3 id="_carlo_gavazzi_em100_single_phase_meter"><a class="anchor" href="#_carlo_gavazzi_em100_single_phase_meter"></a><a href="#_em100_meter">Carlo Gavazzi EM100 Single-Phase Meter</a></h3>
-<div class="paragraph">
-<p><strong>Name</strong>: Meter Carlo Gavazzi EM100</p>
+<p>The source code of this module can be found here:</p>
 </div>
 <div class="paragraph">
-<p><strong>Factory-PID</strong>: <code>Meter.CarloGavazzi.EM100</code></p>
-</div>
-<div class="ulist">
-<div class="title">Implemented Natures/Interfaces</div>
-<ul>
-<li>
-<p>MeterCarloGavazziEm100</p>
-</li>
-<li>
-<p>SinglePhaseMeter</p>
-</li>
-<li>
-<p>ElectricityMeter</p>
-</li>
-<li>
-<p>ModbusComponent</p>
-</li>
-<li>
-<p>OpenemsComponent</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Single-phase electricity meter for single-phase installations via Modbus protocol.</p>
-</div>
-<div class="ulist">
-<div class="title"><strong>Configuration</strong>:</div>
-<ul>
-<li>
-<p><code>id</code> (String): Component ID for unique identification (default: "meter0")</p>
-</li>
-<li>
-<p><code>alias</code> (String): Human-readable alias for the component</p>
-</li>
-<li>
-<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
-</li>
-<li>
-<p><code>modbus_id</code> (String): ID of Modbus bridge for communication (default: "modbus0")</p>
-</li>
-<li>
-<p><code>modbusUnitId</code> (Integer): Modbus Unit ID of the meter device (required)</p>
-</li>
-<li>
-<p><code>type</code> (Enum): Meter type - GRID, PRODUCTION, or CONSUMPTION (default: PRODUCTION)</p>
-</li>
-<li>
-<p><code>phase</code> (Enum): Which phase is measured - L1, L2, or L3 (default: L1)</p>
-</li>
-<li>
-<p><code>invert</code> (Boolean): Invert power values and swap production/consumption energy (default: false)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_em100_meter"><a class="anchor" href="#_em100_meter"></a><a href="#_em300_meter">Carlo Gavazzi EM300 Three-Phase Meter</a></h3>
-<div class="paragraph">
-<p><strong>Name</strong>: Meter Carlo Gavazzi EM300</p>
-</div>
-<div class="paragraph">
-<p><strong>Factory-PID</strong>: <code>Meter.CarloGavazzi.EM300</code></p>
-</div>
-<div class="ulist">
-<div class="title">Implemented Natures/Interfaces</div>
-<ul>
-<li>
-<p>MeterCarloGavazziEm300</p>
-</li>
-<li>
-<p>ElectricityMeter</p>
-</li>
-<li>
-<p>ModbusComponent</p>
-</li>
-<li>
-<p>OpenemsComponent</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Three-phase electricity meter for three-phase installations via Modbus protocol. Supports EM330 and EM340 models.</p>
-</div>
-<div class="ulist">
-<div class="title"><strong>Configuration</strong>:</div>
-<ul>
-<li>
-<p><code>id</code> (String): Component ID for unique identification (default: "meter0")</p>
-</li>
-<li>
-<p><code>alias</code> (String): Human-readable alias for the component</p>
-</li>
-<li>
-<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
-</li>
-<li>
-<p><code>modbus_id</code> (String): ID of Modbus bridge for communication (default: "modbus0")</p>
-</li>
-<li>
-<p><code>modbusUnitId</code> (Integer): Modbus Unit ID of the meter device (required)</p>
-</li>
-<li>
-<p><code>type</code> (Enum): Meter type - GRID, PRODUCTION, or CONSUMPTION (default: PRODUCTION)</p>
-</li>
-<li>
-<p><code>invert</code> (Boolean): Invert power values and swap production/consumption energy (default: false)</p>
-</li>
-</ul>
-</div>
-<div id="_em300_meter" class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.meter.carlo.gavazzi">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
-</div>
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.phoenixcontact.plcnext">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 </div>
