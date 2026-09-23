@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Hardy Barth Salia Charging Station :: Open Energy Management System</title>
+    <title>Hardy Barth Charging Stations :: Open Energy Management System</title>
     <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.d/io.openems.edge.evse.chargepoint.hardybarth.html">
     <meta name="generator" content="Antora 3.2.0">
     <link rel="stylesheet" href="../../../../_/css/site.css">
@@ -437,7 +437,7 @@
     <a class="nav-link" href="io.openems.edge.meter.hager.html">Hager ECR380D Meter</a>
   </li>
   <li class="nav-item is-current-page" data-depth="3">
-    <a class="nav-link" href="io.openems.edge.evse.chargepoint.hardybarth.html">Hardy Barth Salia Charging Station</a>
+    <a class="nav-link" href="io.openems.edge.evse.chargepoint.hardybarth.html">Hardy Barth Charging Stations</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.evse.chargepoint.heidelberg.html">Heidelberg Connect Charging Station</a>
@@ -902,7 +902,7 @@
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
     <li>OpenEMS Edge</li>
     <li>Device &amp; Service</li>
-    <li><a href="io.openems.edge.evse.chargepoint.hardybarth.html">Hardy Barth Salia Charging Station</a></li>
+    <li><a href="io.openems.edge.evse.chargepoint.hardybarth.html">Hardy Barth Charging Stations</a></li>
   </ul>
 </nav>
 <div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.d/io.openems.edge.evse.chargepoint.hardybarth.adoc">Edit this Page</a></div>
@@ -912,11 +912,11 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Hardy Barth Salia Charging Station</h1>
+<h1 class="page">Hardy Barth Charging Stations</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Three-phase AC charging station with REST API integration.</p>
+<p>Three-phase AC charging stations with REST API integration.</p>
 </div>
 </div>
 </div>
@@ -924,10 +924,17 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This bundle provides integration with the Salia charging station by Hardy Barth, a three-phase AC electric vehicle charging station designed for commercial and residential charging applications. The station communicates via REST API over IP for flexible integration with energy management systems.</p>
+<p>This bundle provides integration with Hardy Barth charging stations. Two device families are supported, each using a different REST API:</p>
 </div>
-<div class="paragraph">
-<p>Hardy Barth Salia is suitable for commercial charging networks, workplace charging, and site energy management requiring three-phase charging integration.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Hardy Barth Salia</strong> (<code>Evcs.HardyBarth</code>, <code>Evse.ChargePoint.HardyBarth</code>) – Salia controller API (<code>/api/secc</code>)</p>
+</li>
+<li>
+<p><strong>Hardy Barth cPH1 (ECB1)</strong> (<code>Evse.ChargePoint.HardyBarth.cPH1</code>) – eCharge ECB1 REST API (<code>/api/v1/chargecontrols/</code>, <code>/api/v1/meters/</code>)</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1101,7 +1108,120 @@
 </li>
 </ul>
 </div>
-<div id="_evcs_hardy" class="paragraph">
+</div>
+<div class="sect2">
+<h3 id="_evcs_hardy"><a class="anchor" href="#_evcs_hardy"></a><a href="#_evse_cph1">EVSE Charge-Point Hardy Barth cPH1</a></h3>
+<div class="paragraph">
+<p><strong>Name</strong>: EVSE Charge-Point Hardy Barth cPH1</p>
+</div>
+<div class="paragraph">
+<p><strong>Factory-PID</strong>: <code>Evse.ChargePoint.HardyBarth.cPH1</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>EvseChargePointHardyBarthEcb1</p>
+</li>
+<li>
+<p>OpenemsComponent</p>
+</li>
+<li>
+<p>EvseChargePoint</p>
+</li>
+<li>
+<p>ElectricityMeter</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong>: EVSE interface for the Hardy Barth eCharge cPH1 wallbox (EVCC Basic controller, ECB1 REST API).
+Reads charge-control status and meter data from <code>/api/v1/chargecontrols/{id}</code> and <code>/api/v1/meters/{id}</code>.
+Write operations (start, stop, set current) are dispatched as HTTP POST requests.</p>
+</div>
+<div class="ulist">
+<div class="title"><strong>Configuration</strong>:</div>
+<ul>
+<li>
+<p><code>id</code> (String): Component ID for unique identification (default: "evseChargePoint0")</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable alias for the component</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Enable/disable this component</p>
+</li>
+<li>
+<p><code>ip</code> (String): IP address of the cPH1 wallbox (required, e.g. "192.168.2.8")</p>
+</li>
+<li>
+<p><code>chargeControlId</code> (Integer): Charge-control unit ID (default: 1)</p>
+</li>
+<li>
+<p><code>meterId</code> (Integer): Energy-meter ID (default: 1)</p>
+</li>
+<li>
+<p><code>minHwCurrent</code> (Integer): Minimum hardware current in mA (default: 6000)</p>
+</li>
+<li>
+<p><code>maxHwCurrent</code> (Integer): Maximum hardware current in mA (default: 32000)</p>
+</li>
+<li>
+<p><code>phaseRotation</code> (PhaseRotation): Phase wiring configuration (default: L1_L2_L3)</p>
+</li>
+<li>
+<p><code>readOnly</code> (Boolean): Read-only mode (monitoring only) vs managed control (default: false)</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. ECB1 API Endpoints Used</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Operation</th>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read charge-control status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/api/v1/chargecontrols/{id}</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read meter data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/api/v1/meters/{id}</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set manual mode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/api/v1/chargecontrols/{id}/mode</code> (<code>mode=manual</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start charging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/api/v1/chargecontrols/{id}/start</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stop charging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/api/v1/chargecontrols/{id}/stop</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set current</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/api/v1/chargecontrols/{id}/mode/manual/ampere</code> (<code>manualmodeamp={A}</code>)</p></td>
+</tr>
+</tbody>
+</table>
+<div id="_evse_cph1" class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.evse.chargepoint.hardybarth">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
