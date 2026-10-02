@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ESS Limit Total Discharge :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/controller.d/io.openems.edge.controller.ess.limittotaldischarge.html">
+    <title>Controller Ess Step SoC :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/controller.d/io.openems.edge.controller.ess.stepsoc.html">
     <meta name="generator" content="Antora 3.2.1">
     <link rel="stylesheet" href="../../../../_/css/site.css">
   </head>
@@ -172,7 +172,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.controller.cleverpv.html">Clever-PV</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="io.openems.edge.controller.ess.stepsoc.html">Controller Ess Step SoC</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -211,7 +211,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.controller.ess.gridoptimizedcharge.html">ESS Grid Optimized Charge</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="3">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.controller.ess.limittotaldischarge.html">ESS Limit Total Discharge</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -911,22 +911,132 @@
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
     <li>OpenEMS Edge</li>
     <li>Controller</li>
-    <li><a href="io.openems.edge.controller.ess.limittotaldischarge.html">ESS Limit Total Discharge</a></li>
+    <li><a href="io.openems.edge.controller.ess.stepsoc.html">Controller Ess Step SoC</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/controller.d/io.openems.edge.controller.ess.limittotaldischarge.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/controller.d/io.openems.edge.controller.ess.stepsoc.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">ESS Limit Total Discharge</h1>
+<h1 class="page">Controller Ess Step SoC</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>Limits the discharge power of an energy storage system according to its State-of-Charge, e.g. to keep energy for emergency power or to avoid deep discharge.</p>
+<p>Steps an ESS through the SoC range in fixed increments, pausing between each step.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Provides a Controller that charges or discharges a <code>ManagedSymmetricEss</code> from one SoC extreme to the other in configurable steps. After each step is completed, the Controller pauses the ESS for a configurable standby time before continuing to the next step.
+This is useful for balancing test, capacity tests, calibration cycles, or controlled cycling of a battery system, where a stepwise SoC profile with rest periods between steps is required rather than a continuous full charge/discharge.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_behavior"><a class="anchor" href="#_behavior"></a>Behavior</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Controller runs through the following states:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Undefined</strong>&#8201;&#8212;&#8201;Waits until <code>power</code>, SoC, <code>AllowedChargePower</code> and <code>AllowedDischargePower</code> are all defined and valid before starting.</p>
+</li>
+<li>
+<p><strong>Aligning</strong>&#8201;&#8212;&#8201;Drives the ESS toward the configured <code>Direction</code> (Charge or Discharge) first, so that stepping always starts from the correct SoC extreme (0% for Charge, 100% for Discharge).</p>
+</li>
+<li>
+<p><strong>Running</strong>&#8201;&#8212;&#8201;Applies the configured <code>power</code> in the configured <code>Direction</code> until the SoC crosses a <code>socStep</code> boundary, or until the ESS reports it can no longer charge/discharge further (<code>AllowedChargePower</code>/<code>AllowedDischargePower</code> == 0).</p>
+</li>
+<li>
+<p><strong>Paused</strong>&#8201;&#8212;&#8201;Idles the ESS for <code>standbyTime</code> minutes after each step boundary is reached, then resumes Running.</p>
+</li>
+<li>
+<p><strong>Finished</strong>&#8201;&#8212;&#8201;Reached once the ESS can no longer be charged/discharged further in the configured Direction. Terminal state.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_components"><a class="anchor" href="#_components"></a>Components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Name</strong>: Controller Ess Step Soc</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.limittotaldischarge">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+<p><strong>Factory-PID</strong>: <code>Controller.Ess.StepSoc</code></p>
+</div>
+<div class="ulist">
+<div class="title">Implemented Natures/Interfaces</div>
+<ul>
+<li>
+<p>ControllerEssStepSoc</p>
+</li>
+<li>
+<p>Controller</p>
+</li>
+<li>
+<p>OpenemsComponent</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong>: Charges or discharges a Managed Symmetric Ess in fixed SoC steps, pausing for a configurable standby time between each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Use Cases</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Controlled capacity or calibration cycling of a battery system</p>
+</li>
+<li>
+<p>Stepwise SoC profiling with rest periods, e.g. for BMS balancing windows</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title"><strong>Configuration</strong>:</div>
+<ul>
+<li>
+<p><code>id</code> (String): Unique ID of this Component (default: <code>ctrlEssStepSoc0</code>)</p>
+</li>
+<li>
+<p><code>alias</code> (String): Human-readable name of this Component; defaults to Component-ID (default: <code>""</code>)</p>
+</li>
+<li>
+<p><code>enabled</code> (Boolean): Is this Component enabled? (default: <code>true</code>)</p>
+</li>
+<li>
+<p><code>ess_id</code> (String): ID of the Ess device</p>
+</li>
+<li>
+<p><code>direction</code> (Direction): Direction of operation&#8201;&#8212;&#8201;<code>CHARGE</code> or <code>DISCHARGE</code>. If the system is not already at the corresponding empty/full SoC, the Controller first drives it to that starting point (default: <code>CHARGE</code>)</p>
+</li>
+<li>
+<p><code>power</code> (Integer): Absolute power in Watt used for charging/discharging, per <code>direction</code> (default: none, required)</p>
+</li>
+<li>
+<p><code>socStep</code> (Integer): Step size in %. E.g. with 10%, the Controller charges/discharges from 0% to 10%, then pauses (default: <code>10</code>)</p>
+</li>
+<li>
+<p><code>standbyTime</code> (Integer): Idle time in minutes after each step (default: <code>10</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.controller.ess.stepsoc">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
 </div>
 </article>
   </div>
