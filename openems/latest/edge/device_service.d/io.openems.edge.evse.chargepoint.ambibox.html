@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>System FENECON :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.d/io.openems.edge.system.fenecon.html">
+    <title>Ambibox ambiCHARGE Home :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.d/io.openems.edge.evse.chargepoint.ambibox.html">
     <meta name="generator" content="Antora 3.2.1">
     <link rel="stylesheet" href="../../../../_/css/site.css">
   </head>
@@ -349,7 +349,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.evse.chargepoint.alpitronic.html">Alpitronic Hypercharger</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="io.openems.edge.evse.chargepoint.ambibox.html">Ambibox ambiCHARGE Home</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -577,7 +577,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.sungrow.html">Sungrow Energy Storage System and PV-Inverter</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="3">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.system.fenecon.html">System FENECON</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -914,22 +914,367 @@
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
     <li>OpenEMS Edge</li>
     <li>Device &amp; Service</li>
-    <li><a href="io.openems.edge.system.fenecon.html">System FENECON</a></li>
+    <li><a href="io.openems.edge.evse.chargepoint.ambibox.html">Ambibox ambiCHARGE Home</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.d/io.openems.edge.system.fenecon.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.d/io.openems.edge.evse.chargepoint.ambibox.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">System FENECON</h1>
+<h1 class="page">Ambibox ambiCHARGE Home</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>Core Components for FENECON integrated Energy Storage Systems.</p>
+<p>Bidirectional EV charger with Modbus/TCP interface.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This bundle implements the Ambibox ambiCHARGE Home charger as an OpenEMS
+<a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.evse.api">EVSE Charge-Point</a>
+for charge management. Bidirectional discharge (Vehicle-to-Home) management is not
+standardized in OpenEMS yet and is out of scope of this bundle.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.system.fenecon">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+<p>The implementation is based on the protocol description "User Interface (Modbus
+TCP) - v1" and the EVCC Ambibox charger implementation
+(<a href="https://github.com/evcc-io/evcc/blob/master/charger/ambibox.go">evcc ambibox.go</a>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modbustcp_protocol"><a class="anchor" href="#_modbustcp_protocol"></a>Modbus/TCP protocol</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All values are 32 bit (2 Modbus registers, big endian, most significant word
+first). Each physical connector occupies its own register block; one OpenEMS
+component is configured per connector.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Input Registers (FC4)</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 42.8571%;">
+<col style="width: 28.5714%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Offset</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Datatype</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unit</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sleep</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0: awake; 1: asleep</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Current AC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4/6/8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Current AC Phase 1..3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Voltage AC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12/14/16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Voltage AC Phase 1..3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Power AC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Power Factor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Grid Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hz</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Energy AC import</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">28</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Energy AC export</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Voltage DC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Current DC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Power DC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number Phases</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">38</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum PowerAC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum PowerAC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inverter State</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum(uint32)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inverter Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum(uint32)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flag set</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">46</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inverter Temperature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">°C</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">48</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Capacity (EV battery)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50/52</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Min/Max State of Charge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">54</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">State of Charge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">56</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">State of Health</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">58</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time to full SoC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">s</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number Cycles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">62/64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Min/Max Charge Power (EV)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">66/68</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Min/Max Discharge Power (EV)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">70</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Battery State</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum(uint32)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">72</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Battery Temperature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">°C</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">74</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Battery Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum(uint32)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flag set</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">76</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Control Mode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum(uint32)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">78</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Power DC (Battery)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Charge Protocol</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum(uint32)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">82</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Session State</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum(uint32)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">84</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EV connected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">86</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Seconds to departure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">s</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">88</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Departure SoC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">90</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Departure Energy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">92/94</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Min/Max Energy Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">96</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EvCharger Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum(uint32)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flag set</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">98</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Energy AC import session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Energy AC export session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">102</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replug Required</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Holding Registers (EV Charger)</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 42.8571%;">
+<col style="width: 28.5714%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Offset</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Datatype</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unit</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Target Power AC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W (negative value = charge, see below)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wake Up</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 (only valid value)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_target_power_ac_sign_convention"><a class="anchor" href="#_target_power_ac_sign_convention"></a>Target Power AC sign convention</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Following the EVCC implementation, a negative target power value commands the
+charger to charge the electric vehicle; positive values would discharge it
+(which is not used by this bundle). The OpenEMS channel <code>SetTargetPower</code> is
+positive for charging; the sign is inverted when writing the Modbus register.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.evse.chargepoint.ambibox">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+</div>
+</div>
 </div>
 </article>
   </div>
