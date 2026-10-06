@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Askoma Heating Element :: Open Energy Management System</title>
-    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.d/io.openems.edge.heat.askoma.html">
+    <title>Voltie Charging Station :: Open Energy Management System</title>
+    <link rel="canonical" href="https://openems.github.io/openems.io/openems/latest/edge/device_service.d/io.openems.edge.evse.chargepoint.voltie.html">
     <meta name="generator" content="Antora 3.2.1">
     <link rel="stylesheet" href="../../../../_/css/site.css">
   </head>
@@ -355,7 +355,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.meter.artemes.am2.html">Artemes AM-2 Meter</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="3">
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.heat.askoma.html">Askoma Heating Element</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -589,7 +589,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="io.openems.edge.meter.virtual.html">Virtual Meters</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="io.openems.edge.evse.chargepoint.voltie.html">Voltie Charging Station</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -917,21 +917,21 @@
     <li><a href="../../introduction.html">Open Energy Management System</a></li>
     <li>OpenEMS Edge</li>
     <li>Device &amp; Service</li>
-    <li><a href="io.openems.edge.heat.askoma.html">Askoma Heating Element</a></li>
+    <li><a href="io.openems.edge.evse.chargepoint.voltie.html">Voltie Charging Station</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.d/io.openems.edge.heat.askoma.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/OpenEMS/openems/tree/develop/doc/modules/ROOT/pages/edge/device_service.d/io.openems.edge.evse.chargepoint.voltie.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Askoma Heating Element</h1>
+<h1 class="page">Voltie Charging Station</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Smart heating element control via Modbus for thermal load management.</p>
+<p>AC charging station by Voltie Kft. with Modbus/TCP support.</p>
 </div>
 </div>
 </div>
@@ -939,38 +939,153 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This bundle provides integration with Askoma heating elements, intelligent thermal load controllers designed for electric heating applications. The component reads and controls heating elements via Modbus, enabling dynamic thermal load management for peak shaving and demand response scenarios.</p>
+<p>This bundle provides integration with the Voltie AC wallbox. The charger runs a Modbus TCP server on its Linux board (port 502), which acts as a transparent gateway to the charger&#8217;s control unit (MCU). The register map source is the "Voltie Modbus API documentation v1.4" (2026-09-23); the driver requires EVSE firmware build 370 or later. Only registers, codes and behaviour described in that document are implemented.</p>
 </div>
-<div class="paragraph">
-<p>Askoma heating elements are suitable for demand response programs, thermal energy storage, and dynamic heating control integrated with renewable energy systems.</p>
+<div class="ulist">
+<div class="title">Voltie AC Wallbox</div>
+<ul>
+<li>
+<p><strong>Type</strong>: Three-phase or single-phase AC charging station</p>
+</li>
+<li>
+<p><strong>Typical Power</strong>: 3.7 kW to 22 kW</p>
+</li>
+<li>
+<p><strong>Protocol</strong>: Modbus TCP (port 502, default Unit-ID 11)</p>
+</li>
+<li>
+<p><strong>Connector</strong>: Type 2</p>
+</li>
+<li>
+<p><strong>Documentation</strong>: <a href="https://voltie.eu/">Voltie <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_supported_devices"><a class="anchor" href="#_supported_devices"></a>Supported Devices</h2>
+<h2 id="_modbus_gateway_constraints"><a class="anchor" href="#_modbus_gateway_constraints"></a>Modbus Gateway Constraints</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The Modbus TCP server is a gateway to the charger&#8217;s control unit: it forwards <strong>one request at a time</strong> and abandons unanswered requests after 3 seconds (gateway exception <code>0x0B</code>). The charger&#8217;s Linux board polls its own EVSE status about every 500 ms and forwards Modbus requests only in the gap between those polls.</p>
+</div>
 <div class="ulist">
-<div class="title">Askoma Heating Elements</div>
+<div class="title">Measured on a real charger (persistent TCP connection, 24 samples)</div>
 <ul>
 <li>
-<p><strong>Type</strong>: Smart heating element controller</p>
+<p>A request that arrives while the forwarding window is free is answered in <strong>~20 ms</strong>.</p>
 </li>
 <li>
-<p><strong>Communication</strong>: Modbus TCP/RTU</p>
+<p>A request issued immediately after another one waits out the next window: <strong>447..497 ms</strong> (median ~470 ms).</p>
 </li>
 <li>
-<p><strong>Typical Use</strong>: Demand response, thermal load management, heating control</p>
-</li>
-<li>
-<p><strong>Control</strong>: On/off or variable power control via Modbus</p>
-</li>
-<li>
-<p><strong>Monitoring</strong>: Power, energy, and status monitoring</p>
-</li>
-<li>
-<p><strong>Documentation</strong>: <a href="https://www.askoma.com/de/produkte.html">Askoma Products <span class="icon"><i class="fa fa-external-link"></i></span></a></p>
+<p>The OpenEMS Modbus/TCP bridge response timeout is hardcoded at <strong>500 ms</strong> (2 retries).</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The resulting rule is <strong>never issue two Modbus transactions in one cycle</strong>. Both read blocks are therefore registered with <code>Priority.LOW</code> — the status/config block (FC03 from <code>0x0000</code>, 27 registers up to <code>0x001A</code>) and the meter block (FC03 from <code>0x2000</code>, 30 registers up to <code>0x201D</code>). The bridge executes exactly one LOW read per cycle in round-robin, so every read lands in a fresh forwarding window and is answered in ~20 ms. At the default cycle time of 1 s <strong>each block refreshes every ~2 s</strong>.</p>
+</div>
+<div class="paragraph">
+<p>A cycle that also carries an FC06 write briefly issues two transactions; the second one waits for the next forwarding window (~470 ms measured — still inside the 500 ms bridge timeout, but with little margin). Repeated writes of the current limit (<code>0x0014</code>) and the phase-switch register (<code>0x0016</code>) are therefore rate-limited to one per 5 seconds. The charging-enable register (<code>0x000C</code>) is written once per state change; see <a href="#_starting_and_stopping_a_session">Starting and Stopping a Session</a>.</p>
+</div>
+<div class="paragraph">
+<p>Use a <strong>dedicated <code>Bridge.Modbus.Tcp</code> per charger</strong>: any other component on the same bridge adds transactions to the same cycle (HIGH-priority tasks of every component run every cycle), which would break the one-transaction-per-cycle rule. The API documentation makes the same point from the device side: the charger is designed to serve a <strong>single</strong> Modbus master, several TCP clients are served from one queue at a maximum of two transactions per second, and a second polling client mostly produces slow responses and exception <code>0x0B</code> for both. Keep the cycle time at 1 s or higher (consider 2 s on busy networks). A configurable bridge response timeout would be the robust upstream improvement; until then the 500 ms limit is what forces this layout.</p>
+</div>
+<div class="paragraph">
+<p>Only FC06 (write single register) is accepted for writes; FC16 is rejected with exception <code>0x01</code>. Unit-ID 0 must not be used; a wrong Unit-ID yields gateway exception <code>0x0B</code>, and <code>0x0A</code> means the charger control unit is not ready.</p>
+</div>
+<div class="paragraph">
+<p>The charger has a communication-loss watchdog (register <code>0x0017</code>; 0 or 255 disables it, and it is also disabled if it has never been set): if the Modbus master stays silent for that long, the allowed current drops to 0 A. The driver reads the value at start-up and logs a warning if the watchdog is configured too low for the polling rate. From firmware build 357 the register is also writable (range 1..254 s, EEPROM-persisted), so an energy management system may align the watchdog with its own poll rate — <strong>this driver deliberately does not write it</strong>, because that would silently overwrite a value the user set in the Voltie app. Adjust it in the app instead.</p>
+</div>
+<div class="paragraph">
+<p><strong>Firmware requirement</strong>: the driver requires firmware build 370, from which the lifetime energy register <code>0x2016</code> includes the running session and is used as the meter reading; on older builds it changes only when the vehicle is unplugged. The driver first probes only the charger-ID and firmware-build registers, because the readable status area has grown with the firmware — it ends at <code>0x0015</code> up to build 351, at <code>0x0018</code> from 352 and at <code>0x001A</code> from 357 — and a read that crosses the end of the block is answered with exception <code>0x02</code>. On older builds the driver therefore raises the <code>FirmwareOutdated</code> warning and does not poll the rest of the register map. The full register map and the write tasks are activated once firmware build &gt;= 370 is confirmed.</p>
+</div>
+<div class="paragraph">
+<p><strong>Commissioning</strong>: <strong>control-by-Modbus must be enabled on the charger</strong>, otherwise all writes (current limit, start/stop, phase switch) are rejected. The controller stack additionally requires an <code>Evse.Controller.Single</code> for the charge-point, an <code>Evse.ElectricVehicle.Generic</code> instance and an <code>Evse.Controller.Cluster</code> in the Scheduler.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_starting_and_stopping_a_session"><a class="anchor" href="#_starting_and_stopping_a_session"></a>Starting and Stopping a Session</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Writing 1 to the charging-enable register <code>0x000C</code> only <strong>permits</strong> charging, it does not force it: the firmware enables the session only when a vehicle is already connected, and the register reads back 1 only from that moment. With no vehicle plugged in the write is accepted without an exception but has no effect, so the read-back stays 0 indefinitely and a client that rewrites the register until the read-back matches would loop forever.</p>
+</div>
+<div class="paragraph">
+<p>The driver therefore writes the enable <strong>only while a vehicle is connected</strong>, writes each value <strong>once per intended state change</strong>, and then follows the outcome on the EVSE state (<code>0x000A</code>) and the charging flag (<code>0x000D</code>). Two guards keep a genuine state change from being lost: a write that answered a Modbus exception never reached the charger and is repeated, at most once per 5 seconds; and a charger that leaves a state it had already confirmed — an unplug or a firmware restart resets <code>0x000C</code> to 0 — or loses the vehicle before taking over the enable is written again.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_phase_switching"><a class="anchor" href="#_phase_switching"></a>Phase Switching</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Phase switching is only available on chargers with an HPOW108 or later power board. <strong>The hardware reports this itself</strong>: bit 0 of the capability bitmask on register <code>0x0019</code> is set exactly when the forced single-phase register <code>0x0016</code> is writable. The API documentation asks clients to read that bit and to offer phase switching only when it is set, instead of probing with a <code>0x0016</code> write — on unsupported hardware that write is rejected with exception <code>0x03</code>, and a client that retries it can repeatedly interrupt charging.</p>
+</div>
+<div class="paragraph">
+<p>The driver therefore offers the ability <strong>automatically</strong>, with no configuration option: the capability bit must be set, the wiring must be three-phase, and the firmware build must be at least 370. On a charger whose bit is clear — or on firmware that does not serve <code>0x0019</code> at all, where the driver stops at the <code>FirmwareOutdated</code> warning and never extends the protocol — no phase-switch ability is advertised, and the <code>Evse.Controller.Single</code> is never stranded at 0 A waiting out its 600 s phase-switch timeout.</p>
+</div>
+<div class="paragraph">
+<p>The charge-point switches 1&lt;&#8594;3 phases via register <code>0x0016</code>, using the documented sequence: stop charging (<code>0x000C</code> = 0), write <code>0x0016</code>, re-enable charging (<code>0x000C</code> = 1). The driver advertises this as a <strong>Manual</strong> phase-switch ability; the <code>Evse.Controller.Single</code> PhaseSwitchHandler orchestrates the sequence (zero set-point until the power is down, then the switch action, then restart), while the driver performs the register write and verifies it via read-back. The write is still rejected (exception <code>0x03</code>) while a charging session is active, when control-by-Modbus is disabled, or on relay/EEPROM error; after such a rejection the driver raises the <code>PhaseSwitchFailed</code> warning and stops offering phase switching until the vehicle is unplugged or the component configuration is updated. Only a rejection by the charger (exception <code>0x03</code>) latches; a communication failure or a gateway exception (<code>0x0A</code>, <code>0x0B</code>) is transient and the write is simply repeated. This latch is a safety net on top of the capability bit, not the primary gate; latching instead of retrying within the session is deliberate, because every further rejected switch would again cost up to 600 s at 0 A.</p>
+</div>
+<div class="paragraph">
+<p>The number of phases the vehicle actually charges on is read from register <code>0x001A</code> (<code>PhasesInUse</code>), which the firmware fills from its own 1.0 A per-phase threshold. It is not the same as <code>MainsPhases</code> (<code>0x000E</code>), which counts the phases with mains voltage on the charger <strong>input</strong> and stays 3 even while forced single-phase mode is active.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verified_against_hardware"><a class="anchor" href="#_verified_against_hardware"></a>Verified Against Hardware</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Validated on two production chargers running EVSE firmware build 360 (both now run build 370), driven by a local OpenEMS Edge over a dedicated Modbus/TCP bridge at the default 1 s cycle time.</p>
+</div>
+<div class="sect2">
+<h3 id="_three_phase_charger_with_a_charging_vehicle"><a class="anchor" href="#_three_phase_charger_with_a_charging_vehicle"></a>Three-phase charger with a charging vehicle</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The status block (27 registers from <code>0x0000</code>) and the meter block (30 registers from <code>0x2000</code>) are read correctly; the component binds through the generated Modbus reference target.</p>
+</li>
+<li>
+<p>Channel values matched independent Modbus reads of the same registers, including the per-phase voltages, currents and powers while the vehicle was charging.</p>
+</li>
+<li>
+<p>On build 360 the lifetime energy register <code>0x2016</code> stayed flat for a whole session, which is why the driver requires build 370, where the register includes the running session.</p>
+</li>
+<li>
+<p>The capability bitmask <code>0x0019</code> reads 1, and the phase-switch ability is advertised accordingly.</p>
+</li>
+<li>
+<p>Phase switching was verified in <strong>both</strong> directions. Each switch issued exactly one FC06 write to <code>0x0016</code>, and <code>PhasesInUse</code> (<code>0x001A</code>) followed the physical state: 3 &#8594; 1 &#8594; 3.</p>
+</li>
+<li>
+<p>Set-point changes reached the vehicle, and repeated writes were rate-limited to one per 5 s.</p>
+</li>
+<li>
+<p>The charging-enable register was not re-written while the session was already enabled.</p>
+</li>
+<li>
+<p>Sustained operation produced no <code>ModbusCommunicationFailed</code>, with request latency in the tens of milliseconds.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_single_phase_charger_without_phase_switch_support"><a class="anchor" href="#_single_phase_charger_without_phase_switch_support"></a>Single-phase charger without phase-switch support</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The capability bitmask <code>0x0019</code> reads 0. No phase-switch ability is advertised, even with three-phase wiring configured - the capability bit is the only gate that matters here.</p>
+</li>
+<li>
+<p><code>PhasesInUse</code> reads 0 while no session is running, as documented.</p>
+</li>
+<li>
+<p>Read-only mode issued no write at all while reads continued normally.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -978,36 +1093,30 @@
 <h2 id="_components"><a class="anchor" href="#_components"></a>Components</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This bundle implements the following OpenEMS Components:</p>
+<p>This bundle implements the following OpenEMS Component:</p>
 </div>
 <div class="sect2">
-<h3 id="_askoma_heating_element"><a class="anchor" href="#_askoma_heating_element"></a><a href="#_askoma_heating">Askoma Heating Element</a></h3>
+<h3 id="_evse_charge_point_voltie"><a class="anchor" href="#_evse_charge_point_voltie"></a>EVSE Charge-Point Voltie</h3>
 <div class="paragraph">
-<p><strong>Name</strong>: Heat Askoma</p>
+<p><strong>Name</strong>: EVSE Charge-Point Voltie</p>
 </div>
 <div class="paragraph">
-<p><strong>Factory-PID</strong>: <code>Heat.Askoma</code></p>
+<p><strong>Factory-PID</strong>: <code>Evse.ChargePoint.Voltie</code></p>
 </div>
 <div class="ulist">
 <div class="title">Implemented Natures/Interfaces</div>
 <ul>
 <li>
-<p>HeatAskoma</p>
+<p>EvseChargePointVoltie</p>
 </li>
 <li>
-<p>ModbusComponent</p>
-</li>
-<li>
-<p>OpenemsComponent</p>
+<p>EvseChargePoint</p>
 </li>
 <li>
 <p>ElectricityMeter</p>
 </li>
 <li>
-<p>Heat</p>
-</li>
-<li>
-<p>ManagedHeatElement</p>
+<p>OpenemsComponent</p>
 </li>
 <li>
 <p>TimedataProvider</p>
@@ -1015,42 +1124,51 @@
 <li>
 <p>EventHandler</p>
 </li>
+<li>
+<p>ModbusComponent</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Description</strong>: Modbus interface for Askoma heating elements. Monitors heating power consumption and enables dynamic control for demand response and load shifting. Can operate in read-only mode for monitoring only or managed mode for active heating control.</p>
+<p><strong>Description</strong>: Modbus TCP interface for the Voltie AC wallbox. Provides charging point functionality with real-time per-phase voltage, current and power measurement, session and lifetime energy, and 1&lt;&#8594;3 phase switching on hardware that reports it in the capability bitmask. Charge current is controlled via the software current limit register with the device&#8217;s native 1 A resolution (6..32 A; the set-point ability is declared in Ampere accordingly). The hardware maximum is read from the EVSE-board limit register; an unavailable or implausible reading falls back to the safe 6 A minimum.</p>
+</div>
+<div class="paragraph">
+<p><strong>Energy channels</strong>: the cumulative <code>ActiveProductionEnergy</code> is the device&#8217;s lifetime energy register (<code>0x2016</code>), which includes the running session from firmware build 370. The device has no per-phase energy counters, so the per-phase energies are integrated in software from the per-phase power. The session-energy register (<code>0x200E</code>) is exposed as <code>EnergySession</code> in Wh, converted from Ws; it keeps its value after the session and resets at the start of the next one.</p>
 </div>
 <div class="ulist">
 <div class="title"><strong>Configuration</strong>:</div>
 <ul>
 <li>
-<p><code>id</code> (String): Component ID for unique identification (default: "heat0")</p>
+<p><code>id</code> (String): Component ID (default: "evseChargePoint0")</p>
 </li>
 <li>
-<p><code>alias</code> (String): Human-readable alias for the component</p>
+<p><code>alias</code> (String): Human-readable alias</p>
 </li>
 <li>
-<p><code>enabled</code> (Boolean): Enable/disable this component (default: true)</p>
+<p><code>enabled</code> (Boolean): Enable/disable (default: true)</p>
 </li>
 <li>
-<p><code>modbus_id</code> (String): ID of the Modbus bridge to use (default: "modbus0")</p>
+<p><code>readOnly</code> (Boolean): Read-only or managed control (default: false)</p>
 </li>
 <li>
-<p><code>modbusUnitId</code> (Integer): Modbus Unit-ID of the heating element (default: 1)</p>
+<p><code>wiring</code> (SingleOrThreePhase): SINGLE_PHASE or THREE_PHASE (default: THREE_PHASE)</p>
 </li>
 <li>
-<p><code>readOnly</code> (Boolean): Read-only mode (monitoring only) vs managed mode (default: true)</p>
+<p><code>phaseRotation</code> (PhaseRotation): Phase order (default: L1_L2_L3)</p>
+</li>
+<li>
+<p><code>logVerbosity</code> (LogVerbosity): NONE or WRITES (default: NONE)</p>
+</li>
+<li>
+<p><code>modbus_id</code> (String): Modbus bridge ID (default: "modbus0"); configure the charger&#8217;s IP address and port 502 on the Modbus/TCP bridge</p>
+</li>
+<li>
+<p><code>modbusUnitId</code> (Integer): Modbus Unit-ID (default: 11, the charger&#8217;s default slave address)</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_askoma_heating"><a class="anchor" href="#_askoma_heating"></a>Modbus Register Documentation</h3>
 <div class="paragraph">
-<p><a href="https://www.download.askoma.com/askofamily_plus/modbus/askoheat-modbus.html">Askomaheat+ Modbus (External Link)</a></p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.heat.askoma">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
+<p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.evse.chargepoint.voltie">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
 </div>
 </div>
