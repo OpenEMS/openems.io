@@ -1028,6 +1028,12 @@
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_network_security_requirements"><a class="anchor" href="#_network_security_requirements"></a>1.2. Network security requirements</h3>
+<div class="paragraph">
+<p>The OpenEMS Backend websocket servers bind on all available network interfaces and the protocol between Backend.Edge.App and Edge.Manager is designed with a trusted-network assumption, without its own peer authentication. Make sure the inter-service ports - the Edge Manager websocket port (default <code>8083</code>) and the Apache Felix Web Console (default <code>8079</code>) - are reachable only from trusted hosts, e.g. by denying all incoming connections by default and permitting only the services that need to be reachable from the outside.</p>
+</div>
+</div>
 </div>
 </div>
 </article>

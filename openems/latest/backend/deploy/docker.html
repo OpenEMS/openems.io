@@ -934,6 +934,9 @@
 <div class="paragraph">
 <p>This chapter explains how OpenEMS Backend can be deployed using our official <a href="https://hub.docker.com/r/openems/backend">Docker image</a>.</p>
 </div>
+<div class="paragraph">
+<p>The involved components (Edge.Manager, Backend.Edge.App) and the available deployment options are described in <a href="../architecture.html" class="xref page">Backend Architecture</a>. The Docker images follow this architecture: the <strong>openems/backend</strong> image contains the central Backend with the Edge Manager, while the separate <strong>openems/backend-edge</strong> image runs the Backend Edge Application that the OpenEMS Edge devices connect to.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -988,11 +991,24 @@ Docker version 27.3.1, build ce12230</code></pre>
       - openems-backend-data:/var/opt/openems/data:rw
     ports:
       - 8079:8079 # Apache-Felix
+
+  openems_backend_edge:
+    image: openems/backend-edge:latest
+    container_name: openems_backend_edge
+    hostname: openems-backend-edge
+    restart: unless-stopped
+    volumes:
+      - openems-backend-edge-conf:/var/opt/openems/config:rw
+      - openems-backend-edge-data:/var/opt/openems/data:rw
+    ports:
+      - 8078:8078 # Apache-Felix
       - 8081:8081 # Edge-Websocket
 
 volumes:
   openems-backend-conf:
-  openems-backend-data:</code></pre>
+  openems-backend-data:
+  openems-backend-edge-conf:
+  openems-backend-edge-data:</code></pre>
 </div>
 </div>
 </div>
@@ -1015,8 +1031,9 @@ volumes:
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">admin@ubuntu:~$ docker ps
-CONTAINER ID  IMAGE                       COMMAND   CREATED               STATUS
-15d5ba3c5f13  openems/backend:latest      "/init"   About a minute ago    Up About a minute</code></pre>
+CONTAINER ID  IMAGE                        COMMAND   CREATED               STATUS
+15d5ba3c5f13  openems/backend:latest        "/init"   About a minute ago    Up About a minute
+018187f444b1  openems/backend-edge:latest   "/init"   About a minute ago    Up About a minute</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1026,6 +1043,28 @@ CONTAINER ID  IMAGE                       COMMAND   CREATED               STATUS
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker logs openems_backend</code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_connect_the_backend_edge_application"><a class="anchor" href="#_connect_the_backend_edge_application"></a>2.4. Connect the Backend Edge Application</h3>
+<div class="paragraph">
+<p>The Backend Edge Application in the <strong>openems/backend-edge</strong> container needs to connect to the Edge Manager in the <strong>openems/backend</strong> container.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the <a href="http://localhost:8078/system/console/configMgr">Apache Felix Web Console Configuration <span class="icon"><i class="fa fa-external-link"></i></span></a> of the <strong>openems/backend-edge</strong> container.</p>
+<div class="paragraph">
+<p>Login with username <strong>admin</strong> and password <strong>admin</strong>.</p>
+</div>
+</li>
+<li>
+<p>Configure the <em><strong>Backend Edge Application</strong></em> service: set <strong>Uri</strong> to the address of the <strong>openems/backend</strong> container, e.g. <code>ws://openems_backend:8083</code>.</p>
+<div class="paragraph">
+<p>The port must match the <strong>Port</strong> of the <em><strong>Edge Manager</strong></em> service in the <strong>openems/backend</strong> container (default <code>8083</code>). Click <b class="button">Save</b>.</p>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1049,8 +1088,19 @@ CONTAINER ID  IMAGE                       COMMAND   CREATED               STATUS
       - openems-backend-data:/var/opt/openems/data:rw
     ports:
       - 8079:8079 # Apache-Felix
-      - 8081:8081 # Edge-Websocket
       - 8082:8082 # UI-Websocket
+
+  openems_backend_edge:
+    image: openems/backend-edge:latest
+    container_name: openems_backend_edge
+    hostname: openems-backend-edge
+    restart: unless-stopped
+    volumes:
+      - openems-backend-edge-conf:/var/opt/openems/config:rw
+      - openems-backend-edge-data:/var/opt/openems/data:rw
+    ports:
+      - 8078:8078 # Apache-Felix
+      - 8081:8081 # Edge-Websocket
 
   openems-ui:
     image: openems/ui-backend:latest
@@ -1070,6 +1120,8 @@ CONTAINER ID  IMAGE                       COMMAND   CREATED               STATUS
 volumes:
   openems-backend-conf:
   openems-backend-data:
+  openems-backend-edge-conf:
+  openems-backend-edge-data:
   openems-ui-conf:
   openems-ui-log:</code></pre>
 </div>
@@ -1100,9 +1152,10 @@ volumes:
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">admin@ubuntu:~$ docker ps
-CONTAINER ID  IMAGE                       COMMAND   CREATED               STATUS
-018187f444b1  openems/ui-backend:latest   "/init"   About a minute ago    Up About a minute
-15d5ba3c5f13  openems/backend:latest      "/init"   About a minute ago    Up About a minute</code></pre>
+CONTAINER ID  IMAGE                        COMMAND   CREATED               STATUS
+018187f444b1  openems/ui-backend:latest     "/init"   About a minute ago    Up About a minute
+15d5ba3c5f13  openems/backend:latest        "/init"   About a minute ago    Up About a minute
+2a6c8d9f0b53  openems/backend-edge:latest   "/init"   About a minute ago    Up About a minute</code></pre>
 </div>
 </div>
 </div>
@@ -1170,6 +1223,9 @@ Note down Token
 </div>
 <div class="sect3">
 <h4 id="_open_backend_apache_felix"><a class="anchor" href="#_open_backend_apache_felix"></a>4.2.2. Open Backend Apache-Felix.</h4>
+<div class="paragraph">
+<p>Open the <a href="http://localhost:8079/system/console/configMgr">Apache Felix Web Console Configuration <span class="icon"><i class="fa fa-external-link"></i></span></a> of the <strong>openems/backend</strong> container and login with username <strong>admin</strong> and password <strong>admin</strong>.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
