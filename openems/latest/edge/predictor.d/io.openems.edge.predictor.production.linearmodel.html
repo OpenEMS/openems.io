@@ -227,6 +227,9 @@
     <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.selltogridlimit.html">ESS Sell-To-Grid Limit</a>
   </li>
   <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.sohcycle.html">ESS SoH Cycle Controller</a>
+  </li>
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.standby.html">ESS Standby</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -279,9 +282,6 @@
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../controller.d/io.openems.edge.controller.pvinverter.selltogridlimit.html">PV-Inverter Sell-To-Grid limit</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../controller.d/io.openems.edge.controller.ess.sohcycle.html">SOH Cycle Controller</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../controller.d/io.openems.edge.controller.symmetric.balancingschedule.html">Symmetric Balancing Schedule</a>
@@ -945,6 +945,9 @@
 <h1 class="page">Regression Model Production</h1>
 <div class="paragraph">
 <p>This model predicts future PV production using weather and time-related data. It employs a regression model that learns the relationship between historical PV generation and corresponding historical weather data. Based on weather forecasts and time information, the model can then estimate the expected PV output for future periods.</p>
+</div>
+<div class="paragraph">
+<p>Forecast values are smoothed once using a Gaussian filter with the last four completed quarter-hours of production as boundary context.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.predictor.production.linearmodel">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
