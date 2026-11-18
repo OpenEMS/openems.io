@@ -970,6 +970,84 @@
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_victron_meter_grid"><a class="anchor" href="#_victron_meter_grid"></a>Victron Meter Grid</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>Victron.Meter.Grid</code> reads a grid meter connected to a Victron GX device via its Modbus/TCP server (service <code>com.victronenergy.grid</code>, Unit-ID depending on the instance of the meter).</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Register</th>
+<th class="tableblock halign-left valign-top">Victron</th>
+<th class="tableblock halign-left valign-top">OpenEMS Channel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2600-2602</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/Ac/L1-L3/Power</code>, int16, W</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ActivePowerL1-L3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2609</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/Serial</code>, string[7]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SerialNumber</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2616, 2618, 2620</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/Ac/L1-L3/Voltage</code>, uint16, 0.1 V</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VoltageL1-L3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2617, 2619, 2621</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/Ac/L1-L3/Current</code>, int16, 0.1 A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CurrentL1-L3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2622-2626</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/Ac/L1-L3/Energy/Forward</code> ("Energy from net"), uint32, 0.01 kWh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ActiveProductionEnergyL1-L3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2628-2632</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/Ac/L1-L3/Energy/Reverse</code> ("Energy to net"), uint32, 0.01 kWh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ActiveConsumptionEnergyL1-L3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2644</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/Ac/Frequency</code>, uint16, 0.01 Hz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Frequency</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For a grid meter, OpenEMS defines energy bought from the grid as Active Production Energy and energy sold to the grid as Active Consumption Energy. The total energies are calculated as the sum of the phases.</p>
+</div>
+<div class="paragraph">
+<p>The frequency register 2644 is not part of register list 2.80; it was added in revision 49 of the register list. It is read in a separate task, so that an error when reading this register does not affect the other values.</p>
+</div>
+<div class="paragraph">
+<p>Protocol documentation (Victron "Modbus TCP register list"):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>doc/CCGX-Modbus-TCP-register-list-3.81.xlsx</code> (current)</p>
+</li>
+<li>
+<p><code>doc/CCGX-Modbus-TCP-register-list-2.80.xlsx</code></p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><a href="https://github.com/OpenEMS/openems/tree/develop/io.openems.edge.victron">Source Code <span class="icon"><i class="fa fa-github"></i></span></a></p>
 </div>
